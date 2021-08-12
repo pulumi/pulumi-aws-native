@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,19 +17,23 @@ type Device struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-	Device          pulumi.AnyOutput    `pulumi:"device"`
+	Device pulumi.AnyOutput `pulumi:"device"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags aws.TagPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
 func NewDevice(ctx *pulumi.Context,
 	name string, args *DeviceArgs, opts ...pulumi.ResourceOption) (*Device, error) {
 	if args == nil {
-		args = &DeviceArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DeviceFleetName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
+	}
 	var resource Device
 	err := ctx.RegisterResource("aws-native:SageMaker:Device", name, args, &resource, opts...)
 	if err != nil {
@@ -63,16 +68,20 @@ func (DeviceState) ElementType() reflect.Type {
 type deviceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
 	Device interface{} `pulumi:"device"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	DeviceFleetName string `pulumi:"deviceFleetName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags *aws.Tag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
 	Device pulumi.Input
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	DeviceFleetName pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags aws.TagPtrInput
+	Tags aws.TagArrayInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {

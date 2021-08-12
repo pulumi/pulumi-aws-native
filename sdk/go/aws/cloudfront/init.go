@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CloudFrontOriginAccessIdentity{}
 	case "aws-native:CloudFront:Distribution":
 		r = &Distribution{}
+	case "aws-native:CloudFront:Function":
+		r = &Function{}
 	case "aws-native:CloudFront:KeyGroup":
 		r = &KeyGroup{}
 	case "aws-native:CloudFront:OriginRequestPolicy":

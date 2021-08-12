@@ -15,6 +15,7 @@ import (
 type ApiKey struct {
 	pulumi.CustomResourceState
 
+	APIKeyId pulumi.StringOutput `pulumi:"aPIKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
 	CustomerId pulumi.StringPtrOutput `pulumi:"customerId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-description

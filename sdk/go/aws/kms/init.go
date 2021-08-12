@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Alias{}
 	case "aws-native:KMS:Key":
 		r = &Key{}
+	case "aws-native:KMS:ReplicaKey":
+		r = &ReplicaKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

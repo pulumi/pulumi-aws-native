@@ -17,14 +17,15 @@ type DeviceFleet struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
-	Description     pulumi.StringPtrOutput `pulumi:"description"`
-	DeviceFleetName pulumi.StringOutput    `pulumi:"deviceFleetName"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
 	OutputConfig DeviceFleetEdgeOutputConfigOutput `pulumi:"outputConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags aws.TagPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeviceFleet registers a new resource with the given unique name, arguments, and options.
@@ -34,6 +35,9 @@ func NewDeviceFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DeviceFleetName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
+	}
 	if args.OutputConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OutputConfig'")
 	}
@@ -74,24 +78,28 @@ func (DeviceFleetState) ElementType() reflect.Type {
 type deviceFleetArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
 	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	DeviceFleetName string `pulumi:"deviceFleetName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
 	OutputConfig DeviceFleetEdgeOutputConfig `pulumi:"outputConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
 	RoleArn string `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags *aws.Tag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceFleet resource.
 type DeviceFleetArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
 	Description pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	DeviceFleetName pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
 	OutputConfig DeviceFleetEdgeOutputConfigInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
 	RoleArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags aws.TagPtrInput
+	Tags aws.TagArrayInput
 }
 
 func (DeviceFleetArgs) ElementType() reflect.Type {

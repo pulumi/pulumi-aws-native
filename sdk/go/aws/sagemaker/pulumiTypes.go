@@ -10,6 +10,632 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+type AppImageConfigFileSystemConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+	DefaultGid *int `pulumi:"defaultGid"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+	DefaultUid *int `pulumi:"defaultUid"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+	MountPath *string `pulumi:"mountPath"`
+}
+
+// AppImageConfigFileSystemConfigInput is an input type that accepts AppImageConfigFileSystemConfigArgs and AppImageConfigFileSystemConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigFileSystemConfigInput` via:
+//
+//          AppImageConfigFileSystemConfigArgs{...}
+type AppImageConfigFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigFileSystemConfigOutput() AppImageConfigFileSystemConfigOutput
+	ToAppImageConfigFileSystemConfigOutputWithContext(context.Context) AppImageConfigFileSystemConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+type AppImageConfigFileSystemConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
+}
+
+func (AppImageConfigFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigFileSystemConfigArgs) ToAppImageConfigFileSystemConfigOutput() AppImageConfigFileSystemConfigOutput {
+	return i.ToAppImageConfigFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigFileSystemConfigArgs) ToAppImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigFileSystemConfigOutput)
+}
+
+func (i AppImageConfigFileSystemConfigArgs) ToAppImageConfigFileSystemConfigPtrOutput() AppImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigFileSystemConfigArgs) ToAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigFileSystemConfigOutput).ToAppImageConfigFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigFileSystemConfigPtrInput is an input type that accepts AppImageConfigFileSystemConfigArgs, AppImageConfigFileSystemConfigPtr and AppImageConfigFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigFileSystemConfigPtrInput` via:
+//
+//          AppImageConfigFileSystemConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AppImageConfigFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigFileSystemConfigPtrOutput() AppImageConfigFileSystemConfigPtrOutput
+	ToAppImageConfigFileSystemConfigPtrOutputWithContext(context.Context) AppImageConfigFileSystemConfigPtrOutput
+}
+
+type appImageConfigFileSystemConfigPtrType AppImageConfigFileSystemConfigArgs
+
+func AppImageConfigFileSystemConfigPtr(v *AppImageConfigFileSystemConfigArgs) AppImageConfigFileSystemConfigPtrInput {
+	return (*appImageConfigFileSystemConfigPtrType)(v)
+}
+
+func (*appImageConfigFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigFileSystemConfigPtrType) ToAppImageConfigFileSystemConfigPtrOutput() AppImageConfigFileSystemConfigPtrOutput {
+	return i.ToAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigFileSystemConfigPtrType) ToAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigFileSystemConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+type AppImageConfigFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigFileSystemConfigOutput) ToAppImageConfigFileSystemConfigOutput() AppImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigFileSystemConfigOutput) ToAppImageConfigFileSystemConfigOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigOutput {
+	return o
+}
+
+func (o AppImageConfigFileSystemConfigOutput) ToAppImageConfigFileSystemConfigPtrOutput() AppImageConfigFileSystemConfigPtrOutput {
+	return o.ToAppImageConfigFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigFileSystemConfigOutput) ToAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigFileSystemConfig) *AppImageConfigFileSystemConfig {
+		return &v
+	}).(AppImageConfigFileSystemConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+func (o AppImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+func (o AppImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+func (o AppImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+type AppImageConfigFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigFileSystemConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigFileSystemConfigPtrOutput) ToAppImageConfigFileSystemConfigPtrOutput() AppImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigFileSystemConfigPtrOutput) ToAppImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigFileSystemConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) AppImageConfigFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigFileSystemConfig
+		return ret
+	}).(AppImageConfigFileSystemConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+func (o AppImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+func (o AppImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultUid
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+func (o AppImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+type AppImageConfigKernelGatewayImageConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+	FileSystemConfig *AppImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+	KernelSpecs []AppImageConfigKernelSpec `pulumi:"kernelSpecs"`
+}
+
+// AppImageConfigKernelGatewayImageConfigInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs and AppImageConfigKernelGatewayImageConfigOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigArgs{...}
+type AppImageConfigKernelGatewayImageConfigInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput
+	ToAppImageConfigKernelGatewayImageConfigOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+type AppImageConfigKernelGatewayImageConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+	FileSystemConfig AppImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+	KernelSpecs AppImageConfigKernelSpecArrayInput `pulumi:"kernelSpecs"`
+}
+
+func (AppImageConfigKernelGatewayImageConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigOutput)
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelGatewayImageConfigArgs) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigOutput).ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx)
+}
+
+// AppImageConfigKernelGatewayImageConfigPtrInput is an input type that accepts AppImageConfigKernelGatewayImageConfigArgs, AppImageConfigKernelGatewayImageConfigPtr and AppImageConfigKernelGatewayImageConfigPtrOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelGatewayImageConfigPtrInput` via:
+//
+//          AppImageConfigKernelGatewayImageConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AppImageConfigKernelGatewayImageConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput
+	ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput
+}
+
+type appImageConfigKernelGatewayImageConfigPtrType AppImageConfigKernelGatewayImageConfigArgs
+
+func AppImageConfigKernelGatewayImageConfigPtr(v *AppImageConfigKernelGatewayImageConfigArgs) AppImageConfigKernelGatewayImageConfigPtrInput {
+	return (*appImageConfigKernelGatewayImageConfigPtrType)(v)
+}
+
+func (*appImageConfigKernelGatewayImageConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (i *appImageConfigKernelGatewayImageConfigPtrType) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return i.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appImageConfigKernelGatewayImageConfigPtrType) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+type AppImageConfigKernelGatewayImageConfigOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigOutput() AppImageConfigKernelGatewayImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o.ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfig {
+		return &v
+	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+func (o AppImageConfigKernelGatewayImageConfigOutput) FileSystemConfig() AppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigFileSystemConfig {
+		return v.FileSystemConfig
+	}).(AppImageConfigFileSystemConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpecs() AppImageConfigKernelSpecArrayOutput {
+	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelSpec { return v.KernelSpecs }).(AppImageConfigKernelSpecArrayOutput)
+}
+
+type AppImageConfigKernelGatewayImageConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelGatewayImageConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppImageConfigKernelGatewayImageConfig)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutput() AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
+	return o
+}
+
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigKernelGatewayImageConfig
+		return ret
+	}).(AppImageConfigKernelGatewayImageConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppImageConfigFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemConfig
+	}).(AppImageConfigFileSystemConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpecs() AppImageConfigKernelSpecArrayOutput {
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelSpec {
+		if v == nil {
+			return nil
+		}
+		return v.KernelSpecs
+	}).(AppImageConfigKernelSpecArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
+type AppImageConfigKernelSpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+	DisplayName *string `pulumi:"displayName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+	Name string `pulumi:"name"`
+}
+
+// AppImageConfigKernelSpecInput is an input type that accepts AppImageConfigKernelSpecArgs and AppImageConfigKernelSpecOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelSpecInput` via:
+//
+//          AppImageConfigKernelSpecArgs{...}
+type AppImageConfigKernelSpecInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelSpecOutput() AppImageConfigKernelSpecOutput
+	ToAppImageConfigKernelSpecOutputWithContext(context.Context) AppImageConfigKernelSpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
+type AppImageConfigKernelSpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (AppImageConfigKernelSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelSpecArgs) ToAppImageConfigKernelSpecOutput() AppImageConfigKernelSpecOutput {
+	return i.ToAppImageConfigKernelSpecOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelSpecArgs) ToAppImageConfigKernelSpecOutputWithContext(ctx context.Context) AppImageConfigKernelSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelSpecOutput)
+}
+
+// AppImageConfigKernelSpecArrayInput is an input type that accepts AppImageConfigKernelSpecArray and AppImageConfigKernelSpecArrayOutput values.
+// You can construct a concrete instance of `AppImageConfigKernelSpecArrayInput` via:
+//
+//          AppImageConfigKernelSpecArray{ AppImageConfigKernelSpecArgs{...} }
+type AppImageConfigKernelSpecArrayInput interface {
+	pulumi.Input
+
+	ToAppImageConfigKernelSpecArrayOutput() AppImageConfigKernelSpecArrayOutput
+	ToAppImageConfigKernelSpecArrayOutputWithContext(context.Context) AppImageConfigKernelSpecArrayOutput
+}
+
+type AppImageConfigKernelSpecArray []AppImageConfigKernelSpecInput
+
+func (AppImageConfigKernelSpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (i AppImageConfigKernelSpecArray) ToAppImageConfigKernelSpecArrayOutput() AppImageConfigKernelSpecArrayOutput {
+	return i.ToAppImageConfigKernelSpecArrayOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigKernelSpecArray) ToAppImageConfigKernelSpecArrayOutputWithContext(ctx context.Context) AppImageConfigKernelSpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelSpecArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
+type AppImageConfigKernelSpecOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelSpecOutput) ToAppImageConfigKernelSpecOutput() AppImageConfigKernelSpecOutput {
+	return o
+}
+
+func (o AppImageConfigKernelSpecOutput) ToAppImageConfigKernelSpecOutputWithContext(ctx context.Context) AppImageConfigKernelSpecOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+func (o AppImageConfigKernelSpecOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppImageConfigKernelSpec) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+func (o AppImageConfigKernelSpecOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppImageConfigKernelSpec) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type AppImageConfigKernelSpecArrayOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigKernelSpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigKernelSpec)(nil)).Elem()
+}
+
+func (o AppImageConfigKernelSpecArrayOutput) ToAppImageConfigKernelSpecArrayOutput() AppImageConfigKernelSpecArrayOutput {
+	return o
+}
+
+func (o AppImageConfigKernelSpecArrayOutput) ToAppImageConfigKernelSpecArrayOutputWithContext(ctx context.Context) AppImageConfigKernelSpecArrayOutput {
+	return o
+}
+
+func (o AppImageConfigKernelSpecArrayOutput) Index(i pulumi.IntInput) AppImageConfigKernelSpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppImageConfigKernelSpec {
+		return vs[0].([]AppImageConfigKernelSpec)[vs[1].(int)]
+	}).(AppImageConfigKernelSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
+type AppResourceSpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+	InstanceType *string `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+}
+
+// AppResourceSpecInput is an input type that accepts AppResourceSpecArgs and AppResourceSpecOutput values.
+// You can construct a concrete instance of `AppResourceSpecInput` via:
+//
+//          AppResourceSpecArgs{...}
+type AppResourceSpecInput interface {
+	pulumi.Input
+
+	ToAppResourceSpecOutput() AppResourceSpecOutput
+	ToAppResourceSpecOutputWithContext(context.Context) AppResourceSpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
+type AppResourceSpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+}
+
+func (AppResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourceSpec)(nil)).Elem()
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecOutput() AppResourceSpecOutput {
+	return i.ToAppResourceSpecOutputWithContext(context.Background())
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecOutputWithContext(ctx context.Context) AppResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecOutput)
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return i.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AppResourceSpecArgs) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecOutput).ToAppResourceSpecPtrOutputWithContext(ctx)
+}
+
+// AppResourceSpecPtrInput is an input type that accepts AppResourceSpecArgs, AppResourceSpecPtr and AppResourceSpecPtrOutput values.
+// You can construct a concrete instance of `AppResourceSpecPtrInput` via:
+//
+//          AppResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type AppResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput
+	ToAppResourceSpecPtrOutputWithContext(context.Context) AppResourceSpecPtrOutput
+}
+
+type appResourceSpecPtrType AppResourceSpecArgs
+
+func AppResourceSpecPtr(v *AppResourceSpecArgs) AppResourceSpecPtrInput {
+	return (*appResourceSpecPtrType)(v)
+}
+
+func (*appResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppResourceSpec)(nil)).Elem()
+}
+
+func (i *appResourceSpecPtrType) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return i.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *appResourceSpecPtrType) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
+type AppResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (AppResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppResourceSpec)(nil)).Elem()
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecOutput() AppResourceSpecOutput {
+	return o
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecOutputWithContext(ctx context.Context) AppResourceSpecOutput {
+	return o
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return o.ToAppResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourceSpec) *AppResourceSpec {
+		return &v
+	}).(AppResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+func (o AppResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+func (o AppResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+type AppResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AppResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppResourceSpec)(nil)).Elem()
+}
+
+func (o AppResourceSpecPtrOutput) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOutput {
+	return o
+}
+
+func (o AppResourceSpecPtrOutput) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
+	return o
+}
+
+func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
+	return o.ApplyT(func(v *AppResourceSpec) AppResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret AppResourceSpec
+		return ret
+	}).(AppResourceSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+func (o AppResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+func (o AppResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
 type DataQualityJobDefinitionClusterConfig struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
@@ -2553,6 +3179,1104 @@ func (o DeviceFleetEdgeOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPt
 		}
 		return &v.S3OutputLocation
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+type DomainCustomImage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+	ImageName string `pulumi:"imageName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// DomainCustomImageInput is an input type that accepts DomainCustomImageArgs and DomainCustomImageOutput values.
+// You can construct a concrete instance of `DomainCustomImageInput` via:
+//
+//          DomainCustomImageArgs{...}
+type DomainCustomImageInput interface {
+	pulumi.Input
+
+	ToDomainCustomImageOutput() DomainCustomImageOutput
+	ToDomainCustomImageOutputWithContext(context.Context) DomainCustomImageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+type DomainCustomImageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (DomainCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCustomImage)(nil)).Elem()
+}
+
+func (i DomainCustomImageArgs) ToDomainCustomImageOutput() DomainCustomImageOutput {
+	return i.ToDomainCustomImageOutputWithContext(context.Background())
+}
+
+func (i DomainCustomImageArgs) ToDomainCustomImageOutputWithContext(ctx context.Context) DomainCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainCustomImageOutput)
+}
+
+// DomainCustomImageArrayInput is an input type that accepts DomainCustomImageArray and DomainCustomImageArrayOutput values.
+// You can construct a concrete instance of `DomainCustomImageArrayInput` via:
+//
+//          DomainCustomImageArray{ DomainCustomImageArgs{...} }
+type DomainCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainCustomImageArrayOutput() DomainCustomImageArrayOutput
+	ToDomainCustomImageArrayOutputWithContext(context.Context) DomainCustomImageArrayOutput
+}
+
+type DomainCustomImageArray []DomainCustomImageInput
+
+func (DomainCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainCustomImage)(nil)).Elem()
+}
+
+func (i DomainCustomImageArray) ToDomainCustomImageArrayOutput() DomainCustomImageArrayOutput {
+	return i.ToDomainCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainCustomImageArray) ToDomainCustomImageArrayOutputWithContext(ctx context.Context) DomainCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+type DomainCustomImageOutput struct{ *pulumi.OutputState }
+
+func (DomainCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainCustomImage)(nil)).Elem()
+}
+
+func (o DomainCustomImageOutput) ToDomainCustomImageOutput() DomainCustomImageOutput {
+	return o
+}
+
+func (o DomainCustomImageOutput) ToDomainCustomImageOutputWithContext(ctx context.Context) DomainCustomImageOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+func (o DomainCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+func (o DomainCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+func (o DomainCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type DomainCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainCustomImage)(nil)).Elem()
+}
+
+func (o DomainCustomImageArrayOutput) ToDomainCustomImageArrayOutput() DomainCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainCustomImageArrayOutput) ToDomainCustomImageArrayOutputWithContext(ctx context.Context) DomainCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainCustomImageArrayOutput) Index(i pulumi.IntInput) DomainCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainCustomImage {
+		return vs[0].([]DomainCustomImage)[vs[1].(int)]
+	}).(DomainCustomImageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+type DomainJupyterServerAppSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainJupyterServerAppSettingsInput is an input type that accepts DomainJupyterServerAppSettingsArgs and DomainJupyterServerAppSettingsOutput values.
+// You can construct a concrete instance of `DomainJupyterServerAppSettingsInput` via:
+//
+//          DomainJupyterServerAppSettingsArgs{...}
+type DomainJupyterServerAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainJupyterServerAppSettingsOutput() DomainJupyterServerAppSettingsOutput
+	ToDomainJupyterServerAppSettingsOutputWithContext(context.Context) DomainJupyterServerAppSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+type DomainJupyterServerAppSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainJupyterServerAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i DomainJupyterServerAppSettingsArgs) ToDomainJupyterServerAppSettingsOutput() DomainJupyterServerAppSettingsOutput {
+	return i.ToDomainJupyterServerAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainJupyterServerAppSettingsArgs) ToDomainJupyterServerAppSettingsOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJupyterServerAppSettingsOutput)
+}
+
+func (i DomainJupyterServerAppSettingsArgs) ToDomainJupyterServerAppSettingsPtrOutput() DomainJupyterServerAppSettingsPtrOutput {
+	return i.ToDomainJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainJupyterServerAppSettingsArgs) ToDomainJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJupyterServerAppSettingsOutput).ToDomainJupyterServerAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainJupyterServerAppSettingsPtrInput is an input type that accepts DomainJupyterServerAppSettingsArgs, DomainJupyterServerAppSettingsPtr and DomainJupyterServerAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainJupyterServerAppSettingsPtrInput` via:
+//
+//          DomainJupyterServerAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainJupyterServerAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainJupyterServerAppSettingsPtrOutput() DomainJupyterServerAppSettingsPtrOutput
+	ToDomainJupyterServerAppSettingsPtrOutputWithContext(context.Context) DomainJupyterServerAppSettingsPtrOutput
+}
+
+type domainJupyterServerAppSettingsPtrType DomainJupyterServerAppSettingsArgs
+
+func DomainJupyterServerAppSettingsPtr(v *DomainJupyterServerAppSettingsArgs) DomainJupyterServerAppSettingsPtrInput {
+	return (*domainJupyterServerAppSettingsPtrType)(v)
+}
+
+func (*domainJupyterServerAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i *domainJupyterServerAppSettingsPtrType) ToDomainJupyterServerAppSettingsPtrOutput() DomainJupyterServerAppSettingsPtrOutput {
+	return i.ToDomainJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainJupyterServerAppSettingsPtrType) ToDomainJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+type DomainJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainJupyterServerAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsOutput() DomainJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsPtrOutput() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ToDomainJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainJupyterServerAppSettings) *DomainJupyterServerAppSettings {
+		return &v
+	}).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+func (o DomainJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainJupyterServerAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
+}
+
+type DomainJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o DomainJupyterServerAppSettingsPtrOutput) ToDomainJupyterServerAppSettingsPtrOutput() DomainJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainJupyterServerAppSettingsPtrOutput) ToDomainJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainJupyterServerAppSettingsPtrOutput) Elem() DomainJupyterServerAppSettingsOutput {
+	return o.ApplyT(func(v *DomainJupyterServerAppSettings) DomainJupyterServerAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainJupyterServerAppSettings
+		return ret
+	}).(DomainJupyterServerAppSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+func (o DomainJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainJupyterServerAppSettings) *DomainResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+type DomainKernelGatewayAppSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+	CustomImages []DomainCustomImage `pulumi:"customImages"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// DomainKernelGatewayAppSettingsInput is an input type that accepts DomainKernelGatewayAppSettingsArgs and DomainKernelGatewayAppSettingsOutput values.
+// You can construct a concrete instance of `DomainKernelGatewayAppSettingsInput` via:
+//
+//          DomainKernelGatewayAppSettingsArgs{...}
+type DomainKernelGatewayAppSettingsInput interface {
+	pulumi.Input
+
+	ToDomainKernelGatewayAppSettingsOutput() DomainKernelGatewayAppSettingsOutput
+	ToDomainKernelGatewayAppSettingsOutputWithContext(context.Context) DomainKernelGatewayAppSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+type DomainKernelGatewayAppSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (DomainKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i DomainKernelGatewayAppSettingsArgs) ToDomainKernelGatewayAppSettingsOutput() DomainKernelGatewayAppSettingsOutput {
+	return i.ToDomainKernelGatewayAppSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainKernelGatewayAppSettingsArgs) ToDomainKernelGatewayAppSettingsOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainKernelGatewayAppSettingsOutput)
+}
+
+func (i DomainKernelGatewayAppSettingsArgs) ToDomainKernelGatewayAppSettingsPtrOutput() DomainKernelGatewayAppSettingsPtrOutput {
+	return i.ToDomainKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainKernelGatewayAppSettingsArgs) ToDomainKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainKernelGatewayAppSettingsOutput).ToDomainKernelGatewayAppSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainKernelGatewayAppSettingsPtrInput is an input type that accepts DomainKernelGatewayAppSettingsArgs, DomainKernelGatewayAppSettingsPtr and DomainKernelGatewayAppSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainKernelGatewayAppSettingsPtrInput` via:
+//
+//          DomainKernelGatewayAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainKernelGatewayAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainKernelGatewayAppSettingsPtrOutput() DomainKernelGatewayAppSettingsPtrOutput
+	ToDomainKernelGatewayAppSettingsPtrOutputWithContext(context.Context) DomainKernelGatewayAppSettingsPtrOutput
+}
+
+type domainKernelGatewayAppSettingsPtrType DomainKernelGatewayAppSettingsArgs
+
+func DomainKernelGatewayAppSettingsPtr(v *DomainKernelGatewayAppSettingsArgs) DomainKernelGatewayAppSettingsPtrInput {
+	return (*domainKernelGatewayAppSettingsPtrType)(v)
+}
+
+func (*domainKernelGatewayAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i *domainKernelGatewayAppSettingsPtrType) ToDomainKernelGatewayAppSettingsPtrOutput() DomainKernelGatewayAppSettingsPtrOutput {
+	return i.ToDomainKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainKernelGatewayAppSettingsPtrType) ToDomainKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+type DomainKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o DomainKernelGatewayAppSettingsOutput) ToDomainKernelGatewayAppSettingsOutput() DomainKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o DomainKernelGatewayAppSettingsOutput) ToDomainKernelGatewayAppSettingsOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o DomainKernelGatewayAppSettingsOutput) ToDomainKernelGatewayAppSettingsPtrOutput() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ToDomainKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainKernelGatewayAppSettingsOutput) ToDomainKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainKernelGatewayAppSettings) *DomainKernelGatewayAppSettings {
+		return &v
+	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+func (o DomainKernelGatewayAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainKernelGatewayAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+func (o DomainKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v DomainKernelGatewayAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
+}
+
+type DomainKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o DomainKernelGatewayAppSettingsPtrOutput) ToDomainKernelGatewayAppSettingsPtrOutput() DomainKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainKernelGatewayAppSettingsPtrOutput) ToDomainKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o DomainKernelGatewayAppSettingsPtrOutput) Elem() DomainKernelGatewayAppSettingsOutput {
+	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) DomainKernelGatewayAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainKernelGatewayAppSettings
+		return ret
+	}).(DomainKernelGatewayAppSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+func (o DomainKernelGatewayAppSettingsPtrOutput) CustomImages() DomainCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) []DomainCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
+	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) *DomainResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(DomainResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
+type DomainResourceSpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+	InstanceType *string `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+}
+
+// DomainResourceSpecInput is an input type that accepts DomainResourceSpecArgs and DomainResourceSpecOutput values.
+// You can construct a concrete instance of `DomainResourceSpecInput` via:
+//
+//          DomainResourceSpecArgs{...}
+type DomainResourceSpecInput interface {
+	pulumi.Input
+
+	ToDomainResourceSpecOutput() DomainResourceSpecOutput
+	ToDomainResourceSpecOutputWithContext(context.Context) DomainResourceSpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
+type DomainResourceSpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+}
+
+func (DomainResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainResourceSpec)(nil)).Elem()
+}
+
+func (i DomainResourceSpecArgs) ToDomainResourceSpecOutput() DomainResourceSpecOutput {
+	return i.ToDomainResourceSpecOutputWithContext(context.Background())
+}
+
+func (i DomainResourceSpecArgs) ToDomainResourceSpecOutputWithContext(ctx context.Context) DomainResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainResourceSpecOutput)
+}
+
+func (i DomainResourceSpecArgs) ToDomainResourceSpecPtrOutput() DomainResourceSpecPtrOutput {
+	return i.ToDomainResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i DomainResourceSpecArgs) ToDomainResourceSpecPtrOutputWithContext(ctx context.Context) DomainResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainResourceSpecOutput).ToDomainResourceSpecPtrOutputWithContext(ctx)
+}
+
+// DomainResourceSpecPtrInput is an input type that accepts DomainResourceSpecArgs, DomainResourceSpecPtr and DomainResourceSpecPtrOutput values.
+// You can construct a concrete instance of `DomainResourceSpecPtrInput` via:
+//
+//          DomainResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToDomainResourceSpecPtrOutput() DomainResourceSpecPtrOutput
+	ToDomainResourceSpecPtrOutputWithContext(context.Context) DomainResourceSpecPtrOutput
+}
+
+type domainResourceSpecPtrType DomainResourceSpecArgs
+
+func DomainResourceSpecPtr(v *DomainResourceSpecArgs) DomainResourceSpecPtrInput {
+	return (*domainResourceSpecPtrType)(v)
+}
+
+func (*domainResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainResourceSpec)(nil)).Elem()
+}
+
+func (i *domainResourceSpecPtrType) ToDomainResourceSpecPtrOutput() DomainResourceSpecPtrOutput {
+	return i.ToDomainResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *domainResourceSpecPtrType) ToDomainResourceSpecPtrOutputWithContext(ctx context.Context) DomainResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
+type DomainResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (DomainResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainResourceSpec)(nil)).Elem()
+}
+
+func (o DomainResourceSpecOutput) ToDomainResourceSpecOutput() DomainResourceSpecOutput {
+	return o
+}
+
+func (o DomainResourceSpecOutput) ToDomainResourceSpecOutputWithContext(ctx context.Context) DomainResourceSpecOutput {
+	return o
+}
+
+func (o DomainResourceSpecOutput) ToDomainResourceSpecPtrOutput() DomainResourceSpecPtrOutput {
+	return o.ToDomainResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o DomainResourceSpecOutput) ToDomainResourceSpecPtrOutputWithContext(ctx context.Context) DomainResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainResourceSpec) *DomainResourceSpec {
+		return &v
+	}).(DomainResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+func (o DomainResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+func (o DomainResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+func (o DomainResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+type DomainResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainResourceSpec)(nil)).Elem()
+}
+
+func (o DomainResourceSpecPtrOutput) ToDomainResourceSpecPtrOutput() DomainResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainResourceSpecPtrOutput) ToDomainResourceSpecPtrOutputWithContext(ctx context.Context) DomainResourceSpecPtrOutput {
+	return o
+}
+
+func (o DomainResourceSpecPtrOutput) Elem() DomainResourceSpecOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) DomainResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret DomainResourceSpec
+		return ret
+	}).(DomainResourceSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+func (o DomainResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+func (o DomainResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+type DomainSharingSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// DomainSharingSettingsInput is an input type that accepts DomainSharingSettingsArgs and DomainSharingSettingsOutput values.
+// You can construct a concrete instance of `DomainSharingSettingsInput` via:
+//
+//          DomainSharingSettingsArgs{...}
+type DomainSharingSettingsInput interface {
+	pulumi.Input
+
+	ToDomainSharingSettingsOutput() DomainSharingSettingsOutput
+	ToDomainSharingSettingsOutputWithContext(context.Context) DomainSharingSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+type DomainSharingSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (DomainSharingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSharingSettings)(nil)).Elem()
+}
+
+func (i DomainSharingSettingsArgs) ToDomainSharingSettingsOutput() DomainSharingSettingsOutput {
+	return i.ToDomainSharingSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainSharingSettingsArgs) ToDomainSharingSettingsOutputWithContext(ctx context.Context) DomainSharingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSharingSettingsOutput)
+}
+
+func (i DomainSharingSettingsArgs) ToDomainSharingSettingsPtrOutput() DomainSharingSettingsPtrOutput {
+	return i.ToDomainSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSharingSettingsArgs) ToDomainSharingSettingsPtrOutputWithContext(ctx context.Context) DomainSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSharingSettingsOutput).ToDomainSharingSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainSharingSettingsPtrInput is an input type that accepts DomainSharingSettingsArgs, DomainSharingSettingsPtr and DomainSharingSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainSharingSettingsPtrInput` via:
+//
+//          DomainSharingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainSharingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSharingSettingsPtrOutput() DomainSharingSettingsPtrOutput
+	ToDomainSharingSettingsPtrOutputWithContext(context.Context) DomainSharingSettingsPtrOutput
+}
+
+type domainSharingSettingsPtrType DomainSharingSettingsArgs
+
+func DomainSharingSettingsPtr(v *DomainSharingSettingsArgs) DomainSharingSettingsPtrInput {
+	return (*domainSharingSettingsPtrType)(v)
+}
+
+func (*domainSharingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSharingSettings)(nil)).Elem()
+}
+
+func (i *domainSharingSettingsPtrType) ToDomainSharingSettingsPtrOutput() DomainSharingSettingsPtrOutput {
+	return i.ToDomainSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSharingSettingsPtrType) ToDomainSharingSettingsPtrOutputWithContext(ctx context.Context) DomainSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSharingSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+type DomainSharingSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainSharingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSharingSettings)(nil)).Elem()
+}
+
+func (o DomainSharingSettingsOutput) ToDomainSharingSettingsOutput() DomainSharingSettingsOutput {
+	return o
+}
+
+func (o DomainSharingSettingsOutput) ToDomainSharingSettingsOutputWithContext(ctx context.Context) DomainSharingSettingsOutput {
+	return o
+}
+
+func (o DomainSharingSettingsOutput) ToDomainSharingSettingsPtrOutput() DomainSharingSettingsPtrOutput {
+	return o.ToDomainSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSharingSettingsOutput) ToDomainSharingSettingsPtrOutputWithContext(ctx context.Context) DomainSharingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSharingSettings) *DomainSharingSettings {
+		return &v
+	}).(DomainSharingSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+func (o DomainSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+func (o DomainSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+func (o DomainSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type DomainSharingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSharingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSharingSettings)(nil)).Elem()
+}
+
+func (o DomainSharingSettingsPtrOutput) ToDomainSharingSettingsPtrOutput() DomainSharingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainSharingSettingsPtrOutput) ToDomainSharingSettingsPtrOutputWithContext(ctx context.Context) DomainSharingSettingsPtrOutput {
+	return o
+}
+
+func (o DomainSharingSettingsPtrOutput) Elem() DomainSharingSettingsOutput {
+	return o.ApplyT(func(v *DomainSharingSettings) DomainSharingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSharingSettings
+		return ret
+	}).(DomainSharingSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+func (o DomainSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotebookOutputOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+func (o DomainSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+type DomainUserSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+	ExecutionRole *string `pulumi:"executionRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+	SharingSettings *DomainSharingSettings `pulumi:"sharingSettings"`
+}
+
+// DomainUserSettingsInput is an input type that accepts DomainUserSettingsArgs and DomainUserSettingsOutput values.
+// You can construct a concrete instance of `DomainUserSettingsInput` via:
+//
+//          DomainUserSettingsArgs{...}
+type DomainUserSettingsInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsOutput() DomainUserSettingsOutput
+	ToDomainUserSettingsOutputWithContext(context.Context) DomainUserSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+type DomainUserSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+	SharingSettings DomainSharingSettingsPtrInput `pulumi:"sharingSettings"`
+}
+
+func (DomainUserSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettings)(nil)).Elem()
+}
+
+func (i DomainUserSettingsArgs) ToDomainUserSettingsOutput() DomainUserSettingsOutput {
+	return i.ToDomainUserSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainUserSettingsArgs) ToDomainUserSettingsOutputWithContext(ctx context.Context) DomainUserSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsOutput)
+}
+
+func (i DomainUserSettingsArgs) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
+	return i.ToDomainUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainUserSettingsArgs) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsOutput).ToDomainUserSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainUserSettingsPtrInput is an input type that accepts DomainUserSettingsArgs, DomainUserSettingsPtr and DomainUserSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainUserSettingsPtrInput` via:
+//
+//          DomainUserSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainUserSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput
+	ToDomainUserSettingsPtrOutputWithContext(context.Context) DomainUserSettingsPtrOutput
+}
+
+type domainUserSettingsPtrType DomainUserSettingsArgs
+
+func DomainUserSettingsPtr(v *DomainUserSettingsArgs) DomainUserSettingsPtrInput {
+	return (*domainUserSettingsPtrType)(v)
+}
+
+func (*domainUserSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUserSettings)(nil)).Elem()
+}
+
+func (i *domainUserSettingsPtrType) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
+	return i.ToDomainUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainUserSettingsPtrType) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+type DomainUserSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettings)(nil)).Elem()
+}
+
+func (o DomainUserSettingsOutput) ToDomainUserSettingsOutput() DomainUserSettingsOutput {
+	return o
+}
+
+func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx context.Context) DomainUserSettingsOutput {
+	return o
+}
+
+func (o DomainUserSettingsOutput) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
+	return o.ToDomainUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsOutput) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUserSettings) *DomainUserSettings {
+		return &v
+	}).(DomainUserSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+func (o DomainUserSettingsOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainJupyterServerAppSettings { return v.JupyterServerAppSettings }).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+func (o DomainUserSettingsOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+func (o DomainUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutput {
+	return o.ApplyT(func(v DomainUserSettings) *DomainSharingSettings { return v.SharingSettings }).(DomainSharingSettingsPtrOutput)
+}
+
+type DomainUserSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUserSettings)(nil)).Elem()
+}
+
+func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutput() DomainUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsPtrOutput) ToDomainUserSettingsPtrOutputWithContext(ctx context.Context) DomainUserSettingsPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
+	return o.ApplyT(func(v *DomainUserSettings) DomainUserSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUserSettings
+		return ret
+	}).(DomainUserSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+func (o DomainUserSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+func (o DomainUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainUserSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainUserSettings) *DomainSharingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SharingSettings
+	}).(DomainSharingSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
+type FeatureGroupFeatureDefinition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
+	FeatureName string `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
+	FeatureType string `pulumi:"featureType"`
+}
+
+// FeatureGroupFeatureDefinitionInput is an input type that accepts FeatureGroupFeatureDefinitionArgs and FeatureGroupFeatureDefinitionOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionInput` via:
+//
+//          FeatureGroupFeatureDefinitionArgs{...}
+type FeatureGroupFeatureDefinitionInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput
+	ToFeatureGroupFeatureDefinitionOutputWithContext(context.Context) FeatureGroupFeatureDefinitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
+type FeatureGroupFeatureDefinitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
+	FeatureName pulumi.StringInput `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
+	FeatureType pulumi.StringInput `pulumi:"featureType"`
+}
+
+func (FeatureGroupFeatureDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionArgs) ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput {
+	return i.ToFeatureGroupFeatureDefinitionOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionArgs) ToFeatureGroupFeatureDefinitionOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionOutput)
+}
+
+// FeatureGroupFeatureDefinitionArrayInput is an input type that accepts FeatureGroupFeatureDefinitionArray and FeatureGroupFeatureDefinitionArrayOutput values.
+// You can construct a concrete instance of `FeatureGroupFeatureDefinitionArrayInput` via:
+//
+//          FeatureGroupFeatureDefinitionArray{ FeatureGroupFeatureDefinitionArgs{...} }
+type FeatureGroupFeatureDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput
+	ToFeatureGroupFeatureDefinitionArrayOutputWithContext(context.Context) FeatureGroupFeatureDefinitionArrayOutput
+}
+
+type FeatureGroupFeatureDefinitionArray []FeatureGroupFeatureDefinitionInput
+
+func (FeatureGroupFeatureDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (i FeatureGroupFeatureDefinitionArray) ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput {
+	return i.ToFeatureGroupFeatureDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupFeatureDefinitionArray) ToFeatureGroupFeatureDefinitionArrayOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
+type FeatureGroupFeatureDefinitionOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutput() FeatureGroupFeatureDefinitionOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
+func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
+func (o FeatureGroupFeatureDefinitionOutput) FeatureType() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureType }).(pulumi.StringOutput)
+}
+
+type FeatureGroupFeatureDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupFeatureDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupFeatureDefinition)(nil)).Elem()
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) ToFeatureGroupFeatureDefinitionArrayOutput() FeatureGroupFeatureDefinitionArrayOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) ToFeatureGroupFeatureDefinitionArrayOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionArrayOutput {
+	return o
+}
+
+func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) FeatureGroupFeatureDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupFeatureDefinition {
+		return vs[0].([]FeatureGroupFeatureDefinition)[vs[1].(int)]
+	}).(FeatureGroupFeatureDefinitionOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
@@ -10796,148 +12520,6 @@ func (o MonitoringScheduleMonitoringInputArrayOutput) Index(i pulumi.IntInput) M
 	}).(MonitoringScheduleMonitoringInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
-type MonitoringScheduleMonitoringInputs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-	MonitoringInputs []MonitoringScheduleMonitoringInput `pulumi:"monitoringInputs"`
-}
-
-// MonitoringScheduleMonitoringInputsInput is an input type that accepts MonitoringScheduleMonitoringInputsArgs and MonitoringScheduleMonitoringInputsOutput values.
-// You can construct a concrete instance of `MonitoringScheduleMonitoringInputsInput` via:
-//
-//          MonitoringScheduleMonitoringInputsArgs{...}
-type MonitoringScheduleMonitoringInputsInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringInputsOutput() MonitoringScheduleMonitoringInputsOutput
-	ToMonitoringScheduleMonitoringInputsOutputWithContext(context.Context) MonitoringScheduleMonitoringInputsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
-type MonitoringScheduleMonitoringInputsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-	MonitoringInputs MonitoringScheduleMonitoringInputArrayInput `pulumi:"monitoringInputs"`
-}
-
-func (MonitoringScheduleMonitoringInputsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringInputs)(nil)).Elem()
-}
-
-func (i MonitoringScheduleMonitoringInputsArgs) ToMonitoringScheduleMonitoringInputsOutput() MonitoringScheduleMonitoringInputsOutput {
-	return i.ToMonitoringScheduleMonitoringInputsOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleMonitoringInputsArgs) ToMonitoringScheduleMonitoringInputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringInputsOutput)
-}
-
-func (i MonitoringScheduleMonitoringInputsArgs) ToMonitoringScheduleMonitoringInputsPtrOutput() MonitoringScheduleMonitoringInputsPtrOutput {
-	return i.ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleMonitoringInputsArgs) ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringInputsOutput).ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(ctx)
-}
-
-// MonitoringScheduleMonitoringInputsPtrInput is an input type that accepts MonitoringScheduleMonitoringInputsArgs, MonitoringScheduleMonitoringInputsPtr and MonitoringScheduleMonitoringInputsPtrOutput values.
-// You can construct a concrete instance of `MonitoringScheduleMonitoringInputsPtrInput` via:
-//
-//          MonitoringScheduleMonitoringInputsArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringScheduleMonitoringInputsPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleMonitoringInputsPtrOutput() MonitoringScheduleMonitoringInputsPtrOutput
-	ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringInputsPtrOutput
-}
-
-type monitoringScheduleMonitoringInputsPtrType MonitoringScheduleMonitoringInputsArgs
-
-func MonitoringScheduleMonitoringInputsPtr(v *MonitoringScheduleMonitoringInputsArgs) MonitoringScheduleMonitoringInputsPtrInput {
-	return (*monitoringScheduleMonitoringInputsPtrType)(v)
-}
-
-func (*monitoringScheduleMonitoringInputsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleMonitoringInputs)(nil)).Elem()
-}
-
-func (i *monitoringScheduleMonitoringInputsPtrType) ToMonitoringScheduleMonitoringInputsPtrOutput() MonitoringScheduleMonitoringInputsPtrOutput {
-	return i.ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringScheduleMonitoringInputsPtrType) ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringInputsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html
-type MonitoringScheduleMonitoringInputsOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringInputsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleMonitoringInputs)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringInputsOutput) ToMonitoringScheduleMonitoringInputsOutput() MonitoringScheduleMonitoringInputsOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringInputsOutput) ToMonitoringScheduleMonitoringInputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringInputsOutput) ToMonitoringScheduleMonitoringInputsPtrOutput() MonitoringScheduleMonitoringInputsPtrOutput {
-	return o.ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleMonitoringInputsOutput) ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringInputs) *MonitoringScheduleMonitoringInputs {
-		return &v
-	}).(MonitoringScheduleMonitoringInputsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-func (o MonitoringScheduleMonitoringInputsOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringInputs) []MonitoringScheduleMonitoringInput {
-		return v.MonitoringInputs
-	}).(MonitoringScheduleMonitoringInputArrayOutput)
-}
-
-type MonitoringScheduleMonitoringInputsPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleMonitoringInputsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleMonitoringInputs)(nil)).Elem()
-}
-
-func (o MonitoringScheduleMonitoringInputsPtrOutput) ToMonitoringScheduleMonitoringInputsPtrOutput() MonitoringScheduleMonitoringInputsPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringInputsPtrOutput) ToMonitoringScheduleMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringInputsPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleMonitoringInputsPtrOutput) Elem() MonitoringScheduleMonitoringInputsOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringInputs) MonitoringScheduleMonitoringInputs {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringScheduleMonitoringInputs
-		return ret
-	}).(MonitoringScheduleMonitoringInputsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinputs.html#cfn-sagemaker-monitoringschedule-monitoringinputs-monitoringinputs
-func (o MonitoringScheduleMonitoringInputsPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringInputs) []MonitoringScheduleMonitoringInput {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringInputs
-	}).(MonitoringScheduleMonitoringInputArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
 type MonitoringScheduleMonitoringJobDefinition struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
@@ -10947,7 +12529,7 @@ type MonitoringScheduleMonitoringJobDefinition struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-	MonitoringInputs MonitoringScheduleMonitoringInputs `pulumi:"monitoringInputs"`
+	MonitoringInputs []MonitoringScheduleMonitoringInput `pulumi:"monitoringInputs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfig `pulumi:"monitoringOutputConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
@@ -10980,7 +12562,7 @@ type MonitoringScheduleMonitoringJobDefinitionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-	MonitoringInputs MonitoringScheduleMonitoringInputsInput `pulumi:"monitoringInputs"`
+	MonitoringInputs MonitoringScheduleMonitoringInputArrayInput `pulumi:"monitoringInputs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfigInput `pulumi:"monitoringOutputConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
@@ -11091,10 +12673,10 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringAppSpecificat
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringInputs() MonitoringScheduleMonitoringInputsOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringInputs {
+func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		return v.MonitoringInputs
-	}).(MonitoringScheduleMonitoringInputsOutput)
+	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
@@ -11185,13 +12767,13 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringAppSpecifi
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringInputsPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringInputs {
+func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		if v == nil {
 			return nil
 		}
-		return &v.MonitoringInputs
-	}).(MonitoringScheduleMonitoringInputsPtrOutput)
+		return v.MonitoringInputs
+	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
@@ -12676,7 +14258,1008 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+type UserProfileCustomImage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+	ImageName string `pulumi:"imageName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// UserProfileCustomImageInput is an input type that accepts UserProfileCustomImageArgs and UserProfileCustomImageOutput values.
+// You can construct a concrete instance of `UserProfileCustomImageInput` via:
+//
+//          UserProfileCustomImageArgs{...}
+type UserProfileCustomImageInput interface {
+	pulumi.Input
+
+	ToUserProfileCustomImageOutput() UserProfileCustomImageOutput
+	ToUserProfileCustomImageOutputWithContext(context.Context) UserProfileCustomImageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+type UserProfileCustomImageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (UserProfileCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileCustomImageArgs) ToUserProfileCustomImageOutput() UserProfileCustomImageOutput {
+	return i.ToUserProfileCustomImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileCustomImageArgs) ToUserProfileCustomImageOutputWithContext(ctx context.Context) UserProfileCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileCustomImageOutput)
+}
+
+// UserProfileCustomImageArrayInput is an input type that accepts UserProfileCustomImageArray and UserProfileCustomImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileCustomImageArrayInput` via:
+//
+//          UserProfileCustomImageArray{ UserProfileCustomImageArgs{...} }
+type UserProfileCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileCustomImageArrayOutput() UserProfileCustomImageArrayOutput
+	ToUserProfileCustomImageArrayOutputWithContext(context.Context) UserProfileCustomImageArrayOutput
+}
+
+type UserProfileCustomImageArray []UserProfileCustomImageInput
+
+func (UserProfileCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileCustomImageArray) ToUserProfileCustomImageArrayOutput() UserProfileCustomImageArrayOutput {
+	return i.ToUserProfileCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileCustomImageArray) ToUserProfileCustomImageArrayOutputWithContext(ctx context.Context) UserProfileCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+type UserProfileCustomImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileCustomImageOutput) ToUserProfileCustomImageOutput() UserProfileCustomImageOutput {
+	return o
+}
+
+func (o UserProfileCustomImageOutput) ToUserProfileCustomImageOutputWithContext(ctx context.Context) UserProfileCustomImageOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+func (o UserProfileCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+func (o UserProfileCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+func (o UserProfileCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileCustomImageArrayOutput) ToUserProfileCustomImageArrayOutput() UserProfileCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileCustomImageArrayOutput) ToUserProfileCustomImageArrayOutputWithContext(ctx context.Context) UserProfileCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileCustomImage {
+		return vs[0].([]UserProfileCustomImage)[vs[1].(int)]
+	}).(UserProfileCustomImageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+type UserProfileJupyterServerAppSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileJupyterServerAppSettingsInput is an input type that accepts UserProfileJupyterServerAppSettingsArgs and UserProfileJupyterServerAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileJupyterServerAppSettingsInput` via:
+//
+//          UserProfileJupyterServerAppSettingsArgs{...}
+type UserProfileJupyterServerAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileJupyterServerAppSettingsOutput() UserProfileJupyterServerAppSettingsOutput
+	ToUserProfileJupyterServerAppSettingsOutputWithContext(context.Context) UserProfileJupyterServerAppSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+type UserProfileJupyterServerAppSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileJupyterServerAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileJupyterServerAppSettingsArgs) ToUserProfileJupyterServerAppSettingsOutput() UserProfileJupyterServerAppSettingsOutput {
+	return i.ToUserProfileJupyterServerAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileJupyterServerAppSettingsArgs) ToUserProfileJupyterServerAppSettingsOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileJupyterServerAppSettingsOutput)
+}
+
+func (i UserProfileJupyterServerAppSettingsArgs) ToUserProfileJupyterServerAppSettingsPtrOutput() UserProfileJupyterServerAppSettingsPtrOutput {
+	return i.ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileJupyterServerAppSettingsArgs) ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileJupyterServerAppSettingsOutput).ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileJupyterServerAppSettingsPtrInput is an input type that accepts UserProfileJupyterServerAppSettingsArgs, UserProfileJupyterServerAppSettingsPtr and UserProfileJupyterServerAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileJupyterServerAppSettingsPtrInput` via:
+//
+//          UserProfileJupyterServerAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileJupyterServerAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileJupyterServerAppSettingsPtrOutput() UserProfileJupyterServerAppSettingsPtrOutput
+	ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(context.Context) UserProfileJupyterServerAppSettingsPtrOutput
+}
+
+type userProfileJupyterServerAppSettingsPtrType UserProfileJupyterServerAppSettingsArgs
+
+func UserProfileJupyterServerAppSettingsPtr(v *UserProfileJupyterServerAppSettingsArgs) UserProfileJupyterServerAppSettingsPtrInput {
+	return (*userProfileJupyterServerAppSettingsPtrType)(v)
+}
+
+func (*userProfileJupyterServerAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileJupyterServerAppSettingsPtrType) ToUserProfileJupyterServerAppSettingsPtrOutput() UserProfileJupyterServerAppSettingsPtrOutput {
+	return i.ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileJupyterServerAppSettingsPtrType) ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+type UserProfileJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileJupyterServerAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerAppSettingsOutput() UserProfileJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerAppSettingsOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerAppSettingsPtrOutput() UserProfileJupyterServerAppSettingsPtrOutput {
+	return o.ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileJupyterServerAppSettings) *UserProfileJupyterServerAppSettings {
+		return &v
+	}).(UserProfileJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+func (o UserProfileJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileJupyterServerAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
+}
+
+type UserProfileJupyterServerAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileJupyterServerAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileJupyterServerAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileJupyterServerAppSettingsPtrOutput) ToUserProfileJupyterServerAppSettingsPtrOutput() UserProfileJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileJupyterServerAppSettingsPtrOutput) ToUserProfileJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileJupyterServerAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileJupyterServerAppSettingsPtrOutput) Elem() UserProfileJupyterServerAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileJupyterServerAppSettings) UserProfileJupyterServerAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileJupyterServerAppSettings
+		return ret
+	}).(UserProfileJupyterServerAppSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+func (o UserProfileJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileJupyterServerAppSettings) *UserProfileResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(UserProfileResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+type UserProfileKernelGatewayAppSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
+}
+
+// UserProfileKernelGatewayAppSettingsInput is an input type that accepts UserProfileKernelGatewayAppSettingsArgs and UserProfileKernelGatewayAppSettingsOutput values.
+// You can construct a concrete instance of `UserProfileKernelGatewayAppSettingsInput` via:
+//
+//          UserProfileKernelGatewayAppSettingsArgs{...}
+type UserProfileKernelGatewayAppSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileKernelGatewayAppSettingsOutput() UserProfileKernelGatewayAppSettingsOutput
+	ToUserProfileKernelGatewayAppSettingsOutputWithContext(context.Context) UserProfileKernelGatewayAppSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+type UserProfileKernelGatewayAppSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
+}
+
+func (UserProfileKernelGatewayAppSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i UserProfileKernelGatewayAppSettingsArgs) ToUserProfileKernelGatewayAppSettingsOutput() UserProfileKernelGatewayAppSettingsOutput {
+	return i.ToUserProfileKernelGatewayAppSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileKernelGatewayAppSettingsArgs) ToUserProfileKernelGatewayAppSettingsOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileKernelGatewayAppSettingsOutput)
+}
+
+func (i UserProfileKernelGatewayAppSettingsArgs) ToUserProfileKernelGatewayAppSettingsPtrOutput() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return i.ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileKernelGatewayAppSettingsArgs) ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileKernelGatewayAppSettingsOutput).ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileKernelGatewayAppSettingsPtrInput is an input type that accepts UserProfileKernelGatewayAppSettingsArgs, UserProfileKernelGatewayAppSettingsPtr and UserProfileKernelGatewayAppSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileKernelGatewayAppSettingsPtrInput` via:
+//
+//          UserProfileKernelGatewayAppSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileKernelGatewayAppSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileKernelGatewayAppSettingsPtrOutput() UserProfileKernelGatewayAppSettingsPtrOutput
+	ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(context.Context) UserProfileKernelGatewayAppSettingsPtrOutput
+}
+
+type userProfileKernelGatewayAppSettingsPtrType UserProfileKernelGatewayAppSettingsArgs
+
+func UserProfileKernelGatewayAppSettingsPtr(v *UserProfileKernelGatewayAppSettingsArgs) UserProfileKernelGatewayAppSettingsPtrInput {
+	return (*userProfileKernelGatewayAppSettingsPtrType)(v)
+}
+
+func (*userProfileKernelGatewayAppSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (i *userProfileKernelGatewayAppSettingsPtrType) ToUserProfileKernelGatewayAppSettingsPtrOutput() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return i.ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileKernelGatewayAppSettingsPtrType) ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+type UserProfileKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileKernelGatewayAppSettingsOutput) ToUserProfileKernelGatewayAppSettingsOutput() UserProfileKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileKernelGatewayAppSettingsOutput) ToUserProfileKernelGatewayAppSettingsOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsOutput {
+	return o
+}
+
+func (o UserProfileKernelGatewayAppSettingsOutput) ToUserProfileKernelGatewayAppSettingsPtrOutput() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o.ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileKernelGatewayAppSettingsOutput) ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileKernelGatewayAppSettings) *UserProfileKernelGatewayAppSettings {
+		return &v
+	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+func (o UserProfileKernelGatewayAppSettingsOutput) CustomImages() UserProfileCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) []UserProfileCustomImage { return v.CustomImages }).(UserProfileCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+func (o UserProfileKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
+	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
+}
+
+type UserProfileKernelGatewayAppSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileKernelGatewayAppSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileKernelGatewayAppSettings)(nil)).Elem()
+}
+
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) ToUserProfileKernelGatewayAppSettingsPtrOutput() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) ToUserProfileKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) Elem() UserProfileKernelGatewayAppSettingsOutput {
+	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) UserProfileKernelGatewayAppSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileKernelGatewayAppSettings
+		return ret
+	}).(UserProfileKernelGatewayAppSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) CustomImages() UserProfileCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) []UserProfileCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileCustomImageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
+	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) *UserProfileResourceSpec {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultResourceSpec
+	}).(UserProfileResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
+type UserProfileResourceSpec struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+	InstanceType *string `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
+}
+
+// UserProfileResourceSpecInput is an input type that accepts UserProfileResourceSpecArgs and UserProfileResourceSpecOutput values.
+// You can construct a concrete instance of `UserProfileResourceSpecInput` via:
+//
+//          UserProfileResourceSpecArgs{...}
+type UserProfileResourceSpecInput interface {
+	pulumi.Input
+
+	ToUserProfileResourceSpecOutput() UserProfileResourceSpecOutput
+	ToUserProfileResourceSpecOutputWithContext(context.Context) UserProfileResourceSpecOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
+type UserProfileResourceSpecArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
+}
+
+func (UserProfileResourceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileResourceSpec)(nil)).Elem()
+}
+
+func (i UserProfileResourceSpecArgs) ToUserProfileResourceSpecOutput() UserProfileResourceSpecOutput {
+	return i.ToUserProfileResourceSpecOutputWithContext(context.Background())
+}
+
+func (i UserProfileResourceSpecArgs) ToUserProfileResourceSpecOutputWithContext(ctx context.Context) UserProfileResourceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileResourceSpecOutput)
+}
+
+func (i UserProfileResourceSpecArgs) ToUserProfileResourceSpecPtrOutput() UserProfileResourceSpecPtrOutput {
+	return i.ToUserProfileResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileResourceSpecArgs) ToUserProfileResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileResourceSpecOutput).ToUserProfileResourceSpecPtrOutputWithContext(ctx)
+}
+
+// UserProfileResourceSpecPtrInput is an input type that accepts UserProfileResourceSpecArgs, UserProfileResourceSpecPtr and UserProfileResourceSpecPtrOutput values.
+// You can construct a concrete instance of `UserProfileResourceSpecPtrInput` via:
+//
+//          UserProfileResourceSpecArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileResourceSpecPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileResourceSpecPtrOutput() UserProfileResourceSpecPtrOutput
+	ToUserProfileResourceSpecPtrOutputWithContext(context.Context) UserProfileResourceSpecPtrOutput
+}
+
+type userProfileResourceSpecPtrType UserProfileResourceSpecArgs
+
+func UserProfileResourceSpecPtr(v *UserProfileResourceSpecArgs) UserProfileResourceSpecPtrInput {
+	return (*userProfileResourceSpecPtrType)(v)
+}
+
+func (*userProfileResourceSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileResourceSpec)(nil)).Elem()
+}
+
+func (i *userProfileResourceSpecPtrType) ToUserProfileResourceSpecPtrOutput() UserProfileResourceSpecPtrOutput {
+	return i.ToUserProfileResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileResourceSpecPtrType) ToUserProfileResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileResourceSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
+type UserProfileResourceSpecOutput struct{ *pulumi.OutputState }
+
+func (UserProfileResourceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecOutput() UserProfileResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecOutputWithContext(ctx context.Context) UserProfileResourceSpecOutput {
+	return o
+}
+
+func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecPtrOutput() UserProfileResourceSpecPtrOutput {
+	return o.ToUserProfileResourceSpecPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileResourceSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileResourceSpec) *UserProfileResourceSpec {
+		return &v
+	}).(UserProfileResourceSpecPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+func (o UserProfileResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+func (o UserProfileResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+func (o UserProfileResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileResourceSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileResourceSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileResourceSpec)(nil)).Elem()
+}
+
+func (o UserProfileResourceSpecPtrOutput) ToUserProfileResourceSpecPtrOutput() UserProfileResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileResourceSpecPtrOutput) ToUserProfileResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileResourceSpecPtrOutput {
+	return o
+}
+
+func (o UserProfileResourceSpecPtrOutput) Elem() UserProfileResourceSpecOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) UserProfileResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileResourceSpec
+		return ret
+	}).(UserProfileResourceSpecOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+func (o UserProfileResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+func (o UserProfileResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+type UserProfileSharingSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// UserProfileSharingSettingsInput is an input type that accepts UserProfileSharingSettingsArgs and UserProfileSharingSettingsOutput values.
+// You can construct a concrete instance of `UserProfileSharingSettingsInput` via:
+//
+//          UserProfileSharingSettingsArgs{...}
+type UserProfileSharingSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileSharingSettingsOutput() UserProfileSharingSettingsOutput
+	ToUserProfileSharingSettingsOutputWithContext(context.Context) UserProfileSharingSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+type UserProfileSharingSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (UserProfileSharingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileSharingSettings)(nil)).Elem()
+}
+
+func (i UserProfileSharingSettingsArgs) ToUserProfileSharingSettingsOutput() UserProfileSharingSettingsOutput {
+	return i.ToUserProfileSharingSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileSharingSettingsArgs) ToUserProfileSharingSettingsOutputWithContext(ctx context.Context) UserProfileSharingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileSharingSettingsOutput)
+}
+
+func (i UserProfileSharingSettingsArgs) ToUserProfileSharingSettingsPtrOutput() UserProfileSharingSettingsPtrOutput {
+	return i.ToUserProfileSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileSharingSettingsArgs) ToUserProfileSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileSharingSettingsOutput).ToUserProfileSharingSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileSharingSettingsPtrInput is an input type that accepts UserProfileSharingSettingsArgs, UserProfileSharingSettingsPtr and UserProfileSharingSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileSharingSettingsPtrInput` via:
+//
+//          UserProfileSharingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileSharingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileSharingSettingsPtrOutput() UserProfileSharingSettingsPtrOutput
+	ToUserProfileSharingSettingsPtrOutputWithContext(context.Context) UserProfileSharingSettingsPtrOutput
+}
+
+type userProfileSharingSettingsPtrType UserProfileSharingSettingsArgs
+
+func UserProfileSharingSettingsPtr(v *UserProfileSharingSettingsArgs) UserProfileSharingSettingsPtrInput {
+	return (*userProfileSharingSettingsPtrType)(v)
+}
+
+func (*userProfileSharingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileSharingSettings)(nil)).Elem()
+}
+
+func (i *userProfileSharingSettingsPtrType) ToUserProfileSharingSettingsPtrOutput() UserProfileSharingSettingsPtrOutput {
+	return i.ToUserProfileSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileSharingSettingsPtrType) ToUserProfileSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileSharingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileSharingSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+type UserProfileSharingSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileSharingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileSharingSettings)(nil)).Elem()
+}
+
+func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsOutput() UserProfileSharingSettingsOutput {
+	return o
+}
+
+func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsOutputWithContext(ctx context.Context) UserProfileSharingSettingsOutput {
+	return o
+}
+
+func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsPtrOutput() UserProfileSharingSettingsPtrOutput {
+	return o.ToUserProfileSharingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileSharingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileSharingSettings) *UserProfileSharingSettings {
+		return &v
+	}).(UserProfileSharingSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+func (o UserProfileSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+func (o UserProfileSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+func (o UserProfileSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileSharingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileSharingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileSharingSettings)(nil)).Elem()
+}
+
+func (o UserProfileSharingSettingsPtrOutput) ToUserProfileSharingSettingsPtrOutput() UserProfileSharingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileSharingSettingsPtrOutput) ToUserProfileSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileSharingSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileSharingSettingsPtrOutput) Elem() UserProfileSharingSettingsOutput {
+	return o.ApplyT(func(v *UserProfileSharingSettings) UserProfileSharingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileSharingSettings
+		return ret
+	}).(UserProfileSharingSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+func (o UserProfileSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotebookOutputOption
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+func (o UserProfileSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+func (o UserProfileSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+type UserProfileUserSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+	ExecutionRole *string `pulumi:"executionRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+	JupyterServerAppSettings *UserProfileJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+	KernelGatewayAppSettings *UserProfileKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+	SharingSettings *UserProfileSharingSettings `pulumi:"sharingSettings"`
+}
+
+// UserProfileUserSettingsInput is an input type that accepts UserProfileUserSettingsArgs and UserProfileUserSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsInput` via:
+//
+//          UserProfileUserSettingsArgs{...}
+type UserProfileUserSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput
+	ToUserProfileUserSettingsOutputWithContext(context.Context) UserProfileUserSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+type UserProfileUserSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+	JupyterServerAppSettings UserProfileJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+	KernelGatewayAppSettings UserProfileKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+	SharingSettings UserProfileSharingSettingsPtrInput `pulumi:"sharingSettings"`
+}
+
+func (UserProfileUserSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput {
+	return i.ToUserProfileUserSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsOutput)
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsArgs) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsOutput).ToUserProfileUserSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsPtrInput is an input type that accepts UserProfileUserSettingsArgs, UserProfileUserSettingsPtr and UserProfileUserSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsPtrInput` via:
+//
+//          UserProfileUserSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UserProfileUserSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput
+	ToUserProfileUserSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsPtrOutput
+}
+
+type userProfileUserSettingsPtrType UserProfileUserSettingsArgs
+
+func UserProfileUserSettingsPtr(v *UserProfileUserSettingsArgs) UserProfileUserSettingsPtrInput {
+	return (*userProfileUserSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsPtrType) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsPtrType) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+type UserProfileUserSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsOutput() UserProfileUserSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettings) *UserProfileUserSettings {
+		return &v
+	}).(UserProfileUserSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+func (o UserProfileUserSettingsOutput) JupyterServerAppSettings() UserProfileJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileJupyterServerAppSettings {
+		return v.JupyterServerAppSettings
+	}).(UserProfileJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileKernelGatewayAppSettings {
+		return v.KernelGatewayAppSettings
+	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileSharingSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileSharingSettings { return v.SharingSettings }).(UserProfileSharingSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsPtrOutput) ToUserProfileUserSettingsPtrOutput() UserProfileUserSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsPtrOutput) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) UserProfileUserSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettings
+		return ret
+	}).(UserProfileUserSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfileJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(UserProfileJupyterServerAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfileKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileSharingSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileSharingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SharingSettings
+	}).(UserProfileSharingSettingsPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AppImageConfigFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelSpecOutput{})
+	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
+	pulumi.RegisterOutputType(AppResourceSpecOutput{})
+	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourceOutput{})
@@ -12709,6 +15292,20 @@ func init() {
 	pulumi.RegisterOutputType(DeviceDeviceOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainCustomImageOutput{})
+	pulumi.RegisterOutputType(DomainCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsOutput{})
+	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainResourceSpecOutput{})
+	pulumi.RegisterOutputType(DomainResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
+	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
+	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourceOutput{})
@@ -12809,8 +15406,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringExecutionSummaryPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringInputOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringInputArrayOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringInputsOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleMonitoringInputsPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringJobDefinitionOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringJobDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringOutputOutput{})
@@ -12832,4 +15427,16 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStoppingConditionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
+	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileKernelGatewayAppSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileKernelGatewayAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileResourceSpecOutput{})
+	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 }

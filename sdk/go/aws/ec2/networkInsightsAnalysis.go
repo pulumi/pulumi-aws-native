@@ -29,8 +29,7 @@ type NetworkInsightsAnalysis struct {
 	ReturnPathComponents  NetworkInsightsAnalysisPathComponentArrayOutput `pulumi:"returnPathComponents"`
 	StartDate             pulumi.StringOutput                             `pulumi:"startDate"`
 	Status                pulumi.StringOutput                             `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-	StatusMessage pulumi.StringPtrOutput `pulumi:"statusMessage"`
+	StatusMessage         pulumi.StringOutput                             `pulumi:"statusMessage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -81,8 +80,6 @@ type networkInsightsAnalysisArgs struct {
 	FilterInArns []string `pulumi:"filterInArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-	StatusMessage *string `pulumi:"statusMessage"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -93,8 +90,6 @@ type NetworkInsightsAnalysisArgs struct {
 	FilterInArns pulumi.StringArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
 	NetworkInsightsPathId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-statusmessage
-	StatusMessage pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
 	Tags aws.TagArrayInput
 }

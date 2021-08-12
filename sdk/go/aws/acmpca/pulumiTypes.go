@@ -10,6 +10,338 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+type CertificateApiPassthrough struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+	Extensions *CertificateExtensions `pulumi:"extensions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+	Subject *CertificateSubject `pulumi:"subject"`
+}
+
+// CertificateApiPassthroughInput is an input type that accepts CertificateApiPassthroughArgs and CertificateApiPassthroughOutput values.
+// You can construct a concrete instance of `CertificateApiPassthroughInput` via:
+//
+//          CertificateApiPassthroughArgs{...}
+type CertificateApiPassthroughInput interface {
+	pulumi.Input
+
+	ToCertificateApiPassthroughOutput() CertificateApiPassthroughOutput
+	ToCertificateApiPassthroughOutputWithContext(context.Context) CertificateApiPassthroughOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+type CertificateApiPassthroughArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+	Extensions CertificateExtensionsPtrInput `pulumi:"extensions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+	Subject CertificateSubjectPtrInput `pulumi:"subject"`
+}
+
+func (CertificateApiPassthroughArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateApiPassthrough)(nil)).Elem()
+}
+
+func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughOutput() CertificateApiPassthroughOutput {
+	return i.ToCertificateApiPassthroughOutputWithContext(context.Background())
+}
+
+func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughOutputWithContext(ctx context.Context) CertificateApiPassthroughOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughOutput)
+}
+
+func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput {
+	return i.ToCertificateApiPassthroughPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughPtrOutputWithContext(ctx context.Context) CertificateApiPassthroughPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughOutput).ToCertificateApiPassthroughPtrOutputWithContext(ctx)
+}
+
+// CertificateApiPassthroughPtrInput is an input type that accepts CertificateApiPassthroughArgs, CertificateApiPassthroughPtr and CertificateApiPassthroughPtrOutput values.
+// You can construct a concrete instance of `CertificateApiPassthroughPtrInput` via:
+//
+//          CertificateApiPassthroughArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateApiPassthroughPtrInput interface {
+	pulumi.Input
+
+	ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput
+	ToCertificateApiPassthroughPtrOutputWithContext(context.Context) CertificateApiPassthroughPtrOutput
+}
+
+type certificateApiPassthroughPtrType CertificateApiPassthroughArgs
+
+func CertificateApiPassthroughPtr(v *CertificateApiPassthroughArgs) CertificateApiPassthroughPtrInput {
+	return (*certificateApiPassthroughPtrType)(v)
+}
+
+func (*certificateApiPassthroughPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateApiPassthrough)(nil)).Elem()
+}
+
+func (i *certificateApiPassthroughPtrType) ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput {
+	return i.ToCertificateApiPassthroughPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateApiPassthroughPtrType) ToCertificateApiPassthroughPtrOutputWithContext(ctx context.Context) CertificateApiPassthroughPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
+type CertificateApiPassthroughOutput struct{ *pulumi.OutputState }
+
+func (CertificateApiPassthroughOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateApiPassthrough)(nil)).Elem()
+}
+
+func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughOutput() CertificateApiPassthroughOutput {
+	return o
+}
+
+func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughOutputWithContext(ctx context.Context) CertificateApiPassthroughOutput {
+	return o
+}
+
+func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput {
+	return o.ToCertificateApiPassthroughPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughPtrOutputWithContext(ctx context.Context) CertificateApiPassthroughPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateApiPassthrough) *CertificateApiPassthrough {
+		return &v
+	}).(CertificateApiPassthroughPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+func (o CertificateApiPassthroughOutput) Extensions() CertificateExtensionsPtrOutput {
+	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateExtensions { return v.Extensions }).(CertificateExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+func (o CertificateApiPassthroughOutput) Subject() CertificateSubjectPtrOutput {
+	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateSubject { return v.Subject }).(CertificateSubjectPtrOutput)
+}
+
+type CertificateApiPassthroughPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateApiPassthroughPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateApiPassthrough)(nil)).Elem()
+}
+
+func (o CertificateApiPassthroughPtrOutput) ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput {
+	return o
+}
+
+func (o CertificateApiPassthroughPtrOutput) ToCertificateApiPassthroughPtrOutputWithContext(ctx context.Context) CertificateApiPassthroughPtrOutput {
+	return o
+}
+
+func (o CertificateApiPassthroughPtrOutput) Elem() CertificateApiPassthroughOutput {
+	return o.ApplyT(func(v *CertificateApiPassthrough) CertificateApiPassthrough {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateApiPassthrough
+		return ret
+	}).(CertificateApiPassthroughOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
+func (o CertificateApiPassthroughPtrOutput) Extensions() CertificateExtensionsPtrOutput {
+	return o.ApplyT(func(v *CertificateApiPassthrough) *CertificateExtensions {
+		if v == nil {
+			return nil
+		}
+		return v.Extensions
+	}).(CertificateExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+func (o CertificateApiPassthroughPtrOutput) Subject() CertificateSubjectPtrOutput {
+	return o.ApplyT(func(v *CertificateApiPassthrough) *CertificateSubject {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(CertificateSubjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+type CertificateAuthorityAccessDescription struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+	AccessLocation CertificateAuthorityGeneralName `pulumi:"accessLocation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+	AccessMethod CertificateAuthorityAccessMethod `pulumi:"accessMethod"`
+}
+
+// CertificateAuthorityAccessDescriptionInput is an input type that accepts CertificateAuthorityAccessDescriptionArgs and CertificateAuthorityAccessDescriptionOutput values.
+// You can construct a concrete instance of `CertificateAuthorityAccessDescriptionInput` via:
+//
+//          CertificateAuthorityAccessDescriptionArgs{...}
+type CertificateAuthorityAccessDescriptionInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityAccessDescriptionOutput() CertificateAuthorityAccessDescriptionOutput
+	ToCertificateAuthorityAccessDescriptionOutputWithContext(context.Context) CertificateAuthorityAccessDescriptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+type CertificateAuthorityAccessDescriptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+	AccessLocation CertificateAuthorityGeneralNameInput `pulumi:"accessLocation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+	AccessMethod CertificateAuthorityAccessMethodInput `pulumi:"accessMethod"`
+}
+
+func (CertificateAuthorityAccessDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityAccessDescription)(nil)).Elem()
+}
+
+func (i CertificateAuthorityAccessDescriptionArgs) ToCertificateAuthorityAccessDescriptionOutput() CertificateAuthorityAccessDescriptionOutput {
+	return i.ToCertificateAuthorityAccessDescriptionOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityAccessDescriptionArgs) ToCertificateAuthorityAccessDescriptionOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessDescriptionOutput)
+}
+
+// CertificateAuthorityAccessDescriptionArrayInput is an input type that accepts CertificateAuthorityAccessDescriptionArray and CertificateAuthorityAccessDescriptionArrayOutput values.
+// You can construct a concrete instance of `CertificateAuthorityAccessDescriptionArrayInput` via:
+//
+//          CertificateAuthorityAccessDescriptionArray{ CertificateAuthorityAccessDescriptionArgs{...} }
+type CertificateAuthorityAccessDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityAccessDescriptionArrayOutput() CertificateAuthorityAccessDescriptionArrayOutput
+	ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(context.Context) CertificateAuthorityAccessDescriptionArrayOutput
+}
+
+type CertificateAuthorityAccessDescriptionArray []CertificateAuthorityAccessDescriptionInput
+
+func (CertificateAuthorityAccessDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateAuthorityAccessDescription)(nil)).Elem()
+}
+
+func (i CertificateAuthorityAccessDescriptionArray) ToCertificateAuthorityAccessDescriptionArrayOutput() CertificateAuthorityAccessDescriptionArrayOutput {
+	return i.ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityAccessDescriptionArray) ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessDescriptionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+type CertificateAuthorityAccessDescriptionOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityAccessDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityAccessDescription)(nil)).Elem()
+}
+
+func (o CertificateAuthorityAccessDescriptionOutput) ToCertificateAuthorityAccessDescriptionOutput() CertificateAuthorityAccessDescriptionOutput {
+	return o
+}
+
+func (o CertificateAuthorityAccessDescriptionOutput) ToCertificateAuthorityAccessDescriptionOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
+func (o CertificateAuthorityAccessDescriptionOutput) AccessLocation() CertificateAuthorityGeneralNameOutput {
+	return o.ApplyT(func(v CertificateAuthorityAccessDescription) CertificateAuthorityGeneralName { return v.AccessLocation }).(CertificateAuthorityGeneralNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+func (o CertificateAuthorityAccessDescriptionOutput) AccessMethod() CertificateAuthorityAccessMethodOutput {
+	return o.ApplyT(func(v CertificateAuthorityAccessDescription) CertificateAuthorityAccessMethod { return v.AccessMethod }).(CertificateAuthorityAccessMethodOutput)
+}
+
+type CertificateAuthorityAccessDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityAccessDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateAuthorityAccessDescription)(nil)).Elem()
+}
+
+func (o CertificateAuthorityAccessDescriptionArrayOutput) ToCertificateAuthorityAccessDescriptionArrayOutput() CertificateAuthorityAccessDescriptionArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityAccessDescriptionArrayOutput) ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionArrayOutput {
+	return o
+}
+
+func (o CertificateAuthorityAccessDescriptionArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityAccessDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateAuthorityAccessDescription {
+		return vs[0].([]CertificateAuthorityAccessDescription)[vs[1].(int)]
+	}).(CertificateAuthorityAccessDescriptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+type CertificateAuthorityAccessMethod struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+	AccessMethodType *string `pulumi:"accessMethodType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+	CustomObjectIdentifier *string `pulumi:"customObjectIdentifier"`
+}
+
+// CertificateAuthorityAccessMethodInput is an input type that accepts CertificateAuthorityAccessMethodArgs and CertificateAuthorityAccessMethodOutput values.
+// You can construct a concrete instance of `CertificateAuthorityAccessMethodInput` via:
+//
+//          CertificateAuthorityAccessMethodArgs{...}
+type CertificateAuthorityAccessMethodInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityAccessMethodOutput() CertificateAuthorityAccessMethodOutput
+	ToCertificateAuthorityAccessMethodOutputWithContext(context.Context) CertificateAuthorityAccessMethodOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+type CertificateAuthorityAccessMethodArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+	AccessMethodType pulumi.StringPtrInput `pulumi:"accessMethodType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+	CustomObjectIdentifier pulumi.StringPtrInput `pulumi:"customObjectIdentifier"`
+}
+
+func (CertificateAuthorityAccessMethodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityAccessMethod)(nil)).Elem()
+}
+
+func (i CertificateAuthorityAccessMethodArgs) ToCertificateAuthorityAccessMethodOutput() CertificateAuthorityAccessMethodOutput {
+	return i.ToCertificateAuthorityAccessMethodOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityAccessMethodArgs) ToCertificateAuthorityAccessMethodOutputWithContext(ctx context.Context) CertificateAuthorityAccessMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessMethodOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
+type CertificateAuthorityAccessMethodOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityAccessMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityAccessMethod)(nil)).Elem()
+}
+
+func (o CertificateAuthorityAccessMethodOutput) ToCertificateAuthorityAccessMethodOutput() CertificateAuthorityAccessMethodOutput {
+	return o
+}
+
+func (o CertificateAuthorityAccessMethodOutput) ToCertificateAuthorityAccessMethodOutputWithContext(ctx context.Context) CertificateAuthorityAccessMethodOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
+func (o CertificateAuthorityAccessMethodOutput) AccessMethodType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityAccessMethod) *string { return v.AccessMethodType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+func (o CertificateAuthorityAccessMethodOutput) CustomObjectIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityAccessMethod) *string { return v.CustomObjectIdentifier }).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
 type CertificateAuthorityCrlConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
@@ -20,6 +352,8 @@ type CertificateAuthorityCrlConfiguration struct {
 	ExpirationInDays *int `pulumi:"expirationInDays"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
 	S3BucketName *string `pulumi:"s3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+	S3ObjectAcl *string `pulumi:"s3ObjectAcl"`
 }
 
 // CertificateAuthorityCrlConfigurationInput is an input type that accepts CertificateAuthorityCrlConfigurationArgs and CertificateAuthorityCrlConfigurationOutput values.
@@ -43,6 +377,8 @@ type CertificateAuthorityCrlConfigurationArgs struct {
 	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+	S3ObjectAcl pulumi.StringPtrInput `pulumi:"s3ObjectAcl"`
 }
 
 func (CertificateAuthorityCrlConfigurationArgs) ElementType() reflect.Type {
@@ -143,6 +479,11 @@ func (o CertificateAuthorityCrlConfigurationOutput) S3BucketName() pulumi.String
 	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+func (o CertificateAuthorityCrlConfigurationOutput) S3ObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCrlConfiguration) *string { return v.S3ObjectAcl }).(pulumi.StringPtrOutput)
+}
+
 type CertificateAuthorityCrlConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCrlConfigurationPtrOutput) ElementType() reflect.Type {
@@ -204,6 +545,905 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) S3BucketName() pulumi.Str
 			return nil
 		}
 		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+func (o CertificateAuthorityCrlConfigurationPtrOutput) S3ObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+type CertificateAuthorityCsrExtensions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+	KeyUsage *CertificateAuthorityKeyUsage `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+	SubjectInformationAccess []CertificateAuthorityAccessDescription `pulumi:"subjectInformationAccess"`
+}
+
+// CertificateAuthorityCsrExtensionsInput is an input type that accepts CertificateAuthorityCsrExtensionsArgs and CertificateAuthorityCsrExtensionsOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCsrExtensionsInput` via:
+//
+//          CertificateAuthorityCsrExtensionsArgs{...}
+type CertificateAuthorityCsrExtensionsInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCsrExtensionsOutput() CertificateAuthorityCsrExtensionsOutput
+	ToCertificateAuthorityCsrExtensionsOutputWithContext(context.Context) CertificateAuthorityCsrExtensionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+type CertificateAuthorityCsrExtensionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+	KeyUsage CertificateAuthorityKeyUsagePtrInput `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+	SubjectInformationAccess CertificateAuthorityAccessDescriptionArrayInput `pulumi:"subjectInformationAccess"`
+}
+
+func (CertificateAuthorityCsrExtensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCsrExtensions)(nil)).Elem()
+}
+
+func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensionsOutput() CertificateAuthorityCsrExtensionsOutput {
+	return i.ToCertificateAuthorityCsrExtensionsOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensionsOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCsrExtensionsOutput)
+}
+
+func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput {
+	return i.ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCsrExtensionsOutput).ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityCsrExtensionsPtrInput is an input type that accepts CertificateAuthorityCsrExtensionsArgs, CertificateAuthorityCsrExtensionsPtr and CertificateAuthorityCsrExtensionsPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityCsrExtensionsPtrInput` via:
+//
+//          CertificateAuthorityCsrExtensionsArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityCsrExtensionsPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput
+	ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(context.Context) CertificateAuthorityCsrExtensionsPtrOutput
+}
+
+type certificateAuthorityCsrExtensionsPtrType CertificateAuthorityCsrExtensionsArgs
+
+func CertificateAuthorityCsrExtensionsPtr(v *CertificateAuthorityCsrExtensionsArgs) CertificateAuthorityCsrExtensionsPtrInput {
+	return (*certificateAuthorityCsrExtensionsPtrType)(v)
+}
+
+func (*certificateAuthorityCsrExtensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCsrExtensions)(nil)).Elem()
+}
+
+func (i *certificateAuthorityCsrExtensionsPtrType) ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput {
+	return i.ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityCsrExtensionsPtrType) ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCsrExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+type CertificateAuthorityCsrExtensionsOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCsrExtensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityCsrExtensions)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtensionsOutput() CertificateAuthorityCsrExtensionsOutput {
+	return o
+}
+
+func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtensionsOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsOutput {
+	return o
+}
+
+func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput {
+	return o.ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCsrExtensions) *CertificateAuthorityCsrExtensions {
+		return &v
+	}).(CertificateAuthorityCsrExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+func (o CertificateAuthorityCsrExtensionsOutput) KeyUsage() CertificateAuthorityKeyUsagePtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityCsrExtensions) *CertificateAuthorityKeyUsage { return v.KeyUsage }).(CertificateAuthorityKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+func (o CertificateAuthorityCsrExtensionsOutput) SubjectInformationAccess() CertificateAuthorityAccessDescriptionArrayOutput {
+	return o.ApplyT(func(v CertificateAuthorityCsrExtensions) []CertificateAuthorityAccessDescription {
+		return v.SubjectInformationAccess
+	}).(CertificateAuthorityAccessDescriptionArrayOutput)
+}
+
+type CertificateAuthorityCsrExtensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityCsrExtensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityCsrExtensions)(nil)).Elem()
+}
+
+func (o CertificateAuthorityCsrExtensionsPtrOutput) ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCsrExtensionsPtrOutput) ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityCsrExtensionsPtrOutput) Elem() CertificateAuthorityCsrExtensionsOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCsrExtensions) CertificateAuthorityCsrExtensions {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityCsrExtensions
+		return ret
+	}).(CertificateAuthorityCsrExtensionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
+func (o CertificateAuthorityCsrExtensionsPtrOutput) KeyUsage() CertificateAuthorityKeyUsagePtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCsrExtensions) *CertificateAuthorityKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsage
+	}).(CertificateAuthorityKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+func (o CertificateAuthorityCsrExtensionsPtrOutput) SubjectInformationAccess() CertificateAuthorityAccessDescriptionArrayOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCsrExtensions) []CertificateAuthorityAccessDescription {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectInformationAccess
+	}).(CertificateAuthorityAccessDescriptionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+type CertificateAuthorityEdiPartyName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+	NameAssigner string `pulumi:"nameAssigner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+	PartyName string `pulumi:"partyName"`
+}
+
+// CertificateAuthorityEdiPartyNameInput is an input type that accepts CertificateAuthorityEdiPartyNameArgs and CertificateAuthorityEdiPartyNameOutput values.
+// You can construct a concrete instance of `CertificateAuthorityEdiPartyNameInput` via:
+//
+//          CertificateAuthorityEdiPartyNameArgs{...}
+type CertificateAuthorityEdiPartyNameInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityEdiPartyNameOutput() CertificateAuthorityEdiPartyNameOutput
+	ToCertificateAuthorityEdiPartyNameOutputWithContext(context.Context) CertificateAuthorityEdiPartyNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+type CertificateAuthorityEdiPartyNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+	NameAssigner pulumi.StringInput `pulumi:"nameAssigner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+	PartyName pulumi.StringInput `pulumi:"partyName"`
+}
+
+func (CertificateAuthorityEdiPartyNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityEdiPartyName)(nil)).Elem()
+}
+
+func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyNameOutput() CertificateAuthorityEdiPartyNameOutput {
+	return i.ToCertificateAuthorityEdiPartyNameOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyNameOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityEdiPartyNameOutput)
+}
+
+func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput {
+	return i.ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityEdiPartyNameOutput).ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityEdiPartyNamePtrInput is an input type that accepts CertificateAuthorityEdiPartyNameArgs, CertificateAuthorityEdiPartyNamePtr and CertificateAuthorityEdiPartyNamePtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityEdiPartyNamePtrInput` via:
+//
+//          CertificateAuthorityEdiPartyNameArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityEdiPartyNamePtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput
+	ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(context.Context) CertificateAuthorityEdiPartyNamePtrOutput
+}
+
+type certificateAuthorityEdiPartyNamePtrType CertificateAuthorityEdiPartyNameArgs
+
+func CertificateAuthorityEdiPartyNamePtr(v *CertificateAuthorityEdiPartyNameArgs) CertificateAuthorityEdiPartyNamePtrInput {
+	return (*certificateAuthorityEdiPartyNamePtrType)(v)
+}
+
+func (*certificateAuthorityEdiPartyNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityEdiPartyName)(nil)).Elem()
+}
+
+func (i *certificateAuthorityEdiPartyNamePtrType) ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput {
+	return i.ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityEdiPartyNamePtrType) ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
+type CertificateAuthorityEdiPartyNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityEdiPartyNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityEdiPartyName)(nil)).Elem()
+}
+
+func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNameOutput() CertificateAuthorityEdiPartyNameOutput {
+	return o
+}
+
+func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNameOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNameOutput {
+	return o
+}
+
+func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput {
+	return o.ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityEdiPartyName) *CertificateAuthorityEdiPartyName {
+		return &v
+	}).(CertificateAuthorityEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+func (o CertificateAuthorityEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+func (o CertificateAuthorityEdiPartyNameOutput) PartyName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityEdiPartyName) string { return v.PartyName }).(pulumi.StringOutput)
+}
+
+type CertificateAuthorityEdiPartyNamePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityEdiPartyNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityEdiPartyName)(nil)).Elem()
+}
+
+func (o CertificateAuthorityEdiPartyNamePtrOutput) ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityEdiPartyNamePtrOutput) ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNamePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityEdiPartyNamePtrOutput) Elem() CertificateAuthorityEdiPartyNameOutput {
+	return o.ApplyT(func(v *CertificateAuthorityEdiPartyName) CertificateAuthorityEdiPartyName {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityEdiPartyName
+		return ret
+	}).(CertificateAuthorityEdiPartyNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
+func (o CertificateAuthorityEdiPartyNamePtrOutput) NameAssigner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityEdiPartyName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NameAssigner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+func (o CertificateAuthorityEdiPartyNamePtrOutput) PartyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityEdiPartyName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
+type CertificateAuthorityGeneralName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
+	DirectoryName *CertificateAuthoritySubject `pulumi:"directoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+	DnsName *string `pulumi:"dnsName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+	EdiPartyName *CertificateAuthorityEdiPartyName `pulumi:"ediPartyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
+	IpAddress *string `pulumi:"ipAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+	OtherName *CertificateAuthorityOtherName `pulumi:"otherName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+	RegisteredId *string `pulumi:"registeredId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+	Rfc822Name *string `pulumi:"rfc822Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+	UniformResourceIdentifier *string `pulumi:"uniformResourceIdentifier"`
+}
+
+// CertificateAuthorityGeneralNameInput is an input type that accepts CertificateAuthorityGeneralNameArgs and CertificateAuthorityGeneralNameOutput values.
+// You can construct a concrete instance of `CertificateAuthorityGeneralNameInput` via:
+//
+//          CertificateAuthorityGeneralNameArgs{...}
+type CertificateAuthorityGeneralNameInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityGeneralNameOutput() CertificateAuthorityGeneralNameOutput
+	ToCertificateAuthorityGeneralNameOutputWithContext(context.Context) CertificateAuthorityGeneralNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
+type CertificateAuthorityGeneralNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
+	DirectoryName CertificateAuthoritySubjectPtrInput `pulumi:"directoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+	EdiPartyName CertificateAuthorityEdiPartyNamePtrInput `pulumi:"ediPartyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+	OtherName CertificateAuthorityOtherNamePtrInput `pulumi:"otherName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+	RegisteredId pulumi.StringPtrInput `pulumi:"registeredId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+	Rfc822Name pulumi.StringPtrInput `pulumi:"rfc822Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+	UniformResourceIdentifier pulumi.StringPtrInput `pulumi:"uniformResourceIdentifier"`
+}
+
+func (CertificateAuthorityGeneralNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityGeneralName)(nil)).Elem()
+}
+
+func (i CertificateAuthorityGeneralNameArgs) ToCertificateAuthorityGeneralNameOutput() CertificateAuthorityGeneralNameOutput {
+	return i.ToCertificateAuthorityGeneralNameOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityGeneralNameArgs) ToCertificateAuthorityGeneralNameOutputWithContext(ctx context.Context) CertificateAuthorityGeneralNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityGeneralNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
+type CertificateAuthorityGeneralNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityGeneralNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityGeneralName)(nil)).Elem()
+}
+
+func (o CertificateAuthorityGeneralNameOutput) ToCertificateAuthorityGeneralNameOutput() CertificateAuthorityGeneralNameOutput {
+	return o
+}
+
+func (o CertificateAuthorityGeneralNameOutput) ToCertificateAuthorityGeneralNameOutputWithContext(ctx context.Context) CertificateAuthorityGeneralNameOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
+func (o CertificateAuthorityGeneralNameOutput) DirectoryName() CertificateAuthoritySubjectPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *CertificateAuthoritySubject { return v.DirectoryName }).(CertificateAuthoritySubjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
+func (o CertificateAuthorityGeneralNameOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
+func (o CertificateAuthorityGeneralNameOutput) EdiPartyName() CertificateAuthorityEdiPartyNamePtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *CertificateAuthorityEdiPartyName { return v.EdiPartyName }).(CertificateAuthorityEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
+func (o CertificateAuthorityGeneralNameOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
+func (o CertificateAuthorityGeneralNameOutput) OtherName() CertificateAuthorityOtherNamePtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *CertificateAuthorityOtherName { return v.OtherName }).(CertificateAuthorityOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
+func (o CertificateAuthorityGeneralNameOutput) RegisteredId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *string { return v.RegisteredId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
+func (o CertificateAuthorityGeneralNameOutput) Rfc822Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *string { return v.Rfc822Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+func (o CertificateAuthorityGeneralNameOutput) UniformResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityGeneralName) *string { return v.UniformResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
+type CertificateAuthorityKeyUsage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+	CRLSign *bool `pulumi:"cRLSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+	DataEncipherment *bool `pulumi:"dataEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+	DecipherOnly *bool `pulumi:"decipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+	DigitalSignature *bool `pulumi:"digitalSignature"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+	EncipherOnly *bool `pulumi:"encipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+	KeyAgreement *bool `pulumi:"keyAgreement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+	KeyCertSign *bool `pulumi:"keyCertSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+	KeyEncipherment *bool `pulumi:"keyEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+	NonRepudiation *bool `pulumi:"nonRepudiation"`
+}
+
+// CertificateAuthorityKeyUsageInput is an input type that accepts CertificateAuthorityKeyUsageArgs and CertificateAuthorityKeyUsageOutput values.
+// You can construct a concrete instance of `CertificateAuthorityKeyUsageInput` via:
+//
+//          CertificateAuthorityKeyUsageArgs{...}
+type CertificateAuthorityKeyUsageInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityKeyUsageOutput() CertificateAuthorityKeyUsageOutput
+	ToCertificateAuthorityKeyUsageOutputWithContext(context.Context) CertificateAuthorityKeyUsageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
+type CertificateAuthorityKeyUsageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+	CRLSign pulumi.BoolPtrInput `pulumi:"cRLSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+	DecipherOnly pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+	EncipherOnly pulumi.BoolPtrInput `pulumi:"encipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+	KeyAgreement pulumi.BoolPtrInput `pulumi:"keyAgreement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+	KeyCertSign pulumi.BoolPtrInput `pulumi:"keyCertSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+	KeyEncipherment pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+	NonRepudiation pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
+}
+
+func (CertificateAuthorityKeyUsageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityKeyUsage)(nil)).Elem()
+}
+
+func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsageOutput() CertificateAuthorityKeyUsageOutput {
+	return i.ToCertificateAuthorityKeyUsageOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsageOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityKeyUsageOutput)
+}
+
+func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput {
+	return i.ToCertificateAuthorityKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityKeyUsageOutput).ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityKeyUsagePtrInput is an input type that accepts CertificateAuthorityKeyUsageArgs, CertificateAuthorityKeyUsagePtr and CertificateAuthorityKeyUsagePtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityKeyUsagePtrInput` via:
+//
+//          CertificateAuthorityKeyUsageArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityKeyUsagePtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput
+	ToCertificateAuthorityKeyUsagePtrOutputWithContext(context.Context) CertificateAuthorityKeyUsagePtrOutput
+}
+
+type certificateAuthorityKeyUsagePtrType CertificateAuthorityKeyUsageArgs
+
+func CertificateAuthorityKeyUsagePtr(v *CertificateAuthorityKeyUsageArgs) CertificateAuthorityKeyUsagePtrInput {
+	return (*certificateAuthorityKeyUsagePtrType)(v)
+}
+
+func (*certificateAuthorityKeyUsagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityKeyUsage)(nil)).Elem()
+}
+
+func (i *certificateAuthorityKeyUsagePtrType) ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput {
+	return i.ToCertificateAuthorityKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityKeyUsagePtrType) ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
+type CertificateAuthorityKeyUsageOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityKeyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsageOutput() CertificateAuthorityKeyUsageOutput {
+	return o
+}
+
+func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsageOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsageOutput {
+	return o
+}
+
+func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput {
+	return o.ToCertificateAuthorityKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityKeyUsage) *CertificateAuthorityKeyUsage {
+		return &v
+	}).(CertificateAuthorityKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+func (o CertificateAuthorityKeyUsageOutput) CRLSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.CRLSign }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+func (o CertificateAuthorityKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DataEncipherment }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+func (o CertificateAuthorityKeyUsageOutput) DecipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DecipherOnly }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+func (o CertificateAuthorityKeyUsageOutput) DigitalSignature() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.DigitalSignature }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+func (o CertificateAuthorityKeyUsageOutput) EncipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.EncipherOnly }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+func (o CertificateAuthorityKeyUsageOutput) KeyAgreement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyAgreement }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+func (o CertificateAuthorityKeyUsageOutput) KeyCertSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyCertSign }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+func (o CertificateAuthorityKeyUsageOutput) KeyEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.KeyEncipherment }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+func (o CertificateAuthorityKeyUsageOutput) NonRepudiation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityKeyUsage) *bool { return v.NonRepudiation }).(pulumi.BoolPtrOutput)
+}
+
+type CertificateAuthorityKeyUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityKeyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateAuthorityKeyUsagePtrOutput) ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityKeyUsagePtrOutput) ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsagePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityKeyUsagePtrOutput) Elem() CertificateAuthorityKeyUsageOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) CertificateAuthorityKeyUsage {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityKeyUsage
+		return ret
+	}).(CertificateAuthorityKeyUsageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
+func (o CertificateAuthorityKeyUsagePtrOutput) CRLSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CRLSign
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
+func (o CertificateAuthorityKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
+func (o CertificateAuthorityKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DecipherOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
+func (o CertificateAuthorityKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DigitalSignature
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
+func (o CertificateAuthorityKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncipherOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
+func (o CertificateAuthorityKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyAgreement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
+func (o CertificateAuthorityKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyCertSign
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
+func (o CertificateAuthorityKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+func (o CertificateAuthorityKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NonRepudiation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
+type CertificateAuthorityOtherName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+	TypeId string `pulumi:"typeId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+	Value string `pulumi:"value"`
+}
+
+// CertificateAuthorityOtherNameInput is an input type that accepts CertificateAuthorityOtherNameArgs and CertificateAuthorityOtherNameOutput values.
+// You can construct a concrete instance of `CertificateAuthorityOtherNameInput` via:
+//
+//          CertificateAuthorityOtherNameArgs{...}
+type CertificateAuthorityOtherNameInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityOtherNameOutput() CertificateAuthorityOtherNameOutput
+	ToCertificateAuthorityOtherNameOutputWithContext(context.Context) CertificateAuthorityOtherNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
+type CertificateAuthorityOtherNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+	TypeId pulumi.StringInput `pulumi:"typeId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateAuthorityOtherNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityOtherName)(nil)).Elem()
+}
+
+func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNameOutput() CertificateAuthorityOtherNameOutput {
+	return i.ToCertificateAuthorityOtherNameOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNameOutputWithContext(ctx context.Context) CertificateAuthorityOtherNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOtherNameOutput)
+}
+
+func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput {
+	return i.ToCertificateAuthorityOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityOtherNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOtherNameOutput).ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityOtherNamePtrInput is an input type that accepts CertificateAuthorityOtherNameArgs, CertificateAuthorityOtherNamePtr and CertificateAuthorityOtherNamePtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityOtherNamePtrInput` via:
+//
+//          CertificateAuthorityOtherNameArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityOtherNamePtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput
+	ToCertificateAuthorityOtherNamePtrOutputWithContext(context.Context) CertificateAuthorityOtherNamePtrOutput
+}
+
+type certificateAuthorityOtherNamePtrType CertificateAuthorityOtherNameArgs
+
+func CertificateAuthorityOtherNamePtr(v *CertificateAuthorityOtherNameArgs) CertificateAuthorityOtherNamePtrInput {
+	return (*certificateAuthorityOtherNamePtrType)(v)
+}
+
+func (*certificateAuthorityOtherNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityOtherName)(nil)).Elem()
+}
+
+func (i *certificateAuthorityOtherNamePtrType) ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput {
+	return i.ToCertificateAuthorityOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityOtherNamePtrType) ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityOtherNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
+type CertificateAuthorityOtherNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityOtherNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityOtherName)(nil)).Elem()
+}
+
+func (o CertificateAuthorityOtherNameOutput) ToCertificateAuthorityOtherNameOutput() CertificateAuthorityOtherNameOutput {
+	return o
+}
+
+func (o CertificateAuthorityOtherNameOutput) ToCertificateAuthorityOtherNameOutputWithContext(ctx context.Context) CertificateAuthorityOtherNameOutput {
+	return o
+}
+
+func (o CertificateAuthorityOtherNameOutput) ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput {
+	return o.ToCertificateAuthorityOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityOtherNameOutput) ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityOtherNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityOtherName) *CertificateAuthorityOtherName {
+		return &v
+	}).(CertificateAuthorityOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+func (o CertificateAuthorityOtherNameOutput) TypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityOtherName) string { return v.TypeId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+func (o CertificateAuthorityOtherNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateAuthorityOtherName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateAuthorityOtherNamePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityOtherNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityOtherName)(nil)).Elem()
+}
+
+func (o CertificateAuthorityOtherNamePtrOutput) ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityOtherNamePtrOutput) ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityOtherNamePtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityOtherNamePtrOutput) Elem() CertificateAuthorityOtherNameOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOtherName) CertificateAuthorityOtherName {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityOtherName
+		return ret
+	}).(CertificateAuthorityOtherNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
+func (o CertificateAuthorityOtherNamePtrOutput) TypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOtherName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TypeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+func (o CertificateAuthorityOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOtherName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -736,12 +1976,1751 @@ func (o CertificateAuthoritySubjectPtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
+type CertificateEdiPartyName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+	NameAssigner string `pulumi:"nameAssigner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+	PartyName string `pulumi:"partyName"`
+}
+
+// CertificateEdiPartyNameInput is an input type that accepts CertificateEdiPartyNameArgs and CertificateEdiPartyNameOutput values.
+// You can construct a concrete instance of `CertificateEdiPartyNameInput` via:
+//
+//          CertificateEdiPartyNameArgs{...}
+type CertificateEdiPartyNameInput interface {
+	pulumi.Input
+
+	ToCertificateEdiPartyNameOutput() CertificateEdiPartyNameOutput
+	ToCertificateEdiPartyNameOutputWithContext(context.Context) CertificateEdiPartyNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
+type CertificateEdiPartyNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+	NameAssigner pulumi.StringInput `pulumi:"nameAssigner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+	PartyName pulumi.StringInput `pulumi:"partyName"`
+}
+
+func (CertificateEdiPartyNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateEdiPartyName)(nil)).Elem()
+}
+
+func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNameOutput() CertificateEdiPartyNameOutput {
+	return i.ToCertificateEdiPartyNameOutputWithContext(context.Background())
+}
+
+func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNameOutputWithContext(ctx context.Context) CertificateEdiPartyNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNameOutput)
+}
+
+func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput {
+	return i.ToCertificateEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateEdiPartyNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNameOutput).ToCertificateEdiPartyNamePtrOutputWithContext(ctx)
+}
+
+// CertificateEdiPartyNamePtrInput is an input type that accepts CertificateEdiPartyNameArgs, CertificateEdiPartyNamePtr and CertificateEdiPartyNamePtrOutput values.
+// You can construct a concrete instance of `CertificateEdiPartyNamePtrInput` via:
+//
+//          CertificateEdiPartyNameArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateEdiPartyNamePtrInput interface {
+	pulumi.Input
+
+	ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput
+	ToCertificateEdiPartyNamePtrOutputWithContext(context.Context) CertificateEdiPartyNamePtrOutput
+}
+
+type certificateEdiPartyNamePtrType CertificateEdiPartyNameArgs
+
+func CertificateEdiPartyNamePtr(v *CertificateEdiPartyNameArgs) CertificateEdiPartyNamePtrInput {
+	return (*certificateEdiPartyNamePtrType)(v)
+}
+
+func (*certificateEdiPartyNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateEdiPartyName)(nil)).Elem()
+}
+
+func (i *certificateEdiPartyNamePtrType) ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput {
+	return i.ToCertificateEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateEdiPartyNamePtrType) ToCertificateEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateEdiPartyNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
+type CertificateEdiPartyNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateEdiPartyNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateEdiPartyName)(nil)).Elem()
+}
+
+func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNameOutput() CertificateEdiPartyNameOutput {
+	return o
+}
+
+func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNameOutputWithContext(ctx context.Context) CertificateEdiPartyNameOutput {
+	return o
+}
+
+func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput {
+	return o.ToCertificateEdiPartyNamePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateEdiPartyNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateEdiPartyName) *CertificateEdiPartyName {
+		return &v
+	}).(CertificateEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+func (o CertificateEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+func (o CertificateEdiPartyNameOutput) PartyName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateEdiPartyName) string { return v.PartyName }).(pulumi.StringOutput)
+}
+
+type CertificateEdiPartyNamePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateEdiPartyNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateEdiPartyName)(nil)).Elem()
+}
+
+func (o CertificateEdiPartyNamePtrOutput) ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput {
+	return o
+}
+
+func (o CertificateEdiPartyNamePtrOutput) ToCertificateEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateEdiPartyNamePtrOutput {
+	return o
+}
+
+func (o CertificateEdiPartyNamePtrOutput) Elem() CertificateEdiPartyNameOutput {
+	return o.ApplyT(func(v *CertificateEdiPartyName) CertificateEdiPartyName {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateEdiPartyName
+		return ret
+	}).(CertificateEdiPartyNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
+func (o CertificateEdiPartyNamePtrOutput) NameAssigner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateEdiPartyName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NameAssigner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+func (o CertificateEdiPartyNamePtrOutput) PartyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateEdiPartyName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+type CertificateExtendedKeyUsage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
+	ExtendedKeyUsageObjectIdentifier *string `pulumi:"extendedKeyUsageObjectIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+	ExtendedKeyUsageType *string `pulumi:"extendedKeyUsageType"`
+}
+
+// CertificateExtendedKeyUsageInput is an input type that accepts CertificateExtendedKeyUsageArgs and CertificateExtendedKeyUsageOutput values.
+// You can construct a concrete instance of `CertificateExtendedKeyUsageInput` via:
+//
+//          CertificateExtendedKeyUsageArgs{...}
+type CertificateExtendedKeyUsageInput interface {
+	pulumi.Input
+
+	ToCertificateExtendedKeyUsageOutput() CertificateExtendedKeyUsageOutput
+	ToCertificateExtendedKeyUsageOutputWithContext(context.Context) CertificateExtendedKeyUsageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+type CertificateExtendedKeyUsageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
+	ExtendedKeyUsageObjectIdentifier pulumi.StringPtrInput `pulumi:"extendedKeyUsageObjectIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+	ExtendedKeyUsageType pulumi.StringPtrInput `pulumi:"extendedKeyUsageType"`
+}
+
+func (CertificateExtendedKeyUsageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateExtendedKeyUsage)(nil)).Elem()
+}
+
+func (i CertificateExtendedKeyUsageArgs) ToCertificateExtendedKeyUsageOutput() CertificateExtendedKeyUsageOutput {
+	return i.ToCertificateExtendedKeyUsageOutputWithContext(context.Background())
+}
+
+func (i CertificateExtendedKeyUsageArgs) ToCertificateExtendedKeyUsageOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageOutput)
+}
+
+// CertificateExtendedKeyUsageArrayInput is an input type that accepts CertificateExtendedKeyUsageArray and CertificateExtendedKeyUsageArrayOutput values.
+// You can construct a concrete instance of `CertificateExtendedKeyUsageArrayInput` via:
+//
+//          CertificateExtendedKeyUsageArray{ CertificateExtendedKeyUsageArgs{...} }
+type CertificateExtendedKeyUsageArrayInput interface {
+	pulumi.Input
+
+	ToCertificateExtendedKeyUsageArrayOutput() CertificateExtendedKeyUsageArrayOutput
+	ToCertificateExtendedKeyUsageArrayOutputWithContext(context.Context) CertificateExtendedKeyUsageArrayOutput
+}
+
+type CertificateExtendedKeyUsageArray []CertificateExtendedKeyUsageInput
+
+func (CertificateExtendedKeyUsageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateExtendedKeyUsage)(nil)).Elem()
+}
+
+func (i CertificateExtendedKeyUsageArray) ToCertificateExtendedKeyUsageArrayOutput() CertificateExtendedKeyUsageArrayOutput {
+	return i.ToCertificateExtendedKeyUsageArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateExtendedKeyUsageArray) ToCertificateExtendedKeyUsageArrayOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+type CertificateExtendedKeyUsageOutput struct{ *pulumi.OutputState }
+
+func (CertificateExtendedKeyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateExtendedKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateExtendedKeyUsageOutput) ToCertificateExtendedKeyUsageOutput() CertificateExtendedKeyUsageOutput {
+	return o
+}
+
+func (o CertificateExtendedKeyUsageOutput) ToCertificateExtendedKeyUsageOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
+func (o CertificateExtendedKeyUsageOutput) ExtendedKeyUsageObjectIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateExtendedKeyUsage) *string { return v.ExtendedKeyUsageObjectIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+func (o CertificateExtendedKeyUsageOutput) ExtendedKeyUsageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateExtendedKeyUsage) *string { return v.ExtendedKeyUsageType }).(pulumi.StringPtrOutput)
+}
+
+type CertificateExtendedKeyUsageArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateExtendedKeyUsageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateExtendedKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateExtendedKeyUsageArrayOutput) ToCertificateExtendedKeyUsageArrayOutput() CertificateExtendedKeyUsageArrayOutput {
+	return o
+}
+
+func (o CertificateExtendedKeyUsageArrayOutput) ToCertificateExtendedKeyUsageArrayOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageArrayOutput {
+	return o
+}
+
+func (o CertificateExtendedKeyUsageArrayOutput) Index(i pulumi.IntInput) CertificateExtendedKeyUsageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateExtendedKeyUsage {
+		return vs[0].([]CertificateExtendedKeyUsage)[vs[1].(int)]
+	}).(CertificateExtendedKeyUsageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+type CertificateExtensions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+	CertificatePolicies []CertificatePolicyInformation `pulumi:"certificatePolicies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+	ExtendedKeyUsage []CertificateExtendedKeyUsage `pulumi:"extendedKeyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+	KeyUsage *CertificateKeyUsage `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+	SubjectAlternativeNames []CertificateGeneralName `pulumi:"subjectAlternativeNames"`
+}
+
+// CertificateExtensionsInput is an input type that accepts CertificateExtensionsArgs and CertificateExtensionsOutput values.
+// You can construct a concrete instance of `CertificateExtensionsInput` via:
+//
+//          CertificateExtensionsArgs{...}
+type CertificateExtensionsInput interface {
+	pulumi.Input
+
+	ToCertificateExtensionsOutput() CertificateExtensionsOutput
+	ToCertificateExtensionsOutputWithContext(context.Context) CertificateExtensionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+type CertificateExtensionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+	CertificatePolicies CertificatePolicyInformationArrayInput `pulumi:"certificatePolicies"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+	ExtendedKeyUsage CertificateExtendedKeyUsageArrayInput `pulumi:"extendedKeyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+	KeyUsage CertificateKeyUsagePtrInput `pulumi:"keyUsage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+	SubjectAlternativeNames CertificateGeneralNameArrayInput `pulumi:"subjectAlternativeNames"`
+}
+
+func (CertificateExtensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateExtensions)(nil)).Elem()
+}
+
+func (i CertificateExtensionsArgs) ToCertificateExtensionsOutput() CertificateExtensionsOutput {
+	return i.ToCertificateExtensionsOutputWithContext(context.Background())
+}
+
+func (i CertificateExtensionsArgs) ToCertificateExtensionsOutputWithContext(ctx context.Context) CertificateExtensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsOutput)
+}
+
+func (i CertificateExtensionsArgs) ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput {
+	return i.ToCertificateExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateExtensionsArgs) ToCertificateExtensionsPtrOutputWithContext(ctx context.Context) CertificateExtensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsOutput).ToCertificateExtensionsPtrOutputWithContext(ctx)
+}
+
+// CertificateExtensionsPtrInput is an input type that accepts CertificateExtensionsArgs, CertificateExtensionsPtr and CertificateExtensionsPtrOutput values.
+// You can construct a concrete instance of `CertificateExtensionsPtrInput` via:
+//
+//          CertificateExtensionsArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateExtensionsPtrInput interface {
+	pulumi.Input
+
+	ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput
+	ToCertificateExtensionsPtrOutputWithContext(context.Context) CertificateExtensionsPtrOutput
+}
+
+type certificateExtensionsPtrType CertificateExtensionsArgs
+
+func CertificateExtensionsPtr(v *CertificateExtensionsArgs) CertificateExtensionsPtrInput {
+	return (*certificateExtensionsPtrType)(v)
+}
+
+func (*certificateExtensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateExtensions)(nil)).Elem()
+}
+
+func (i *certificateExtensionsPtrType) ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput {
+	return i.ToCertificateExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateExtensionsPtrType) ToCertificateExtensionsPtrOutputWithContext(ctx context.Context) CertificateExtensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+type CertificateExtensionsOutput struct{ *pulumi.OutputState }
+
+func (CertificateExtensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateExtensions)(nil)).Elem()
+}
+
+func (o CertificateExtensionsOutput) ToCertificateExtensionsOutput() CertificateExtensionsOutput {
+	return o
+}
+
+func (o CertificateExtensionsOutput) ToCertificateExtensionsOutputWithContext(ctx context.Context) CertificateExtensionsOutput {
+	return o
+}
+
+func (o CertificateExtensionsOutput) ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput {
+	return o.ToCertificateExtensionsPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateExtensionsOutput) ToCertificateExtensionsPtrOutputWithContext(ctx context.Context) CertificateExtensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateExtensions) *CertificateExtensions {
+		return &v
+	}).(CertificateExtensionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+func (o CertificateExtensionsOutput) CertificatePolicies() CertificatePolicyInformationArrayOutput {
+	return o.ApplyT(func(v CertificateExtensions) []CertificatePolicyInformation { return v.CertificatePolicies }).(CertificatePolicyInformationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+func (o CertificateExtensionsOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
+	return o.ApplyT(func(v CertificateExtensions) []CertificateExtendedKeyUsage { return v.ExtendedKeyUsage }).(CertificateExtendedKeyUsageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+func (o CertificateExtensionsOutput) KeyUsage() CertificateKeyUsagePtrOutput {
+	return o.ApplyT(func(v CertificateExtensions) *CertificateKeyUsage { return v.KeyUsage }).(CertificateKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+func (o CertificateExtensionsOutput) SubjectAlternativeNames() CertificateGeneralNameArrayOutput {
+	return o.ApplyT(func(v CertificateExtensions) []CertificateGeneralName { return v.SubjectAlternativeNames }).(CertificateGeneralNameArrayOutput)
+}
+
+type CertificateExtensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateExtensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateExtensions)(nil)).Elem()
+}
+
+func (o CertificateExtensionsPtrOutput) ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput {
+	return o
+}
+
+func (o CertificateExtensionsPtrOutput) ToCertificateExtensionsPtrOutputWithContext(ctx context.Context) CertificateExtensionsPtrOutput {
+	return o
+}
+
+func (o CertificateExtensionsPtrOutput) Elem() CertificateExtensionsOutput {
+	return o.ApplyT(func(v *CertificateExtensions) CertificateExtensions {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateExtensions
+		return ret
+	}).(CertificateExtensionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
+func (o CertificateExtensionsPtrOutput) CertificatePolicies() CertificatePolicyInformationArrayOutput {
+	return o.ApplyT(func(v *CertificateExtensions) []CertificatePolicyInformation {
+		if v == nil {
+			return nil
+		}
+		return v.CertificatePolicies
+	}).(CertificatePolicyInformationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
+func (o CertificateExtensionsPtrOutput) ExtendedKeyUsage() CertificateExtendedKeyUsageArrayOutput {
+	return o.ApplyT(func(v *CertificateExtensions) []CertificateExtendedKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendedKeyUsage
+	}).(CertificateExtendedKeyUsageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
+func (o CertificateExtensionsPtrOutput) KeyUsage() CertificateKeyUsagePtrOutput {
+	return o.ApplyT(func(v *CertificateExtensions) *CertificateKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsage
+	}).(CertificateKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+func (o CertificateExtensionsPtrOutput) SubjectAlternativeNames() CertificateGeneralNameArrayOutput {
+	return o.ApplyT(func(v *CertificateExtensions) []CertificateGeneralName {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectAlternativeNames
+	}).(CertificateGeneralNameArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
+type CertificateGeneralName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
+	DirectoryName *CertificateSubject `pulumi:"directoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
+	DnsName *string `pulumi:"dnsName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
+	EdiPartyName *CertificateEdiPartyName `pulumi:"ediPartyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
+	IpAddress *string `pulumi:"ipAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
+	OtherName *CertificateOtherName `pulumi:"otherName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
+	RegisteredId *string `pulumi:"registeredId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
+	Rfc822Name *string `pulumi:"rfc822Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+	UniformResourceIdentifier *string `pulumi:"uniformResourceIdentifier"`
+}
+
+// CertificateGeneralNameInput is an input type that accepts CertificateGeneralNameArgs and CertificateGeneralNameOutput values.
+// You can construct a concrete instance of `CertificateGeneralNameInput` via:
+//
+//          CertificateGeneralNameArgs{...}
+type CertificateGeneralNameInput interface {
+	pulumi.Input
+
+	ToCertificateGeneralNameOutput() CertificateGeneralNameOutput
+	ToCertificateGeneralNameOutputWithContext(context.Context) CertificateGeneralNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
+type CertificateGeneralNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
+	DirectoryName CertificateSubjectPtrInput `pulumi:"directoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
+	EdiPartyName CertificateEdiPartyNamePtrInput `pulumi:"ediPartyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
+	OtherName CertificateOtherNamePtrInput `pulumi:"otherName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
+	RegisteredId pulumi.StringPtrInput `pulumi:"registeredId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
+	Rfc822Name pulumi.StringPtrInput `pulumi:"rfc822Name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+	UniformResourceIdentifier pulumi.StringPtrInput `pulumi:"uniformResourceIdentifier"`
+}
+
+func (CertificateGeneralNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateGeneralName)(nil)).Elem()
+}
+
+func (i CertificateGeneralNameArgs) ToCertificateGeneralNameOutput() CertificateGeneralNameOutput {
+	return i.ToCertificateGeneralNameOutputWithContext(context.Background())
+}
+
+func (i CertificateGeneralNameArgs) ToCertificateGeneralNameOutputWithContext(ctx context.Context) CertificateGeneralNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameOutput)
+}
+
+// CertificateGeneralNameArrayInput is an input type that accepts CertificateGeneralNameArray and CertificateGeneralNameArrayOutput values.
+// You can construct a concrete instance of `CertificateGeneralNameArrayInput` via:
+//
+//          CertificateGeneralNameArray{ CertificateGeneralNameArgs{...} }
+type CertificateGeneralNameArrayInput interface {
+	pulumi.Input
+
+	ToCertificateGeneralNameArrayOutput() CertificateGeneralNameArrayOutput
+	ToCertificateGeneralNameArrayOutputWithContext(context.Context) CertificateGeneralNameArrayOutput
+}
+
+type CertificateGeneralNameArray []CertificateGeneralNameInput
+
+func (CertificateGeneralNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateGeneralName)(nil)).Elem()
+}
+
+func (i CertificateGeneralNameArray) ToCertificateGeneralNameArrayOutput() CertificateGeneralNameArrayOutput {
+	return i.ToCertificateGeneralNameArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateGeneralNameArray) ToCertificateGeneralNameArrayOutputWithContext(ctx context.Context) CertificateGeneralNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
+type CertificateGeneralNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateGeneralNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateGeneralName)(nil)).Elem()
+}
+
+func (o CertificateGeneralNameOutput) ToCertificateGeneralNameOutput() CertificateGeneralNameOutput {
+	return o
+}
+
+func (o CertificateGeneralNameOutput) ToCertificateGeneralNameOutputWithContext(ctx context.Context) CertificateGeneralNameOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
+func (o CertificateGeneralNameOutput) DirectoryName() CertificateSubjectPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *CertificateSubject { return v.DirectoryName }).(CertificateSubjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
+func (o CertificateGeneralNameOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
+func (o CertificateGeneralNameOutput) EdiPartyName() CertificateEdiPartyNamePtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *CertificateEdiPartyName { return v.EdiPartyName }).(CertificateEdiPartyNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
+func (o CertificateGeneralNameOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
+func (o CertificateGeneralNameOutput) OtherName() CertificateOtherNamePtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *CertificateOtherName { return v.OtherName }).(CertificateOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
+func (o CertificateGeneralNameOutput) RegisteredId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *string { return v.RegisteredId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
+func (o CertificateGeneralNameOutput) Rfc822Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *string { return v.Rfc822Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+func (o CertificateGeneralNameOutput) UniformResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateGeneralName) *string { return v.UniformResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type CertificateGeneralNameArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateGeneralNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateGeneralName)(nil)).Elem()
+}
+
+func (o CertificateGeneralNameArrayOutput) ToCertificateGeneralNameArrayOutput() CertificateGeneralNameArrayOutput {
+	return o
+}
+
+func (o CertificateGeneralNameArrayOutput) ToCertificateGeneralNameArrayOutputWithContext(ctx context.Context) CertificateGeneralNameArrayOutput {
+	return o
+}
+
+func (o CertificateGeneralNameArrayOutput) Index(i pulumi.IntInput) CertificateGeneralNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateGeneralName {
+		return vs[0].([]CertificateGeneralName)[vs[1].(int)]
+	}).(CertificateGeneralNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+type CertificateKeyUsage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+	CRLSign *bool `pulumi:"cRLSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+	DataEncipherment *bool `pulumi:"dataEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+	DecipherOnly *bool `pulumi:"decipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+	DigitalSignature *bool `pulumi:"digitalSignature"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+	EncipherOnly *bool `pulumi:"encipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+	KeyAgreement *bool `pulumi:"keyAgreement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+	KeyCertSign *bool `pulumi:"keyCertSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+	KeyEncipherment *bool `pulumi:"keyEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+	NonRepudiation *bool `pulumi:"nonRepudiation"`
+}
+
+// CertificateKeyUsageInput is an input type that accepts CertificateKeyUsageArgs and CertificateKeyUsageOutput values.
+// You can construct a concrete instance of `CertificateKeyUsageInput` via:
+//
+//          CertificateKeyUsageArgs{...}
+type CertificateKeyUsageInput interface {
+	pulumi.Input
+
+	ToCertificateKeyUsageOutput() CertificateKeyUsageOutput
+	ToCertificateKeyUsageOutputWithContext(context.Context) CertificateKeyUsageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+type CertificateKeyUsageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+	CRLSign pulumi.BoolPtrInput `pulumi:"cRLSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+	DataEncipherment pulumi.BoolPtrInput `pulumi:"dataEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+	DecipherOnly pulumi.BoolPtrInput `pulumi:"decipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+	DigitalSignature pulumi.BoolPtrInput `pulumi:"digitalSignature"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+	EncipherOnly pulumi.BoolPtrInput `pulumi:"encipherOnly"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+	KeyAgreement pulumi.BoolPtrInput `pulumi:"keyAgreement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+	KeyCertSign pulumi.BoolPtrInput `pulumi:"keyCertSign"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+	KeyEncipherment pulumi.BoolPtrInput `pulumi:"keyEncipherment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+	NonRepudiation pulumi.BoolPtrInput `pulumi:"nonRepudiation"`
+}
+
+func (CertificateKeyUsageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateKeyUsage)(nil)).Elem()
+}
+
+func (i CertificateKeyUsageArgs) ToCertificateKeyUsageOutput() CertificateKeyUsageOutput {
+	return i.ToCertificateKeyUsageOutputWithContext(context.Background())
+}
+
+func (i CertificateKeyUsageArgs) ToCertificateKeyUsageOutputWithContext(ctx context.Context) CertificateKeyUsageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsageOutput)
+}
+
+func (i CertificateKeyUsageArgs) ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput {
+	return i.ToCertificateKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateKeyUsageArgs) ToCertificateKeyUsagePtrOutputWithContext(ctx context.Context) CertificateKeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsageOutput).ToCertificateKeyUsagePtrOutputWithContext(ctx)
+}
+
+// CertificateKeyUsagePtrInput is an input type that accepts CertificateKeyUsageArgs, CertificateKeyUsagePtr and CertificateKeyUsagePtrOutput values.
+// You can construct a concrete instance of `CertificateKeyUsagePtrInput` via:
+//
+//          CertificateKeyUsageArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateKeyUsagePtrInput interface {
+	pulumi.Input
+
+	ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput
+	ToCertificateKeyUsagePtrOutputWithContext(context.Context) CertificateKeyUsagePtrOutput
+}
+
+type certificateKeyUsagePtrType CertificateKeyUsageArgs
+
+func CertificateKeyUsagePtr(v *CertificateKeyUsageArgs) CertificateKeyUsagePtrInput {
+	return (*certificateKeyUsagePtrType)(v)
+}
+
+func (*certificateKeyUsagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateKeyUsage)(nil)).Elem()
+}
+
+func (i *certificateKeyUsagePtrType) ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput {
+	return i.ToCertificateKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateKeyUsagePtrType) ToCertificateKeyUsagePtrOutputWithContext(ctx context.Context) CertificateKeyUsagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
+type CertificateKeyUsageOutput struct{ *pulumi.OutputState }
+
+func (CertificateKeyUsageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateKeyUsageOutput) ToCertificateKeyUsageOutput() CertificateKeyUsageOutput {
+	return o
+}
+
+func (o CertificateKeyUsageOutput) ToCertificateKeyUsageOutputWithContext(ctx context.Context) CertificateKeyUsageOutput {
+	return o
+}
+
+func (o CertificateKeyUsageOutput) ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput {
+	return o.ToCertificateKeyUsagePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateKeyUsageOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx context.Context) CertificateKeyUsagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateKeyUsage) *CertificateKeyUsage {
+		return &v
+	}).(CertificateKeyUsagePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+func (o CertificateKeyUsageOutput) CRLSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.CRLSign }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+func (o CertificateKeyUsageOutput) DataEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DataEncipherment }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+func (o CertificateKeyUsageOutput) DecipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DecipherOnly }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+func (o CertificateKeyUsageOutput) DigitalSignature() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.DigitalSignature }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+func (o CertificateKeyUsageOutput) EncipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.EncipherOnly }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+func (o CertificateKeyUsageOutput) KeyAgreement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyAgreement }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+func (o CertificateKeyUsageOutput) KeyCertSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyCertSign }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+func (o CertificateKeyUsageOutput) KeyEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.KeyEncipherment }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+func (o CertificateKeyUsageOutput) NonRepudiation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateKeyUsage) *bool { return v.NonRepudiation }).(pulumi.BoolPtrOutput)
+}
+
+type CertificateKeyUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateKeyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateKeyUsage)(nil)).Elem()
+}
+
+func (o CertificateKeyUsagePtrOutput) ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput {
+	return o
+}
+
+func (o CertificateKeyUsagePtrOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx context.Context) CertificateKeyUsagePtrOutput {
+	return o
+}
+
+func (o CertificateKeyUsagePtrOutput) Elem() CertificateKeyUsageOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) CertificateKeyUsage {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateKeyUsage
+		return ret
+	}).(CertificateKeyUsageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
+func (o CertificateKeyUsagePtrOutput) CRLSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CRLSign
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
+func (o CertificateKeyUsagePtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
+func (o CertificateKeyUsagePtrOutput) DecipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DecipherOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
+func (o CertificateKeyUsagePtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DigitalSignature
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
+func (o CertificateKeyUsagePtrOutput) EncipherOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncipherOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
+func (o CertificateKeyUsagePtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyAgreement
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
+func (o CertificateKeyUsagePtrOutput) KeyCertSign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyCertSign
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
+func (o CertificateKeyUsagePtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+func (o CertificateKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NonRepudiation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+type CertificateOtherName struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+	TypeId string `pulumi:"typeId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+	Value string `pulumi:"value"`
+}
+
+// CertificateOtherNameInput is an input type that accepts CertificateOtherNameArgs and CertificateOtherNameOutput values.
+// You can construct a concrete instance of `CertificateOtherNameInput` via:
+//
+//          CertificateOtherNameArgs{...}
+type CertificateOtherNameInput interface {
+	pulumi.Input
+
+	ToCertificateOtherNameOutput() CertificateOtherNameOutput
+	ToCertificateOtherNameOutputWithContext(context.Context) CertificateOtherNameOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+type CertificateOtherNameArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+	TypeId pulumi.StringInput `pulumi:"typeId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateOtherNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOtherName)(nil)).Elem()
+}
+
+func (i CertificateOtherNameArgs) ToCertificateOtherNameOutput() CertificateOtherNameOutput {
+	return i.ToCertificateOtherNameOutputWithContext(context.Background())
+}
+
+func (i CertificateOtherNameArgs) ToCertificateOtherNameOutputWithContext(ctx context.Context) CertificateOtherNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNameOutput)
+}
+
+func (i CertificateOtherNameArgs) ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput {
+	return i.ToCertificateOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (i CertificateOtherNameArgs) ToCertificateOtherNamePtrOutputWithContext(ctx context.Context) CertificateOtherNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNameOutput).ToCertificateOtherNamePtrOutputWithContext(ctx)
+}
+
+// CertificateOtherNamePtrInput is an input type that accepts CertificateOtherNameArgs, CertificateOtherNamePtr and CertificateOtherNamePtrOutput values.
+// You can construct a concrete instance of `CertificateOtherNamePtrInput` via:
+//
+//          CertificateOtherNameArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateOtherNamePtrInput interface {
+	pulumi.Input
+
+	ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput
+	ToCertificateOtherNamePtrOutputWithContext(context.Context) CertificateOtherNamePtrOutput
+}
+
+type certificateOtherNamePtrType CertificateOtherNameArgs
+
+func CertificateOtherNamePtr(v *CertificateOtherNameArgs) CertificateOtherNamePtrInput {
+	return (*certificateOtherNamePtrType)(v)
+}
+
+func (*certificateOtherNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateOtherName)(nil)).Elem()
+}
+
+func (i *certificateOtherNamePtrType) ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput {
+	return i.ToCertificateOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (i *certificateOtherNamePtrType) ToCertificateOtherNamePtrOutputWithContext(ctx context.Context) CertificateOtherNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+type CertificateOtherNameOutput struct{ *pulumi.OutputState }
+
+func (CertificateOtherNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateOtherName)(nil)).Elem()
+}
+
+func (o CertificateOtherNameOutput) ToCertificateOtherNameOutput() CertificateOtherNameOutput {
+	return o
+}
+
+func (o CertificateOtherNameOutput) ToCertificateOtherNameOutputWithContext(ctx context.Context) CertificateOtherNameOutput {
+	return o
+}
+
+func (o CertificateOtherNameOutput) ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput {
+	return o.ToCertificateOtherNamePtrOutputWithContext(context.Background())
+}
+
+func (o CertificateOtherNameOutput) ToCertificateOtherNamePtrOutputWithContext(ctx context.Context) CertificateOtherNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateOtherName) *CertificateOtherName {
+		return &v
+	}).(CertificateOtherNamePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+func (o CertificateOtherNameOutput) TypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateOtherName) string { return v.TypeId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+func (o CertificateOtherNameOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateOtherName) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateOtherNamePtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateOtherNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateOtherName)(nil)).Elem()
+}
+
+func (o CertificateOtherNamePtrOutput) ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput {
+	return o
+}
+
+func (o CertificateOtherNamePtrOutput) ToCertificateOtherNamePtrOutputWithContext(ctx context.Context) CertificateOtherNamePtrOutput {
+	return o
+}
+
+func (o CertificateOtherNamePtrOutput) Elem() CertificateOtherNameOutput {
+	return o.ApplyT(func(v *CertificateOtherName) CertificateOtherName {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateOtherName
+		return ret
+	}).(CertificateOtherNameOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
+func (o CertificateOtherNamePtrOutput) TypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateOtherName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TypeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+func (o CertificateOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateOtherName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+type CertificatePolicyInformation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
+	CertPolicyId string `pulumi:"certPolicyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+	PolicyQualifiers []CertificatePolicyQualifierInfo `pulumi:"policyQualifiers"`
+}
+
+// CertificatePolicyInformationInput is an input type that accepts CertificatePolicyInformationArgs and CertificatePolicyInformationOutput values.
+// You can construct a concrete instance of `CertificatePolicyInformationInput` via:
+//
+//          CertificatePolicyInformationArgs{...}
+type CertificatePolicyInformationInput interface {
+	pulumi.Input
+
+	ToCertificatePolicyInformationOutput() CertificatePolicyInformationOutput
+	ToCertificatePolicyInformationOutputWithContext(context.Context) CertificatePolicyInformationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+type CertificatePolicyInformationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
+	CertPolicyId pulumi.StringInput `pulumi:"certPolicyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+	PolicyQualifiers CertificatePolicyQualifierInfoArrayInput `pulumi:"policyQualifiers"`
+}
+
+func (CertificatePolicyInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePolicyInformation)(nil)).Elem()
+}
+
+func (i CertificatePolicyInformationArgs) ToCertificatePolicyInformationOutput() CertificatePolicyInformationOutput {
+	return i.ToCertificatePolicyInformationOutputWithContext(context.Background())
+}
+
+func (i CertificatePolicyInformationArgs) ToCertificatePolicyInformationOutputWithContext(ctx context.Context) CertificatePolicyInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationOutput)
+}
+
+// CertificatePolicyInformationArrayInput is an input type that accepts CertificatePolicyInformationArray and CertificatePolicyInformationArrayOutput values.
+// You can construct a concrete instance of `CertificatePolicyInformationArrayInput` via:
+//
+//          CertificatePolicyInformationArray{ CertificatePolicyInformationArgs{...} }
+type CertificatePolicyInformationArrayInput interface {
+	pulumi.Input
+
+	ToCertificatePolicyInformationArrayOutput() CertificatePolicyInformationArrayOutput
+	ToCertificatePolicyInformationArrayOutputWithContext(context.Context) CertificatePolicyInformationArrayOutput
+}
+
+type CertificatePolicyInformationArray []CertificatePolicyInformationInput
+
+func (CertificatePolicyInformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificatePolicyInformation)(nil)).Elem()
+}
+
+func (i CertificatePolicyInformationArray) ToCertificatePolicyInformationArrayOutput() CertificatePolicyInformationArrayOutput {
+	return i.ToCertificatePolicyInformationArrayOutputWithContext(context.Background())
+}
+
+func (i CertificatePolicyInformationArray) ToCertificatePolicyInformationArrayOutputWithContext(ctx context.Context) CertificatePolicyInformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+type CertificatePolicyInformationOutput struct{ *pulumi.OutputState }
+
+func (CertificatePolicyInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePolicyInformation)(nil)).Elem()
+}
+
+func (o CertificatePolicyInformationOutput) ToCertificatePolicyInformationOutput() CertificatePolicyInformationOutput {
+	return o
+}
+
+func (o CertificatePolicyInformationOutput) ToCertificatePolicyInformationOutputWithContext(ctx context.Context) CertificatePolicyInformationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
+func (o CertificatePolicyInformationOutput) CertPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePolicyInformation) string { return v.CertPolicyId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+func (o CertificatePolicyInformationOutput) PolicyQualifiers() CertificatePolicyQualifierInfoArrayOutput {
+	return o.ApplyT(func(v CertificatePolicyInformation) []CertificatePolicyQualifierInfo { return v.PolicyQualifiers }).(CertificatePolicyQualifierInfoArrayOutput)
+}
+
+type CertificatePolicyInformationArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificatePolicyInformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificatePolicyInformation)(nil)).Elem()
+}
+
+func (o CertificatePolicyInformationArrayOutput) ToCertificatePolicyInformationArrayOutput() CertificatePolicyInformationArrayOutput {
+	return o
+}
+
+func (o CertificatePolicyInformationArrayOutput) ToCertificatePolicyInformationArrayOutputWithContext(ctx context.Context) CertificatePolicyInformationArrayOutput {
+	return o
+}
+
+func (o CertificatePolicyInformationArrayOutput) Index(i pulumi.IntInput) CertificatePolicyInformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificatePolicyInformation {
+		return vs[0].([]CertificatePolicyInformation)[vs[1].(int)]
+	}).(CertificatePolicyInformationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+type CertificatePolicyQualifierInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
+	PolicyQualifierId string `pulumi:"policyQualifierId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+	Qualifier CertificateQualifier `pulumi:"qualifier"`
+}
+
+// CertificatePolicyQualifierInfoInput is an input type that accepts CertificatePolicyQualifierInfoArgs and CertificatePolicyQualifierInfoOutput values.
+// You can construct a concrete instance of `CertificatePolicyQualifierInfoInput` via:
+//
+//          CertificatePolicyQualifierInfoArgs{...}
+type CertificatePolicyQualifierInfoInput interface {
+	pulumi.Input
+
+	ToCertificatePolicyQualifierInfoOutput() CertificatePolicyQualifierInfoOutput
+	ToCertificatePolicyQualifierInfoOutputWithContext(context.Context) CertificatePolicyQualifierInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+type CertificatePolicyQualifierInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
+	PolicyQualifierId pulumi.StringInput `pulumi:"policyQualifierId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+	Qualifier CertificateQualifierInput `pulumi:"qualifier"`
+}
+
+func (CertificatePolicyQualifierInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePolicyQualifierInfo)(nil)).Elem()
+}
+
+func (i CertificatePolicyQualifierInfoArgs) ToCertificatePolicyQualifierInfoOutput() CertificatePolicyQualifierInfoOutput {
+	return i.ToCertificatePolicyQualifierInfoOutputWithContext(context.Background())
+}
+
+func (i CertificatePolicyQualifierInfoArgs) ToCertificatePolicyQualifierInfoOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoOutput)
+}
+
+// CertificatePolicyQualifierInfoArrayInput is an input type that accepts CertificatePolicyQualifierInfoArray and CertificatePolicyQualifierInfoArrayOutput values.
+// You can construct a concrete instance of `CertificatePolicyQualifierInfoArrayInput` via:
+//
+//          CertificatePolicyQualifierInfoArray{ CertificatePolicyQualifierInfoArgs{...} }
+type CertificatePolicyQualifierInfoArrayInput interface {
+	pulumi.Input
+
+	ToCertificatePolicyQualifierInfoArrayOutput() CertificatePolicyQualifierInfoArrayOutput
+	ToCertificatePolicyQualifierInfoArrayOutputWithContext(context.Context) CertificatePolicyQualifierInfoArrayOutput
+}
+
+type CertificatePolicyQualifierInfoArray []CertificatePolicyQualifierInfoInput
+
+func (CertificatePolicyQualifierInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificatePolicyQualifierInfo)(nil)).Elem()
+}
+
+func (i CertificatePolicyQualifierInfoArray) ToCertificatePolicyQualifierInfoArrayOutput() CertificatePolicyQualifierInfoArrayOutput {
+	return i.ToCertificatePolicyQualifierInfoArrayOutputWithContext(context.Background())
+}
+
+func (i CertificatePolicyQualifierInfoArray) ToCertificatePolicyQualifierInfoArrayOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+type CertificatePolicyQualifierInfoOutput struct{ *pulumi.OutputState }
+
+func (CertificatePolicyQualifierInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificatePolicyQualifierInfo)(nil)).Elem()
+}
+
+func (o CertificatePolicyQualifierInfoOutput) ToCertificatePolicyQualifierInfoOutput() CertificatePolicyQualifierInfoOutput {
+	return o
+}
+
+func (o CertificatePolicyQualifierInfoOutput) ToCertificatePolicyQualifierInfoOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
+func (o CertificatePolicyQualifierInfoOutput) PolicyQualifierId() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificatePolicyQualifierInfo) string { return v.PolicyQualifierId }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+func (o CertificatePolicyQualifierInfoOutput) Qualifier() CertificateQualifierOutput {
+	return o.ApplyT(func(v CertificatePolicyQualifierInfo) CertificateQualifier { return v.Qualifier }).(CertificateQualifierOutput)
+}
+
+type CertificatePolicyQualifierInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificatePolicyQualifierInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificatePolicyQualifierInfo)(nil)).Elem()
+}
+
+func (o CertificatePolicyQualifierInfoArrayOutput) ToCertificatePolicyQualifierInfoArrayOutput() CertificatePolicyQualifierInfoArrayOutput {
+	return o
+}
+
+func (o CertificatePolicyQualifierInfoArrayOutput) ToCertificatePolicyQualifierInfoArrayOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoArrayOutput {
+	return o
+}
+
+func (o CertificatePolicyQualifierInfoArrayOutput) Index(i pulumi.IntInput) CertificatePolicyQualifierInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificatePolicyQualifierInfo {
+		return vs[0].([]CertificatePolicyQualifierInfo)[vs[1].(int)]
+	}).(CertificatePolicyQualifierInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+type CertificateQualifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+	CpsUri string `pulumi:"cpsUri"`
+}
+
+// CertificateQualifierInput is an input type that accepts CertificateQualifierArgs and CertificateQualifierOutput values.
+// You can construct a concrete instance of `CertificateQualifierInput` via:
+//
+//          CertificateQualifierArgs{...}
+type CertificateQualifierInput interface {
+	pulumi.Input
+
+	ToCertificateQualifierOutput() CertificateQualifierOutput
+	ToCertificateQualifierOutputWithContext(context.Context) CertificateQualifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+type CertificateQualifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+	CpsUri pulumi.StringInput `pulumi:"cpsUri"`
+}
+
+func (CertificateQualifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateQualifier)(nil)).Elem()
+}
+
+func (i CertificateQualifierArgs) ToCertificateQualifierOutput() CertificateQualifierOutput {
+	return i.ToCertificateQualifierOutputWithContext(context.Background())
+}
+
+func (i CertificateQualifierArgs) ToCertificateQualifierOutputWithContext(ctx context.Context) CertificateQualifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateQualifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+type CertificateQualifierOutput struct{ *pulumi.OutputState }
+
+func (CertificateQualifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateQualifier)(nil)).Elem()
+}
+
+func (o CertificateQualifierOutput) ToCertificateQualifierOutput() CertificateQualifierOutput {
+	return o
+}
+
+func (o CertificateQualifierOutput) ToCertificateQualifierOutputWithContext(ctx context.Context) CertificateQualifierOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+func (o CertificateQualifierOutput) CpsUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateQualifier) string { return v.CpsUri }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
+type CertificateSubject struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+	CommonName *string `pulumi:"commonName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+	Country *string `pulumi:"country"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+	GenerationQualifier *string `pulumi:"generationQualifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+	GivenName *string `pulumi:"givenName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+	Initials *string `pulumi:"initials"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+	Locality *string `pulumi:"locality"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+	Organization *string `pulumi:"organization"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+	OrganizationalUnit *string `pulumi:"organizationalUnit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+	Pseudonym *string `pulumi:"pseudonym"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+	SerialNumber *string `pulumi:"serialNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+	State *string `pulumi:"state"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+	Surname *string `pulumi:"surname"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+	Title *string `pulumi:"title"`
+}
+
+// CertificateSubjectInput is an input type that accepts CertificateSubjectArgs and CertificateSubjectOutput values.
+// You can construct a concrete instance of `CertificateSubjectInput` via:
+//
+//          CertificateSubjectArgs{...}
+type CertificateSubjectInput interface {
+	pulumi.Input
+
+	ToCertificateSubjectOutput() CertificateSubjectOutput
+	ToCertificateSubjectOutputWithContext(context.Context) CertificateSubjectOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
+type CertificateSubjectArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+	GenerationQualifier pulumi.StringPtrInput `pulumi:"generationQualifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+	Initials pulumi.StringPtrInput `pulumi:"initials"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+	Locality pulumi.StringPtrInput `pulumi:"locality"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+	Organization pulumi.StringPtrInput `pulumi:"organization"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+	Pseudonym pulumi.StringPtrInput `pulumi:"pseudonym"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+	Surname pulumi.StringPtrInput `pulumi:"surname"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (CertificateSubjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateSubject)(nil)).Elem()
+}
+
+func (i CertificateSubjectArgs) ToCertificateSubjectOutput() CertificateSubjectOutput {
+	return i.ToCertificateSubjectOutputWithContext(context.Background())
+}
+
+func (i CertificateSubjectArgs) ToCertificateSubjectOutputWithContext(ctx context.Context) CertificateSubjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectOutput)
+}
+
+func (i CertificateSubjectArgs) ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput {
+	return i.ToCertificateSubjectPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateSubjectArgs) ToCertificateSubjectPtrOutputWithContext(ctx context.Context) CertificateSubjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectOutput).ToCertificateSubjectPtrOutputWithContext(ctx)
+}
+
+// CertificateSubjectPtrInput is an input type that accepts CertificateSubjectArgs, CertificateSubjectPtr and CertificateSubjectPtrOutput values.
+// You can construct a concrete instance of `CertificateSubjectPtrInput` via:
+//
+//          CertificateSubjectArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateSubjectPtrInput interface {
+	pulumi.Input
+
+	ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput
+	ToCertificateSubjectPtrOutputWithContext(context.Context) CertificateSubjectPtrOutput
+}
+
+type certificateSubjectPtrType CertificateSubjectArgs
+
+func CertificateSubjectPtr(v *CertificateSubjectArgs) CertificateSubjectPtrInput {
+	return (*certificateSubjectPtrType)(v)
+}
+
+func (*certificateSubjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateSubject)(nil)).Elem()
+}
+
+func (i *certificateSubjectPtrType) ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput {
+	return i.ToCertificateSubjectPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateSubjectPtrType) ToCertificateSubjectPtrOutputWithContext(ctx context.Context) CertificateSubjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
+type CertificateSubjectOutput struct{ *pulumi.OutputState }
+
+func (CertificateSubjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateSubject)(nil)).Elem()
+}
+
+func (o CertificateSubjectOutput) ToCertificateSubjectOutput() CertificateSubjectOutput {
+	return o
+}
+
+func (o CertificateSubjectOutput) ToCertificateSubjectOutputWithContext(ctx context.Context) CertificateSubjectOutput {
+	return o
+}
+
+func (o CertificateSubjectOutput) ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput {
+	return o.ToCertificateSubjectPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateSubjectOutput) ToCertificateSubjectPtrOutputWithContext(ctx context.Context) CertificateSubjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateSubject) *CertificateSubject {
+		return &v
+	}).(CertificateSubjectPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+func (o CertificateSubjectOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+func (o CertificateSubjectOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+func (o CertificateSubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.DistinguishedNameQualifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+func (o CertificateSubjectOutput) GenerationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.GenerationQualifier }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+func (o CertificateSubjectOutput) GivenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+func (o CertificateSubjectOutput) Initials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+func (o CertificateSubjectOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+func (o CertificateSubjectOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+func (o CertificateSubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+func (o CertificateSubjectOutput) Pseudonym() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+func (o CertificateSubjectOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+func (o CertificateSubjectOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+func (o CertificateSubjectOutput) Surname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+func (o CertificateSubjectOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateSubject) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type CertificateSubjectPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateSubjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateSubject)(nil)).Elem()
+}
+
+func (o CertificateSubjectPtrOutput) ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput {
+	return o
+}
+
+func (o CertificateSubjectPtrOutput) ToCertificateSubjectPtrOutputWithContext(ctx context.Context) CertificateSubjectPtrOutput {
+	return o
+}
+
+func (o CertificateSubjectPtrOutput) Elem() CertificateSubjectOutput {
+	return o.ApplyT(func(v *CertificateSubject) CertificateSubject {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateSubject
+		return ret
+	}).(CertificateSubjectOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
+func (o CertificateSubjectPtrOutput) CommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CommonName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
+func (o CertificateSubjectPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
+func (o CertificateSubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DistinguishedNameQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
+func (o CertificateSubjectPtrOutput) GenerationQualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GenerationQualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
+func (o CertificateSubjectPtrOutput) GivenName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GivenName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
+func (o CertificateSubjectPtrOutput) Initials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Initials
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
+func (o CertificateSubjectPtrOutput) Locality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locality
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
+func (o CertificateSubjectPtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
+func (o CertificateSubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
+func (o CertificateSubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Pseudonym
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
+func (o CertificateSubjectPtrOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerialNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
+func (o CertificateSubjectPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
+func (o CertificateSubjectPtrOutput) Surname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Surname
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+func (o CertificateSubjectPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateSubject) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
 type CertificateValidity struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
 	Type string `pulumi:"type"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-	Value int `pulumi:"value"`
+	Value float64 `pulumi:"value"`
 }
 
 // CertificateValidityInput is an input type that accepts CertificateValidityArgs and CertificateValidityOutput values.
@@ -760,7 +3739,7 @@ type CertificateValidityArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
 	Type pulumi.StringInput `pulumi:"type"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-	Value pulumi.IntInput `pulumi:"value"`
+	Value pulumi.Float64Input `pulumi:"value"`
 }
 
 func (CertificateValidityArgs) ElementType() reflect.Type {
@@ -847,8 +3826,8 @@ func (o CertificateValidityOutput) Type() pulumi.StringOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-func (o CertificateValidityOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v CertificateValidity) int { return v.Value }).(pulumi.IntOutput)
+func (o CertificateValidityOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v CertificateValidity) float64 { return v.Value }).(pulumi.Float64Output)
 }
 
 type CertificateValidityPtrOutput struct{ *pulumi.OutputState }
@@ -886,22 +3865,55 @@ func (o CertificateValidityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-func (o CertificateValidityPtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CertificateValidity) *int {
+func (o CertificateValidityPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CertificateValidity) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Value
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 func init() {
+	pulumi.RegisterOutputType(CertificateApiPassthroughOutput{})
+	pulumi.RegisterOutputType(CertificateApiPassthroughPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityAccessDescriptionOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityAccessDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityAccessMethodOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCrlConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityCsrExtensionsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityEdiPartyNameOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityEdiPartyNamePtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityGeneralNameOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityKeyUsageOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityKeyUsagePtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityOtherNameOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityOtherNamePtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthoritySubjectOutput{})
 	pulumi.RegisterOutputType(CertificateAuthoritySubjectPtrOutput{})
+	pulumi.RegisterOutputType(CertificateEdiPartyNameOutput{})
+	pulumi.RegisterOutputType(CertificateEdiPartyNamePtrOutput{})
+	pulumi.RegisterOutputType(CertificateExtendedKeyUsageOutput{})
+	pulumi.RegisterOutputType(CertificateExtendedKeyUsageArrayOutput{})
+	pulumi.RegisterOutputType(CertificateExtensionsOutput{})
+	pulumi.RegisterOutputType(CertificateExtensionsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateGeneralNameOutput{})
+	pulumi.RegisterOutputType(CertificateGeneralNameArrayOutput{})
+	pulumi.RegisterOutputType(CertificateKeyUsageOutput{})
+	pulumi.RegisterOutputType(CertificateKeyUsagePtrOutput{})
+	pulumi.RegisterOutputType(CertificateOtherNameOutput{})
+	pulumi.RegisterOutputType(CertificateOtherNamePtrOutput{})
+	pulumi.RegisterOutputType(CertificatePolicyInformationOutput{})
+	pulumi.RegisterOutputType(CertificatePolicyInformationArrayOutput{})
+	pulumi.RegisterOutputType(CertificatePolicyQualifierInfoOutput{})
+	pulumi.RegisterOutputType(CertificatePolicyQualifierInfoArrayOutput{})
+	pulumi.RegisterOutputType(CertificateQualifierOutput{})
+	pulumi.RegisterOutputType(CertificateSubjectOutput{})
+	pulumi.RegisterOutputType(CertificateSubjectPtrOutput{})
 	pulumi.RegisterOutputType(CertificateValidityOutput{})
 	pulumi.RegisterOutputType(CertificateValidityPtrOutput{})
 }

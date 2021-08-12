@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +29,7 @@ type GameServerGroup struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
 	GameServerProtectionPolicy pulumi.StringPtrOutput `pulumi:"gameServerProtectionPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-	InstanceDefinitions GameServerGroupInstanceDefinitionsOutput `pulumi:"instanceDefinitions"`
+	InstanceDefinitions GameServerGroupInstanceDefinitionArrayOutput `pulumi:"instanceDefinitions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
 	LaunchTemplate GameServerGroupLaunchTemplateOutput `pulumi:"launchTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
@@ -38,9 +39,9 @@ type GameServerGroup struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags GameServerGroupTagsPtrOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
-	VpcSubnets GameServerGroupVpcSubnetsPtrOutput `pulumi:"vpcSubnets"`
+	VpcSubnets pulumi.StringArrayOutput `pulumi:"vpcSubnets"`
 }
 
 // NewGameServerGroup registers a new resource with the given unique name, arguments, and options.
@@ -105,7 +106,7 @@ type gameServerGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
 	GameServerProtectionPolicy *string `pulumi:"gameServerProtectionPolicy"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-	InstanceDefinitions GameServerGroupInstanceDefinitions `pulumi:"instanceDefinitions"`
+	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
 	LaunchTemplate GameServerGroupLaunchTemplate `pulumi:"launchTemplate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
@@ -115,9 +116,9 @@ type gameServerGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
 	RoleArn string `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags *GameServerGroupTags `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
-	VpcSubnets *GameServerGroupVpcSubnets `pulumi:"vpcSubnets"`
+	VpcSubnets []string `pulumi:"vpcSubnets"`
 }
 
 // The set of arguments for constructing a GameServerGroup resource.
@@ -133,7 +134,7 @@ type GameServerGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
 	GameServerProtectionPolicy pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-	InstanceDefinitions GameServerGroupInstanceDefinitionsInput
+	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
 	LaunchTemplate GameServerGroupLaunchTemplateInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
@@ -143,9 +144,9 @@ type GameServerGroupArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
 	RoleArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags GameServerGroupTagsPtrInput
+	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
-	VpcSubnets GameServerGroupVpcSubnetsPtrInput
+	VpcSubnets pulumi.StringArrayInput
 }
 
 func (GameServerGroupArgs) ElementType() reflect.Type {

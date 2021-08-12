@@ -387,6 +387,165 @@ func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
 	}).(TableColumnOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+type TableEncryptionSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+	EncryptionType string `pulumi:"encryptionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+}
+
+// TableEncryptionSpecificationInput is an input type that accepts TableEncryptionSpecificationArgs and TableEncryptionSpecificationOutput values.
+// You can construct a concrete instance of `TableEncryptionSpecificationInput` via:
+//
+//          TableEncryptionSpecificationArgs{...}
+type TableEncryptionSpecificationInput interface {
+	pulumi.Input
+
+	ToTableEncryptionSpecificationOutput() TableEncryptionSpecificationOutput
+	ToTableEncryptionSpecificationOutputWithContext(context.Context) TableEncryptionSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+type TableEncryptionSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
+}
+
+func (TableEncryptionSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEncryptionSpecification)(nil)).Elem()
+}
+
+func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationOutput() TableEncryptionSpecificationOutput {
+	return i.ToTableEncryptionSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationOutputWithContext(ctx context.Context) TableEncryptionSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionSpecificationOutput)
+}
+
+func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput {
+	return i.ToTableEncryptionSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationPtrOutputWithContext(ctx context.Context) TableEncryptionSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionSpecificationOutput).ToTableEncryptionSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableEncryptionSpecificationPtrInput is an input type that accepts TableEncryptionSpecificationArgs, TableEncryptionSpecificationPtr and TableEncryptionSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableEncryptionSpecificationPtrInput` via:
+//
+//          TableEncryptionSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableEncryptionSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput
+	ToTableEncryptionSpecificationPtrOutputWithContext(context.Context) TableEncryptionSpecificationPtrOutput
+}
+
+type tableEncryptionSpecificationPtrType TableEncryptionSpecificationArgs
+
+func TableEncryptionSpecificationPtr(v *TableEncryptionSpecificationArgs) TableEncryptionSpecificationPtrInput {
+	return (*tableEncryptionSpecificationPtrType)(v)
+}
+
+func (*tableEncryptionSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEncryptionSpecification)(nil)).Elem()
+}
+
+func (i *tableEncryptionSpecificationPtrType) ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput {
+	return i.ToTableEncryptionSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableEncryptionSpecificationPtrType) ToTableEncryptionSpecificationPtrOutputWithContext(ctx context.Context) TableEncryptionSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+type TableEncryptionSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableEncryptionSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableEncryptionSpecification)(nil)).Elem()
+}
+
+func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationOutput() TableEncryptionSpecificationOutput {
+	return o
+}
+
+func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationOutputWithContext(ctx context.Context) TableEncryptionSpecificationOutput {
+	return o
+}
+
+func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput {
+	return o.ToTableEncryptionSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOutputWithContext(ctx context.Context) TableEncryptionSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableEncryptionSpecification) *TableEncryptionSpecification {
+		return &v
+	}).(TableEncryptionSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+func (o TableEncryptionSpecificationOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v TableEncryptionSpecification) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type TableEncryptionSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableEncryptionSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableEncryptionSpecification)(nil)).Elem()
+}
+
+func (o TableEncryptionSpecificationPtrOutput) ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput {
+	return o
+}
+
+func (o TableEncryptionSpecificationPtrOutput) ToTableEncryptionSpecificationPtrOutputWithContext(ctx context.Context) TableEncryptionSpecificationPtrOutput {
+	return o
+}
+
+func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificationOutput {
+	return o.ApplyT(func(v *TableEncryptionSpecification) TableEncryptionSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableEncryptionSpecification
+		return ret
+	}).(TableEncryptionSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
+func (o TableEncryptionSpecificationPtrOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
+func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
 type TableProvisionedThroughput struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
@@ -553,6 +712,8 @@ func init() {
 	pulumi.RegisterOutputType(TableClusteringKeyColumnArrayOutput{})
 	pulumi.RegisterOutputType(TableColumnOutput{})
 	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TableEncryptionSpecificationOutput{})
+	pulumi.RegisterOutputType(TableEncryptionSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
 	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
 }

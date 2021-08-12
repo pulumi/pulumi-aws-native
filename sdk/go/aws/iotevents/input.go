@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -16,7 +17,7 @@ type Input struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-	InputDefinition InputInputDefinitionPtrOutput `pulumi:"inputDefinition"`
+	InputDefinition InputInputDefinitionOutput `pulumi:"inputDefinition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
 	InputDescription pulumi.StringPtrOutput `pulumi:"inputDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
@@ -29,9 +30,12 @@ type Input struct {
 func NewInput(ctx *pulumi.Context,
 	name string, args *InputArgs, opts ...pulumi.ResourceOption) (*Input, error) {
 	if args == nil {
-		args = &InputArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.InputDefinition == nil {
+		return nil, errors.New("invalid value for required argument 'InputDefinition'")
+	}
 	var resource Input
 	err := ctx.RegisterResource("aws-native:IoTEvents:Input", name, args, &resource, opts...)
 	if err != nil {
@@ -65,7 +69,7 @@ func (InputState) ElementType() reflect.Type {
 
 type inputArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-	InputDefinition *InputInputDefinition `pulumi:"inputDefinition"`
+	InputDefinition InputInputDefinition `pulumi:"inputDefinition"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
 	InputDescription *string `pulumi:"inputDescription"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
@@ -77,7 +81,7 @@ type inputArgs struct {
 // The set of arguments for constructing a Input resource.
 type InputArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-	InputDefinition InputInputDefinitionPtrInput
+	InputDefinition InputInputDefinitionInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
 	InputDescription pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname

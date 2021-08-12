@@ -16,17 +16,15 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-	AccessString   pulumi.StringPtrOutput   `pulumi:"accessString"`
-	Arn            pulumi.StringOutput      `pulumi:"arn"`
-	Authentication UserAuthenticationOutput `pulumi:"authentication"`
+	AccessString pulumi.StringPtrOutput `pulumi:"accessString"`
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-	Passwords    UserPasswordListPtrOutput `pulumi:"passwords"`
-	Status       pulumi.StringOutput       `pulumi:"status"`
-	UserGroupIds UserUserGroupIdListOutput `pulumi:"userGroupIds"`
+	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
+	Status    pulumi.StringOutput      `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
 	UserId pulumi.StringOutput `pulumi:"userId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
@@ -88,7 +86,7 @@ type userArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-	Passwords *UserPasswordList `pulumi:"passwords"`
+	Passwords []string `pulumi:"passwords"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
 	UserId string `pulumi:"userId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
@@ -104,7 +102,7 @@ type UserArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
 	NoPasswordRequired pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-	Passwords UserPasswordListPtrInput
+	Passwords pulumi.StringArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
 	UserId pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username

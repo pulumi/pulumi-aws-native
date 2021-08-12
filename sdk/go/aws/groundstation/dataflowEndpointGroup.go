@@ -20,7 +20,6 @@ type DataflowEndpointGroup struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
 	Id              pulumi.StringOutput                             `pulumi:"id"`
-	Status          pulumi.StringOutput                             `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }

@@ -18,6 +18,7 @@ type BackupSelection struct {
 	BackupPlanId pulumi.StringOutput `pulumi:"backupPlanId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
 	BackupSelection BackupSelectionBackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
+	Id              pulumi.StringOutput                              `pulumi:"id"`
 	SelectionId     pulumi.StringOutput                              `pulumi:"selectionId"`
 }
 

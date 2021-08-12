@@ -10,284 +10,144 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
-type RuleGroupAndStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
-	Statements []RuleGroupStatementTwo `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
+type RuleGroupAndStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
+	Statements []RuleGroupStatement `pulumi:"statements"`
 }
 
-// RuleGroupAndStatementOneInput is an input type that accepts RuleGroupAndStatementOneArgs and RuleGroupAndStatementOneOutput values.
-// You can construct a concrete instance of `RuleGroupAndStatementOneInput` via:
+// RuleGroupAndStatementInput is an input type that accepts RuleGroupAndStatementArgs and RuleGroupAndStatementOutput values.
+// You can construct a concrete instance of `RuleGroupAndStatementInput` via:
 //
-//          RuleGroupAndStatementOneArgs{...}
-type RuleGroupAndStatementOneInput interface {
+//          RuleGroupAndStatementArgs{...}
+type RuleGroupAndStatementInput interface {
 	pulumi.Input
 
-	ToRuleGroupAndStatementOneOutput() RuleGroupAndStatementOneOutput
-	ToRuleGroupAndStatementOneOutputWithContext(context.Context) RuleGroupAndStatementOneOutput
+	ToRuleGroupAndStatementOutput() RuleGroupAndStatementOutput
+	ToRuleGroupAndStatementOutputWithContext(context.Context) RuleGroupAndStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
-type RuleGroupAndStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
-	Statements RuleGroupStatementTwoArrayInput `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
+type RuleGroupAndStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
+	Statements RuleGroupStatementArrayInput `pulumi:"statements"`
 }
 
-func (RuleGroupAndStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAndStatementOne)(nil)).Elem()
+func (RuleGroupAndStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAndStatement)(nil)).Elem()
 }
 
-func (i RuleGroupAndStatementOneArgs) ToRuleGroupAndStatementOneOutput() RuleGroupAndStatementOneOutput {
-	return i.ToRuleGroupAndStatementOneOutputWithContext(context.Background())
+func (i RuleGroupAndStatementArgs) ToRuleGroupAndStatementOutput() RuleGroupAndStatementOutput {
+	return i.ToRuleGroupAndStatementOutputWithContext(context.Background())
 }
 
-func (i RuleGroupAndStatementOneArgs) ToRuleGroupAndStatementOneOutputWithContext(ctx context.Context) RuleGroupAndStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementOneOutput)
+func (i RuleGroupAndStatementArgs) ToRuleGroupAndStatementOutputWithContext(ctx context.Context) RuleGroupAndStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementOutput)
 }
 
-func (i RuleGroupAndStatementOneArgs) ToRuleGroupAndStatementOnePtrOutput() RuleGroupAndStatementOnePtrOutput {
-	return i.ToRuleGroupAndStatementOnePtrOutputWithContext(context.Background())
+func (i RuleGroupAndStatementArgs) ToRuleGroupAndStatementPtrOutput() RuleGroupAndStatementPtrOutput {
+	return i.ToRuleGroupAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (i RuleGroupAndStatementOneArgs) ToRuleGroupAndStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupAndStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementOneOutput).ToRuleGroupAndStatementOnePtrOutputWithContext(ctx)
+func (i RuleGroupAndStatementArgs) ToRuleGroupAndStatementPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementOutput).ToRuleGroupAndStatementPtrOutputWithContext(ctx)
 }
 
-// RuleGroupAndStatementOnePtrInput is an input type that accepts RuleGroupAndStatementOneArgs, RuleGroupAndStatementOnePtr and RuleGroupAndStatementOnePtrOutput values.
-// You can construct a concrete instance of `RuleGroupAndStatementOnePtrInput` via:
+// RuleGroupAndStatementPtrInput is an input type that accepts RuleGroupAndStatementArgs, RuleGroupAndStatementPtr and RuleGroupAndStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupAndStatementPtrInput` via:
 //
-//          RuleGroupAndStatementOneArgs{...}
+//          RuleGroupAndStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleGroupAndStatementOnePtrInput interface {
+type RuleGroupAndStatementPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupAndStatementOnePtrOutput() RuleGroupAndStatementOnePtrOutput
-	ToRuleGroupAndStatementOnePtrOutputWithContext(context.Context) RuleGroupAndStatementOnePtrOutput
+	ToRuleGroupAndStatementPtrOutput() RuleGroupAndStatementPtrOutput
+	ToRuleGroupAndStatementPtrOutputWithContext(context.Context) RuleGroupAndStatementPtrOutput
 }
 
-type ruleGroupAndStatementOnePtrType RuleGroupAndStatementOneArgs
+type ruleGroupAndStatementPtrType RuleGroupAndStatementArgs
 
-func RuleGroupAndStatementOnePtr(v *RuleGroupAndStatementOneArgs) RuleGroupAndStatementOnePtrInput {
-	return (*ruleGroupAndStatementOnePtrType)(v)
+func RuleGroupAndStatementPtr(v *RuleGroupAndStatementArgs) RuleGroupAndStatementPtrInput {
+	return (*ruleGroupAndStatementPtrType)(v)
 }
 
-func (*ruleGroupAndStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAndStatementOne)(nil)).Elem()
+func (*ruleGroupAndStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAndStatement)(nil)).Elem()
 }
 
-func (i *ruleGroupAndStatementOnePtrType) ToRuleGroupAndStatementOnePtrOutput() RuleGroupAndStatementOnePtrOutput {
-	return i.ToRuleGroupAndStatementOnePtrOutputWithContext(context.Background())
+func (i *ruleGroupAndStatementPtrType) ToRuleGroupAndStatementPtrOutput() RuleGroupAndStatementPtrOutput {
+	return i.ToRuleGroupAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupAndStatementOnePtrType) ToRuleGroupAndStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupAndStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementOnePtrOutput)
+func (i *ruleGroupAndStatementPtrType) ToRuleGroupAndStatementPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html
-type RuleGroupAndStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
+type RuleGroupAndStatementOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupAndStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAndStatementOne)(nil)).Elem()
+func (RuleGroupAndStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupAndStatement)(nil)).Elem()
 }
 
-func (o RuleGroupAndStatementOneOutput) ToRuleGroupAndStatementOneOutput() RuleGroupAndStatementOneOutput {
+func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementOutput() RuleGroupAndStatementOutput {
 	return o
 }
 
-func (o RuleGroupAndStatementOneOutput) ToRuleGroupAndStatementOneOutputWithContext(ctx context.Context) RuleGroupAndStatementOneOutput {
+func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementOutputWithContext(ctx context.Context) RuleGroupAndStatementOutput {
 	return o
 }
 
-func (o RuleGroupAndStatementOneOutput) ToRuleGroupAndStatementOnePtrOutput() RuleGroupAndStatementOnePtrOutput {
-	return o.ToRuleGroupAndStatementOnePtrOutputWithContext(context.Background())
+func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementPtrOutput() RuleGroupAndStatementPtrOutput {
+	return o.ToRuleGroupAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupAndStatementOneOutput) ToRuleGroupAndStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupAndStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAndStatementOne) *RuleGroupAndStatementOne {
+func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAndStatement) *RuleGroupAndStatement {
 		return &v
-	}).(RuleGroupAndStatementOnePtrOutput)
+	}).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
-func (o RuleGroupAndStatementOneOutput) Statements() RuleGroupStatementTwoArrayOutput {
-	return o.ApplyT(func(v RuleGroupAndStatementOne) []RuleGroupStatementTwo { return v.Statements }).(RuleGroupStatementTwoArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
+func (o RuleGroupAndStatementOutput) Statements() RuleGroupStatementArrayOutput {
+	return o.ApplyT(func(v RuleGroupAndStatement) []RuleGroupStatement { return v.Statements }).(RuleGroupStatementArrayOutput)
 }
 
-type RuleGroupAndStatementOnePtrOutput struct{ *pulumi.OutputState }
+type RuleGroupAndStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupAndStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAndStatementOne)(nil)).Elem()
+func (RuleGroupAndStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupAndStatement)(nil)).Elem()
 }
 
-func (o RuleGroupAndStatementOnePtrOutput) ToRuleGroupAndStatementOnePtrOutput() RuleGroupAndStatementOnePtrOutput {
+func (o RuleGroupAndStatementPtrOutput) ToRuleGroupAndStatementPtrOutput() RuleGroupAndStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupAndStatementOnePtrOutput) ToRuleGroupAndStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupAndStatementOnePtrOutput {
+func (o RuleGroupAndStatementPtrOutput) ToRuleGroupAndStatementPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupAndStatementOnePtrOutput) Elem() RuleGroupAndStatementOneOutput {
-	return o.ApplyT(func(v *RuleGroupAndStatementOne) RuleGroupAndStatementOne {
+func (o RuleGroupAndStatementPtrOutput) Elem() RuleGroupAndStatementOutput {
+	return o.ApplyT(func(v *RuleGroupAndStatement) RuleGroupAndStatement {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupAndStatementOne
+		var ret RuleGroupAndStatement
 		return ret
-	}).(RuleGroupAndStatementOneOutput)
+	}).(RuleGroupAndStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementone.html#cfn-wafv2-rulegroup-andstatementone-statements
-func (o RuleGroupAndStatementOnePtrOutput) Statements() RuleGroupStatementTwoArrayOutput {
-	return o.ApplyT(func(v *RuleGroupAndStatementOne) []RuleGroupStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
+func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutput {
+	return o.ApplyT(func(v *RuleGroupAndStatement) []RuleGroupStatement {
 		if v == nil {
 			return nil
 		}
 		return v.Statements
-	}).(RuleGroupStatementTwoArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html
-type RuleGroupAndStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
-	Statements []RuleGroupStatementThree `pulumi:"statements"`
-}
-
-// RuleGroupAndStatementTwoInput is an input type that accepts RuleGroupAndStatementTwoArgs and RuleGroupAndStatementTwoOutput values.
-// You can construct a concrete instance of `RuleGroupAndStatementTwoInput` via:
-//
-//          RuleGroupAndStatementTwoArgs{...}
-type RuleGroupAndStatementTwoInput interface {
-	pulumi.Input
-
-	ToRuleGroupAndStatementTwoOutput() RuleGroupAndStatementTwoOutput
-	ToRuleGroupAndStatementTwoOutputWithContext(context.Context) RuleGroupAndStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html
-type RuleGroupAndStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
-	Statements RuleGroupStatementThreeArrayInput `pulumi:"statements"`
-}
-
-func (RuleGroupAndStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAndStatementTwo)(nil)).Elem()
-}
-
-func (i RuleGroupAndStatementTwoArgs) ToRuleGroupAndStatementTwoOutput() RuleGroupAndStatementTwoOutput {
-	return i.ToRuleGroupAndStatementTwoOutputWithContext(context.Background())
-}
-
-func (i RuleGroupAndStatementTwoArgs) ToRuleGroupAndStatementTwoOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementTwoOutput)
-}
-
-func (i RuleGroupAndStatementTwoArgs) ToRuleGroupAndStatementTwoPtrOutput() RuleGroupAndStatementTwoPtrOutput {
-	return i.ToRuleGroupAndStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupAndStatementTwoArgs) ToRuleGroupAndStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementTwoOutput).ToRuleGroupAndStatementTwoPtrOutputWithContext(ctx)
-}
-
-// RuleGroupAndStatementTwoPtrInput is an input type that accepts RuleGroupAndStatementTwoArgs, RuleGroupAndStatementTwoPtr and RuleGroupAndStatementTwoPtrOutput values.
-// You can construct a concrete instance of `RuleGroupAndStatementTwoPtrInput` via:
-//
-//          RuleGroupAndStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupAndStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupAndStatementTwoPtrOutput() RuleGroupAndStatementTwoPtrOutput
-	ToRuleGroupAndStatementTwoPtrOutputWithContext(context.Context) RuleGroupAndStatementTwoPtrOutput
-}
-
-type ruleGroupAndStatementTwoPtrType RuleGroupAndStatementTwoArgs
-
-func RuleGroupAndStatementTwoPtr(v *RuleGroupAndStatementTwoArgs) RuleGroupAndStatementTwoPtrInput {
-	return (*ruleGroupAndStatementTwoPtrType)(v)
-}
-
-func (*ruleGroupAndStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAndStatementTwo)(nil)).Elem()
-}
-
-func (i *ruleGroupAndStatementTwoPtrType) ToRuleGroupAndStatementTwoPtrOutput() RuleGroupAndStatementTwoPtrOutput {
-	return i.ToRuleGroupAndStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupAndStatementTwoPtrType) ToRuleGroupAndStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html
-type RuleGroupAndStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupAndStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAndStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupAndStatementTwoOutput) ToRuleGroupAndStatementTwoOutput() RuleGroupAndStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupAndStatementTwoOutput) ToRuleGroupAndStatementTwoOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupAndStatementTwoOutput) ToRuleGroupAndStatementTwoPtrOutput() RuleGroupAndStatementTwoPtrOutput {
-	return o.ToRuleGroupAndStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupAndStatementTwoOutput) ToRuleGroupAndStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAndStatementTwo) *RuleGroupAndStatementTwo {
-		return &v
-	}).(RuleGroupAndStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
-func (o RuleGroupAndStatementTwoOutput) Statements() RuleGroupStatementThreeArrayOutput {
-	return o.ApplyT(func(v RuleGroupAndStatementTwo) []RuleGroupStatementThree { return v.Statements }).(RuleGroupStatementThreeArrayOutput)
-}
-
-type RuleGroupAndStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupAndStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAndStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupAndStatementTwoPtrOutput) ToRuleGroupAndStatementTwoPtrOutput() RuleGroupAndStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupAndStatementTwoPtrOutput) ToRuleGroupAndStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupAndStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupAndStatementTwoPtrOutput) Elem() RuleGroupAndStatementTwoOutput {
-	return o.ApplyT(func(v *RuleGroupAndStatementTwo) RuleGroupAndStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupAndStatementTwo
-		return ret
-	}).(RuleGroupAndStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatementtwo.html#cfn-wafv2-rulegroup-andstatementtwo-statements
-func (o RuleGroupAndStatementTwoPtrOutput) Statements() RuleGroupStatementThreeArrayOutput {
-	return o.ApplyT(func(v *RuleGroupAndStatementTwo) []RuleGroupStatementThree {
-		if v == nil {
-			return nil
-		}
-		return v.Statements
-	}).(RuleGroupStatementThreeArrayOutput)
+	}).(RuleGroupStatementArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
@@ -506,12 +366,123 @@ func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
+type RuleGroupCustomResponseBody struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
+	Content string `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
+	ContentType string `pulumi:"contentType"`
+}
+
+// RuleGroupCustomResponseBodyInput is an input type that accepts RuleGroupCustomResponseBodyArgs and RuleGroupCustomResponseBodyOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodyInput` via:
+//
+//          RuleGroupCustomResponseBodyArgs{...}
+type RuleGroupCustomResponseBodyInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput
+	ToRuleGroupCustomResponseBodyOutputWithContext(context.Context) RuleGroupCustomResponseBodyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
+type RuleGroupCustomResponseBodyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
+	Content pulumi.StringInput `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+}
+
+func (RuleGroupCustomResponseBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
+}
+
+func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
+	return i.ToRuleGroupCustomResponseBodyOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyOutput)
+}
+
+// RuleGroupCustomResponseBodyMapInput is an input type that accepts RuleGroupCustomResponseBodyMap and RuleGroupCustomResponseBodyMapOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodyMapInput` via:
+//
+//          RuleGroupCustomResponseBodyMap{ "key": RuleGroupCustomResponseBodyArgs{...} }
+type RuleGroupCustomResponseBodyMapInput interface {
+	pulumi.Input
+
+	ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput
+	ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Context) RuleGroupCustomResponseBodyMapOutput
+}
+
+type RuleGroupCustomResponseBodyMap map[string]RuleGroupCustomResponseBodyInput
+
+func (RuleGroupCustomResponseBodyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
+}
+
+func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
+	return i.ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
+type RuleGroupCustomResponseBodyOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponseBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
+}
+
+func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
+func (o RuleGroupCustomResponseBodyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
+func (o RuleGroupCustomResponseBodyOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type RuleGroupCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponseBodyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
+}
+
+func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
+	return o
+}
+
+func (o RuleGroupCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) RuleGroupCustomResponseBodyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupCustomResponseBody {
+		return vs[0].(map[string]RuleGroupCustomResponseBody)[vs[1].(string)]
+	}).(RuleGroupCustomResponseBodyOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
 type RuleGroupFieldToMatch struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
 	Body interface{} `pulumi:"body"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+	JsonBody *RuleGroupJsonBody `pulumi:"jsonBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
 	Method interface{} `pulumi:"method"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
@@ -541,6 +512,8 @@ type RuleGroupFieldToMatchArgs struct {
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
 	Body pulumi.Input `pulumi:"body"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+	JsonBody RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
 	Method pulumi.Input `pulumi:"method"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
@@ -641,6 +614,11 @@ func (o RuleGroupFieldToMatchOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+func (o RuleGroupFieldToMatchOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
+	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJsonBody { return v.JsonBody }).(RuleGroupJsonBodyPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
 func (o RuleGroupFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
@@ -708,6 +686,16 @@ func (o RuleGroupFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 		}
 		return v.Body
 	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
+	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupJsonBody {
+		if v == nil {
+			return nil
+		}
+		return v.JsonBody
+	}).(RuleGroupJsonBodyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
@@ -1417,726 +1405,1142 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() Rule
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
-type RuleGroupNotStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
-	Statement RuleGroupStatementTwo `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+type RuleGroupJsonBody struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
+	MatchPattern RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
+	MatchScope string `pulumi:"matchScope"`
 }
 
-// RuleGroupNotStatementOneInput is an input type that accepts RuleGroupNotStatementOneArgs and RuleGroupNotStatementOneOutput values.
-// You can construct a concrete instance of `RuleGroupNotStatementOneInput` via:
+// RuleGroupJsonBodyInput is an input type that accepts RuleGroupJsonBodyArgs and RuleGroupJsonBodyOutput values.
+// You can construct a concrete instance of `RuleGroupJsonBodyInput` via:
 //
-//          RuleGroupNotStatementOneArgs{...}
-type RuleGroupNotStatementOneInput interface {
+//          RuleGroupJsonBodyArgs{...}
+type RuleGroupJsonBodyInput interface {
 	pulumi.Input
 
-	ToRuleGroupNotStatementOneOutput() RuleGroupNotStatementOneOutput
-	ToRuleGroupNotStatementOneOutputWithContext(context.Context) RuleGroupNotStatementOneOutput
+	ToRuleGroupJsonBodyOutput() RuleGroupJsonBodyOutput
+	ToRuleGroupJsonBodyOutputWithContext(context.Context) RuleGroupJsonBodyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
-type RuleGroupNotStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
-	Statement RuleGroupStatementTwoInput `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+type RuleGroupJsonBodyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
+	MatchPattern RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
 }
 
-func (RuleGroupNotStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNotStatementOne)(nil)).Elem()
+func (RuleGroupJsonBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJsonBody)(nil)).Elem()
 }
 
-func (i RuleGroupNotStatementOneArgs) ToRuleGroupNotStatementOneOutput() RuleGroupNotStatementOneOutput {
-	return i.ToRuleGroupNotStatementOneOutputWithContext(context.Background())
+func (i RuleGroupJsonBodyArgs) ToRuleGroupJsonBodyOutput() RuleGroupJsonBodyOutput {
+	return i.ToRuleGroupJsonBodyOutputWithContext(context.Background())
 }
 
-func (i RuleGroupNotStatementOneArgs) ToRuleGroupNotStatementOneOutputWithContext(ctx context.Context) RuleGroupNotStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementOneOutput)
+func (i RuleGroupJsonBodyArgs) ToRuleGroupJsonBodyOutputWithContext(ctx context.Context) RuleGroupJsonBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonBodyOutput)
 }
 
-func (i RuleGroupNotStatementOneArgs) ToRuleGroupNotStatementOnePtrOutput() RuleGroupNotStatementOnePtrOutput {
-	return i.ToRuleGroupNotStatementOnePtrOutputWithContext(context.Background())
+func (i RuleGroupJsonBodyArgs) ToRuleGroupJsonBodyPtrOutput() RuleGroupJsonBodyPtrOutput {
+	return i.ToRuleGroupJsonBodyPtrOutputWithContext(context.Background())
 }
 
-func (i RuleGroupNotStatementOneArgs) ToRuleGroupNotStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupNotStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementOneOutput).ToRuleGroupNotStatementOnePtrOutputWithContext(ctx)
+func (i RuleGroupJsonBodyArgs) ToRuleGroupJsonBodyPtrOutputWithContext(ctx context.Context) RuleGroupJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonBodyOutput).ToRuleGroupJsonBodyPtrOutputWithContext(ctx)
 }
 
-// RuleGroupNotStatementOnePtrInput is an input type that accepts RuleGroupNotStatementOneArgs, RuleGroupNotStatementOnePtr and RuleGroupNotStatementOnePtrOutput values.
-// You can construct a concrete instance of `RuleGroupNotStatementOnePtrInput` via:
+// RuleGroupJsonBodyPtrInput is an input type that accepts RuleGroupJsonBodyArgs, RuleGroupJsonBodyPtr and RuleGroupJsonBodyPtrOutput values.
+// You can construct a concrete instance of `RuleGroupJsonBodyPtrInput` via:
 //
-//          RuleGroupNotStatementOneArgs{...}
+//          RuleGroupJsonBodyArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleGroupNotStatementOnePtrInput interface {
+type RuleGroupJsonBodyPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupNotStatementOnePtrOutput() RuleGroupNotStatementOnePtrOutput
-	ToRuleGroupNotStatementOnePtrOutputWithContext(context.Context) RuleGroupNotStatementOnePtrOutput
+	ToRuleGroupJsonBodyPtrOutput() RuleGroupJsonBodyPtrOutput
+	ToRuleGroupJsonBodyPtrOutputWithContext(context.Context) RuleGroupJsonBodyPtrOutput
 }
 
-type ruleGroupNotStatementOnePtrType RuleGroupNotStatementOneArgs
+type ruleGroupJsonBodyPtrType RuleGroupJsonBodyArgs
 
-func RuleGroupNotStatementOnePtr(v *RuleGroupNotStatementOneArgs) RuleGroupNotStatementOnePtrInput {
-	return (*ruleGroupNotStatementOnePtrType)(v)
+func RuleGroupJsonBodyPtr(v *RuleGroupJsonBodyArgs) RuleGroupJsonBodyPtrInput {
+	return (*ruleGroupJsonBodyPtrType)(v)
 }
 
-func (*ruleGroupNotStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNotStatementOne)(nil)).Elem()
+func (*ruleGroupJsonBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJsonBody)(nil)).Elem()
 }
 
-func (i *ruleGroupNotStatementOnePtrType) ToRuleGroupNotStatementOnePtrOutput() RuleGroupNotStatementOnePtrOutput {
-	return i.ToRuleGroupNotStatementOnePtrOutputWithContext(context.Background())
+func (i *ruleGroupJsonBodyPtrType) ToRuleGroupJsonBodyPtrOutput() RuleGroupJsonBodyPtrOutput {
+	return i.ToRuleGroupJsonBodyPtrOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupNotStatementOnePtrType) ToRuleGroupNotStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupNotStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementOnePtrOutput)
+func (i *ruleGroupJsonBodyPtrType) ToRuleGroupJsonBodyPtrOutputWithContext(ctx context.Context) RuleGroupJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html
-type RuleGroupNotStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+type RuleGroupJsonBodyOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupNotStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNotStatementOne)(nil)).Elem()
+func (RuleGroupJsonBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJsonBody)(nil)).Elem()
 }
 
-func (o RuleGroupNotStatementOneOutput) ToRuleGroupNotStatementOneOutput() RuleGroupNotStatementOneOutput {
+func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyOutput() RuleGroupJsonBodyOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementOneOutput) ToRuleGroupNotStatementOneOutputWithContext(ctx context.Context) RuleGroupNotStatementOneOutput {
+func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyOutputWithContext(ctx context.Context) RuleGroupJsonBodyOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementOneOutput) ToRuleGroupNotStatementOnePtrOutput() RuleGroupNotStatementOnePtrOutput {
-	return o.ToRuleGroupNotStatementOnePtrOutputWithContext(context.Background())
+func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyPtrOutput() RuleGroupJsonBodyPtrOutput {
+	return o.ToRuleGroupJsonBodyPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupNotStatementOneOutput) ToRuleGroupNotStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupNotStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupNotStatementOne) *RuleGroupNotStatementOne {
+func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyPtrOutputWithContext(ctx context.Context) RuleGroupJsonBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupJsonBody) *RuleGroupJsonBody {
 		return &v
-	}).(RuleGroupNotStatementOnePtrOutput)
+	}).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
-func (o RuleGroupNotStatementOneOutput) Statement() RuleGroupStatementTwoOutput {
-	return o.ApplyT(func(v RuleGroupNotStatementOne) RuleGroupStatementTwo { return v.Statement }).(RuleGroupStatementTwoOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
+func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
 }
 
-type RuleGroupNotStatementOnePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupNotStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNotStatementOne)(nil)).Elem()
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
+func (o RuleGroupJsonBodyOutput) MatchPattern() RuleGroupJsonMatchPatternOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchPattern { return v.MatchPattern }).(RuleGroupJsonMatchPatternOutput)
 }
 
-func (o RuleGroupNotStatementOnePtrOutput) ToRuleGroupNotStatementOnePtrOutput() RuleGroupNotStatementOnePtrOutput {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
+func (o RuleGroupJsonBodyOutput) MatchScope() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
+}
+
+type RuleGroupJsonBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJsonBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJsonBody)(nil)).Elem()
+}
+
+func (o RuleGroupJsonBodyPtrOutput) ToRuleGroupJsonBodyPtrOutput() RuleGroupJsonBodyPtrOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementOnePtrOutput) ToRuleGroupNotStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupNotStatementOnePtrOutput {
+func (o RuleGroupJsonBodyPtrOutput) ToRuleGroupJsonBodyPtrOutputWithContext(ctx context.Context) RuleGroupJsonBodyPtrOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementOnePtrOutput) Elem() RuleGroupNotStatementOneOutput {
-	return o.ApplyT(func(v *RuleGroupNotStatementOne) RuleGroupNotStatementOne {
+func (o RuleGroupJsonBodyPtrOutput) Elem() RuleGroupJsonBodyOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) RuleGroupJsonBody {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupNotStatementOne
+		var ret RuleGroupJsonBody
 		return ret
-	}).(RuleGroupNotStatementOneOutput)
+	}).(RuleGroupJsonBodyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementone.html#cfn-wafv2-rulegroup-notstatementone-statement
-func (o RuleGroupNotStatementOnePtrOutput) Statement() RuleGroupStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupNotStatementOne) *RuleGroupStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
+func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvalidFallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
+func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupJsonMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(RuleGroupJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
+func (o RuleGroupJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+type RuleGroupJsonMatchPattern struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+	All interface{} `pulumi:"all"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+	IncludedPaths []string `pulumi:"includedPaths"`
+}
+
+// RuleGroupJsonMatchPatternInput is an input type that accepts RuleGroupJsonMatchPatternArgs and RuleGroupJsonMatchPatternOutput values.
+// You can construct a concrete instance of `RuleGroupJsonMatchPatternInput` via:
+//
+//          RuleGroupJsonMatchPatternArgs{...}
+type RuleGroupJsonMatchPatternInput interface {
+	pulumi.Input
+
+	ToRuleGroupJsonMatchPatternOutput() RuleGroupJsonMatchPatternOutput
+	ToRuleGroupJsonMatchPatternOutputWithContext(context.Context) RuleGroupJsonMatchPatternOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+type RuleGroupJsonMatchPatternArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+	All pulumi.Input `pulumi:"all"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
+}
+
+func (RuleGroupJsonMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJsonMatchPattern)(nil)).Elem()
+}
+
+func (i RuleGroupJsonMatchPatternArgs) ToRuleGroupJsonMatchPatternOutput() RuleGroupJsonMatchPatternOutput {
+	return i.ToRuleGroupJsonMatchPatternOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJsonMatchPatternArgs) ToRuleGroupJsonMatchPatternOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonMatchPatternOutput)
+}
+
+func (i RuleGroupJsonMatchPatternArgs) ToRuleGroupJsonMatchPatternPtrOutput() RuleGroupJsonMatchPatternPtrOutput {
+	return i.ToRuleGroupJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupJsonMatchPatternArgs) ToRuleGroupJsonMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonMatchPatternOutput).ToRuleGroupJsonMatchPatternPtrOutputWithContext(ctx)
+}
+
+// RuleGroupJsonMatchPatternPtrInput is an input type that accepts RuleGroupJsonMatchPatternArgs, RuleGroupJsonMatchPatternPtr and RuleGroupJsonMatchPatternPtrOutput values.
+// You can construct a concrete instance of `RuleGroupJsonMatchPatternPtrInput` via:
+//
+//          RuleGroupJsonMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupJsonMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupJsonMatchPatternPtrOutput() RuleGroupJsonMatchPatternPtrOutput
+	ToRuleGroupJsonMatchPatternPtrOutputWithContext(context.Context) RuleGroupJsonMatchPatternPtrOutput
+}
+
+type ruleGroupJsonMatchPatternPtrType RuleGroupJsonMatchPatternArgs
+
+func RuleGroupJsonMatchPatternPtr(v *RuleGroupJsonMatchPatternArgs) RuleGroupJsonMatchPatternPtrInput {
+	return (*ruleGroupJsonMatchPatternPtrType)(v)
+}
+
+func (*ruleGroupJsonMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJsonMatchPattern)(nil)).Elem()
+}
+
+func (i *ruleGroupJsonMatchPatternPtrType) ToRuleGroupJsonMatchPatternPtrOutput() RuleGroupJsonMatchPatternPtrOutput {
+	return i.ToRuleGroupJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupJsonMatchPatternPtrType) ToRuleGroupJsonMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+type RuleGroupJsonMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJsonMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupJsonMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupJsonMatchPatternOutput) ToRuleGroupJsonMatchPatternOutput() RuleGroupJsonMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupJsonMatchPatternOutput) ToRuleGroupJsonMatchPatternOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternOutput {
+	return o
+}
+
+func (o RuleGroupJsonMatchPatternOutput) ToRuleGroupJsonMatchPatternPtrOutput() RuleGroupJsonMatchPatternPtrOutput {
+	return o.ToRuleGroupJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupJsonMatchPatternOutput) ToRuleGroupJsonMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupJsonMatchPattern) *RuleGroupJsonMatchPattern {
+		return &v
+	}).(RuleGroupJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+func (o RuleGroupJsonMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupJsonMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+func (o RuleGroupJsonMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupJsonMatchPattern) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
+}
+
+type RuleGroupJsonMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupJsonMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupJsonMatchPattern)(nil)).Elem()
+}
+
+func (o RuleGroupJsonMatchPatternPtrOutput) ToRuleGroupJsonMatchPatternPtrOutput() RuleGroupJsonMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupJsonMatchPatternPtrOutput) ToRuleGroupJsonMatchPatternPtrOutputWithContext(ctx context.Context) RuleGroupJsonMatchPatternPtrOutput {
+	return o
+}
+
+func (o RuleGroupJsonMatchPatternPtrOutput) Elem() RuleGroupJsonMatchPatternOutput {
+	return o.ApplyT(func(v *RuleGroupJsonMatchPattern) RuleGroupJsonMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupJsonMatchPattern
+		return ret
+	}).(RuleGroupJsonMatchPatternOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+func (o RuleGroupJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RuleGroupJsonMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+func (o RuleGroupJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupJsonMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
+type RuleGroupLabel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
+	Name string `pulumi:"name"`
+}
+
+// RuleGroupLabelInput is an input type that accepts RuleGroupLabelArgs and RuleGroupLabelOutput values.
+// You can construct a concrete instance of `RuleGroupLabelInput` via:
+//
+//          RuleGroupLabelArgs{...}
+type RuleGroupLabelInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelOutput() RuleGroupLabelOutput
+	ToRuleGroupLabelOutputWithContext(context.Context) RuleGroupLabelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
+type RuleGroupLabelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RuleGroupLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabel)(nil)).Elem()
+}
+
+func (i RuleGroupLabelArgs) ToRuleGroupLabelOutput() RuleGroupLabelOutput {
+	return i.ToRuleGroupLabelOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelArgs) ToRuleGroupLabelOutputWithContext(ctx context.Context) RuleGroupLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelOutput)
+}
+
+// RuleGroupLabelArrayInput is an input type that accepts RuleGroupLabelArray and RuleGroupLabelArrayOutput values.
+// You can construct a concrete instance of `RuleGroupLabelArrayInput` via:
+//
+//          RuleGroupLabelArray{ RuleGroupLabelArgs{...} }
+type RuleGroupLabelArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelArrayOutput() RuleGroupLabelArrayOutput
+	ToRuleGroupLabelArrayOutputWithContext(context.Context) RuleGroupLabelArrayOutput
+}
+
+type RuleGroupLabelArray []RuleGroupLabelInput
+
+func (RuleGroupLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupLabel)(nil)).Elem()
+}
+
+func (i RuleGroupLabelArray) ToRuleGroupLabelArrayOutput() RuleGroupLabelArrayOutput {
+	return i.ToRuleGroupLabelArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelArray) ToRuleGroupLabelArrayOutputWithContext(ctx context.Context) RuleGroupLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
+type RuleGroupLabelOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabel)(nil)).Elem()
+}
+
+func (o RuleGroupLabelOutput) ToRuleGroupLabelOutput() RuleGroupLabelOutput {
+	return o
+}
+
+func (o RuleGroupLabelOutput) ToRuleGroupLabelOutputWithContext(ctx context.Context) RuleGroupLabelOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
+func (o RuleGroupLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RuleGroupLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupLabel)(nil)).Elem()
+}
+
+func (o RuleGroupLabelArrayOutput) ToRuleGroupLabelArrayOutput() RuleGroupLabelArrayOutput {
+	return o
+}
+
+func (o RuleGroupLabelArrayOutput) ToRuleGroupLabelArrayOutputWithContext(ctx context.Context) RuleGroupLabelArrayOutput {
+	return o
+}
+
+func (o RuleGroupLabelArrayOutput) Index(i pulumi.IntInput) RuleGroupLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupLabel {
+		return vs[0].([]RuleGroupLabel)[vs[1].(int)]
+	}).(RuleGroupLabelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
+type RuleGroupLabelMatchStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+	Scope string `pulumi:"scope"`
+}
+
+// RuleGroupLabelMatchStatementInput is an input type that accepts RuleGroupLabelMatchStatementArgs and RuleGroupLabelMatchStatementOutput values.
+// You can construct a concrete instance of `RuleGroupLabelMatchStatementInput` via:
+//
+//          RuleGroupLabelMatchStatementArgs{...}
+type RuleGroupLabelMatchStatementInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelMatchStatementOutput() RuleGroupLabelMatchStatementOutput
+	ToRuleGroupLabelMatchStatementOutputWithContext(context.Context) RuleGroupLabelMatchStatementOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
+type RuleGroupLabelMatchStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (RuleGroupLabelMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabelMatchStatement)(nil)).Elem()
+}
+
+func (i RuleGroupLabelMatchStatementArgs) ToRuleGroupLabelMatchStatementOutput() RuleGroupLabelMatchStatementOutput {
+	return i.ToRuleGroupLabelMatchStatementOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelMatchStatementArgs) ToRuleGroupLabelMatchStatementOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelMatchStatementOutput)
+}
+
+func (i RuleGroupLabelMatchStatementArgs) ToRuleGroupLabelMatchStatementPtrOutput() RuleGroupLabelMatchStatementPtrOutput {
+	return i.ToRuleGroupLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelMatchStatementArgs) ToRuleGroupLabelMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelMatchStatementOutput).ToRuleGroupLabelMatchStatementPtrOutputWithContext(ctx)
+}
+
+// RuleGroupLabelMatchStatementPtrInput is an input type that accepts RuleGroupLabelMatchStatementArgs, RuleGroupLabelMatchStatementPtr and RuleGroupLabelMatchStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupLabelMatchStatementPtrInput` via:
+//
+//          RuleGroupLabelMatchStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupLabelMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelMatchStatementPtrOutput() RuleGroupLabelMatchStatementPtrOutput
+	ToRuleGroupLabelMatchStatementPtrOutputWithContext(context.Context) RuleGroupLabelMatchStatementPtrOutput
+}
+
+type ruleGroupLabelMatchStatementPtrType RuleGroupLabelMatchStatementArgs
+
+func RuleGroupLabelMatchStatementPtr(v *RuleGroupLabelMatchStatementArgs) RuleGroupLabelMatchStatementPtrInput {
+	return (*ruleGroupLabelMatchStatementPtrType)(v)
+}
+
+func (*ruleGroupLabelMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupLabelMatchStatement)(nil)).Elem()
+}
+
+func (i *ruleGroupLabelMatchStatementPtrType) ToRuleGroupLabelMatchStatementPtrOutput() RuleGroupLabelMatchStatementPtrOutput {
+	return i.ToRuleGroupLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupLabelMatchStatementPtrType) ToRuleGroupLabelMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
+type RuleGroupLabelMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabelMatchStatement)(nil)).Elem()
+}
+
+func (o RuleGroupLabelMatchStatementOutput) ToRuleGroupLabelMatchStatementOutput() RuleGroupLabelMatchStatementOutput {
+	return o
+}
+
+func (o RuleGroupLabelMatchStatementOutput) ToRuleGroupLabelMatchStatementOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementOutput {
+	return o
+}
+
+func (o RuleGroupLabelMatchStatementOutput) ToRuleGroupLabelMatchStatementPtrOutput() RuleGroupLabelMatchStatementPtrOutput {
+	return o.ToRuleGroupLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupLabelMatchStatementOutput) ToRuleGroupLabelMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupLabelMatchStatement) *RuleGroupLabelMatchStatement {
+		return &v
+	}).(RuleGroupLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
+func (o RuleGroupLabelMatchStatementOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+func (o RuleGroupLabelMatchStatementOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type RuleGroupLabelMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupLabelMatchStatement)(nil)).Elem()
+}
+
+func (o RuleGroupLabelMatchStatementPtrOutput) ToRuleGroupLabelMatchStatementPtrOutput() RuleGroupLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupLabelMatchStatementPtrOutput) ToRuleGroupLabelMatchStatementPtrOutputWithContext(ctx context.Context) RuleGroupLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupLabelMatchStatementPtrOutput) Elem() RuleGroupLabelMatchStatementOutput {
+	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) RuleGroupLabelMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupLabelMatchStatement
+		return ret
+	}).(RuleGroupLabelMatchStatementOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
+func (o RuleGroupLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+func (o RuleGroupLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
+type RuleGroupLabelSummary struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
+	Name *string `pulumi:"name"`
+}
+
+// RuleGroupLabelSummaryInput is an input type that accepts RuleGroupLabelSummaryArgs and RuleGroupLabelSummaryOutput values.
+// You can construct a concrete instance of `RuleGroupLabelSummaryInput` via:
+//
+//          RuleGroupLabelSummaryArgs{...}
+type RuleGroupLabelSummaryInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelSummaryOutput() RuleGroupLabelSummaryOutput
+	ToRuleGroupLabelSummaryOutputWithContext(context.Context) RuleGroupLabelSummaryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
+type RuleGroupLabelSummaryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (RuleGroupLabelSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (i RuleGroupLabelSummaryArgs) ToRuleGroupLabelSummaryOutput() RuleGroupLabelSummaryOutput {
+	return i.ToRuleGroupLabelSummaryOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelSummaryArgs) ToRuleGroupLabelSummaryOutputWithContext(ctx context.Context) RuleGroupLabelSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelSummaryOutput)
+}
+
+// RuleGroupLabelSummaryArrayInput is an input type that accepts RuleGroupLabelSummaryArray and RuleGroupLabelSummaryArrayOutput values.
+// You can construct a concrete instance of `RuleGroupLabelSummaryArrayInput` via:
+//
+//          RuleGroupLabelSummaryArray{ RuleGroupLabelSummaryArgs{...} }
+type RuleGroupLabelSummaryArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelSummaryArrayOutput() RuleGroupLabelSummaryArrayOutput
+	ToRuleGroupLabelSummaryArrayOutputWithContext(context.Context) RuleGroupLabelSummaryArrayOutput
+}
+
+type RuleGroupLabelSummaryArray []RuleGroupLabelSummaryInput
+
+func (RuleGroupLabelSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (i RuleGroupLabelSummaryArray) ToRuleGroupLabelSummaryArrayOutput() RuleGroupLabelSummaryArrayOutput {
+	return i.ToRuleGroupLabelSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelSummaryArray) ToRuleGroupLabelSummaryArrayOutputWithContext(ctx context.Context) RuleGroupLabelSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelSummaryArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
+type RuleGroupLabelSummaryOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (o RuleGroupLabelSummaryOutput) ToRuleGroupLabelSummaryOutput() RuleGroupLabelSummaryOutput {
+	return o
+}
+
+func (o RuleGroupLabelSummaryOutput) ToRuleGroupLabelSummaryOutputWithContext(ctx context.Context) RuleGroupLabelSummaryOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
+func (o RuleGroupLabelSummaryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupLabelSummary) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupLabelSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupLabelSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (o RuleGroupLabelSummaryArrayOutput) ToRuleGroupLabelSummaryArrayOutput() RuleGroupLabelSummaryArrayOutput {
+	return o
+}
+
+func (o RuleGroupLabelSummaryArrayOutput) ToRuleGroupLabelSummaryArrayOutputWithContext(ctx context.Context) RuleGroupLabelSummaryArrayOutput {
+	return o
+}
+
+func (o RuleGroupLabelSummaryArrayOutput) Index(i pulumi.IntInput) RuleGroupLabelSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupLabelSummary {
+		return vs[0].([]RuleGroupLabelSummary)[vs[1].(int)]
+	}).(RuleGroupLabelSummaryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
+type RuleGroupNotStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
+	Statement RuleGroupStatement `pulumi:"statement"`
+}
+
+// RuleGroupNotStatementInput is an input type that accepts RuleGroupNotStatementArgs and RuleGroupNotStatementOutput values.
+// You can construct a concrete instance of `RuleGroupNotStatementInput` via:
+//
+//          RuleGroupNotStatementArgs{...}
+type RuleGroupNotStatementInput interface {
+	pulumi.Input
+
+	ToRuleGroupNotStatementOutput() RuleGroupNotStatementOutput
+	ToRuleGroupNotStatementOutputWithContext(context.Context) RuleGroupNotStatementOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
+type RuleGroupNotStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
+	Statement RuleGroupStatementInput `pulumi:"statement"`
+}
+
+func (RuleGroupNotStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupNotStatement)(nil)).Elem()
+}
+
+func (i RuleGroupNotStatementArgs) ToRuleGroupNotStatementOutput() RuleGroupNotStatementOutput {
+	return i.ToRuleGroupNotStatementOutputWithContext(context.Background())
+}
+
+func (i RuleGroupNotStatementArgs) ToRuleGroupNotStatementOutputWithContext(ctx context.Context) RuleGroupNotStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementOutput)
+}
+
+func (i RuleGroupNotStatementArgs) ToRuleGroupNotStatementPtrOutput() RuleGroupNotStatementPtrOutput {
+	return i.ToRuleGroupNotStatementPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupNotStatementArgs) ToRuleGroupNotStatementPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementOutput).ToRuleGroupNotStatementPtrOutputWithContext(ctx)
+}
+
+// RuleGroupNotStatementPtrInput is an input type that accepts RuleGroupNotStatementArgs, RuleGroupNotStatementPtr and RuleGroupNotStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupNotStatementPtrInput` via:
+//
+//          RuleGroupNotStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupNotStatementPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupNotStatementPtrOutput() RuleGroupNotStatementPtrOutput
+	ToRuleGroupNotStatementPtrOutputWithContext(context.Context) RuleGroupNotStatementPtrOutput
+}
+
+type ruleGroupNotStatementPtrType RuleGroupNotStatementArgs
+
+func RuleGroupNotStatementPtr(v *RuleGroupNotStatementArgs) RuleGroupNotStatementPtrInput {
+	return (*ruleGroupNotStatementPtrType)(v)
+}
+
+func (*ruleGroupNotStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupNotStatement)(nil)).Elem()
+}
+
+func (i *ruleGroupNotStatementPtrType) ToRuleGroupNotStatementPtrOutput() RuleGroupNotStatementPtrOutput {
+	return i.ToRuleGroupNotStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupNotStatementPtrType) ToRuleGroupNotStatementPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
+type RuleGroupNotStatementOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupNotStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupNotStatement)(nil)).Elem()
+}
+
+func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementOutput() RuleGroupNotStatementOutput {
+	return o
+}
+
+func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementOutputWithContext(ctx context.Context) RuleGroupNotStatementOutput {
+	return o
+}
+
+func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementPtrOutput() RuleGroupNotStatementPtrOutput {
+	return o.ToRuleGroupNotStatementPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupNotStatement) *RuleGroupNotStatement {
+		return &v
+	}).(RuleGroupNotStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
+func (o RuleGroupNotStatementOutput) Statement() RuleGroupStatementOutput {
+	return o.ApplyT(func(v RuleGroupNotStatement) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
+}
+
+type RuleGroupNotStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupNotStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupNotStatement)(nil)).Elem()
+}
+
+func (o RuleGroupNotStatementPtrOutput) ToRuleGroupNotStatementPtrOutput() RuleGroupNotStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupNotStatementPtrOutput) ToRuleGroupNotStatementPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementPtrOutput {
+	return o
+}
+
+func (o RuleGroupNotStatementPtrOutput) Elem() RuleGroupNotStatementOutput {
+	return o.ApplyT(func(v *RuleGroupNotStatement) RuleGroupNotStatement {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupNotStatement
+		return ret
+	}).(RuleGroupNotStatementOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
+func (o RuleGroupNotStatementPtrOutput) Statement() RuleGroupStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupNotStatement) *RuleGroupStatement {
 		if v == nil {
 			return nil
 		}
 		return &v.Statement
-	}).(RuleGroupStatementTwoPtrOutput)
+	}).(RuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html
-type RuleGroupNotStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
-	Statement RuleGroupStatementThree `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
+type RuleGroupOrStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
+	Statements []RuleGroupStatement `pulumi:"statements"`
 }
 
-// RuleGroupNotStatementTwoInput is an input type that accepts RuleGroupNotStatementTwoArgs and RuleGroupNotStatementTwoOutput values.
-// You can construct a concrete instance of `RuleGroupNotStatementTwoInput` via:
+// RuleGroupOrStatementInput is an input type that accepts RuleGroupOrStatementArgs and RuleGroupOrStatementOutput values.
+// You can construct a concrete instance of `RuleGroupOrStatementInput` via:
 //
-//          RuleGroupNotStatementTwoArgs{...}
-type RuleGroupNotStatementTwoInput interface {
+//          RuleGroupOrStatementArgs{...}
+type RuleGroupOrStatementInput interface {
 	pulumi.Input
 
-	ToRuleGroupNotStatementTwoOutput() RuleGroupNotStatementTwoOutput
-	ToRuleGroupNotStatementTwoOutputWithContext(context.Context) RuleGroupNotStatementTwoOutput
+	ToRuleGroupOrStatementOutput() RuleGroupOrStatementOutput
+	ToRuleGroupOrStatementOutputWithContext(context.Context) RuleGroupOrStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html
-type RuleGroupNotStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
-	Statement RuleGroupStatementThreeInput `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
+type RuleGroupOrStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
+	Statements RuleGroupStatementArrayInput `pulumi:"statements"`
 }
 
-func (RuleGroupNotStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNotStatementTwo)(nil)).Elem()
+func (RuleGroupOrStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupOrStatement)(nil)).Elem()
 }
 
-func (i RuleGroupNotStatementTwoArgs) ToRuleGroupNotStatementTwoOutput() RuleGroupNotStatementTwoOutput {
-	return i.ToRuleGroupNotStatementTwoOutputWithContext(context.Background())
+func (i RuleGroupOrStatementArgs) ToRuleGroupOrStatementOutput() RuleGroupOrStatementOutput {
+	return i.ToRuleGroupOrStatementOutputWithContext(context.Background())
 }
 
-func (i RuleGroupNotStatementTwoArgs) ToRuleGroupNotStatementTwoOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementTwoOutput)
+func (i RuleGroupOrStatementArgs) ToRuleGroupOrStatementOutputWithContext(ctx context.Context) RuleGroupOrStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementOutput)
 }
 
-func (i RuleGroupNotStatementTwoArgs) ToRuleGroupNotStatementTwoPtrOutput() RuleGroupNotStatementTwoPtrOutput {
-	return i.ToRuleGroupNotStatementTwoPtrOutputWithContext(context.Background())
+func (i RuleGroupOrStatementArgs) ToRuleGroupOrStatementPtrOutput() RuleGroupOrStatementPtrOutput {
+	return i.ToRuleGroupOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (i RuleGroupNotStatementTwoArgs) ToRuleGroupNotStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementTwoOutput).ToRuleGroupNotStatementTwoPtrOutputWithContext(ctx)
+func (i RuleGroupOrStatementArgs) ToRuleGroupOrStatementPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementOutput).ToRuleGroupOrStatementPtrOutputWithContext(ctx)
 }
 
-// RuleGroupNotStatementTwoPtrInput is an input type that accepts RuleGroupNotStatementTwoArgs, RuleGroupNotStatementTwoPtr and RuleGroupNotStatementTwoPtrOutput values.
-// You can construct a concrete instance of `RuleGroupNotStatementTwoPtrInput` via:
+// RuleGroupOrStatementPtrInput is an input type that accepts RuleGroupOrStatementArgs, RuleGroupOrStatementPtr and RuleGroupOrStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupOrStatementPtrInput` via:
 //
-//          RuleGroupNotStatementTwoArgs{...}
+//          RuleGroupOrStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleGroupNotStatementTwoPtrInput interface {
+type RuleGroupOrStatementPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupNotStatementTwoPtrOutput() RuleGroupNotStatementTwoPtrOutput
-	ToRuleGroupNotStatementTwoPtrOutputWithContext(context.Context) RuleGroupNotStatementTwoPtrOutput
+	ToRuleGroupOrStatementPtrOutput() RuleGroupOrStatementPtrOutput
+	ToRuleGroupOrStatementPtrOutputWithContext(context.Context) RuleGroupOrStatementPtrOutput
 }
 
-type ruleGroupNotStatementTwoPtrType RuleGroupNotStatementTwoArgs
+type ruleGroupOrStatementPtrType RuleGroupOrStatementArgs
 
-func RuleGroupNotStatementTwoPtr(v *RuleGroupNotStatementTwoArgs) RuleGroupNotStatementTwoPtrInput {
-	return (*ruleGroupNotStatementTwoPtrType)(v)
+func RuleGroupOrStatementPtr(v *RuleGroupOrStatementArgs) RuleGroupOrStatementPtrInput {
+	return (*ruleGroupOrStatementPtrType)(v)
 }
 
-func (*ruleGroupNotStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNotStatementTwo)(nil)).Elem()
+func (*ruleGroupOrStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupOrStatement)(nil)).Elem()
 }
 
-func (i *ruleGroupNotStatementTwoPtrType) ToRuleGroupNotStatementTwoPtrOutput() RuleGroupNotStatementTwoPtrOutput {
-	return i.ToRuleGroupNotStatementTwoPtrOutputWithContext(context.Background())
+func (i *ruleGroupOrStatementPtrType) ToRuleGroupOrStatementPtrOutput() RuleGroupOrStatementPtrOutput {
+	return i.ToRuleGroupOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupNotStatementTwoPtrType) ToRuleGroupNotStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementTwoPtrOutput)
+func (i *ruleGroupOrStatementPtrType) ToRuleGroupOrStatementPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html
-type RuleGroupNotStatementTwoOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
+type RuleGroupOrStatementOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupNotStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNotStatementTwo)(nil)).Elem()
+func (RuleGroupOrStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupOrStatement)(nil)).Elem()
 }
 
-func (o RuleGroupNotStatementTwoOutput) ToRuleGroupNotStatementTwoOutput() RuleGroupNotStatementTwoOutput {
+func (o RuleGroupOrStatementOutput) ToRuleGroupOrStatementOutput() RuleGroupOrStatementOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementTwoOutput) ToRuleGroupNotStatementTwoOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoOutput {
+func (o RuleGroupOrStatementOutput) ToRuleGroupOrStatementOutputWithContext(ctx context.Context) RuleGroupOrStatementOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementTwoOutput) ToRuleGroupNotStatementTwoPtrOutput() RuleGroupNotStatementTwoPtrOutput {
-	return o.ToRuleGroupNotStatementTwoPtrOutputWithContext(context.Background())
+func (o RuleGroupOrStatementOutput) ToRuleGroupOrStatementPtrOutput() RuleGroupOrStatementPtrOutput {
+	return o.ToRuleGroupOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupNotStatementTwoOutput) ToRuleGroupNotStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupNotStatementTwo) *RuleGroupNotStatementTwo {
+func (o RuleGroupOrStatementOutput) ToRuleGroupOrStatementPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupOrStatement) *RuleGroupOrStatement {
 		return &v
-	}).(RuleGroupNotStatementTwoPtrOutput)
+	}).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
-func (o RuleGroupNotStatementTwoOutput) Statement() RuleGroupStatementThreeOutput {
-	return o.ApplyT(func(v RuleGroupNotStatementTwo) RuleGroupStatementThree { return v.Statement }).(RuleGroupStatementThreeOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
+func (o RuleGroupOrStatementOutput) Statements() RuleGroupStatementArrayOutput {
+	return o.ApplyT(func(v RuleGroupOrStatement) []RuleGroupStatement { return v.Statements }).(RuleGroupStatementArrayOutput)
 }
 
-type RuleGroupNotStatementTwoPtrOutput struct{ *pulumi.OutputState }
+type RuleGroupOrStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupNotStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNotStatementTwo)(nil)).Elem()
+func (RuleGroupOrStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupOrStatement)(nil)).Elem()
 }
 
-func (o RuleGroupNotStatementTwoPtrOutput) ToRuleGroupNotStatementTwoPtrOutput() RuleGroupNotStatementTwoPtrOutput {
+func (o RuleGroupOrStatementPtrOutput) ToRuleGroupOrStatementPtrOutput() RuleGroupOrStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementTwoPtrOutput) ToRuleGroupNotStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupNotStatementTwoPtrOutput {
+func (o RuleGroupOrStatementPtrOutput) ToRuleGroupOrStatementPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupNotStatementTwoPtrOutput) Elem() RuleGroupNotStatementTwoOutput {
-	return o.ApplyT(func(v *RuleGroupNotStatementTwo) RuleGroupNotStatementTwo {
+func (o RuleGroupOrStatementPtrOutput) Elem() RuleGroupOrStatementOutput {
+	return o.ApplyT(func(v *RuleGroupOrStatement) RuleGroupOrStatement {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupNotStatementTwo
+		var ret RuleGroupOrStatement
 		return ret
-	}).(RuleGroupNotStatementTwoOutput)
+	}).(RuleGroupOrStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatementtwo.html#cfn-wafv2-rulegroup-notstatementtwo-statement
-func (o RuleGroupNotStatementTwoPtrOutput) Statement() RuleGroupStatementThreePtrOutput {
-	return o.ApplyT(func(v *RuleGroupNotStatementTwo) *RuleGroupStatementThree {
-		if v == nil {
-			return nil
-		}
-		return &v.Statement
-	}).(RuleGroupStatementThreePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html
-type RuleGroupOrStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-	Statements []RuleGroupStatementTwo `pulumi:"statements"`
-}
-
-// RuleGroupOrStatementOneInput is an input type that accepts RuleGroupOrStatementOneArgs and RuleGroupOrStatementOneOutput values.
-// You can construct a concrete instance of `RuleGroupOrStatementOneInput` via:
-//
-//          RuleGroupOrStatementOneArgs{...}
-type RuleGroupOrStatementOneInput interface {
-	pulumi.Input
-
-	ToRuleGroupOrStatementOneOutput() RuleGroupOrStatementOneOutput
-	ToRuleGroupOrStatementOneOutputWithContext(context.Context) RuleGroupOrStatementOneOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html
-type RuleGroupOrStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-	Statements RuleGroupStatementTwoArrayInput `pulumi:"statements"`
-}
-
-func (RuleGroupOrStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupOrStatementOne)(nil)).Elem()
-}
-
-func (i RuleGroupOrStatementOneArgs) ToRuleGroupOrStatementOneOutput() RuleGroupOrStatementOneOutput {
-	return i.ToRuleGroupOrStatementOneOutputWithContext(context.Background())
-}
-
-func (i RuleGroupOrStatementOneArgs) ToRuleGroupOrStatementOneOutputWithContext(ctx context.Context) RuleGroupOrStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementOneOutput)
-}
-
-func (i RuleGroupOrStatementOneArgs) ToRuleGroupOrStatementOnePtrOutput() RuleGroupOrStatementOnePtrOutput {
-	return i.ToRuleGroupOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupOrStatementOneArgs) ToRuleGroupOrStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupOrStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementOneOutput).ToRuleGroupOrStatementOnePtrOutputWithContext(ctx)
-}
-
-// RuleGroupOrStatementOnePtrInput is an input type that accepts RuleGroupOrStatementOneArgs, RuleGroupOrStatementOnePtr and RuleGroupOrStatementOnePtrOutput values.
-// You can construct a concrete instance of `RuleGroupOrStatementOnePtrInput` via:
-//
-//          RuleGroupOrStatementOneArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupOrStatementOnePtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupOrStatementOnePtrOutput() RuleGroupOrStatementOnePtrOutput
-	ToRuleGroupOrStatementOnePtrOutputWithContext(context.Context) RuleGroupOrStatementOnePtrOutput
-}
-
-type ruleGroupOrStatementOnePtrType RuleGroupOrStatementOneArgs
-
-func RuleGroupOrStatementOnePtr(v *RuleGroupOrStatementOneArgs) RuleGroupOrStatementOnePtrInput {
-	return (*ruleGroupOrStatementOnePtrType)(v)
-}
-
-func (*ruleGroupOrStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupOrStatementOne)(nil)).Elem()
-}
-
-func (i *ruleGroupOrStatementOnePtrType) ToRuleGroupOrStatementOnePtrOutput() RuleGroupOrStatementOnePtrOutput {
-	return i.ToRuleGroupOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupOrStatementOnePtrType) ToRuleGroupOrStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupOrStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html
-type RuleGroupOrStatementOneOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupOrStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupOrStatementOne)(nil)).Elem()
-}
-
-func (o RuleGroupOrStatementOneOutput) ToRuleGroupOrStatementOneOutput() RuleGroupOrStatementOneOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementOneOutput) ToRuleGroupOrStatementOneOutputWithContext(ctx context.Context) RuleGroupOrStatementOneOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementOneOutput) ToRuleGroupOrStatementOnePtrOutput() RuleGroupOrStatementOnePtrOutput {
-	return o.ToRuleGroupOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupOrStatementOneOutput) ToRuleGroupOrStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupOrStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupOrStatementOne) *RuleGroupOrStatementOne {
-		return &v
-	}).(RuleGroupOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-func (o RuleGroupOrStatementOneOutput) Statements() RuleGroupStatementTwoArrayOutput {
-	return o.ApplyT(func(v RuleGroupOrStatementOne) []RuleGroupStatementTwo { return v.Statements }).(RuleGroupStatementTwoArrayOutput)
-}
-
-type RuleGroupOrStatementOnePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupOrStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupOrStatementOne)(nil)).Elem()
-}
-
-func (o RuleGroupOrStatementOnePtrOutput) ToRuleGroupOrStatementOnePtrOutput() RuleGroupOrStatementOnePtrOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementOnePtrOutput) ToRuleGroupOrStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupOrStatementOnePtrOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementOnePtrOutput) Elem() RuleGroupOrStatementOneOutput {
-	return o.ApplyT(func(v *RuleGroupOrStatementOne) RuleGroupOrStatementOne {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupOrStatementOne
-		return ret
-	}).(RuleGroupOrStatementOneOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementone.html#cfn-wafv2-rulegroup-orstatementone-statements
-func (o RuleGroupOrStatementOnePtrOutput) Statements() RuleGroupStatementTwoArrayOutput {
-	return o.ApplyT(func(v *RuleGroupOrStatementOne) []RuleGroupStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
+func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutput {
+	return o.ApplyT(func(v *RuleGroupOrStatement) []RuleGroupStatement {
 		if v == nil {
 			return nil
 		}
 		return v.Statements
-	}).(RuleGroupStatementTwoArrayOutput)
+	}).(RuleGroupStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html
-type RuleGroupOrStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
-	Statements []RuleGroupStatementThree `pulumi:"statements"`
-}
-
-// RuleGroupOrStatementTwoInput is an input type that accepts RuleGroupOrStatementTwoArgs and RuleGroupOrStatementTwoOutput values.
-// You can construct a concrete instance of `RuleGroupOrStatementTwoInput` via:
-//
-//          RuleGroupOrStatementTwoArgs{...}
-type RuleGroupOrStatementTwoInput interface {
-	pulumi.Input
-
-	ToRuleGroupOrStatementTwoOutput() RuleGroupOrStatementTwoOutput
-	ToRuleGroupOrStatementTwoOutputWithContext(context.Context) RuleGroupOrStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html
-type RuleGroupOrStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
-	Statements RuleGroupStatementThreeArrayInput `pulumi:"statements"`
-}
-
-func (RuleGroupOrStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupOrStatementTwo)(nil)).Elem()
-}
-
-func (i RuleGroupOrStatementTwoArgs) ToRuleGroupOrStatementTwoOutput() RuleGroupOrStatementTwoOutput {
-	return i.ToRuleGroupOrStatementTwoOutputWithContext(context.Background())
-}
-
-func (i RuleGroupOrStatementTwoArgs) ToRuleGroupOrStatementTwoOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementTwoOutput)
-}
-
-func (i RuleGroupOrStatementTwoArgs) ToRuleGroupOrStatementTwoPtrOutput() RuleGroupOrStatementTwoPtrOutput {
-	return i.ToRuleGroupOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupOrStatementTwoArgs) ToRuleGroupOrStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementTwoOutput).ToRuleGroupOrStatementTwoPtrOutputWithContext(ctx)
-}
-
-// RuleGroupOrStatementTwoPtrInput is an input type that accepts RuleGroupOrStatementTwoArgs, RuleGroupOrStatementTwoPtr and RuleGroupOrStatementTwoPtrOutput values.
-// You can construct a concrete instance of `RuleGroupOrStatementTwoPtrInput` via:
-//
-//          RuleGroupOrStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupOrStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupOrStatementTwoPtrOutput() RuleGroupOrStatementTwoPtrOutput
-	ToRuleGroupOrStatementTwoPtrOutputWithContext(context.Context) RuleGroupOrStatementTwoPtrOutput
-}
-
-type ruleGroupOrStatementTwoPtrType RuleGroupOrStatementTwoArgs
-
-func RuleGroupOrStatementTwoPtr(v *RuleGroupOrStatementTwoArgs) RuleGroupOrStatementTwoPtrInput {
-	return (*ruleGroupOrStatementTwoPtrType)(v)
-}
-
-func (*ruleGroupOrStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupOrStatementTwo)(nil)).Elem()
-}
-
-func (i *ruleGroupOrStatementTwoPtrType) ToRuleGroupOrStatementTwoPtrOutput() RuleGroupOrStatementTwoPtrOutput {
-	return i.ToRuleGroupOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupOrStatementTwoPtrType) ToRuleGroupOrStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html
-type RuleGroupOrStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupOrStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupOrStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupOrStatementTwoOutput) ToRuleGroupOrStatementTwoOutput() RuleGroupOrStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementTwoOutput) ToRuleGroupOrStatementTwoOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementTwoOutput) ToRuleGroupOrStatementTwoPtrOutput() RuleGroupOrStatementTwoPtrOutput {
-	return o.ToRuleGroupOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupOrStatementTwoOutput) ToRuleGroupOrStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupOrStatementTwo) *RuleGroupOrStatementTwo {
-		return &v
-	}).(RuleGroupOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
-func (o RuleGroupOrStatementTwoOutput) Statements() RuleGroupStatementThreeArrayOutput {
-	return o.ApplyT(func(v RuleGroupOrStatementTwo) []RuleGroupStatementThree { return v.Statements }).(RuleGroupStatementThreeArrayOutput)
-}
-
-type RuleGroupOrStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupOrStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupOrStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupOrStatementTwoPtrOutput) ToRuleGroupOrStatementTwoPtrOutput() RuleGroupOrStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementTwoPtrOutput) ToRuleGroupOrStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupOrStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupOrStatementTwoPtrOutput) Elem() RuleGroupOrStatementTwoOutput {
-	return o.ApplyT(func(v *RuleGroupOrStatementTwo) RuleGroupOrStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupOrStatementTwo
-		return ret
-	}).(RuleGroupOrStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatementtwo.html#cfn-wafv2-rulegroup-orstatementtwo-statements
-func (o RuleGroupOrStatementTwoPtrOutput) Statements() RuleGroupStatementThreeArrayOutput {
-	return o.ApplyT(func(v *RuleGroupOrStatementTwo) []RuleGroupStatementThree {
-		if v == nil {
-			return nil
-		}
-		return v.Statements
-	}).(RuleGroupStatementThreeArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
-type RuleGroupRateBasedStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
+type RuleGroupRateBasedStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
 	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
 	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
 	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
-	ScopeDownStatement *RuleGroupStatementTwo `pulumi:"scopeDownStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
+	ScopeDownStatement *RuleGroupStatement `pulumi:"scopeDownStatement"`
 }
 
-// RuleGroupRateBasedStatementOneInput is an input type that accepts RuleGroupRateBasedStatementOneArgs and RuleGroupRateBasedStatementOneOutput values.
-// You can construct a concrete instance of `RuleGroupRateBasedStatementOneInput` via:
+// RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
+// You can construct a concrete instance of `RuleGroupRateBasedStatementInput` via:
 //
-//          RuleGroupRateBasedStatementOneArgs{...}
-type RuleGroupRateBasedStatementOneInput interface {
+//          RuleGroupRateBasedStatementArgs{...}
+type RuleGroupRateBasedStatementInput interface {
 	pulumi.Input
 
-	ToRuleGroupRateBasedStatementOneOutput() RuleGroupRateBasedStatementOneOutput
-	ToRuleGroupRateBasedStatementOneOutputWithContext(context.Context) RuleGroupRateBasedStatementOneOutput
+	ToRuleGroupRateBasedStatementOutput() RuleGroupRateBasedStatementOutput
+	ToRuleGroupRateBasedStatementOutputWithContext(context.Context) RuleGroupRateBasedStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
-type RuleGroupRateBasedStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
+type RuleGroupRateBasedStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
 	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
 	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
-	ScopeDownStatement RuleGroupStatementTwoPtrInput `pulumi:"scopeDownStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
+	ScopeDownStatement RuleGroupStatementPtrInput `pulumi:"scopeDownStatement"`
 }
 
-func (RuleGroupRateBasedStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRateBasedStatementOne)(nil)).Elem()
+func (RuleGroupRateBasedStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateBasedStatement)(nil)).Elem()
 }
 
-func (i RuleGroupRateBasedStatementOneArgs) ToRuleGroupRateBasedStatementOneOutput() RuleGroupRateBasedStatementOneOutput {
-	return i.ToRuleGroupRateBasedStatementOneOutputWithContext(context.Background())
+func (i RuleGroupRateBasedStatementArgs) ToRuleGroupRateBasedStatementOutput() RuleGroupRateBasedStatementOutput {
+	return i.ToRuleGroupRateBasedStatementOutputWithContext(context.Background())
 }
 
-func (i RuleGroupRateBasedStatementOneArgs) ToRuleGroupRateBasedStatementOneOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementOneOutput)
+func (i RuleGroupRateBasedStatementArgs) ToRuleGroupRateBasedStatementOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementOutput)
 }
 
-func (i RuleGroupRateBasedStatementOneArgs) ToRuleGroupRateBasedStatementOnePtrOutput() RuleGroupRateBasedStatementOnePtrOutput {
-	return i.ToRuleGroupRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (i RuleGroupRateBasedStatementArgs) ToRuleGroupRateBasedStatementPtrOutput() RuleGroupRateBasedStatementPtrOutput {
+	return i.ToRuleGroupRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (i RuleGroupRateBasedStatementOneArgs) ToRuleGroupRateBasedStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementOneOutput).ToRuleGroupRateBasedStatementOnePtrOutputWithContext(ctx)
+func (i RuleGroupRateBasedStatementArgs) ToRuleGroupRateBasedStatementPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementOutput).ToRuleGroupRateBasedStatementPtrOutputWithContext(ctx)
 }
 
-// RuleGroupRateBasedStatementOnePtrInput is an input type that accepts RuleGroupRateBasedStatementOneArgs, RuleGroupRateBasedStatementOnePtr and RuleGroupRateBasedStatementOnePtrOutput values.
-// You can construct a concrete instance of `RuleGroupRateBasedStatementOnePtrInput` via:
+// RuleGroupRateBasedStatementPtrInput is an input type that accepts RuleGroupRateBasedStatementArgs, RuleGroupRateBasedStatementPtr and RuleGroupRateBasedStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRateBasedStatementPtrInput` via:
 //
-//          RuleGroupRateBasedStatementOneArgs{...}
+//          RuleGroupRateBasedStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleGroupRateBasedStatementOnePtrInput interface {
+type RuleGroupRateBasedStatementPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupRateBasedStatementOnePtrOutput() RuleGroupRateBasedStatementOnePtrOutput
-	ToRuleGroupRateBasedStatementOnePtrOutputWithContext(context.Context) RuleGroupRateBasedStatementOnePtrOutput
+	ToRuleGroupRateBasedStatementPtrOutput() RuleGroupRateBasedStatementPtrOutput
+	ToRuleGroupRateBasedStatementPtrOutputWithContext(context.Context) RuleGroupRateBasedStatementPtrOutput
 }
 
-type ruleGroupRateBasedStatementOnePtrType RuleGroupRateBasedStatementOneArgs
+type ruleGroupRateBasedStatementPtrType RuleGroupRateBasedStatementArgs
 
-func RuleGroupRateBasedStatementOnePtr(v *RuleGroupRateBasedStatementOneArgs) RuleGroupRateBasedStatementOnePtrInput {
-	return (*ruleGroupRateBasedStatementOnePtrType)(v)
+func RuleGroupRateBasedStatementPtr(v *RuleGroupRateBasedStatementArgs) RuleGroupRateBasedStatementPtrInput {
+	return (*ruleGroupRateBasedStatementPtrType)(v)
 }
 
-func (*ruleGroupRateBasedStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRateBasedStatementOne)(nil)).Elem()
+func (*ruleGroupRateBasedStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateBasedStatement)(nil)).Elem()
 }
 
-func (i *ruleGroupRateBasedStatementOnePtrType) ToRuleGroupRateBasedStatementOnePtrOutput() RuleGroupRateBasedStatementOnePtrOutput {
-	return i.ToRuleGroupRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (i *ruleGroupRateBasedStatementPtrType) ToRuleGroupRateBasedStatementPtrOutput() RuleGroupRateBasedStatementPtrOutput {
+	return i.ToRuleGroupRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupRateBasedStatementOnePtrType) ToRuleGroupRateBasedStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementOnePtrOutput)
+func (i *ruleGroupRateBasedStatementPtrType) ToRuleGroupRateBasedStatementPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html
-type RuleGroupRateBasedStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
+type RuleGroupRateBasedStatementOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupRateBasedStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRateBasedStatementOne)(nil)).Elem()
+func (RuleGroupRateBasedStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRateBasedStatement)(nil)).Elem()
 }
 
-func (o RuleGroupRateBasedStatementOneOutput) ToRuleGroupRateBasedStatementOneOutput() RuleGroupRateBasedStatementOneOutput {
+func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementOutput() RuleGroupRateBasedStatementOutput {
 	return o
 }
 
-func (o RuleGroupRateBasedStatementOneOutput) ToRuleGroupRateBasedStatementOneOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOneOutput {
+func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOutput {
 	return o
 }
 
-func (o RuleGroupRateBasedStatementOneOutput) ToRuleGroupRateBasedStatementOnePtrOutput() RuleGroupRateBasedStatementOnePtrOutput {
-	return o.ToRuleGroupRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementPtrOutput() RuleGroupRateBasedStatementPtrOutput {
+	return o.ToRuleGroupRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupRateBasedStatementOneOutput) ToRuleGroupRateBasedStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateBasedStatementOne) *RuleGroupRateBasedStatementOne {
+func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateBasedStatement) *RuleGroupRateBasedStatement {
 		return &v
-	}).(RuleGroupRateBasedStatementOnePtrOutput)
+	}).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
-func (o RuleGroupRateBasedStatementOneOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) string { return v.AggregateKeyType }).(pulumi.StringOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
+func (o RuleGroupRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
-func (o RuleGroupRateBasedStatementOneOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
+func (o RuleGroupRateBasedStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
-func (o RuleGroupRateBasedStatementOneOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) int { return v.Limit }).(pulumi.IntOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
+func (o RuleGroupRateBasedStatementOutput) Limit() pulumi.IntOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
-func (o RuleGroupRateBasedStatementOneOutput) ScopeDownStatement() RuleGroupStatementTwoPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementOne) *RuleGroupStatementTwo { return v.ScopeDownStatement }).(RuleGroupStatementTwoPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
+func (o RuleGroupRateBasedStatementOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupStatement { return v.ScopeDownStatement }).(RuleGroupStatementPtrOutput)
 }
 
-type RuleGroupRateBasedStatementOnePtrOutput struct{ *pulumi.OutputState }
+type RuleGroupRateBasedStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupRateBasedStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRateBasedStatementOne)(nil)).Elem()
+func (RuleGroupRateBasedStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRateBasedStatement)(nil)).Elem()
 }
 
-func (o RuleGroupRateBasedStatementOnePtrOutput) ToRuleGroupRateBasedStatementOnePtrOutput() RuleGroupRateBasedStatementOnePtrOutput {
+func (o RuleGroupRateBasedStatementPtrOutput) ToRuleGroupRateBasedStatementPtrOutput() RuleGroupRateBasedStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupRateBasedStatementOnePtrOutput) ToRuleGroupRateBasedStatementOnePtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementOnePtrOutput {
+func (o RuleGroupRateBasedStatementPtrOutput) ToRuleGroupRateBasedStatementPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupRateBasedStatementOnePtrOutput) Elem() RuleGroupRateBasedStatementOneOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) RuleGroupRateBasedStatementOne {
+func (o RuleGroupRateBasedStatementPtrOutput) Elem() RuleGroupRateBasedStatementOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) RuleGroupRateBasedStatement {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupRateBasedStatementOne
+		var ret RuleGroupRateBasedStatement
 		return ret
-	}).(RuleGroupRateBasedStatementOneOutput)
+	}).(RuleGroupRateBasedStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-aggregatekeytype
-func (o RuleGroupRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *string {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
+func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *string {
 		if v == nil {
 			return nil
 		}
@@ -2144,9 +2548,9 @@ func (o RuleGroupRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-forwardedipconfig
-func (o RuleGroupRateBasedStatementOnePtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *RuleGroupForwardedIPConfiguration {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
+func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2154,9 +2558,9 @@ func (o RuleGroupRateBasedStatementOnePtrOutput) ForwardedIPConfig() RuleGroupFo
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-limit
-func (o RuleGroupRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *int {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
+func (o RuleGroupRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *int {
 		if v == nil {
 			return nil
 		}
@@ -2164,211 +2568,14 @@ func (o RuleGroupRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementone.html#cfn-wafv2-rulegroup-ratebasedstatementone-scopedownstatement
-func (o RuleGroupRateBasedStatementOnePtrOutput) ScopeDownStatement() RuleGroupStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementOne) *RuleGroupStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
+func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupStatement {
 		if v == nil {
 			return nil
 		}
 		return v.ScopeDownStatement
-	}).(RuleGroupStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
-type RuleGroupRateBasedStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
-	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
-	ScopeDownStatement *RuleGroupStatementThree `pulumi:"scopeDownStatement"`
-}
-
-// RuleGroupRateBasedStatementTwoInput is an input type that accepts RuleGroupRateBasedStatementTwoArgs and RuleGroupRateBasedStatementTwoOutput values.
-// You can construct a concrete instance of `RuleGroupRateBasedStatementTwoInput` via:
-//
-//          RuleGroupRateBasedStatementTwoArgs{...}
-type RuleGroupRateBasedStatementTwoInput interface {
-	pulumi.Input
-
-	ToRuleGroupRateBasedStatementTwoOutput() RuleGroupRateBasedStatementTwoOutput
-	ToRuleGroupRateBasedStatementTwoOutputWithContext(context.Context) RuleGroupRateBasedStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
-type RuleGroupRateBasedStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
-	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
-	ScopeDownStatement RuleGroupStatementThreePtrInput `pulumi:"scopeDownStatement"`
-}
-
-func (RuleGroupRateBasedStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (i RuleGroupRateBasedStatementTwoArgs) ToRuleGroupRateBasedStatementTwoOutput() RuleGroupRateBasedStatementTwoOutput {
-	return i.ToRuleGroupRateBasedStatementTwoOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRateBasedStatementTwoArgs) ToRuleGroupRateBasedStatementTwoOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementTwoOutput)
-}
-
-func (i RuleGroupRateBasedStatementTwoArgs) ToRuleGroupRateBasedStatementTwoPtrOutput() RuleGroupRateBasedStatementTwoPtrOutput {
-	return i.ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRateBasedStatementTwoArgs) ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementTwoOutput).ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(ctx)
-}
-
-// RuleGroupRateBasedStatementTwoPtrInput is an input type that accepts RuleGroupRateBasedStatementTwoArgs, RuleGroupRateBasedStatementTwoPtr and RuleGroupRateBasedStatementTwoPtrOutput values.
-// You can construct a concrete instance of `RuleGroupRateBasedStatementTwoPtrInput` via:
-//
-//          RuleGroupRateBasedStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupRateBasedStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupRateBasedStatementTwoPtrOutput() RuleGroupRateBasedStatementTwoPtrOutput
-	ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(context.Context) RuleGroupRateBasedStatementTwoPtrOutput
-}
-
-type ruleGroupRateBasedStatementTwoPtrType RuleGroupRateBasedStatementTwoArgs
-
-func RuleGroupRateBasedStatementTwoPtr(v *RuleGroupRateBasedStatementTwoArgs) RuleGroupRateBasedStatementTwoPtrInput {
-	return (*ruleGroupRateBasedStatementTwoPtrType)(v)
-}
-
-func (*ruleGroupRateBasedStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (i *ruleGroupRateBasedStatementTwoPtrType) ToRuleGroupRateBasedStatementTwoPtrOutput() RuleGroupRateBasedStatementTwoPtrOutput {
-	return i.ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupRateBasedStatementTwoPtrType) ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html
-type RuleGroupRateBasedStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRateBasedStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupRateBasedStatementTwoOutput) ToRuleGroupRateBasedStatementTwoOutput() RuleGroupRateBasedStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupRateBasedStatementTwoOutput) ToRuleGroupRateBasedStatementTwoOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupRateBasedStatementTwoOutput) ToRuleGroupRateBasedStatementTwoPtrOutput() RuleGroupRateBasedStatementTwoPtrOutput {
-	return o.ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupRateBasedStatementTwoOutput) ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRateBasedStatementTwo) *RuleGroupRateBasedStatementTwo {
-		return &v
-	}).(RuleGroupRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
-func (o RuleGroupRateBasedStatementTwoOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) string { return v.AggregateKeyType }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
-func (o RuleGroupRateBasedStatementTwoOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-func (o RuleGroupRateBasedStatementTwoOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) int { return v.Limit }).(pulumi.IntOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
-func (o RuleGroupRateBasedStatementTwoOutput) ScopeDownStatement() RuleGroupStatementThreePtrOutput {
-	return o.ApplyT(func(v RuleGroupRateBasedStatementTwo) *RuleGroupStatementThree { return v.ScopeDownStatement }).(RuleGroupStatementThreePtrOutput)
-}
-
-type RuleGroupRateBasedStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRateBasedStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupRateBasedStatementTwoPtrOutput) ToRuleGroupRateBasedStatementTwoPtrOutput() RuleGroupRateBasedStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupRateBasedStatementTwoPtrOutput) ToRuleGroupRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupRateBasedStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupRateBasedStatementTwoPtrOutput) Elem() RuleGroupRateBasedStatementTwoOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) RuleGroupRateBasedStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupRateBasedStatementTwo
-		return ret
-	}).(RuleGroupRateBasedStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-aggregatekeytype
-func (o RuleGroupRateBasedStatementTwoPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AggregateKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-forwardedipconfig
-func (o RuleGroupRateBasedStatementTwoPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) *RuleGroupForwardedIPConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ForwardedIPConfig
-	}).(RuleGroupForwardedIPConfigurationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-limit
-func (o RuleGroupRateBasedStatementTwoPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatementtwo.html#cfn-wafv2-rulegroup-ratebasedstatementtwo-scopedownstatement
-func (o RuleGroupRateBasedStatementTwoPtrOutput) ScopeDownStatement() RuleGroupStatementThreePtrOutput {
-	return o.ApplyT(func(v *RuleGroupRateBasedStatementTwo) *RuleGroupStatementThree {
-		if v == nil {
-			return nil
-		}
-		return v.ScopeDownStatement
-	}).(RuleGroupStatementThreePtrOutput)
+	}).(RuleGroupStatementPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
@@ -2559,8 +2766,10 @@ type RuleGroupRule struct {
 	Name string `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
 	Priority int `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+	RuleLabels []RuleGroupLabel `pulumi:"ruleLabels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement RuleGroupStatementOne `pulumi:"statement"`
+	Statement RuleGroupStatement `pulumi:"statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -2584,8 +2793,10 @@ type RuleGroupRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
 	Priority pulumi.IntInput `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+	RuleLabels RuleGroupLabelArrayInput `pulumi:"ruleLabels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement RuleGroupStatementOneInput `pulumi:"statement"`
+	Statement RuleGroupStatementInput `pulumi:"statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
 	VisibilityConfig RuleGroupVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
@@ -2657,9 +2868,14 @@ func (o RuleGroupRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+func (o RuleGroupRuleOutput) RuleLabels() RuleGroupLabelArrayOutput {
+	return o.ApplyT(func(v RuleGroupRule) []RuleGroupLabel { return v.RuleLabels }).(RuleGroupLabelArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-func (o RuleGroupRuleOutput) Statement() RuleGroupStatementOneOutput {
-	return o.ApplyT(func(v RuleGroupRule) RuleGroupStatementOne { return v.Statement }).(RuleGroupStatementOneOutput)
+func (o RuleGroupRuleOutput) Statement() RuleGroupStatementOutput {
+	return o.ApplyT(func(v RuleGroupRule) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
@@ -2872,7 +3088,7 @@ type RuleGroupSizeConstraintStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
@@ -2895,7 +3111,7 @@ type RuleGroupSizeConstraintStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.Float64Input `pulumi:"size"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -2989,8 +3205,8 @@ func (o RuleGroupSizeConstraintStatementOutput) FieldToMatch() RuleGroupFieldToM
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-func (o RuleGroupSizeConstraintStatementOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) int { return v.Size }).(pulumi.IntOutput)
+func (o RuleGroupSizeConstraintStatementOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
@@ -3043,13 +3259,13 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupField
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-func (o RuleGroupSizeConstraintStatementPtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *int {
+func (o RuleGroupSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Size
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
@@ -3221,714 +3437,275 @@ func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
-type RuleGroupStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
-	AndStatement *RuleGroupAndStatementOne `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+type RuleGroupStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
+	AndStatement *RuleGroupAndStatement `pulumi:"andStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
 	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
 	GeoMatchStatement *RuleGroupGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
 	IPSetReferenceStatement *RuleGroupIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
-	NotStatement *RuleGroupNotStatementOne `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
-	OrStatement *RuleGroupOrStatementOne `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
-	RateBasedStatement *RuleGroupRateBasedStatementOne `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
+	LabelMatchStatement *RuleGroupLabelMatchStatement `pulumi:"labelMatchStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
+	NotStatement *RuleGroupNotStatement `pulumi:"notStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
+	OrStatement *RuleGroupOrStatement `pulumi:"orStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
+	RateBasedStatement *RuleGroupRateBasedStatement `pulumi:"rateBasedStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
 	RegexPatternSetReferenceStatement *RuleGroupRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
 	SizeConstraintStatement *RuleGroupSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
 	SqliMatchStatement *RuleGroupSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
 	XssMatchStatement *RuleGroupXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
-// RuleGroupStatementOneInput is an input type that accepts RuleGroupStatementOneArgs and RuleGroupStatementOneOutput values.
-// You can construct a concrete instance of `RuleGroupStatementOneInput` via:
+// RuleGroupStatementInput is an input type that accepts RuleGroupStatementArgs and RuleGroupStatementOutput values.
+// You can construct a concrete instance of `RuleGroupStatementInput` via:
 //
-//          RuleGroupStatementOneArgs{...}
-type RuleGroupStatementOneInput interface {
+//          RuleGroupStatementArgs{...}
+type RuleGroupStatementInput interface {
 	pulumi.Input
 
-	ToRuleGroupStatementOneOutput() RuleGroupStatementOneOutput
-	ToRuleGroupStatementOneOutputWithContext(context.Context) RuleGroupStatementOneOutput
+	ToRuleGroupStatementOutput() RuleGroupStatementOutput
+	ToRuleGroupStatementOutputWithContext(context.Context) RuleGroupStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
-type RuleGroupStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
-	AndStatement RuleGroupAndStatementOnePtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+type RuleGroupStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
+	AndStatement RuleGroupAndStatementPtrInput `pulumi:"andStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
 	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
 	GeoMatchStatement RuleGroupGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
 	IPSetReferenceStatement RuleGroupIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
-	NotStatement RuleGroupNotStatementOnePtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
-	OrStatement RuleGroupOrStatementOnePtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
-	RateBasedStatement RuleGroupRateBasedStatementOnePtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
+	LabelMatchStatement RuleGroupLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
+	NotStatement RuleGroupNotStatementPtrInput `pulumi:"notStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
+	OrStatement RuleGroupOrStatementPtrInput `pulumi:"orStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
+	RateBasedStatement RuleGroupRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
 	RegexPatternSetReferenceStatement RuleGroupRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
 	SizeConstraintStatement RuleGroupSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
 	SqliMatchStatement RuleGroupSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
 	XssMatchStatement RuleGroupXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
-func (RuleGroupStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementOne)(nil)).Elem()
+func (RuleGroupStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupStatement)(nil)).Elem()
 }
 
-func (i RuleGroupStatementOneArgs) ToRuleGroupStatementOneOutput() RuleGroupStatementOneOutput {
-	return i.ToRuleGroupStatementOneOutputWithContext(context.Background())
+func (i RuleGroupStatementArgs) ToRuleGroupStatementOutput() RuleGroupStatementOutput {
+	return i.ToRuleGroupStatementOutputWithContext(context.Background())
 }
 
-func (i RuleGroupStatementOneArgs) ToRuleGroupStatementOneOutputWithContext(ctx context.Context) RuleGroupStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementOneOutput)
+func (i RuleGroupStatementArgs) ToRuleGroupStatementOutputWithContext(ctx context.Context) RuleGroupStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html
-type RuleGroupStatementOneOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementOne)(nil)).Elem()
+func (i RuleGroupStatementArgs) ToRuleGroupStatementPtrOutput() RuleGroupStatementPtrOutput {
+	return i.ToRuleGroupStatementPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupStatementOneOutput) ToRuleGroupStatementOneOutput() RuleGroupStatementOneOutput {
-	return o
+func (i RuleGroupStatementArgs) ToRuleGroupStatementPtrOutputWithContext(ctx context.Context) RuleGroupStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementOutput).ToRuleGroupStatementPtrOutputWithContext(ctx)
 }
 
-func (o RuleGroupStatementOneOutput) ToRuleGroupStatementOneOutputWithContext(ctx context.Context) RuleGroupStatementOneOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-andstatement
-func (o RuleGroupStatementOneOutput) AndStatement() RuleGroupAndStatementOnePtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupAndStatementOne { return v.AndStatement }).(RuleGroupAndStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-bytematchstatement
-func (o RuleGroupStatementOneOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-geomatchstatement
-func (o RuleGroupStatementOneOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ipsetreferencestatement
-func (o RuleGroupStatementOneOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-notstatement
-func (o RuleGroupStatementOneOutput) NotStatement() RuleGroupNotStatementOnePtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupNotStatementOne { return v.NotStatement }).(RuleGroupNotStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-orstatement
-func (o RuleGroupStatementOneOutput) OrStatement() RuleGroupOrStatementOnePtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupOrStatementOne { return v.OrStatement }).(RuleGroupOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-ratebasedstatement
-func (o RuleGroupStatementOneOutput) RateBasedStatement() RuleGroupRateBasedStatementOnePtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupRateBasedStatementOne { return v.RateBasedStatement }).(RuleGroupRateBasedStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-regexpatternsetreferencestatement
-func (o RuleGroupStatementOneOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupRegexPatternSetReferenceStatement {
-		return v.RegexPatternSetReferenceStatement
-	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sizeconstraintstatement
-func (o RuleGroupStatementOneOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupSizeConstraintStatement { return v.SizeConstraintStatement }).(RuleGroupSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-sqlimatchstatement
-func (o RuleGroupStatementOneOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementone.html#cfn-wafv2-rulegroup-statementone-xssmatchstatement
-func (o RuleGroupStatementOneOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementOne) *RuleGroupXssMatchStatement { return v.XssMatchStatement }).(RuleGroupXssMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
-type RuleGroupStatementThree struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
-	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
-	GeoMatchStatement *RuleGroupGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
-	IPSetReferenceStatement *RuleGroupIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement *RuleGroupRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
-	SizeConstraintStatement *RuleGroupSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
-	SqliMatchStatement *RuleGroupSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
-	XssMatchStatement *RuleGroupXssMatchStatement `pulumi:"xssMatchStatement"`
-}
-
-// RuleGroupStatementThreeInput is an input type that accepts RuleGroupStatementThreeArgs and RuleGroupStatementThreeOutput values.
-// You can construct a concrete instance of `RuleGroupStatementThreeInput` via:
+// RuleGroupStatementPtrInput is an input type that accepts RuleGroupStatementArgs, RuleGroupStatementPtr and RuleGroupStatementPtrOutput values.
+// You can construct a concrete instance of `RuleGroupStatementPtrInput` via:
 //
-//          RuleGroupStatementThreeArgs{...}
-type RuleGroupStatementThreeInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatementThreeOutput() RuleGroupStatementThreeOutput
-	ToRuleGroupStatementThreeOutputWithContext(context.Context) RuleGroupStatementThreeOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
-type RuleGroupStatementThreeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
-	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
-	GeoMatchStatement RuleGroupGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
-	IPSetReferenceStatement RuleGroupIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement RuleGroupRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
-	SizeConstraintStatement RuleGroupSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
-	SqliMatchStatement RuleGroupSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
-	XssMatchStatement RuleGroupXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
-}
-
-func (RuleGroupStatementThreeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementThree)(nil)).Elem()
-}
-
-func (i RuleGroupStatementThreeArgs) ToRuleGroupStatementThreeOutput() RuleGroupStatementThreeOutput {
-	return i.ToRuleGroupStatementThreeOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatementThreeArgs) ToRuleGroupStatementThreeOutputWithContext(ctx context.Context) RuleGroupStatementThreeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementThreeOutput)
-}
-
-func (i RuleGroupStatementThreeArgs) ToRuleGroupStatementThreePtrOutput() RuleGroupStatementThreePtrOutput {
-	return i.ToRuleGroupStatementThreePtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatementThreeArgs) ToRuleGroupStatementThreePtrOutputWithContext(ctx context.Context) RuleGroupStatementThreePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementThreeOutput).ToRuleGroupStatementThreePtrOutputWithContext(ctx)
-}
-
-// RuleGroupStatementThreePtrInput is an input type that accepts RuleGroupStatementThreeArgs, RuleGroupStatementThreePtr and RuleGroupStatementThreePtrOutput values.
-// You can construct a concrete instance of `RuleGroupStatementThreePtrInput` via:
-//
-//          RuleGroupStatementThreeArgs{...}
+//          RuleGroupStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type RuleGroupStatementThreePtrInput interface {
+type RuleGroupStatementPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupStatementThreePtrOutput() RuleGroupStatementThreePtrOutput
-	ToRuleGroupStatementThreePtrOutputWithContext(context.Context) RuleGroupStatementThreePtrOutput
+	ToRuleGroupStatementPtrOutput() RuleGroupStatementPtrOutput
+	ToRuleGroupStatementPtrOutputWithContext(context.Context) RuleGroupStatementPtrOutput
 }
 
-type ruleGroupStatementThreePtrType RuleGroupStatementThreeArgs
+type ruleGroupStatementPtrType RuleGroupStatementArgs
 
-func RuleGroupStatementThreePtr(v *RuleGroupStatementThreeArgs) RuleGroupStatementThreePtrInput {
-	return (*ruleGroupStatementThreePtrType)(v)
+func RuleGroupStatementPtr(v *RuleGroupStatementArgs) RuleGroupStatementPtrInput {
+	return (*ruleGroupStatementPtrType)(v)
 }
 
-func (*ruleGroupStatementThreePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatementThree)(nil)).Elem()
+func (*ruleGroupStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupStatement)(nil)).Elem()
 }
 
-func (i *ruleGroupStatementThreePtrType) ToRuleGroupStatementThreePtrOutput() RuleGroupStatementThreePtrOutput {
-	return i.ToRuleGroupStatementThreePtrOutputWithContext(context.Background())
+func (i *ruleGroupStatementPtrType) ToRuleGroupStatementPtrOutput() RuleGroupStatementPtrOutput {
+	return i.ToRuleGroupStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *ruleGroupStatementThreePtrType) ToRuleGroupStatementThreePtrOutputWithContext(ctx context.Context) RuleGroupStatementThreePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementThreePtrOutput)
+func (i *ruleGroupStatementPtrType) ToRuleGroupStatementPtrOutputWithContext(ctx context.Context) RuleGroupStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementPtrOutput)
 }
 
-// RuleGroupStatementThreeArrayInput is an input type that accepts RuleGroupStatementThreeArray and RuleGroupStatementThreeArrayOutput values.
-// You can construct a concrete instance of `RuleGroupStatementThreeArrayInput` via:
+// RuleGroupStatementArrayInput is an input type that accepts RuleGroupStatementArray and RuleGroupStatementArrayOutput values.
+// You can construct a concrete instance of `RuleGroupStatementArrayInput` via:
 //
-//          RuleGroupStatementThreeArray{ RuleGroupStatementThreeArgs{...} }
-type RuleGroupStatementThreeArrayInput interface {
+//          RuleGroupStatementArray{ RuleGroupStatementArgs{...} }
+type RuleGroupStatementArrayInput interface {
 	pulumi.Input
 
-	ToRuleGroupStatementThreeArrayOutput() RuleGroupStatementThreeArrayOutput
-	ToRuleGroupStatementThreeArrayOutputWithContext(context.Context) RuleGroupStatementThreeArrayOutput
+	ToRuleGroupStatementArrayOutput() RuleGroupStatementArrayOutput
+	ToRuleGroupStatementArrayOutputWithContext(context.Context) RuleGroupStatementArrayOutput
 }
 
-type RuleGroupStatementThreeArray []RuleGroupStatementThreeInput
+type RuleGroupStatementArray []RuleGroupStatementInput
 
-func (RuleGroupStatementThreeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupStatementThree)(nil)).Elem()
+func (RuleGroupStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupStatement)(nil)).Elem()
 }
 
-func (i RuleGroupStatementThreeArray) ToRuleGroupStatementThreeArrayOutput() RuleGroupStatementThreeArrayOutput {
-	return i.ToRuleGroupStatementThreeArrayOutputWithContext(context.Background())
+func (i RuleGroupStatementArray) ToRuleGroupStatementArrayOutput() RuleGroupStatementArrayOutput {
+	return i.ToRuleGroupStatementArrayOutputWithContext(context.Background())
 }
 
-func (i RuleGroupStatementThreeArray) ToRuleGroupStatementThreeArrayOutputWithContext(ctx context.Context) RuleGroupStatementThreeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementThreeArrayOutput)
+func (i RuleGroupStatementArray) ToRuleGroupStatementArrayOutputWithContext(ctx context.Context) RuleGroupStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html
-type RuleGroupStatementThreeOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+type RuleGroupStatementOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupStatementThreeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementThree)(nil)).Elem()
+func (RuleGroupStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupStatement)(nil)).Elem()
 }
 
-func (o RuleGroupStatementThreeOutput) ToRuleGroupStatementThreeOutput() RuleGroupStatementThreeOutput {
+func (o RuleGroupStatementOutput) ToRuleGroupStatementOutput() RuleGroupStatementOutput {
 	return o
 }
 
-func (o RuleGroupStatementThreeOutput) ToRuleGroupStatementThreeOutputWithContext(ctx context.Context) RuleGroupStatementThreeOutput {
+func (o RuleGroupStatementOutput) ToRuleGroupStatementOutputWithContext(ctx context.Context) RuleGroupStatementOutput {
 	return o
 }
 
-func (o RuleGroupStatementThreeOutput) ToRuleGroupStatementThreePtrOutput() RuleGroupStatementThreePtrOutput {
-	return o.ToRuleGroupStatementThreePtrOutputWithContext(context.Background())
+func (o RuleGroupStatementOutput) ToRuleGroupStatementPtrOutput() RuleGroupStatementPtrOutput {
+	return o.ToRuleGroupStatementPtrOutputWithContext(context.Background())
 }
 
-func (o RuleGroupStatementThreeOutput) ToRuleGroupStatementThreePtrOutputWithContext(ctx context.Context) RuleGroupStatementThreePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatementThree) *RuleGroupStatementThree {
+func (o RuleGroupStatementOutput) ToRuleGroupStatementPtrOutputWithContext(ctx context.Context) RuleGroupStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatement) *RuleGroupStatement {
 		return &v
-	}).(RuleGroupStatementThreePtrOutput)
+	}).(RuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
-func (o RuleGroupStatementThreeOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
+func (o RuleGroupStatementOutput) AndStatement() RuleGroupAndStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAndStatement { return v.AndStatement }).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
-func (o RuleGroupStatementThreeOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
+func (o RuleGroupStatementOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
-func (o RuleGroupStatementThreeOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
+func (o RuleGroupStatementOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
-func (o RuleGroupStatementThreeOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupRegexPatternSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
+func (o RuleGroupStatementOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
+func (o RuleGroupStatementOutput) LabelMatchStatement() RuleGroupLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupLabelMatchStatement { return v.LabelMatchStatement }).(RuleGroupLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
+func (o RuleGroupStatementOutput) NotStatement() RuleGroupNotStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupNotStatement { return v.NotStatement }).(RuleGroupNotStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
+func (o RuleGroupStatementOutput) OrStatement() RuleGroupOrStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupOrStatement { return v.OrStatement }).(RuleGroupOrStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
+func (o RuleGroupStatementOutput) RateBasedStatement() RuleGroupRateBasedStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupRateBasedStatement { return v.RateBasedStatement }).(RuleGroupRateBasedStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
+func (o RuleGroupStatementOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
-func (o RuleGroupStatementThreeOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupSizeConstraintStatement { return v.SizeConstraintStatement }).(RuleGroupSizeConstraintStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
+func (o RuleGroupStatementOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupSizeConstraintStatement { return v.SizeConstraintStatement }).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
-func (o RuleGroupStatementThreeOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupSqliMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
+func (o RuleGroupStatementOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
-func (o RuleGroupStatementThreeOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementThree) *RuleGroupXssMatchStatement { return v.XssMatchStatement }).(RuleGroupXssMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
+func (o RuleGroupStatementOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupXssMatchStatement { return v.XssMatchStatement }).(RuleGroupXssMatchStatementPtrOutput)
 }
 
-type RuleGroupStatementThreePtrOutput struct{ *pulumi.OutputState }
+type RuleGroupStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupStatementThreePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatementThree)(nil)).Elem()
+func (RuleGroupStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupStatement)(nil)).Elem()
 }
 
-func (o RuleGroupStatementThreePtrOutput) ToRuleGroupStatementThreePtrOutput() RuleGroupStatementThreePtrOutput {
+func (o RuleGroupStatementPtrOutput) ToRuleGroupStatementPtrOutput() RuleGroupStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupStatementThreePtrOutput) ToRuleGroupStatementThreePtrOutputWithContext(ctx context.Context) RuleGroupStatementThreePtrOutput {
+func (o RuleGroupStatementPtrOutput) ToRuleGroupStatementPtrOutputWithContext(ctx context.Context) RuleGroupStatementPtrOutput {
 	return o
 }
 
-func (o RuleGroupStatementThreePtrOutput) Elem() RuleGroupStatementThreeOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) RuleGroupStatementThree {
+func (o RuleGroupStatementPtrOutput) Elem() RuleGroupStatementOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) RuleGroupStatement {
 		if v != nil {
 			return *v
 		}
-		var ret RuleGroupStatementThree
+		var ret RuleGroupStatement
 		return ret
-	}).(RuleGroupStatementThreeOutput)
+	}).(RuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-bytematchstatement
-func (o RuleGroupStatementThreePtrOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupByteMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.ByteMatchStatement
-	}).(RuleGroupByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-geomatchstatement
-func (o RuleGroupStatementThreePtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupGeoMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.GeoMatchStatement
-	}).(RuleGroupGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-ipsetreferencestatement
-func (o RuleGroupStatementThreePtrOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupIPSetReferenceStatement {
-		if v == nil {
-			return nil
-		}
-		return v.IPSetReferenceStatement
-	}).(RuleGroupIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-regexpatternsetreferencestatement
-func (o RuleGroupStatementThreePtrOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupRegexPatternSetReferenceStatement {
-		if v == nil {
-			return nil
-		}
-		return v.RegexPatternSetReferenceStatement
-	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sizeconstraintstatement
-func (o RuleGroupStatementThreePtrOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupSizeConstraintStatement {
-		if v == nil {
-			return nil
-		}
-		return v.SizeConstraintStatement
-	}).(RuleGroupSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-sqlimatchstatement
-func (o RuleGroupStatementThreePtrOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupSqliMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.SqliMatchStatement
-	}).(RuleGroupSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementthree.html#cfn-wafv2-rulegroup-statementthree-xssmatchstatement
-func (o RuleGroupStatementThreePtrOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementThree) *RuleGroupXssMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.XssMatchStatement
-	}).(RuleGroupXssMatchStatementPtrOutput)
-}
-
-type RuleGroupStatementThreeArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatementThreeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupStatementThree)(nil)).Elem()
-}
-
-func (o RuleGroupStatementThreeArrayOutput) ToRuleGroupStatementThreeArrayOutput() RuleGroupStatementThreeArrayOutput {
-	return o
-}
-
-func (o RuleGroupStatementThreeArrayOutput) ToRuleGroupStatementThreeArrayOutputWithContext(ctx context.Context) RuleGroupStatementThreeArrayOutput {
-	return o
-}
-
-func (o RuleGroupStatementThreeArrayOutput) Index(i pulumi.IntInput) RuleGroupStatementThreeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupStatementThree {
-		return vs[0].([]RuleGroupStatementThree)[vs[1].(int)]
-	}).(RuleGroupStatementThreeOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
-type RuleGroupStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
-	AndStatement *RuleGroupAndStatementTwo `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
-	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
-	GeoMatchStatement *RuleGroupGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
-	IPSetReferenceStatement *RuleGroupIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
-	NotStatement *RuleGroupNotStatementTwo `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
-	OrStatement *RuleGroupOrStatementTwo `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
-	RateBasedStatement *RuleGroupRateBasedStatementTwo `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement *RuleGroupRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
-	SizeConstraintStatement *RuleGroupSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
-	SqliMatchStatement *RuleGroupSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
-	XssMatchStatement *RuleGroupXssMatchStatement `pulumi:"xssMatchStatement"`
-}
-
-// RuleGroupStatementTwoInput is an input type that accepts RuleGroupStatementTwoArgs and RuleGroupStatementTwoOutput values.
-// You can construct a concrete instance of `RuleGroupStatementTwoInput` via:
-//
-//          RuleGroupStatementTwoArgs{...}
-type RuleGroupStatementTwoInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatementTwoOutput() RuleGroupStatementTwoOutput
-	ToRuleGroupStatementTwoOutputWithContext(context.Context) RuleGroupStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
-type RuleGroupStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
-	AndStatement RuleGroupAndStatementTwoPtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
-	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
-	GeoMatchStatement RuleGroupGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
-	IPSetReferenceStatement RuleGroupIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
-	NotStatement RuleGroupNotStatementTwoPtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
-	OrStatement RuleGroupOrStatementTwoPtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
-	RateBasedStatement RuleGroupRateBasedStatementTwoPtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement RuleGroupRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
-	SizeConstraintStatement RuleGroupSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
-	SqliMatchStatement RuleGroupSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
-	XssMatchStatement RuleGroupXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
-}
-
-func (RuleGroupStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementTwo)(nil)).Elem()
-}
-
-func (i RuleGroupStatementTwoArgs) ToRuleGroupStatementTwoOutput() RuleGroupStatementTwoOutput {
-	return i.ToRuleGroupStatementTwoOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatementTwoArgs) ToRuleGroupStatementTwoOutputWithContext(ctx context.Context) RuleGroupStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementTwoOutput)
-}
-
-func (i RuleGroupStatementTwoArgs) ToRuleGroupStatementTwoPtrOutput() RuleGroupStatementTwoPtrOutput {
-	return i.ToRuleGroupStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatementTwoArgs) ToRuleGroupStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementTwoOutput).ToRuleGroupStatementTwoPtrOutputWithContext(ctx)
-}
-
-// RuleGroupStatementTwoPtrInput is an input type that accepts RuleGroupStatementTwoArgs, RuleGroupStatementTwoPtr and RuleGroupStatementTwoPtrOutput values.
-// You can construct a concrete instance of `RuleGroupStatementTwoPtrInput` via:
-//
-//          RuleGroupStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatementTwoPtrOutput() RuleGroupStatementTwoPtrOutput
-	ToRuleGroupStatementTwoPtrOutputWithContext(context.Context) RuleGroupStatementTwoPtrOutput
-}
-
-type ruleGroupStatementTwoPtrType RuleGroupStatementTwoArgs
-
-func RuleGroupStatementTwoPtr(v *RuleGroupStatementTwoArgs) RuleGroupStatementTwoPtrInput {
-	return (*ruleGroupStatementTwoPtrType)(v)
-}
-
-func (*ruleGroupStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatementTwo)(nil)).Elem()
-}
-
-func (i *ruleGroupStatementTwoPtrType) ToRuleGroupStatementTwoPtrOutput() RuleGroupStatementTwoPtrOutput {
-	return i.ToRuleGroupStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupStatementTwoPtrType) ToRuleGroupStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementTwoPtrOutput)
-}
-
-// RuleGroupStatementTwoArrayInput is an input type that accepts RuleGroupStatementTwoArray and RuleGroupStatementTwoArrayOutput values.
-// You can construct a concrete instance of `RuleGroupStatementTwoArrayInput` via:
-//
-//          RuleGroupStatementTwoArray{ RuleGroupStatementTwoArgs{...} }
-type RuleGroupStatementTwoArrayInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatementTwoArrayOutput() RuleGroupStatementTwoArrayOutput
-	ToRuleGroupStatementTwoArrayOutputWithContext(context.Context) RuleGroupStatementTwoArrayOutput
-}
-
-type RuleGroupStatementTwoArray []RuleGroupStatementTwoInput
-
-func (RuleGroupStatementTwoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupStatementTwo)(nil)).Elem()
-}
-
-func (i RuleGroupStatementTwoArray) ToRuleGroupStatementTwoArrayOutput() RuleGroupStatementTwoArrayOutput {
-	return i.ToRuleGroupStatementTwoArrayOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatementTwoArray) ToRuleGroupStatementTwoArrayOutputWithContext(ctx context.Context) RuleGroupStatementTwoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementTwoArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html
-type RuleGroupStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupStatementTwoOutput) ToRuleGroupStatementTwoOutput() RuleGroupStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupStatementTwoOutput) ToRuleGroupStatementTwoOutputWithContext(ctx context.Context) RuleGroupStatementTwoOutput {
-	return o
-}
-
-func (o RuleGroupStatementTwoOutput) ToRuleGroupStatementTwoPtrOutput() RuleGroupStatementTwoPtrOutput {
-	return o.ToRuleGroupStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupStatementTwoOutput) ToRuleGroupStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatementTwo) *RuleGroupStatementTwo {
-		return &v
-	}).(RuleGroupStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
-func (o RuleGroupStatementTwoOutput) AndStatement() RuleGroupAndStatementTwoPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupAndStatementTwo { return v.AndStatement }).(RuleGroupAndStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
-func (o RuleGroupStatementTwoOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
-func (o RuleGroupStatementTwoOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
-func (o RuleGroupStatementTwoOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
-func (o RuleGroupStatementTwoOutput) NotStatement() RuleGroupNotStatementTwoPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupNotStatementTwo { return v.NotStatement }).(RuleGroupNotStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
-func (o RuleGroupStatementTwoOutput) OrStatement() RuleGroupOrStatementTwoPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupOrStatementTwo { return v.OrStatement }).(RuleGroupOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
-func (o RuleGroupStatementTwoOutput) RateBasedStatement() RuleGroupRateBasedStatementTwoPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupRateBasedStatementTwo { return v.RateBasedStatement }).(RuleGroupRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
-func (o RuleGroupStatementTwoOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupRegexPatternSetReferenceStatement {
-		return v.RegexPatternSetReferenceStatement
-	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
-func (o RuleGroupStatementTwoOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupSizeConstraintStatement { return v.SizeConstraintStatement }).(RuleGroupSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
-func (o RuleGroupStatementTwoOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
-func (o RuleGroupStatementTwoOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatementTwo) *RuleGroupXssMatchStatement { return v.XssMatchStatement }).(RuleGroupXssMatchStatementPtrOutput)
-}
-
-type RuleGroupStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatementTwo)(nil)).Elem()
-}
-
-func (o RuleGroupStatementTwoPtrOutput) ToRuleGroupStatementTwoPtrOutput() RuleGroupStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatementTwoPtrOutput) ToRuleGroupStatementTwoPtrOutputWithContext(ctx context.Context) RuleGroupStatementTwoPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatementTwoPtrOutput) Elem() RuleGroupStatementTwoOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) RuleGroupStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupStatementTwo
-		return ret
-	}).(RuleGroupStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-andstatement
-func (o RuleGroupStatementTwoPtrOutput) AndStatement() RuleGroupAndStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupAndStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
+func (o RuleGroupStatementPtrOutput) AndStatement() RuleGroupAndStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupAndStatement {
 		if v == nil {
 			return nil
 		}
 		return v.AndStatement
-	}).(RuleGroupAndStatementTwoPtrOutput)
+	}).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-bytematchstatement
-func (o RuleGroupStatementTwoPtrOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupByteMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
+func (o RuleGroupStatementPtrOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupByteMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -3936,9 +3713,9 @@ func (o RuleGroupStatementTwoPtrOutput) ByteMatchStatement() RuleGroupByteMatchS
 	}).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-geomatchstatement
-func (o RuleGroupStatementTwoPtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupGeoMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
+func (o RuleGroupStatementPtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupGeoMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -3946,9 +3723,9 @@ func (o RuleGroupStatementTwoPtrOutput) GeoMatchStatement() RuleGroupGeoMatchSta
 	}).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ipsetreferencestatement
-func (o RuleGroupStatementTwoPtrOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupIPSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
+func (o RuleGroupStatementPtrOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupIPSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
@@ -3956,39 +3733,49 @@ func (o RuleGroupStatementTwoPtrOutput) IPSetReferenceStatement() RuleGroupIPSet
 	}).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-notstatement
-func (o RuleGroupStatementTwoPtrOutput) NotStatement() RuleGroupNotStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupNotStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
+func (o RuleGroupStatementPtrOutput) LabelMatchStatement() RuleGroupLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupLabelMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.LabelMatchStatement
+	}).(RuleGroupLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
+func (o RuleGroupStatementPtrOutput) NotStatement() RuleGroupNotStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupNotStatement {
 		if v == nil {
 			return nil
 		}
 		return v.NotStatement
-	}).(RuleGroupNotStatementTwoPtrOutput)
+	}).(RuleGroupNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-orstatement
-func (o RuleGroupStatementTwoPtrOutput) OrStatement() RuleGroupOrStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupOrStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
+func (o RuleGroupStatementPtrOutput) OrStatement() RuleGroupOrStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupOrStatement {
 		if v == nil {
 			return nil
 		}
 		return v.OrStatement
-	}).(RuleGroupOrStatementTwoPtrOutput)
+	}).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-ratebasedstatement
-func (o RuleGroupStatementTwoPtrOutput) RateBasedStatement() RuleGroupRateBasedStatementTwoPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupRateBasedStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
+func (o RuleGroupStatementPtrOutput) RateBasedStatement() RuleGroupRateBasedStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupRateBasedStatement {
 		if v == nil {
 			return nil
 		}
 		return v.RateBasedStatement
-	}).(RuleGroupRateBasedStatementTwoPtrOutput)
+	}).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-regexpatternsetreferencestatement
-func (o RuleGroupStatementTwoPtrOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupRegexPatternSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
+func (o RuleGroupStatementPtrOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupRegexPatternSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
@@ -3996,9 +3783,9 @@ func (o RuleGroupStatementTwoPtrOutput) RegexPatternSetReferenceStatement() Rule
 	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sizeconstraintstatement
-func (o RuleGroupStatementTwoPtrOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupSizeConstraintStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
+func (o RuleGroupStatementPtrOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupSizeConstraintStatement {
 		if v == nil {
 			return nil
 		}
@@ -4006,9 +3793,9 @@ func (o RuleGroupStatementTwoPtrOutput) SizeConstraintStatement() RuleGroupSizeC
 	}).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-sqlimatchstatement
-func (o RuleGroupStatementTwoPtrOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupSqliMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
+func (o RuleGroupStatementPtrOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupSqliMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -4016,9 +3803,9 @@ func (o RuleGroupStatementTwoPtrOutput) SqliMatchStatement() RuleGroupSqliMatchS
 	}).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statementtwo.html#cfn-wafv2-rulegroup-statementtwo-xssmatchstatement
-func (o RuleGroupStatementTwoPtrOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatementTwo) *RuleGroupXssMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
+func (o RuleGroupStatementPtrOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupXssMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -4026,24 +3813,24 @@ func (o RuleGroupStatementTwoPtrOutput) XssMatchStatement() RuleGroupXssMatchSta
 	}).(RuleGroupXssMatchStatementPtrOutput)
 }
 
-type RuleGroupStatementTwoArrayOutput struct{ *pulumi.OutputState }
+type RuleGroupStatementArrayOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupStatementTwoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupStatementTwo)(nil)).Elem()
+func (RuleGroupStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupStatement)(nil)).Elem()
 }
 
-func (o RuleGroupStatementTwoArrayOutput) ToRuleGroupStatementTwoArrayOutput() RuleGroupStatementTwoArrayOutput {
+func (o RuleGroupStatementArrayOutput) ToRuleGroupStatementArrayOutput() RuleGroupStatementArrayOutput {
 	return o
 }
 
-func (o RuleGroupStatementTwoArrayOutput) ToRuleGroupStatementTwoArrayOutputWithContext(ctx context.Context) RuleGroupStatementTwoArrayOutput {
+func (o RuleGroupStatementArrayOutput) ToRuleGroupStatementArrayOutputWithContext(ctx context.Context) RuleGroupStatementArrayOutput {
 	return o
 }
 
-func (o RuleGroupStatementTwoArrayOutput) Index(i pulumi.IntInput) RuleGroupStatementTwoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupStatementTwo {
-		return vs[0].([]RuleGroupStatementTwo)[vs[1].(int)]
-	}).(RuleGroupStatementTwoOutput)
+func (o RuleGroupStatementArrayOutput) Index(i pulumi.IntInput) RuleGroupStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupStatement {
+		return vs[0].([]RuleGroupStatement)[vs[1].(int)]
+	}).(RuleGroupStatementOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
@@ -4492,284 +4279,424 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html
-type WebACLAndStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
-	Statements []WebACLStatementTwo `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+type WebACLAllowAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
+	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
-// WebACLAndStatementOneInput is an input type that accepts WebACLAndStatementOneArgs and WebACLAndStatementOneOutput values.
-// You can construct a concrete instance of `WebACLAndStatementOneInput` via:
+// WebACLAllowActionInput is an input type that accepts WebACLAllowActionArgs and WebACLAllowActionOutput values.
+// You can construct a concrete instance of `WebACLAllowActionInput` via:
 //
-//          WebACLAndStatementOneArgs{...}
-type WebACLAndStatementOneInput interface {
+//          WebACLAllowActionArgs{...}
+type WebACLAllowActionInput interface {
 	pulumi.Input
 
-	ToWebACLAndStatementOneOutput() WebACLAndStatementOneOutput
-	ToWebACLAndStatementOneOutputWithContext(context.Context) WebACLAndStatementOneOutput
+	ToWebACLAllowActionOutput() WebACLAllowActionOutput
+	ToWebACLAllowActionOutputWithContext(context.Context) WebACLAllowActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html
-type WebACLAndStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
-	Statements WebACLStatementTwoArrayInput `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+type WebACLAllowActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
+	CustomRequestHandling WebACLCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
-func (WebACLAndStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAndStatementOne)(nil)).Elem()
+func (WebACLAllowActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAllowAction)(nil)).Elem()
 }
 
-func (i WebACLAndStatementOneArgs) ToWebACLAndStatementOneOutput() WebACLAndStatementOneOutput {
-	return i.ToWebACLAndStatementOneOutputWithContext(context.Background())
+func (i WebACLAllowActionArgs) ToWebACLAllowActionOutput() WebACLAllowActionOutput {
+	return i.ToWebACLAllowActionOutputWithContext(context.Background())
 }
 
-func (i WebACLAndStatementOneArgs) ToWebACLAndStatementOneOutputWithContext(ctx context.Context) WebACLAndStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementOneOutput)
+func (i WebACLAllowActionArgs) ToWebACLAllowActionOutputWithContext(ctx context.Context) WebACLAllowActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAllowActionOutput)
 }
 
-func (i WebACLAndStatementOneArgs) ToWebACLAndStatementOnePtrOutput() WebACLAndStatementOnePtrOutput {
-	return i.ToWebACLAndStatementOnePtrOutputWithContext(context.Background())
+func (i WebACLAllowActionArgs) ToWebACLAllowActionPtrOutput() WebACLAllowActionPtrOutput {
+	return i.ToWebACLAllowActionPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLAndStatementOneArgs) ToWebACLAndStatementOnePtrOutputWithContext(ctx context.Context) WebACLAndStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementOneOutput).ToWebACLAndStatementOnePtrOutputWithContext(ctx)
+func (i WebACLAllowActionArgs) ToWebACLAllowActionPtrOutputWithContext(ctx context.Context) WebACLAllowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAllowActionOutput).ToWebACLAllowActionPtrOutputWithContext(ctx)
 }
 
-// WebACLAndStatementOnePtrInput is an input type that accepts WebACLAndStatementOneArgs, WebACLAndStatementOnePtr and WebACLAndStatementOnePtrOutput values.
-// You can construct a concrete instance of `WebACLAndStatementOnePtrInput` via:
+// WebACLAllowActionPtrInput is an input type that accepts WebACLAllowActionArgs, WebACLAllowActionPtr and WebACLAllowActionPtrOutput values.
+// You can construct a concrete instance of `WebACLAllowActionPtrInput` via:
 //
-//          WebACLAndStatementOneArgs{...}
+//          WebACLAllowActionArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLAndStatementOnePtrInput interface {
+type WebACLAllowActionPtrInput interface {
 	pulumi.Input
 
-	ToWebACLAndStatementOnePtrOutput() WebACLAndStatementOnePtrOutput
-	ToWebACLAndStatementOnePtrOutputWithContext(context.Context) WebACLAndStatementOnePtrOutput
+	ToWebACLAllowActionPtrOutput() WebACLAllowActionPtrOutput
+	ToWebACLAllowActionPtrOutputWithContext(context.Context) WebACLAllowActionPtrOutput
 }
 
-type webACLAndStatementOnePtrType WebACLAndStatementOneArgs
+type webACLAllowActionPtrType WebACLAllowActionArgs
 
-func WebACLAndStatementOnePtr(v *WebACLAndStatementOneArgs) WebACLAndStatementOnePtrInput {
-	return (*webACLAndStatementOnePtrType)(v)
+func WebACLAllowActionPtr(v *WebACLAllowActionArgs) WebACLAllowActionPtrInput {
+	return (*webACLAllowActionPtrType)(v)
 }
 
-func (*webACLAndStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLAndStatementOne)(nil)).Elem()
+func (*webACLAllowActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAllowAction)(nil)).Elem()
 }
 
-func (i *webACLAndStatementOnePtrType) ToWebACLAndStatementOnePtrOutput() WebACLAndStatementOnePtrOutput {
-	return i.ToWebACLAndStatementOnePtrOutputWithContext(context.Background())
+func (i *webACLAllowActionPtrType) ToWebACLAllowActionPtrOutput() WebACLAllowActionPtrOutput {
+	return i.ToWebACLAllowActionPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLAndStatementOnePtrType) ToWebACLAndStatementOnePtrOutputWithContext(ctx context.Context) WebACLAndStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementOnePtrOutput)
+func (i *webACLAllowActionPtrType) ToWebACLAllowActionPtrOutputWithContext(ctx context.Context) WebACLAllowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html
-type WebACLAndStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+type WebACLAllowActionOutput struct{ *pulumi.OutputState }
 
-func (WebACLAndStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAndStatementOne)(nil)).Elem()
+func (WebACLAllowActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAllowAction)(nil)).Elem()
 }
 
-func (o WebACLAndStatementOneOutput) ToWebACLAndStatementOneOutput() WebACLAndStatementOneOutput {
+func (o WebACLAllowActionOutput) ToWebACLAllowActionOutput() WebACLAllowActionOutput {
 	return o
 }
 
-func (o WebACLAndStatementOneOutput) ToWebACLAndStatementOneOutputWithContext(ctx context.Context) WebACLAndStatementOneOutput {
+func (o WebACLAllowActionOutput) ToWebACLAllowActionOutputWithContext(ctx context.Context) WebACLAllowActionOutput {
 	return o
 }
 
-func (o WebACLAndStatementOneOutput) ToWebACLAndStatementOnePtrOutput() WebACLAndStatementOnePtrOutput {
-	return o.ToWebACLAndStatementOnePtrOutputWithContext(context.Background())
+func (o WebACLAllowActionOutput) ToWebACLAllowActionPtrOutput() WebACLAllowActionPtrOutput {
+	return o.ToWebACLAllowActionPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLAndStatementOneOutput) ToWebACLAndStatementOnePtrOutputWithContext(ctx context.Context) WebACLAndStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAndStatementOne) *WebACLAndStatementOne {
+func (o WebACLAllowActionOutput) ToWebACLAllowActionPtrOutputWithContext(ctx context.Context) WebACLAllowActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAllowAction) *WebACLAllowAction {
 		return &v
-	}).(WebACLAndStatementOnePtrOutput)
+	}).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
-func (o WebACLAndStatementOneOutput) Statements() WebACLStatementTwoArrayOutput {
-	return o.ApplyT(func(v WebACLAndStatementOne) []WebACLStatementTwo { return v.Statements }).(WebACLStatementTwoArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
+func (o WebACLAllowActionOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v WebACLAllowAction) *WebACLCustomRequestHandling { return v.CustomRequestHandling }).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-type WebACLAndStatementOnePtrOutput struct{ *pulumi.OutputState }
+type WebACLAllowActionPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLAndStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLAndStatementOne)(nil)).Elem()
+func (WebACLAllowActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAllowAction)(nil)).Elem()
 }
 
-func (o WebACLAndStatementOnePtrOutput) ToWebACLAndStatementOnePtrOutput() WebACLAndStatementOnePtrOutput {
+func (o WebACLAllowActionPtrOutput) ToWebACLAllowActionPtrOutput() WebACLAllowActionPtrOutput {
 	return o
 }
 
-func (o WebACLAndStatementOnePtrOutput) ToWebACLAndStatementOnePtrOutputWithContext(ctx context.Context) WebACLAndStatementOnePtrOutput {
+func (o WebACLAllowActionPtrOutput) ToWebACLAllowActionPtrOutputWithContext(ctx context.Context) WebACLAllowActionPtrOutput {
 	return o
 }
 
-func (o WebACLAndStatementOnePtrOutput) Elem() WebACLAndStatementOneOutput {
-	return o.ApplyT(func(v *WebACLAndStatementOne) WebACLAndStatementOne {
+func (o WebACLAllowActionPtrOutput) Elem() WebACLAllowActionOutput {
+	return o.ApplyT(func(v *WebACLAllowAction) WebACLAllowAction {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLAndStatementOne
+		var ret WebACLAllowAction
 		return ret
-	}).(WebACLAndStatementOneOutput)
+	}).(WebACLAllowActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementone.html#cfn-wafv2-webacl-andstatementone-statements
-func (o WebACLAndStatementOnePtrOutput) Statements() WebACLStatementTwoArrayOutput {
-	return o.ApplyT(func(v *WebACLAndStatementOne) []WebACLStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
+func (o WebACLAllowActionPtrOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLAllowAction) *WebACLCustomRequestHandling {
 		if v == nil {
 			return nil
 		}
-		return v.Statements
-	}).(WebACLStatementTwoArrayOutput)
+		return v.CustomRequestHandling
+	}).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html
-type WebACLAndStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
-	Statements []WebACLStatementThree `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
+type WebACLAndStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
+	Statements []WebACLStatement `pulumi:"statements"`
 }
 
-// WebACLAndStatementTwoInput is an input type that accepts WebACLAndStatementTwoArgs and WebACLAndStatementTwoOutput values.
-// You can construct a concrete instance of `WebACLAndStatementTwoInput` via:
+// WebACLAndStatementInput is an input type that accepts WebACLAndStatementArgs and WebACLAndStatementOutput values.
+// You can construct a concrete instance of `WebACLAndStatementInput` via:
 //
-//          WebACLAndStatementTwoArgs{...}
-type WebACLAndStatementTwoInput interface {
+//          WebACLAndStatementArgs{...}
+type WebACLAndStatementInput interface {
 	pulumi.Input
 
-	ToWebACLAndStatementTwoOutput() WebACLAndStatementTwoOutput
-	ToWebACLAndStatementTwoOutputWithContext(context.Context) WebACLAndStatementTwoOutput
+	ToWebACLAndStatementOutput() WebACLAndStatementOutput
+	ToWebACLAndStatementOutputWithContext(context.Context) WebACLAndStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html
-type WebACLAndStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
-	Statements WebACLStatementThreeArrayInput `pulumi:"statements"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
+type WebACLAndStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
+	Statements WebACLStatementArrayInput `pulumi:"statements"`
 }
 
-func (WebACLAndStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAndStatementTwo)(nil)).Elem()
+func (WebACLAndStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAndStatement)(nil)).Elem()
 }
 
-func (i WebACLAndStatementTwoArgs) ToWebACLAndStatementTwoOutput() WebACLAndStatementTwoOutput {
-	return i.ToWebACLAndStatementTwoOutputWithContext(context.Background())
+func (i WebACLAndStatementArgs) ToWebACLAndStatementOutput() WebACLAndStatementOutput {
+	return i.ToWebACLAndStatementOutputWithContext(context.Background())
 }
 
-func (i WebACLAndStatementTwoArgs) ToWebACLAndStatementTwoOutputWithContext(ctx context.Context) WebACLAndStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementTwoOutput)
+func (i WebACLAndStatementArgs) ToWebACLAndStatementOutputWithContext(ctx context.Context) WebACLAndStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementOutput)
 }
 
-func (i WebACLAndStatementTwoArgs) ToWebACLAndStatementTwoPtrOutput() WebACLAndStatementTwoPtrOutput {
-	return i.ToWebACLAndStatementTwoPtrOutputWithContext(context.Background())
+func (i WebACLAndStatementArgs) ToWebACLAndStatementPtrOutput() WebACLAndStatementPtrOutput {
+	return i.ToWebACLAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLAndStatementTwoArgs) ToWebACLAndStatementTwoPtrOutputWithContext(ctx context.Context) WebACLAndStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementTwoOutput).ToWebACLAndStatementTwoPtrOutputWithContext(ctx)
+func (i WebACLAndStatementArgs) ToWebACLAndStatementPtrOutputWithContext(ctx context.Context) WebACLAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementOutput).ToWebACLAndStatementPtrOutputWithContext(ctx)
 }
 
-// WebACLAndStatementTwoPtrInput is an input type that accepts WebACLAndStatementTwoArgs, WebACLAndStatementTwoPtr and WebACLAndStatementTwoPtrOutput values.
-// You can construct a concrete instance of `WebACLAndStatementTwoPtrInput` via:
+// WebACLAndStatementPtrInput is an input type that accepts WebACLAndStatementArgs, WebACLAndStatementPtr and WebACLAndStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLAndStatementPtrInput` via:
 //
-//          WebACLAndStatementTwoArgs{...}
+//          WebACLAndStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLAndStatementTwoPtrInput interface {
+type WebACLAndStatementPtrInput interface {
 	pulumi.Input
 
-	ToWebACLAndStatementTwoPtrOutput() WebACLAndStatementTwoPtrOutput
-	ToWebACLAndStatementTwoPtrOutputWithContext(context.Context) WebACLAndStatementTwoPtrOutput
+	ToWebACLAndStatementPtrOutput() WebACLAndStatementPtrOutput
+	ToWebACLAndStatementPtrOutputWithContext(context.Context) WebACLAndStatementPtrOutput
 }
 
-type webACLAndStatementTwoPtrType WebACLAndStatementTwoArgs
+type webACLAndStatementPtrType WebACLAndStatementArgs
 
-func WebACLAndStatementTwoPtr(v *WebACLAndStatementTwoArgs) WebACLAndStatementTwoPtrInput {
-	return (*webACLAndStatementTwoPtrType)(v)
+func WebACLAndStatementPtr(v *WebACLAndStatementArgs) WebACLAndStatementPtrInput {
+	return (*webACLAndStatementPtrType)(v)
 }
 
-func (*webACLAndStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLAndStatementTwo)(nil)).Elem()
+func (*webACLAndStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAndStatement)(nil)).Elem()
 }
 
-func (i *webACLAndStatementTwoPtrType) ToWebACLAndStatementTwoPtrOutput() WebACLAndStatementTwoPtrOutput {
-	return i.ToWebACLAndStatementTwoPtrOutputWithContext(context.Background())
+func (i *webACLAndStatementPtrType) ToWebACLAndStatementPtrOutput() WebACLAndStatementPtrOutput {
+	return i.ToWebACLAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLAndStatementTwoPtrType) ToWebACLAndStatementTwoPtrOutputWithContext(ctx context.Context) WebACLAndStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementTwoPtrOutput)
+func (i *webACLAndStatementPtrType) ToWebACLAndStatementPtrOutputWithContext(ctx context.Context) WebACLAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html
-type WebACLAndStatementTwoOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
+type WebACLAndStatementOutput struct{ *pulumi.OutputState }
 
-func (WebACLAndStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLAndStatementTwo)(nil)).Elem()
+func (WebACLAndStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAndStatement)(nil)).Elem()
 }
 
-func (o WebACLAndStatementTwoOutput) ToWebACLAndStatementTwoOutput() WebACLAndStatementTwoOutput {
+func (o WebACLAndStatementOutput) ToWebACLAndStatementOutput() WebACLAndStatementOutput {
 	return o
 }
 
-func (o WebACLAndStatementTwoOutput) ToWebACLAndStatementTwoOutputWithContext(ctx context.Context) WebACLAndStatementTwoOutput {
+func (o WebACLAndStatementOutput) ToWebACLAndStatementOutputWithContext(ctx context.Context) WebACLAndStatementOutput {
 	return o
 }
 
-func (o WebACLAndStatementTwoOutput) ToWebACLAndStatementTwoPtrOutput() WebACLAndStatementTwoPtrOutput {
-	return o.ToWebACLAndStatementTwoPtrOutputWithContext(context.Background())
+func (o WebACLAndStatementOutput) ToWebACLAndStatementPtrOutput() WebACLAndStatementPtrOutput {
+	return o.ToWebACLAndStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLAndStatementTwoOutput) ToWebACLAndStatementTwoPtrOutputWithContext(ctx context.Context) WebACLAndStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAndStatementTwo) *WebACLAndStatementTwo {
+func (o WebACLAndStatementOutput) ToWebACLAndStatementPtrOutputWithContext(ctx context.Context) WebACLAndStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAndStatement) *WebACLAndStatement {
 		return &v
-	}).(WebACLAndStatementTwoPtrOutput)
+	}).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
-func (o WebACLAndStatementTwoOutput) Statements() WebACLStatementThreeArrayOutput {
-	return o.ApplyT(func(v WebACLAndStatementTwo) []WebACLStatementThree { return v.Statements }).(WebACLStatementThreeArrayOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
+func (o WebACLAndStatementOutput) Statements() WebACLStatementArrayOutput {
+	return o.ApplyT(func(v WebACLAndStatement) []WebACLStatement { return v.Statements }).(WebACLStatementArrayOutput)
 }
 
-type WebACLAndStatementTwoPtrOutput struct{ *pulumi.OutputState }
+type WebACLAndStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLAndStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLAndStatementTwo)(nil)).Elem()
+func (WebACLAndStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAndStatement)(nil)).Elem()
 }
 
-func (o WebACLAndStatementTwoPtrOutput) ToWebACLAndStatementTwoPtrOutput() WebACLAndStatementTwoPtrOutput {
+func (o WebACLAndStatementPtrOutput) ToWebACLAndStatementPtrOutput() WebACLAndStatementPtrOutput {
 	return o
 }
 
-func (o WebACLAndStatementTwoPtrOutput) ToWebACLAndStatementTwoPtrOutputWithContext(ctx context.Context) WebACLAndStatementTwoPtrOutput {
+func (o WebACLAndStatementPtrOutput) ToWebACLAndStatementPtrOutputWithContext(ctx context.Context) WebACLAndStatementPtrOutput {
 	return o
 }
 
-func (o WebACLAndStatementTwoPtrOutput) Elem() WebACLAndStatementTwoOutput {
-	return o.ApplyT(func(v *WebACLAndStatementTwo) WebACLAndStatementTwo {
+func (o WebACLAndStatementPtrOutput) Elem() WebACLAndStatementOutput {
+	return o.ApplyT(func(v *WebACLAndStatement) WebACLAndStatement {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLAndStatementTwo
+		var ret WebACLAndStatement
 		return ret
-	}).(WebACLAndStatementTwoOutput)
+	}).(WebACLAndStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatementtwo.html#cfn-wafv2-webacl-andstatementtwo-statements
-func (o WebACLAndStatementTwoPtrOutput) Statements() WebACLStatementThreeArrayOutput {
-	return o.ApplyT(func(v *WebACLAndStatementTwo) []WebACLStatementThree {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
+func (o WebACLAndStatementPtrOutput) Statements() WebACLStatementArrayOutput {
+	return o.ApplyT(func(v *WebACLAndStatement) []WebACLStatement {
 		if v == nil {
 			return nil
 		}
 		return v.Statements
-	}).(WebACLStatementThreeArrayOutput)
+	}).(WebACLStatementArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+type WebACLBlockAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
+	CustomResponse *WebACLCustomResponse `pulumi:"customResponse"`
+}
+
+// WebACLBlockActionInput is an input type that accepts WebACLBlockActionArgs and WebACLBlockActionOutput values.
+// You can construct a concrete instance of `WebACLBlockActionInput` via:
+//
+//          WebACLBlockActionArgs{...}
+type WebACLBlockActionInput interface {
+	pulumi.Input
+
+	ToWebACLBlockActionOutput() WebACLBlockActionOutput
+	ToWebACLBlockActionOutputWithContext(context.Context) WebACLBlockActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+type WebACLBlockActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
+	CustomResponse WebACLCustomResponsePtrInput `pulumi:"customResponse"`
+}
+
+func (WebACLBlockActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLBlockAction)(nil)).Elem()
+}
+
+func (i WebACLBlockActionArgs) ToWebACLBlockActionOutput() WebACLBlockActionOutput {
+	return i.ToWebACLBlockActionOutputWithContext(context.Background())
+}
+
+func (i WebACLBlockActionArgs) ToWebACLBlockActionOutputWithContext(ctx context.Context) WebACLBlockActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBlockActionOutput)
+}
+
+func (i WebACLBlockActionArgs) ToWebACLBlockActionPtrOutput() WebACLBlockActionPtrOutput {
+	return i.ToWebACLBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLBlockActionArgs) ToWebACLBlockActionPtrOutputWithContext(ctx context.Context) WebACLBlockActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBlockActionOutput).ToWebACLBlockActionPtrOutputWithContext(ctx)
+}
+
+// WebACLBlockActionPtrInput is an input type that accepts WebACLBlockActionArgs, WebACLBlockActionPtr and WebACLBlockActionPtrOutput values.
+// You can construct a concrete instance of `WebACLBlockActionPtrInput` via:
+//
+//          WebACLBlockActionArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLBlockActionPtrInput interface {
+	pulumi.Input
+
+	ToWebACLBlockActionPtrOutput() WebACLBlockActionPtrOutput
+	ToWebACLBlockActionPtrOutputWithContext(context.Context) WebACLBlockActionPtrOutput
+}
+
+type webACLBlockActionPtrType WebACLBlockActionArgs
+
+func WebACLBlockActionPtr(v *WebACLBlockActionArgs) WebACLBlockActionPtrInput {
+	return (*webACLBlockActionPtrType)(v)
+}
+
+func (*webACLBlockActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLBlockAction)(nil)).Elem()
+}
+
+func (i *webACLBlockActionPtrType) ToWebACLBlockActionPtrOutput() WebACLBlockActionPtrOutput {
+	return i.ToWebACLBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLBlockActionPtrType) ToWebACLBlockActionPtrOutputWithContext(ctx context.Context) WebACLBlockActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLBlockActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+type WebACLBlockActionOutput struct{ *pulumi.OutputState }
+
+func (WebACLBlockActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLBlockAction)(nil)).Elem()
+}
+
+func (o WebACLBlockActionOutput) ToWebACLBlockActionOutput() WebACLBlockActionOutput {
+	return o
+}
+
+func (o WebACLBlockActionOutput) ToWebACLBlockActionOutputWithContext(ctx context.Context) WebACLBlockActionOutput {
+	return o
+}
+
+func (o WebACLBlockActionOutput) ToWebACLBlockActionPtrOutput() WebACLBlockActionPtrOutput {
+	return o.ToWebACLBlockActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLBlockActionOutput) ToWebACLBlockActionPtrOutputWithContext(ctx context.Context) WebACLBlockActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLBlockAction) *WebACLBlockAction {
+		return &v
+	}).(WebACLBlockActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
+func (o WebACLBlockActionOutput) CustomResponse() WebACLCustomResponsePtrOutput {
+	return o.ApplyT(func(v WebACLBlockAction) *WebACLCustomResponse { return v.CustomResponse }).(WebACLCustomResponsePtrOutput)
+}
+
+type WebACLBlockActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLBlockActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLBlockAction)(nil)).Elem()
+}
+
+func (o WebACLBlockActionPtrOutput) ToWebACLBlockActionPtrOutput() WebACLBlockActionPtrOutput {
+	return o
+}
+
+func (o WebACLBlockActionPtrOutput) ToWebACLBlockActionPtrOutputWithContext(ctx context.Context) WebACLBlockActionPtrOutput {
+	return o
+}
+
+func (o WebACLBlockActionPtrOutput) Elem() WebACLBlockActionOutput {
+	return o.ApplyT(func(v *WebACLBlockAction) WebACLBlockAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLBlockAction
+		return ret
+	}).(WebACLBlockActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
+func (o WebACLBlockActionPtrOutput) CustomResponse() WebACLCustomResponsePtrOutput {
+	return o.ApplyT(func(v *WebACLBlockAction) *WebACLCustomResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CustomResponse
+	}).(WebACLCustomResponsePtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
@@ -4988,12 +4915,688 @@ func (o WebACLByteMatchStatementPtrOutput) TextTransformations() WebACLTextTrans
 	}).(WebACLTextTransformationArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+type WebACLCountAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
+	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// WebACLCountActionInput is an input type that accepts WebACLCountActionArgs and WebACLCountActionOutput values.
+// You can construct a concrete instance of `WebACLCountActionInput` via:
+//
+//          WebACLCountActionArgs{...}
+type WebACLCountActionInput interface {
+	pulumi.Input
+
+	ToWebACLCountActionOutput() WebACLCountActionOutput
+	ToWebACLCountActionOutputWithContext(context.Context) WebACLCountActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+type WebACLCountActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
+	CustomRequestHandling WebACLCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (WebACLCountActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCountAction)(nil)).Elem()
+}
+
+func (i WebACLCountActionArgs) ToWebACLCountActionOutput() WebACLCountActionOutput {
+	return i.ToWebACLCountActionOutputWithContext(context.Background())
+}
+
+func (i WebACLCountActionArgs) ToWebACLCountActionOutputWithContext(ctx context.Context) WebACLCountActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCountActionOutput)
+}
+
+func (i WebACLCountActionArgs) ToWebACLCountActionPtrOutput() WebACLCountActionPtrOutput {
+	return i.ToWebACLCountActionPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCountActionArgs) ToWebACLCountActionPtrOutputWithContext(ctx context.Context) WebACLCountActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCountActionOutput).ToWebACLCountActionPtrOutputWithContext(ctx)
+}
+
+// WebACLCountActionPtrInput is an input type that accepts WebACLCountActionArgs, WebACLCountActionPtr and WebACLCountActionPtrOutput values.
+// You can construct a concrete instance of `WebACLCountActionPtrInput` via:
+//
+//          WebACLCountActionArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCountActionPtrInput interface {
+	pulumi.Input
+
+	ToWebACLCountActionPtrOutput() WebACLCountActionPtrOutput
+	ToWebACLCountActionPtrOutputWithContext(context.Context) WebACLCountActionPtrOutput
+}
+
+type webACLCountActionPtrType WebACLCountActionArgs
+
+func WebACLCountActionPtr(v *WebACLCountActionArgs) WebACLCountActionPtrInput {
+	return (*webACLCountActionPtrType)(v)
+}
+
+func (*webACLCountActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCountAction)(nil)).Elem()
+}
+
+func (i *webACLCountActionPtrType) ToWebACLCountActionPtrOutput() WebACLCountActionPtrOutput {
+	return i.ToWebACLCountActionPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLCountActionPtrType) ToWebACLCountActionPtrOutputWithContext(ctx context.Context) WebACLCountActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCountActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+type WebACLCountActionOutput struct{ *pulumi.OutputState }
+
+func (WebACLCountActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCountAction)(nil)).Elem()
+}
+
+func (o WebACLCountActionOutput) ToWebACLCountActionOutput() WebACLCountActionOutput {
+	return o
+}
+
+func (o WebACLCountActionOutput) ToWebACLCountActionOutputWithContext(ctx context.Context) WebACLCountActionOutput {
+	return o
+}
+
+func (o WebACLCountActionOutput) ToWebACLCountActionPtrOutput() WebACLCountActionPtrOutput {
+	return o.ToWebACLCountActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLCountActionOutput) ToWebACLCountActionPtrOutputWithContext(ctx context.Context) WebACLCountActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCountAction) *WebACLCountAction {
+		return &v
+	}).(WebACLCountActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
+func (o WebACLCountActionOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v WebACLCountAction) *WebACLCustomRequestHandling { return v.CustomRequestHandling }).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+type WebACLCountActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLCountActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCountAction)(nil)).Elem()
+}
+
+func (o WebACLCountActionPtrOutput) ToWebACLCountActionPtrOutput() WebACLCountActionPtrOutput {
+	return o
+}
+
+func (o WebACLCountActionPtrOutput) ToWebACLCountActionPtrOutputWithContext(ctx context.Context) WebACLCountActionPtrOutput {
+	return o
+}
+
+func (o WebACLCountActionPtrOutput) Elem() WebACLCountActionOutput {
+	return o.ApplyT(func(v *WebACLCountAction) WebACLCountAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCountAction
+		return ret
+	}).(WebACLCountActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
+func (o WebACLCountActionPtrOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLCountAction) *WebACLCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+type WebACLCustomHTTPHeader struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+	Value string `pulumi:"value"`
+}
+
+// WebACLCustomHTTPHeaderInput is an input type that accepts WebACLCustomHTTPHeaderArgs and WebACLCustomHTTPHeaderOutput values.
+// You can construct a concrete instance of `WebACLCustomHTTPHeaderInput` via:
+//
+//          WebACLCustomHTTPHeaderArgs{...}
+type WebACLCustomHTTPHeaderInput interface {
+	pulumi.Input
+
+	ToWebACLCustomHTTPHeaderOutput() WebACLCustomHTTPHeaderOutput
+	ToWebACLCustomHTTPHeaderOutputWithContext(context.Context) WebACLCustomHTTPHeaderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+type WebACLCustomHTTPHeaderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WebACLCustomHTTPHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomHTTPHeader)(nil)).Elem()
+}
+
+func (i WebACLCustomHTTPHeaderArgs) ToWebACLCustomHTTPHeaderOutput() WebACLCustomHTTPHeaderOutput {
+	return i.ToWebACLCustomHTTPHeaderOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomHTTPHeaderArgs) ToWebACLCustomHTTPHeaderOutputWithContext(ctx context.Context) WebACLCustomHTTPHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomHTTPHeaderOutput)
+}
+
+// WebACLCustomHTTPHeaderArrayInput is an input type that accepts WebACLCustomHTTPHeaderArray and WebACLCustomHTTPHeaderArrayOutput values.
+// You can construct a concrete instance of `WebACLCustomHTTPHeaderArrayInput` via:
+//
+//          WebACLCustomHTTPHeaderArray{ WebACLCustomHTTPHeaderArgs{...} }
+type WebACLCustomHTTPHeaderArrayInput interface {
+	pulumi.Input
+
+	ToWebACLCustomHTTPHeaderArrayOutput() WebACLCustomHTTPHeaderArrayOutput
+	ToWebACLCustomHTTPHeaderArrayOutputWithContext(context.Context) WebACLCustomHTTPHeaderArrayOutput
+}
+
+type WebACLCustomHTTPHeaderArray []WebACLCustomHTTPHeaderInput
+
+func (WebACLCustomHTTPHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLCustomHTTPHeader)(nil)).Elem()
+}
+
+func (i WebACLCustomHTTPHeaderArray) ToWebACLCustomHTTPHeaderArrayOutput() WebACLCustomHTTPHeaderArrayOutput {
+	return i.ToWebACLCustomHTTPHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomHTTPHeaderArray) ToWebACLCustomHTTPHeaderArrayOutputWithContext(ctx context.Context) WebACLCustomHTTPHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomHTTPHeaderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+type WebACLCustomHTTPHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomHTTPHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomHTTPHeader)(nil)).Elem()
+}
+
+func (o WebACLCustomHTTPHeaderOutput) ToWebACLCustomHTTPHeaderOutput() WebACLCustomHTTPHeaderOutput {
+	return o
+}
+
+func (o WebACLCustomHTTPHeaderOutput) ToWebACLCustomHTTPHeaderOutputWithContext(ctx context.Context) WebACLCustomHTTPHeaderOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
+func (o WebACLCustomHTTPHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLCustomHTTPHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+func (o WebACLCustomHTTPHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLCustomHTTPHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WebACLCustomHTTPHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomHTTPHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLCustomHTTPHeader)(nil)).Elem()
+}
+
+func (o WebACLCustomHTTPHeaderArrayOutput) ToWebACLCustomHTTPHeaderArrayOutput() WebACLCustomHTTPHeaderArrayOutput {
+	return o
+}
+
+func (o WebACLCustomHTTPHeaderArrayOutput) ToWebACLCustomHTTPHeaderArrayOutputWithContext(ctx context.Context) WebACLCustomHTTPHeaderArrayOutput {
+	return o
+}
+
+func (o WebACLCustomHTTPHeaderArrayOutput) Index(i pulumi.IntInput) WebACLCustomHTTPHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLCustomHTTPHeader {
+		return vs[0].([]WebACLCustomHTTPHeader)[vs[1].(int)]
+	}).(WebACLCustomHTTPHeaderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+type WebACLCustomRequestHandling struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+	InsertHeaders []WebACLCustomHTTPHeader `pulumi:"insertHeaders"`
+}
+
+// WebACLCustomRequestHandlingInput is an input type that accepts WebACLCustomRequestHandlingArgs and WebACLCustomRequestHandlingOutput values.
+// You can construct a concrete instance of `WebACLCustomRequestHandlingInput` via:
+//
+//          WebACLCustomRequestHandlingArgs{...}
+type WebACLCustomRequestHandlingInput interface {
+	pulumi.Input
+
+	ToWebACLCustomRequestHandlingOutput() WebACLCustomRequestHandlingOutput
+	ToWebACLCustomRequestHandlingOutputWithContext(context.Context) WebACLCustomRequestHandlingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+type WebACLCustomRequestHandlingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+	InsertHeaders WebACLCustomHTTPHeaderArrayInput `pulumi:"insertHeaders"`
+}
+
+func (WebACLCustomRequestHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomRequestHandling)(nil)).Elem()
+}
+
+func (i WebACLCustomRequestHandlingArgs) ToWebACLCustomRequestHandlingOutput() WebACLCustomRequestHandlingOutput {
+	return i.ToWebACLCustomRequestHandlingOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomRequestHandlingArgs) ToWebACLCustomRequestHandlingOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomRequestHandlingOutput)
+}
+
+func (i WebACLCustomRequestHandlingArgs) ToWebACLCustomRequestHandlingPtrOutput() WebACLCustomRequestHandlingPtrOutput {
+	return i.ToWebACLCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomRequestHandlingArgs) ToWebACLCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomRequestHandlingOutput).ToWebACLCustomRequestHandlingPtrOutputWithContext(ctx)
+}
+
+// WebACLCustomRequestHandlingPtrInput is an input type that accepts WebACLCustomRequestHandlingArgs, WebACLCustomRequestHandlingPtr and WebACLCustomRequestHandlingPtrOutput values.
+// You can construct a concrete instance of `WebACLCustomRequestHandlingPtrInput` via:
+//
+//          WebACLCustomRequestHandlingArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCustomRequestHandlingPtrInput interface {
+	pulumi.Input
+
+	ToWebACLCustomRequestHandlingPtrOutput() WebACLCustomRequestHandlingPtrOutput
+	ToWebACLCustomRequestHandlingPtrOutputWithContext(context.Context) WebACLCustomRequestHandlingPtrOutput
+}
+
+type webACLCustomRequestHandlingPtrType WebACLCustomRequestHandlingArgs
+
+func WebACLCustomRequestHandlingPtr(v *WebACLCustomRequestHandlingArgs) WebACLCustomRequestHandlingPtrInput {
+	return (*webACLCustomRequestHandlingPtrType)(v)
+}
+
+func (*webACLCustomRequestHandlingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomRequestHandling)(nil)).Elem()
+}
+
+func (i *webACLCustomRequestHandlingPtrType) ToWebACLCustomRequestHandlingPtrOutput() WebACLCustomRequestHandlingPtrOutput {
+	return i.ToWebACLCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLCustomRequestHandlingPtrType) ToWebACLCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+type WebACLCustomRequestHandlingOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomRequestHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomRequestHandling)(nil)).Elem()
+}
+
+func (o WebACLCustomRequestHandlingOutput) ToWebACLCustomRequestHandlingOutput() WebACLCustomRequestHandlingOutput {
+	return o
+}
+
+func (o WebACLCustomRequestHandlingOutput) ToWebACLCustomRequestHandlingOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingOutput {
+	return o
+}
+
+func (o WebACLCustomRequestHandlingOutput) ToWebACLCustomRequestHandlingPtrOutput() WebACLCustomRequestHandlingPtrOutput {
+	return o.ToWebACLCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLCustomRequestHandlingOutput) ToWebACLCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCustomRequestHandling) *WebACLCustomRequestHandling {
+		return &v
+	}).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+func (o WebACLCustomRequestHandlingOutput) InsertHeaders() WebACLCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v WebACLCustomRequestHandling) []WebACLCustomHTTPHeader { return v.InsertHeaders }).(WebACLCustomHTTPHeaderArrayOutput)
+}
+
+type WebACLCustomRequestHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomRequestHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomRequestHandling)(nil)).Elem()
+}
+
+func (o WebACLCustomRequestHandlingPtrOutput) ToWebACLCustomRequestHandlingPtrOutput() WebACLCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o WebACLCustomRequestHandlingPtrOutput) ToWebACLCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebACLCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o WebACLCustomRequestHandlingPtrOutput) Elem() WebACLCustomRequestHandlingOutput {
+	return o.ApplyT(func(v *WebACLCustomRequestHandling) WebACLCustomRequestHandling {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCustomRequestHandling
+		return ret
+	}).(WebACLCustomRequestHandlingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+func (o WebACLCustomRequestHandlingPtrOutput) InsertHeaders() WebACLCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v *WebACLCustomRequestHandling) []WebACLCustomHTTPHeader {
+		if v == nil {
+			return nil
+		}
+		return v.InsertHeaders
+	}).(WebACLCustomHTTPHeaderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+type WebACLCustomResponse struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+	CustomResponseBodyKey *string `pulumi:"customResponseBodyKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
+	ResponseCode int `pulumi:"responseCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+	ResponseHeaders []WebACLCustomHTTPHeader `pulumi:"responseHeaders"`
+}
+
+// WebACLCustomResponseInput is an input type that accepts WebACLCustomResponseArgs and WebACLCustomResponseOutput values.
+// You can construct a concrete instance of `WebACLCustomResponseInput` via:
+//
+//          WebACLCustomResponseArgs{...}
+type WebACLCustomResponseInput interface {
+	pulumi.Input
+
+	ToWebACLCustomResponseOutput() WebACLCustomResponseOutput
+	ToWebACLCustomResponseOutputWithContext(context.Context) WebACLCustomResponseOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+type WebACLCustomResponseArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+	CustomResponseBodyKey pulumi.StringPtrInput `pulumi:"customResponseBodyKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
+	ResponseCode pulumi.IntInput `pulumi:"responseCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+	ResponseHeaders WebACLCustomHTTPHeaderArrayInput `pulumi:"responseHeaders"`
+}
+
+func (WebACLCustomResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponse)(nil)).Elem()
+}
+
+func (i WebACLCustomResponseArgs) ToWebACLCustomResponseOutput() WebACLCustomResponseOutput {
+	return i.ToWebACLCustomResponseOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomResponseArgs) ToWebACLCustomResponseOutputWithContext(ctx context.Context) WebACLCustomResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseOutput)
+}
+
+func (i WebACLCustomResponseArgs) ToWebACLCustomResponsePtrOutput() WebACLCustomResponsePtrOutput {
+	return i.ToWebACLCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomResponseArgs) ToWebACLCustomResponsePtrOutputWithContext(ctx context.Context) WebACLCustomResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseOutput).ToWebACLCustomResponsePtrOutputWithContext(ctx)
+}
+
+// WebACLCustomResponsePtrInput is an input type that accepts WebACLCustomResponseArgs, WebACLCustomResponsePtr and WebACLCustomResponsePtrOutput values.
+// You can construct a concrete instance of `WebACLCustomResponsePtrInput` via:
+//
+//          WebACLCustomResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCustomResponsePtrInput interface {
+	pulumi.Input
+
+	ToWebACLCustomResponsePtrOutput() WebACLCustomResponsePtrOutput
+	ToWebACLCustomResponsePtrOutputWithContext(context.Context) WebACLCustomResponsePtrOutput
+}
+
+type webACLCustomResponsePtrType WebACLCustomResponseArgs
+
+func WebACLCustomResponsePtr(v *WebACLCustomResponseArgs) WebACLCustomResponsePtrInput {
+	return (*webACLCustomResponsePtrType)(v)
+}
+
+func (*webACLCustomResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomResponse)(nil)).Elem()
+}
+
+func (i *webACLCustomResponsePtrType) ToWebACLCustomResponsePtrOutput() WebACLCustomResponsePtrOutput {
+	return i.ToWebACLCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *webACLCustomResponsePtrType) ToWebACLCustomResponsePtrOutputWithContext(ctx context.Context) WebACLCustomResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponsePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+type WebACLCustomResponseOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponse)(nil)).Elem()
+}
+
+func (o WebACLCustomResponseOutput) ToWebACLCustomResponseOutput() WebACLCustomResponseOutput {
+	return o
+}
+
+func (o WebACLCustomResponseOutput) ToWebACLCustomResponseOutputWithContext(ctx context.Context) WebACLCustomResponseOutput {
+	return o
+}
+
+func (o WebACLCustomResponseOutput) ToWebACLCustomResponsePtrOutput() WebACLCustomResponsePtrOutput {
+	return o.ToWebACLCustomResponsePtrOutputWithContext(context.Background())
+}
+
+func (o WebACLCustomResponseOutput) ToWebACLCustomResponsePtrOutputWithContext(ctx context.Context) WebACLCustomResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCustomResponse) *WebACLCustomResponse {
+		return &v
+	}).(WebACLCustomResponsePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+func (o WebACLCustomResponseOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLCustomResponse) *string { return v.CustomResponseBodyKey }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
+func (o WebACLCustomResponseOutput) ResponseCode() pulumi.IntOutput {
+	return o.ApplyT(func(v WebACLCustomResponse) int { return v.ResponseCode }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+func (o WebACLCustomResponseOutput) ResponseHeaders() WebACLCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v WebACLCustomResponse) []WebACLCustomHTTPHeader { return v.ResponseHeaders }).(WebACLCustomHTTPHeaderArrayOutput)
+}
+
+type WebACLCustomResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomResponse)(nil)).Elem()
+}
+
+func (o WebACLCustomResponsePtrOutput) ToWebACLCustomResponsePtrOutput() WebACLCustomResponsePtrOutput {
+	return o
+}
+
+func (o WebACLCustomResponsePtrOutput) ToWebACLCustomResponsePtrOutputWithContext(ctx context.Context) WebACLCustomResponsePtrOutput {
+	return o
+}
+
+func (o WebACLCustomResponsePtrOutput) Elem() WebACLCustomResponseOutput {
+	return o.ApplyT(func(v *WebACLCustomResponse) WebACLCustomResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCustomResponse
+		return ret
+	}).(WebACLCustomResponseOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+func (o WebACLCustomResponsePtrOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLCustomResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomResponseBodyKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
+func (o WebACLCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebACLCustomResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResponseCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+func (o WebACLCustomResponsePtrOutput) ResponseHeaders() WebACLCustomHTTPHeaderArrayOutput {
+	return o.ApplyT(func(v *WebACLCustomResponse) []WebACLCustomHTTPHeader {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeaders
+	}).(WebACLCustomHTTPHeaderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
+type WebACLCustomResponseBody struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
+	Content string `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
+	ContentType string `pulumi:"contentType"`
+}
+
+// WebACLCustomResponseBodyInput is an input type that accepts WebACLCustomResponseBodyArgs and WebACLCustomResponseBodyOutput values.
+// You can construct a concrete instance of `WebACLCustomResponseBodyInput` via:
+//
+//          WebACLCustomResponseBodyArgs{...}
+type WebACLCustomResponseBodyInput interface {
+	pulumi.Input
+
+	ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput
+	ToWebACLCustomResponseBodyOutputWithContext(context.Context) WebACLCustomResponseBodyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
+type WebACLCustomResponseBodyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
+	Content pulumi.StringInput `pulumi:"content"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+}
+
+func (WebACLCustomResponseBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponseBody)(nil)).Elem()
+}
+
+func (i WebACLCustomResponseBodyArgs) ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput {
+	return i.ToWebACLCustomResponseBodyOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomResponseBodyArgs) ToWebACLCustomResponseBodyOutputWithContext(ctx context.Context) WebACLCustomResponseBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodyOutput)
+}
+
+// WebACLCustomResponseBodyMapInput is an input type that accepts WebACLCustomResponseBodyMap and WebACLCustomResponseBodyMapOutput values.
+// You can construct a concrete instance of `WebACLCustomResponseBodyMapInput` via:
+//
+//          WebACLCustomResponseBodyMap{ "key": WebACLCustomResponseBodyArgs{...} }
+type WebACLCustomResponseBodyMapInput interface {
+	pulumi.Input
+
+	ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput
+	ToWebACLCustomResponseBodyMapOutputWithContext(context.Context) WebACLCustomResponseBodyMapOutput
+}
+
+type WebACLCustomResponseBodyMap map[string]WebACLCustomResponseBodyInput
+
+func (WebACLCustomResponseBodyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebACLCustomResponseBody)(nil)).Elem()
+}
+
+func (i WebACLCustomResponseBodyMap) ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput {
+	return i.ToWebACLCustomResponseBodyMapOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomResponseBodyMap) ToWebACLCustomResponseBodyMapOutputWithContext(ctx context.Context) WebACLCustomResponseBodyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodyMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
+type WebACLCustomResponseBodyOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomResponseBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponseBody)(nil)).Elem()
+}
+
+func (o WebACLCustomResponseBodyOutput) ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput {
+	return o
+}
+
+func (o WebACLCustomResponseBodyOutput) ToWebACLCustomResponseBodyOutputWithContext(ctx context.Context) WebACLCustomResponseBodyOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
+func (o WebACLCustomResponseBodyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
+func (o WebACLCustomResponseBodyOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLCustomResponseBody) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+type WebACLCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomResponseBodyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]WebACLCustomResponseBody)(nil)).Elem()
+}
+
+func (o WebACLCustomResponseBodyMapOutput) ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput {
+	return o
+}
+
+func (o WebACLCustomResponseBodyMapOutput) ToWebACLCustomResponseBodyMapOutputWithContext(ctx context.Context) WebACLCustomResponseBodyMapOutput {
+	return o
+}
+
+func (o WebACLCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebACLCustomResponseBodyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebACLCustomResponseBody {
+		return vs[0].(map[string]WebACLCustomResponseBody)[vs[1].(string)]
+	}).(WebACLCustomResponseBodyOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
 type WebACLDefaultAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-	Allow interface{} `pulumi:"allow"`
+	Allow *WebACLAllowAction `pulumi:"allow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-	Block interface{} `pulumi:"block"`
+	Block *WebACLBlockAction `pulumi:"block"`
 }
 
 // WebACLDefaultActionInput is an input type that accepts WebACLDefaultActionArgs and WebACLDefaultActionOutput values.
@@ -5010,9 +5613,9 @@ type WebACLDefaultActionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
 type WebACLDefaultActionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-	Allow pulumi.Input `pulumi:"allow"`
+	Allow WebACLAllowActionPtrInput `pulumi:"allow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-	Block pulumi.Input `pulumi:"block"`
+	Block WebACLBlockActionPtrInput `pulumi:"block"`
 }
 
 func (WebACLDefaultActionArgs) ElementType() reflect.Type {
@@ -5094,13 +5697,13 @@ func (o WebACLDefaultActionOutput) ToWebACLDefaultActionPtrOutputWithContext(ctx
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-func (o WebACLDefaultActionOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLDefaultAction) interface{} { return v.Allow }).(pulumi.AnyOutput)
+func (o WebACLDefaultActionOutput) Allow() WebACLAllowActionPtrOutput {
+	return o.ApplyT(func(v WebACLDefaultAction) *WebACLAllowAction { return v.Allow }).(WebACLAllowActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-func (o WebACLDefaultActionOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLDefaultAction) interface{} { return v.Block }).(pulumi.AnyOutput)
+func (o WebACLDefaultActionOutput) Block() WebACLBlockActionPtrOutput {
+	return o.ApplyT(func(v WebACLDefaultAction) *WebACLBlockAction { return v.Block }).(WebACLBlockActionPtrOutput)
 }
 
 type WebACLDefaultActionPtrOutput struct{ *pulumi.OutputState }
@@ -5128,23 +5731,23 @@ func (o WebACLDefaultActionPtrOutput) Elem() WebACLDefaultActionOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-func (o WebACLDefaultActionPtrOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLDefaultAction) interface{} {
+func (o WebACLDefaultActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
+	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLAllowAction {
 		if v == nil {
 			return nil
 		}
 		return v.Allow
-	}).(pulumi.AnyOutput)
+	}).(WebACLAllowActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-func (o WebACLDefaultActionPtrOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLDefaultAction) interface{} {
+func (o WebACLDefaultActionPtrOutput) Block() WebACLBlockActionPtrOutput {
+	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLBlockAction {
 		if v == nil {
 			return nil
 		}
 		return v.Block
-	}).(pulumi.AnyOutput)
+	}).(WebACLBlockActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
@@ -5253,6 +5856,8 @@ type WebACLFieldToMatch struct {
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
 	Body interface{} `pulumi:"body"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+	JsonBody *WebACLJsonBody `pulumi:"jsonBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
 	Method interface{} `pulumi:"method"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
@@ -5282,6 +5887,8 @@ type WebACLFieldToMatchArgs struct {
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
 	Body pulumi.Input `pulumi:"body"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+	JsonBody WebACLJsonBodyPtrInput `pulumi:"jsonBody"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
 	Method pulumi.Input `pulumi:"method"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
@@ -5382,6 +5989,11 @@ func (o WebACLFieldToMatchOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+func (o WebACLFieldToMatchOutput) JsonBody() WebACLJsonBodyPtrOutput {
+	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLJsonBody { return v.JsonBody }).(WebACLJsonBodyPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
 func (o WebACLFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
@@ -5449,6 +6061,16 @@ func (o WebACLFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 		}
 		return v.Body
 	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+func (o WebACLFieldToMatchPtrOutput) JsonBody() WebACLJsonBodyPtrOutput {
+	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLJsonBody {
+		if v == nil {
+			return nil
+		}
+		return v.JsonBody
+	}).(WebACLJsonBodyPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
@@ -6158,12 +6780,610 @@ func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLI
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+type WebACLJsonBody struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
+	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
+	MatchPattern WebACLJsonMatchPattern `pulumi:"matchPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
+	MatchScope string `pulumi:"matchScope"`
+}
+
+// WebACLJsonBodyInput is an input type that accepts WebACLJsonBodyArgs and WebACLJsonBodyOutput values.
+// You can construct a concrete instance of `WebACLJsonBodyInput` via:
+//
+//          WebACLJsonBodyArgs{...}
+type WebACLJsonBodyInput interface {
+	pulumi.Input
+
+	ToWebACLJsonBodyOutput() WebACLJsonBodyOutput
+	ToWebACLJsonBodyOutputWithContext(context.Context) WebACLJsonBodyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+type WebACLJsonBodyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
+	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
+	MatchPattern WebACLJsonMatchPatternInput `pulumi:"matchPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
+	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+}
+
+func (WebACLJsonBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLJsonBody)(nil)).Elem()
+}
+
+func (i WebACLJsonBodyArgs) ToWebACLJsonBodyOutput() WebACLJsonBodyOutput {
+	return i.ToWebACLJsonBodyOutputWithContext(context.Background())
+}
+
+func (i WebACLJsonBodyArgs) ToWebACLJsonBodyOutputWithContext(ctx context.Context) WebACLJsonBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonBodyOutput)
+}
+
+func (i WebACLJsonBodyArgs) ToWebACLJsonBodyPtrOutput() WebACLJsonBodyPtrOutput {
+	return i.ToWebACLJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLJsonBodyArgs) ToWebACLJsonBodyPtrOutputWithContext(ctx context.Context) WebACLJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonBodyOutput).ToWebACLJsonBodyPtrOutputWithContext(ctx)
+}
+
+// WebACLJsonBodyPtrInput is an input type that accepts WebACLJsonBodyArgs, WebACLJsonBodyPtr and WebACLJsonBodyPtrOutput values.
+// You can construct a concrete instance of `WebACLJsonBodyPtrInput` via:
+//
+//          WebACLJsonBodyArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLJsonBodyPtrInput interface {
+	pulumi.Input
+
+	ToWebACLJsonBodyPtrOutput() WebACLJsonBodyPtrOutput
+	ToWebACLJsonBodyPtrOutputWithContext(context.Context) WebACLJsonBodyPtrOutput
+}
+
+type webACLJsonBodyPtrType WebACLJsonBodyArgs
+
+func WebACLJsonBodyPtr(v *WebACLJsonBodyArgs) WebACLJsonBodyPtrInput {
+	return (*webACLJsonBodyPtrType)(v)
+}
+
+func (*webACLJsonBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLJsonBody)(nil)).Elem()
+}
+
+func (i *webACLJsonBodyPtrType) ToWebACLJsonBodyPtrOutput() WebACLJsonBodyPtrOutput {
+	return i.ToWebACLJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLJsonBodyPtrType) ToWebACLJsonBodyPtrOutputWithContext(ctx context.Context) WebACLJsonBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonBodyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+type WebACLJsonBodyOutput struct{ *pulumi.OutputState }
+
+func (WebACLJsonBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLJsonBody)(nil)).Elem()
+}
+
+func (o WebACLJsonBodyOutput) ToWebACLJsonBodyOutput() WebACLJsonBodyOutput {
+	return o
+}
+
+func (o WebACLJsonBodyOutput) ToWebACLJsonBodyOutputWithContext(ctx context.Context) WebACLJsonBodyOutput {
+	return o
+}
+
+func (o WebACLJsonBodyOutput) ToWebACLJsonBodyPtrOutput() WebACLJsonBodyPtrOutput {
+	return o.ToWebACLJsonBodyPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLJsonBodyOutput) ToWebACLJsonBodyPtrOutputWithContext(ctx context.Context) WebACLJsonBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLJsonBody) *WebACLJsonBody {
+		return &v
+	}).(WebACLJsonBodyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
+func (o WebACLJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
+func (o WebACLJsonBodyOutput) MatchPattern() WebACLJsonMatchPatternOutput {
+	return o.ApplyT(func(v WebACLJsonBody) WebACLJsonMatchPattern { return v.MatchPattern }).(WebACLJsonMatchPatternOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
+func (o WebACLJsonBodyOutput) MatchScope() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
+}
+
+type WebACLJsonBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLJsonBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLJsonBody)(nil)).Elem()
+}
+
+func (o WebACLJsonBodyPtrOutput) ToWebACLJsonBodyPtrOutput() WebACLJsonBodyPtrOutput {
+	return o
+}
+
+func (o WebACLJsonBodyPtrOutput) ToWebACLJsonBodyPtrOutputWithContext(ctx context.Context) WebACLJsonBodyPtrOutput {
+	return o
+}
+
+func (o WebACLJsonBodyPtrOutput) Elem() WebACLJsonBodyOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) WebACLJsonBody {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLJsonBody
+		return ret
+	}).(WebACLJsonBodyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
+func (o WebACLJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvalidFallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
+func (o WebACLJsonBodyPtrOutput) MatchPattern() WebACLJsonMatchPatternPtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *WebACLJsonMatchPattern {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchPattern
+	}).(WebACLJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
+func (o WebACLJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLJsonBody) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MatchScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+type WebACLJsonMatchPattern struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+	All interface{} `pulumi:"all"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+	IncludedPaths []string `pulumi:"includedPaths"`
+}
+
+// WebACLJsonMatchPatternInput is an input type that accepts WebACLJsonMatchPatternArgs and WebACLJsonMatchPatternOutput values.
+// You can construct a concrete instance of `WebACLJsonMatchPatternInput` via:
+//
+//          WebACLJsonMatchPatternArgs{...}
+type WebACLJsonMatchPatternInput interface {
+	pulumi.Input
+
+	ToWebACLJsonMatchPatternOutput() WebACLJsonMatchPatternOutput
+	ToWebACLJsonMatchPatternOutputWithContext(context.Context) WebACLJsonMatchPatternOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+type WebACLJsonMatchPatternArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+	All pulumi.Input `pulumi:"all"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
+}
+
+func (WebACLJsonMatchPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLJsonMatchPattern)(nil)).Elem()
+}
+
+func (i WebACLJsonMatchPatternArgs) ToWebACLJsonMatchPatternOutput() WebACLJsonMatchPatternOutput {
+	return i.ToWebACLJsonMatchPatternOutputWithContext(context.Background())
+}
+
+func (i WebACLJsonMatchPatternArgs) ToWebACLJsonMatchPatternOutputWithContext(ctx context.Context) WebACLJsonMatchPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonMatchPatternOutput)
+}
+
+func (i WebACLJsonMatchPatternArgs) ToWebACLJsonMatchPatternPtrOutput() WebACLJsonMatchPatternPtrOutput {
+	return i.ToWebACLJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLJsonMatchPatternArgs) ToWebACLJsonMatchPatternPtrOutputWithContext(ctx context.Context) WebACLJsonMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonMatchPatternOutput).ToWebACLJsonMatchPatternPtrOutputWithContext(ctx)
+}
+
+// WebACLJsonMatchPatternPtrInput is an input type that accepts WebACLJsonMatchPatternArgs, WebACLJsonMatchPatternPtr and WebACLJsonMatchPatternPtrOutput values.
+// You can construct a concrete instance of `WebACLJsonMatchPatternPtrInput` via:
+//
+//          WebACLJsonMatchPatternArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLJsonMatchPatternPtrInput interface {
+	pulumi.Input
+
+	ToWebACLJsonMatchPatternPtrOutput() WebACLJsonMatchPatternPtrOutput
+	ToWebACLJsonMatchPatternPtrOutputWithContext(context.Context) WebACLJsonMatchPatternPtrOutput
+}
+
+type webACLJsonMatchPatternPtrType WebACLJsonMatchPatternArgs
+
+func WebACLJsonMatchPatternPtr(v *WebACLJsonMatchPatternArgs) WebACLJsonMatchPatternPtrInput {
+	return (*webACLJsonMatchPatternPtrType)(v)
+}
+
+func (*webACLJsonMatchPatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLJsonMatchPattern)(nil)).Elem()
+}
+
+func (i *webACLJsonMatchPatternPtrType) ToWebACLJsonMatchPatternPtrOutput() WebACLJsonMatchPatternPtrOutput {
+	return i.ToWebACLJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLJsonMatchPatternPtrType) ToWebACLJsonMatchPatternPtrOutputWithContext(ctx context.Context) WebACLJsonMatchPatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+type WebACLJsonMatchPatternOutput struct{ *pulumi.OutputState }
+
+func (WebACLJsonMatchPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLJsonMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLJsonMatchPatternOutput) ToWebACLJsonMatchPatternOutput() WebACLJsonMatchPatternOutput {
+	return o
+}
+
+func (o WebACLJsonMatchPatternOutput) ToWebACLJsonMatchPatternOutputWithContext(ctx context.Context) WebACLJsonMatchPatternOutput {
+	return o
+}
+
+func (o WebACLJsonMatchPatternOutput) ToWebACLJsonMatchPatternPtrOutput() WebACLJsonMatchPatternPtrOutput {
+	return o.ToWebACLJsonMatchPatternPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLJsonMatchPatternOutput) ToWebACLJsonMatchPatternPtrOutputWithContext(ctx context.Context) WebACLJsonMatchPatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLJsonMatchPattern) *WebACLJsonMatchPattern {
+		return &v
+	}).(WebACLJsonMatchPatternPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+func (o WebACLJsonMatchPatternOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v WebACLJsonMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+func (o WebACLJsonMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WebACLJsonMatchPattern) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
+}
+
+type WebACLJsonMatchPatternPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLJsonMatchPatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLJsonMatchPattern)(nil)).Elem()
+}
+
+func (o WebACLJsonMatchPatternPtrOutput) ToWebACLJsonMatchPatternPtrOutput() WebACLJsonMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLJsonMatchPatternPtrOutput) ToWebACLJsonMatchPatternPtrOutputWithContext(ctx context.Context) WebACLJsonMatchPatternPtrOutput {
+	return o
+}
+
+func (o WebACLJsonMatchPatternPtrOutput) Elem() WebACLJsonMatchPatternOutput {
+	return o.ApplyT(func(v *WebACLJsonMatchPattern) WebACLJsonMatchPattern {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLJsonMatchPattern
+		return ret
+	}).(WebACLJsonMatchPatternOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+func (o WebACLJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WebACLJsonMatchPattern) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+func (o WebACLJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACLJsonMatchPattern) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
+type WebACLLabel struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
+	Name string `pulumi:"name"`
+}
+
+// WebACLLabelInput is an input type that accepts WebACLLabelArgs and WebACLLabelOutput values.
+// You can construct a concrete instance of `WebACLLabelInput` via:
+//
+//          WebACLLabelArgs{...}
+type WebACLLabelInput interface {
+	pulumi.Input
+
+	ToWebACLLabelOutput() WebACLLabelOutput
+	ToWebACLLabelOutputWithContext(context.Context) WebACLLabelOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
+type WebACLLabelArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (WebACLLabelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLLabel)(nil)).Elem()
+}
+
+func (i WebACLLabelArgs) ToWebACLLabelOutput() WebACLLabelOutput {
+	return i.ToWebACLLabelOutputWithContext(context.Background())
+}
+
+func (i WebACLLabelArgs) ToWebACLLabelOutputWithContext(ctx context.Context) WebACLLabelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelOutput)
+}
+
+// WebACLLabelArrayInput is an input type that accepts WebACLLabelArray and WebACLLabelArrayOutput values.
+// You can construct a concrete instance of `WebACLLabelArrayInput` via:
+//
+//          WebACLLabelArray{ WebACLLabelArgs{...} }
+type WebACLLabelArrayInput interface {
+	pulumi.Input
+
+	ToWebACLLabelArrayOutput() WebACLLabelArrayOutput
+	ToWebACLLabelArrayOutputWithContext(context.Context) WebACLLabelArrayOutput
+}
+
+type WebACLLabelArray []WebACLLabelInput
+
+func (WebACLLabelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLLabel)(nil)).Elem()
+}
+
+func (i WebACLLabelArray) ToWebACLLabelArrayOutput() WebACLLabelArrayOutput {
+	return i.ToWebACLLabelArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLLabelArray) ToWebACLLabelArrayOutputWithContext(ctx context.Context) WebACLLabelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
+type WebACLLabelOutput struct{ *pulumi.OutputState }
+
+func (WebACLLabelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLLabel)(nil)).Elem()
+}
+
+func (o WebACLLabelOutput) ToWebACLLabelOutput() WebACLLabelOutput {
+	return o
+}
+
+func (o WebACLLabelOutput) ToWebACLLabelOutputWithContext(ctx context.Context) WebACLLabelOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
+func (o WebACLLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLLabel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebACLLabelArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLLabelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLLabel)(nil)).Elem()
+}
+
+func (o WebACLLabelArrayOutput) ToWebACLLabelArrayOutput() WebACLLabelArrayOutput {
+	return o
+}
+
+func (o WebACLLabelArrayOutput) ToWebACLLabelArrayOutputWithContext(ctx context.Context) WebACLLabelArrayOutput {
+	return o
+}
+
+func (o WebACLLabelArrayOutput) Index(i pulumi.IntInput) WebACLLabelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLLabel {
+		return vs[0].([]WebACLLabel)[vs[1].(int)]
+	}).(WebACLLabelOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
+type WebACLLabelMatchStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+	Scope string `pulumi:"scope"`
+}
+
+// WebACLLabelMatchStatementInput is an input type that accepts WebACLLabelMatchStatementArgs and WebACLLabelMatchStatementOutput values.
+// You can construct a concrete instance of `WebACLLabelMatchStatementInput` via:
+//
+//          WebACLLabelMatchStatementArgs{...}
+type WebACLLabelMatchStatementInput interface {
+	pulumi.Input
+
+	ToWebACLLabelMatchStatementOutput() WebACLLabelMatchStatementOutput
+	ToWebACLLabelMatchStatementOutputWithContext(context.Context) WebACLLabelMatchStatementOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
+type WebACLLabelMatchStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (WebACLLabelMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLLabelMatchStatement)(nil)).Elem()
+}
+
+func (i WebACLLabelMatchStatementArgs) ToWebACLLabelMatchStatementOutput() WebACLLabelMatchStatementOutput {
+	return i.ToWebACLLabelMatchStatementOutputWithContext(context.Background())
+}
+
+func (i WebACLLabelMatchStatementArgs) ToWebACLLabelMatchStatementOutputWithContext(ctx context.Context) WebACLLabelMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelMatchStatementOutput)
+}
+
+func (i WebACLLabelMatchStatementArgs) ToWebACLLabelMatchStatementPtrOutput() WebACLLabelMatchStatementPtrOutput {
+	return i.ToWebACLLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLLabelMatchStatementArgs) ToWebACLLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebACLLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelMatchStatementOutput).ToWebACLLabelMatchStatementPtrOutputWithContext(ctx)
+}
+
+// WebACLLabelMatchStatementPtrInput is an input type that accepts WebACLLabelMatchStatementArgs, WebACLLabelMatchStatementPtr and WebACLLabelMatchStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLLabelMatchStatementPtrInput` via:
+//
+//          WebACLLabelMatchStatementArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLLabelMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebACLLabelMatchStatementPtrOutput() WebACLLabelMatchStatementPtrOutput
+	ToWebACLLabelMatchStatementPtrOutputWithContext(context.Context) WebACLLabelMatchStatementPtrOutput
+}
+
+type webACLLabelMatchStatementPtrType WebACLLabelMatchStatementArgs
+
+func WebACLLabelMatchStatementPtr(v *WebACLLabelMatchStatementArgs) WebACLLabelMatchStatementPtrInput {
+	return (*webACLLabelMatchStatementPtrType)(v)
+}
+
+func (*webACLLabelMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLLabelMatchStatement)(nil)).Elem()
+}
+
+func (i *webACLLabelMatchStatementPtrType) ToWebACLLabelMatchStatementPtrOutput() WebACLLabelMatchStatementPtrOutput {
+	return i.ToWebACLLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLLabelMatchStatementPtrType) ToWebACLLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebACLLabelMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
+type WebACLLabelMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (WebACLLabelMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLLabelMatchStatement)(nil)).Elem()
+}
+
+func (o WebACLLabelMatchStatementOutput) ToWebACLLabelMatchStatementOutput() WebACLLabelMatchStatementOutput {
+	return o
+}
+
+func (o WebACLLabelMatchStatementOutput) ToWebACLLabelMatchStatementOutputWithContext(ctx context.Context) WebACLLabelMatchStatementOutput {
+	return o
+}
+
+func (o WebACLLabelMatchStatementOutput) ToWebACLLabelMatchStatementPtrOutput() WebACLLabelMatchStatementPtrOutput {
+	return o.ToWebACLLabelMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLLabelMatchStatementOutput) ToWebACLLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebACLLabelMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLLabelMatchStatement) *WebACLLabelMatchStatement {
+		return &v
+	}).(WebACLLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
+func (o WebACLLabelMatchStatementOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+func (o WebACLLabelMatchStatementOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type WebACLLabelMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLLabelMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLLabelMatchStatement)(nil)).Elem()
+}
+
+func (o WebACLLabelMatchStatementPtrOutput) ToWebACLLabelMatchStatementPtrOutput() WebACLLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebACLLabelMatchStatementPtrOutput) ToWebACLLabelMatchStatementPtrOutputWithContext(ctx context.Context) WebACLLabelMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebACLLabelMatchStatementPtrOutput) Elem() WebACLLabelMatchStatementOutput {
+	return o.ApplyT(func(v *WebACLLabelMatchStatement) WebACLLabelMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLLabelMatchStatement
+		return ret
+	}).(WebACLLabelMatchStatementOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
+func (o WebACLLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+func (o WebACLLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLLabelMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
 type WebACLManagedRuleGroupStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
 	ExcludedRules []WebACLExcludedRule `pulumi:"excludedRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
 	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+	ScopeDownStatement *WebACLStatement `pulumi:"scopeDownStatement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 	VendorName string `pulumi:"vendorName"`
 }
@@ -6185,6 +7405,8 @@ type WebACLManagedRuleGroupStatementArgs struct {
 	ExcludedRules WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
 	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+	ScopeDownStatement WebACLStatementPtrInput `pulumi:"scopeDownStatement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 	VendorName pulumi.StringInput `pulumi:"vendorName"`
 }
@@ -6277,6 +7499,11 @@ func (o WebACLManagedRuleGroupStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+func (o WebACLManagedRuleGroupStatementOutput) ScopeDownStatement() WebACLStatementPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) *WebACLStatement { return v.ScopeDownStatement }).(WebACLStatementPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 func (o WebACLManagedRuleGroupStatementOutput) VendorName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.VendorName }).(pulumi.StringOutput)
@@ -6326,6 +7553,16 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+func (o WebACLManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebACLStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *WebACLStatement {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeDownStatement
+	}).(WebACLStatementPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 func (o WebACLManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *string {
@@ -6336,564 +7573,284 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html
-type WebACLNotStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
-	Statement WebACLStatementTwo `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
+type WebACLNotStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
+	Statement WebACLStatement `pulumi:"statement"`
 }
 
-// WebACLNotStatementOneInput is an input type that accepts WebACLNotStatementOneArgs and WebACLNotStatementOneOutput values.
-// You can construct a concrete instance of `WebACLNotStatementOneInput` via:
+// WebACLNotStatementInput is an input type that accepts WebACLNotStatementArgs and WebACLNotStatementOutput values.
+// You can construct a concrete instance of `WebACLNotStatementInput` via:
 //
-//          WebACLNotStatementOneArgs{...}
-type WebACLNotStatementOneInput interface {
+//          WebACLNotStatementArgs{...}
+type WebACLNotStatementInput interface {
 	pulumi.Input
 
-	ToWebACLNotStatementOneOutput() WebACLNotStatementOneOutput
-	ToWebACLNotStatementOneOutputWithContext(context.Context) WebACLNotStatementOneOutput
+	ToWebACLNotStatementOutput() WebACLNotStatementOutput
+	ToWebACLNotStatementOutputWithContext(context.Context) WebACLNotStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html
-type WebACLNotStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
-	Statement WebACLStatementTwoInput `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
+type WebACLNotStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
+	Statement WebACLStatementInput `pulumi:"statement"`
 }
 
-func (WebACLNotStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLNotStatementOne)(nil)).Elem()
+func (WebACLNotStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLNotStatement)(nil)).Elem()
 }
 
-func (i WebACLNotStatementOneArgs) ToWebACLNotStatementOneOutput() WebACLNotStatementOneOutput {
-	return i.ToWebACLNotStatementOneOutputWithContext(context.Background())
+func (i WebACLNotStatementArgs) ToWebACLNotStatementOutput() WebACLNotStatementOutput {
+	return i.ToWebACLNotStatementOutputWithContext(context.Background())
 }
 
-func (i WebACLNotStatementOneArgs) ToWebACLNotStatementOneOutputWithContext(ctx context.Context) WebACLNotStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementOneOutput)
+func (i WebACLNotStatementArgs) ToWebACLNotStatementOutputWithContext(ctx context.Context) WebACLNotStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementOutput)
 }
 
-func (i WebACLNotStatementOneArgs) ToWebACLNotStatementOnePtrOutput() WebACLNotStatementOnePtrOutput {
-	return i.ToWebACLNotStatementOnePtrOutputWithContext(context.Background())
+func (i WebACLNotStatementArgs) ToWebACLNotStatementPtrOutput() WebACLNotStatementPtrOutput {
+	return i.ToWebACLNotStatementPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLNotStatementOneArgs) ToWebACLNotStatementOnePtrOutputWithContext(ctx context.Context) WebACLNotStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementOneOutput).ToWebACLNotStatementOnePtrOutputWithContext(ctx)
+func (i WebACLNotStatementArgs) ToWebACLNotStatementPtrOutputWithContext(ctx context.Context) WebACLNotStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementOutput).ToWebACLNotStatementPtrOutputWithContext(ctx)
 }
 
-// WebACLNotStatementOnePtrInput is an input type that accepts WebACLNotStatementOneArgs, WebACLNotStatementOnePtr and WebACLNotStatementOnePtrOutput values.
-// You can construct a concrete instance of `WebACLNotStatementOnePtrInput` via:
+// WebACLNotStatementPtrInput is an input type that accepts WebACLNotStatementArgs, WebACLNotStatementPtr and WebACLNotStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLNotStatementPtrInput` via:
 //
-//          WebACLNotStatementOneArgs{...}
+//          WebACLNotStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLNotStatementOnePtrInput interface {
+type WebACLNotStatementPtrInput interface {
 	pulumi.Input
 
-	ToWebACLNotStatementOnePtrOutput() WebACLNotStatementOnePtrOutput
-	ToWebACLNotStatementOnePtrOutputWithContext(context.Context) WebACLNotStatementOnePtrOutput
+	ToWebACLNotStatementPtrOutput() WebACLNotStatementPtrOutput
+	ToWebACLNotStatementPtrOutputWithContext(context.Context) WebACLNotStatementPtrOutput
 }
 
-type webACLNotStatementOnePtrType WebACLNotStatementOneArgs
+type webACLNotStatementPtrType WebACLNotStatementArgs
 
-func WebACLNotStatementOnePtr(v *WebACLNotStatementOneArgs) WebACLNotStatementOnePtrInput {
-	return (*webACLNotStatementOnePtrType)(v)
+func WebACLNotStatementPtr(v *WebACLNotStatementArgs) WebACLNotStatementPtrInput {
+	return (*webACLNotStatementPtrType)(v)
 }
 
-func (*webACLNotStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLNotStatementOne)(nil)).Elem()
+func (*webACLNotStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLNotStatement)(nil)).Elem()
 }
 
-func (i *webACLNotStatementOnePtrType) ToWebACLNotStatementOnePtrOutput() WebACLNotStatementOnePtrOutput {
-	return i.ToWebACLNotStatementOnePtrOutputWithContext(context.Background())
+func (i *webACLNotStatementPtrType) ToWebACLNotStatementPtrOutput() WebACLNotStatementPtrOutput {
+	return i.ToWebACLNotStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLNotStatementOnePtrType) ToWebACLNotStatementOnePtrOutputWithContext(ctx context.Context) WebACLNotStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementOnePtrOutput)
+func (i *webACLNotStatementPtrType) ToWebACLNotStatementPtrOutputWithContext(ctx context.Context) WebACLNotStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html
-type WebACLNotStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
+type WebACLNotStatementOutput struct{ *pulumi.OutputState }
 
-func (WebACLNotStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLNotStatementOne)(nil)).Elem()
+func (WebACLNotStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLNotStatement)(nil)).Elem()
 }
 
-func (o WebACLNotStatementOneOutput) ToWebACLNotStatementOneOutput() WebACLNotStatementOneOutput {
+func (o WebACLNotStatementOutput) ToWebACLNotStatementOutput() WebACLNotStatementOutput {
 	return o
 }
 
-func (o WebACLNotStatementOneOutput) ToWebACLNotStatementOneOutputWithContext(ctx context.Context) WebACLNotStatementOneOutput {
+func (o WebACLNotStatementOutput) ToWebACLNotStatementOutputWithContext(ctx context.Context) WebACLNotStatementOutput {
 	return o
 }
 
-func (o WebACLNotStatementOneOutput) ToWebACLNotStatementOnePtrOutput() WebACLNotStatementOnePtrOutput {
-	return o.ToWebACLNotStatementOnePtrOutputWithContext(context.Background())
+func (o WebACLNotStatementOutput) ToWebACLNotStatementPtrOutput() WebACLNotStatementPtrOutput {
+	return o.ToWebACLNotStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLNotStatementOneOutput) ToWebACLNotStatementOnePtrOutputWithContext(ctx context.Context) WebACLNotStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLNotStatementOne) *WebACLNotStatementOne {
+func (o WebACLNotStatementOutput) ToWebACLNotStatementPtrOutputWithContext(ctx context.Context) WebACLNotStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLNotStatement) *WebACLNotStatement {
 		return &v
-	}).(WebACLNotStatementOnePtrOutput)
+	}).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
-func (o WebACLNotStatementOneOutput) Statement() WebACLStatementTwoOutput {
-	return o.ApplyT(func(v WebACLNotStatementOne) WebACLStatementTwo { return v.Statement }).(WebACLStatementTwoOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
+func (o WebACLNotStatementOutput) Statement() WebACLStatementOutput {
+	return o.ApplyT(func(v WebACLNotStatement) WebACLStatement { return v.Statement }).(WebACLStatementOutput)
 }
 
-type WebACLNotStatementOnePtrOutput struct{ *pulumi.OutputState }
+type WebACLNotStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLNotStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLNotStatementOne)(nil)).Elem()
+func (WebACLNotStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLNotStatement)(nil)).Elem()
 }
 
-func (o WebACLNotStatementOnePtrOutput) ToWebACLNotStatementOnePtrOutput() WebACLNotStatementOnePtrOutput {
+func (o WebACLNotStatementPtrOutput) ToWebACLNotStatementPtrOutput() WebACLNotStatementPtrOutput {
 	return o
 }
 
-func (o WebACLNotStatementOnePtrOutput) ToWebACLNotStatementOnePtrOutputWithContext(ctx context.Context) WebACLNotStatementOnePtrOutput {
+func (o WebACLNotStatementPtrOutput) ToWebACLNotStatementPtrOutputWithContext(ctx context.Context) WebACLNotStatementPtrOutput {
 	return o
 }
 
-func (o WebACLNotStatementOnePtrOutput) Elem() WebACLNotStatementOneOutput {
-	return o.ApplyT(func(v *WebACLNotStatementOne) WebACLNotStatementOne {
+func (o WebACLNotStatementPtrOutput) Elem() WebACLNotStatementOutput {
+	return o.ApplyT(func(v *WebACLNotStatement) WebACLNotStatement {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLNotStatementOne
+		var ret WebACLNotStatement
 		return ret
-	}).(WebACLNotStatementOneOutput)
+	}).(WebACLNotStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementone.html#cfn-wafv2-webacl-notstatementone-statement
-func (o WebACLNotStatementOnePtrOutput) Statement() WebACLStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLNotStatementOne) *WebACLStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
+func (o WebACLNotStatementPtrOutput) Statement() WebACLStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLNotStatement) *WebACLStatement {
 		if v == nil {
 			return nil
 		}
 		return &v.Statement
-	}).(WebACLStatementTwoPtrOutput)
+	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html
-type WebACLNotStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
-	Statement WebACLStatementThree `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
+type WebACLOrStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
+	Statements []WebACLStatement `pulumi:"statements"`
 }
 
-// WebACLNotStatementTwoInput is an input type that accepts WebACLNotStatementTwoArgs and WebACLNotStatementTwoOutput values.
-// You can construct a concrete instance of `WebACLNotStatementTwoInput` via:
+// WebACLOrStatementInput is an input type that accepts WebACLOrStatementArgs and WebACLOrStatementOutput values.
+// You can construct a concrete instance of `WebACLOrStatementInput` via:
 //
-//          WebACLNotStatementTwoArgs{...}
-type WebACLNotStatementTwoInput interface {
+//          WebACLOrStatementArgs{...}
+type WebACLOrStatementInput interface {
 	pulumi.Input
 
-	ToWebACLNotStatementTwoOutput() WebACLNotStatementTwoOutput
-	ToWebACLNotStatementTwoOutputWithContext(context.Context) WebACLNotStatementTwoOutput
+	ToWebACLOrStatementOutput() WebACLOrStatementOutput
+	ToWebACLOrStatementOutputWithContext(context.Context) WebACLOrStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html
-type WebACLNotStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
-	Statement WebACLStatementThreeInput `pulumi:"statement"`
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
+type WebACLOrStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
+	Statements WebACLStatementArrayInput `pulumi:"statements"`
 }
 
-func (WebACLNotStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLNotStatementTwo)(nil)).Elem()
+func (WebACLOrStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLOrStatement)(nil)).Elem()
 }
 
-func (i WebACLNotStatementTwoArgs) ToWebACLNotStatementTwoOutput() WebACLNotStatementTwoOutput {
-	return i.ToWebACLNotStatementTwoOutputWithContext(context.Background())
+func (i WebACLOrStatementArgs) ToWebACLOrStatementOutput() WebACLOrStatementOutput {
+	return i.ToWebACLOrStatementOutputWithContext(context.Background())
 }
 
-func (i WebACLNotStatementTwoArgs) ToWebACLNotStatementTwoOutputWithContext(ctx context.Context) WebACLNotStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementTwoOutput)
+func (i WebACLOrStatementArgs) ToWebACLOrStatementOutputWithContext(ctx context.Context) WebACLOrStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementOutput)
 }
 
-func (i WebACLNotStatementTwoArgs) ToWebACLNotStatementTwoPtrOutput() WebACLNotStatementTwoPtrOutput {
-	return i.ToWebACLNotStatementTwoPtrOutputWithContext(context.Background())
+func (i WebACLOrStatementArgs) ToWebACLOrStatementPtrOutput() WebACLOrStatementPtrOutput {
+	return i.ToWebACLOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLNotStatementTwoArgs) ToWebACLNotStatementTwoPtrOutputWithContext(ctx context.Context) WebACLNotStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementTwoOutput).ToWebACLNotStatementTwoPtrOutputWithContext(ctx)
+func (i WebACLOrStatementArgs) ToWebACLOrStatementPtrOutputWithContext(ctx context.Context) WebACLOrStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementOutput).ToWebACLOrStatementPtrOutputWithContext(ctx)
 }
 
-// WebACLNotStatementTwoPtrInput is an input type that accepts WebACLNotStatementTwoArgs, WebACLNotStatementTwoPtr and WebACLNotStatementTwoPtrOutput values.
-// You can construct a concrete instance of `WebACLNotStatementTwoPtrInput` via:
+// WebACLOrStatementPtrInput is an input type that accepts WebACLOrStatementArgs, WebACLOrStatementPtr and WebACLOrStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLOrStatementPtrInput` via:
 //
-//          WebACLNotStatementTwoArgs{...}
+//          WebACLOrStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLNotStatementTwoPtrInput interface {
+type WebACLOrStatementPtrInput interface {
 	pulumi.Input
 
-	ToWebACLNotStatementTwoPtrOutput() WebACLNotStatementTwoPtrOutput
-	ToWebACLNotStatementTwoPtrOutputWithContext(context.Context) WebACLNotStatementTwoPtrOutput
+	ToWebACLOrStatementPtrOutput() WebACLOrStatementPtrOutput
+	ToWebACLOrStatementPtrOutputWithContext(context.Context) WebACLOrStatementPtrOutput
 }
 
-type webACLNotStatementTwoPtrType WebACLNotStatementTwoArgs
+type webACLOrStatementPtrType WebACLOrStatementArgs
 
-func WebACLNotStatementTwoPtr(v *WebACLNotStatementTwoArgs) WebACLNotStatementTwoPtrInput {
-	return (*webACLNotStatementTwoPtrType)(v)
+func WebACLOrStatementPtr(v *WebACLOrStatementArgs) WebACLOrStatementPtrInput {
+	return (*webACLOrStatementPtrType)(v)
 }
 
-func (*webACLNotStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLNotStatementTwo)(nil)).Elem()
+func (*webACLOrStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLOrStatement)(nil)).Elem()
 }
 
-func (i *webACLNotStatementTwoPtrType) ToWebACLNotStatementTwoPtrOutput() WebACLNotStatementTwoPtrOutput {
-	return i.ToWebACLNotStatementTwoPtrOutputWithContext(context.Background())
+func (i *webACLOrStatementPtrType) ToWebACLOrStatementPtrOutput() WebACLOrStatementPtrOutput {
+	return i.ToWebACLOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLNotStatementTwoPtrType) ToWebACLNotStatementTwoPtrOutputWithContext(ctx context.Context) WebACLNotStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementTwoPtrOutput)
+func (i *webACLOrStatementPtrType) ToWebACLOrStatementPtrOutputWithContext(ctx context.Context) WebACLOrStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html
-type WebACLNotStatementTwoOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
+type WebACLOrStatementOutput struct{ *pulumi.OutputState }
 
-func (WebACLNotStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLNotStatementTwo)(nil)).Elem()
+func (WebACLOrStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLOrStatement)(nil)).Elem()
 }
 
-func (o WebACLNotStatementTwoOutput) ToWebACLNotStatementTwoOutput() WebACLNotStatementTwoOutput {
+func (o WebACLOrStatementOutput) ToWebACLOrStatementOutput() WebACLOrStatementOutput {
 	return o
 }
 
-func (o WebACLNotStatementTwoOutput) ToWebACLNotStatementTwoOutputWithContext(ctx context.Context) WebACLNotStatementTwoOutput {
+func (o WebACLOrStatementOutput) ToWebACLOrStatementOutputWithContext(ctx context.Context) WebACLOrStatementOutput {
 	return o
 }
 
-func (o WebACLNotStatementTwoOutput) ToWebACLNotStatementTwoPtrOutput() WebACLNotStatementTwoPtrOutput {
-	return o.ToWebACLNotStatementTwoPtrOutputWithContext(context.Background())
+func (o WebACLOrStatementOutput) ToWebACLOrStatementPtrOutput() WebACLOrStatementPtrOutput {
+	return o.ToWebACLOrStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLNotStatementTwoOutput) ToWebACLNotStatementTwoPtrOutputWithContext(ctx context.Context) WebACLNotStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLNotStatementTwo) *WebACLNotStatementTwo {
+func (o WebACLOrStatementOutput) ToWebACLOrStatementPtrOutputWithContext(ctx context.Context) WebACLOrStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLOrStatement) *WebACLOrStatement {
 		return &v
-	}).(WebACLNotStatementTwoPtrOutput)
+	}).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
-func (o WebACLNotStatementTwoOutput) Statement() WebACLStatementThreeOutput {
-	return o.ApplyT(func(v WebACLNotStatementTwo) WebACLStatementThree { return v.Statement }).(WebACLStatementThreeOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
+func (o WebACLOrStatementOutput) Statements() WebACLStatementArrayOutput {
+	return o.ApplyT(func(v WebACLOrStatement) []WebACLStatement { return v.Statements }).(WebACLStatementArrayOutput)
 }
 
-type WebACLNotStatementTwoPtrOutput struct{ *pulumi.OutputState }
+type WebACLOrStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLNotStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLNotStatementTwo)(nil)).Elem()
+func (WebACLOrStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLOrStatement)(nil)).Elem()
 }
 
-func (o WebACLNotStatementTwoPtrOutput) ToWebACLNotStatementTwoPtrOutput() WebACLNotStatementTwoPtrOutput {
+func (o WebACLOrStatementPtrOutput) ToWebACLOrStatementPtrOutput() WebACLOrStatementPtrOutput {
 	return o
 }
 
-func (o WebACLNotStatementTwoPtrOutput) ToWebACLNotStatementTwoPtrOutputWithContext(ctx context.Context) WebACLNotStatementTwoPtrOutput {
+func (o WebACLOrStatementPtrOutput) ToWebACLOrStatementPtrOutputWithContext(ctx context.Context) WebACLOrStatementPtrOutput {
 	return o
 }
 
-func (o WebACLNotStatementTwoPtrOutput) Elem() WebACLNotStatementTwoOutput {
-	return o.ApplyT(func(v *WebACLNotStatementTwo) WebACLNotStatementTwo {
+func (o WebACLOrStatementPtrOutput) Elem() WebACLOrStatementOutput {
+	return o.ApplyT(func(v *WebACLOrStatement) WebACLOrStatement {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLNotStatementTwo
+		var ret WebACLOrStatement
 		return ret
-	}).(WebACLNotStatementTwoOutput)
+	}).(WebACLOrStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatementtwo.html#cfn-wafv2-webacl-notstatementtwo-statement
-func (o WebACLNotStatementTwoPtrOutput) Statement() WebACLStatementThreePtrOutput {
-	return o.ApplyT(func(v *WebACLNotStatementTwo) *WebACLStatementThree {
-		if v == nil {
-			return nil
-		}
-		return &v.Statement
-	}).(WebACLStatementThreePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html
-type WebACLOrStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
-	Statements []WebACLStatementTwo `pulumi:"statements"`
-}
-
-// WebACLOrStatementOneInput is an input type that accepts WebACLOrStatementOneArgs and WebACLOrStatementOneOutput values.
-// You can construct a concrete instance of `WebACLOrStatementOneInput` via:
-//
-//          WebACLOrStatementOneArgs{...}
-type WebACLOrStatementOneInput interface {
-	pulumi.Input
-
-	ToWebACLOrStatementOneOutput() WebACLOrStatementOneOutput
-	ToWebACLOrStatementOneOutputWithContext(context.Context) WebACLOrStatementOneOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html
-type WebACLOrStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
-	Statements WebACLStatementTwoArrayInput `pulumi:"statements"`
-}
-
-func (WebACLOrStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOrStatementOne)(nil)).Elem()
-}
-
-func (i WebACLOrStatementOneArgs) ToWebACLOrStatementOneOutput() WebACLOrStatementOneOutput {
-	return i.ToWebACLOrStatementOneOutputWithContext(context.Background())
-}
-
-func (i WebACLOrStatementOneArgs) ToWebACLOrStatementOneOutputWithContext(ctx context.Context) WebACLOrStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementOneOutput)
-}
-
-func (i WebACLOrStatementOneArgs) ToWebACLOrStatementOnePtrOutput() WebACLOrStatementOnePtrOutput {
-	return i.ToWebACLOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (i WebACLOrStatementOneArgs) ToWebACLOrStatementOnePtrOutputWithContext(ctx context.Context) WebACLOrStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementOneOutput).ToWebACLOrStatementOnePtrOutputWithContext(ctx)
-}
-
-// WebACLOrStatementOnePtrInput is an input type that accepts WebACLOrStatementOneArgs, WebACLOrStatementOnePtr and WebACLOrStatementOnePtrOutput values.
-// You can construct a concrete instance of `WebACLOrStatementOnePtrInput` via:
-//
-//          WebACLOrStatementOneArgs{...}
-//
-//  or:
-//
-//          nil
-type WebACLOrStatementOnePtrInput interface {
-	pulumi.Input
-
-	ToWebACLOrStatementOnePtrOutput() WebACLOrStatementOnePtrOutput
-	ToWebACLOrStatementOnePtrOutputWithContext(context.Context) WebACLOrStatementOnePtrOutput
-}
-
-type webACLOrStatementOnePtrType WebACLOrStatementOneArgs
-
-func WebACLOrStatementOnePtr(v *WebACLOrStatementOneArgs) WebACLOrStatementOnePtrInput {
-	return (*webACLOrStatementOnePtrType)(v)
-}
-
-func (*webACLOrStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLOrStatementOne)(nil)).Elem()
-}
-
-func (i *webACLOrStatementOnePtrType) ToWebACLOrStatementOnePtrOutput() WebACLOrStatementOnePtrOutput {
-	return i.ToWebACLOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (i *webACLOrStatementOnePtrType) ToWebACLOrStatementOnePtrOutputWithContext(ctx context.Context) WebACLOrStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html
-type WebACLOrStatementOneOutput struct{ *pulumi.OutputState }
-
-func (WebACLOrStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOrStatementOne)(nil)).Elem()
-}
-
-func (o WebACLOrStatementOneOutput) ToWebACLOrStatementOneOutput() WebACLOrStatementOneOutput {
-	return o
-}
-
-func (o WebACLOrStatementOneOutput) ToWebACLOrStatementOneOutputWithContext(ctx context.Context) WebACLOrStatementOneOutput {
-	return o
-}
-
-func (o WebACLOrStatementOneOutput) ToWebACLOrStatementOnePtrOutput() WebACLOrStatementOnePtrOutput {
-	return o.ToWebACLOrStatementOnePtrOutputWithContext(context.Background())
-}
-
-func (o WebACLOrStatementOneOutput) ToWebACLOrStatementOnePtrOutputWithContext(ctx context.Context) WebACLOrStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLOrStatementOne) *WebACLOrStatementOne {
-		return &v
-	}).(WebACLOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
-func (o WebACLOrStatementOneOutput) Statements() WebACLStatementTwoArrayOutput {
-	return o.ApplyT(func(v WebACLOrStatementOne) []WebACLStatementTwo { return v.Statements }).(WebACLStatementTwoArrayOutput)
-}
-
-type WebACLOrStatementOnePtrOutput struct{ *pulumi.OutputState }
-
-func (WebACLOrStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLOrStatementOne)(nil)).Elem()
-}
-
-func (o WebACLOrStatementOnePtrOutput) ToWebACLOrStatementOnePtrOutput() WebACLOrStatementOnePtrOutput {
-	return o
-}
-
-func (o WebACLOrStatementOnePtrOutput) ToWebACLOrStatementOnePtrOutputWithContext(ctx context.Context) WebACLOrStatementOnePtrOutput {
-	return o
-}
-
-func (o WebACLOrStatementOnePtrOutput) Elem() WebACLOrStatementOneOutput {
-	return o.ApplyT(func(v *WebACLOrStatementOne) WebACLOrStatementOne {
-		if v != nil {
-			return *v
-		}
-		var ret WebACLOrStatementOne
-		return ret
-	}).(WebACLOrStatementOneOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementone.html#cfn-wafv2-webacl-orstatementone-statements
-func (o WebACLOrStatementOnePtrOutput) Statements() WebACLStatementTwoArrayOutput {
-	return o.ApplyT(func(v *WebACLOrStatementOne) []WebACLStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
+func (o WebACLOrStatementPtrOutput) Statements() WebACLStatementArrayOutput {
+	return o.ApplyT(func(v *WebACLOrStatement) []WebACLStatement {
 		if v == nil {
 			return nil
 		}
 		return v.Statements
-	}).(WebACLStatementTwoArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html
-type WebACLOrStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
-	Statements []WebACLStatementThree `pulumi:"statements"`
-}
-
-// WebACLOrStatementTwoInput is an input type that accepts WebACLOrStatementTwoArgs and WebACLOrStatementTwoOutput values.
-// You can construct a concrete instance of `WebACLOrStatementTwoInput` via:
-//
-//          WebACLOrStatementTwoArgs{...}
-type WebACLOrStatementTwoInput interface {
-	pulumi.Input
-
-	ToWebACLOrStatementTwoOutput() WebACLOrStatementTwoOutput
-	ToWebACLOrStatementTwoOutputWithContext(context.Context) WebACLOrStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html
-type WebACLOrStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
-	Statements WebACLStatementThreeArrayInput `pulumi:"statements"`
-}
-
-func (WebACLOrStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOrStatementTwo)(nil)).Elem()
-}
-
-func (i WebACLOrStatementTwoArgs) ToWebACLOrStatementTwoOutput() WebACLOrStatementTwoOutput {
-	return i.ToWebACLOrStatementTwoOutputWithContext(context.Background())
-}
-
-func (i WebACLOrStatementTwoArgs) ToWebACLOrStatementTwoOutputWithContext(ctx context.Context) WebACLOrStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementTwoOutput)
-}
-
-func (i WebACLOrStatementTwoArgs) ToWebACLOrStatementTwoPtrOutput() WebACLOrStatementTwoPtrOutput {
-	return i.ToWebACLOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i WebACLOrStatementTwoArgs) ToWebACLOrStatementTwoPtrOutputWithContext(ctx context.Context) WebACLOrStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementTwoOutput).ToWebACLOrStatementTwoPtrOutputWithContext(ctx)
-}
-
-// WebACLOrStatementTwoPtrInput is an input type that accepts WebACLOrStatementTwoArgs, WebACLOrStatementTwoPtr and WebACLOrStatementTwoPtrOutput values.
-// You can construct a concrete instance of `WebACLOrStatementTwoPtrInput` via:
-//
-//          WebACLOrStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type WebACLOrStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToWebACLOrStatementTwoPtrOutput() WebACLOrStatementTwoPtrOutput
-	ToWebACLOrStatementTwoPtrOutputWithContext(context.Context) WebACLOrStatementTwoPtrOutput
-}
-
-type webACLOrStatementTwoPtrType WebACLOrStatementTwoArgs
-
-func WebACLOrStatementTwoPtr(v *WebACLOrStatementTwoArgs) WebACLOrStatementTwoPtrInput {
-	return (*webACLOrStatementTwoPtrType)(v)
-}
-
-func (*webACLOrStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLOrStatementTwo)(nil)).Elem()
-}
-
-func (i *webACLOrStatementTwoPtrType) ToWebACLOrStatementTwoPtrOutput() WebACLOrStatementTwoPtrOutput {
-	return i.ToWebACLOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *webACLOrStatementTwoPtrType) ToWebACLOrStatementTwoPtrOutputWithContext(ctx context.Context) WebACLOrStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html
-type WebACLOrStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (WebACLOrStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLOrStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLOrStatementTwoOutput) ToWebACLOrStatementTwoOutput() WebACLOrStatementTwoOutput {
-	return o
-}
-
-func (o WebACLOrStatementTwoOutput) ToWebACLOrStatementTwoOutputWithContext(ctx context.Context) WebACLOrStatementTwoOutput {
-	return o
-}
-
-func (o WebACLOrStatementTwoOutput) ToWebACLOrStatementTwoPtrOutput() WebACLOrStatementTwoPtrOutput {
-	return o.ToWebACLOrStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o WebACLOrStatementTwoOutput) ToWebACLOrStatementTwoPtrOutputWithContext(ctx context.Context) WebACLOrStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLOrStatementTwo) *WebACLOrStatementTwo {
-		return &v
-	}).(WebACLOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
-func (o WebACLOrStatementTwoOutput) Statements() WebACLStatementThreeArrayOutput {
-	return o.ApplyT(func(v WebACLOrStatementTwo) []WebACLStatementThree { return v.Statements }).(WebACLStatementThreeArrayOutput)
-}
-
-type WebACLOrStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (WebACLOrStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLOrStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLOrStatementTwoPtrOutput) ToWebACLOrStatementTwoPtrOutput() WebACLOrStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLOrStatementTwoPtrOutput) ToWebACLOrStatementTwoPtrOutputWithContext(ctx context.Context) WebACLOrStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLOrStatementTwoPtrOutput) Elem() WebACLOrStatementTwoOutput {
-	return o.ApplyT(func(v *WebACLOrStatementTwo) WebACLOrStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret WebACLOrStatementTwo
-		return ret
-	}).(WebACLOrStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatementtwo.html#cfn-wafv2-webacl-orstatementtwo-statements
-func (o WebACLOrStatementTwoPtrOutput) Statements() WebACLStatementThreeArrayOutput {
-	return o.ApplyT(func(v *WebACLOrStatementTwo) []WebACLStatementThree {
-		if v == nil {
-			return nil
-		}
-		return v.Statements
-	}).(WebACLStatementThreeArrayOutput)
+	}).(WebACLStatementArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
@@ -7055,166 +8012,166 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
-type WebACLRateBasedStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
+type WebACLRateBasedStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
 	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
 	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
 	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
-	ScopeDownStatement *WebACLStatementTwo `pulumi:"scopeDownStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
+	ScopeDownStatement *WebACLStatement `pulumi:"scopeDownStatement"`
 }
 
-// WebACLRateBasedStatementOneInput is an input type that accepts WebACLRateBasedStatementOneArgs and WebACLRateBasedStatementOneOutput values.
-// You can construct a concrete instance of `WebACLRateBasedStatementOneInput` via:
+// WebACLRateBasedStatementInput is an input type that accepts WebACLRateBasedStatementArgs and WebACLRateBasedStatementOutput values.
+// You can construct a concrete instance of `WebACLRateBasedStatementInput` via:
 //
-//          WebACLRateBasedStatementOneArgs{...}
-type WebACLRateBasedStatementOneInput interface {
+//          WebACLRateBasedStatementArgs{...}
+type WebACLRateBasedStatementInput interface {
 	pulumi.Input
 
-	ToWebACLRateBasedStatementOneOutput() WebACLRateBasedStatementOneOutput
-	ToWebACLRateBasedStatementOneOutputWithContext(context.Context) WebACLRateBasedStatementOneOutput
+	ToWebACLRateBasedStatementOutput() WebACLRateBasedStatementOutput
+	ToWebACLRateBasedStatementOutputWithContext(context.Context) WebACLRateBasedStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
-type WebACLRateBasedStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
+type WebACLRateBasedStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
 	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
 	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
 	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
-	ScopeDownStatement WebACLStatementTwoPtrInput `pulumi:"scopeDownStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
+	ScopeDownStatement WebACLStatementPtrInput `pulumi:"scopeDownStatement"`
 }
 
-func (WebACLRateBasedStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementOne)(nil)).Elem()
+func (WebACLRateBasedStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateBasedStatement)(nil)).Elem()
 }
 
-func (i WebACLRateBasedStatementOneArgs) ToWebACLRateBasedStatementOneOutput() WebACLRateBasedStatementOneOutput {
-	return i.ToWebACLRateBasedStatementOneOutputWithContext(context.Background())
+func (i WebACLRateBasedStatementArgs) ToWebACLRateBasedStatementOutput() WebACLRateBasedStatementOutput {
+	return i.ToWebACLRateBasedStatementOutputWithContext(context.Background())
 }
 
-func (i WebACLRateBasedStatementOneArgs) ToWebACLRateBasedStatementOneOutputWithContext(ctx context.Context) WebACLRateBasedStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementOneOutput)
+func (i WebACLRateBasedStatementArgs) ToWebACLRateBasedStatementOutputWithContext(ctx context.Context) WebACLRateBasedStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementOutput)
 }
 
-func (i WebACLRateBasedStatementOneArgs) ToWebACLRateBasedStatementOnePtrOutput() WebACLRateBasedStatementOnePtrOutput {
-	return i.ToWebACLRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (i WebACLRateBasedStatementArgs) ToWebACLRateBasedStatementPtrOutput() WebACLRateBasedStatementPtrOutput {
+	return i.ToWebACLRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (i WebACLRateBasedStatementOneArgs) ToWebACLRateBasedStatementOnePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementOneOutput).ToWebACLRateBasedStatementOnePtrOutputWithContext(ctx)
+func (i WebACLRateBasedStatementArgs) ToWebACLRateBasedStatementPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementOutput).ToWebACLRateBasedStatementPtrOutputWithContext(ctx)
 }
 
-// WebACLRateBasedStatementOnePtrInput is an input type that accepts WebACLRateBasedStatementOneArgs, WebACLRateBasedStatementOnePtr and WebACLRateBasedStatementOnePtrOutput values.
-// You can construct a concrete instance of `WebACLRateBasedStatementOnePtrInput` via:
+// WebACLRateBasedStatementPtrInput is an input type that accepts WebACLRateBasedStatementArgs, WebACLRateBasedStatementPtr and WebACLRateBasedStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLRateBasedStatementPtrInput` via:
 //
-//          WebACLRateBasedStatementOneArgs{...}
+//          WebACLRateBasedStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLRateBasedStatementOnePtrInput interface {
+type WebACLRateBasedStatementPtrInput interface {
 	pulumi.Input
 
-	ToWebACLRateBasedStatementOnePtrOutput() WebACLRateBasedStatementOnePtrOutput
-	ToWebACLRateBasedStatementOnePtrOutputWithContext(context.Context) WebACLRateBasedStatementOnePtrOutput
+	ToWebACLRateBasedStatementPtrOutput() WebACLRateBasedStatementPtrOutput
+	ToWebACLRateBasedStatementPtrOutputWithContext(context.Context) WebACLRateBasedStatementPtrOutput
 }
 
-type webACLRateBasedStatementOnePtrType WebACLRateBasedStatementOneArgs
+type webACLRateBasedStatementPtrType WebACLRateBasedStatementArgs
 
-func WebACLRateBasedStatementOnePtr(v *WebACLRateBasedStatementOneArgs) WebACLRateBasedStatementOnePtrInput {
-	return (*webACLRateBasedStatementOnePtrType)(v)
+func WebACLRateBasedStatementPtr(v *WebACLRateBasedStatementArgs) WebACLRateBasedStatementPtrInput {
+	return (*webACLRateBasedStatementPtrType)(v)
 }
 
-func (*webACLRateBasedStatementOnePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRateBasedStatementOne)(nil)).Elem()
+func (*webACLRateBasedStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateBasedStatement)(nil)).Elem()
 }
 
-func (i *webACLRateBasedStatementOnePtrType) ToWebACLRateBasedStatementOnePtrOutput() WebACLRateBasedStatementOnePtrOutput {
-	return i.ToWebACLRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (i *webACLRateBasedStatementPtrType) ToWebACLRateBasedStatementPtrOutput() WebACLRateBasedStatementPtrOutput {
+	return i.ToWebACLRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLRateBasedStatementOnePtrType) ToWebACLRateBasedStatementOnePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementOnePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementOnePtrOutput)
+func (i *webACLRateBasedStatementPtrType) ToWebACLRateBasedStatementPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html
-type WebACLRateBasedStatementOneOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
+type WebACLRateBasedStatementOutput struct{ *pulumi.OutputState }
 
-func (WebACLRateBasedStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementOne)(nil)).Elem()
+func (WebACLRateBasedStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRateBasedStatement)(nil)).Elem()
 }
 
-func (o WebACLRateBasedStatementOneOutput) ToWebACLRateBasedStatementOneOutput() WebACLRateBasedStatementOneOutput {
+func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementOutput() WebACLRateBasedStatementOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementOneOutput) ToWebACLRateBasedStatementOneOutputWithContext(ctx context.Context) WebACLRateBasedStatementOneOutput {
+func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementOutputWithContext(ctx context.Context) WebACLRateBasedStatementOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementOneOutput) ToWebACLRateBasedStatementOnePtrOutput() WebACLRateBasedStatementOnePtrOutput {
-	return o.ToWebACLRateBasedStatementOnePtrOutputWithContext(context.Background())
+func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementPtrOutput() WebACLRateBasedStatementPtrOutput {
+	return o.ToWebACLRateBasedStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLRateBasedStatementOneOutput) ToWebACLRateBasedStatementOnePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementOnePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateBasedStatementOne) *WebACLRateBasedStatementOne {
+func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateBasedStatement) *WebACLRateBasedStatement {
 		return &v
-	}).(WebACLRateBasedStatementOnePtrOutput)
+	}).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
-func (o WebACLRateBasedStatementOneOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementOne) string { return v.AggregateKeyType }).(pulumi.StringOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
+func (o WebACLRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
-func (o WebACLRateBasedStatementOneOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementOne) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
+func (o WebACLRateBasedStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
-func (o WebACLRateBasedStatementOneOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementOne) int { return v.Limit }).(pulumi.IntOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
+func (o WebACLRateBasedStatementOutput) Limit() pulumi.IntOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
-func (o WebACLRateBasedStatementOneOutput) ScopeDownStatement() WebACLStatementTwoPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementOne) *WebACLStatementTwo { return v.ScopeDownStatement }).(WebACLStatementTwoPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
+func (o WebACLRateBasedStatementOutput) ScopeDownStatement() WebACLStatementPtrOutput {
+	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLStatement { return v.ScopeDownStatement }).(WebACLStatementPtrOutput)
 }
 
-type WebACLRateBasedStatementOnePtrOutput struct{ *pulumi.OutputState }
+type WebACLRateBasedStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLRateBasedStatementOnePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRateBasedStatementOne)(nil)).Elem()
+func (WebACLRateBasedStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLRateBasedStatement)(nil)).Elem()
 }
 
-func (o WebACLRateBasedStatementOnePtrOutput) ToWebACLRateBasedStatementOnePtrOutput() WebACLRateBasedStatementOnePtrOutput {
+func (o WebACLRateBasedStatementPtrOutput) ToWebACLRateBasedStatementPtrOutput() WebACLRateBasedStatementPtrOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementOnePtrOutput) ToWebACLRateBasedStatementOnePtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementOnePtrOutput {
+func (o WebACLRateBasedStatementPtrOutput) ToWebACLRateBasedStatementPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementPtrOutput {
 	return o
 }
 
-func (o WebACLRateBasedStatementOnePtrOutput) Elem() WebACLRateBasedStatementOneOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementOne) WebACLRateBasedStatementOne {
+func (o WebACLRateBasedStatementPtrOutput) Elem() WebACLRateBasedStatementOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) WebACLRateBasedStatement {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLRateBasedStatementOne
+		var ret WebACLRateBasedStatement
 		return ret
-	}).(WebACLRateBasedStatementOneOutput)
+	}).(WebACLRateBasedStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
-func (o WebACLRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *string {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
+func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) *string {
 		if v == nil {
 			return nil
 		}
@@ -7222,9 +8179,9 @@ func (o WebACLRateBasedStatementOnePtrOutput) AggregateKeyType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
-func (o WebACLRateBasedStatementOnePtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *WebACLForwardedIPConfiguration {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
+func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -7232,9 +8189,9 @@ func (o WebACLRateBasedStatementOnePtrOutput) ForwardedIPConfig() WebACLForwarde
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
-func (o WebACLRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *int {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
+func (o WebACLRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) *int {
 		if v == nil {
 			return nil
 		}
@@ -7242,211 +8199,14 @@ func (o WebACLRateBasedStatementOnePtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-scopedownstatement
-func (o WebACLRateBasedStatementOnePtrOutput) ScopeDownStatement() WebACLStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementOne) *WebACLStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
+func (o WebACLRateBasedStatementPtrOutput) ScopeDownStatement() WebACLStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLStatement {
 		if v == nil {
 			return nil
 		}
 		return v.ScopeDownStatement
-	}).(WebACLStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
-type WebACLRateBasedStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
-	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
-	ScopeDownStatement *WebACLStatementThree `pulumi:"scopeDownStatement"`
-}
-
-// WebACLRateBasedStatementTwoInput is an input type that accepts WebACLRateBasedStatementTwoArgs and WebACLRateBasedStatementTwoOutput values.
-// You can construct a concrete instance of `WebACLRateBasedStatementTwoInput` via:
-//
-//          WebACLRateBasedStatementTwoArgs{...}
-type WebACLRateBasedStatementTwoInput interface {
-	pulumi.Input
-
-	ToWebACLRateBasedStatementTwoOutput() WebACLRateBasedStatementTwoOutput
-	ToWebACLRateBasedStatementTwoOutputWithContext(context.Context) WebACLRateBasedStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
-type WebACLRateBasedStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
-	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
-	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
-	ScopeDownStatement WebACLStatementThreePtrInput `pulumi:"scopeDownStatement"`
-}
-
-func (WebACLRateBasedStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (i WebACLRateBasedStatementTwoArgs) ToWebACLRateBasedStatementTwoOutput() WebACLRateBasedStatementTwoOutput {
-	return i.ToWebACLRateBasedStatementTwoOutputWithContext(context.Background())
-}
-
-func (i WebACLRateBasedStatementTwoArgs) ToWebACLRateBasedStatementTwoOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementTwoOutput)
-}
-
-func (i WebACLRateBasedStatementTwoArgs) ToWebACLRateBasedStatementTwoPtrOutput() WebACLRateBasedStatementTwoPtrOutput {
-	return i.ToWebACLRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i WebACLRateBasedStatementTwoArgs) ToWebACLRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementTwoOutput).ToWebACLRateBasedStatementTwoPtrOutputWithContext(ctx)
-}
-
-// WebACLRateBasedStatementTwoPtrInput is an input type that accepts WebACLRateBasedStatementTwoArgs, WebACLRateBasedStatementTwoPtr and WebACLRateBasedStatementTwoPtrOutput values.
-// You can construct a concrete instance of `WebACLRateBasedStatementTwoPtrInput` via:
-//
-//          WebACLRateBasedStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type WebACLRateBasedStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToWebACLRateBasedStatementTwoPtrOutput() WebACLRateBasedStatementTwoPtrOutput
-	ToWebACLRateBasedStatementTwoPtrOutputWithContext(context.Context) WebACLRateBasedStatementTwoPtrOutput
-}
-
-type webACLRateBasedStatementTwoPtrType WebACLRateBasedStatementTwoArgs
-
-func WebACLRateBasedStatementTwoPtr(v *WebACLRateBasedStatementTwoArgs) WebACLRateBasedStatementTwoPtrInput {
-	return (*webACLRateBasedStatementTwoPtrType)(v)
-}
-
-func (*webACLRateBasedStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (i *webACLRateBasedStatementTwoPtrType) ToWebACLRateBasedStatementTwoPtrOutput() WebACLRateBasedStatementTwoPtrOutput {
-	return i.ToWebACLRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *webACLRateBasedStatementTwoPtrType) ToWebACLRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html
-type WebACLRateBasedStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (WebACLRateBasedStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLRateBasedStatementTwoOutput) ToWebACLRateBasedStatementTwoOutput() WebACLRateBasedStatementTwoOutput {
-	return o
-}
-
-func (o WebACLRateBasedStatementTwoOutput) ToWebACLRateBasedStatementTwoOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoOutput {
-	return o
-}
-
-func (o WebACLRateBasedStatementTwoOutput) ToWebACLRateBasedStatementTwoPtrOutput() WebACLRateBasedStatementTwoPtrOutput {
-	return o.ToWebACLRateBasedStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o WebACLRateBasedStatementTwoOutput) ToWebACLRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLRateBasedStatementTwo) *WebACLRateBasedStatementTwo {
-		return &v
-	}).(WebACLRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
-func (o WebACLRateBasedStatementTwoOutput) AggregateKeyType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementTwo) string { return v.AggregateKeyType }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
-func (o WebACLRateBasedStatementTwoOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementTwo) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-func (o WebACLRateBasedStatementTwoOutput) Limit() pulumi.IntOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementTwo) int { return v.Limit }).(pulumi.IntOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
-func (o WebACLRateBasedStatementTwoOutput) ScopeDownStatement() WebACLStatementThreePtrOutput {
-	return o.ApplyT(func(v WebACLRateBasedStatementTwo) *WebACLStatementThree { return v.ScopeDownStatement }).(WebACLStatementThreePtrOutput)
-}
-
-type WebACLRateBasedStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (WebACLRateBasedStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLRateBasedStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLRateBasedStatementTwoPtrOutput) ToWebACLRateBasedStatementTwoPtrOutput() WebACLRateBasedStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLRateBasedStatementTwoPtrOutput) ToWebACLRateBasedStatementTwoPtrOutputWithContext(ctx context.Context) WebACLRateBasedStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLRateBasedStatementTwoPtrOutput) Elem() WebACLRateBasedStatementTwoOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) WebACLRateBasedStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret WebACLRateBasedStatementTwo
-		return ret
-	}).(WebACLRateBasedStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-aggregatekeytype
-func (o WebACLRateBasedStatementTwoPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AggregateKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-forwardedipconfig
-func (o WebACLRateBasedStatementTwoPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) *WebACLForwardedIPConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.ForwardedIPConfig
-	}).(WebACLForwardedIPConfigurationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-limit
-func (o WebACLRateBasedStatementTwoPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementtwo.html#cfn-wafv2-webacl-ratebasedstatementtwo-scopedownstatement
-func (o WebACLRateBasedStatementTwoPtrOutput) ScopeDownStatement() WebACLStatementThreePtrOutput {
-	return o.ApplyT(func(v *WebACLRateBasedStatementTwo) *WebACLStatementThree {
-		if v == nil {
-			return nil
-		}
-		return v.ScopeDownStatement
-	}).(WebACLStatementThreePtrOutput)
+	}).(WebACLStatementPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
@@ -7639,8 +8399,10 @@ type WebACLRule struct {
 	OverrideAction *WebACLOverrideAction `pulumi:"overrideAction"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
 	Priority int `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+	RuleLabels []WebACLLabel `pulumi:"ruleLabels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement WebACLStatementOne `pulumi:"statement"`
+	Statement WebACLStatement `pulumi:"statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
 	VisibilityConfig WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
@@ -7666,8 +8428,10 @@ type WebACLRuleArgs struct {
 	OverrideAction WebACLOverrideActionPtrInput `pulumi:"overrideAction"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
 	Priority pulumi.IntInput `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+	RuleLabels WebACLLabelArrayInput `pulumi:"ruleLabels"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement WebACLStatementOneInput `pulumi:"statement"`
+	Statement WebACLStatementInput `pulumi:"statement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
 	VisibilityConfig WebACLVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
@@ -7744,9 +8508,14 @@ func (o WebACLRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+func (o WebACLRuleOutput) RuleLabels() WebACLLabelArrayOutput {
+	return o.ApplyT(func(v WebACLRule) []WebACLLabel { return v.RuleLabels }).(WebACLLabelArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-func (o WebACLRuleOutput) Statement() WebACLStatementOneOutput {
-	return o.ApplyT(func(v WebACLRule) WebACLStatementOne { return v.Statement }).(WebACLStatementOneOutput)
+func (o WebACLRuleOutput) Statement() WebACLStatementOutput {
+	return o.ApplyT(func(v WebACLRule) WebACLStatement { return v.Statement }).(WebACLStatementOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
@@ -7777,11 +8546,11 @@ func (o WebACLRuleArrayOutput) Index(i pulumi.IntInput) WebACLRuleOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
 type WebACLRuleAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-	Allow interface{} `pulumi:"allow"`
+	Allow *WebACLAllowAction `pulumi:"allow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-	Block interface{} `pulumi:"block"`
+	Block *WebACLBlockAction `pulumi:"block"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-	Count interface{} `pulumi:"count"`
+	Count *WebACLCountAction `pulumi:"count"`
 }
 
 // WebACLRuleActionInput is an input type that accepts WebACLRuleActionArgs and WebACLRuleActionOutput values.
@@ -7798,11 +8567,11 @@ type WebACLRuleActionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
 type WebACLRuleActionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-	Allow pulumi.Input `pulumi:"allow"`
+	Allow WebACLAllowActionPtrInput `pulumi:"allow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-	Block pulumi.Input `pulumi:"block"`
+	Block WebACLBlockActionPtrInput `pulumi:"block"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-	Count pulumi.Input `pulumi:"count"`
+	Count WebACLCountActionPtrInput `pulumi:"count"`
 }
 
 func (WebACLRuleActionArgs) ElementType() reflect.Type {
@@ -7884,18 +8653,18 @@ func (o WebACLRuleActionOutput) ToWebACLRuleActionPtrOutputWithContext(ctx conte
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-func (o WebACLRuleActionOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLRuleAction) interface{} { return v.Allow }).(pulumi.AnyOutput)
+func (o WebACLRuleActionOutput) Allow() WebACLAllowActionPtrOutput {
+	return o.ApplyT(func(v WebACLRuleAction) *WebACLAllowAction { return v.Allow }).(WebACLAllowActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-func (o WebACLRuleActionOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLRuleAction) interface{} { return v.Block }).(pulumi.AnyOutput)
+func (o WebACLRuleActionOutput) Block() WebACLBlockActionPtrOutput {
+	return o.ApplyT(func(v WebACLRuleAction) *WebACLBlockAction { return v.Block }).(WebACLBlockActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-func (o WebACLRuleActionOutput) Count() pulumi.AnyOutput {
-	return o.ApplyT(func(v WebACLRuleAction) interface{} { return v.Count }).(pulumi.AnyOutput)
+func (o WebACLRuleActionOutput) Count() WebACLCountActionPtrOutput {
+	return o.ApplyT(func(v WebACLRuleAction) *WebACLCountAction { return v.Count }).(WebACLCountActionPtrOutput)
 }
 
 type WebACLRuleActionPtrOutput struct{ *pulumi.OutputState }
@@ -7923,33 +8692,33 @@ func (o WebACLRuleActionPtrOutput) Elem() WebACLRuleActionOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-func (o WebACLRuleActionPtrOutput) Allow() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLRuleAction) interface{} {
+func (o WebACLRuleActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
+	return o.ApplyT(func(v *WebACLRuleAction) *WebACLAllowAction {
 		if v == nil {
 			return nil
 		}
 		return v.Allow
-	}).(pulumi.AnyOutput)
+	}).(WebACLAllowActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-func (o WebACLRuleActionPtrOutput) Block() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLRuleAction) interface{} {
+func (o WebACLRuleActionPtrOutput) Block() WebACLBlockActionPtrOutput {
+	return o.ApplyT(func(v *WebACLRuleAction) *WebACLBlockAction {
 		if v == nil {
 			return nil
 		}
 		return v.Block
-	}).(pulumi.AnyOutput)
+	}).(WebACLBlockActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-func (o WebACLRuleActionPtrOutput) Count() pulumi.AnyOutput {
-	return o.ApplyT(func(v *WebACLRuleAction) interface{} {
+func (o WebACLRuleActionPtrOutput) Count() WebACLCountActionPtrOutput {
+	return o.ApplyT(func(v *WebACLRuleAction) *WebACLCountAction {
 		if v == nil {
 			return nil
 		}
 		return v.Count
-	}).(pulumi.AnyOutput)
+	}).(WebACLCountActionPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
@@ -8118,7 +8887,7 @@ type WebACLSizeConstraintStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
 	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-	Size int `pulumi:"size"`
+	Size float64 `pulumi:"size"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
@@ -8141,7 +8910,7 @@ type WebACLSizeConstraintStatementArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
 	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-	Size pulumi.IntInput `pulumi:"size"`
+	Size pulumi.Float64Input `pulumi:"size"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
@@ -8235,8 +9004,8 @@ func (o WebACLSizeConstraintStatementOutput) FieldToMatch() WebACLFieldToMatchOu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-func (o WebACLSizeConstraintStatementOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v WebACLSizeConstraintStatement) int { return v.Size }).(pulumi.IntOutput)
+func (o WebACLSizeConstraintStatementOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v WebACLSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
@@ -8289,13 +9058,13 @@ func (o WebACLSizeConstraintStatementPtrOutput) FieldToMatch() WebACLFieldToMatc
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-func (o WebACLSizeConstraintStatementPtrOutput) Size() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *int {
+func (o WebACLSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *float64 {
 		if v == nil {
 			return nil
 		}
 		return &v.Size
-	}).(pulumi.IntPtrOutput)
+	}).(pulumi.Float64PtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
@@ -8467,788 +9236,293 @@ func (o WebACLSqliMatchStatementPtrOutput) TextTransformations() WebACLTextTrans
 	}).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
-type WebACLStatementOne struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
-	AndStatement *WebACLAndStatementOne `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+type WebACLStatement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
+	AndStatement *WebACLAndStatement `pulumi:"andStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
 	ByteMatchStatement *WebACLByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
 	GeoMatchStatement *WebACLGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
 	IPSetReferenceStatement *WebACLIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
+	LabelMatchStatement *WebACLLabelMatchStatement `pulumi:"labelMatchStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
 	ManagedRuleGroupStatement *WebACLManagedRuleGroupStatement `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
-	NotStatement *WebACLNotStatementOne `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
-	OrStatement *WebACLOrStatementOne `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
-	RateBasedStatement *WebACLRateBasedStatementOne `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
+	NotStatement *WebACLNotStatement `pulumi:"notStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
+	OrStatement *WebACLOrStatement `pulumi:"orStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
+	RateBasedStatement *WebACLRateBasedStatement `pulumi:"rateBasedStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
 	RegexPatternSetReferenceStatement *WebACLRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
 	RuleGroupReferenceStatement *WebACLRuleGroupReferenceStatement `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
 	SizeConstraintStatement *WebACLSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
 	SqliMatchStatement *WebACLSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
 	XssMatchStatement *WebACLXssMatchStatement `pulumi:"xssMatchStatement"`
 }
 
-// WebACLStatementOneInput is an input type that accepts WebACLStatementOneArgs and WebACLStatementOneOutput values.
-// You can construct a concrete instance of `WebACLStatementOneInput` via:
+// WebACLStatementInput is an input type that accepts WebACLStatementArgs and WebACLStatementOutput values.
+// You can construct a concrete instance of `WebACLStatementInput` via:
 //
-//          WebACLStatementOneArgs{...}
-type WebACLStatementOneInput interface {
+//          WebACLStatementArgs{...}
+type WebACLStatementInput interface {
 	pulumi.Input
 
-	ToWebACLStatementOneOutput() WebACLStatementOneOutput
-	ToWebACLStatementOneOutputWithContext(context.Context) WebACLStatementOneOutput
+	ToWebACLStatementOutput() WebACLStatementOutput
+	ToWebACLStatementOutputWithContext(context.Context) WebACLStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
-type WebACLStatementOneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
-	AndStatement WebACLAndStatementOnePtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+type WebACLStatementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
+	AndStatement WebACLAndStatementPtrInput `pulumi:"andStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
 	ByteMatchStatement WebACLByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
 	GeoMatchStatement WebACLGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
 	IPSetReferenceStatement WebACLIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
+	LabelMatchStatement WebACLLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
 	ManagedRuleGroupStatement WebACLManagedRuleGroupStatementPtrInput `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
-	NotStatement WebACLNotStatementOnePtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
-	OrStatement WebACLOrStatementOnePtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
-	RateBasedStatement WebACLRateBasedStatementOnePtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
+	NotStatement WebACLNotStatementPtrInput `pulumi:"notStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
+	OrStatement WebACLOrStatementPtrInput `pulumi:"orStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
+	RateBasedStatement WebACLRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
 	RegexPatternSetReferenceStatement WebACLRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
 	RuleGroupReferenceStatement WebACLRuleGroupReferenceStatementPtrInput `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
 	SizeConstraintStatement WebACLSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
 	SqliMatchStatement WebACLSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
 	XssMatchStatement WebACLXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
 }
 
-func (WebACLStatementOneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementOne)(nil)).Elem()
+func (WebACLStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLStatement)(nil)).Elem()
 }
 
-func (i WebACLStatementOneArgs) ToWebACLStatementOneOutput() WebACLStatementOneOutput {
-	return i.ToWebACLStatementOneOutputWithContext(context.Background())
+func (i WebACLStatementArgs) ToWebACLStatementOutput() WebACLStatementOutput {
+	return i.ToWebACLStatementOutputWithContext(context.Background())
 }
 
-func (i WebACLStatementOneArgs) ToWebACLStatementOneOutputWithContext(ctx context.Context) WebACLStatementOneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementOneOutput)
+func (i WebACLStatementArgs) ToWebACLStatementOutputWithContext(ctx context.Context) WebACLStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html
-type WebACLStatementOneOutput struct{ *pulumi.OutputState }
-
-func (WebACLStatementOneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementOne)(nil)).Elem()
+func (i WebACLStatementArgs) ToWebACLStatementPtrOutput() WebACLStatementPtrOutput {
+	return i.ToWebACLStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLStatementOneOutput) ToWebACLStatementOneOutput() WebACLStatementOneOutput {
-	return o
+func (i WebACLStatementArgs) ToWebACLStatementPtrOutputWithContext(ctx context.Context) WebACLStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementOutput).ToWebACLStatementPtrOutputWithContext(ctx)
 }
 
-func (o WebACLStatementOneOutput) ToWebACLStatementOneOutputWithContext(ctx context.Context) WebACLStatementOneOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-andstatement
-func (o WebACLStatementOneOutput) AndStatement() WebACLAndStatementOnePtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLAndStatementOne { return v.AndStatement }).(WebACLAndStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-bytematchstatement
-func (o WebACLStatementOneOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLByteMatchStatement { return v.ByteMatchStatement }).(WebACLByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-geomatchstatement
-func (o WebACLStatementOneOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ipsetreferencestatement
-func (o WebACLStatementOneOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-managedrulegroupstatement
-func (o WebACLStatementOneOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLManagedRuleGroupStatement { return v.ManagedRuleGroupStatement }).(WebACLManagedRuleGroupStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-notstatement
-func (o WebACLStatementOneOutput) NotStatement() WebACLNotStatementOnePtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLNotStatementOne { return v.NotStatement }).(WebACLNotStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-orstatement
-func (o WebACLStatementOneOutput) OrStatement() WebACLOrStatementOnePtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLOrStatementOne { return v.OrStatement }).(WebACLOrStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-ratebasedstatement
-func (o WebACLStatementOneOutput) RateBasedStatement() WebACLRateBasedStatementOnePtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLRateBasedStatementOne { return v.RateBasedStatement }).(WebACLRateBasedStatementOnePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-regexpatternsetreferencestatement
-func (o WebACLStatementOneOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLRegexPatternSetReferenceStatement {
-		return v.RegexPatternSetReferenceStatement
-	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-rulegroupreferencestatement
-func (o WebACLStatementOneOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLRuleGroupReferenceStatement { return v.RuleGroupReferenceStatement }).(WebACLRuleGroupReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sizeconstraintstatement
-func (o WebACLStatementOneOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLSizeConstraintStatement { return v.SizeConstraintStatement }).(WebACLSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-sqlimatchstatement
-func (o WebACLStatementOneOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLSqliMatchStatement { return v.SqliMatchStatement }).(WebACLSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementone.html#cfn-wafv2-webacl-statementone-xssmatchstatement
-func (o WebACLStatementOneOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementOne) *WebACLXssMatchStatement { return v.XssMatchStatement }).(WebACLXssMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
-type WebACLStatementThree struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
-	ByteMatchStatement *WebACLByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
-	GeoMatchStatement *WebACLGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
-	IPSetReferenceStatement *WebACLIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-	ManagedRuleGroupStatement *WebACLManagedRuleGroupStatement `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement *WebACLRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
-	RuleGroupReferenceStatement *WebACLRuleGroupReferenceStatement `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
-	SizeConstraintStatement *WebACLSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
-	SqliMatchStatement *WebACLSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
-	XssMatchStatement *WebACLXssMatchStatement `pulumi:"xssMatchStatement"`
-}
-
-// WebACLStatementThreeInput is an input type that accepts WebACLStatementThreeArgs and WebACLStatementThreeOutput values.
-// You can construct a concrete instance of `WebACLStatementThreeInput` via:
+// WebACLStatementPtrInput is an input type that accepts WebACLStatementArgs, WebACLStatementPtr and WebACLStatementPtrOutput values.
+// You can construct a concrete instance of `WebACLStatementPtrInput` via:
 //
-//          WebACLStatementThreeArgs{...}
-type WebACLStatementThreeInput interface {
-	pulumi.Input
-
-	ToWebACLStatementThreeOutput() WebACLStatementThreeOutput
-	ToWebACLStatementThreeOutputWithContext(context.Context) WebACLStatementThreeOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
-type WebACLStatementThreeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
-	ByteMatchStatement WebACLByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
-	GeoMatchStatement WebACLGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
-	IPSetReferenceStatement WebACLIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-	ManagedRuleGroupStatement WebACLManagedRuleGroupStatementPtrInput `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement WebACLRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
-	RuleGroupReferenceStatement WebACLRuleGroupReferenceStatementPtrInput `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
-	SizeConstraintStatement WebACLSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
-	SqliMatchStatement WebACLSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
-	XssMatchStatement WebACLXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
-}
-
-func (WebACLStatementThreeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementThree)(nil)).Elem()
-}
-
-func (i WebACLStatementThreeArgs) ToWebACLStatementThreeOutput() WebACLStatementThreeOutput {
-	return i.ToWebACLStatementThreeOutputWithContext(context.Background())
-}
-
-func (i WebACLStatementThreeArgs) ToWebACLStatementThreeOutputWithContext(ctx context.Context) WebACLStatementThreeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementThreeOutput)
-}
-
-func (i WebACLStatementThreeArgs) ToWebACLStatementThreePtrOutput() WebACLStatementThreePtrOutput {
-	return i.ToWebACLStatementThreePtrOutputWithContext(context.Background())
-}
-
-func (i WebACLStatementThreeArgs) ToWebACLStatementThreePtrOutputWithContext(ctx context.Context) WebACLStatementThreePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementThreeOutput).ToWebACLStatementThreePtrOutputWithContext(ctx)
-}
-
-// WebACLStatementThreePtrInput is an input type that accepts WebACLStatementThreeArgs, WebACLStatementThreePtr and WebACLStatementThreePtrOutput values.
-// You can construct a concrete instance of `WebACLStatementThreePtrInput` via:
-//
-//          WebACLStatementThreeArgs{...}
+//          WebACLStatementArgs{...}
 //
 //  or:
 //
 //          nil
-type WebACLStatementThreePtrInput interface {
+type WebACLStatementPtrInput interface {
 	pulumi.Input
 
-	ToWebACLStatementThreePtrOutput() WebACLStatementThreePtrOutput
-	ToWebACLStatementThreePtrOutputWithContext(context.Context) WebACLStatementThreePtrOutput
+	ToWebACLStatementPtrOutput() WebACLStatementPtrOutput
+	ToWebACLStatementPtrOutputWithContext(context.Context) WebACLStatementPtrOutput
 }
 
-type webACLStatementThreePtrType WebACLStatementThreeArgs
+type webACLStatementPtrType WebACLStatementArgs
 
-func WebACLStatementThreePtr(v *WebACLStatementThreeArgs) WebACLStatementThreePtrInput {
-	return (*webACLStatementThreePtrType)(v)
+func WebACLStatementPtr(v *WebACLStatementArgs) WebACLStatementPtrInput {
+	return (*webACLStatementPtrType)(v)
 }
 
-func (*webACLStatementThreePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLStatementThree)(nil)).Elem()
+func (*webACLStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLStatement)(nil)).Elem()
 }
 
-func (i *webACLStatementThreePtrType) ToWebACLStatementThreePtrOutput() WebACLStatementThreePtrOutput {
-	return i.ToWebACLStatementThreePtrOutputWithContext(context.Background())
+func (i *webACLStatementPtrType) ToWebACLStatementPtrOutput() WebACLStatementPtrOutput {
+	return i.ToWebACLStatementPtrOutputWithContext(context.Background())
 }
 
-func (i *webACLStatementThreePtrType) ToWebACLStatementThreePtrOutputWithContext(ctx context.Context) WebACLStatementThreePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementThreePtrOutput)
+func (i *webACLStatementPtrType) ToWebACLStatementPtrOutputWithContext(ctx context.Context) WebACLStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementPtrOutput)
 }
 
-// WebACLStatementThreeArrayInput is an input type that accepts WebACLStatementThreeArray and WebACLStatementThreeArrayOutput values.
-// You can construct a concrete instance of `WebACLStatementThreeArrayInput` via:
+// WebACLStatementArrayInput is an input type that accepts WebACLStatementArray and WebACLStatementArrayOutput values.
+// You can construct a concrete instance of `WebACLStatementArrayInput` via:
 //
-//          WebACLStatementThreeArray{ WebACLStatementThreeArgs{...} }
-type WebACLStatementThreeArrayInput interface {
+//          WebACLStatementArray{ WebACLStatementArgs{...} }
+type WebACLStatementArrayInput interface {
 	pulumi.Input
 
-	ToWebACLStatementThreeArrayOutput() WebACLStatementThreeArrayOutput
-	ToWebACLStatementThreeArrayOutputWithContext(context.Context) WebACLStatementThreeArrayOutput
+	ToWebACLStatementArrayOutput() WebACLStatementArrayOutput
+	ToWebACLStatementArrayOutputWithContext(context.Context) WebACLStatementArrayOutput
 }
 
-type WebACLStatementThreeArray []WebACLStatementThreeInput
+type WebACLStatementArray []WebACLStatementInput
 
-func (WebACLStatementThreeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLStatementThree)(nil)).Elem()
+func (WebACLStatementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLStatement)(nil)).Elem()
 }
 
-func (i WebACLStatementThreeArray) ToWebACLStatementThreeArrayOutput() WebACLStatementThreeArrayOutput {
-	return i.ToWebACLStatementThreeArrayOutputWithContext(context.Background())
+func (i WebACLStatementArray) ToWebACLStatementArrayOutput() WebACLStatementArrayOutput {
+	return i.ToWebACLStatementArrayOutputWithContext(context.Background())
 }
 
-func (i WebACLStatementThreeArray) ToWebACLStatementThreeArrayOutputWithContext(ctx context.Context) WebACLStatementThreeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementThreeArrayOutput)
+func (i WebACLStatementArray) ToWebACLStatementArrayOutputWithContext(ctx context.Context) WebACLStatementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html
-type WebACLStatementThreeOutput struct{ *pulumi.OutputState }
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+type WebACLStatementOutput struct{ *pulumi.OutputState }
 
-func (WebACLStatementThreeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementThree)(nil)).Elem()
+func (WebACLStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLStatement)(nil)).Elem()
 }
 
-func (o WebACLStatementThreeOutput) ToWebACLStatementThreeOutput() WebACLStatementThreeOutput {
+func (o WebACLStatementOutput) ToWebACLStatementOutput() WebACLStatementOutput {
 	return o
 }
 
-func (o WebACLStatementThreeOutput) ToWebACLStatementThreeOutputWithContext(ctx context.Context) WebACLStatementThreeOutput {
+func (o WebACLStatementOutput) ToWebACLStatementOutputWithContext(ctx context.Context) WebACLStatementOutput {
 	return o
 }
 
-func (o WebACLStatementThreeOutput) ToWebACLStatementThreePtrOutput() WebACLStatementThreePtrOutput {
-	return o.ToWebACLStatementThreePtrOutputWithContext(context.Background())
+func (o WebACLStatementOutput) ToWebACLStatementPtrOutput() WebACLStatementPtrOutput {
+	return o.ToWebACLStatementPtrOutputWithContext(context.Background())
 }
 
-func (o WebACLStatementThreeOutput) ToWebACLStatementThreePtrOutputWithContext(ctx context.Context) WebACLStatementThreePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLStatementThree) *WebACLStatementThree {
+func (o WebACLStatementOutput) ToWebACLStatementPtrOutputWithContext(ctx context.Context) WebACLStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLStatement) *WebACLStatement {
 		return &v
-	}).(WebACLStatementThreePtrOutput)
+	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
-func (o WebACLStatementThreeOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLByteMatchStatement { return v.ByteMatchStatement }).(WebACLByteMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
+func (o WebACLStatementOutput) AndStatement() WebACLAndStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLAndStatement { return v.AndStatement }).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
-func (o WebACLStatementThreeOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
+func (o WebACLStatementOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLByteMatchStatement { return v.ByteMatchStatement }).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
-func (o WebACLStatementThreeOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
+func (o WebACLStatementOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-func (o WebACLStatementThreeOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLManagedRuleGroupStatement { return v.ManagedRuleGroupStatement }).(WebACLManagedRuleGroupStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
+func (o WebACLStatementOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
-func (o WebACLStatementThreeOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLRegexPatternSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
+func (o WebACLStatementOutput) LabelMatchStatement() WebACLLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLLabelMatchStatement { return v.LabelMatchStatement }).(WebACLLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
+func (o WebACLStatementOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLManagedRuleGroupStatement { return v.ManagedRuleGroupStatement }).(WebACLManagedRuleGroupStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
+func (o WebACLStatementOutput) NotStatement() WebACLNotStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLNotStatement { return v.NotStatement }).(WebACLNotStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
+func (o WebACLStatementOutput) OrStatement() WebACLOrStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLOrStatement { return v.OrStatement }).(WebACLOrStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
+func (o WebACLStatementOutput) RateBasedStatement() WebACLRateBasedStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLRateBasedStatement { return v.RateBasedStatement }).(WebACLRateBasedStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
+func (o WebACLStatementOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
-func (o WebACLStatementThreeOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLRuleGroupReferenceStatement { return v.RuleGroupReferenceStatement }).(WebACLRuleGroupReferenceStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
+func (o WebACLStatementOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLRuleGroupReferenceStatement { return v.RuleGroupReferenceStatement }).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
-func (o WebACLStatementThreeOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLSizeConstraintStatement { return v.SizeConstraintStatement }).(WebACLSizeConstraintStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
+func (o WebACLStatementOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLSizeConstraintStatement { return v.SizeConstraintStatement }).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
-func (o WebACLStatementThreeOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLSqliMatchStatement { return v.SqliMatchStatement }).(WebACLSqliMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
+func (o WebACLStatementOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLSqliMatchStatement { return v.SqliMatchStatement }).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
-func (o WebACLStatementThreeOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementThree) *WebACLXssMatchStatement { return v.XssMatchStatement }).(WebACLXssMatchStatementPtrOutput)
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
+func (o WebACLStatementOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebACLStatement) *WebACLXssMatchStatement { return v.XssMatchStatement }).(WebACLXssMatchStatementPtrOutput)
 }
 
-type WebACLStatementThreePtrOutput struct{ *pulumi.OutputState }
+type WebACLStatementPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLStatementThreePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLStatementThree)(nil)).Elem()
+func (WebACLStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLStatement)(nil)).Elem()
 }
 
-func (o WebACLStatementThreePtrOutput) ToWebACLStatementThreePtrOutput() WebACLStatementThreePtrOutput {
+func (o WebACLStatementPtrOutput) ToWebACLStatementPtrOutput() WebACLStatementPtrOutput {
 	return o
 }
 
-func (o WebACLStatementThreePtrOutput) ToWebACLStatementThreePtrOutputWithContext(ctx context.Context) WebACLStatementThreePtrOutput {
+func (o WebACLStatementPtrOutput) ToWebACLStatementPtrOutputWithContext(ctx context.Context) WebACLStatementPtrOutput {
 	return o
 }
 
-func (o WebACLStatementThreePtrOutput) Elem() WebACLStatementThreeOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) WebACLStatementThree {
+func (o WebACLStatementPtrOutput) Elem() WebACLStatementOutput {
+	return o.ApplyT(func(v *WebACLStatement) WebACLStatement {
 		if v != nil {
 			return *v
 		}
-		var ret WebACLStatementThree
+		var ret WebACLStatement
 		return ret
-	}).(WebACLStatementThreeOutput)
+	}).(WebACLStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-bytematchstatement
-func (o WebACLStatementThreePtrOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLByteMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.ByteMatchStatement
-	}).(WebACLByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-geomatchstatement
-func (o WebACLStatementThreePtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLGeoMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.GeoMatchStatement
-	}).(WebACLGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-ipsetreferencestatement
-func (o WebACLStatementThreePtrOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLIPSetReferenceStatement {
-		if v == nil {
-			return nil
-		}
-		return v.IPSetReferenceStatement
-	}).(WebACLIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-managedrulegroupstatement
-func (o WebACLStatementThreePtrOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLManagedRuleGroupStatement {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedRuleGroupStatement
-	}).(WebACLManagedRuleGroupStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-regexpatternsetreferencestatement
-func (o WebACLStatementThreePtrOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLRegexPatternSetReferenceStatement {
-		if v == nil {
-			return nil
-		}
-		return v.RegexPatternSetReferenceStatement
-	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-rulegroupreferencestatement
-func (o WebACLStatementThreePtrOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLRuleGroupReferenceStatement {
-		if v == nil {
-			return nil
-		}
-		return v.RuleGroupReferenceStatement
-	}).(WebACLRuleGroupReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sizeconstraintstatement
-func (o WebACLStatementThreePtrOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLSizeConstraintStatement {
-		if v == nil {
-			return nil
-		}
-		return v.SizeConstraintStatement
-	}).(WebACLSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-sqlimatchstatement
-func (o WebACLStatementThreePtrOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLSqliMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.SqliMatchStatement
-	}).(WebACLSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementthree.html#cfn-wafv2-webacl-statementthree-xssmatchstatement
-func (o WebACLStatementThreePtrOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementThree) *WebACLXssMatchStatement {
-		if v == nil {
-			return nil
-		}
-		return v.XssMatchStatement
-	}).(WebACLXssMatchStatementPtrOutput)
-}
-
-type WebACLStatementThreeArrayOutput struct{ *pulumi.OutputState }
-
-func (WebACLStatementThreeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLStatementThree)(nil)).Elem()
-}
-
-func (o WebACLStatementThreeArrayOutput) ToWebACLStatementThreeArrayOutput() WebACLStatementThreeArrayOutput {
-	return o
-}
-
-func (o WebACLStatementThreeArrayOutput) ToWebACLStatementThreeArrayOutputWithContext(ctx context.Context) WebACLStatementThreeArrayOutput {
-	return o
-}
-
-func (o WebACLStatementThreeArrayOutput) Index(i pulumi.IntInput) WebACLStatementThreeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLStatementThree {
-		return vs[0].([]WebACLStatementThree)[vs[1].(int)]
-	}).(WebACLStatementThreeOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
-type WebACLStatementTwo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
-	AndStatement *WebACLAndStatementTwo `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
-	ByteMatchStatement *WebACLByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
-	GeoMatchStatement *WebACLGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
-	IPSetReferenceStatement *WebACLIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-	ManagedRuleGroupStatement *WebACLManagedRuleGroupStatement `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
-	NotStatement *WebACLNotStatementTwo `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
-	OrStatement *WebACLOrStatementTwo `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
-	RateBasedStatement *WebACLRateBasedStatementTwo `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement *WebACLRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
-	RuleGroupReferenceStatement *WebACLRuleGroupReferenceStatement `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
-	SizeConstraintStatement *WebACLSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
-	SqliMatchStatement *WebACLSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
-	XssMatchStatement *WebACLXssMatchStatement `pulumi:"xssMatchStatement"`
-}
-
-// WebACLStatementTwoInput is an input type that accepts WebACLStatementTwoArgs and WebACLStatementTwoOutput values.
-// You can construct a concrete instance of `WebACLStatementTwoInput` via:
-//
-//          WebACLStatementTwoArgs{...}
-type WebACLStatementTwoInput interface {
-	pulumi.Input
-
-	ToWebACLStatementTwoOutput() WebACLStatementTwoOutput
-	ToWebACLStatementTwoOutputWithContext(context.Context) WebACLStatementTwoOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
-type WebACLStatementTwoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
-	AndStatement WebACLAndStatementTwoPtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
-	ByteMatchStatement WebACLByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
-	GeoMatchStatement WebACLGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
-	IPSetReferenceStatement WebACLIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-	ManagedRuleGroupStatement WebACLManagedRuleGroupStatementPtrInput `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
-	NotStatement WebACLNotStatementTwoPtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
-	OrStatement WebACLOrStatementTwoPtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
-	RateBasedStatement WebACLRateBasedStatementTwoPtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
-	RegexPatternSetReferenceStatement WebACLRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
-	RuleGroupReferenceStatement WebACLRuleGroupReferenceStatementPtrInput `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
-	SizeConstraintStatement WebACLSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
-	SqliMatchStatement WebACLSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
-	XssMatchStatement WebACLXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
-}
-
-func (WebACLStatementTwoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementTwo)(nil)).Elem()
-}
-
-func (i WebACLStatementTwoArgs) ToWebACLStatementTwoOutput() WebACLStatementTwoOutput {
-	return i.ToWebACLStatementTwoOutputWithContext(context.Background())
-}
-
-func (i WebACLStatementTwoArgs) ToWebACLStatementTwoOutputWithContext(ctx context.Context) WebACLStatementTwoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementTwoOutput)
-}
-
-func (i WebACLStatementTwoArgs) ToWebACLStatementTwoPtrOutput() WebACLStatementTwoPtrOutput {
-	return i.ToWebACLStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i WebACLStatementTwoArgs) ToWebACLStatementTwoPtrOutputWithContext(ctx context.Context) WebACLStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementTwoOutput).ToWebACLStatementTwoPtrOutputWithContext(ctx)
-}
-
-// WebACLStatementTwoPtrInput is an input type that accepts WebACLStatementTwoArgs, WebACLStatementTwoPtr and WebACLStatementTwoPtrOutput values.
-// You can construct a concrete instance of `WebACLStatementTwoPtrInput` via:
-//
-//          WebACLStatementTwoArgs{...}
-//
-//  or:
-//
-//          nil
-type WebACLStatementTwoPtrInput interface {
-	pulumi.Input
-
-	ToWebACLStatementTwoPtrOutput() WebACLStatementTwoPtrOutput
-	ToWebACLStatementTwoPtrOutputWithContext(context.Context) WebACLStatementTwoPtrOutput
-}
-
-type webACLStatementTwoPtrType WebACLStatementTwoArgs
-
-func WebACLStatementTwoPtr(v *WebACLStatementTwoArgs) WebACLStatementTwoPtrInput {
-	return (*webACLStatementTwoPtrType)(v)
-}
-
-func (*webACLStatementTwoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLStatementTwo)(nil)).Elem()
-}
-
-func (i *webACLStatementTwoPtrType) ToWebACLStatementTwoPtrOutput() WebACLStatementTwoPtrOutput {
-	return i.ToWebACLStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (i *webACLStatementTwoPtrType) ToWebACLStatementTwoPtrOutputWithContext(ctx context.Context) WebACLStatementTwoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementTwoPtrOutput)
-}
-
-// WebACLStatementTwoArrayInput is an input type that accepts WebACLStatementTwoArray and WebACLStatementTwoArrayOutput values.
-// You can construct a concrete instance of `WebACLStatementTwoArrayInput` via:
-//
-//          WebACLStatementTwoArray{ WebACLStatementTwoArgs{...} }
-type WebACLStatementTwoArrayInput interface {
-	pulumi.Input
-
-	ToWebACLStatementTwoArrayOutput() WebACLStatementTwoArrayOutput
-	ToWebACLStatementTwoArrayOutputWithContext(context.Context) WebACLStatementTwoArrayOutput
-}
-
-type WebACLStatementTwoArray []WebACLStatementTwoInput
-
-func (WebACLStatementTwoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLStatementTwo)(nil)).Elem()
-}
-
-func (i WebACLStatementTwoArray) ToWebACLStatementTwoArrayOutput() WebACLStatementTwoArrayOutput {
-	return i.ToWebACLStatementTwoArrayOutputWithContext(context.Background())
-}
-
-func (i WebACLStatementTwoArray) ToWebACLStatementTwoArrayOutputWithContext(ctx context.Context) WebACLStatementTwoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementTwoArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html
-type WebACLStatementTwoOutput struct{ *pulumi.OutputState }
-
-func (WebACLStatementTwoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLStatementTwoOutput) ToWebACLStatementTwoOutput() WebACLStatementTwoOutput {
-	return o
-}
-
-func (o WebACLStatementTwoOutput) ToWebACLStatementTwoOutputWithContext(ctx context.Context) WebACLStatementTwoOutput {
-	return o
-}
-
-func (o WebACLStatementTwoOutput) ToWebACLStatementTwoPtrOutput() WebACLStatementTwoPtrOutput {
-	return o.ToWebACLStatementTwoPtrOutputWithContext(context.Background())
-}
-
-func (o WebACLStatementTwoOutput) ToWebACLStatementTwoPtrOutputWithContext(ctx context.Context) WebACLStatementTwoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLStatementTwo) *WebACLStatementTwo {
-		return &v
-	}).(WebACLStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
-func (o WebACLStatementTwoOutput) AndStatement() WebACLAndStatementTwoPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLAndStatementTwo { return v.AndStatement }).(WebACLAndStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
-func (o WebACLStatementTwoOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLByteMatchStatement { return v.ByteMatchStatement }).(WebACLByteMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
-func (o WebACLStatementTwoOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
-func (o WebACLStatementTwoOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-func (o WebACLStatementTwoOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLManagedRuleGroupStatement { return v.ManagedRuleGroupStatement }).(WebACLManagedRuleGroupStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
-func (o WebACLStatementTwoOutput) NotStatement() WebACLNotStatementTwoPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLNotStatementTwo { return v.NotStatement }).(WebACLNotStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
-func (o WebACLStatementTwoOutput) OrStatement() WebACLOrStatementTwoPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLOrStatementTwo { return v.OrStatement }).(WebACLOrStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
-func (o WebACLStatementTwoOutput) RateBasedStatement() WebACLRateBasedStatementTwoPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLRateBasedStatementTwo { return v.RateBasedStatement }).(WebACLRateBasedStatementTwoPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
-func (o WebACLStatementTwoOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLRegexPatternSetReferenceStatement {
-		return v.RegexPatternSetReferenceStatement
-	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
-func (o WebACLStatementTwoOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLRuleGroupReferenceStatement { return v.RuleGroupReferenceStatement }).(WebACLRuleGroupReferenceStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
-func (o WebACLStatementTwoOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLSizeConstraintStatement { return v.SizeConstraintStatement }).(WebACLSizeConstraintStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
-func (o WebACLStatementTwoOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLSqliMatchStatement { return v.SqliMatchStatement }).(WebACLSqliMatchStatementPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
-func (o WebACLStatementTwoOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v WebACLStatementTwo) *WebACLXssMatchStatement { return v.XssMatchStatement }).(WebACLXssMatchStatementPtrOutput)
-}
-
-type WebACLStatementTwoPtrOutput struct{ *pulumi.OutputState }
-
-func (WebACLStatementTwoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebACLStatementTwo)(nil)).Elem()
-}
-
-func (o WebACLStatementTwoPtrOutput) ToWebACLStatementTwoPtrOutput() WebACLStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLStatementTwoPtrOutput) ToWebACLStatementTwoPtrOutputWithContext(ctx context.Context) WebACLStatementTwoPtrOutput {
-	return o
-}
-
-func (o WebACLStatementTwoPtrOutput) Elem() WebACLStatementTwoOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) WebACLStatementTwo {
-		if v != nil {
-			return *v
-		}
-		var ret WebACLStatementTwo
-		return ret
-	}).(WebACLStatementTwoOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-andstatement
-func (o WebACLStatementTwoPtrOutput) AndStatement() WebACLAndStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLAndStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
+func (o WebACLStatementPtrOutput) AndStatement() WebACLAndStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLAndStatement {
 		if v == nil {
 			return nil
 		}
 		return v.AndStatement
-	}).(WebACLAndStatementTwoPtrOutput)
+	}).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-bytematchstatement
-func (o WebACLStatementTwoPtrOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLByteMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
+func (o WebACLStatementPtrOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLByteMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -9256,9 +9530,9 @@ func (o WebACLStatementTwoPtrOutput) ByteMatchStatement() WebACLByteMatchStateme
 	}).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-geomatchstatement
-func (o WebACLStatementTwoPtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLGeoMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
+func (o WebACLStatementPtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLGeoMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -9266,9 +9540,9 @@ func (o WebACLStatementTwoPtrOutput) GeoMatchStatement() WebACLGeoMatchStatement
 	}).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ipsetreferencestatement
-func (o WebACLStatementTwoPtrOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLIPSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
+func (o WebACLStatementPtrOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLIPSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
@@ -9276,9 +9550,19 @@ func (o WebACLStatementTwoPtrOutput) IPSetReferenceStatement() WebACLIPSetRefere
 	}).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-managedrulegroupstatement
-func (o WebACLStatementTwoPtrOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLManagedRuleGroupStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
+func (o WebACLStatementPtrOutput) LabelMatchStatement() WebACLLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLLabelMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.LabelMatchStatement
+	}).(WebACLLabelMatchStatementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
+func (o WebACLStatementPtrOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLManagedRuleGroupStatement {
 		if v == nil {
 			return nil
 		}
@@ -9286,39 +9570,39 @@ func (o WebACLStatementTwoPtrOutput) ManagedRuleGroupStatement() WebACLManagedRu
 	}).(WebACLManagedRuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-notstatement
-func (o WebACLStatementTwoPtrOutput) NotStatement() WebACLNotStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLNotStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
+func (o WebACLStatementPtrOutput) NotStatement() WebACLNotStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLNotStatement {
 		if v == nil {
 			return nil
 		}
 		return v.NotStatement
-	}).(WebACLNotStatementTwoPtrOutput)
+	}).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-orstatement
-func (o WebACLStatementTwoPtrOutput) OrStatement() WebACLOrStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLOrStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
+func (o WebACLStatementPtrOutput) OrStatement() WebACLOrStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLOrStatement {
 		if v == nil {
 			return nil
 		}
 		return v.OrStatement
-	}).(WebACLOrStatementTwoPtrOutput)
+	}).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-ratebasedstatement
-func (o WebACLStatementTwoPtrOutput) RateBasedStatement() WebACLRateBasedStatementTwoPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLRateBasedStatementTwo {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
+func (o WebACLStatementPtrOutput) RateBasedStatement() WebACLRateBasedStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLRateBasedStatement {
 		if v == nil {
 			return nil
 		}
 		return v.RateBasedStatement
-	}).(WebACLRateBasedStatementTwoPtrOutput)
+	}).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-regexpatternsetreferencestatement
-func (o WebACLStatementTwoPtrOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLRegexPatternSetReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
+func (o WebACLStatementPtrOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLRegexPatternSetReferenceStatement {
 		if v == nil {
 			return nil
 		}
@@ -9326,9 +9610,9 @@ func (o WebACLStatementTwoPtrOutput) RegexPatternSetReferenceStatement() WebACLR
 	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-rulegroupreferencestatement
-func (o WebACLStatementTwoPtrOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLRuleGroupReferenceStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
+func (o WebACLStatementPtrOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLRuleGroupReferenceStatement {
 		if v == nil {
 			return nil
 		}
@@ -9336,9 +9620,9 @@ func (o WebACLStatementTwoPtrOutput) RuleGroupReferenceStatement() WebACLRuleGro
 	}).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sizeconstraintstatement
-func (o WebACLStatementTwoPtrOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLSizeConstraintStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
+func (o WebACLStatementPtrOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLSizeConstraintStatement {
 		if v == nil {
 			return nil
 		}
@@ -9346,9 +9630,9 @@ func (o WebACLStatementTwoPtrOutput) SizeConstraintStatement() WebACLSizeConstra
 	}).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-sqlimatchstatement
-func (o WebACLStatementTwoPtrOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLSqliMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
+func (o WebACLStatementPtrOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLSqliMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -9356,9 +9640,9 @@ func (o WebACLStatementTwoPtrOutput) SqliMatchStatement() WebACLSqliMatchStateme
 	}).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statementtwo.html#cfn-wafv2-webacl-statementtwo-xssmatchstatement
-func (o WebACLStatementTwoPtrOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
-	return o.ApplyT(func(v *WebACLStatementTwo) *WebACLXssMatchStatement {
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
+func (o WebACLStatementPtrOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebACLStatement) *WebACLXssMatchStatement {
 		if v == nil {
 			return nil
 		}
@@ -9366,24 +9650,24 @@ func (o WebACLStatementTwoPtrOutput) XssMatchStatement() WebACLXssMatchStatement
 	}).(WebACLXssMatchStatementPtrOutput)
 }
 
-type WebACLStatementTwoArrayOutput struct{ *pulumi.OutputState }
+type WebACLStatementArrayOutput struct{ *pulumi.OutputState }
 
-func (WebACLStatementTwoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebACLStatementTwo)(nil)).Elem()
+func (WebACLStatementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLStatement)(nil)).Elem()
 }
 
-func (o WebACLStatementTwoArrayOutput) ToWebACLStatementTwoArrayOutput() WebACLStatementTwoArrayOutput {
+func (o WebACLStatementArrayOutput) ToWebACLStatementArrayOutput() WebACLStatementArrayOutput {
 	return o
 }
 
-func (o WebACLStatementTwoArrayOutput) ToWebACLStatementTwoArrayOutputWithContext(ctx context.Context) WebACLStatementTwoArrayOutput {
+func (o WebACLStatementArrayOutput) ToWebACLStatementArrayOutputWithContext(ctx context.Context) WebACLStatementArrayOutput {
 	return o
 }
 
-func (o WebACLStatementTwoArrayOutput) Index(i pulumi.IntInput) WebACLStatementTwoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLStatementTwo {
-		return vs[0].([]WebACLStatementTwo)[vs[1].(int)]
-	}).(WebACLStatementTwoOutput)
+func (o WebACLStatementArrayOutput) Index(i pulumi.IntInput) WebACLStatementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLStatement {
+		return vs[0].([]WebACLStatement)[vs[1].(int)]
+	}).(WebACLStatementOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
@@ -9833,12 +10117,12 @@ func (o WebACLXssMatchStatementPtrOutput) TextTransformations() WebACLTextTransf
 }
 
 func init() {
-	pulumi.RegisterOutputType(RuleGroupAndStatementOneOutput{})
-	pulumi.RegisterOutputType(RuleGroupAndStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupAndStatementTwoOutput{})
-	pulumi.RegisterOutputType(RuleGroupAndStatementTwoPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyMapOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationOutput{})
@@ -9849,18 +10133,22 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetReferenceStatementPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupNotStatementOneOutput{})
-	pulumi.RegisterOutputType(RuleGroupNotStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupNotStatementTwoOutput{})
-	pulumi.RegisterOutputType(RuleGroupNotStatementTwoPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupOrStatementOneOutput{})
-	pulumi.RegisterOutputType(RuleGroupOrStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupOrStatementTwoOutput{})
-	pulumi.RegisterOutputType(RuleGroupOrStatementTwoPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOneOutput{})
-	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupRateBasedStatementTwoOutput{})
-	pulumi.RegisterOutputType(RuleGroupRateBasedStatementTwoPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupJsonBodyOutput{})
+	pulumi.RegisterOutputType(RuleGroupJsonBodyPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupJsonMatchPatternOutput{})
+	pulumi.RegisterOutputType(RuleGroupJsonMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelMatchStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelSummaryOutput{})
+	pulumi.RegisterOutputType(RuleGroupLabelSummaryArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupNotStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupNotStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupOrStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupOrStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateBasedStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRegexPatternSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupRegexPatternSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOutput{})
@@ -9871,25 +10159,33 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSqliMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupSqliMatchStatementPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementOneOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementThreeOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementThreePtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementThreeArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementTwoOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementTwoPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatementTwoArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupStatementOutput{})
+	pulumi.RegisterOutputType(RuleGroupStatementPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupStatementArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
-	pulumi.RegisterOutputType(WebACLAndStatementOneOutput{})
-	pulumi.RegisterOutputType(WebACLAndStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(WebACLAndStatementTwoOutput{})
-	pulumi.RegisterOutputType(WebACLAndStatementTwoPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
+	pulumi.RegisterOutputType(WebACLAllowActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAndStatementOutput{})
+	pulumi.RegisterOutputType(WebACLAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLBlockActionOutput{})
+	pulumi.RegisterOutputType(WebACLBlockActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLByteMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLCountActionOutput{})
+	pulumi.RegisterOutputType(WebACLCountActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLCustomHTTPHeaderOutput{})
+	pulumi.RegisterOutputType(WebACLCustomHTTPHeaderArrayOutput{})
+	pulumi.RegisterOutputType(WebACLCustomRequestHandlingOutput{})
+	pulumi.RegisterOutputType(WebACLCustomRequestHandlingPtrOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponseOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponsePtrOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponseBodyOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponseBodyMapOutput{})
 	pulumi.RegisterOutputType(WebACLDefaultActionOutput{})
 	pulumi.RegisterOutputType(WebACLDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleOutput{})
@@ -9904,22 +10200,24 @@ func init() {
 	pulumi.RegisterOutputType(WebACLIPSetForwardedIPConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLIPSetReferenceStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLJsonBodyOutput{})
+	pulumi.RegisterOutputType(WebACLJsonBodyPtrOutput{})
+	pulumi.RegisterOutputType(WebACLJsonMatchPatternOutput{})
+	pulumi.RegisterOutputType(WebACLJsonMatchPatternPtrOutput{})
+	pulumi.RegisterOutputType(WebACLLabelOutput{})
+	pulumi.RegisterOutputType(WebACLLabelArrayOutput{})
+	pulumi.RegisterOutputType(WebACLLabelMatchStatementOutput{})
+	pulumi.RegisterOutputType(WebACLLabelMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupStatementOutput{})
 	pulumi.RegisterOutputType(WebACLManagedRuleGroupStatementPtrOutput{})
-	pulumi.RegisterOutputType(WebACLNotStatementOneOutput{})
-	pulumi.RegisterOutputType(WebACLNotStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(WebACLNotStatementTwoOutput{})
-	pulumi.RegisterOutputType(WebACLNotStatementTwoPtrOutput{})
-	pulumi.RegisterOutputType(WebACLOrStatementOneOutput{})
-	pulumi.RegisterOutputType(WebACLOrStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(WebACLOrStatementTwoOutput{})
-	pulumi.RegisterOutputType(WebACLOrStatementTwoPtrOutput{})
+	pulumi.RegisterOutputType(WebACLNotStatementOutput{})
+	pulumi.RegisterOutputType(WebACLNotStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLOrStatementOutput{})
+	pulumi.RegisterOutputType(WebACLOrStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionOutput{})
 	pulumi.RegisterOutputType(WebACLOverrideActionPtrOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementOneOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementOnePtrOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementTwoOutput{})
-	pulumi.RegisterOutputType(WebACLRateBasedStatementTwoPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRateBasedStatementOutput{})
+	pulumi.RegisterOutputType(WebACLRateBasedStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRegexPatternSetReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLRuleOutput{})
@@ -9932,13 +10230,9 @@ func init() {
 	pulumi.RegisterOutputType(WebACLSizeConstraintStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLSqliMatchStatementOutput{})
 	pulumi.RegisterOutputType(WebACLSqliMatchStatementPtrOutput{})
-	pulumi.RegisterOutputType(WebACLStatementOneOutput{})
-	pulumi.RegisterOutputType(WebACLStatementThreeOutput{})
-	pulumi.RegisterOutputType(WebACLStatementThreePtrOutput{})
-	pulumi.RegisterOutputType(WebACLStatementThreeArrayOutput{})
-	pulumi.RegisterOutputType(WebACLStatementTwoOutput{})
-	pulumi.RegisterOutputType(WebACLStatementTwoPtrOutput{})
-	pulumi.RegisterOutputType(WebACLStatementTwoArrayOutput{})
+	pulumi.RegisterOutputType(WebACLStatementOutput{})
+	pulumi.RegisterOutputType(WebACLStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLStatementArrayOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebACLVisibilityConfigOutput{})

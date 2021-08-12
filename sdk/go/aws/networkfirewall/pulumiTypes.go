@@ -176,146 +176,6 @@ func (o FirewallPolicyCustomActionArrayOutput) Index(i pulumi.IntInput) Firewall
 	}).(FirewallPolicyCustomActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
-type FirewallPolicyCustomActions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
-	CustomActions []FirewallPolicyCustomAction `pulumi:"customActions"`
-}
-
-// FirewallPolicyCustomActionsInput is an input type that accepts FirewallPolicyCustomActionsArgs and FirewallPolicyCustomActionsOutput values.
-// You can construct a concrete instance of `FirewallPolicyCustomActionsInput` via:
-//
-//          FirewallPolicyCustomActionsArgs{...}
-type FirewallPolicyCustomActionsInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyCustomActionsOutput() FirewallPolicyCustomActionsOutput
-	ToFirewallPolicyCustomActionsOutputWithContext(context.Context) FirewallPolicyCustomActionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
-type FirewallPolicyCustomActionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
-	CustomActions FirewallPolicyCustomActionArrayInput `pulumi:"customActions"`
-}
-
-func (FirewallPolicyCustomActionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyCustomActions)(nil)).Elem()
-}
-
-func (i FirewallPolicyCustomActionsArgs) ToFirewallPolicyCustomActionsOutput() FirewallPolicyCustomActionsOutput {
-	return i.ToFirewallPolicyCustomActionsOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyCustomActionsArgs) ToFirewallPolicyCustomActionsOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomActionsOutput)
-}
-
-func (i FirewallPolicyCustomActionsArgs) ToFirewallPolicyCustomActionsPtrOutput() FirewallPolicyCustomActionsPtrOutput {
-	return i.ToFirewallPolicyCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyCustomActionsArgs) ToFirewallPolicyCustomActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomActionsOutput).ToFirewallPolicyCustomActionsPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyCustomActionsPtrInput is an input type that accepts FirewallPolicyCustomActionsArgs, FirewallPolicyCustomActionsPtr and FirewallPolicyCustomActionsPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyCustomActionsPtrInput` via:
-//
-//          FirewallPolicyCustomActionsArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyCustomActionsPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyCustomActionsPtrOutput() FirewallPolicyCustomActionsPtrOutput
-	ToFirewallPolicyCustomActionsPtrOutputWithContext(context.Context) FirewallPolicyCustomActionsPtrOutput
-}
-
-type firewallPolicyCustomActionsPtrType FirewallPolicyCustomActionsArgs
-
-func FirewallPolicyCustomActionsPtr(v *FirewallPolicyCustomActionsArgs) FirewallPolicyCustomActionsPtrInput {
-	return (*firewallPolicyCustomActionsPtrType)(v)
-}
-
-func (*firewallPolicyCustomActionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyCustomActions)(nil)).Elem()
-}
-
-func (i *firewallPolicyCustomActionsPtrType) ToFirewallPolicyCustomActionsPtrOutput() FirewallPolicyCustomActionsPtrOutput {
-	return i.ToFirewallPolicyCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyCustomActionsPtrType) ToFirewallPolicyCustomActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html
-type FirewallPolicyCustomActionsOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyCustomActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyCustomActions)(nil)).Elem()
-}
-
-func (o FirewallPolicyCustomActionsOutput) ToFirewallPolicyCustomActionsOutput() FirewallPolicyCustomActionsOutput {
-	return o
-}
-
-func (o FirewallPolicyCustomActionsOutput) ToFirewallPolicyCustomActionsOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsOutput {
-	return o
-}
-
-func (o FirewallPolicyCustomActionsOutput) ToFirewallPolicyCustomActionsPtrOutput() FirewallPolicyCustomActionsPtrOutput {
-	return o.ToFirewallPolicyCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyCustomActionsOutput) ToFirewallPolicyCustomActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyCustomActions) *FirewallPolicyCustomActions {
-		return &v
-	}).(FirewallPolicyCustomActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
-func (o FirewallPolicyCustomActionsOutput) CustomActions() FirewallPolicyCustomActionArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyCustomActions) []FirewallPolicyCustomAction { return v.CustomActions }).(FirewallPolicyCustomActionArrayOutput)
-}
-
-type FirewallPolicyCustomActionsPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyCustomActionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyCustomActions)(nil)).Elem()
-}
-
-func (o FirewallPolicyCustomActionsPtrOutput) ToFirewallPolicyCustomActionsPtrOutput() FirewallPolicyCustomActionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyCustomActionsPtrOutput) ToFirewallPolicyCustomActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyCustomActionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyCustomActionsPtrOutput) Elem() FirewallPolicyCustomActionsOutput {
-	return o.ApplyT(func(v *FirewallPolicyCustomActions) FirewallPolicyCustomActions {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyCustomActions
-		return ret
-	}).(FirewallPolicyCustomActionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-customactions.html#cfn-networkfirewall-firewallpolicy-customactions-customactions
-func (o FirewallPolicyCustomActionsPtrOutput) CustomActions() FirewallPolicyCustomActionArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyCustomActions) []FirewallPolicyCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.CustomActions
-	}).(FirewallPolicyCustomActionArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html
 type FirewallPolicyDimension struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimension.html#cfn-networkfirewall-firewallpolicy-dimension-value
@@ -416,158 +276,18 @@ func (o FirewallPolicyDimensionArrayOutput) Index(i pulumi.IntInput) FirewallPol
 	}).(FirewallPolicyDimensionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
-type FirewallPolicyDimensions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-	Dimensions []FirewallPolicyDimension `pulumi:"dimensions"`
-}
-
-// FirewallPolicyDimensionsInput is an input type that accepts FirewallPolicyDimensionsArgs and FirewallPolicyDimensionsOutput values.
-// You can construct a concrete instance of `FirewallPolicyDimensionsInput` via:
-//
-//          FirewallPolicyDimensionsArgs{...}
-type FirewallPolicyDimensionsInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyDimensionsOutput() FirewallPolicyDimensionsOutput
-	ToFirewallPolicyDimensionsOutputWithContext(context.Context) FirewallPolicyDimensionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
-type FirewallPolicyDimensionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-	Dimensions FirewallPolicyDimensionArrayInput `pulumi:"dimensions"`
-}
-
-func (FirewallPolicyDimensionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyDimensions)(nil)).Elem()
-}
-
-func (i FirewallPolicyDimensionsArgs) ToFirewallPolicyDimensionsOutput() FirewallPolicyDimensionsOutput {
-	return i.ToFirewallPolicyDimensionsOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyDimensionsArgs) ToFirewallPolicyDimensionsOutputWithContext(ctx context.Context) FirewallPolicyDimensionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDimensionsOutput)
-}
-
-func (i FirewallPolicyDimensionsArgs) ToFirewallPolicyDimensionsPtrOutput() FirewallPolicyDimensionsPtrOutput {
-	return i.ToFirewallPolicyDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyDimensionsArgs) ToFirewallPolicyDimensionsPtrOutputWithContext(ctx context.Context) FirewallPolicyDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDimensionsOutput).ToFirewallPolicyDimensionsPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyDimensionsPtrInput is an input type that accepts FirewallPolicyDimensionsArgs, FirewallPolicyDimensionsPtr and FirewallPolicyDimensionsPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyDimensionsPtrInput` via:
-//
-//          FirewallPolicyDimensionsArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyDimensionsPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyDimensionsPtrOutput() FirewallPolicyDimensionsPtrOutput
-	ToFirewallPolicyDimensionsPtrOutputWithContext(context.Context) FirewallPolicyDimensionsPtrOutput
-}
-
-type firewallPolicyDimensionsPtrType FirewallPolicyDimensionsArgs
-
-func FirewallPolicyDimensionsPtr(v *FirewallPolicyDimensionsArgs) FirewallPolicyDimensionsPtrInput {
-	return (*firewallPolicyDimensionsPtrType)(v)
-}
-
-func (*firewallPolicyDimensionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyDimensions)(nil)).Elem()
-}
-
-func (i *firewallPolicyDimensionsPtrType) ToFirewallPolicyDimensionsPtrOutput() FirewallPolicyDimensionsPtrOutput {
-	return i.ToFirewallPolicyDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyDimensionsPtrType) ToFirewallPolicyDimensionsPtrOutputWithContext(ctx context.Context) FirewallPolicyDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyDimensionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html
-type FirewallPolicyDimensionsOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyDimensionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyDimensions)(nil)).Elem()
-}
-
-func (o FirewallPolicyDimensionsOutput) ToFirewallPolicyDimensionsOutput() FirewallPolicyDimensionsOutput {
-	return o
-}
-
-func (o FirewallPolicyDimensionsOutput) ToFirewallPolicyDimensionsOutputWithContext(ctx context.Context) FirewallPolicyDimensionsOutput {
-	return o
-}
-
-func (o FirewallPolicyDimensionsOutput) ToFirewallPolicyDimensionsPtrOutput() FirewallPolicyDimensionsPtrOutput {
-	return o.ToFirewallPolicyDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyDimensionsOutput) ToFirewallPolicyDimensionsPtrOutputWithContext(ctx context.Context) FirewallPolicyDimensionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyDimensions) *FirewallPolicyDimensions {
-		return &v
-	}).(FirewallPolicyDimensionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-func (o FirewallPolicyDimensionsOutput) Dimensions() FirewallPolicyDimensionArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyDimensions) []FirewallPolicyDimension { return v.Dimensions }).(FirewallPolicyDimensionArrayOutput)
-}
-
-type FirewallPolicyDimensionsPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyDimensionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyDimensions)(nil)).Elem()
-}
-
-func (o FirewallPolicyDimensionsPtrOutput) ToFirewallPolicyDimensionsPtrOutput() FirewallPolicyDimensionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyDimensionsPtrOutput) ToFirewallPolicyDimensionsPtrOutputWithContext(ctx context.Context) FirewallPolicyDimensionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyDimensionsPtrOutput) Elem() FirewallPolicyDimensionsOutput {
-	return o.ApplyT(func(v *FirewallPolicyDimensions) FirewallPolicyDimensions {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyDimensions
-		return ret
-	}).(FirewallPolicyDimensionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-dimensions.html#cfn-networkfirewall-firewallpolicy-dimensions-dimensions
-func (o FirewallPolicyDimensionsPtrOutput) Dimensions() FirewallPolicyDimensionArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyDimensions) []FirewallPolicyDimension {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(FirewallPolicyDimensionArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
 type FirewallPolicyFirewallPolicy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-	StatefulRuleGroupReferences *FirewallPolicyStatefulRuleGroupReferences `pulumi:"statefulRuleGroupReferences"`
+	StatefulRuleGroupReferences []FirewallPolicyStatefulRuleGroupReference `pulumi:"statefulRuleGroupReferences"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-	StatelessCustomActions *FirewallPolicyCustomActions `pulumi:"statelessCustomActions"`
+	StatelessCustomActions []FirewallPolicyCustomAction `pulumi:"statelessCustomActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-	StatelessDefaultActions FirewallPolicyStatelessActions `pulumi:"statelessDefaultActions"`
+	StatelessDefaultActions []string `pulumi:"statelessDefaultActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-	StatelessFragmentDefaultActions FirewallPolicyStatelessActions `pulumi:"statelessFragmentDefaultActions"`
+	StatelessFragmentDefaultActions []string `pulumi:"statelessFragmentDefaultActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-	StatelessRuleGroupReferences *FirewallPolicyStatelessRuleGroupReferences `pulumi:"statelessRuleGroupReferences"`
+	StatelessRuleGroupReferences []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
 }
 
 // FirewallPolicyFirewallPolicyInput is an input type that accepts FirewallPolicyFirewallPolicyArgs and FirewallPolicyFirewallPolicyOutput values.
@@ -584,15 +304,15 @@ type FirewallPolicyFirewallPolicyInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
 type FirewallPolicyFirewallPolicyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-	StatefulRuleGroupReferences FirewallPolicyStatefulRuleGroupReferencesPtrInput `pulumi:"statefulRuleGroupReferences"`
+	StatefulRuleGroupReferences FirewallPolicyStatefulRuleGroupReferenceArrayInput `pulumi:"statefulRuleGroupReferences"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-	StatelessCustomActions FirewallPolicyCustomActionsPtrInput `pulumi:"statelessCustomActions"`
+	StatelessCustomActions FirewallPolicyCustomActionArrayInput `pulumi:"statelessCustomActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-	StatelessDefaultActions FirewallPolicyStatelessActionsInput `pulumi:"statelessDefaultActions"`
+	StatelessDefaultActions pulumi.StringArrayInput `pulumi:"statelessDefaultActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-	StatelessFragmentDefaultActions FirewallPolicyStatelessActionsInput `pulumi:"statelessFragmentDefaultActions"`
+	StatelessFragmentDefaultActions pulumi.StringArrayInput `pulumi:"statelessFragmentDefaultActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-	StatelessRuleGroupReferences FirewallPolicyStatelessRuleGroupReferencesPtrInput `pulumi:"statelessRuleGroupReferences"`
+	StatelessRuleGroupReferences FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
 }
 
 func (FirewallPolicyFirewallPolicyArgs) ElementType() reflect.Type {
@@ -674,34 +394,32 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOut
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-func (o FirewallPolicyFirewallPolicyOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyStatefulRuleGroupReferences {
+func (o FirewallPolicyFirewallPolicyOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyStatefulRuleGroupReference {
 		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferencesPtrOutput)
+	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-func (o FirewallPolicyFirewallPolicyOutput) StatelessCustomActions() FirewallPolicyCustomActionsPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyCustomActions { return v.StatelessCustomActions }).(FirewallPolicyCustomActionsPtrOutput)
+func (o FirewallPolicyFirewallPolicyOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyCustomAction { return v.StatelessCustomActions }).(FirewallPolicyCustomActionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-func (o FirewallPolicyFirewallPolicyOutput) StatelessDefaultActions() FirewallPolicyStatelessActionsOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) FirewallPolicyStatelessActions { return v.StatelessDefaultActions }).(FirewallPolicyStatelessActionsOutput)
+func (o FirewallPolicyFirewallPolicyOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatelessDefaultActions }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-func (o FirewallPolicyFirewallPolicyOutput) StatelessFragmentDefaultActions() FirewallPolicyStatelessActionsOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) FirewallPolicyStatelessActions {
-		return v.StatelessFragmentDefaultActions
-	}).(FirewallPolicyStatelessActionsOutput)
+func (o FirewallPolicyFirewallPolicyOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatelessFragmentDefaultActions }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-func (o FirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyStatelessRuleGroupReferences {
+func (o FirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyStatelessRuleGroupReference {
 		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferencesPtrOutput)
+	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
 type FirewallPolicyFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -729,59 +447,59 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPoli
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyStatefulRuleGroupReferences {
+func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyStatefulRuleGroupReference {
 		if v == nil {
 			return nil
 		}
 		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferencesPtrOutput)
+	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessCustomActions() FirewallPolicyCustomActionsPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyCustomActions {
+func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessCustomActions() FirewallPolicyCustomActionArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyCustomAction {
 		if v == nil {
 			return nil
 		}
 		return v.StatelessCustomActions
-	}).(FirewallPolicyCustomActionsPtrOutput)
+	}).(FirewallPolicyCustomActionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessDefaultActions() FirewallPolicyStatelessActionsPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyStatelessActions {
+func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.StatelessDefaultActions
-	}).(FirewallPolicyStatelessActionsPtrOutput)
+		return v.StatelessDefaultActions
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessFragmentDefaultActions() FirewallPolicyStatelessActionsPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyStatelessActions {
+func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.StatelessFragmentDefaultActions
-	}).(FirewallPolicyStatelessActionsPtrOutput)
+		return v.StatelessFragmentDefaultActions
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyStatelessRuleGroupReferences {
+func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyStatelessRuleGroupReference {
 		if v == nil {
 			return nil
 		}
 		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferencesPtrOutput)
+	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
 type FirewallPolicyPublishMetricAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
-	Dimensions FirewallPolicyDimensions `pulumi:"dimensions"`
+	Dimensions []FirewallPolicyDimension `pulumi:"dimensions"`
 }
 
 // FirewallPolicyPublishMetricActionInput is an input type that accepts FirewallPolicyPublishMetricActionArgs and FirewallPolicyPublishMetricActionOutput values.
@@ -798,7 +516,7 @@ type FirewallPolicyPublishMetricActionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html
 type FirewallPolicyPublishMetricActionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
-	Dimensions FirewallPolicyDimensionsInput `pulumi:"dimensions"`
+	Dimensions FirewallPolicyDimensionArrayInput `pulumi:"dimensions"`
 }
 
 func (FirewallPolicyPublishMetricActionArgs) ElementType() reflect.Type {
@@ -880,8 +598,8 @@ func (o FirewallPolicyPublishMetricActionOutput) ToFirewallPolicyPublishMetricAc
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
-func (o FirewallPolicyPublishMetricActionOutput) Dimensions() FirewallPolicyDimensionsOutput {
-	return o.ApplyT(func(v FirewallPolicyPublishMetricAction) FirewallPolicyDimensions { return v.Dimensions }).(FirewallPolicyDimensionsOutput)
+func (o FirewallPolicyPublishMetricActionOutput) Dimensions() FirewallPolicyDimensionArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyPublishMetricAction) []FirewallPolicyDimension { return v.Dimensions }).(FirewallPolicyDimensionArrayOutput)
 }
 
 type FirewallPolicyPublishMetricActionPtrOutput struct{ *pulumi.OutputState }
@@ -909,13 +627,13 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Elem() FirewallPolicyPublish
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-publishmetricaction.html#cfn-networkfirewall-firewallpolicy-publishmetricaction-dimensions
-func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyDimensionsPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyPublishMetricAction) *FirewallPolicyDimensions {
+func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyDimensionArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyPublishMetricAction) []FirewallPolicyDimension {
 		if v == nil {
 			return nil
 		}
-		return &v.Dimensions
-	}).(FirewallPolicyDimensionsPtrOutput)
+		return v.Dimensions
+	}).(FirewallPolicyDimensionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html
@@ -1016,288 +734,6 @@ func (o FirewallPolicyStatefulRuleGroupReferenceArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyStatefulRuleGroupReference {
 		return vs[0].([]FirewallPolicyStatefulRuleGroupReference)[vs[1].(int)]
 	}).(FirewallPolicyStatefulRuleGroupReferenceOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
-type FirewallPolicyStatefulRuleGroupReferences struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
-	StatefulRuleGroupReferences []FirewallPolicyStatefulRuleGroupReference `pulumi:"statefulRuleGroupReferences"`
-}
-
-// FirewallPolicyStatefulRuleGroupReferencesInput is an input type that accepts FirewallPolicyStatefulRuleGroupReferencesArgs and FirewallPolicyStatefulRuleGroupReferencesOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatefulRuleGroupReferencesInput` via:
-//
-//          FirewallPolicyStatefulRuleGroupReferencesArgs{...}
-type FirewallPolicyStatefulRuleGroupReferencesInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatefulRuleGroupReferencesOutput() FirewallPolicyStatefulRuleGroupReferencesOutput
-	ToFirewallPolicyStatefulRuleGroupReferencesOutputWithContext(context.Context) FirewallPolicyStatefulRuleGroupReferencesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
-type FirewallPolicyStatefulRuleGroupReferencesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
-	StatefulRuleGroupReferences FirewallPolicyStatefulRuleGroupReferenceArrayInput `pulumi:"statefulRuleGroupReferences"`
-}
-
-func (FirewallPolicyStatefulRuleGroupReferencesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatefulRuleGroupReferences)(nil)).Elem()
-}
-
-func (i FirewallPolicyStatefulRuleGroupReferencesArgs) ToFirewallPolicyStatefulRuleGroupReferencesOutput() FirewallPolicyStatefulRuleGroupReferencesOutput {
-	return i.ToFirewallPolicyStatefulRuleGroupReferencesOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatefulRuleGroupReferencesArgs) ToFirewallPolicyStatefulRuleGroupReferencesOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupReferencesOutput)
-}
-
-func (i FirewallPolicyStatefulRuleGroupReferencesArgs) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutput() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return i.ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatefulRuleGroupReferencesArgs) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupReferencesOutput).ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyStatefulRuleGroupReferencesPtrInput is an input type that accepts FirewallPolicyStatefulRuleGroupReferencesArgs, FirewallPolicyStatefulRuleGroupReferencesPtr and FirewallPolicyStatefulRuleGroupReferencesPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatefulRuleGroupReferencesPtrInput` via:
-//
-//          FirewallPolicyStatefulRuleGroupReferencesArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyStatefulRuleGroupReferencesPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatefulRuleGroupReferencesPtrOutput() FirewallPolicyStatefulRuleGroupReferencesPtrOutput
-	ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(context.Context) FirewallPolicyStatefulRuleGroupReferencesPtrOutput
-}
-
-type firewallPolicyStatefulRuleGroupReferencesPtrType FirewallPolicyStatefulRuleGroupReferencesArgs
-
-func FirewallPolicyStatefulRuleGroupReferencesPtr(v *FirewallPolicyStatefulRuleGroupReferencesArgs) FirewallPolicyStatefulRuleGroupReferencesPtrInput {
-	return (*firewallPolicyStatefulRuleGroupReferencesPtrType)(v)
-}
-
-func (*firewallPolicyStatefulRuleGroupReferencesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatefulRuleGroupReferences)(nil)).Elem()
-}
-
-func (i *firewallPolicyStatefulRuleGroupReferencesPtrType) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutput() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return i.ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyStatefulRuleGroupReferencesPtrType) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulRuleGroupReferencesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html
-type FirewallPolicyStatefulRuleGroupReferencesOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatefulRuleGroupReferencesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatefulRuleGroupReferences)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesOutput) ToFirewallPolicyStatefulRuleGroupReferencesOutput() FirewallPolicyStatefulRuleGroupReferencesOutput {
-	return o
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesOutput) ToFirewallPolicyStatefulRuleGroupReferencesOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesOutput {
-	return o
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesOutput) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutput() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o.ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesOutput) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStatefulRuleGroupReferences) *FirewallPolicyStatefulRuleGroupReferences {
-		return &v
-	}).(FirewallPolicyStatefulRuleGroupReferencesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
-func (o FirewallPolicyStatefulRuleGroupReferencesOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyStatefulRuleGroupReferences) []FirewallPolicyStatefulRuleGroupReference {
-		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
-}
-
-type FirewallPolicyStatefulRuleGroupReferencesPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatefulRuleGroupReferencesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatefulRuleGroupReferences)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesPtrOutput) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutput() FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesPtrOutput) ToFirewallPolicyStatefulRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatefulRuleGroupReferencesPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatefulRuleGroupReferencesPtrOutput) Elem() FirewallPolicyStatefulRuleGroupReferencesOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatefulRuleGroupReferences) FirewallPolicyStatefulRuleGroupReferences {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyStatefulRuleGroupReferences
-		return ret
-	}).(FirewallPolicyStatefulRuleGroupReferencesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreferences-statefulrulegroupreferences
-func (o FirewallPolicyStatefulRuleGroupReferencesPtrOutput) StatefulRuleGroupReferences() FirewallPolicyStatefulRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatefulRuleGroupReferences) []FirewallPolicyStatefulRuleGroupReference {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyStatefulRuleGroupReferenceArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html
-type FirewallPolicyStatelessActions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
-	StatelessActions []string `pulumi:"statelessActions"`
-}
-
-// FirewallPolicyStatelessActionsInput is an input type that accepts FirewallPolicyStatelessActionsArgs and FirewallPolicyStatelessActionsOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatelessActionsInput` via:
-//
-//          FirewallPolicyStatelessActionsArgs{...}
-type FirewallPolicyStatelessActionsInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatelessActionsOutput() FirewallPolicyStatelessActionsOutput
-	ToFirewallPolicyStatelessActionsOutputWithContext(context.Context) FirewallPolicyStatelessActionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html
-type FirewallPolicyStatelessActionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
-	StatelessActions pulumi.StringArrayInput `pulumi:"statelessActions"`
-}
-
-func (FirewallPolicyStatelessActionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatelessActions)(nil)).Elem()
-}
-
-func (i FirewallPolicyStatelessActionsArgs) ToFirewallPolicyStatelessActionsOutput() FirewallPolicyStatelessActionsOutput {
-	return i.ToFirewallPolicyStatelessActionsOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatelessActionsArgs) ToFirewallPolicyStatelessActionsOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessActionsOutput)
-}
-
-func (i FirewallPolicyStatelessActionsArgs) ToFirewallPolicyStatelessActionsPtrOutput() FirewallPolicyStatelessActionsPtrOutput {
-	return i.ToFirewallPolicyStatelessActionsPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatelessActionsArgs) ToFirewallPolicyStatelessActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessActionsOutput).ToFirewallPolicyStatelessActionsPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyStatelessActionsPtrInput is an input type that accepts FirewallPolicyStatelessActionsArgs, FirewallPolicyStatelessActionsPtr and FirewallPolicyStatelessActionsPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatelessActionsPtrInput` via:
-//
-//          FirewallPolicyStatelessActionsArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyStatelessActionsPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatelessActionsPtrOutput() FirewallPolicyStatelessActionsPtrOutput
-	ToFirewallPolicyStatelessActionsPtrOutputWithContext(context.Context) FirewallPolicyStatelessActionsPtrOutput
-}
-
-type firewallPolicyStatelessActionsPtrType FirewallPolicyStatelessActionsArgs
-
-func FirewallPolicyStatelessActionsPtr(v *FirewallPolicyStatelessActionsArgs) FirewallPolicyStatelessActionsPtrInput {
-	return (*firewallPolicyStatelessActionsPtrType)(v)
-}
-
-func (*firewallPolicyStatelessActionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatelessActions)(nil)).Elem()
-}
-
-func (i *firewallPolicyStatelessActionsPtrType) ToFirewallPolicyStatelessActionsPtrOutput() FirewallPolicyStatelessActionsPtrOutput {
-	return i.ToFirewallPolicyStatelessActionsPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyStatelessActionsPtrType) ToFirewallPolicyStatelessActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html
-type FirewallPolicyStatelessActionsOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatelessActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatelessActions)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatelessActionsOutput) ToFirewallPolicyStatelessActionsOutput() FirewallPolicyStatelessActionsOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessActionsOutput) ToFirewallPolicyStatelessActionsOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessActionsOutput) ToFirewallPolicyStatelessActionsPtrOutput() FirewallPolicyStatelessActionsPtrOutput {
-	return o.ToFirewallPolicyStatelessActionsPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyStatelessActionsOutput) ToFirewallPolicyStatelessActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStatelessActions) *FirewallPolicyStatelessActions {
-		return &v
-	}).(FirewallPolicyStatelessActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
-func (o FirewallPolicyStatelessActionsOutput) StatelessActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyStatelessActions) []string { return v.StatelessActions }).(pulumi.StringArrayOutput)
-}
-
-type FirewallPolicyStatelessActionsPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatelessActionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatelessActions)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatelessActionsPtrOutput) ToFirewallPolicyStatelessActionsPtrOutput() FirewallPolicyStatelessActionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessActionsPtrOutput) ToFirewallPolicyStatelessActionsPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessActionsPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessActionsPtrOutput) Elem() FirewallPolicyStatelessActionsOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatelessActions) FirewallPolicyStatelessActions {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyStatelessActions
-		return ret
-	}).(FirewallPolicyStatelessActionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessactions.html#cfn-networkfirewall-firewallpolicy-statelessactions-statelessactions
-func (o FirewallPolicyStatelessActionsPtrOutput) StatelessActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatelessActions) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessActions
-	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreference.html
@@ -1407,148 +843,6 @@ func (o FirewallPolicyStatelessRuleGroupReferenceArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyStatelessRuleGroupReference {
 		return vs[0].([]FirewallPolicyStatelessRuleGroupReference)[vs[1].(int)]
 	}).(FirewallPolicyStatelessRuleGroupReferenceOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
-type FirewallPolicyStatelessRuleGroupReferences struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-	StatelessRuleGroupReferences []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
-}
-
-// FirewallPolicyStatelessRuleGroupReferencesInput is an input type that accepts FirewallPolicyStatelessRuleGroupReferencesArgs and FirewallPolicyStatelessRuleGroupReferencesOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatelessRuleGroupReferencesInput` via:
-//
-//          FirewallPolicyStatelessRuleGroupReferencesArgs{...}
-type FirewallPolicyStatelessRuleGroupReferencesInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatelessRuleGroupReferencesOutput() FirewallPolicyStatelessRuleGroupReferencesOutput
-	ToFirewallPolicyStatelessRuleGroupReferencesOutputWithContext(context.Context) FirewallPolicyStatelessRuleGroupReferencesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
-type FirewallPolicyStatelessRuleGroupReferencesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-	StatelessRuleGroupReferences FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
-}
-
-func (FirewallPolicyStatelessRuleGroupReferencesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferences)(nil)).Elem()
-}
-
-func (i FirewallPolicyStatelessRuleGroupReferencesArgs) ToFirewallPolicyStatelessRuleGroupReferencesOutput() FirewallPolicyStatelessRuleGroupReferencesOutput {
-	return i.ToFirewallPolicyStatelessRuleGroupReferencesOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatelessRuleGroupReferencesArgs) ToFirewallPolicyStatelessRuleGroupReferencesOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessRuleGroupReferencesOutput)
-}
-
-func (i FirewallPolicyStatelessRuleGroupReferencesArgs) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutput() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return i.ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyStatelessRuleGroupReferencesArgs) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessRuleGroupReferencesOutput).ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyStatelessRuleGroupReferencesPtrInput is an input type that accepts FirewallPolicyStatelessRuleGroupReferencesArgs, FirewallPolicyStatelessRuleGroupReferencesPtr and FirewallPolicyStatelessRuleGroupReferencesPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyStatelessRuleGroupReferencesPtrInput` via:
-//
-//          FirewallPolicyStatelessRuleGroupReferencesArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyStatelessRuleGroupReferencesPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyStatelessRuleGroupReferencesPtrOutput() FirewallPolicyStatelessRuleGroupReferencesPtrOutput
-	ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(context.Context) FirewallPolicyStatelessRuleGroupReferencesPtrOutput
-}
-
-type firewallPolicyStatelessRuleGroupReferencesPtrType FirewallPolicyStatelessRuleGroupReferencesArgs
-
-func FirewallPolicyStatelessRuleGroupReferencesPtr(v *FirewallPolicyStatelessRuleGroupReferencesArgs) FirewallPolicyStatelessRuleGroupReferencesPtrInput {
-	return (*firewallPolicyStatelessRuleGroupReferencesPtrType)(v)
-}
-
-func (*firewallPolicyStatelessRuleGroupReferencesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatelessRuleGroupReferences)(nil)).Elem()
-}
-
-func (i *firewallPolicyStatelessRuleGroupReferencesPtrType) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutput() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return i.ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyStatelessRuleGroupReferencesPtrType) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatelessRuleGroupReferencesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html
-type FirewallPolicyStatelessRuleGroupReferencesOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatelessRuleGroupReferencesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicyStatelessRuleGroupReferences)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesOutput) ToFirewallPolicyStatelessRuleGroupReferencesOutput() FirewallPolicyStatelessRuleGroupReferencesOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesOutput) ToFirewallPolicyStatelessRuleGroupReferencesOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesOutput) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutput() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o.ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesOutput) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStatelessRuleGroupReferences) *FirewallPolicyStatelessRuleGroupReferences {
-		return &v
-	}).(FirewallPolicyStatelessRuleGroupReferencesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-func (o FirewallPolicyStatelessRuleGroupReferencesOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v FirewallPolicyStatelessRuleGroupReferences) []FirewallPolicyStatelessRuleGroupReference {
-		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
-}
-
-type FirewallPolicyStatelessRuleGroupReferencesPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyStatelessRuleGroupReferencesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyStatelessRuleGroupReferences)(nil)).Elem()
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesPtrOutput) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutput() FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesPtrOutput) ToFirewallPolicyStatelessRuleGroupReferencesPtrOutputWithContext(ctx context.Context) FirewallPolicyStatelessRuleGroupReferencesPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyStatelessRuleGroupReferencesPtrOutput) Elem() FirewallPolicyStatelessRuleGroupReferencesOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatelessRuleGroupReferences) FirewallPolicyStatelessRuleGroupReferences {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyStatelessRuleGroupReferences
-		return ret
-	}).(FirewallPolicyStatelessRuleGroupReferencesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statelessrulegroupreferences.html#cfn-networkfirewall-firewallpolicy-statelessrulegroupreferences-statelessrulegroupreferences
-func (o FirewallPolicyStatelessRuleGroupReferencesPtrOutput) StatelessRuleGroupReferences() FirewallPolicyStatelessRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyStatelessRuleGroupReferences) []FirewallPolicyStatelessRuleGroupReference {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html
@@ -1769,152 +1063,10 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntI
 	}).(LoggingConfigurationLogDestinationConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
-type LoggingConfigurationLogDestinationConfigs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-	LogDestinationConfigs []LoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
-}
-
-// LoggingConfigurationLogDestinationConfigsInput is an input type that accepts LoggingConfigurationLogDestinationConfigsArgs and LoggingConfigurationLogDestinationConfigsOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigsInput` via:
-//
-//          LoggingConfigurationLogDestinationConfigsArgs{...}
-type LoggingConfigurationLogDestinationConfigsInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationLogDestinationConfigsOutput() LoggingConfigurationLogDestinationConfigsOutput
-	ToLoggingConfigurationLogDestinationConfigsOutputWithContext(context.Context) LoggingConfigurationLogDestinationConfigsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
-type LoggingConfigurationLogDestinationConfigsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-	LogDestinationConfigs LoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
-}
-
-func (LoggingConfigurationLogDestinationConfigsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationLogDestinationConfigs)(nil)).Elem()
-}
-
-func (i LoggingConfigurationLogDestinationConfigsArgs) ToLoggingConfigurationLogDestinationConfigsOutput() LoggingConfigurationLogDestinationConfigsOutput {
-	return i.ToLoggingConfigurationLogDestinationConfigsOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationLogDestinationConfigsArgs) ToLoggingConfigurationLogDestinationConfigsOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLogDestinationConfigsOutput)
-}
-
-func (i LoggingConfigurationLogDestinationConfigsArgs) ToLoggingConfigurationLogDestinationConfigsPtrOutput() LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return i.ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationLogDestinationConfigsArgs) ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLogDestinationConfigsOutput).ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(ctx)
-}
-
-// LoggingConfigurationLogDestinationConfigsPtrInput is an input type that accepts LoggingConfigurationLogDestinationConfigsArgs, LoggingConfigurationLogDestinationConfigsPtr and LoggingConfigurationLogDestinationConfigsPtrOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLogDestinationConfigsPtrInput` via:
-//
-//          LoggingConfigurationLogDestinationConfigsArgs{...}
-//
-//  or:
-//
-//          nil
-type LoggingConfigurationLogDestinationConfigsPtrInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationLogDestinationConfigsPtrOutput() LoggingConfigurationLogDestinationConfigsPtrOutput
-	ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(context.Context) LoggingConfigurationLogDestinationConfigsPtrOutput
-}
-
-type loggingConfigurationLogDestinationConfigsPtrType LoggingConfigurationLogDestinationConfigsArgs
-
-func LoggingConfigurationLogDestinationConfigsPtr(v *LoggingConfigurationLogDestinationConfigsArgs) LoggingConfigurationLogDestinationConfigsPtrInput {
-	return (*loggingConfigurationLogDestinationConfigsPtrType)(v)
-}
-
-func (*loggingConfigurationLogDestinationConfigsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLogDestinationConfigs)(nil)).Elem()
-}
-
-func (i *loggingConfigurationLogDestinationConfigsPtrType) ToLoggingConfigurationLogDestinationConfigsPtrOutput() LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return i.ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(context.Background())
-}
-
-func (i *loggingConfigurationLogDestinationConfigsPtrType) ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLogDestinationConfigsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html
-type LoggingConfigurationLogDestinationConfigsOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationLogDestinationConfigsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingConfigurationLogDestinationConfigs)(nil)).Elem()
-}
-
-func (o LoggingConfigurationLogDestinationConfigsOutput) ToLoggingConfigurationLogDestinationConfigsOutput() LoggingConfigurationLogDestinationConfigsOutput {
-	return o
-}
-
-func (o LoggingConfigurationLogDestinationConfigsOutput) ToLoggingConfigurationLogDestinationConfigsOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsOutput {
-	return o
-}
-
-func (o LoggingConfigurationLogDestinationConfigsOutput) ToLoggingConfigurationLogDestinationConfigsPtrOutput() LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return o.ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(context.Background())
-}
-
-func (o LoggingConfigurationLogDestinationConfigsOutput) ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationLogDestinationConfigs) *LoggingConfigurationLogDestinationConfigs {
-		return &v
-	}).(LoggingConfigurationLogDestinationConfigsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-func (o LoggingConfigurationLogDestinationConfigsOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
-	return o.ApplyT(func(v LoggingConfigurationLogDestinationConfigs) []LoggingConfigurationLogDestinationConfig {
-		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
-}
-
-type LoggingConfigurationLogDestinationConfigsPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationLogDestinationConfigsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLogDestinationConfigs)(nil)).Elem()
-}
-
-func (o LoggingConfigurationLogDestinationConfigsPtrOutput) ToLoggingConfigurationLogDestinationConfigsPtrOutput() LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationLogDestinationConfigsPtrOutput) ToLoggingConfigurationLogDestinationConfigsPtrOutputWithContext(ctx context.Context) LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationLogDestinationConfigsPtrOutput) Elem() LoggingConfigurationLogDestinationConfigsOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLogDestinationConfigs) LoggingConfigurationLogDestinationConfigs {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingConfigurationLogDestinationConfigs
-		return ret
-	}).(LoggingConfigurationLogDestinationConfigsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfigs.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfigs-logdestinationconfigs
-func (o LoggingConfigurationLogDestinationConfigsPtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLogDestinationConfigs) []LoggingConfigurationLogDestinationConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
 type LoggingConfigurationLoggingConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-	LogDestinationConfigs LoggingConfigurationLogDestinationConfigs `pulumi:"logDestinationConfigs"`
+	LogDestinationConfigs []LoggingConfigurationLogDestinationConfig `pulumi:"logDestinationConfigs"`
 }
 
 // LoggingConfigurationLoggingConfigurationInput is an input type that accepts LoggingConfigurationLoggingConfigurationArgs and LoggingConfigurationLoggingConfigurationOutput values.
@@ -1931,7 +1083,7 @@ type LoggingConfigurationLoggingConfigurationInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
 type LoggingConfigurationLoggingConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-	LogDestinationConfigs LoggingConfigurationLogDestinationConfigsInput `pulumi:"logDestinationConfigs"`
+	LogDestinationConfigs LoggingConfigurationLogDestinationConfigArrayInput `pulumi:"logDestinationConfigs"`
 }
 
 func (LoggingConfigurationLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -2013,10 +1165,10 @@ func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLo
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigsOutput {
-	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) LoggingConfigurationLogDestinationConfigs {
+func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
+	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLogDestinationConfig {
 		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigsOutput)
+	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
 }
 
 type LoggingConfigurationLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -2044,13 +1196,13 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigsPtrOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) *LoggingConfigurationLogDestinationConfigs {
+func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs() LoggingConfigurationLogDestinationConfigArrayOutput {
+	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLogDestinationConfig {
 		if v == nil {
 			return nil
 		}
-		return &v.LogDestinationConfigs
-	}).(LoggingConfigurationLogDestinationConfigsPtrOutput)
+		return v.LogDestinationConfigs
+	}).(LoggingConfigurationLogDestinationConfigArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-actiondefinition.html
@@ -2208,146 +1360,6 @@ func (o RuleGroupAddressArrayOutput) Index(i pulumi.IntInput) RuleGroupAddressOu
 	}).(RuleGroupAddressOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
-type RuleGroupAddresses struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
-	Addresses []RuleGroupAddress `pulumi:"addresses"`
-}
-
-// RuleGroupAddressesInput is an input type that accepts RuleGroupAddressesArgs and RuleGroupAddressesOutput values.
-// You can construct a concrete instance of `RuleGroupAddressesInput` via:
-//
-//          RuleGroupAddressesArgs{...}
-type RuleGroupAddressesInput interface {
-	pulumi.Input
-
-	ToRuleGroupAddressesOutput() RuleGroupAddressesOutput
-	ToRuleGroupAddressesOutputWithContext(context.Context) RuleGroupAddressesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
-type RuleGroupAddressesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
-	Addresses RuleGroupAddressArrayInput `pulumi:"addresses"`
-}
-
-func (RuleGroupAddressesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAddresses)(nil)).Elem()
-}
-
-func (i RuleGroupAddressesArgs) ToRuleGroupAddressesOutput() RuleGroupAddressesOutput {
-	return i.ToRuleGroupAddressesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupAddressesArgs) ToRuleGroupAddressesOutputWithContext(ctx context.Context) RuleGroupAddressesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAddressesOutput)
-}
-
-func (i RuleGroupAddressesArgs) ToRuleGroupAddressesPtrOutput() RuleGroupAddressesPtrOutput {
-	return i.ToRuleGroupAddressesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupAddressesArgs) ToRuleGroupAddressesPtrOutputWithContext(ctx context.Context) RuleGroupAddressesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAddressesOutput).ToRuleGroupAddressesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupAddressesPtrInput is an input type that accepts RuleGroupAddressesArgs, RuleGroupAddressesPtr and RuleGroupAddressesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupAddressesPtrInput` via:
-//
-//          RuleGroupAddressesArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupAddressesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupAddressesPtrOutput() RuleGroupAddressesPtrOutput
-	ToRuleGroupAddressesPtrOutputWithContext(context.Context) RuleGroupAddressesPtrOutput
-}
-
-type ruleGroupAddressesPtrType RuleGroupAddressesArgs
-
-func RuleGroupAddressesPtr(v *RuleGroupAddressesArgs) RuleGroupAddressesPtrInput {
-	return (*ruleGroupAddressesPtrType)(v)
-}
-
-func (*ruleGroupAddressesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAddresses)(nil)).Elem()
-}
-
-func (i *ruleGroupAddressesPtrType) ToRuleGroupAddressesPtrOutput() RuleGroupAddressesPtrOutput {
-	return i.ToRuleGroupAddressesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupAddressesPtrType) ToRuleGroupAddressesPtrOutputWithContext(ctx context.Context) RuleGroupAddressesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAddressesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html
-type RuleGroupAddressesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupAddressesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupAddresses)(nil)).Elem()
-}
-
-func (o RuleGroupAddressesOutput) ToRuleGroupAddressesOutput() RuleGroupAddressesOutput {
-	return o
-}
-
-func (o RuleGroupAddressesOutput) ToRuleGroupAddressesOutputWithContext(ctx context.Context) RuleGroupAddressesOutput {
-	return o
-}
-
-func (o RuleGroupAddressesOutput) ToRuleGroupAddressesPtrOutput() RuleGroupAddressesPtrOutput {
-	return o.ToRuleGroupAddressesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupAddressesOutput) ToRuleGroupAddressesPtrOutputWithContext(ctx context.Context) RuleGroupAddressesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupAddresses) *RuleGroupAddresses {
-		return &v
-	}).(RuleGroupAddressesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
-func (o RuleGroupAddressesOutput) Addresses() RuleGroupAddressArrayOutput {
-	return o.ApplyT(func(v RuleGroupAddresses) []RuleGroupAddress { return v.Addresses }).(RuleGroupAddressArrayOutput)
-}
-
-type RuleGroupAddressesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupAddressesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupAddresses)(nil)).Elem()
-}
-
-func (o RuleGroupAddressesPtrOutput) ToRuleGroupAddressesPtrOutput() RuleGroupAddressesPtrOutput {
-	return o
-}
-
-func (o RuleGroupAddressesPtrOutput) ToRuleGroupAddressesPtrOutputWithContext(ctx context.Context) RuleGroupAddressesPtrOutput {
-	return o
-}
-
-func (o RuleGroupAddressesPtrOutput) Elem() RuleGroupAddressesOutput {
-	return o.ApplyT(func(v *RuleGroupAddresses) RuleGroupAddresses {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupAddresses
-		return ret
-	}).(RuleGroupAddressesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-addresses.html#cfn-networkfirewall-rulegroup-addresses-addresses
-func (o RuleGroupAddressesPtrOutput) Addresses() RuleGroupAddressArrayOutput {
-	return o.ApplyT(func(v *RuleGroupAddresses) []RuleGroupAddress {
-		if v == nil {
-			return nil
-		}
-		return v.Addresses
-	}).(RuleGroupAddressArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html
 type RuleGroupCustomAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customaction.html#cfn-networkfirewall-rulegroup-customaction-actiondefinition
@@ -2457,146 +1469,6 @@ func (o RuleGroupCustomActionArrayOutput) Index(i pulumi.IntInput) RuleGroupCust
 	}).(RuleGroupCustomActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
-type RuleGroupCustomActions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
-	CustomActions []RuleGroupCustomAction `pulumi:"customActions"`
-}
-
-// RuleGroupCustomActionsInput is an input type that accepts RuleGroupCustomActionsArgs and RuleGroupCustomActionsOutput values.
-// You can construct a concrete instance of `RuleGroupCustomActionsInput` via:
-//
-//          RuleGroupCustomActionsArgs{...}
-type RuleGroupCustomActionsInput interface {
-	pulumi.Input
-
-	ToRuleGroupCustomActionsOutput() RuleGroupCustomActionsOutput
-	ToRuleGroupCustomActionsOutputWithContext(context.Context) RuleGroupCustomActionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
-type RuleGroupCustomActionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
-	CustomActions RuleGroupCustomActionArrayInput `pulumi:"customActions"`
-}
-
-func (RuleGroupCustomActionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomActions)(nil)).Elem()
-}
-
-func (i RuleGroupCustomActionsArgs) ToRuleGroupCustomActionsOutput() RuleGroupCustomActionsOutput {
-	return i.ToRuleGroupCustomActionsOutputWithContext(context.Background())
-}
-
-func (i RuleGroupCustomActionsArgs) ToRuleGroupCustomActionsOutputWithContext(ctx context.Context) RuleGroupCustomActionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomActionsOutput)
-}
-
-func (i RuleGroupCustomActionsArgs) ToRuleGroupCustomActionsPtrOutput() RuleGroupCustomActionsPtrOutput {
-	return i.ToRuleGroupCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupCustomActionsArgs) ToRuleGroupCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupCustomActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomActionsOutput).ToRuleGroupCustomActionsPtrOutputWithContext(ctx)
-}
-
-// RuleGroupCustomActionsPtrInput is an input type that accepts RuleGroupCustomActionsArgs, RuleGroupCustomActionsPtr and RuleGroupCustomActionsPtrOutput values.
-// You can construct a concrete instance of `RuleGroupCustomActionsPtrInput` via:
-//
-//          RuleGroupCustomActionsArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupCustomActionsPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupCustomActionsPtrOutput() RuleGroupCustomActionsPtrOutput
-	ToRuleGroupCustomActionsPtrOutputWithContext(context.Context) RuleGroupCustomActionsPtrOutput
-}
-
-type ruleGroupCustomActionsPtrType RuleGroupCustomActionsArgs
-
-func RuleGroupCustomActionsPtr(v *RuleGroupCustomActionsArgs) RuleGroupCustomActionsPtrInput {
-	return (*ruleGroupCustomActionsPtrType)(v)
-}
-
-func (*ruleGroupCustomActionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupCustomActions)(nil)).Elem()
-}
-
-func (i *ruleGroupCustomActionsPtrType) ToRuleGroupCustomActionsPtrOutput() RuleGroupCustomActionsPtrOutput {
-	return i.ToRuleGroupCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupCustomActionsPtrType) ToRuleGroupCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupCustomActionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html
-type RuleGroupCustomActionsOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupCustomActionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomActions)(nil)).Elem()
-}
-
-func (o RuleGroupCustomActionsOutput) ToRuleGroupCustomActionsOutput() RuleGroupCustomActionsOutput {
-	return o
-}
-
-func (o RuleGroupCustomActionsOutput) ToRuleGroupCustomActionsOutputWithContext(ctx context.Context) RuleGroupCustomActionsOutput {
-	return o
-}
-
-func (o RuleGroupCustomActionsOutput) ToRuleGroupCustomActionsPtrOutput() RuleGroupCustomActionsPtrOutput {
-	return o.ToRuleGroupCustomActionsPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupCustomActionsOutput) ToRuleGroupCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupCustomActionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCustomActions) *RuleGroupCustomActions {
-		return &v
-	}).(RuleGroupCustomActionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
-func (o RuleGroupCustomActionsOutput) CustomActions() RuleGroupCustomActionArrayOutput {
-	return o.ApplyT(func(v RuleGroupCustomActions) []RuleGroupCustomAction { return v.CustomActions }).(RuleGroupCustomActionArrayOutput)
-}
-
-type RuleGroupCustomActionsPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupCustomActionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupCustomActions)(nil)).Elem()
-}
-
-func (o RuleGroupCustomActionsPtrOutput) ToRuleGroupCustomActionsPtrOutput() RuleGroupCustomActionsPtrOutput {
-	return o
-}
-
-func (o RuleGroupCustomActionsPtrOutput) ToRuleGroupCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupCustomActionsPtrOutput {
-	return o
-}
-
-func (o RuleGroupCustomActionsPtrOutput) Elem() RuleGroupCustomActionsOutput {
-	return o.ApplyT(func(v *RuleGroupCustomActions) RuleGroupCustomActions {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupCustomActions
-		return ret
-	}).(RuleGroupCustomActionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-customactions.html#cfn-networkfirewall-rulegroup-customactions-customactions
-func (o RuleGroupCustomActionsPtrOutput) CustomActions() RuleGroupCustomActionArrayOutput {
-	return o.ApplyT(func(v *RuleGroupCustomActions) []RuleGroupCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.CustomActions
-	}).(RuleGroupCustomActionArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html
 type RuleGroupDimension struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimension.html#cfn-networkfirewall-rulegroup-dimension-value
@@ -2695,286 +1567,6 @@ func (o RuleGroupDimensionArrayOutput) Index(i pulumi.IntInput) RuleGroupDimensi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupDimension {
 		return vs[0].([]RuleGroupDimension)[vs[1].(int)]
 	}).(RuleGroupDimensionOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
-type RuleGroupDimensions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-	Dimensions []RuleGroupDimension `pulumi:"dimensions"`
-}
-
-// RuleGroupDimensionsInput is an input type that accepts RuleGroupDimensionsArgs and RuleGroupDimensionsOutput values.
-// You can construct a concrete instance of `RuleGroupDimensionsInput` via:
-//
-//          RuleGroupDimensionsArgs{...}
-type RuleGroupDimensionsInput interface {
-	pulumi.Input
-
-	ToRuleGroupDimensionsOutput() RuleGroupDimensionsOutput
-	ToRuleGroupDimensionsOutputWithContext(context.Context) RuleGroupDimensionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
-type RuleGroupDimensionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-	Dimensions RuleGroupDimensionArrayInput `pulumi:"dimensions"`
-}
-
-func (RuleGroupDimensionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupDimensions)(nil)).Elem()
-}
-
-func (i RuleGroupDimensionsArgs) ToRuleGroupDimensionsOutput() RuleGroupDimensionsOutput {
-	return i.ToRuleGroupDimensionsOutputWithContext(context.Background())
-}
-
-func (i RuleGroupDimensionsArgs) ToRuleGroupDimensionsOutputWithContext(ctx context.Context) RuleGroupDimensionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupDimensionsOutput)
-}
-
-func (i RuleGroupDimensionsArgs) ToRuleGroupDimensionsPtrOutput() RuleGroupDimensionsPtrOutput {
-	return i.ToRuleGroupDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupDimensionsArgs) ToRuleGroupDimensionsPtrOutputWithContext(ctx context.Context) RuleGroupDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupDimensionsOutput).ToRuleGroupDimensionsPtrOutputWithContext(ctx)
-}
-
-// RuleGroupDimensionsPtrInput is an input type that accepts RuleGroupDimensionsArgs, RuleGroupDimensionsPtr and RuleGroupDimensionsPtrOutput values.
-// You can construct a concrete instance of `RuleGroupDimensionsPtrInput` via:
-//
-//          RuleGroupDimensionsArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupDimensionsPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupDimensionsPtrOutput() RuleGroupDimensionsPtrOutput
-	ToRuleGroupDimensionsPtrOutputWithContext(context.Context) RuleGroupDimensionsPtrOutput
-}
-
-type ruleGroupDimensionsPtrType RuleGroupDimensionsArgs
-
-func RuleGroupDimensionsPtr(v *RuleGroupDimensionsArgs) RuleGroupDimensionsPtrInput {
-	return (*ruleGroupDimensionsPtrType)(v)
-}
-
-func (*ruleGroupDimensionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupDimensions)(nil)).Elem()
-}
-
-func (i *ruleGroupDimensionsPtrType) ToRuleGroupDimensionsPtrOutput() RuleGroupDimensionsPtrOutput {
-	return i.ToRuleGroupDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupDimensionsPtrType) ToRuleGroupDimensionsPtrOutputWithContext(ctx context.Context) RuleGroupDimensionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupDimensionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html
-type RuleGroupDimensionsOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupDimensionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupDimensions)(nil)).Elem()
-}
-
-func (o RuleGroupDimensionsOutput) ToRuleGroupDimensionsOutput() RuleGroupDimensionsOutput {
-	return o
-}
-
-func (o RuleGroupDimensionsOutput) ToRuleGroupDimensionsOutputWithContext(ctx context.Context) RuleGroupDimensionsOutput {
-	return o
-}
-
-func (o RuleGroupDimensionsOutput) ToRuleGroupDimensionsPtrOutput() RuleGroupDimensionsPtrOutput {
-	return o.ToRuleGroupDimensionsPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupDimensionsOutput) ToRuleGroupDimensionsPtrOutputWithContext(ctx context.Context) RuleGroupDimensionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupDimensions) *RuleGroupDimensions {
-		return &v
-	}).(RuleGroupDimensionsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-func (o RuleGroupDimensionsOutput) Dimensions() RuleGroupDimensionArrayOutput {
-	return o.ApplyT(func(v RuleGroupDimensions) []RuleGroupDimension { return v.Dimensions }).(RuleGroupDimensionArrayOutput)
-}
-
-type RuleGroupDimensionsPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupDimensionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupDimensions)(nil)).Elem()
-}
-
-func (o RuleGroupDimensionsPtrOutput) ToRuleGroupDimensionsPtrOutput() RuleGroupDimensionsPtrOutput {
-	return o
-}
-
-func (o RuleGroupDimensionsPtrOutput) ToRuleGroupDimensionsPtrOutputWithContext(ctx context.Context) RuleGroupDimensionsPtrOutput {
-	return o
-}
-
-func (o RuleGroupDimensionsPtrOutput) Elem() RuleGroupDimensionsOutput {
-	return o.ApplyT(func(v *RuleGroupDimensions) RuleGroupDimensions {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupDimensions
-		return ret
-	}).(RuleGroupDimensionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-dimensions.html#cfn-networkfirewall-rulegroup-dimensions-dimensions
-func (o RuleGroupDimensionsPtrOutput) Dimensions() RuleGroupDimensionArrayOutput {
-	return o.ApplyT(func(v *RuleGroupDimensions) []RuleGroupDimension {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(RuleGroupDimensionArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html
-type RuleGroupFlags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
-	Flags []string `pulumi:"flags"`
-}
-
-// RuleGroupFlagsInput is an input type that accepts RuleGroupFlagsArgs and RuleGroupFlagsOutput values.
-// You can construct a concrete instance of `RuleGroupFlagsInput` via:
-//
-//          RuleGroupFlagsArgs{...}
-type RuleGroupFlagsInput interface {
-	pulumi.Input
-
-	ToRuleGroupFlagsOutput() RuleGroupFlagsOutput
-	ToRuleGroupFlagsOutputWithContext(context.Context) RuleGroupFlagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html
-type RuleGroupFlagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
-	Flags pulumi.StringArrayInput `pulumi:"flags"`
-}
-
-func (RuleGroupFlagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupFlags)(nil)).Elem()
-}
-
-func (i RuleGroupFlagsArgs) ToRuleGroupFlagsOutput() RuleGroupFlagsOutput {
-	return i.ToRuleGroupFlagsOutputWithContext(context.Background())
-}
-
-func (i RuleGroupFlagsArgs) ToRuleGroupFlagsOutputWithContext(ctx context.Context) RuleGroupFlagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFlagsOutput)
-}
-
-func (i RuleGroupFlagsArgs) ToRuleGroupFlagsPtrOutput() RuleGroupFlagsPtrOutput {
-	return i.ToRuleGroupFlagsPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupFlagsArgs) ToRuleGroupFlagsPtrOutputWithContext(ctx context.Context) RuleGroupFlagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFlagsOutput).ToRuleGroupFlagsPtrOutputWithContext(ctx)
-}
-
-// RuleGroupFlagsPtrInput is an input type that accepts RuleGroupFlagsArgs, RuleGroupFlagsPtr and RuleGroupFlagsPtrOutput values.
-// You can construct a concrete instance of `RuleGroupFlagsPtrInput` via:
-//
-//          RuleGroupFlagsArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupFlagsPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupFlagsPtrOutput() RuleGroupFlagsPtrOutput
-	ToRuleGroupFlagsPtrOutputWithContext(context.Context) RuleGroupFlagsPtrOutput
-}
-
-type ruleGroupFlagsPtrType RuleGroupFlagsArgs
-
-func RuleGroupFlagsPtr(v *RuleGroupFlagsArgs) RuleGroupFlagsPtrInput {
-	return (*ruleGroupFlagsPtrType)(v)
-}
-
-func (*ruleGroupFlagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupFlags)(nil)).Elem()
-}
-
-func (i *ruleGroupFlagsPtrType) ToRuleGroupFlagsPtrOutput() RuleGroupFlagsPtrOutput {
-	return i.ToRuleGroupFlagsPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupFlagsPtrType) ToRuleGroupFlagsPtrOutputWithContext(ctx context.Context) RuleGroupFlagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFlagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html
-type RuleGroupFlagsOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupFlagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupFlags)(nil)).Elem()
-}
-
-func (o RuleGroupFlagsOutput) ToRuleGroupFlagsOutput() RuleGroupFlagsOutput {
-	return o
-}
-
-func (o RuleGroupFlagsOutput) ToRuleGroupFlagsOutputWithContext(ctx context.Context) RuleGroupFlagsOutput {
-	return o
-}
-
-func (o RuleGroupFlagsOutput) ToRuleGroupFlagsPtrOutput() RuleGroupFlagsPtrOutput {
-	return o.ToRuleGroupFlagsPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupFlagsOutput) ToRuleGroupFlagsPtrOutputWithContext(ctx context.Context) RuleGroupFlagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupFlags) *RuleGroupFlags {
-		return &v
-	}).(RuleGroupFlagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
-func (o RuleGroupFlagsOutput) Flags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupFlags) []string { return v.Flags }).(pulumi.StringArrayOutput)
-}
-
-type RuleGroupFlagsPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupFlagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupFlags)(nil)).Elem()
-}
-
-func (o RuleGroupFlagsPtrOutput) ToRuleGroupFlagsPtrOutput() RuleGroupFlagsPtrOutput {
-	return o
-}
-
-func (o RuleGroupFlagsPtrOutput) ToRuleGroupFlagsPtrOutputWithContext(ctx context.Context) RuleGroupFlagsPtrOutput {
-	return o
-}
-
-func (o RuleGroupFlagsPtrOutput) Elem() RuleGroupFlagsOutput {
-	return o.ApplyT(func(v *RuleGroupFlags) RuleGroupFlags {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupFlags
-		return ret
-	}).(RuleGroupFlagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-flags.html#cfn-networkfirewall-rulegroup-flags-flags
-func (o RuleGroupFlagsPtrOutput) Flags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleGroupFlags) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Flags
-	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html
@@ -3080,7 +1672,7 @@ func (o RuleGroupHeaderOutput) SourcePort() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html
 type RuleGroupIPSet struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
-	Definition *RuleGroupVariableDefinitionList `pulumi:"definition"`
+	Definition []string `pulumi:"definition"`
 }
 
 // RuleGroupIPSetInput is an input type that accepts RuleGroupIPSetArgs and RuleGroupIPSetOutput values.
@@ -3097,7 +1689,7 @@ type RuleGroupIPSetInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html
 type RuleGroupIPSetArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
-	Definition RuleGroupVariableDefinitionListPtrInput `pulumi:"definition"`
+	Definition pulumi.StringArrayInput `pulumi:"definition"`
 }
 
 func (RuleGroupIPSetArgs) ElementType() reflect.Type {
@@ -3153,8 +1745,8 @@ func (o RuleGroupIPSetOutput) ToRuleGroupIPSetOutputWithContext(ctx context.Cont
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html#cfn-networkfirewall-rulegroup-ipset-definition
-func (o RuleGroupIPSetOutput) Definition() RuleGroupVariableDefinitionListPtrOutput {
-	return o.ApplyT(func(v RuleGroupIPSet) *RuleGroupVariableDefinitionList { return v.Definition }).(RuleGroupVariableDefinitionListPtrOutput)
+func (o RuleGroupIPSetOutput) Definition() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupIPSet) []string { return v.Definition }).(pulumi.StringArrayOutput)
 }
 
 type RuleGroupIPSetMapOutput struct{ *pulumi.OutputState }
@@ -3180,17 +1772,17 @@ func (o RuleGroupIPSetMapOutput) MapIndex(k pulumi.StringInput) RuleGroupIPSetOu
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
 type RuleGroupMatchAttributes struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-	DestinationPorts *RuleGroupPortRanges `pulumi:"destinationPorts"`
+	DestinationPorts []RuleGroupPortRange `pulumi:"destinationPorts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-	Destinations *RuleGroupAddresses `pulumi:"destinations"`
+	Destinations []RuleGroupAddress `pulumi:"destinations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
-	Protocols *RuleGroupProtocolNumbers `pulumi:"protocols"`
+	Protocols []int `pulumi:"protocols"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-	SourcePorts *RuleGroupPortRanges `pulumi:"sourcePorts"`
+	SourcePorts []RuleGroupPortRange `pulumi:"sourcePorts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-	Sources *RuleGroupAddresses `pulumi:"sources"`
+	Sources []RuleGroupAddress `pulumi:"sources"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
-	TCPFlags *RuleGroupTCPFlags `pulumi:"tCPFlags"`
+	TCPFlags []RuleGroupTCPFlagField `pulumi:"tCPFlags"`
 }
 
 // RuleGroupMatchAttributesInput is an input type that accepts RuleGroupMatchAttributesArgs and RuleGroupMatchAttributesOutput values.
@@ -3207,17 +1799,17 @@ type RuleGroupMatchAttributesInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
 type RuleGroupMatchAttributesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-	DestinationPorts RuleGroupPortRangesPtrInput `pulumi:"destinationPorts"`
+	DestinationPorts RuleGroupPortRangeArrayInput `pulumi:"destinationPorts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-	Destinations RuleGroupAddressesPtrInput `pulumi:"destinations"`
+	Destinations RuleGroupAddressArrayInput `pulumi:"destinations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
-	Protocols RuleGroupProtocolNumbersPtrInput `pulumi:"protocols"`
+	Protocols pulumi.IntArrayInput `pulumi:"protocols"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-	SourcePorts RuleGroupPortRangesPtrInput `pulumi:"sourcePorts"`
+	SourcePorts RuleGroupPortRangeArrayInput `pulumi:"sourcePorts"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-	Sources RuleGroupAddressesPtrInput `pulumi:"sources"`
+	Sources RuleGroupAddressArrayInput `pulumi:"sources"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
-	TCPFlags RuleGroupTCPFlagsPtrInput `pulumi:"tCPFlags"`
+	TCPFlags RuleGroupTCPFlagFieldArrayInput `pulumi:"tCPFlags"`
 }
 
 func (RuleGroupMatchAttributesArgs) ElementType() reflect.Type {
@@ -3248,33 +1840,33 @@ func (o RuleGroupMatchAttributesOutput) ToRuleGroupMatchAttributesOutputWithCont
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-func (o RuleGroupMatchAttributesOutput) DestinationPorts() RuleGroupPortRangesPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupPortRanges { return v.DestinationPorts }).(RuleGroupPortRangesPtrOutput)
+func (o RuleGroupMatchAttributesOutput) DestinationPorts() RuleGroupPortRangeArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.DestinationPorts }).(RuleGroupPortRangeArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-func (o RuleGroupMatchAttributesOutput) Destinations() RuleGroupAddressesPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupAddresses { return v.Destinations }).(RuleGroupAddressesPtrOutput)
+func (o RuleGroupMatchAttributesOutput) Destinations() RuleGroupAddressArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Destinations }).(RuleGroupAddressArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
-func (o RuleGroupMatchAttributesOutput) Protocols() RuleGroupProtocolNumbersPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupProtocolNumbers { return v.Protocols }).(RuleGroupProtocolNumbersPtrOutput)
+func (o RuleGroupMatchAttributesOutput) Protocols() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []int { return v.Protocols }).(pulumi.IntArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-func (o RuleGroupMatchAttributesOutput) SourcePorts() RuleGroupPortRangesPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupPortRanges { return v.SourcePorts }).(RuleGroupPortRangesPtrOutput)
+func (o RuleGroupMatchAttributesOutput) SourcePorts() RuleGroupPortRangeArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupPortRange { return v.SourcePorts }).(RuleGroupPortRangeArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-func (o RuleGroupMatchAttributesOutput) Sources() RuleGroupAddressesPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupAddresses { return v.Sources }).(RuleGroupAddressesPtrOutput)
+func (o RuleGroupMatchAttributesOutput) Sources() RuleGroupAddressArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupAddress { return v.Sources }).(RuleGroupAddressArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
-func (o RuleGroupMatchAttributesOutput) TCPFlags() RuleGroupTCPFlagsPtrOutput {
-	return o.ApplyT(func(v RuleGroupMatchAttributes) *RuleGroupTCPFlags { return v.TCPFlags }).(RuleGroupTCPFlagsPtrOutput)
+func (o RuleGroupMatchAttributesOutput) TCPFlags() RuleGroupTCPFlagFieldArrayOutput {
+	return o.ApplyT(func(v RuleGroupMatchAttributes) []RuleGroupTCPFlagField { return v.TCPFlags }).(RuleGroupTCPFlagFieldArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html
@@ -3386,150 +1978,10 @@ func (o RuleGroupPortRangeArrayOutput) Index(i pulumi.IntInput) RuleGroupPortRan
 	}).(RuleGroupPortRangeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
-type RuleGroupPortRanges struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-	PortRanges []RuleGroupPortRange `pulumi:"portRanges"`
-}
-
-// RuleGroupPortRangesInput is an input type that accepts RuleGroupPortRangesArgs and RuleGroupPortRangesOutput values.
-// You can construct a concrete instance of `RuleGroupPortRangesInput` via:
-//
-//          RuleGroupPortRangesArgs{...}
-type RuleGroupPortRangesInput interface {
-	pulumi.Input
-
-	ToRuleGroupPortRangesOutput() RuleGroupPortRangesOutput
-	ToRuleGroupPortRangesOutputWithContext(context.Context) RuleGroupPortRangesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
-type RuleGroupPortRangesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-	PortRanges RuleGroupPortRangeArrayInput `pulumi:"portRanges"`
-}
-
-func (RuleGroupPortRangesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupPortRanges)(nil)).Elem()
-}
-
-func (i RuleGroupPortRangesArgs) ToRuleGroupPortRangesOutput() RuleGroupPortRangesOutput {
-	return i.ToRuleGroupPortRangesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupPortRangesArgs) ToRuleGroupPortRangesOutputWithContext(ctx context.Context) RuleGroupPortRangesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortRangesOutput)
-}
-
-func (i RuleGroupPortRangesArgs) ToRuleGroupPortRangesPtrOutput() RuleGroupPortRangesPtrOutput {
-	return i.ToRuleGroupPortRangesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupPortRangesArgs) ToRuleGroupPortRangesPtrOutputWithContext(ctx context.Context) RuleGroupPortRangesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortRangesOutput).ToRuleGroupPortRangesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupPortRangesPtrInput is an input type that accepts RuleGroupPortRangesArgs, RuleGroupPortRangesPtr and RuleGroupPortRangesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupPortRangesPtrInput` via:
-//
-//          RuleGroupPortRangesArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupPortRangesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupPortRangesPtrOutput() RuleGroupPortRangesPtrOutput
-	ToRuleGroupPortRangesPtrOutputWithContext(context.Context) RuleGroupPortRangesPtrOutput
-}
-
-type ruleGroupPortRangesPtrType RuleGroupPortRangesArgs
-
-func RuleGroupPortRangesPtr(v *RuleGroupPortRangesArgs) RuleGroupPortRangesPtrInput {
-	return (*ruleGroupPortRangesPtrType)(v)
-}
-
-func (*ruleGroupPortRangesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupPortRanges)(nil)).Elem()
-}
-
-func (i *ruleGroupPortRangesPtrType) ToRuleGroupPortRangesPtrOutput() RuleGroupPortRangesPtrOutput {
-	return i.ToRuleGroupPortRangesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupPortRangesPtrType) ToRuleGroupPortRangesPtrOutputWithContext(ctx context.Context) RuleGroupPortRangesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupPortRangesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html
-type RuleGroupPortRangesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupPortRangesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupPortRanges)(nil)).Elem()
-}
-
-func (o RuleGroupPortRangesOutput) ToRuleGroupPortRangesOutput() RuleGroupPortRangesOutput {
-	return o
-}
-
-func (o RuleGroupPortRangesOutput) ToRuleGroupPortRangesOutputWithContext(ctx context.Context) RuleGroupPortRangesOutput {
-	return o
-}
-
-func (o RuleGroupPortRangesOutput) ToRuleGroupPortRangesPtrOutput() RuleGroupPortRangesPtrOutput {
-	return o.ToRuleGroupPortRangesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupPortRangesOutput) ToRuleGroupPortRangesPtrOutputWithContext(ctx context.Context) RuleGroupPortRangesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupPortRanges) *RuleGroupPortRanges {
-		return &v
-	}).(RuleGroupPortRangesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-func (o RuleGroupPortRangesOutput) PortRanges() RuleGroupPortRangeArrayOutput {
-	return o.ApplyT(func(v RuleGroupPortRanges) []RuleGroupPortRange { return v.PortRanges }).(RuleGroupPortRangeArrayOutput)
-}
-
-type RuleGroupPortRangesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupPortRangesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupPortRanges)(nil)).Elem()
-}
-
-func (o RuleGroupPortRangesPtrOutput) ToRuleGroupPortRangesPtrOutput() RuleGroupPortRangesPtrOutput {
-	return o
-}
-
-func (o RuleGroupPortRangesPtrOutput) ToRuleGroupPortRangesPtrOutputWithContext(ctx context.Context) RuleGroupPortRangesPtrOutput {
-	return o
-}
-
-func (o RuleGroupPortRangesPtrOutput) Elem() RuleGroupPortRangesOutput {
-	return o.ApplyT(func(v *RuleGroupPortRanges) RuleGroupPortRanges {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupPortRanges
-		return ret
-	}).(RuleGroupPortRangesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portranges.html#cfn-networkfirewall-rulegroup-portranges-portranges
-func (o RuleGroupPortRangesPtrOutput) PortRanges() RuleGroupPortRangeArrayOutput {
-	return o.ApplyT(func(v *RuleGroupPortRanges) []RuleGroupPortRange {
-		if v == nil {
-			return nil
-		}
-		return v.PortRanges
-	}).(RuleGroupPortRangeArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
 type RuleGroupPortSet struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
-	Definition *RuleGroupVariableDefinitionList `pulumi:"definition"`
+	Definition []string `pulumi:"definition"`
 }
 
 // RuleGroupPortSetInput is an input type that accepts RuleGroupPortSetArgs and RuleGroupPortSetOutput values.
@@ -3546,7 +1998,7 @@ type RuleGroupPortSetInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html
 type RuleGroupPortSetArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
-	Definition RuleGroupVariableDefinitionListPtrInput `pulumi:"definition"`
+	Definition pulumi.StringArrayInput `pulumi:"definition"`
 }
 
 func (RuleGroupPortSetArgs) ElementType() reflect.Type {
@@ -3602,8 +2054,8 @@ func (o RuleGroupPortSetOutput) ToRuleGroupPortSetOutputWithContext(ctx context.
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portset.html#cfn-networkfirewall-rulegroup-portset-definition
-func (o RuleGroupPortSetOutput) Definition() RuleGroupVariableDefinitionListPtrOutput {
-	return o.ApplyT(func(v RuleGroupPortSet) *RuleGroupVariableDefinitionList { return v.Definition }).(RuleGroupVariableDefinitionListPtrOutput)
+func (o RuleGroupPortSetOutput) Definition() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupPortSet) []string { return v.Definition }).(pulumi.StringArrayOutput)
 }
 
 type RuleGroupPortSetMapOutput struct{ *pulumi.OutputState }
@@ -3626,150 +2078,10 @@ func (o RuleGroupPortSetMapOutput) MapIndex(k pulumi.StringInput) RuleGroupPortS
 	}).(RuleGroupPortSetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html
-type RuleGroupProtocolNumbers struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
-	ProtocolNumbers []int `pulumi:"protocolNumbers"`
-}
-
-// RuleGroupProtocolNumbersInput is an input type that accepts RuleGroupProtocolNumbersArgs and RuleGroupProtocolNumbersOutput values.
-// You can construct a concrete instance of `RuleGroupProtocolNumbersInput` via:
-//
-//          RuleGroupProtocolNumbersArgs{...}
-type RuleGroupProtocolNumbersInput interface {
-	pulumi.Input
-
-	ToRuleGroupProtocolNumbersOutput() RuleGroupProtocolNumbersOutput
-	ToRuleGroupProtocolNumbersOutputWithContext(context.Context) RuleGroupProtocolNumbersOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html
-type RuleGroupProtocolNumbersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
-	ProtocolNumbers pulumi.IntArrayInput `pulumi:"protocolNumbers"`
-}
-
-func (RuleGroupProtocolNumbersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupProtocolNumbers)(nil)).Elem()
-}
-
-func (i RuleGroupProtocolNumbersArgs) ToRuleGroupProtocolNumbersOutput() RuleGroupProtocolNumbersOutput {
-	return i.ToRuleGroupProtocolNumbersOutputWithContext(context.Background())
-}
-
-func (i RuleGroupProtocolNumbersArgs) ToRuleGroupProtocolNumbersOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupProtocolNumbersOutput)
-}
-
-func (i RuleGroupProtocolNumbersArgs) ToRuleGroupProtocolNumbersPtrOutput() RuleGroupProtocolNumbersPtrOutput {
-	return i.ToRuleGroupProtocolNumbersPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupProtocolNumbersArgs) ToRuleGroupProtocolNumbersPtrOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupProtocolNumbersOutput).ToRuleGroupProtocolNumbersPtrOutputWithContext(ctx)
-}
-
-// RuleGroupProtocolNumbersPtrInput is an input type that accepts RuleGroupProtocolNumbersArgs, RuleGroupProtocolNumbersPtr and RuleGroupProtocolNumbersPtrOutput values.
-// You can construct a concrete instance of `RuleGroupProtocolNumbersPtrInput` via:
-//
-//          RuleGroupProtocolNumbersArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupProtocolNumbersPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupProtocolNumbersPtrOutput() RuleGroupProtocolNumbersPtrOutput
-	ToRuleGroupProtocolNumbersPtrOutputWithContext(context.Context) RuleGroupProtocolNumbersPtrOutput
-}
-
-type ruleGroupProtocolNumbersPtrType RuleGroupProtocolNumbersArgs
-
-func RuleGroupProtocolNumbersPtr(v *RuleGroupProtocolNumbersArgs) RuleGroupProtocolNumbersPtrInput {
-	return (*ruleGroupProtocolNumbersPtrType)(v)
-}
-
-func (*ruleGroupProtocolNumbersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupProtocolNumbers)(nil)).Elem()
-}
-
-func (i *ruleGroupProtocolNumbersPtrType) ToRuleGroupProtocolNumbersPtrOutput() RuleGroupProtocolNumbersPtrOutput {
-	return i.ToRuleGroupProtocolNumbersPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupProtocolNumbersPtrType) ToRuleGroupProtocolNumbersPtrOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupProtocolNumbersPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html
-type RuleGroupProtocolNumbersOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupProtocolNumbersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupProtocolNumbers)(nil)).Elem()
-}
-
-func (o RuleGroupProtocolNumbersOutput) ToRuleGroupProtocolNumbersOutput() RuleGroupProtocolNumbersOutput {
-	return o
-}
-
-func (o RuleGroupProtocolNumbersOutput) ToRuleGroupProtocolNumbersOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersOutput {
-	return o
-}
-
-func (o RuleGroupProtocolNumbersOutput) ToRuleGroupProtocolNumbersPtrOutput() RuleGroupProtocolNumbersPtrOutput {
-	return o.ToRuleGroupProtocolNumbersPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupProtocolNumbersOutput) ToRuleGroupProtocolNumbersPtrOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupProtocolNumbers) *RuleGroupProtocolNumbers {
-		return &v
-	}).(RuleGroupProtocolNumbersPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
-func (o RuleGroupProtocolNumbersOutput) ProtocolNumbers() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v RuleGroupProtocolNumbers) []int { return v.ProtocolNumbers }).(pulumi.IntArrayOutput)
-}
-
-type RuleGroupProtocolNumbersPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupProtocolNumbersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupProtocolNumbers)(nil)).Elem()
-}
-
-func (o RuleGroupProtocolNumbersPtrOutput) ToRuleGroupProtocolNumbersPtrOutput() RuleGroupProtocolNumbersPtrOutput {
-	return o
-}
-
-func (o RuleGroupProtocolNumbersPtrOutput) ToRuleGroupProtocolNumbersPtrOutputWithContext(ctx context.Context) RuleGroupProtocolNumbersPtrOutput {
-	return o
-}
-
-func (o RuleGroupProtocolNumbersPtrOutput) Elem() RuleGroupProtocolNumbersOutput {
-	return o.ApplyT(func(v *RuleGroupProtocolNumbers) RuleGroupProtocolNumbers {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupProtocolNumbers
-		return ret
-	}).(RuleGroupProtocolNumbersOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-protocolnumbers.html#cfn-networkfirewall-rulegroup-protocolnumbers-protocolnumbers
-func (o RuleGroupProtocolNumbersPtrOutput) ProtocolNumbers() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *RuleGroupProtocolNumbers) []int {
-		if v == nil {
-			return nil
-		}
-		return v.ProtocolNumbers
-	}).(pulumi.IntArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
 type RuleGroupPublishMetricAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
-	Dimensions RuleGroupDimensions `pulumi:"dimensions"`
+	Dimensions []RuleGroupDimension `pulumi:"dimensions"`
 }
 
 // RuleGroupPublishMetricActionInput is an input type that accepts RuleGroupPublishMetricActionArgs and RuleGroupPublishMetricActionOutput values.
@@ -3786,7 +2098,7 @@ type RuleGroupPublishMetricActionInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
 type RuleGroupPublishMetricActionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
-	Dimensions RuleGroupDimensionsInput `pulumi:"dimensions"`
+	Dimensions RuleGroupDimensionArrayInput `pulumi:"dimensions"`
 }
 
 func (RuleGroupPublishMetricActionArgs) ElementType() reflect.Type {
@@ -3868,8 +2180,8 @@ func (o RuleGroupPublishMetricActionOutput) ToRuleGroupPublishMetricActionPtrOut
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
-func (o RuleGroupPublishMetricActionOutput) Dimensions() RuleGroupDimensionsOutput {
-	return o.ApplyT(func(v RuleGroupPublishMetricAction) RuleGroupDimensions { return v.Dimensions }).(RuleGroupDimensionsOutput)
+func (o RuleGroupPublishMetricActionOutput) Dimensions() RuleGroupDimensionArrayOutput {
+	return o.ApplyT(func(v RuleGroupPublishMetricAction) []RuleGroupDimension { return v.Dimensions }).(RuleGroupDimensionArrayOutput)
 }
 
 type RuleGroupPublishMetricActionPtrOutput struct{ *pulumi.OutputState }
@@ -3897,13 +2209,13 @@ func (o RuleGroupPublishMetricActionPtrOutput) Elem() RuleGroupPublishMetricActi
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
-func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionsPtrOutput {
-	return o.ApplyT(func(v *RuleGroupPublishMetricAction) *RuleGroupDimensions {
+func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionArrayOutput {
+	return o.ApplyT(func(v *RuleGroupPublishMetricAction) []RuleGroupDimension {
 		if v == nil {
 			return nil
 		}
-		return &v.Dimensions
-	}).(RuleGroupDimensionsPtrOutput)
+		return v.Dimensions
+	}).(RuleGroupDimensionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruledefinition.html
@@ -4238,61 +2550,6 @@ func (o RuleGroupRuleOptionArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOp
 	}).(RuleGroupRuleOptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
-type RuleGroupRuleOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
-	RuleOptions []RuleGroupRuleOption `pulumi:"ruleOptions"`
-}
-
-// RuleGroupRuleOptionsInput is an input type that accepts RuleGroupRuleOptionsArgs and RuleGroupRuleOptionsOutput values.
-// You can construct a concrete instance of `RuleGroupRuleOptionsInput` via:
-//
-//          RuleGroupRuleOptionsArgs{...}
-type RuleGroupRuleOptionsInput interface {
-	pulumi.Input
-
-	ToRuleGroupRuleOptionsOutput() RuleGroupRuleOptionsOutput
-	ToRuleGroupRuleOptionsOutputWithContext(context.Context) RuleGroupRuleOptionsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
-type RuleGroupRuleOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
-	RuleOptions RuleGroupRuleOptionArrayInput `pulumi:"ruleOptions"`
-}
-
-func (RuleGroupRuleOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleOptions)(nil)).Elem()
-}
-
-func (i RuleGroupRuleOptionsArgs) ToRuleGroupRuleOptionsOutput() RuleGroupRuleOptionsOutput {
-	return i.ToRuleGroupRuleOptionsOutputWithContext(context.Background())
-}
-
-func (i RuleGroupRuleOptionsArgs) ToRuleGroupRuleOptionsOutputWithContext(ctx context.Context) RuleGroupRuleOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleOptionsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html
-type RuleGroupRuleOptionsOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupRuleOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupRuleOptions)(nil)).Elem()
-}
-
-func (o RuleGroupRuleOptionsOutput) ToRuleGroupRuleOptionsOutput() RuleGroupRuleOptionsOutput {
-	return o
-}
-
-func (o RuleGroupRuleOptionsOutput) ToRuleGroupRuleOptionsOutputWithContext(ctx context.Context) RuleGroupRuleOptionsOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ruleoptions.html#cfn-networkfirewall-rulegroup-ruleoptions-ruleoptions
-func (o RuleGroupRuleOptionsOutput) RuleOptions() RuleGroupRuleOptionArrayOutput {
-	return o.ApplyT(func(v RuleGroupRuleOptions) []RuleGroupRuleOption { return v.RuleOptions }).(RuleGroupRuleOptionArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
 type RuleGroupRuleVariables struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
@@ -4459,7 +2716,7 @@ type RuleGroupRulesSource struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
 	RulesString *string `pulumi:"rulesString"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-	StatefulRules *RuleGroupStatefulRules `pulumi:"statefulRules"`
+	StatefulRules []RuleGroupStatefulRule `pulumi:"statefulRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
 	StatelessRulesAndCustomActions *RuleGroupStatelessRulesAndCustomActions `pulumi:"statelessRulesAndCustomActions"`
 }
@@ -4482,7 +2739,7 @@ type RuleGroupRulesSourceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
 	RulesString pulumi.StringPtrInput `pulumi:"rulesString"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-	StatefulRules RuleGroupStatefulRulesPtrInput `pulumi:"statefulRules"`
+	StatefulRules RuleGroupStatefulRuleArrayInput `pulumi:"statefulRules"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
 	StatelessRulesAndCustomActions RuleGroupStatelessRulesAndCustomActionsPtrInput `pulumi:"statelessRulesAndCustomActions"`
 }
@@ -4576,8 +2833,8 @@ func (o RuleGroupRulesSourceOutput) RulesString() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-func (o RuleGroupRulesSourceOutput) StatefulRules() RuleGroupStatefulRulesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRulesSource) *RuleGroupStatefulRules { return v.StatefulRules }).(RuleGroupStatefulRulesPtrOutput)
+func (o RuleGroupRulesSourceOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
+	return o.ApplyT(func(v RuleGroupRulesSource) []RuleGroupStatefulRule { return v.StatefulRules }).(RuleGroupStatefulRuleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
@@ -4632,13 +2889,13 @@ func (o RuleGroupRulesSourcePtrOutput) RulesString() pulumi.StringPtrOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-func (o RuleGroupRulesSourcePtrOutput) StatefulRules() RuleGroupStatefulRulesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRulesSource) *RuleGroupStatefulRules {
+func (o RuleGroupRulesSourcePtrOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRulesSource) []RuleGroupStatefulRule {
 		if v == nil {
 			return nil
 		}
 		return v.StatefulRules
-	}).(RuleGroupStatefulRulesPtrOutput)
+	}).(RuleGroupStatefulRuleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
@@ -4656,7 +2913,7 @@ type RuleGroupRulesSourceList struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
 	GeneratedRulesType string `pulumi:"generatedRulesType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-	TargetTypes RuleGroupTargetTypes `pulumi:"targetTypes"`
+	TargetTypes []string `pulumi:"targetTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
 	Targets []string `pulumi:"targets"`
 }
@@ -4677,7 +2934,7 @@ type RuleGroupRulesSourceListArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-generatedrulestype
 	GeneratedRulesType pulumi.StringInput `pulumi:"generatedRulesType"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-	TargetTypes RuleGroupTargetTypesInput `pulumi:"targetTypes"`
+	TargetTypes pulumi.StringArrayInput `pulumi:"targetTypes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
 	Targets pulumi.StringArrayInput `pulumi:"targets"`
 }
@@ -4766,8 +3023,8 @@ func (o RuleGroupRulesSourceListOutput) GeneratedRulesType() pulumi.StringOutput
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-func (o RuleGroupRulesSourceListOutput) TargetTypes() RuleGroupTargetTypesOutput {
-	return o.ApplyT(func(v RuleGroupRulesSourceList) RuleGroupTargetTypes { return v.TargetTypes }).(RuleGroupTargetTypesOutput)
+func (o RuleGroupRulesSourceListOutput) TargetTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupRulesSourceList) []string { return v.TargetTypes }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
@@ -4810,13 +3067,13 @@ func (o RuleGroupRulesSourceListPtrOutput) GeneratedRulesType() pulumi.StringPtr
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targettypes
-func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() RuleGroupTargetTypesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupRulesSourceList) *RuleGroupTargetTypes {
+func (o RuleGroupRulesSourceListPtrOutput) TargetTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleGroupRulesSourceList) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.TargetTypes
-	}).(RuleGroupTargetTypesPtrOutput)
+		return v.TargetTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessourcelist.html#cfn-networkfirewall-rulegroup-rulessourcelist-targets
@@ -4836,7 +3093,7 @@ type RuleGroupStatefulRule struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
 	Header RuleGroupHeader `pulumi:"header"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-	RuleOptions RuleGroupRuleOptions `pulumi:"ruleOptions"`
+	RuleOptions []RuleGroupRuleOption `pulumi:"ruleOptions"`
 }
 
 // RuleGroupStatefulRuleInput is an input type that accepts RuleGroupStatefulRuleArgs and RuleGroupStatefulRuleOutput values.
@@ -4857,7 +3114,7 @@ type RuleGroupStatefulRuleArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
 	Header RuleGroupHeaderInput `pulumi:"header"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-	RuleOptions RuleGroupRuleOptionsInput `pulumi:"ruleOptions"`
+	RuleOptions RuleGroupRuleOptionArrayInput `pulumi:"ruleOptions"`
 }
 
 func (RuleGroupStatefulRuleArgs) ElementType() reflect.Type {
@@ -4923,8 +3180,8 @@ func (o RuleGroupStatefulRuleOutput) Header() RuleGroupHeaderOutput {
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-func (o RuleGroupStatefulRuleOutput) RuleOptions() RuleGroupRuleOptionsOutput {
-	return o.ApplyT(func(v RuleGroupStatefulRule) RuleGroupRuleOptions { return v.RuleOptions }).(RuleGroupRuleOptionsOutput)
+func (o RuleGroupStatefulRuleOutput) RuleOptions() RuleGroupRuleOptionArrayOutput {
+	return o.ApplyT(func(v RuleGroupStatefulRule) []RuleGroupRuleOption { return v.RuleOptions }).(RuleGroupRuleOptionArrayOutput)
 }
 
 type RuleGroupStatefulRuleArrayOutput struct{ *pulumi.OutputState }
@@ -4945,146 +3202,6 @@ func (o RuleGroupStatefulRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupStat
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupStatefulRule {
 		return vs[0].([]RuleGroupStatefulRule)[vs[1].(int)]
 	}).(RuleGroupStatefulRuleOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
-type RuleGroupStatefulRules struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
-	StatefulRules []RuleGroupStatefulRule `pulumi:"statefulRules"`
-}
-
-// RuleGroupStatefulRulesInput is an input type that accepts RuleGroupStatefulRulesArgs and RuleGroupStatefulRulesOutput values.
-// You can construct a concrete instance of `RuleGroupStatefulRulesInput` via:
-//
-//          RuleGroupStatefulRulesArgs{...}
-type RuleGroupStatefulRulesInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatefulRulesOutput() RuleGroupStatefulRulesOutput
-	ToRuleGroupStatefulRulesOutputWithContext(context.Context) RuleGroupStatefulRulesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
-type RuleGroupStatefulRulesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
-	StatefulRules RuleGroupStatefulRuleArrayInput `pulumi:"statefulRules"`
-}
-
-func (RuleGroupStatefulRulesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatefulRules)(nil)).Elem()
-}
-
-func (i RuleGroupStatefulRulesArgs) ToRuleGroupStatefulRulesOutput() RuleGroupStatefulRulesOutput {
-	return i.ToRuleGroupStatefulRulesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatefulRulesArgs) ToRuleGroupStatefulRulesOutputWithContext(ctx context.Context) RuleGroupStatefulRulesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRulesOutput)
-}
-
-func (i RuleGroupStatefulRulesArgs) ToRuleGroupStatefulRulesPtrOutput() RuleGroupStatefulRulesPtrOutput {
-	return i.ToRuleGroupStatefulRulesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatefulRulesArgs) ToRuleGroupStatefulRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRulesOutput).ToRuleGroupStatefulRulesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupStatefulRulesPtrInput is an input type that accepts RuleGroupStatefulRulesArgs, RuleGroupStatefulRulesPtr and RuleGroupStatefulRulesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupStatefulRulesPtrInput` via:
-//
-//          RuleGroupStatefulRulesArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupStatefulRulesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatefulRulesPtrOutput() RuleGroupStatefulRulesPtrOutput
-	ToRuleGroupStatefulRulesPtrOutputWithContext(context.Context) RuleGroupStatefulRulesPtrOutput
-}
-
-type ruleGroupStatefulRulesPtrType RuleGroupStatefulRulesArgs
-
-func RuleGroupStatefulRulesPtr(v *RuleGroupStatefulRulesArgs) RuleGroupStatefulRulesPtrInput {
-	return (*ruleGroupStatefulRulesPtrType)(v)
-}
-
-func (*ruleGroupStatefulRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatefulRules)(nil)).Elem()
-}
-
-func (i *ruleGroupStatefulRulesPtrType) ToRuleGroupStatefulRulesPtrOutput() RuleGroupStatefulRulesPtrOutput {
-	return i.ToRuleGroupStatefulRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupStatefulRulesPtrType) ToRuleGroupStatefulRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatefulRulesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html
-type RuleGroupStatefulRulesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatefulRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatefulRules)(nil)).Elem()
-}
-
-func (o RuleGroupStatefulRulesOutput) ToRuleGroupStatefulRulesOutput() RuleGroupStatefulRulesOutput {
-	return o
-}
-
-func (o RuleGroupStatefulRulesOutput) ToRuleGroupStatefulRulesOutputWithContext(ctx context.Context) RuleGroupStatefulRulesOutput {
-	return o
-}
-
-func (o RuleGroupStatefulRulesOutput) ToRuleGroupStatefulRulesPtrOutput() RuleGroupStatefulRulesPtrOutput {
-	return o.ToRuleGroupStatefulRulesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupStatefulRulesOutput) ToRuleGroupStatefulRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatefulRules) *RuleGroupStatefulRules {
-		return &v
-	}).(RuleGroupStatefulRulesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
-func (o RuleGroupStatefulRulesOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
-	return o.ApplyT(func(v RuleGroupStatefulRules) []RuleGroupStatefulRule { return v.StatefulRules }).(RuleGroupStatefulRuleArrayOutput)
-}
-
-type RuleGroupStatefulRulesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatefulRulesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatefulRules)(nil)).Elem()
-}
-
-func (o RuleGroupStatefulRulesPtrOutput) ToRuleGroupStatefulRulesPtrOutput() RuleGroupStatefulRulesPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatefulRulesPtrOutput) ToRuleGroupStatefulRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatefulRulesPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatefulRulesPtrOutput) Elem() RuleGroupStatefulRulesOutput {
-	return o.ApplyT(func(v *RuleGroupStatefulRules) RuleGroupStatefulRules {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupStatefulRules
-		return ret
-	}).(RuleGroupStatefulRulesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrules.html#cfn-networkfirewall-rulegroup-statefulrules-statefulrules
-func (o RuleGroupStatefulRulesPtrOutput) StatefulRules() RuleGroupStatefulRuleArrayOutput {
-	return o.ApplyT(func(v *RuleGroupStatefulRules) []RuleGroupStatefulRule {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulRules
-	}).(RuleGroupStatefulRuleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrule.html
@@ -5196,152 +3313,12 @@ func (o RuleGroupStatelessRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupSta
 	}).(RuleGroupStatelessRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
-type RuleGroupStatelessRules struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-	StatelessRules []RuleGroupStatelessRule `pulumi:"statelessRules"`
-}
-
-// RuleGroupStatelessRulesInput is an input type that accepts RuleGroupStatelessRulesArgs and RuleGroupStatelessRulesOutput values.
-// You can construct a concrete instance of `RuleGroupStatelessRulesInput` via:
-//
-//          RuleGroupStatelessRulesArgs{...}
-type RuleGroupStatelessRulesInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatelessRulesOutput() RuleGroupStatelessRulesOutput
-	ToRuleGroupStatelessRulesOutputWithContext(context.Context) RuleGroupStatelessRulesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
-type RuleGroupStatelessRulesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-	StatelessRules RuleGroupStatelessRuleArrayInput `pulumi:"statelessRules"`
-}
-
-func (RuleGroupStatelessRulesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatelessRules)(nil)).Elem()
-}
-
-func (i RuleGroupStatelessRulesArgs) ToRuleGroupStatelessRulesOutput() RuleGroupStatelessRulesOutput {
-	return i.ToRuleGroupStatelessRulesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatelessRulesArgs) ToRuleGroupStatelessRulesOutputWithContext(ctx context.Context) RuleGroupStatelessRulesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRulesOutput)
-}
-
-func (i RuleGroupStatelessRulesArgs) ToRuleGroupStatelessRulesPtrOutput() RuleGroupStatelessRulesPtrOutput {
-	return i.ToRuleGroupStatelessRulesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupStatelessRulesArgs) ToRuleGroupStatelessRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatelessRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRulesOutput).ToRuleGroupStatelessRulesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupStatelessRulesPtrInput is an input type that accepts RuleGroupStatelessRulesArgs, RuleGroupStatelessRulesPtr and RuleGroupStatelessRulesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupStatelessRulesPtrInput` via:
-//
-//          RuleGroupStatelessRulesArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupStatelessRulesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupStatelessRulesPtrOutput() RuleGroupStatelessRulesPtrOutput
-	ToRuleGroupStatelessRulesPtrOutputWithContext(context.Context) RuleGroupStatelessRulesPtrOutput
-}
-
-type ruleGroupStatelessRulesPtrType RuleGroupStatelessRulesArgs
-
-func RuleGroupStatelessRulesPtr(v *RuleGroupStatelessRulesArgs) RuleGroupStatelessRulesPtrInput {
-	return (*ruleGroupStatelessRulesPtrType)(v)
-}
-
-func (*ruleGroupStatelessRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatelessRules)(nil)).Elem()
-}
-
-func (i *ruleGroupStatelessRulesPtrType) ToRuleGroupStatelessRulesPtrOutput() RuleGroupStatelessRulesPtrOutput {
-	return i.ToRuleGroupStatelessRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupStatelessRulesPtrType) ToRuleGroupStatelessRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatelessRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatelessRulesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html
-type RuleGroupStatelessRulesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatelessRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupStatelessRules)(nil)).Elem()
-}
-
-func (o RuleGroupStatelessRulesOutput) ToRuleGroupStatelessRulesOutput() RuleGroupStatelessRulesOutput {
-	return o
-}
-
-func (o RuleGroupStatelessRulesOutput) ToRuleGroupStatelessRulesOutputWithContext(ctx context.Context) RuleGroupStatelessRulesOutput {
-	return o
-}
-
-func (o RuleGroupStatelessRulesOutput) ToRuleGroupStatelessRulesPtrOutput() RuleGroupStatelessRulesPtrOutput {
-	return o.ToRuleGroupStatelessRulesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupStatelessRulesOutput) ToRuleGroupStatelessRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatelessRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupStatelessRules) *RuleGroupStatelessRules {
-		return &v
-	}).(RuleGroupStatelessRulesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-func (o RuleGroupStatelessRulesOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
-	return o.ApplyT(func(v RuleGroupStatelessRules) []RuleGroupStatelessRule { return v.StatelessRules }).(RuleGroupStatelessRuleArrayOutput)
-}
-
-type RuleGroupStatelessRulesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupStatelessRulesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupStatelessRules)(nil)).Elem()
-}
-
-func (o RuleGroupStatelessRulesPtrOutput) ToRuleGroupStatelessRulesPtrOutput() RuleGroupStatelessRulesPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatelessRulesPtrOutput) ToRuleGroupStatelessRulesPtrOutputWithContext(ctx context.Context) RuleGroupStatelessRulesPtrOutput {
-	return o
-}
-
-func (o RuleGroupStatelessRulesPtrOutput) Elem() RuleGroupStatelessRulesOutput {
-	return o.ApplyT(func(v *RuleGroupStatelessRules) RuleGroupStatelessRules {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupStatelessRules
-		return ret
-	}).(RuleGroupStatelessRulesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrules.html#cfn-networkfirewall-rulegroup-statelessrules-statelessrules
-func (o RuleGroupStatelessRulesPtrOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
-	return o.ApplyT(func(v *RuleGroupStatelessRules) []RuleGroupStatelessRule {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessRules
-	}).(RuleGroupStatelessRuleArrayOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
 type RuleGroupStatelessRulesAndCustomActions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-	CustomActions *RuleGroupCustomActions `pulumi:"customActions"`
+	CustomActions []RuleGroupCustomAction `pulumi:"customActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-	StatelessRules RuleGroupStatelessRules `pulumi:"statelessRules"`
+	StatelessRules []RuleGroupStatelessRule `pulumi:"statelessRules"`
 }
 
 // RuleGroupStatelessRulesAndCustomActionsInput is an input type that accepts RuleGroupStatelessRulesAndCustomActionsArgs and RuleGroupStatelessRulesAndCustomActionsOutput values.
@@ -5358,9 +3335,9 @@ type RuleGroupStatelessRulesAndCustomActionsInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
 type RuleGroupStatelessRulesAndCustomActionsArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-	CustomActions RuleGroupCustomActionsPtrInput `pulumi:"customActions"`
+	CustomActions RuleGroupCustomActionArrayInput `pulumi:"customActions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-	StatelessRules RuleGroupStatelessRulesInput `pulumi:"statelessRules"`
+	StatelessRules RuleGroupStatelessRuleArrayInput `pulumi:"statelessRules"`
 }
 
 func (RuleGroupStatelessRulesAndCustomActionsArgs) ElementType() reflect.Type {
@@ -5442,13 +3419,13 @@ func (o RuleGroupStatelessRulesAndCustomActionsOutput) ToRuleGroupStatelessRules
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-func (o RuleGroupStatelessRulesAndCustomActionsOutput) CustomActions() RuleGroupCustomActionsPtrOutput {
-	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) *RuleGroupCustomActions { return v.CustomActions }).(RuleGroupCustomActionsPtrOutput)
+func (o RuleGroupStatelessRulesAndCustomActionsOutput) CustomActions() RuleGroupCustomActionArrayOutput {
+	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) []RuleGroupCustomAction { return v.CustomActions }).(RuleGroupCustomActionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-func (o RuleGroupStatelessRulesAndCustomActionsOutput) StatelessRules() RuleGroupStatelessRulesOutput {
-	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) RuleGroupStatelessRules { return v.StatelessRules }).(RuleGroupStatelessRulesOutput)
+func (o RuleGroupStatelessRulesAndCustomActionsOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
+	return o.ApplyT(func(v RuleGroupStatelessRulesAndCustomActions) []RuleGroupStatelessRule { return v.StatelessRules }).(RuleGroupStatelessRuleArrayOutput)
 }
 
 type RuleGroupStatelessRulesAndCustomActionsPtrOutput struct{ *pulumi.OutputState }
@@ -5476,31 +3453,31 @@ func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) Elem() RuleGroupStatel
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) CustomActions() RuleGroupCustomActionsPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) *RuleGroupCustomActions {
+func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) CustomActions() RuleGroupCustomActionArrayOutput {
+	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) []RuleGroupCustomAction {
 		if v == nil {
 			return nil
 		}
 		return v.CustomActions
-	}).(RuleGroupCustomActionsPtrOutput)
+	}).(RuleGroupCustomActionArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleGroupStatelessRulesPtrOutput {
-	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) *RuleGroupStatelessRules {
+func (o RuleGroupStatelessRulesAndCustomActionsPtrOutput) StatelessRules() RuleGroupStatelessRuleArrayOutput {
+	return o.ApplyT(func(v *RuleGroupStatelessRulesAndCustomActions) []RuleGroupStatelessRule {
 		if v == nil {
 			return nil
 		}
-		return &v.StatelessRules
-	}).(RuleGroupStatelessRulesPtrOutput)
+		return v.StatelessRules
+	}).(RuleGroupStatelessRuleArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
 type RuleGroupTCPFlagField struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-	Flags RuleGroupFlags `pulumi:"flags"`
+	Flags []string `pulumi:"flags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
-	Masks *RuleGroupFlags `pulumi:"masks"`
+	Masks []string `pulumi:"masks"`
 }
 
 // RuleGroupTCPFlagFieldInput is an input type that accepts RuleGroupTCPFlagFieldArgs and RuleGroupTCPFlagFieldOutput values.
@@ -5517,9 +3494,9 @@ type RuleGroupTCPFlagFieldInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
 type RuleGroupTCPFlagFieldArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-	Flags RuleGroupFlagsInput `pulumi:"flags"`
+	Flags pulumi.StringArrayInput `pulumi:"flags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
-	Masks RuleGroupFlagsPtrInput `pulumi:"masks"`
+	Masks pulumi.StringArrayInput `pulumi:"masks"`
 }
 
 func (RuleGroupTCPFlagFieldArgs) ElementType() reflect.Type {
@@ -5575,13 +3552,13 @@ func (o RuleGroupTCPFlagFieldOutput) ToRuleGroupTCPFlagFieldOutputWithContext(ct
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-func (o RuleGroupTCPFlagFieldOutput) Flags() RuleGroupFlagsOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) RuleGroupFlags { return v.Flags }).(RuleGroupFlagsOutput)
+func (o RuleGroupTCPFlagFieldOutput) Flags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupTCPFlagField) []string { return v.Flags }).(pulumi.StringArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
-func (o RuleGroupTCPFlagFieldOutput) Masks() RuleGroupFlagsPtrOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlagField) *RuleGroupFlags { return v.Masks }).(RuleGroupFlagsPtrOutput)
+func (o RuleGroupTCPFlagFieldOutput) Masks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleGroupTCPFlagField) []string { return v.Masks }).(pulumi.StringArrayOutput)
 }
 
 type RuleGroupTCPFlagFieldArrayOutput struct{ *pulumi.OutputState }
@@ -5604,485 +3581,41 @@ func (o RuleGroupTCPFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTCPF
 	}).(RuleGroupTCPFlagFieldOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
-type RuleGroupTCPFlags struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
-	TCPFlags []RuleGroupTCPFlagField `pulumi:"tCPFlags"`
-}
-
-// RuleGroupTCPFlagsInput is an input type that accepts RuleGroupTCPFlagsArgs and RuleGroupTCPFlagsOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagsInput` via:
-//
-//          RuleGroupTCPFlagsArgs{...}
-type RuleGroupTCPFlagsInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagsOutput() RuleGroupTCPFlagsOutput
-	ToRuleGroupTCPFlagsOutputWithContext(context.Context) RuleGroupTCPFlagsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
-type RuleGroupTCPFlagsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
-	TCPFlags RuleGroupTCPFlagFieldArrayInput `pulumi:"tCPFlags"`
-}
-
-func (RuleGroupTCPFlagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlags)(nil)).Elem()
-}
-
-func (i RuleGroupTCPFlagsArgs) ToRuleGroupTCPFlagsOutput() RuleGroupTCPFlagsOutput {
-	return i.ToRuleGroupTCPFlagsOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTCPFlagsArgs) ToRuleGroupTCPFlagsOutputWithContext(ctx context.Context) RuleGroupTCPFlagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagsOutput)
-}
-
-func (i RuleGroupTCPFlagsArgs) ToRuleGroupTCPFlagsPtrOutput() RuleGroupTCPFlagsPtrOutput {
-	return i.ToRuleGroupTCPFlagsPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTCPFlagsArgs) ToRuleGroupTCPFlagsPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagsOutput).ToRuleGroupTCPFlagsPtrOutputWithContext(ctx)
-}
-
-// RuleGroupTCPFlagsPtrInput is an input type that accepts RuleGroupTCPFlagsArgs, RuleGroupTCPFlagsPtr and RuleGroupTCPFlagsPtrOutput values.
-// You can construct a concrete instance of `RuleGroupTCPFlagsPtrInput` via:
-//
-//          RuleGroupTCPFlagsArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupTCPFlagsPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupTCPFlagsPtrOutput() RuleGroupTCPFlagsPtrOutput
-	ToRuleGroupTCPFlagsPtrOutputWithContext(context.Context) RuleGroupTCPFlagsPtrOutput
-}
-
-type ruleGroupTCPFlagsPtrType RuleGroupTCPFlagsArgs
-
-func RuleGroupTCPFlagsPtr(v *RuleGroupTCPFlagsArgs) RuleGroupTCPFlagsPtrInput {
-	return (*ruleGroupTCPFlagsPtrType)(v)
-}
-
-func (*ruleGroupTCPFlagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupTCPFlags)(nil)).Elem()
-}
-
-func (i *ruleGroupTCPFlagsPtrType) ToRuleGroupTCPFlagsPtrOutput() RuleGroupTCPFlagsPtrOutput {
-	return i.ToRuleGroupTCPFlagsPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupTCPFlagsPtrType) ToRuleGroupTCPFlagsPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTCPFlagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html
-type RuleGroupTCPFlagsOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTCPFlags)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagsOutput) ToRuleGroupTCPFlagsOutput() RuleGroupTCPFlagsOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagsOutput) ToRuleGroupTCPFlagsOutputWithContext(ctx context.Context) RuleGroupTCPFlagsOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagsOutput) ToRuleGroupTCPFlagsPtrOutput() RuleGroupTCPFlagsPtrOutput {
-	return o.ToRuleGroupTCPFlagsPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTCPFlagsOutput) ToRuleGroupTCPFlagsPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupTCPFlags) *RuleGroupTCPFlags {
-		return &v
-	}).(RuleGroupTCPFlagsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
-func (o RuleGroupTCPFlagsOutput) TCPFlags() RuleGroupTCPFlagFieldArrayOutput {
-	return o.ApplyT(func(v RuleGroupTCPFlags) []RuleGroupTCPFlagField { return v.TCPFlags }).(RuleGroupTCPFlagFieldArrayOutput)
-}
-
-type RuleGroupTCPFlagsPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTCPFlagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupTCPFlags)(nil)).Elem()
-}
-
-func (o RuleGroupTCPFlagsPtrOutput) ToRuleGroupTCPFlagsPtrOutput() RuleGroupTCPFlagsPtrOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagsPtrOutput) ToRuleGroupTCPFlagsPtrOutputWithContext(ctx context.Context) RuleGroupTCPFlagsPtrOutput {
-	return o
-}
-
-func (o RuleGroupTCPFlagsPtrOutput) Elem() RuleGroupTCPFlagsOutput {
-	return o.ApplyT(func(v *RuleGroupTCPFlags) RuleGroupTCPFlags {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupTCPFlags
-		return ret
-	}).(RuleGroupTCPFlagsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflags.html#cfn-networkfirewall-rulegroup-tcpflags-tcpflags
-func (o RuleGroupTCPFlagsPtrOutput) TCPFlags() RuleGroupTCPFlagFieldArrayOutput {
-	return o.ApplyT(func(v *RuleGroupTCPFlags) []RuleGroupTCPFlagField {
-		if v == nil {
-			return nil
-		}
-		return v.TCPFlags
-	}).(RuleGroupTCPFlagFieldArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html
-type RuleGroupTargetTypes struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
-	TargetTypes []string `pulumi:"targetTypes"`
-}
-
-// RuleGroupTargetTypesInput is an input type that accepts RuleGroupTargetTypesArgs and RuleGroupTargetTypesOutput values.
-// You can construct a concrete instance of `RuleGroupTargetTypesInput` via:
-//
-//          RuleGroupTargetTypesArgs{...}
-type RuleGroupTargetTypesInput interface {
-	pulumi.Input
-
-	ToRuleGroupTargetTypesOutput() RuleGroupTargetTypesOutput
-	ToRuleGroupTargetTypesOutputWithContext(context.Context) RuleGroupTargetTypesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html
-type RuleGroupTargetTypesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
-	TargetTypes pulumi.StringArrayInput `pulumi:"targetTypes"`
-}
-
-func (RuleGroupTargetTypesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTargetTypes)(nil)).Elem()
-}
-
-func (i RuleGroupTargetTypesArgs) ToRuleGroupTargetTypesOutput() RuleGroupTargetTypesOutput {
-	return i.ToRuleGroupTargetTypesOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTargetTypesArgs) ToRuleGroupTargetTypesOutputWithContext(ctx context.Context) RuleGroupTargetTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTargetTypesOutput)
-}
-
-func (i RuleGroupTargetTypesArgs) ToRuleGroupTargetTypesPtrOutput() RuleGroupTargetTypesPtrOutput {
-	return i.ToRuleGroupTargetTypesPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupTargetTypesArgs) ToRuleGroupTargetTypesPtrOutputWithContext(ctx context.Context) RuleGroupTargetTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTargetTypesOutput).ToRuleGroupTargetTypesPtrOutputWithContext(ctx)
-}
-
-// RuleGroupTargetTypesPtrInput is an input type that accepts RuleGroupTargetTypesArgs, RuleGroupTargetTypesPtr and RuleGroupTargetTypesPtrOutput values.
-// You can construct a concrete instance of `RuleGroupTargetTypesPtrInput` via:
-//
-//          RuleGroupTargetTypesArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupTargetTypesPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupTargetTypesPtrOutput() RuleGroupTargetTypesPtrOutput
-	ToRuleGroupTargetTypesPtrOutputWithContext(context.Context) RuleGroupTargetTypesPtrOutput
-}
-
-type ruleGroupTargetTypesPtrType RuleGroupTargetTypesArgs
-
-func RuleGroupTargetTypesPtr(v *RuleGroupTargetTypesArgs) RuleGroupTargetTypesPtrInput {
-	return (*ruleGroupTargetTypesPtrType)(v)
-}
-
-func (*ruleGroupTargetTypesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupTargetTypes)(nil)).Elem()
-}
-
-func (i *ruleGroupTargetTypesPtrType) ToRuleGroupTargetTypesPtrOutput() RuleGroupTargetTypesPtrOutput {
-	return i.ToRuleGroupTargetTypesPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupTargetTypesPtrType) ToRuleGroupTargetTypesPtrOutputWithContext(ctx context.Context) RuleGroupTargetTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTargetTypesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html
-type RuleGroupTargetTypesOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTargetTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupTargetTypes)(nil)).Elem()
-}
-
-func (o RuleGroupTargetTypesOutput) ToRuleGroupTargetTypesOutput() RuleGroupTargetTypesOutput {
-	return o
-}
-
-func (o RuleGroupTargetTypesOutput) ToRuleGroupTargetTypesOutputWithContext(ctx context.Context) RuleGroupTargetTypesOutput {
-	return o
-}
-
-func (o RuleGroupTargetTypesOutput) ToRuleGroupTargetTypesPtrOutput() RuleGroupTargetTypesPtrOutput {
-	return o.ToRuleGroupTargetTypesPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupTargetTypesOutput) ToRuleGroupTargetTypesPtrOutputWithContext(ctx context.Context) RuleGroupTargetTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupTargetTypes) *RuleGroupTargetTypes {
-		return &v
-	}).(RuleGroupTargetTypesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
-func (o RuleGroupTargetTypesOutput) TargetTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupTargetTypes) []string { return v.TargetTypes }).(pulumi.StringArrayOutput)
-}
-
-type RuleGroupTargetTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupTargetTypesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupTargetTypes)(nil)).Elem()
-}
-
-func (o RuleGroupTargetTypesPtrOutput) ToRuleGroupTargetTypesPtrOutput() RuleGroupTargetTypesPtrOutput {
-	return o
-}
-
-func (o RuleGroupTargetTypesPtrOutput) ToRuleGroupTargetTypesPtrOutputWithContext(ctx context.Context) RuleGroupTargetTypesPtrOutput {
-	return o
-}
-
-func (o RuleGroupTargetTypesPtrOutput) Elem() RuleGroupTargetTypesOutput {
-	return o.ApplyT(func(v *RuleGroupTargetTypes) RuleGroupTargetTypes {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupTargetTypes
-		return ret
-	}).(RuleGroupTargetTypesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettypes.html#cfn-networkfirewall-rulegroup-targettypes-targettypes
-func (o RuleGroupTargetTypesPtrOutput) TargetTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleGroupTargetTypes) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html
-type RuleGroupVariableDefinitionList struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
-	VariableDefinitionList []string `pulumi:"variableDefinitionList"`
-}
-
-// RuleGroupVariableDefinitionListInput is an input type that accepts RuleGroupVariableDefinitionListArgs and RuleGroupVariableDefinitionListOutput values.
-// You can construct a concrete instance of `RuleGroupVariableDefinitionListInput` via:
-//
-//          RuleGroupVariableDefinitionListArgs{...}
-type RuleGroupVariableDefinitionListInput interface {
-	pulumi.Input
-
-	ToRuleGroupVariableDefinitionListOutput() RuleGroupVariableDefinitionListOutput
-	ToRuleGroupVariableDefinitionListOutputWithContext(context.Context) RuleGroupVariableDefinitionListOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html
-type RuleGroupVariableDefinitionListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
-	VariableDefinitionList pulumi.StringArrayInput `pulumi:"variableDefinitionList"`
-}
-
-func (RuleGroupVariableDefinitionListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupVariableDefinitionList)(nil)).Elem()
-}
-
-func (i RuleGroupVariableDefinitionListArgs) ToRuleGroupVariableDefinitionListOutput() RuleGroupVariableDefinitionListOutput {
-	return i.ToRuleGroupVariableDefinitionListOutputWithContext(context.Background())
-}
-
-func (i RuleGroupVariableDefinitionListArgs) ToRuleGroupVariableDefinitionListOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupVariableDefinitionListOutput)
-}
-
-func (i RuleGroupVariableDefinitionListArgs) ToRuleGroupVariableDefinitionListPtrOutput() RuleGroupVariableDefinitionListPtrOutput {
-	return i.ToRuleGroupVariableDefinitionListPtrOutputWithContext(context.Background())
-}
-
-func (i RuleGroupVariableDefinitionListArgs) ToRuleGroupVariableDefinitionListPtrOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupVariableDefinitionListOutput).ToRuleGroupVariableDefinitionListPtrOutputWithContext(ctx)
-}
-
-// RuleGroupVariableDefinitionListPtrInput is an input type that accepts RuleGroupVariableDefinitionListArgs, RuleGroupVariableDefinitionListPtr and RuleGroupVariableDefinitionListPtrOutput values.
-// You can construct a concrete instance of `RuleGroupVariableDefinitionListPtrInput` via:
-//
-//          RuleGroupVariableDefinitionListArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleGroupVariableDefinitionListPtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupVariableDefinitionListPtrOutput() RuleGroupVariableDefinitionListPtrOutput
-	ToRuleGroupVariableDefinitionListPtrOutputWithContext(context.Context) RuleGroupVariableDefinitionListPtrOutput
-}
-
-type ruleGroupVariableDefinitionListPtrType RuleGroupVariableDefinitionListArgs
-
-func RuleGroupVariableDefinitionListPtr(v *RuleGroupVariableDefinitionListArgs) RuleGroupVariableDefinitionListPtrInput {
-	return (*ruleGroupVariableDefinitionListPtrType)(v)
-}
-
-func (*ruleGroupVariableDefinitionListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupVariableDefinitionList)(nil)).Elem()
-}
-
-func (i *ruleGroupVariableDefinitionListPtrType) ToRuleGroupVariableDefinitionListPtrOutput() RuleGroupVariableDefinitionListPtrOutput {
-	return i.ToRuleGroupVariableDefinitionListPtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupVariableDefinitionListPtrType) ToRuleGroupVariableDefinitionListPtrOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupVariableDefinitionListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html
-type RuleGroupVariableDefinitionListOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupVariableDefinitionListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupVariableDefinitionList)(nil)).Elem()
-}
-
-func (o RuleGroupVariableDefinitionListOutput) ToRuleGroupVariableDefinitionListOutput() RuleGroupVariableDefinitionListOutput {
-	return o
-}
-
-func (o RuleGroupVariableDefinitionListOutput) ToRuleGroupVariableDefinitionListOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListOutput {
-	return o
-}
-
-func (o RuleGroupVariableDefinitionListOutput) ToRuleGroupVariableDefinitionListPtrOutput() RuleGroupVariableDefinitionListPtrOutput {
-	return o.ToRuleGroupVariableDefinitionListPtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupVariableDefinitionListOutput) ToRuleGroupVariableDefinitionListPtrOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupVariableDefinitionList) *RuleGroupVariableDefinitionList {
-		return &v
-	}).(RuleGroupVariableDefinitionListPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
-func (o RuleGroupVariableDefinitionListOutput) VariableDefinitionList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RuleGroupVariableDefinitionList) []string { return v.VariableDefinitionList }).(pulumi.StringArrayOutput)
-}
-
-type RuleGroupVariableDefinitionListPtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupVariableDefinitionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupVariableDefinitionList)(nil)).Elem()
-}
-
-func (o RuleGroupVariableDefinitionListPtrOutput) ToRuleGroupVariableDefinitionListPtrOutput() RuleGroupVariableDefinitionListPtrOutput {
-	return o
-}
-
-func (o RuleGroupVariableDefinitionListPtrOutput) ToRuleGroupVariableDefinitionListPtrOutputWithContext(ctx context.Context) RuleGroupVariableDefinitionListPtrOutput {
-	return o
-}
-
-func (o RuleGroupVariableDefinitionListPtrOutput) Elem() RuleGroupVariableDefinitionListOutput {
-	return o.ApplyT(func(v *RuleGroupVariableDefinitionList) RuleGroupVariableDefinitionList {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupVariableDefinitionList
-		return ret
-	}).(RuleGroupVariableDefinitionListOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-variabledefinitionlist.html#cfn-networkfirewall-rulegroup-variabledefinitionlist-variabledefinitionlist
-func (o RuleGroupVariableDefinitionListPtrOutput) VariableDefinitionList() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RuleGroupVariableDefinitionList) []string {
-		if v == nil {
-			return nil
-		}
-		return v.VariableDefinitionList
-	}).(pulumi.StringArrayOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyCustomActionArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyCustomActionsOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyCustomActionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyDimensionArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyDimensionsOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyDimensionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferenceArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferencesOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatefulRuleGroupReferencesPtrOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatelessActionsOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatelessActionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferenceArrayOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferencesOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyStatelessRuleGroupReferencesPtrOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigArrayOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigsOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigsPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupActionDefinitionOutput{})
 	pulumi.RegisterOutputType(RuleGroupAddressOutput{})
 	pulumi.RegisterOutputType(RuleGroupAddressArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupAddressesOutput{})
-	pulumi.RegisterOutputType(RuleGroupAddressesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupCustomActionArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomActionsOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomActionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupDimensionOutput{})
 	pulumi.RegisterOutputType(RuleGroupDimensionArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupDimensionsOutput{})
-	pulumi.RegisterOutputType(RuleGroupDimensionsPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupFlagsOutput{})
-	pulumi.RegisterOutputType(RuleGroupFlagsPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupHeaderOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetOutput{})
 	pulumi.RegisterOutputType(RuleGroupIPSetMapOutput{})
 	pulumi.RegisterOutputType(RuleGroupMatchAttributesOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortRangeOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortRangeArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupPortRangesOutput{})
-	pulumi.RegisterOutputType(RuleGroupPortRangesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortSetOutput{})
 	pulumi.RegisterOutputType(RuleGroupPortSetMapOutput{})
-	pulumi.RegisterOutputType(RuleGroupProtocolNumbersOutput{})
-	pulumi.RegisterOutputType(RuleGroupProtocolNumbersPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleDefinitionOutput{})
@@ -6090,7 +3623,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupRuleOptionsOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleVariablesOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleVariablesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRulesSourceOutput{})
@@ -6099,20 +3631,10 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRulesSourceListPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatefulRuleArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatefulRulesOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatefulRulesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRuleArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatelessRulesOutput{})
-	pulumi.RegisterOutputType(RuleGroupStatelessRulesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatelessRulesAndCustomActionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTCPFlagFieldOutput{})
 	pulumi.RegisterOutputType(RuleGroupTCPFlagFieldArrayOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagsOutput{})
-	pulumi.RegisterOutputType(RuleGroupTCPFlagsPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupTargetTypesOutput{})
-	pulumi.RegisterOutputType(RuleGroupTargetTypesPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupVariableDefinitionListOutput{})
-	pulumi.RegisterOutputType(RuleGroupVariableDefinitionListPtrOutput{})
 }

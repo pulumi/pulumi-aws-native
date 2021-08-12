@@ -20,8 +20,8 @@ type BackupPlan struct {
 	BackupPlanArn pulumi.StringOutput                    `pulumi:"backupPlanArn"`
 	BackupPlanId  pulumi.StringOutput                    `pulumi:"backupPlanId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags pulumi.AnyOutput    `pulumi:"backupPlanTags"`
-	VersionId      pulumi.StringOutput `pulumi:"versionId"`
+	BackupPlanTags pulumi.StringMapOutput `pulumi:"backupPlanTags"`
+	VersionId      pulumi.StringOutput    `pulumi:"versionId"`
 }
 
 // NewBackupPlan registers a new resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ type backupPlanArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
 	BackupPlan BackupPlanBackupPlanResourceType `pulumi:"backupPlan"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags interface{} `pulumi:"backupPlanTags"`
+	BackupPlanTags map[string]string `pulumi:"backupPlanTags"`
 }
 
 // The set of arguments for constructing a BackupPlan resource.
@@ -77,7 +77,7 @@ type BackupPlanArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
 	BackupPlan BackupPlanBackupPlanResourceTypeInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags pulumi.Input
+	BackupPlanTags pulumi.StringMapInput
 }
 
 func (BackupPlanArgs) ElementType() reflect.Type {

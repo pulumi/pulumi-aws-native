@@ -25,8 +25,7 @@ type Component struct {
 	Encrypted   pulumi.BoolOutput      `pulumi:"encrypted"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name     pulumi.StringOutput    `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions

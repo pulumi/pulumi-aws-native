@@ -305,10 +305,12 @@ type BackupPlanBackupRuleResourceType struct {
 	CompletionWindowMinutes *float64 `pulumi:"completionWindowMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
 	CopyActions []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags interface{} `pulumi:"recoveryPointTags"`
+	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
 	RuleName string `pulumi:"ruleName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
@@ -336,10 +338,12 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	CompletionWindowMinutes pulumi.Float64PtrInput `pulumi:"completionWindowMinutes"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
 	CopyActions BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags pulumi.Input `pulumi:"recoveryPointTags"`
+	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
@@ -412,14 +416,19 @@ func (o BackupPlanBackupRuleResourceTypeOutput) CopyActions() BackupPlanCopyActi
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanCopyActionResourceType { return v.CopyActions }).(BackupPlanCopyActionResourceTypeArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
+func (o BackupPlanBackupRuleResourceTypeOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 func (o BackupPlanBackupRuleResourceTypeOutput) Lifecycle() BackupPlanLifecycleResourceTypePtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.AnyOutput {
-	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) interface{} { return v.RecoveryPointTags }).(pulumi.AnyOutput)
+func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename

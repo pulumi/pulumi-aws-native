@@ -21,12 +21,24 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:SageMaker:App":
+		r = &App{}
+	case "aws-native:SageMaker:AppImageConfig":
+		r = &AppImageConfig{}
 	case "aws-native:SageMaker:DataQualityJobDefinition":
 		r = &DataQualityJobDefinition{}
 	case "aws-native:SageMaker:Device":
 		r = &Device{}
 	case "aws-native:SageMaker:DeviceFleet":
 		r = &DeviceFleet{}
+	case "aws-native:SageMaker:Domain":
+		r = &Domain{}
+	case "aws-native:SageMaker:FeatureGroup":
+		r = &FeatureGroup{}
+	case "aws-native:SageMaker:Image":
+		r = &Image{}
+	case "aws-native:SageMaker:ImageVersion":
+		r = &ImageVersion{}
 	case "aws-native:SageMaker:ModelBiasJobDefinition":
 		r = &ModelBiasJobDefinition{}
 	case "aws-native:SageMaker:ModelExplainabilityJobDefinition":
@@ -41,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipeline{}
 	case "aws-native:SageMaker:Project":
 		r = &Project{}
+	case "aws-native:SageMaker:UserProfile":
+		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

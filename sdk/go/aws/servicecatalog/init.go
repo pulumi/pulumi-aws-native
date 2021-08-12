@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ServiceCatalog:CloudFormationProvisionedProduct":
 		r = &CloudFormationProvisionedProduct{}
+	case "aws-native:ServiceCatalog:ServiceAction":
+		r = &ServiceAction{}
+	case "aws-native:ServiceCatalog:ServiceActionAssociation":
+		r = &ServiceActionAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

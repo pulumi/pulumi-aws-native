@@ -6246,6 +6246,8 @@ func (o FlowDatadogSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 type FlowDestinationConnectorProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
 	EventBridge *FlowEventBridgeDestinationProperties `pulumi:"eventBridge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+	LookoutMetrics *FlowLookoutMetricsDestinationProperties `pulumi:"lookoutMetrics"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
 	Redshift *FlowRedshiftDestinationProperties `pulumi:"redshift"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
@@ -6256,6 +6258,8 @@ type FlowDestinationConnectorProperties struct {
 	Snowflake *FlowSnowflakeDestinationProperties `pulumi:"snowflake"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
 	Upsolver *FlowUpsolverDestinationProperties `pulumi:"upsolver"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+	Zendesk *FlowZendeskDestinationProperties `pulumi:"zendesk"`
 }
 
 // FlowDestinationConnectorPropertiesInput is an input type that accepts FlowDestinationConnectorPropertiesArgs and FlowDestinationConnectorPropertiesOutput values.
@@ -6273,6 +6277,8 @@ type FlowDestinationConnectorPropertiesInput interface {
 type FlowDestinationConnectorPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
 	EventBridge FlowEventBridgeDestinationPropertiesPtrInput `pulumi:"eventBridge"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+	LookoutMetrics FlowLookoutMetricsDestinationPropertiesPtrInput `pulumi:"lookoutMetrics"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
 	Redshift FlowRedshiftDestinationPropertiesPtrInput `pulumi:"redshift"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
@@ -6283,6 +6289,8 @@ type FlowDestinationConnectorPropertiesArgs struct {
 	Snowflake FlowSnowflakeDestinationPropertiesPtrInput `pulumi:"snowflake"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
 	Upsolver FlowUpsolverDestinationPropertiesPtrInput `pulumi:"upsolver"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+	Zendesk FlowZendeskDestinationPropertiesPtrInput `pulumi:"zendesk"`
 }
 
 func (FlowDestinationConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -6317,6 +6325,13 @@ func (o FlowDestinationConnectorPropertiesOutput) EventBridge() FlowEventBridgeD
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowEventBridgeDestinationProperties { return v.EventBridge }).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+func (o FlowDestinationConnectorPropertiesOutput) LookoutMetrics() FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowLookoutMetricsDestinationProperties {
+		return v.LookoutMetrics
+	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
 func (o FlowDestinationConnectorPropertiesOutput) Redshift() FlowRedshiftDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowRedshiftDestinationProperties { return v.Redshift }).(FlowRedshiftDestinationPropertiesPtrOutput)
@@ -6340,6 +6355,11 @@ func (o FlowDestinationConnectorPropertiesOutput) Snowflake() FlowSnowflakeDesti
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
 func (o FlowDestinationConnectorPropertiesOutput) Upsolver() FlowUpsolverDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowUpsolverDestinationProperties { return v.Upsolver }).(FlowUpsolverDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
+func (o FlowDestinationConnectorPropertiesOutput) Zendesk() FlowZendeskDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowZendeskDestinationProperties { return v.Zendesk }).(FlowZendeskDestinationPropertiesPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
@@ -7359,6 +7379,146 @@ func (o FlowInforNexusSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
+type FlowLookoutMetricsDestinationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+	Object *string `pulumi:"object"`
+}
+
+// FlowLookoutMetricsDestinationPropertiesInput is an input type that accepts FlowLookoutMetricsDestinationPropertiesArgs and FlowLookoutMetricsDestinationPropertiesOutput values.
+// You can construct a concrete instance of `FlowLookoutMetricsDestinationPropertiesInput` via:
+//
+//          FlowLookoutMetricsDestinationPropertiesArgs{...}
+type FlowLookoutMetricsDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowLookoutMetricsDestinationPropertiesOutput() FlowLookoutMetricsDestinationPropertiesOutput
+	ToFlowLookoutMetricsDestinationPropertiesOutputWithContext(context.Context) FlowLookoutMetricsDestinationPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
+type FlowLookoutMetricsDestinationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+	Object pulumi.StringPtrInput `pulumi:"object"`
+}
+
+func (FlowLookoutMetricsDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLookoutMetricsDestinationProperties)(nil)).Elem()
+}
+
+func (i FlowLookoutMetricsDestinationPropertiesArgs) ToFlowLookoutMetricsDestinationPropertiesOutput() FlowLookoutMetricsDestinationPropertiesOutput {
+	return i.ToFlowLookoutMetricsDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowLookoutMetricsDestinationPropertiesArgs) ToFlowLookoutMetricsDestinationPropertiesOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLookoutMetricsDestinationPropertiesOutput)
+}
+
+func (i FlowLookoutMetricsDestinationPropertiesArgs) ToFlowLookoutMetricsDestinationPropertiesPtrOutput() FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return i.ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowLookoutMetricsDestinationPropertiesArgs) ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLookoutMetricsDestinationPropertiesOutput).ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowLookoutMetricsDestinationPropertiesPtrInput is an input type that accepts FlowLookoutMetricsDestinationPropertiesArgs, FlowLookoutMetricsDestinationPropertiesPtr and FlowLookoutMetricsDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowLookoutMetricsDestinationPropertiesPtrInput` via:
+//
+//          FlowLookoutMetricsDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowLookoutMetricsDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowLookoutMetricsDestinationPropertiesPtrOutput() FlowLookoutMetricsDestinationPropertiesPtrOutput
+	ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(context.Context) FlowLookoutMetricsDestinationPropertiesPtrOutput
+}
+
+type flowLookoutMetricsDestinationPropertiesPtrType FlowLookoutMetricsDestinationPropertiesArgs
+
+func FlowLookoutMetricsDestinationPropertiesPtr(v *FlowLookoutMetricsDestinationPropertiesArgs) FlowLookoutMetricsDestinationPropertiesPtrInput {
+	return (*flowLookoutMetricsDestinationPropertiesPtrType)(v)
+}
+
+func (*flowLookoutMetricsDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLookoutMetricsDestinationProperties)(nil)).Elem()
+}
+
+func (i *flowLookoutMetricsDestinationPropertiesPtrType) ToFlowLookoutMetricsDestinationPropertiesPtrOutput() FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return i.ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLookoutMetricsDestinationPropertiesPtrType) ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
+type FlowLookoutMetricsDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowLookoutMetricsDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLookoutMetricsDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesOutput) ToFlowLookoutMetricsDestinationPropertiesOutput() FlowLookoutMetricsDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesOutput) ToFlowLookoutMetricsDestinationPropertiesOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesOutput) ToFlowLookoutMetricsDestinationPropertiesPtrOutput() FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return o.ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesOutput) ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLookoutMetricsDestinationProperties) *FlowLookoutMetricsDestinationProperties {
+		return &v
+	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+func (o FlowLookoutMetricsDestinationPropertiesOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowLookoutMetricsDestinationProperties) *string { return v.Object }).(pulumi.StringPtrOutput)
+}
+
+type FlowLookoutMetricsDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLookoutMetricsDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLookoutMetricsDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) ToFlowLookoutMetricsDestinationPropertiesPtrOutput() FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) ToFlowLookoutMetricsDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowLookoutMetricsDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Elem() FlowLookoutMetricsDestinationPropertiesOutput {
+	return o.ApplyT(func(v *FlowLookoutMetricsDestinationProperties) FlowLookoutMetricsDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLookoutMetricsDestinationProperties
+		return ret
+	}).(FlowLookoutMetricsDestinationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
+func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLookoutMetricsDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
 type FlowMarketoSourceProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
@@ -8374,8 +8534,12 @@ func (o FlowS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 type FlowSalesforceDestinationProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+	IdFieldNames []string `pulumi:"idFieldNames"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 	Object string `pulumi:"object"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+	WriteOperationType *string `pulumi:"writeOperationType"`
 }
 
 // FlowSalesforceDestinationPropertiesInput is an input type that accepts FlowSalesforceDestinationPropertiesArgs and FlowSalesforceDestinationPropertiesOutput values.
@@ -8393,8 +8557,12 @@ type FlowSalesforceDestinationPropertiesInput interface {
 type FlowSalesforceDestinationPropertiesArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
 }
 
 func (FlowSalesforceDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -8480,9 +8648,19 @@ func (o FlowSalesforceDestinationPropertiesOutput) ErrorHandlingConfig() FlowErr
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+func (o FlowSalesforceDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowSalesforceDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 func (o FlowSalesforceDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+func (o FlowSalesforceDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
 }
 
 type FlowSalesforceDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -8519,6 +8697,16 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) ErrorHandlingConfig() Flow
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+func (o FlowSalesforceDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdFieldNames
+	}).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 func (o FlowSalesforceDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *string {
@@ -8526,6 +8714,16 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Object() pulumi.StringPtrO
 			return nil
 		}
 		return &v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
+func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WriteOperationType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11166,6 +11364,203 @@ func (o FlowVeevaSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
+type FlowZendeskDestinationProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+	IdFieldNames []string `pulumi:"idFieldNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+	Object string `pulumi:"object"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+	WriteOperationType *string `pulumi:"writeOperationType"`
+}
+
+// FlowZendeskDestinationPropertiesInput is an input type that accepts FlowZendeskDestinationPropertiesArgs and FlowZendeskDestinationPropertiesOutput values.
+// You can construct a concrete instance of `FlowZendeskDestinationPropertiesInput` via:
+//
+//          FlowZendeskDestinationPropertiesArgs{...}
+type FlowZendeskDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowZendeskDestinationPropertiesOutput() FlowZendeskDestinationPropertiesOutput
+	ToFlowZendeskDestinationPropertiesOutputWithContext(context.Context) FlowZendeskDestinationPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
+type FlowZendeskDestinationPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+	Object pulumi.StringInput `pulumi:"object"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
+}
+
+func (FlowZendeskDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowZendeskDestinationProperties)(nil)).Elem()
+}
+
+func (i FlowZendeskDestinationPropertiesArgs) ToFlowZendeskDestinationPropertiesOutput() FlowZendeskDestinationPropertiesOutput {
+	return i.ToFlowZendeskDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowZendeskDestinationPropertiesArgs) ToFlowZendeskDestinationPropertiesOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowZendeskDestinationPropertiesOutput)
+}
+
+func (i FlowZendeskDestinationPropertiesArgs) ToFlowZendeskDestinationPropertiesPtrOutput() FlowZendeskDestinationPropertiesPtrOutput {
+	return i.ToFlowZendeskDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowZendeskDestinationPropertiesArgs) ToFlowZendeskDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowZendeskDestinationPropertiesOutput).ToFlowZendeskDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowZendeskDestinationPropertiesPtrInput is an input type that accepts FlowZendeskDestinationPropertiesArgs, FlowZendeskDestinationPropertiesPtr and FlowZendeskDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowZendeskDestinationPropertiesPtrInput` via:
+//
+//          FlowZendeskDestinationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowZendeskDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowZendeskDestinationPropertiesPtrOutput() FlowZendeskDestinationPropertiesPtrOutput
+	ToFlowZendeskDestinationPropertiesPtrOutputWithContext(context.Context) FlowZendeskDestinationPropertiesPtrOutput
+}
+
+type flowZendeskDestinationPropertiesPtrType FlowZendeskDestinationPropertiesArgs
+
+func FlowZendeskDestinationPropertiesPtr(v *FlowZendeskDestinationPropertiesArgs) FlowZendeskDestinationPropertiesPtrInput {
+	return (*flowZendeskDestinationPropertiesPtrType)(v)
+}
+
+func (*flowZendeskDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowZendeskDestinationProperties)(nil)).Elem()
+}
+
+func (i *flowZendeskDestinationPropertiesPtrType) ToFlowZendeskDestinationPropertiesPtrOutput() FlowZendeskDestinationPropertiesPtrOutput {
+	return i.ToFlowZendeskDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowZendeskDestinationPropertiesPtrType) ToFlowZendeskDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowZendeskDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
+type FlowZendeskDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowZendeskDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowZendeskDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowZendeskDestinationPropertiesOutput) ToFlowZendeskDestinationPropertiesOutput() FlowZendeskDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowZendeskDestinationPropertiesOutput) ToFlowZendeskDestinationPropertiesOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesOutput {
+	return o
+}
+
+func (o FlowZendeskDestinationPropertiesOutput) ToFlowZendeskDestinationPropertiesPtrOutput() FlowZendeskDestinationPropertiesPtrOutput {
+	return o.ToFlowZendeskDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowZendeskDestinationPropertiesOutput) ToFlowZendeskDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowZendeskDestinationProperties) *FlowZendeskDestinationProperties {
+		return &v
+	}).(FlowZendeskDestinationPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+func (o FlowZendeskDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v FlowZendeskDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+func (o FlowZendeskDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowZendeskDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+func (o FlowZendeskDestinationPropertiesOutput) Object() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowZendeskDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+func (o FlowZendeskDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowZendeskDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
+}
+
+type FlowZendeskDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowZendeskDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowZendeskDestinationProperties)(nil)).Elem()
+}
+
+func (o FlowZendeskDestinationPropertiesPtrOutput) ToFlowZendeskDestinationPropertiesPtrOutput() FlowZendeskDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowZendeskDestinationPropertiesPtrOutput) ToFlowZendeskDestinationPropertiesPtrOutputWithContext(ctx context.Context) FlowZendeskDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowZendeskDestinationPropertiesPtrOutput) Elem() FlowZendeskDestinationPropertiesOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) FlowZendeskDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowZendeskDestinationProperties
+		return ret
+	}).(FlowZendeskDestinationPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
+func (o FlowZendeskDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *FlowErrorHandlingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorHandlingConfig
+	}).(FlowErrorHandlingConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+func (o FlowZendeskDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdFieldNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
+func (o FlowZendeskDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Object
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
+func (o FlowZendeskDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WriteOperationType
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
 type FlowZendeskSourceProperties struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
@@ -11390,6 +11785,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowIncrementalPullConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowInforNexusSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowInforNexusSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowLookoutMetricsDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowLookoutMetricsDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigOutput{})
@@ -11434,6 +11831,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowUpsolverS3OutputFormatConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowVeevaSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowVeevaSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowZendeskDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowZendeskDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowZendeskSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowZendeskSourcePropertiesPtrOutput{})
 }

@@ -27,6 +27,8 @@ type MetricStream struct {
 	LastUpdateDate pulumi.StringOutput                       `pulumi:"lastUpdateDate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	State   pulumi.StringOutput `pulumi:"state"`
@@ -43,6 +45,9 @@ func NewMetricStream(ctx *pulumi.Context,
 
 	if args.FirehoseArn == nil {
 		return nil, errors.New("invalid value for required argument 'FirehoseArn'")
+	}
+	if args.OutputFormat == nil {
+		return nil, errors.New("invalid value for required argument 'OutputFormat'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -87,6 +92,8 @@ type metricStreamArgs struct {
 	IncludeFilters []MetricStreamMetricStreamFilter `pulumi:"includeFilters"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
 	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	OutputFormat string `pulumi:"outputFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
 	RoleArn string `pulumi:"roleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
@@ -103,6 +110,8 @@ type MetricStreamArgs struct {
 	IncludeFilters MetricStreamMetricStreamFilterArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
 	Name pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	OutputFormat pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
 	RoleArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags

@@ -10,6 +10,224 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
+type GroupConfigurationItem struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
+	Parameters []GroupConfigurationParameter `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
+	Type *string `pulumi:"type"`
+}
+
+// GroupConfigurationItemInput is an input type that accepts GroupConfigurationItemArgs and GroupConfigurationItemOutput values.
+// You can construct a concrete instance of `GroupConfigurationItemInput` via:
+//
+//          GroupConfigurationItemArgs{...}
+type GroupConfigurationItemInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationItemOutput() GroupConfigurationItemOutput
+	ToGroupConfigurationItemOutputWithContext(context.Context) GroupConfigurationItemOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
+type GroupConfigurationItemArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
+	Parameters GroupConfigurationParameterArrayInput `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (GroupConfigurationItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationItem)(nil)).Elem()
+}
+
+func (i GroupConfigurationItemArgs) ToGroupConfigurationItemOutput() GroupConfigurationItemOutput {
+	return i.ToGroupConfigurationItemOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationItemArgs) ToGroupConfigurationItemOutputWithContext(ctx context.Context) GroupConfigurationItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationItemOutput)
+}
+
+// GroupConfigurationItemArrayInput is an input type that accepts GroupConfigurationItemArray and GroupConfigurationItemArrayOutput values.
+// You can construct a concrete instance of `GroupConfigurationItemArrayInput` via:
+//
+//          GroupConfigurationItemArray{ GroupConfigurationItemArgs{...} }
+type GroupConfigurationItemArrayInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationItemArrayOutput() GroupConfigurationItemArrayOutput
+	ToGroupConfigurationItemArrayOutputWithContext(context.Context) GroupConfigurationItemArrayOutput
+}
+
+type GroupConfigurationItemArray []GroupConfigurationItemInput
+
+func (GroupConfigurationItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationItem)(nil)).Elem()
+}
+
+func (i GroupConfigurationItemArray) ToGroupConfigurationItemArrayOutput() GroupConfigurationItemArrayOutput {
+	return i.ToGroupConfigurationItemArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationItemArray) ToGroupConfigurationItemArrayOutputWithContext(ctx context.Context) GroupConfigurationItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationItemArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
+type GroupConfigurationItemOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationItem)(nil)).Elem()
+}
+
+func (o GroupConfigurationItemOutput) ToGroupConfigurationItemOutput() GroupConfigurationItemOutput {
+	return o
+}
+
+func (o GroupConfigurationItemOutput) ToGroupConfigurationItemOutputWithContext(ctx context.Context) GroupConfigurationItemOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
+func (o GroupConfigurationItemOutput) Parameters() GroupConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v GroupConfigurationItem) []GroupConfigurationParameter { return v.Parameters }).(GroupConfigurationParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
+func (o GroupConfigurationItemOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConfigurationItem) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GroupConfigurationItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationItem)(nil)).Elem()
+}
+
+func (o GroupConfigurationItemArrayOutput) ToGroupConfigurationItemArrayOutput() GroupConfigurationItemArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationItemArrayOutput) ToGroupConfigurationItemArrayOutputWithContext(ctx context.Context) GroupConfigurationItemArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationItemArrayOutput) Index(i pulumi.IntInput) GroupConfigurationItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConfigurationItem {
+		return vs[0].([]GroupConfigurationItem)[vs[1].(int)]
+	}).(GroupConfigurationItemOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
+type GroupConfigurationParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
+	Values []string `pulumi:"values"`
+}
+
+// GroupConfigurationParameterInput is an input type that accepts GroupConfigurationParameterArgs and GroupConfigurationParameterOutput values.
+// You can construct a concrete instance of `GroupConfigurationParameterInput` via:
+//
+//          GroupConfigurationParameterArgs{...}
+type GroupConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput
+	ToGroupConfigurationParameterOutputWithContext(context.Context) GroupConfigurationParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
+type GroupConfigurationParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GroupConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput {
+	return i.ToGroupConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterOutput)
+}
+
+// GroupConfigurationParameterArrayInput is an input type that accepts GroupConfigurationParameterArray and GroupConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `GroupConfigurationParameterArrayInput` via:
+//
+//          GroupConfigurationParameterArray{ GroupConfigurationParameterArgs{...} }
+type GroupConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput
+	ToGroupConfigurationParameterArrayOutputWithContext(context.Context) GroupConfigurationParameterArrayOutput
+}
+
+type GroupConfigurationParameterArray []GroupConfigurationParameterInput
+
+func (GroupConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput {
+	return i.ToGroupConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
+type GroupConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutput() GroupConfigurationParameterOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
+func (o GroupConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConfigurationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
+func (o GroupConfigurationParameterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupConfigurationParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GroupConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupConfigurationParameter)(nil)).Elem()
+}
+
+func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutput() GroupConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupConfigurationParameter {
+		return vs[0].([]GroupConfigurationParameter)[vs[1].(int)]
+	}).(GroupConfigurationParameterOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 type GroupQuery struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
@@ -457,6 +675,10 @@ func (o GroupTagFilterArrayOutput) Index(i pulumi.IntInput) GroupTagFilterOutput
 }
 
 func init() {
+	pulumi.RegisterOutputType(GroupConfigurationItemOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationItemArrayOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(GroupConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(GroupQueryOutput{})
 	pulumi.RegisterOutputType(GroupQueryPtrOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})

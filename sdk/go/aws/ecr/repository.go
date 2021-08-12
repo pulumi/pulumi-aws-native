@@ -16,8 +16,10 @@ type Repository struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+	EncryptionConfiguration RepositoryEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-	ImageScanningConfiguration pulumi.AnyOutput `pulumi:"imageScanningConfiguration"`
+	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
 	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
@@ -25,7 +27,8 @@ type Repository struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
 	RepositoryName pulumi.StringPtrOutput `pulumi:"repositoryName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-	RepositoryPolicyText pulumi.AnyOutput `pulumi:"repositoryPolicyText"`
+	RepositoryPolicyText pulumi.AnyOutput    `pulumi:"repositoryPolicyText"`
+	RepositoryUri        pulumi.StringOutput `pulumi:"repositoryUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -69,8 +72,10 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+	EncryptionConfiguration *RepositoryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-	ImageScanningConfiguration interface{} `pulumi:"imageScanningConfiguration"`
+	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
@@ -85,8 +90,10 @@ type repositoryArgs struct {
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
+	EncryptionConfiguration RepositoryEncryptionConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-	ImageScanningConfiguration pulumi.Input
+	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
 	ImageTagMutability pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy

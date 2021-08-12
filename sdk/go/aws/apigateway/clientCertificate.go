@@ -15,6 +15,7 @@ import (
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 
+	ClientCertificateId pulumi.StringOutput `pulumi:"clientCertificateId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html#cfn-apigateway-clientcertificate-tags

@@ -387,7 +387,7 @@ type ApplicationComponentMonitoringSetting struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
 	ComponentARN *string `pulumi:"componentARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-	ComponentConfigurationMode *string `pulumi:"componentConfigurationMode"`
+	ComponentConfigurationMode string `pulumi:"componentConfigurationMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
 	ComponentName *string `pulumi:"componentName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
@@ -395,7 +395,7 @@ type ApplicationComponentMonitoringSetting struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
 	DefaultOverwriteComponentConfiguration *ApplicationComponentConfiguration `pulumi:"defaultOverwriteComponentConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-	Tier *string `pulumi:"tier"`
+	Tier string `pulumi:"tier"`
 }
 
 // ApplicationComponentMonitoringSettingInput is an input type that accepts ApplicationComponentMonitoringSettingArgs and ApplicationComponentMonitoringSettingOutput values.
@@ -414,7 +414,7 @@ type ApplicationComponentMonitoringSettingArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
 	ComponentARN pulumi.StringPtrInput `pulumi:"componentARN"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-	ComponentConfigurationMode pulumi.StringPtrInput `pulumi:"componentConfigurationMode"`
+	ComponentConfigurationMode pulumi.StringInput `pulumi:"componentConfigurationMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
 	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
@@ -422,7 +422,7 @@ type ApplicationComponentMonitoringSettingArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
 	DefaultOverwriteComponentConfiguration ApplicationComponentConfigurationPtrInput `pulumi:"defaultOverwriteComponentConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
 func (ApplicationComponentMonitoringSettingArgs) ElementType() reflect.Type {
@@ -483,8 +483,8 @@ func (o ApplicationComponentMonitoringSettingOutput) ComponentARN() pulumi.Strin
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-func (o ApplicationComponentMonitoringSettingOutput) ComponentConfigurationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.ComponentConfigurationMode }).(pulumi.StringPtrOutput)
+func (o ApplicationComponentMonitoringSettingOutput) ComponentConfigurationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) string { return v.ComponentConfigurationMode }).(pulumi.StringOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
@@ -507,8 +507,8 @@ func (o ApplicationComponentMonitoringSettingOutput) DefaultOverwriteComponentCo
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-func (o ApplicationComponentMonitoringSettingOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o ApplicationComponentMonitoringSettingOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) string { return v.Tier }).(pulumi.StringOutput)
 }
 
 type ApplicationComponentMonitoringSettingArrayOutput struct{ *pulumi.OutputState }

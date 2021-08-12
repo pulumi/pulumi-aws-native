@@ -42,6 +42,8 @@ type Canary struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
 	VPCConfig CanaryVPCConfigPtrOutput `pulumi:"vPCConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+	VisualReference CanaryVisualReferencePtrOutput `pulumi:"visualReference"`
 }
 
 // NewCanary registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type canaryArgs struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
 	VPCConfig *CanaryVPCConfig `pulumi:"vPCConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+	VisualReference *CanaryVisualReference `pulumi:"visualReference"`
 }
 
 // The set of arguments for constructing a Canary resource.
@@ -156,6 +160,8 @@ type CanaryArgs struct {
 	Tags aws.TagArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
 	VPCConfig CanaryVPCConfigPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+	VisualReference CanaryVisualReferencePtrInput
 }
 
 func (CanaryArgs) ElementType() reflect.Type {

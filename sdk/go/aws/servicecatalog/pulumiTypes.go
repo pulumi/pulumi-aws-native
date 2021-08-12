@@ -383,9 +383,120 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
+type ServiceActionDefinitionParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+	Value string `pulumi:"value"`
+}
+
+// ServiceActionDefinitionParameterInput is an input type that accepts ServiceActionDefinitionParameterArgs and ServiceActionDefinitionParameterOutput values.
+// You can construct a concrete instance of `ServiceActionDefinitionParameterInput` via:
+//
+//          ServiceActionDefinitionParameterArgs{...}
+type ServiceActionDefinitionParameterInput interface {
+	pulumi.Input
+
+	ToServiceActionDefinitionParameterOutput() ServiceActionDefinitionParameterOutput
+	ToServiceActionDefinitionParameterOutputWithContext(context.Context) ServiceActionDefinitionParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
+type ServiceActionDefinitionParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServiceActionDefinitionParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceActionDefinitionParameter)(nil)).Elem()
+}
+
+func (i ServiceActionDefinitionParameterArgs) ToServiceActionDefinitionParameterOutput() ServiceActionDefinitionParameterOutput {
+	return i.ToServiceActionDefinitionParameterOutputWithContext(context.Background())
+}
+
+func (i ServiceActionDefinitionParameterArgs) ToServiceActionDefinitionParameterOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionParameterOutput)
+}
+
+// ServiceActionDefinitionParameterArrayInput is an input type that accepts ServiceActionDefinitionParameterArray and ServiceActionDefinitionParameterArrayOutput values.
+// You can construct a concrete instance of `ServiceActionDefinitionParameterArrayInput` via:
+//
+//          ServiceActionDefinitionParameterArray{ ServiceActionDefinitionParameterArgs{...} }
+type ServiceActionDefinitionParameterArrayInput interface {
+	pulumi.Input
+
+	ToServiceActionDefinitionParameterArrayOutput() ServiceActionDefinitionParameterArrayOutput
+	ToServiceActionDefinitionParameterArrayOutputWithContext(context.Context) ServiceActionDefinitionParameterArrayOutput
+}
+
+type ServiceActionDefinitionParameterArray []ServiceActionDefinitionParameterInput
+
+func (ServiceActionDefinitionParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceActionDefinitionParameter)(nil)).Elem()
+}
+
+func (i ServiceActionDefinitionParameterArray) ToServiceActionDefinitionParameterArrayOutput() ServiceActionDefinitionParameterArrayOutput {
+	return i.ToServiceActionDefinitionParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceActionDefinitionParameterArray) ToServiceActionDefinitionParameterArrayOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
+type ServiceActionDefinitionParameterOutput struct{ *pulumi.OutputState }
+
+func (ServiceActionDefinitionParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceActionDefinitionParameter)(nil)).Elem()
+}
+
+func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParameterOutput() ServiceActionDefinitionParameterOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParameterOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
+func (o ServiceActionDefinitionParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+func (o ServiceActionDefinitionParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ServiceActionDefinitionParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceActionDefinitionParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceActionDefinitionParameter)(nil)).Elem()
+}
+
+func (o ServiceActionDefinitionParameterArrayOutput) ToServiceActionDefinitionParameterArrayOutput() ServiceActionDefinitionParameterArrayOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionParameterArrayOutput) ToServiceActionDefinitionParameterArrayOutputWithContext(ctx context.Context) ServiceActionDefinitionParameterArrayOutput {
+	return o
+}
+
+func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) ServiceActionDefinitionParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceActionDefinitionParameter {
+		return vs[0].([]ServiceActionDefinitionParameter)[vs[1].(int)]
+	}).(ServiceActionDefinitionParameterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceActionDefinitionParameterOutput{})
+	pulumi.RegisterOutputType(ServiceActionDefinitionParameterArrayOutput{})
 }

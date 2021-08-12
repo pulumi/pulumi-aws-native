@@ -16,9 +16,8 @@ import (
 type Asset struct {
 	pulumi.CustomResourceState
 
-	Arn       pulumi.StringOutput `pulumi:"arn"`
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
+	Arn             pulumi.StringOutput            `pulumi:"arn"`
+	CreatedAt       pulumi.StringOutput            `pulumi:"createdAt"`
 	EgressEndpoints AssetEgressEndpointArrayOutput `pulumi:"egressEndpoints"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
 	Id pulumi.StringOutput `pulumi:"id"`
@@ -85,8 +84,6 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-	EgressEndpoints []AssetEgressEndpoint `pulumi:"egressEndpoints"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
 	Id string `pulumi:"id"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
@@ -103,8 +100,6 @@ type assetArgs struct {
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-egressendpoints
-	EgressEndpoints AssetEgressEndpointArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
 	Id pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid

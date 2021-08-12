@@ -16,9 +16,9 @@ import (
 type StorageLens struct {
 	pulumi.CustomResourceState
 
-	StorageLensArn pulumi.StringOutput `pulumi:"storageLensArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-	StorageLensConfiguration StorageLensStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
+	StorageLensConfiguration               StorageLensStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
+	StorageLensConfigurationStorageLensArn pulumi.StringOutput                       `pulumi:"storageLensConfigurationStorageLensArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }

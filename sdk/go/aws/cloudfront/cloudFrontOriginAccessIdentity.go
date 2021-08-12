@@ -17,6 +17,7 @@ type CloudFrontOriginAccessIdentity struct {
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
+	Id                                   pulumi.StringOutput                                                      `pulumi:"id"`
 	S3CanonicalUserId                    pulumi.StringOutput                                                      `pulumi:"s3CanonicalUserId"`
 }
 

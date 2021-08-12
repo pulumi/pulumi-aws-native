@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,11 +16,10 @@ type Environment struct {
 	pulumi.CustomResourceState
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions EnvironmentAirflowConfigurationOptionsPtrOutput `pulumi:"airflowConfigurationOptions"`
+	AirflowConfigurationOptions pulumi.AnyOutput `pulumi:"airflowConfigurationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	AirflowVersion pulumi.StringPtrOutput `pulumi:"airflowVersion"`
 	Arn            pulumi.StringOutput    `pulumi:"arn"`
-	CreatedAt      pulumi.StringOutput    `pulumi:"createdAt"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
 	DagS3Path pulumi.StringPtrOutput `pulumi:"dagS3Path"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
@@ -27,13 +27,20 @@ type Environment struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
-	KmsKey     pulumi.StringPtrOutput      `pulumi:"kmsKey"`
-	LastUpdate EnvironmentLastUpdateOutput `pulumi:"lastUpdate"`
+	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
-	LoggingConfiguration EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	LoggingConfiguration                                       EnvironmentLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
+	LoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn pulumi.StringOutput                      `pulumi:"loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn"`
+	LoggingConfigurationSchedulerLogsCloudWatchLogGroupArn     pulumi.StringOutput                      `pulumi:"loggingConfigurationSchedulerLogsCloudWatchLogGroupArn"`
+	LoggingConfigurationTaskLogsCloudWatchLogGroupArn          pulumi.StringOutput                      `pulumi:"loggingConfigurationTaskLogsCloudWatchLogGroupArn"`
+	LoggingConfigurationWebserverLogsCloudWatchLogGroupArn     pulumi.StringOutput                      `pulumi:"loggingConfigurationWebserverLogsCloudWatchLogGroupArn"`
+	LoggingConfigurationWorkerLogsCloudWatchLogGroupArn        pulumi.StringOutput                      `pulumi:"loggingConfigurationWorkerLogsCloudWatchLogGroupArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers pulumi.IntPtrOutput `pulumi:"maxWorkers"`
-	Name       pulumi.StringOutput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+	MinWorkers pulumi.IntPtrOutput `pulumi:"minWorkers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+	Name pulumi.StringOutput `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
 	NetworkConfiguration EnvironmentNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
@@ -44,16 +51,15 @@ type Environment struct {
 	RequirementsS3ObjectVersion pulumi.StringPtrOutput `pulumi:"requirementsS3ObjectVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
 	RequirementsS3Path pulumi.StringPtrOutput `pulumi:"requirementsS3Path"`
-	ServiceRoleArn     pulumi.StringOutput    `pulumi:"serviceRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+	Schedulers pulumi.IntPtrOutput `pulumi:"schedulers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
 	SourceBucketArn pulumi.StringPtrOutput `pulumi:"sourceBucketArn"`
-	Status          pulumi.StringOutput    `pulumi:"status"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
 	Tags EnvironmentTagMapPtrOutput `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
 	WebserverAccessMode pulumi.StringPtrOutput `pulumi:"webserverAccessMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-	WebserverUrl pulumi.StringPtrOutput `pulumi:"webserverUrl"`
+	WebserverUrl        pulumi.StringOutput    `pulumi:"webserverUrl"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
 	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput `pulumi:"weeklyMaintenanceWindowStart"`
 }
@@ -62,9 +68,12 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		args = &EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	var resource Environment
 	err := ctx.RegisterResource("aws-native:MWAA:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -98,7 +107,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 
 type environmentArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions *EnvironmentAirflowConfigurationOptions `pulumi:"airflowConfigurationOptions"`
+	AirflowConfigurationOptions interface{} `pulumi:"airflowConfigurationOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
@@ -113,6 +122,10 @@ type environmentArgs struct {
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers *int `pulumi:"maxWorkers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+	MinWorkers *int `pulumi:"minWorkers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+	Name string `pulumi:"name"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
 	NetworkConfiguration *EnvironmentNetworkConfiguration `pulumi:"networkConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
@@ -123,14 +136,14 @@ type environmentArgs struct {
 	RequirementsS3ObjectVersion *string `pulumi:"requirementsS3ObjectVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
 	RequirementsS3Path *string `pulumi:"requirementsS3Path"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+	Schedulers *int `pulumi:"schedulers"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
 	SourceBucketArn *string `pulumi:"sourceBucketArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
 	Tags *EnvironmentTagMap `pulumi:"tags"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
 	WebserverAccessMode *string `pulumi:"webserverAccessMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-	WebserverUrl *string `pulumi:"webserverUrl"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
 	WeeklyMaintenanceWindowStart *string `pulumi:"weeklyMaintenanceWindowStart"`
 }
@@ -138,7 +151,7 @@ type environmentArgs struct {
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
-	AirflowConfigurationOptions EnvironmentAirflowConfigurationOptionsPtrInput
+	AirflowConfigurationOptions pulumi.Input
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
 	AirflowVersion pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
@@ -153,6 +166,10 @@ type EnvironmentArgs struct {
 	LoggingConfiguration EnvironmentLoggingConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
 	MaxWorkers pulumi.IntPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
+	MinWorkers pulumi.IntPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
+	Name pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
 	NetworkConfiguration EnvironmentNetworkConfigurationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
@@ -163,14 +180,14 @@ type EnvironmentArgs struct {
 	RequirementsS3ObjectVersion pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
 	RequirementsS3Path pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
+	Schedulers pulumi.IntPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
 	SourceBucketArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
 	Tags EnvironmentTagMapPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
 	WebserverAccessMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserverurl
-	WebserverUrl pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
 }

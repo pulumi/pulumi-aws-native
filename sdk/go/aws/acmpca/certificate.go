@@ -15,8 +15,10 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	Certificate pulumi.StringOutput `pulumi:"certificate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+	ApiPassthrough CertificateApiPassthroughPtrOutput `pulumi:"apiPassthrough"`
+	Arn            pulumi.StringOutput                `pulumi:"arn"`
+	Certificate    pulumi.StringOutput                `pulumi:"certificate"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
@@ -27,6 +29,8 @@ type Certificate struct {
 	TemplateArn pulumi.StringPtrOutput `pulumi:"templateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
 	Validity CertificateValidityOutput `pulumi:"validity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+	ValidityNotBefore CertificateValidityPtrOutput `pulumi:"validityNotBefore"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -80,6 +84,8 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+	ApiPassthrough *CertificateApiPassthrough `pulumi:"apiPassthrough"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
@@ -90,10 +96,14 @@ type certificateArgs struct {
 	TemplateArn *string `pulumi:"templateArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
 	Validity CertificateValidity `pulumi:"validity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+	ValidityNotBefore *CertificateValidity `pulumi:"validityNotBefore"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+	ApiPassthrough CertificateApiPassthroughPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
 	CertificateAuthorityArn pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
@@ -104,6 +114,8 @@ type CertificateArgs struct {
 	TemplateArn pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
 	Validity CertificateValidityInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+	ValidityNotBefore CertificateValidityPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

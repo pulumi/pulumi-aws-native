@@ -16,12 +16,16 @@ import (
 type Dataset struct {
 	pulumi.CustomResourceState
 
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-	FormatOptions pulumi.AnyOutput `pulumi:"formatOptions"`
+	FormatOptions DatasetFormatOptionsPtrOutput `pulumi:"formatOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-	Input pulumi.AnyOutput `pulumi:"input"`
+	Input DatasetInputTypeOutput `pulumi:"input"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+	PathOptions DatasetPathOptionsPtrOutput `pulumi:"pathOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -71,24 +75,32 @@ func (DatasetState) ElementType() reflect.Type {
 }
 
 type datasetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+	Format *string `pulumi:"format"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-	FormatOptions interface{} `pulumi:"formatOptions"`
+	FormatOptions *DatasetFormatOptions `pulumi:"formatOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-	Input interface{} `pulumi:"input"`
+	Input DatasetInputType `pulumi:"input"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
 	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dataset resource.
 type DatasetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+	Format pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-	FormatOptions pulumi.Input
+	FormatOptions DatasetFormatOptionsPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-	Input pulumi.Input
+	Input DatasetInputTypeInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
 	Name pulumi.StringInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+	PathOptions DatasetPathOptionsPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
 	Tags aws.TagArrayInput
 }

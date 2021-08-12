@@ -192,6 +192,8 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
 type CapacityProviderManagedScaling struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
@@ -215,6 +217,8 @@ type CapacityProviderManagedScalingInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
 type CapacityProviderManagedScalingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
@@ -303,6 +307,11 @@ func (o CapacityProviderManagedScalingOutput) ToCapacityProviderManagedScalingPt
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+func (o CapacityProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
@@ -347,6 +356,16 @@ func (o CapacityProviderManagedScalingPtrOutput) Elem() CapacityProviderManagedS
 	}).(CapacityProviderManagedScalingOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
+func (o CapacityProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceWarmupPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
@@ -385,6 +404,124 @@ func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrO
 		}
 		return v.TargetCapacity
 	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+type ClusterCapacityProviderAssociationsCapacityProviderStrategy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+	Base *int `pulumi:"base"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+	Weight *int `pulumi:"weight"`
+}
+
+// ClusterCapacityProviderAssociationsCapacityProviderStrategyInput is an input type that accepts ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs and ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `ClusterCapacityProviderAssociationsCapacityProviderStrategyInput` via:
+//
+//          ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{...}
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput
+	ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs) ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput {
+	return i.ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs) ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput)
+}
+
+// ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput is an input type that accepts ClusterCapacityProviderAssociationsCapacityProviderStrategyArray and ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput` via:
+//
+//          ClusterCapacityProviderAssociationsCapacityProviderStrategyArray{ ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs{...} }
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput
+	ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput
+}
+
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyArray []ClusterCapacityProviderAssociationsCapacityProviderStrategyInput
+
+func (ClusterCapacityProviderAssociationsCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCapacityProviderAssociationsCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i ClusterCapacityProviderAssociationsCapacityProviderStrategyArray) ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+	return i.ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityProviderAssociationsCapacityProviderStrategyArray) ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterCapacityProviderAssociationsCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput() ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) ToClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCapacityProviderAssociationsCapacityProviderStrategy {
+		return vs[0].([]ClusterCapacityProviderAssociationsCapacityProviderStrategy)[vs[1].(int)]
+	}).(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
@@ -505,6 +642,148 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ClusterCapacityProviderStrategyItemOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+type ClusterClusterConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
+}
+
+// ClusterClusterConfigurationInput is an input type that accepts ClusterClusterConfigurationArgs and ClusterClusterConfigurationOutput values.
+// You can construct a concrete instance of `ClusterClusterConfigurationInput` via:
+//
+//          ClusterClusterConfigurationArgs{...}
+type ClusterClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput
+	ToClusterClusterConfigurationOutputWithContext(context.Context) ClusterClusterConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+type ClusterClusterConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
+}
+
+func (ClusterClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterConfiguration)(nil)).Elem()
+}
+
+func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput {
+	return i.ToClusterClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationOutputWithContext(ctx context.Context) ClusterClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationOutput)
+}
+
+func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
+	return i.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterConfigurationArgs) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationOutput).ToClusterClusterConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterClusterConfigurationPtrInput is an input type that accepts ClusterClusterConfigurationArgs, ClusterClusterConfigurationPtr and ClusterClusterConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterClusterConfigurationPtrInput` via:
+//
+//          ClusterClusterConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterClusterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput
+	ToClusterClusterConfigurationPtrOutputWithContext(context.Context) ClusterClusterConfigurationPtrOutput
+}
+
+type clusterClusterConfigurationPtrType ClusterClusterConfigurationArgs
+
+func ClusterClusterConfigurationPtr(v *ClusterClusterConfigurationArgs) ClusterClusterConfigurationPtrInput {
+	return (*clusterClusterConfigurationPtrType)(v)
+}
+
+func (*clusterClusterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterConfiguration)(nil)).Elem()
+}
+
+func (i *clusterClusterConfigurationPtrType) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
+	return i.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterClusterConfigurationPtrType) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+type ClusterClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterConfiguration)(nil)).Elem()
+}
+
+func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationOutput() ClusterClusterConfigurationOutput {
+	return o
+}
+
+func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationOutputWithContext(ctx context.Context) ClusterClusterConfigurationOutput {
+	return o
+}
+
+func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
+	return o.ToClusterClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClusterConfiguration) *ClusterClusterConfiguration {
+		return &v
+	}).(ClusterClusterConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+func (o ClusterClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
+		return v.ExecuteCommandConfiguration
+	}).(ClusterExecuteCommandConfigurationPtrOutput)
+}
+
+type ClusterClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterClusterConfiguration)(nil)).Elem()
+}
+
+func (o ClusterClusterConfigurationPtrOutput) ToClusterClusterConfigurationPtrOutput() ClusterClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterClusterConfigurationPtrOutput) ToClusterClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterClusterConfigurationPtrOutput) Elem() ClusterClusterConfigurationOutput {
+	return o.ApplyT(func(v *ClusterClusterConfiguration) ClusterClusterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterClusterConfiguration
+		return ret
+	}).(ClusterClusterConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
+func (o ClusterClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ExecuteCommandConfiguration
+	}).(ClusterExecuteCommandConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
 type ClusterClusterSettings struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
@@ -612,6 +891,402 @@ func (o ClusterClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterClust
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClusterSettings {
 		return vs[0].([]ClusterClusterSettings)[vs[1].(int)]
 	}).(ClusterClusterSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+type ClusterExecuteCommandConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+	LogConfiguration *ClusterExecuteCommandLogConfiguration `pulumi:"logConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+	Logging *string `pulumi:"logging"`
+}
+
+// ClusterExecuteCommandConfigurationInput is an input type that accepts ClusterExecuteCommandConfigurationArgs and ClusterExecuteCommandConfigurationOutput values.
+// You can construct a concrete instance of `ClusterExecuteCommandConfigurationInput` via:
+//
+//          ClusterExecuteCommandConfigurationArgs{...}
+type ClusterExecuteCommandConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterExecuteCommandConfigurationOutput() ClusterExecuteCommandConfigurationOutput
+	ToClusterExecuteCommandConfigurationOutputWithContext(context.Context) ClusterExecuteCommandConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+type ClusterExecuteCommandConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+	LogConfiguration ClusterExecuteCommandLogConfigurationPtrInput `pulumi:"logConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+	Logging pulumi.StringPtrInput `pulumi:"logging"`
+}
+
+func (ClusterExecuteCommandConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (i ClusterExecuteCommandConfigurationArgs) ToClusterExecuteCommandConfigurationOutput() ClusterExecuteCommandConfigurationOutput {
+	return i.ToClusterExecuteCommandConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterExecuteCommandConfigurationArgs) ToClusterExecuteCommandConfigurationOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandConfigurationOutput)
+}
+
+func (i ClusterExecuteCommandConfigurationArgs) ToClusterExecuteCommandConfigurationPtrOutput() ClusterExecuteCommandConfigurationPtrOutput {
+	return i.ToClusterExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterExecuteCommandConfigurationArgs) ToClusterExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandConfigurationOutput).ToClusterExecuteCommandConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterExecuteCommandConfigurationPtrInput is an input type that accepts ClusterExecuteCommandConfigurationArgs, ClusterExecuteCommandConfigurationPtr and ClusterExecuteCommandConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterExecuteCommandConfigurationPtrInput` via:
+//
+//          ClusterExecuteCommandConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterExecuteCommandConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterExecuteCommandConfigurationPtrOutput() ClusterExecuteCommandConfigurationPtrOutput
+	ToClusterExecuteCommandConfigurationPtrOutputWithContext(context.Context) ClusterExecuteCommandConfigurationPtrOutput
+}
+
+type clusterExecuteCommandConfigurationPtrType ClusterExecuteCommandConfigurationArgs
+
+func ClusterExecuteCommandConfigurationPtr(v *ClusterExecuteCommandConfigurationArgs) ClusterExecuteCommandConfigurationPtrInput {
+	return (*clusterExecuteCommandConfigurationPtrType)(v)
+}
+
+func (*clusterExecuteCommandConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (i *clusterExecuteCommandConfigurationPtrType) ToClusterExecuteCommandConfigurationPtrOutput() ClusterExecuteCommandConfigurationPtrOutput {
+	return i.ToClusterExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterExecuteCommandConfigurationPtrType) ToClusterExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+type ClusterExecuteCommandConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterExecuteCommandConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigurationOutput() ClusterExecuteCommandConfigurationOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigurationOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigurationPtrOutput() ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ToClusterExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterExecuteCommandConfiguration) *ClusterExecuteCommandConfiguration {
+		return &v
+	}).(ClusterExecuteCommandConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+func (o ClusterExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+func (o ClusterExecuteCommandConfigurationOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
+		return v.LogConfiguration
+	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+func (o ClusterExecuteCommandConfigurationOutput) Logging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.Logging }).(pulumi.StringPtrOutput)
+}
+
+type ClusterExecuteCommandConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterExecuteCommandConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (o ClusterExecuteCommandConfigurationPtrOutput) ToClusterExecuteCommandConfigurationPtrOutput() ClusterExecuteCommandConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandConfigurationPtrOutput) ToClusterExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandConfigurationPtrOutput) Elem() ClusterExecuteCommandConfigurationOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) ClusterExecuteCommandConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterExecuteCommandConfiguration
+		return ret
+	}).(ClusterExecuteCommandConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
+func (o ClusterExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+func (o ClusterExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
+func (o ClusterExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+type ClusterExecuteCommandLogConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+	S3BucketName *string `pulumi:"s3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+	S3EncryptionEnabled *bool `pulumi:"s3EncryptionEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+}
+
+// ClusterExecuteCommandLogConfigurationInput is an input type that accepts ClusterExecuteCommandLogConfigurationArgs and ClusterExecuteCommandLogConfigurationOutput values.
+// You can construct a concrete instance of `ClusterExecuteCommandLogConfigurationInput` via:
+//
+//          ClusterExecuteCommandLogConfigurationArgs{...}
+type ClusterExecuteCommandLogConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterExecuteCommandLogConfigurationOutput() ClusterExecuteCommandLogConfigurationOutput
+	ToClusterExecuteCommandLogConfigurationOutputWithContext(context.Context) ClusterExecuteCommandLogConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+type ClusterExecuteCommandLogConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+	S3EncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3EncryptionEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+}
+
+func (ClusterExecuteCommandLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExecuteCommandLogConfiguration)(nil)).Elem()
+}
+
+func (i ClusterExecuteCommandLogConfigurationArgs) ToClusterExecuteCommandLogConfigurationOutput() ClusterExecuteCommandLogConfigurationOutput {
+	return i.ToClusterExecuteCommandLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterExecuteCommandLogConfigurationArgs) ToClusterExecuteCommandLogConfigurationOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandLogConfigurationOutput)
+}
+
+func (i ClusterExecuteCommandLogConfigurationArgs) ToClusterExecuteCommandLogConfigurationPtrOutput() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return i.ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterExecuteCommandLogConfigurationArgs) ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandLogConfigurationOutput).ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterExecuteCommandLogConfigurationPtrInput is an input type that accepts ClusterExecuteCommandLogConfigurationArgs, ClusterExecuteCommandLogConfigurationPtr and ClusterExecuteCommandLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterExecuteCommandLogConfigurationPtrInput` via:
+//
+//          ClusterExecuteCommandLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterExecuteCommandLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterExecuteCommandLogConfigurationPtrOutput() ClusterExecuteCommandLogConfigurationPtrOutput
+	ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(context.Context) ClusterExecuteCommandLogConfigurationPtrOutput
+}
+
+type clusterExecuteCommandLogConfigurationPtrType ClusterExecuteCommandLogConfigurationArgs
+
+func ClusterExecuteCommandLogConfigurationPtr(v *ClusterExecuteCommandLogConfigurationArgs) ClusterExecuteCommandLogConfigurationPtrInput {
+	return (*clusterExecuteCommandLogConfigurationPtrType)(v)
+}
+
+func (*clusterExecuteCommandLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExecuteCommandLogConfiguration)(nil)).Elem()
+}
+
+func (i *clusterExecuteCommandLogConfigurationPtrType) ToClusterExecuteCommandLogConfigurationPtrOutput() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return i.ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterExecuteCommandLogConfigurationPtrType) ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+type ClusterExecuteCommandLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterExecuteCommandLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterExecuteCommandLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogConfigurationOutput() ClusterExecuteCommandLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogConfigurationOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogConfigurationPtrOutput() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o.ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterExecuteCommandLogConfiguration) *ClusterExecuteCommandLogConfiguration {
+		return &v
+	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.CloudWatchEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+func (o ClusterExecuteCommandLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+func (o ClusterExecuteCommandLogConfigurationOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.S3EncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+func (o ClusterExecuteCommandLogConfigurationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type ClusterExecuteCommandLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterExecuteCommandLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterExecuteCommandLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) ToClusterExecuteCommandLogConfigurationPtrOutput() ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) ToClusterExecuteCommandLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterExecuteCommandLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) Elem() ClusterExecuteCommandLogConfigurationOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) ClusterExecuteCommandLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterExecuteCommandLogConfiguration
+		return ret
+	}).(ClusterExecuteCommandLogConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.S3EncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
+func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
@@ -3279,6 +3954,146 @@ func (o TaskDefinitionEnvironmentFileArrayOutput) Index(i pulumi.IntInput) TaskD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionEnvironmentFile {
 		return vs[0].([]TaskDefinitionEnvironmentFile)[vs[1].(int)]
 	}).(TaskDefinitionEnvironmentFileOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+type TaskDefinitionEphemeralStorage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+	SizeInGiB *int `pulumi:"sizeInGiB"`
+}
+
+// TaskDefinitionEphemeralStorageInput is an input type that accepts TaskDefinitionEphemeralStorageArgs and TaskDefinitionEphemeralStorageOutput values.
+// You can construct a concrete instance of `TaskDefinitionEphemeralStorageInput` via:
+//
+//          TaskDefinitionEphemeralStorageArgs{...}
+type TaskDefinitionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput
+	ToTaskDefinitionEphemeralStorageOutputWithContext(context.Context) TaskDefinitionEphemeralStorageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+type TaskDefinitionEphemeralStorageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+	SizeInGiB pulumi.IntPtrInput `pulumi:"sizeInGiB"`
+}
+
+func (TaskDefinitionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput {
+	return i.ToTaskDefinitionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStorageOutput)
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return i.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStorageOutput).ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionEphemeralStoragePtrInput is an input type that accepts TaskDefinitionEphemeralStorageArgs, TaskDefinitionEphemeralStoragePtr and TaskDefinitionEphemeralStoragePtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionEphemeralStoragePtrInput` via:
+//
+//          TaskDefinitionEphemeralStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionEphemeralStoragePtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput
+	ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Context) TaskDefinitionEphemeralStoragePtrOutput
+}
+
+type taskDefinitionEphemeralStoragePtrType TaskDefinitionEphemeralStorageArgs
+
+func TaskDefinitionEphemeralStoragePtr(v *TaskDefinitionEphemeralStorageArgs) TaskDefinitionEphemeralStoragePtrInput {
+	return (*taskDefinitionEphemeralStoragePtrType)(v)
+}
+
+func (*taskDefinitionEphemeralStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i *taskDefinitionEphemeralStoragePtrType) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return i.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionEphemeralStoragePtrType) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStoragePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
+type TaskDefinitionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return o.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEphemeralStorage) *TaskDefinitionEphemeralStorage {
+		return &v
+	}).(TaskDefinitionEphemeralStoragePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+func (o TaskDefinitionEphemeralStorageOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
+}
+
+type TaskDefinitionEphemeralStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionEphemeralStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralStorageOutput {
+	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) TaskDefinitionEphemeralStorage {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionEphemeralStorage
+		return ret
+	}).(TaskDefinitionEphemeralStorageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
+func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInGiB
+	}).(pulumi.IntPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
@@ -6916,10 +7731,18 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemArrayOutput{})
+	pulumi.RegisterOutputType(ClusterClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterClusterConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
@@ -6953,6 +7776,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionEFSVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEnvironmentFileOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEnvironmentFileArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionFirelensConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionFirelensConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionHealthCheckOutput{})

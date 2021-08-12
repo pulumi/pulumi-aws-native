@@ -25,8 +25,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModuleDefaultVersion{}
 	case "aws-native:CloudFormation:ModuleVersion":
 		r = &ModuleVersion{}
+	case "aws-native:CloudFormation:PublicTypeVersion":
+		r = &PublicTypeVersion{}
+	case "aws-native:CloudFormation:Publisher":
+		r = &Publisher{}
+	case "aws-native:CloudFormation:ResourceDefaultVersion":
+		r = &ResourceDefaultVersion{}
+	case "aws-native:CloudFormation:ResourceVersion":
+		r = &ResourceVersion{}
 	case "aws-native:CloudFormation:StackSet":
 		r = &StackSet{}
+	case "aws-native:CloudFormation:TypeActivation":
+		r = &TypeActivation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

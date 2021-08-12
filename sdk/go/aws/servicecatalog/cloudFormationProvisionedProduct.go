@@ -20,7 +20,6 @@ type CloudFormationProvisionedProduct struct {
 	CloudformationStackArn pulumi.StringOutput    `pulumi:"cloudformationStackArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
-	Outputs          pulumi.StringMapOutput   `pulumi:"outputs"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
 	PathId pulumi.StringPtrOutput `pulumi:"pathId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname

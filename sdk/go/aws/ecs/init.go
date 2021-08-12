@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CapacityProvider{}
 	case "aws-native:ECS:Cluster":
 		r = &Cluster{}
+	case "aws-native:ECS:ClusterCapacityProviderAssociations":
+		r = &ClusterCapacityProviderAssociations{}
 	case "aws-native:ECS:PrimaryTaskSet":
 		r = &PrimaryTaskSet{}
 	case "aws-native:ECS:Service":

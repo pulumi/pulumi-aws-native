@@ -22,9 +22,8 @@ type Project struct {
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
 	ProjectId          pulumi.StringOutput    `pulumi:"projectId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-	ProjectName                             pulumi.StringOutput `pulumi:"projectName"`
-	ProjectStatus                           pulumi.StringOutput `pulumi:"projectStatus"`
-	ServiceCatalogProvisionedProductDetails pulumi.AnyOutput    `pulumi:"serviceCatalogProvisionedProductDetails"`
+	ProjectName   pulumi.StringOutput `pulumi:"projectName"`
+	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
 	ServiceCatalogProvisioningDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisioningDetails"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags

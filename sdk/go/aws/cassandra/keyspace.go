@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +17,8 @@ type Keyspace struct {
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
 	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -59,12 +62,16 @@ func (KeyspaceState) ElementType() reflect.Type {
 type keyspaceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
 	KeyspaceName *string `pulumi:"keyspaceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
 	KeyspaceName pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
+	Tags aws.TagArrayInput
 }
 
 func (KeyspaceArgs) ElementType() reflect.Type {

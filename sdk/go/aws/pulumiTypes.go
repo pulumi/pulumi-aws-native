@@ -49,47 +49,6 @@ func (i TagArgs) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
 }
 
-func (i TagArgs) ToTagPtrOutput() TagPtrOutput {
-	return i.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (i TagArgs) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagOutput).ToTagPtrOutputWithContext(ctx)
-}
-
-// TagPtrInput is an input type that accepts TagArgs, TagPtr and TagPtrOutput values.
-// You can construct a concrete instance of `TagPtrInput` via:
-//
-//          TagArgs{...}
-//
-//  or:
-//
-//          nil
-type TagPtrInput interface {
-	pulumi.Input
-
-	ToTagPtrOutput() TagPtrOutput
-	ToTagPtrOutputWithContext(context.Context) TagPtrOutput
-}
-
-type tagPtrType TagArgs
-
-func TagPtr(v *TagArgs) TagPtrInput {
-	return (*tagPtrType)(v)
-}
-
-func (*tagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tag)(nil)).Elem()
-}
-
-func (i *tagPtrType) ToTagPtrOutput() TagPtrOutput {
-	return i.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (i *tagPtrType) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagPtrOutput)
-}
-
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
@@ -130,16 +89,6 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
 }
 
-func (o TagOutput) ToTagPtrOutput() TagPtrOutput {
-	return o.ToTagPtrOutputWithContext(context.Background())
-}
-
-func (o TagOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Tag) *Tag {
-		return &v
-	}).(TagPtrOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Key }).(pulumi.StringOutput)
@@ -148,50 +97,6 @@ func (o TagOutput) Key() pulumi.StringOutput {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
 func (o TagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v Tag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TagPtrOutput struct{ *pulumi.OutputState }
-
-func (TagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tag)(nil)).Elem()
-}
-
-func (o TagPtrOutput) ToTagPtrOutput() TagPtrOutput {
-	return o
-}
-
-func (o TagPtrOutput) ToTagPtrOutputWithContext(ctx context.Context) TagPtrOutput {
-	return o
-}
-
-func (o TagPtrOutput) Elem() TagOutput {
-	return o.ApplyT(func(v *Tag) Tag {
-		if v != nil {
-			return *v
-		}
-		var ret Tag
-		return ret
-	}).(TagOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
-func (o TagPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Tag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
-func (o TagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Tag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type TagArrayOutput struct{ *pulumi.OutputState }
@@ -216,6 +121,5 @@ func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 
 func init() {
 	pulumi.RegisterOutputType(TagOutput{})
-	pulumi.RegisterOutputType(TagPtrOutput{})
 	pulumi.RegisterOutputType(TagArrayOutput{})
 }

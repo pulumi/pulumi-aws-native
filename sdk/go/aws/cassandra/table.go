@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,14 +20,20 @@ type Table struct {
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
 	ClusteringKeyColumns TableClusteringKeyColumnArrayOutput `pulumi:"clusteringKeyColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	EncryptionSpecification TableEncryptionSpecificationPtrOutput `pulumi:"encryptionSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
 	PartitionKeyColumns TableColumnArrayOutput `pulumi:"partitionKeyColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	PointInTimeRecoveryEnabled pulumi.BoolPtrOutput `pulumi:"pointInTimeRecoveryEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
 	RegularColumns TableColumnArrayOutput `pulumi:"regularColumns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -78,14 +85,20 @@ type tableArgs struct {
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
 	ClusteringKeyColumns []TableClusteringKeyColumn `pulumi:"clusteringKeyColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	EncryptionSpecification *TableEncryptionSpecification `pulumi:"encryptionSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
 	KeyspaceName string `pulumi:"keyspaceName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
 	PartitionKeyColumns []TableColumn `pulumi:"partitionKeyColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
 	RegularColumns []TableColumn `pulumi:"regularColumns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
 	TableName *string `pulumi:"tableName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -94,14 +107,20 @@ type TableArgs struct {
 	BillingMode TableBillingModePtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
 	ClusteringKeyColumns TableClusteringKeyColumnArrayInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	EncryptionSpecification TableEncryptionSpecificationPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
 	KeyspaceName pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
 	PartitionKeyColumns TableColumnArrayInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	PointInTimeRecoveryEnabled pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
 	RegularColumns TableColumnArrayInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
 	TableName pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+	Tags aws.TagArrayInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

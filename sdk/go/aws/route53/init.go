@@ -21,10 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:Route53:DNSSEC":
+		r = &DNSSEC{}
 	case "aws-native:Route53:HealthCheck":
 		r = &HealthCheck{}
 	case "aws-native:Route53:HostedZone":
 		r = &HostedZone{}
+	case "aws-native:Route53:KeySigningKey":
+		r = &KeySigningKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

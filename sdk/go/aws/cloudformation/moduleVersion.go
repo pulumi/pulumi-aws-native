@@ -22,11 +22,11 @@ type ModuleVersion struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
 	ModuleName pulumi.StringOutput `pulumi:"moduleName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
-	ModulePackage pulumi.StringPtrOutput `pulumi:"modulePackage"`
-	Schema        pulumi.StringOutput    `pulumi:"schema"`
-	TimeCreated   pulumi.StringOutput    `pulumi:"timeCreated"`
-	VersionId     pulumi.StringOutput    `pulumi:"versionId"`
-	Visibility    pulumi.StringOutput    `pulumi:"visibility"`
+	ModulePackage pulumi.StringOutput `pulumi:"modulePackage"`
+	Schema        pulumi.StringOutput `pulumi:"schema"`
+	TimeCreated   pulumi.StringOutput `pulumi:"timeCreated"`
+	VersionId     pulumi.StringOutput `pulumi:"versionId"`
+	Visibility    pulumi.StringOutput `pulumi:"visibility"`
 }
 
 // NewModuleVersion registers a new resource with the given unique name, arguments, and options.
@@ -38,6 +38,9 @@ func NewModuleVersion(ctx *pulumi.Context,
 
 	if args.ModuleName == nil {
 		return nil, errors.New("invalid value for required argument 'ModuleName'")
+	}
+	if args.ModulePackage == nil {
+		return nil, errors.New("invalid value for required argument 'ModulePackage'")
 	}
 	var resource ModuleVersion
 	err := ctx.RegisterResource("aws-native:CloudFormation:ModuleVersion", name, args, &resource, opts...)
@@ -74,7 +77,7 @@ type moduleVersionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
 	ModuleName string `pulumi:"moduleName"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
-	ModulePackage *string `pulumi:"modulePackage"`
+	ModulePackage string `pulumi:"modulePackage"`
 }
 
 // The set of arguments for constructing a ModuleVersion resource.
@@ -82,7 +85,7 @@ type ModuleVersionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
 	ModuleName pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
-	ModulePackage pulumi.StringPtrInput
+	ModulePackage pulumi.StringInput
 }
 
 func (ModuleVersionArgs) ElementType() reflect.Type {

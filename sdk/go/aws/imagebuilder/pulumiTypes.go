@@ -10,10 +10,817 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+type ContainerRecipeComponentConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+	ComponentArn *string `pulumi:"componentArn"`
+}
+
+// ContainerRecipeComponentConfigurationInput is an input type that accepts ContainerRecipeComponentConfigurationArgs and ContainerRecipeComponentConfigurationOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentConfigurationInput` via:
+//
+//          ContainerRecipeComponentConfigurationArgs{...}
+type ContainerRecipeComponentConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentConfigurationOutput() ContainerRecipeComponentConfigurationOutput
+	ToContainerRecipeComponentConfigurationOutputWithContext(context.Context) ContainerRecipeComponentConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+type ContainerRecipeComponentConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
+}
+
+func (ContainerRecipeComponentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentConfiguration)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentConfigurationArgs) ToContainerRecipeComponentConfigurationOutput() ContainerRecipeComponentConfigurationOutput {
+	return i.ToContainerRecipeComponentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentConfigurationArgs) ToContainerRecipeComponentConfigurationOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentConfigurationOutput)
+}
+
+// ContainerRecipeComponentConfigurationArrayInput is an input type that accepts ContainerRecipeComponentConfigurationArray and ContainerRecipeComponentConfigurationArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentConfigurationArrayInput` via:
+//
+//          ContainerRecipeComponentConfigurationArray{ ContainerRecipeComponentConfigurationArgs{...} }
+type ContainerRecipeComponentConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentConfigurationArrayOutput() ContainerRecipeComponentConfigurationArrayOutput
+	ToContainerRecipeComponentConfigurationArrayOutputWithContext(context.Context) ContainerRecipeComponentConfigurationArrayOutput
+}
+
+type ContainerRecipeComponentConfigurationArray []ContainerRecipeComponentConfigurationInput
+
+func (ContainerRecipeComponentConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentConfiguration)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentConfigurationArray) ToContainerRecipeComponentConfigurationArrayOutput() ContainerRecipeComponentConfigurationArrayOutput {
+	return i.ToContainerRecipeComponentConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentConfigurationArray) ToContainerRecipeComponentConfigurationArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+type ContainerRecipeComponentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentConfigurationOutput) ToContainerRecipeComponentConfigurationOutput() ContainerRecipeComponentConfigurationOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentConfigurationOutput) ToContainerRecipeComponentConfigurationOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+func (o ContainerRecipeComponentConfigurationOutput) ComponentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentConfiguration) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeComponentConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentConfigurationArrayOutput) ToContainerRecipeComponentConfigurationArrayOutput() ContainerRecipeComponentConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentConfigurationArrayOutput) ToContainerRecipeComponentConfigurationArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeComponentConfiguration {
+		return vs[0].([]ContainerRecipeComponentConfiguration)[vs[1].(int)]
+	}).(ContainerRecipeComponentConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+type ContainerRecipeEbsInstanceBlockDeviceSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+	Encrypted *bool `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+	Iops *int `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+	SnapshotId *string `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+	VolumeSize *int `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// ContainerRecipeEbsInstanceBlockDeviceSpecificationInput is an input type that accepts ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs and ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput values.
+// You can construct a concrete instance of `ContainerRecipeEbsInstanceBlockDeviceSpecificationInput` via:
+//
+//          ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs{...}
+type ContainerRecipeEbsInstanceBlockDeviceSpecificationInput interface {
+	pulumi.Input
+
+	ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput
+	ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+type ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeEbsInstanceBlockDeviceSpecification)(nil)).Elem()
+}
+
+func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
+	return i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput)
+}
+
+func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput).ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput is an input type that accepts ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs, ContainerRecipeEbsInstanceBlockDeviceSpecificationPtr and ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput` via:
+//
+//          ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput
+	ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput
+}
+
+type containerRecipeEbsInstanceBlockDeviceSpecificationPtrType ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs
+
+func ContainerRecipeEbsInstanceBlockDeviceSpecificationPtr(v *ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput {
+	return (*containerRecipeEbsInstanceBlockDeviceSpecificationPtrType)(v)
+}
+
+func (*containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeEbsInstanceBlockDeviceSpecification)(nil)).Elem()
+}
+
+func (i *containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+type ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeEbsInstanceBlockDeviceSpecification)(nil)).Elem()
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
+	return o
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
+	return o
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return o.ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeEbsInstanceBlockDeviceSpecification) *ContainerRecipeEbsInstanceBlockDeviceSpecification {
+		return &v
+	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeEbsInstanceBlockDeviceSpecification)(nil)).Elem()
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Elem() ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) ContainerRecipeEbsInstanceBlockDeviceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeEbsInstanceBlockDeviceSpecification
+		return ret
+	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+type ContainerRecipeInstanceBlockDeviceMapping struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+	DeviceName *string `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+	Ebs *ContainerRecipeEbsInstanceBlockDeviceSpecification `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+	NoDevice *string `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// ContainerRecipeInstanceBlockDeviceMappingInput is an input type that accepts ContainerRecipeInstanceBlockDeviceMappingArgs and ContainerRecipeInstanceBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceBlockDeviceMappingInput` via:
+//
+//          ContainerRecipeInstanceBlockDeviceMappingArgs{...}
+type ContainerRecipeInstanceBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceBlockDeviceMappingOutput() ContainerRecipeInstanceBlockDeviceMappingOutput
+	ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(context.Context) ContainerRecipeInstanceBlockDeviceMappingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+type ContainerRecipeInstanceBlockDeviceMappingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+	Ebs ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (ContainerRecipeInstanceBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceBlockDeviceMappingArgs) ToContainerRecipeInstanceBlockDeviceMappingOutput() ContainerRecipeInstanceBlockDeviceMappingOutput {
+	return i.ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceBlockDeviceMappingArgs) ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceBlockDeviceMappingOutput)
+}
+
+// ContainerRecipeInstanceBlockDeviceMappingArrayInput is an input type that accepts ContainerRecipeInstanceBlockDeviceMappingArray and ContainerRecipeInstanceBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceBlockDeviceMappingArrayInput` via:
+//
+//          ContainerRecipeInstanceBlockDeviceMappingArray{ ContainerRecipeInstanceBlockDeviceMappingArgs{...} }
+type ContainerRecipeInstanceBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceBlockDeviceMappingArrayOutput() ContainerRecipeInstanceBlockDeviceMappingArrayOutput
+	ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(context.Context) ContainerRecipeInstanceBlockDeviceMappingArrayOutput
+}
+
+type ContainerRecipeInstanceBlockDeviceMappingArray []ContainerRecipeInstanceBlockDeviceMappingInput
+
+func (ContainerRecipeInstanceBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeInstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceBlockDeviceMappingArray) ToContainerRecipeInstanceBlockDeviceMappingArrayOutput() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return i.ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceBlockDeviceMappingArray) ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+type ContainerRecipeInstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToContainerRecipeInstanceBlockDeviceMappingOutput() ContainerRecipeInstanceBlockDeviceMappingOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) Ebs() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *ContainerRecipeEbsInstanceBlockDeviceSpecification {
+		return v.Ebs
+	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+func (o ContainerRecipeInstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeInstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceBlockDeviceMappingArrayOutput() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ContainerRecipeInstanceBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeInstanceBlockDeviceMapping {
+		return vs[0].([]ContainerRecipeInstanceBlockDeviceMapping)[vs[1].(int)]
+	}).(ContainerRecipeInstanceBlockDeviceMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+type ContainerRecipeInstanceConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+	BlockDeviceMappings []ContainerRecipeInstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+	Image *string `pulumi:"image"`
+}
+
+// ContainerRecipeInstanceConfigurationInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs and ContainerRecipeInstanceConfigurationOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationInput` via:
+//
+//          ContainerRecipeInstanceConfigurationArgs{...}
+type ContainerRecipeInstanceConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput
+	ToContainerRecipeInstanceConfigurationOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+type ContainerRecipeInstanceConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+	BlockDeviceMappings ContainerRecipeInstanceBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+	Image pulumi.StringPtrInput `pulumi:"image"`
+}
+
+func (ContainerRecipeInstanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput {
+	return i.ToContainerRecipeInstanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput)
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput).ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeInstanceConfigurationPtrInput is an input type that accepts ContainerRecipeInstanceConfigurationArgs, ContainerRecipeInstanceConfigurationPtr and ContainerRecipeInstanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeInstanceConfigurationPtrInput` via:
+//
+//          ContainerRecipeInstanceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeInstanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput
+	ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationPtrOutput
+}
+
+type containerRecipeInstanceConfigurationPtrType ContainerRecipeInstanceConfigurationArgs
+
+func ContainerRecipeInstanceConfigurationPtr(v *ContainerRecipeInstanceConfigurationArgs) ContainerRecipeInstanceConfigurationPtrInput {
+	return (*containerRecipeInstanceConfigurationPtrType)(v)
+}
+
+func (*containerRecipeInstanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+type ContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationOutput() ContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return o.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfiguration) *ContainerRecipeInstanceConfiguration {
+		return &v
+	}).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+func (o ContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+func (o ContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) *string { return v.Image }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeInstanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeInstanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeInstanceConfigurationOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) ContainerRecipeInstanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeInstanceConfiguration
+		return ret
+	}).(ContainerRecipeInstanceConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceBlockDeviceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDeviceMappings
+	}).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+type ContainerRecipeTargetContainerRepository struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+	RepositoryName *string `pulumi:"repositoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+	Service *string `pulumi:"service"`
+}
+
+// ContainerRecipeTargetContainerRepositoryInput is an input type that accepts ContainerRecipeTargetContainerRepositoryArgs and ContainerRecipeTargetContainerRepositoryOutput values.
+// You can construct a concrete instance of `ContainerRecipeTargetContainerRepositoryInput` via:
+//
+//          ContainerRecipeTargetContainerRepositoryArgs{...}
+type ContainerRecipeTargetContainerRepositoryInput interface {
+	pulumi.Input
+
+	ToContainerRecipeTargetContainerRepositoryOutput() ContainerRecipeTargetContainerRepositoryOutput
+	ToContainerRecipeTargetContainerRepositoryOutputWithContext(context.Context) ContainerRecipeTargetContainerRepositoryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+type ContainerRecipeTargetContainerRepositoryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+	Service pulumi.StringPtrInput `pulumi:"service"`
+}
+
+func (ContainerRecipeTargetContainerRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeTargetContainerRepository)(nil)).Elem()
+}
+
+func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetContainerRepositoryOutput() ContainerRecipeTargetContainerRepositoryOutput {
+	return i.ToContainerRecipeTargetContainerRepositoryOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetContainerRepositoryOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryOutput)
+}
+
+func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return i.ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryOutput).ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx)
+}
+
+// ContainerRecipeTargetContainerRepositoryPtrInput is an input type that accepts ContainerRecipeTargetContainerRepositoryArgs, ContainerRecipeTargetContainerRepositoryPtr and ContainerRecipeTargetContainerRepositoryPtrOutput values.
+// You can construct a concrete instance of `ContainerRecipeTargetContainerRepositoryPtrInput` via:
+//
+//          ContainerRecipeTargetContainerRepositoryArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerRecipeTargetContainerRepositoryPtrInput interface {
+	pulumi.Input
+
+	ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput
+	ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput
+}
+
+type containerRecipeTargetContainerRepositoryPtrType ContainerRecipeTargetContainerRepositoryArgs
+
+func ContainerRecipeTargetContainerRepositoryPtr(v *ContainerRecipeTargetContainerRepositoryArgs) ContainerRecipeTargetContainerRepositoryPtrInput {
+	return (*containerRecipeTargetContainerRepositoryPtrType)(v)
+}
+
+func (*containerRecipeTargetContainerRepositoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeTargetContainerRepository)(nil)).Elem()
+}
+
+func (i *containerRecipeTargetContainerRepositoryPtrType) ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return i.ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (i *containerRecipeTargetContainerRepositoryPtrType) ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+type ContainerRecipeTargetContainerRepositoryOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeTargetContainerRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeTargetContainerRepository)(nil)).Elem()
+}
+
+func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetContainerRepositoryOutput() ContainerRecipeTargetContainerRepositoryOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetContainerRepositoryOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return o.ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeTargetContainerRepository) *ContainerRecipeTargetContainerRepository {
+		return &v
+	}).(ContainerRecipeTargetContainerRepositoryPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+func (o ContainerRecipeTargetContainerRepositoryOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+func (o ContainerRecipeTargetContainerRepositoryOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeTargetContainerRepositoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeTargetContainerRepositoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeTargetContainerRepository)(nil)).Elem()
+}
+
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Elem() ContainerRecipeTargetContainerRepositoryOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) ContainerRecipeTargetContainerRepository {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeTargetContainerRepository
+		return ret
+	}).(ContainerRecipeTargetContainerRepositoryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Service
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
 type DistributionConfigurationDistribution struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
 	AmiDistributionConfiguration interface{} `pulumi:"amiDistributionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+	ContainerDistributionConfiguration interface{} `pulumi:"containerDistributionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+	LaunchTemplateConfigurations []DistributionConfigurationLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
@@ -35,6 +842,10 @@ type DistributionConfigurationDistributionInput interface {
 type DistributionConfigurationDistributionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
 	AmiDistributionConfiguration pulumi.Input `pulumi:"amiDistributionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+	ContainerDistributionConfiguration pulumi.Input `pulumi:"containerDistributionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+	LaunchTemplateConfigurations DistributionConfigurationLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
@@ -98,6 +909,18 @@ func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguratio
 	return o.ApplyT(func(v DistributionConfigurationDistribution) interface{} { return v.AmiDistributionConfiguration }).(pulumi.AnyOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) interface{} { return v.ContainerDistributionConfiguration }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+func (o DistributionConfigurationDistributionOutput) LaunchTemplateConfigurations() DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationLaunchTemplateConfiguration {
+		return v.LaunchTemplateConfigurations
+	}).(DistributionConfigurationLaunchTemplateConfigurationArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
 func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
@@ -126,6 +949,124 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationDistribution {
 		return vs[0].([]DistributionConfigurationDistribution)[vs[1].(int)]
 	}).(DistributionConfigurationDistributionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+type DistributionConfigurationLaunchTemplateConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+	AccountId *string `pulumi:"accountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+	SetDefaultVersion *bool `pulumi:"setDefaultVersion"`
+}
+
+// DistributionConfigurationLaunchTemplateConfigurationInput is an input type that accepts DistributionConfigurationLaunchTemplateConfigurationArgs and DistributionConfigurationLaunchTemplateConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationLaunchTemplateConfigurationInput` via:
+//
+//          DistributionConfigurationLaunchTemplateConfigurationArgs{...}
+type DistributionConfigurationLaunchTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationLaunchTemplateConfigurationOutput() DistributionConfigurationLaunchTemplateConfigurationOutput
+	ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(context.Context) DistributionConfigurationLaunchTemplateConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+type DistributionConfigurationLaunchTemplateConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+	SetDefaultVersion pulumi.BoolPtrInput `pulumi:"setDefaultVersion"`
+}
+
+func (DistributionConfigurationLaunchTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationLaunchTemplateConfigurationArgs) ToDistributionConfigurationLaunchTemplateConfigurationOutput() DistributionConfigurationLaunchTemplateConfigurationOutput {
+	return i.ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationLaunchTemplateConfigurationArgs) ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchTemplateConfigurationOutput)
+}
+
+// DistributionConfigurationLaunchTemplateConfigurationArrayInput is an input type that accepts DistributionConfigurationLaunchTemplateConfigurationArray and DistributionConfigurationLaunchTemplateConfigurationArrayOutput values.
+// You can construct a concrete instance of `DistributionConfigurationLaunchTemplateConfigurationArrayInput` via:
+//
+//          DistributionConfigurationLaunchTemplateConfigurationArray{ DistributionConfigurationLaunchTemplateConfigurationArgs{...} }
+type DistributionConfigurationLaunchTemplateConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationLaunchTemplateConfigurationArrayOutput() DistributionConfigurationLaunchTemplateConfigurationArrayOutput
+	ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(context.Context) DistributionConfigurationLaunchTemplateConfigurationArrayOutput
+}
+
+type DistributionConfigurationLaunchTemplateConfigurationArray []DistributionConfigurationLaunchTemplateConfigurationInput
+
+func (DistributionConfigurationLaunchTemplateConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationLaunchTemplateConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationLaunchTemplateConfigurationArray) ToDistributionConfigurationLaunchTemplateConfigurationArrayOutput() DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
+	return i.ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationLaunchTemplateConfigurationArray) ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchTemplateConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+type DistributionConfigurationLaunchTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationLaunchTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToDistributionConfigurationLaunchTemplateConfigurationOutput() DistributionConfigurationLaunchTemplateConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+func (o DistributionConfigurationLaunchTemplateConfigurationOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+func (o DistributionConfigurationLaunchTemplateConfigurationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+func (o DistributionConfigurationLaunchTemplateConfigurationOutput) SetDefaultVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *bool { return v.SetDefaultVersion }).(pulumi.BoolPtrOutput)
+}
+
+type DistributionConfigurationLaunchTemplateConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationLaunchTemplateConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ToDistributionConfigurationLaunchTemplateConfigurationArrayOutput() DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationLaunchTemplateConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationLaunchTemplateConfiguration {
+		return vs[0].([]DistributionConfigurationLaunchTemplateConfiguration)[vs[1].(int)]
+	}).(DistributionConfigurationLaunchTemplateConfigurationOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
@@ -605,10 +1546,173 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+type ImageRecipeAdditionalInstanceConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+	UserDataOverride string `pulumi:"userDataOverride"`
+}
+
+// ImageRecipeAdditionalInstanceConfigurationInput is an input type that accepts ImageRecipeAdditionalInstanceConfigurationArgs and ImageRecipeAdditionalInstanceConfigurationOutput values.
+// You can construct a concrete instance of `ImageRecipeAdditionalInstanceConfigurationInput` via:
+//
+//          ImageRecipeAdditionalInstanceConfigurationArgs{...}
+type ImageRecipeAdditionalInstanceConfigurationInput interface {
+	pulumi.Input
+
+	ToImageRecipeAdditionalInstanceConfigurationOutput() ImageRecipeAdditionalInstanceConfigurationOutput
+	ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(context.Context) ImageRecipeAdditionalInstanceConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+type ImageRecipeAdditionalInstanceConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput `pulumi:"systemsManagerAgent"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+	UserDataOverride pulumi.StringInput `pulumi:"userDataOverride"`
+}
+
+func (ImageRecipeAdditionalInstanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeAdditionalInstanceConfiguration)(nil)).Elem()
+}
+
+func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalInstanceConfigurationOutput() ImageRecipeAdditionalInstanceConfigurationOutput {
+	return i.ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationOutput)
+}
+
+func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return i.ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationOutput).ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageRecipeAdditionalInstanceConfigurationPtrInput is an input type that accepts ImageRecipeAdditionalInstanceConfigurationArgs, ImageRecipeAdditionalInstanceConfigurationPtr and ImageRecipeAdditionalInstanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageRecipeAdditionalInstanceConfigurationPtrInput` via:
+//
+//          ImageRecipeAdditionalInstanceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageRecipeAdditionalInstanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput
+	ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput
+}
+
+type imageRecipeAdditionalInstanceConfigurationPtrType ImageRecipeAdditionalInstanceConfigurationArgs
+
+func ImageRecipeAdditionalInstanceConfigurationPtr(v *ImageRecipeAdditionalInstanceConfigurationArgs) ImageRecipeAdditionalInstanceConfigurationPtrInput {
+	return (*imageRecipeAdditionalInstanceConfigurationPtrType)(v)
+}
+
+func (*imageRecipeAdditionalInstanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeAdditionalInstanceConfiguration)(nil)).Elem()
+}
+
+func (i *imageRecipeAdditionalInstanceConfigurationPtrType) ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return i.ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageRecipeAdditionalInstanceConfigurationPtrType) ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+type ImageRecipeAdditionalInstanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeAdditionalInstanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeAdditionalInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditionalInstanceConfigurationOutput() ImageRecipeAdditionalInstanceConfigurationOutput {
+	return o
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationOutput {
+	return o
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return o.ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeAdditionalInstanceConfiguration {
+		return &v
+	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeSystemsManagerAgent {
+		return v.SystemsManagerAgent
+	}).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+func (o ImageRecipeAdditionalInstanceConfigurationOutput) UserDataOverride() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) string { return v.UserDataOverride }).(pulumi.StringOutput)
+}
+
+type ImageRecipeAdditionalInstanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeAdditionalInstanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeAdditionalInstanceConfiguration)(nil)).Elem()
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) Elem() ImageRecipeAdditionalInstanceConfigurationOutput {
+	return o.ApplyT(func(v *ImageRecipeAdditionalInstanceConfiguration) ImageRecipeAdditionalInstanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipeAdditionalInstanceConfiguration
+		return ret
+	}).(ImageRecipeAdditionalInstanceConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeSystemsManagerAgent {
+		if v == nil {
+			return nil
+		}
+		return v.SystemsManagerAgent
+	}).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) UserDataOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeAdditionalInstanceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserDataOverride
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
 type ImageRecipeComponentConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
 	ComponentArn *string `pulumi:"componentArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+	Parameters []ImageRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // ImageRecipeComponentConfigurationInput is an input type that accepts ImageRecipeComponentConfigurationArgs and ImageRecipeComponentConfigurationOutput values.
@@ -626,6 +1730,8 @@ type ImageRecipeComponentConfigurationInput interface {
 type ImageRecipeComponentConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
 	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+	Parameters ImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (ImageRecipeComponentConfigurationArgs) ElementType() reflect.Type {
@@ -685,6 +1791,11 @@ func (o ImageRecipeComponentConfigurationOutput) ComponentArn() pulumi.StringPtr
 	return o.ApplyT(func(v ImageRecipeComponentConfiguration) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+func (o ImageRecipeComponentConfigurationOutput) Parameters() ImageRecipeComponentParameterArrayOutput {
+	return o.ApplyT(func(v ImageRecipeComponentConfiguration) []ImageRecipeComponentParameter { return v.Parameters }).(ImageRecipeComponentParameterArrayOutput)
+}
+
 type ImageRecipeComponentConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeComponentConfigurationArrayOutput) ElementType() reflect.Type {
@@ -703,6 +1814,115 @@ func (o ImageRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInput) I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRecipeComponentConfiguration {
 		return vs[0].([]ImageRecipeComponentConfiguration)[vs[1].(int)]
 	}).(ImageRecipeComponentConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+type ImageRecipeComponentParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+	Value []string `pulumi:"value"`
+}
+
+// ImageRecipeComponentParameterInput is an input type that accepts ImageRecipeComponentParameterArgs and ImageRecipeComponentParameterOutput values.
+// You can construct a concrete instance of `ImageRecipeComponentParameterInput` via:
+//
+//          ImageRecipeComponentParameterArgs{...}
+type ImageRecipeComponentParameterInput interface {
+	pulumi.Input
+
+	ToImageRecipeComponentParameterOutput() ImageRecipeComponentParameterOutput
+	ToImageRecipeComponentParameterOutputWithContext(context.Context) ImageRecipeComponentParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+type ImageRecipeComponentParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ImageRecipeComponentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ImageRecipeComponentParameterArgs) ToImageRecipeComponentParameterOutput() ImageRecipeComponentParameterOutput {
+	return i.ToImageRecipeComponentParameterOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeComponentParameterArgs) ToImageRecipeComponentParameterOutputWithContext(ctx context.Context) ImageRecipeComponentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterOutput)
+}
+
+// ImageRecipeComponentParameterArrayInput is an input type that accepts ImageRecipeComponentParameterArray and ImageRecipeComponentParameterArrayOutput values.
+// You can construct a concrete instance of `ImageRecipeComponentParameterArrayInput` via:
+//
+//          ImageRecipeComponentParameterArray{ ImageRecipeComponentParameterArgs{...} }
+type ImageRecipeComponentParameterArrayInput interface {
+	pulumi.Input
+
+	ToImageRecipeComponentParameterArrayOutput() ImageRecipeComponentParameterArrayOutput
+	ToImageRecipeComponentParameterArrayOutputWithContext(context.Context) ImageRecipeComponentParameterArrayOutput
+}
+
+type ImageRecipeComponentParameterArray []ImageRecipeComponentParameterInput
+
+func (ImageRecipeComponentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ImageRecipeComponentParameterArray) ToImageRecipeComponentParameterArrayOutput() ImageRecipeComponentParameterArrayOutput {
+	return i.ToImageRecipeComponentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeComponentParameterArray) ToImageRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ImageRecipeComponentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+type ImageRecipeComponentParameterOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeComponentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutput() ImageRecipeComponentParameterOutput {
+	return o
+}
+
+func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutputWithContext(ctx context.Context) ImageRecipeComponentParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+func (o ImageRecipeComponentParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+func (o ImageRecipeComponentParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageRecipeComponentParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ImageRecipeComponentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeComponentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParameterArrayOutput() ImageRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ImageRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRecipeComponentParameter {
+		return vs[0].([]ImageRecipeComponentParameter)[vs[1].(int)]
+	}).(ImageRecipeComponentParameterOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
@@ -1088,6 +2308,146 @@ func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 	}).(ImageRecipeInstanceBlockDeviceMappingOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+type ImageRecipeSystemsManagerAgent struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
+}
+
+// ImageRecipeSystemsManagerAgentInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs and ImageRecipeSystemsManagerAgentOutput values.
+// You can construct a concrete instance of `ImageRecipeSystemsManagerAgentInput` via:
+//
+//          ImageRecipeSystemsManagerAgentArgs{...}
+type ImageRecipeSystemsManagerAgentInput interface {
+	pulumi.Input
+
+	ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput
+	ToImageRecipeSystemsManagerAgentOutputWithContext(context.Context) ImageRecipeSystemsManagerAgentOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+type ImageRecipeSystemsManagerAgentArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
+}
+
+func (ImageRecipeSystemsManagerAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput {
+	return i.ToImageRecipeSystemsManagerAgentOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput)
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput).ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx)
+}
+
+// ImageRecipeSystemsManagerAgentPtrInput is an input type that accepts ImageRecipeSystemsManagerAgentArgs, ImageRecipeSystemsManagerAgentPtr and ImageRecipeSystemsManagerAgentPtrOutput values.
+// You can construct a concrete instance of `ImageRecipeSystemsManagerAgentPtrInput` via:
+//
+//          ImageRecipeSystemsManagerAgentArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageRecipeSystemsManagerAgentPtrInput interface {
+	pulumi.Input
+
+	ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput
+	ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Context) ImageRecipeSystemsManagerAgentPtrOutput
+}
+
+type imageRecipeSystemsManagerAgentPtrType ImageRecipeSystemsManagerAgentArgs
+
+func ImageRecipeSystemsManagerAgentPtr(v *ImageRecipeSystemsManagerAgentArgs) ImageRecipeSystemsManagerAgentPtrInput {
+	return (*imageRecipeSystemsManagerAgentPtrType)(v)
+}
+
+func (*imageRecipeSystemsManagerAgentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+type ImageRecipeSystemsManagerAgentOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeSystemsManagerAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentOutput() ImageRecipeSystemsManagerAgentOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
+}
+
+func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeSystemsManagerAgent) *ImageRecipeSystemsManagerAgent {
+		return &v
+	}).(ImageRecipeSystemsManagerAgentPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
+	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
+}
+
+type ImageRecipeSystemsManagerAgentPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeSystemsManagerAgentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeSystemsManagerAgent)(nil)).Elem()
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
+	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManagerAgentOutput {
+	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) ImageRecipeSystemsManagerAgent {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipeSystemsManagerAgent
+		return ret
+	}).(ImageRecipeSystemsManagerAgentOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UninstallAfterBuild
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html
 type InfrastructureConfigurationLogging struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
@@ -1303,20 +2663,38 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) S3KeyPrefix() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ImageRecipeAdditionalInstanceConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageRecipeAdditionalInstanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeComponentConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageRecipeComponentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ImageRecipeComponentParameterOutput{})
+	pulumi.RegisterOutputType(ImageRecipeComponentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
+	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsPtrOutput{})

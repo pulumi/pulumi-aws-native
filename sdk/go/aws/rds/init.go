@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:RDS:DBProxy":
 		r = &DBProxy{}
+	case "aws-native:RDS:DBProxyEndpoint":
+		r = &DBProxyEndpoint{}
 	case "aws-native:RDS:DBProxyTargetGroup":
 		r = &DBProxyTargetGroup{}
 	case "aws-native:RDS:GlobalCluster":
