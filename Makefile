@@ -18,7 +18,7 @@ CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-${PACK}
 CFN_SCHEMA_FILE     := ${CFN_SCHEMA_DIR}/cfn-spec-${CFN_SCHEMA_REGION}.json
 
 discovery::codegen
-	test -f $(CFN_SCHEMA_FILE) || curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
+	curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
 	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_FILE) ${VERSION}
 
 ensure::
@@ -84,7 +84,7 @@ generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go $(CFN_SCHEMA_FILE) ${VERSION}
 
 build_go::
-	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
+	#cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && touch sdk/nodejs/go.mod
