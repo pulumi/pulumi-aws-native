@@ -84,6 +84,7 @@ AWS::DevOpsGuru::ResourceCollection
 AWS::DynamoDB::GlobalTable
 AWS::EC2::CarrierGateway
 AWS::EC2::EC2Fleet
+AWS::EC2::EgressOnlyInternetGateway
 AWS::EC2::EnclaveCertificateIamRoleAssociation
 AWS::EC2::FlowLog
 AWS::EC2::GatewayRouteTableAssociation
@@ -331,6 +332,7 @@ AWS::Synthetics::Canary
 AWS::Timestream::Database
 AWS::Timestream::Table
 AWS::WAFv2::IPSet
+AWS::WAFv2::LoggingConfiguration
 AWS::WAFv2::RegexPatternSet
 AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
