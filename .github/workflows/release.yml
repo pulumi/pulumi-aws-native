@@ -179,7 +179,7 @@ jobs:
       - name: Publish NPM Package
         run: npm publish ${{github.workspace}}/sdk/nodejs/bin
       - name: Publish PyPi Package
-        run: twine upload ${{github.workspace}}/sdk/python/bin/dist
+        run: twine upload ${{github.workspace}}/sdk/python/bin/dist/*.tar.gz
       - name: Publish package to Nuget
         run: nuget push ${{github.workspace}}/sdk/dotnet/bin/Debug/*.nupkg -Source 'https://private-preview-894850187425.d.codeartifact.us-east-1.amazonaws.com/nuget/preview/v3/index.json"' -username "aws" -password "${CODEARTIFACT_AUTH_TOKEN}"
 name: release
