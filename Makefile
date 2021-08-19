@@ -22,8 +22,9 @@ discovery::codegen
 	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_FILE) ${VERSION}
 
 ensure::
-	@echo "GO111MODULE=on go mod tidy"; cd provider; GO111MODULE=on go mod tidy
-	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
+	@echo "GO111MODULE=on go mod tidy"
+	cd aws-sdk-go-v2-cf-preview && GO111MODULE=on go mod tidy
+	cd provider && GO111MODULE=on go mod tidy
 
 local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go $(CFN_SCHEMA_FILE) ${VERSION}
