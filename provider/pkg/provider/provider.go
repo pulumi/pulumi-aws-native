@@ -22,6 +22,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"runtime/debug"
 	"strings"
 	"time"
 
@@ -48,6 +49,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -899,12 +901,26 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	return nil
 }
 
+// getPulumiVersion parses the version of the pulumi used in the running program.
+func getPulumiVersion() string {
+	if bi, ok := debug.ReadBuildInfo(); ok {
+		for _, dep := range bi.Deps {
+			if strings.HasPrefix(dep.Path, "github.com/pulumi/pulumi/pkg") {
+				return strings.TrimPrefix(dep.Version, "v")
+			}
+		}
+	}
+	// We should never get here but let's not panic and return something sensible if we do.
+	logging.V(4).Info("No Pulumi package version found, using '3.0' as the default version for user-agent")
+	return "3.0"
+}
+
 // pulumiUserAgent adds a Pulumi-specific user-agent to the request middleware.
 // The resulting string looks like this: `APN/1.0 Pulumi/1.0 PulumiAwsNative/0.0.2`
 func pulumiUserAgent() []func(*middleware.Stack) error {
 	return []func(*middleware.Stack) error{
 		awsmiddleware.AddUserAgentKeyValue("APN", "1.0"),
-		awsmiddleware.AddUserAgentKeyValue("Pulumi", "1.0"),
+		awsmiddleware.AddUserAgentKeyValue("Pulumi", getPulumiVersion()),
 		awsmiddleware.AddUserAgentKeyValue("PulumiAwsNative", version.Version),
 	}
 }
