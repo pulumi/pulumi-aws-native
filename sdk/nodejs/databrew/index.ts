@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:DataBrew:Dataset":
+            case "aws-native:databrew:Dataset":
                 return new Dataset(name, <any>undefined, { urn })
-            case "aws-native:DataBrew:Job":
+            case "aws-native:databrew:Job":
                 return new Job(name, <any>undefined, { urn })
-            case "aws-native:DataBrew:Project":
+            case "aws-native:databrew:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "aws-native:DataBrew:Recipe":
+            case "aws-native:databrew:Recipe":
                 return new Recipe(name, <any>undefined, { urn })
-            case "aws-native:DataBrew:Schedule":
+            case "aws-native:databrew:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "DataBrew", _module)
+pulumi.runtime.registerResourceModule("aws-native", "databrew", _module)

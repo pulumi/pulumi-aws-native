@@ -22,7 +22,7 @@ export class Image extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ImageBuilder:Image';
+    public static readonly __pulumiType = 'aws-native:imagebuilder:Image';
 
     /**
      * Returns true if the given object is an instance of Image.  This is designed to work even
@@ -56,7 +56,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageImageTestsConfiguration | undefined>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */
@@ -133,7 +133,7 @@ export interface ImageArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageImageTestsConfigurationArgs>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
      */

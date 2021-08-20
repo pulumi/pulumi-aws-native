@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Configuration:ConfigurationAggregator":
+            case "aws-native:configuration:ConfigurationAggregator":
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
-            case "aws-native:Configuration:ConformancePack":
+            case "aws-native:configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
-            case "aws-native:Configuration:OrganizationConformancePack":
+            case "aws-native:configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
-            case "aws-native:Configuration:StoredQuery":
+            case "aws-native:configuration:StoredQuery":
                 return new StoredQuery(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Configuration", _module)
+pulumi.runtime.registerResourceModule("aws-native", "configuration", _module)

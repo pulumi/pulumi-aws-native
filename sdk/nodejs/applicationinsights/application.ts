@@ -22,7 +22,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ApplicationInsights:Application';
+    public static readonly __pulumiType = 'aws-native:applicationinsights:Application';
 
     /**
      * Returns true if the given object is an instance of Application.  This is designed to work even
@@ -47,15 +47,15 @@ export class Application extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    public readonly componentMonitoringSettings!: pulumi.Output<outputs.ApplicationInsights.ApplicationComponentMonitoringSetting[] | undefined>;
+    public readonly componentMonitoringSettings!: pulumi.Output<outputs.applicationinsights.ApplicationComponentMonitoringSetting[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    public readonly customComponents!: pulumi.Output<outputs.ApplicationInsights.ApplicationCustomComponent[] | undefined>;
+    public readonly customComponents!: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
      */
-    public readonly logPatternSets!: pulumi.Output<outputs.ApplicationInsights.ApplicationLogPatternSet[] | undefined>;
+    public readonly logPatternSets!: pulumi.Output<outputs.applicationinsights.ApplicationLogPatternSet[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
      */
@@ -131,15 +131,15 @@ export interface ApplicationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
      */
-    componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationComponentMonitoringSettingArgs>[]>;
+    componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationComponentMonitoringSettingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
      */
-    customComponents?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationCustomComponentArgs>[]>;
+    customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
      */
-    logPatternSets?: pulumi.Input<pulumi.Input<inputs.ApplicationInsights.ApplicationLogPatternSetArgs>[]>;
+    logPatternSets?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationLogPatternSetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
      */

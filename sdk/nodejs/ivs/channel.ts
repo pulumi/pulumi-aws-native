@@ -22,7 +22,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IVS:Channel';
+    public static readonly __pulumiType = 'aws-native:ivs:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even

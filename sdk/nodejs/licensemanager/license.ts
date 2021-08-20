@@ -22,7 +22,7 @@ export class License extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:LicenseManager:License';
+    public static readonly __pulumiType = 'aws-native:licensemanager:License';
 
     /**
      * Returns true if the given object is an instance of License.  This is designed to work even
@@ -42,11 +42,11 @@ export class License extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
      */
-    public readonly consumptionConfiguration!: pulumi.Output<outputs.LicenseManager.LicenseConsumptionConfiguration>;
+    public readonly consumptionConfiguration!: pulumi.Output<outputs.licensemanager.LicenseConsumptionConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
      */
-    public readonly entitlements!: pulumi.Output<outputs.LicenseManager.LicenseEntitlement[]>;
+    public readonly entitlements!: pulumi.Output<outputs.licensemanager.LicenseEntitlement[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
      */
@@ -54,12 +54,12 @@ export class License extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
      */
-    public readonly issuer!: pulumi.Output<outputs.LicenseManager.LicenseIssuerData>;
+    public readonly issuer!: pulumi.Output<outputs.licensemanager.LicenseIssuerData>;
     public /*out*/ readonly licenseArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
      */
-    public readonly licenseMetadata!: pulumi.Output<outputs.LicenseManager.LicenseMetadata[] | undefined>;
+    public readonly licenseMetadata!: pulumi.Output<outputs.licensemanager.LicenseMetadata[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
      */
@@ -79,7 +79,7 @@ export class License extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
      */
-    public readonly validity!: pulumi.Output<outputs.LicenseManager.LicenseValidityDateFormat>;
+    public readonly validity!: pulumi.Output<outputs.licensemanager.LicenseValidityDateFormat>;
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -160,11 +160,11 @@ export interface LicenseArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
      */
-    consumptionConfiguration: pulumi.Input<inputs.LicenseManager.LicenseConsumptionConfigurationArgs>;
+    consumptionConfiguration: pulumi.Input<inputs.licensemanager.LicenseConsumptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
      */
-    entitlements: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseEntitlementArgs>[]>;
+    entitlements: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseEntitlementArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
      */
@@ -172,11 +172,11 @@ export interface LicenseArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
      */
-    issuer: pulumi.Input<inputs.LicenseManager.LicenseIssuerDataArgs>;
+    issuer: pulumi.Input<inputs.licensemanager.LicenseIssuerDataArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
      */
-    licenseMetadata?: pulumi.Input<pulumi.Input<inputs.LicenseManager.LicenseMetadataArgs>[]>;
+    licenseMetadata?: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseMetadataArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
      */
@@ -196,5 +196,5 @@ export interface LicenseArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
      */
-    validity: pulumi.Input<inputs.LicenseManager.LicenseValidityDateFormatArgs>;
+    validity: pulumi.Input<inputs.licensemanager.LicenseValidityDateFormatArgs>;
 }

@@ -22,7 +22,7 @@ export class Analysis extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:Analysis';
+    public static readonly __pulumiType = 'aws-native:quicksight:Analysis';
 
     /**
      * Returns true if the given object is an instance of Analysis.  This is designed to work even
@@ -49,7 +49,7 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
      */
-    public readonly errors!: pulumi.Output<outputs.QuickSight.AnalysisAnalysisError[] | undefined>;
+    public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisAnalysisError[] | undefined>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
@@ -58,16 +58,16 @@ export class Analysis extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
      */
-    public readonly parameters!: pulumi.Output<outputs.QuickSight.AnalysisParameters | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.AnalysisResourcePermission[] | undefined>;
-    public /*out*/ readonly sheets!: pulumi.Output<outputs.QuickSight.AnalysisSheet[]>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
+    public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.QuickSight.AnalysisAnalysisSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisAnalysisSourceEntity | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
@@ -149,7 +149,7 @@ export interface AnalysisArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
      */
-    errors?: pulumi.Input<pulumi.Input<inputs.QuickSight.AnalysisAnalysisErrorArgs>[]>;
+    errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAnalysisErrorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
      */
@@ -157,15 +157,15 @@ export interface AnalysisArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
      */
-    parameters?: pulumi.Input<inputs.QuickSight.AnalysisParametersArgs>;
+    parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.AnalysisResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
      */
-    sourceEntity?: pulumi.Input<inputs.QuickSight.AnalysisAnalysisSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisAnalysisSourceEntityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
      */

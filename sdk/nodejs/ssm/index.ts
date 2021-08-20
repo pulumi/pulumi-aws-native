@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:SSM:Association":
+            case "aws-native:ssm:Association":
                 return new Association(name, <any>undefined, { urn })
-            case "aws-native:SSM:Document":
+            case "aws-native:ssm:Document":
                 return new Document(name, <any>undefined, { urn })
-            case "aws-native:SSM:ResourceDataSync":
+            case "aws-native:ssm:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "SSM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ssm", _module)

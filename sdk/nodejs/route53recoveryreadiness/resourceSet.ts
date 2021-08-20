@@ -22,7 +22,7 @@ export class ResourceSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53RecoveryReadiness:ResourceSet';
+    public static readonly __pulumiType = 'aws-native:route53recoveryreadiness:ResourceSet';
 
     /**
      * Returns true if the given object is an instance of ResourceSet.  This is designed to work even
@@ -47,7 +47,7 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resources
      */
-    public readonly resources!: pulumi.Output<outputs.Route53RecoveryReadiness.ResourceSetResource[]>;
+    public readonly resources!: pulumi.Output<outputs.route53recoveryreadiness.ResourceSetResource[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-tags
      */
@@ -107,7 +107,7 @@ export interface ResourceSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resources
      */
-    resources: pulumi.Input<pulumi.Input<inputs.Route53RecoveryReadiness.ResourceSetResourceArgs>[]>;
+    resources: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResourceArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-tags
      */

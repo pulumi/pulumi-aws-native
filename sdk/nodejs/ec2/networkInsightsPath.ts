@@ -22,7 +22,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:NetworkInsightsPath';
+    public static readonly __pulumiType = 'aws-native:ec2:NetworkInsightsPath';
 
     /**
      * Returns true if the given object is an instance of NetworkInsightsPath.  This is designed to work even

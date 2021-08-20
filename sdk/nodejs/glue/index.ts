@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Glue:Registry":
+            case "aws-native:glue:Registry":
                 return new Registry(name, <any>undefined, { urn })
-            case "aws-native:Glue:Schema":
+            case "aws-native:glue:Schema":
                 return new Schema(name, <any>undefined, { urn })
-            case "aws-native:Glue:SchemaVersion":
+            case "aws-native:glue:SchemaVersion":
                 return new SchemaVersion(name, <any>undefined, { urn })
-            case "aws-native:Glue:SchemaVersionMetadata":
+            case "aws-native:glue:SchemaVersionMetadata":
                 return new SchemaVersionMetadata(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Glue", _module)
+pulumi.runtime.registerResourceModule("aws-native", "glue", _module)

@@ -22,7 +22,7 @@ export class SigningProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Signer:SigningProfile';
+    public static readonly __pulumiType = 'aws-native:signer:SigningProfile';
 
     /**
      * Returns true if the given object is an instance of SigningProfile.  This is designed to work even
@@ -46,7 +46,7 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    public readonly signatureValidityPeriod!: pulumi.Output<outputs.Signer.SigningProfileSignatureValidityPeriod | undefined>;
+    public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */
@@ -100,7 +100,7 @@ export interface SigningProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
      */
-    signatureValidityPeriod?: pulumi.Input<inputs.Signer.SigningProfileSignatureValidityPeriodArgs>;
+    signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriodArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
      */

@@ -22,7 +22,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IVS:RecordingConfiguration';
+    public static readonly __pulumiType = 'aws-native:ivs:RecordingConfiguration';
 
     /**
      * Returns true if the given object is an instance of RecordingConfiguration.  This is designed to work even
@@ -39,7 +39,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
      */
-    public readonly destinationConfiguration!: pulumi.Output<outputs.IVS.RecordingConfigurationDestinationConfiguration>;
+    public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
      */
@@ -90,7 +90,7 @@ export interface RecordingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
      */
-    destinationConfiguration: pulumi.Input<inputs.IVS.RecordingConfigurationDestinationConfigurationArgs>;
+    destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
      */

@@ -22,7 +22,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3:AccessPoint';
+    public static readonly __pulumiType = 'aws-native:s3:AccessPoint';
 
     /**
      * Returns true if the given object is an instance of AccessPoint.  This is designed to work even
@@ -54,11 +54,11 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
      */
-    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.S3.AccessPointPublicAccessBlockConfiguration | undefined>;
+    public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.S3.AccessPointVpcConfiguration | undefined>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -124,9 +124,9 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
      */
-    publicAccessBlockConfiguration?: pulumi.Input<inputs.S3.AccessPointPublicAccessBlockConfigurationArgs>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
      */
-    vpcConfiguration?: pulumi.Input<inputs.S3.AccessPointVpcConfigurationArgs>;
+    vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfigurationArgs>;
 }

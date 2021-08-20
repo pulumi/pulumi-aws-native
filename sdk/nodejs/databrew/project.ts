@@ -22,7 +22,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataBrew:Project';
+    public static readonly __pulumiType = 'aws-native:databrew:Project';
 
     /**
      * Returns true if the given object is an instance of Project.  This is designed to work even
@@ -54,7 +54,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    public readonly sample!: pulumi.Output<outputs.DataBrew.ProjectSample | undefined>;
+    public readonly sample!: pulumi.Output<outputs.databrew.ProjectSample | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */
@@ -127,7 +127,7 @@ export interface ProjectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
      */
-    sample?: pulumi.Input<inputs.DataBrew.ProjectSampleArgs>;
+    sample?: pulumi.Input<inputs.databrew.ProjectSampleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
      */

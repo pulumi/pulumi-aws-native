@@ -22,7 +22,7 @@ export class Bucket extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3Outposts:Bucket';
+    public static readonly __pulumiType = 'aws-native:s3outposts:Bucket';
 
     /**
      * Returns true if the given object is an instance of Bucket.  This is designed to work even
@@ -43,7 +43,7 @@ export class Bucket extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
      */
-    public readonly lifecycleConfiguration!: pulumi.Output<outputs.S3Outposts.BucketLifecycleConfiguration | undefined>;
+    public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3outposts.BucketLifecycleConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
      */
@@ -100,7 +100,7 @@ export interface BucketArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
      */
-    lifecycleConfiguration?: pulumi.Input<inputs.S3Outposts.BucketLifecycleConfigurationArgs>;
+    lifecycleConfiguration?: pulumi.Input<inputs.s3outposts.BucketLifecycleConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
      */

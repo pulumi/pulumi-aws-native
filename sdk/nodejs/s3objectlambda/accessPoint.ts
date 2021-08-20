@@ -22,7 +22,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3ObjectLambda:AccessPoint';
+    public static readonly __pulumiType = 'aws-native:s3objectlambda:AccessPoint';
 
     /**
      * Returns true if the given object is an instance of AccessPoint.  This is designed to work even
@@ -44,7 +44,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
      */
-    public readonly objectLambdaConfiguration!: pulumi.Output<outputs.S3ObjectLambda.AccessPointObjectLambdaConfiguration | undefined>;
+    public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -88,5 +88,5 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
      */
-    objectLambdaConfiguration?: pulumi.Input<inputs.S3ObjectLambda.AccessPointObjectLambdaConfigurationArgs>;
+    objectLambdaConfiguration?: pulumi.Input<inputs.s3objectlambda.AccessPointObjectLambdaConfigurationArgs>;
 }

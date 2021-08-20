@@ -22,7 +22,7 @@ export class App extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:App';
+    public static readonly __pulumiType = 'aws-native:sagemaker:App';
 
     /**
      * Returns true if the given object is an instance of App.  This is designed to work even
@@ -51,7 +51,7 @@ export class App extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
      */
-    public readonly resourceSpec!: pulumi.Output<outputs.SageMaker.AppResourceSpec | undefined>;
+    public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
      */
@@ -126,7 +126,7 @@ export interface AppArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
      */
-    resourceSpec?: pulumi.Input<inputs.SageMaker.AppResourceSpecArgs>;
+    resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpecArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
      */

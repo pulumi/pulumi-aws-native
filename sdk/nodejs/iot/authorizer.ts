@@ -22,7 +22,7 @@ export class Authorizer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:Authorizer';
+    public static readonly __pulumiType = 'aws-native:iot:Authorizer';
 
     /**
      * Returns true if the given object is an instance of Authorizer.  This is designed to work even

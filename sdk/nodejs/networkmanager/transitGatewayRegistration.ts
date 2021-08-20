@@ -21,7 +21,7 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkManager:TransitGatewayRegistration';
+    public static readonly __pulumiType = 'aws-native:networkmanager:TransitGatewayRegistration';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayRegistration.  This is designed to work even

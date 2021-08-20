@@ -22,7 +22,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkManager:GlobalNetwork';
+    public static readonly __pulumiType = 'aws-native:networkmanager:GlobalNetwork';
 
     /**
      * Returns true if the given object is an instance of GlobalNetwork.  This is designed to work even

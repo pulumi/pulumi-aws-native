@@ -22,7 +22,7 @@ export class Link extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkManager:Link';
+    public static readonly __pulumiType = 'aws-native:networkmanager:Link';
 
     /**
      * Returns true if the given object is an instance of Link.  This is designed to work even
@@ -38,7 +38,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    public readonly bandwidth!: pulumi.Output<outputs.NetworkManager.LinkBandwidth>;
+    public readonly bandwidth!: pulumi.Output<outputs.networkmanager.LinkBandwidth>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */
@@ -120,7 +120,7 @@ export interface LinkArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
      */
-    bandwidth: pulumi.Input<inputs.NetworkManager.LinkBandwidthArgs>;
+    bandwidth: pulumi.Input<inputs.networkmanager.LinkBandwidthArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
      */

@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Route53RecoveryControl:Cluster":
+            case "aws-native:route53recoverycontrol:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryControl:ControlPanel":
+            case "aws-native:route53recoverycontrol:ControlPanel":
                 return new ControlPanel(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryControl:RoutingControl":
+            case "aws-native:route53recoverycontrol:RoutingControl":
                 return new RoutingControl(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryControl:SafetyRule":
+            case "aws-native:route53recoverycontrol:SafetyRule":
                 return new SafetyRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Route53RecoveryControl", _module)
+pulumi.runtime.registerResourceModule("aws-native", "route53recoverycontrol", _module)

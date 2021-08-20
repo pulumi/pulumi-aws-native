@@ -22,7 +22,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3Outposts:AccessPoint';
+    public static readonly __pulumiType = 'aws-native:s3outposts:AccessPoint';
 
     /**
      * Returns true if the given object is an instance of AccessPoint.  This is designed to work even
@@ -51,7 +51,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
      */
-    public readonly vpcConfiguration!: pulumi.Output<outputs.S3Outposts.AccessPointVpcConfiguration>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.s3outposts.AccessPointVpcConfiguration>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -111,5 +111,5 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
      */
-    vpcConfiguration: pulumi.Input<inputs.S3Outposts.AccessPointVpcConfigurationArgs>;
+    vpcConfiguration: pulumi.Input<inputs.s3outposts.AccessPointVpcConfigurationArgs>;
 }

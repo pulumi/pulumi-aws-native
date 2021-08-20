@@ -22,7 +22,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GameLift:GameServerGroup';
+    public static readonly __pulumiType = 'aws-native:gamelift:GameServerGroup';
 
     /**
      * Returns true if the given object is an instance of GameServerGroup.  This is designed to work even
@@ -39,7 +39,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    public readonly autoScalingPolicy!: pulumi.Output<outputs.GameLift.GameServerGroupAutoScalingPolicy | undefined>;
+    public readonly autoScalingPolicy!: pulumi.Output<outputs.gamelift.GameServerGroupAutoScalingPolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
@@ -60,11 +60,11 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    public readonly instanceDefinitions!: pulumi.Output<outputs.GameLift.GameServerGroupInstanceDefinition[]>;
+    public readonly instanceDefinitions!: pulumi.Output<outputs.gamelift.GameServerGroupInstanceDefinition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    public readonly launchTemplate!: pulumi.Output<outputs.GameLift.GameServerGroupLaunchTemplate>;
+    public readonly launchTemplate!: pulumi.Output<outputs.gamelift.GameServerGroupLaunchTemplate>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */
@@ -153,7 +153,7 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
      */
-    autoScalingPolicy?: pulumi.Input<inputs.GameLift.GameServerGroupAutoScalingPolicyArgs>;
+    autoScalingPolicy?: pulumi.Input<inputs.gamelift.GameServerGroupAutoScalingPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
      */
@@ -173,11 +173,11 @@ export interface GameServerGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
      */
-    instanceDefinitions: pulumi.Input<pulumi.Input<inputs.GameLift.GameServerGroupInstanceDefinitionArgs>[]>;
+    instanceDefinitions: pulumi.Input<pulumi.Input<inputs.gamelift.GameServerGroupInstanceDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
      */
-    launchTemplate: pulumi.Input<inputs.GameLift.GameServerGroupLaunchTemplateArgs>;
+    launchTemplate: pulumi.Input<inputs.gamelift.GameServerGroupLaunchTemplateArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
      */

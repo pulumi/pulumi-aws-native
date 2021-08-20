@@ -22,7 +22,7 @@ export class Canary extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Synthetics:Canary';
+    public static readonly __pulumiType = 'aws-native:synthetics:Canary';
 
     /**
      * Returns true if the given object is an instance of Canary.  This is designed to work even
@@ -42,7 +42,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    public readonly code!: pulumi.Output<outputs.Synthetics.CanaryCode>;
+    public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
@@ -59,7 +59,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    public readonly runConfig!: pulumi.Output<outputs.Synthetics.CanaryRunConfig | undefined>;
+    public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
@@ -67,7 +67,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    public readonly schedule!: pulumi.Output<outputs.Synthetics.CanarySchedule>;
+    public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
@@ -84,11 +84,11 @@ export class Canary extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    public readonly vPCConfig!: pulumi.Output<outputs.Synthetics.CanaryVPCConfig | undefined>;
+    public readonly vPCConfig!: pulumi.Output<outputs.synthetics.CanaryVPCConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
      */
-    public readonly visualReference!: pulumi.Output<outputs.Synthetics.CanaryVisualReference | undefined>;
+    public readonly visualReference!: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
 
     /**
      * Create a Canary resource with the given unique name, arguments, and options.
@@ -172,7 +172,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
      */
-    code: pulumi.Input<inputs.Synthetics.CanaryCodeArgs>;
+    code: pulumi.Input<inputs.synthetics.CanaryCodeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
      */
@@ -188,7 +188,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
      */
-    runConfig?: pulumi.Input<inputs.Synthetics.CanaryRunConfigArgs>;
+    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
      */
@@ -196,7 +196,7 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
      */
-    schedule: pulumi.Input<inputs.Synthetics.CanaryScheduleArgs>;
+    schedule: pulumi.Input<inputs.synthetics.CanaryScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
      */
@@ -212,9 +212,9 @@ export interface CanaryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
      */
-    vPCConfig?: pulumi.Input<inputs.Synthetics.CanaryVPCConfigArgs>;
+    vPCConfig?: pulumi.Input<inputs.synthetics.CanaryVPCConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
      */
-    visualReference?: pulumi.Input<inputs.Synthetics.CanaryVisualReferenceArgs>;
+    visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>;
 }

@@ -22,7 +22,7 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkFirewall:Firewall';
+    public static readonly __pulumiType = 'aws-native:networkfirewall:Firewall';
 
     /**
      * Returns true if the given object is an instance of Firewall.  This is designed to work even
@@ -65,7 +65,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
      */
-    public readonly subnetMappings!: pulumi.Output<outputs.NetworkFirewall.FirewallSubnetMapping[]>;
+    public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
      */
@@ -162,7 +162,7 @@ export interface FirewallArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
      */
-    subnetMappings: pulumi.Input<pulumi.Input<inputs.NetworkFirewall.FirewallSubnetMappingArgs>[]>;
+    subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
      */

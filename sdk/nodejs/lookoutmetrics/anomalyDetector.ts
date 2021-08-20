@@ -22,7 +22,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:LookoutMetrics:AnomalyDetector';
+    public static readonly __pulumiType = 'aws-native:lookoutmetrics:AnomalyDetector';
 
     /**
      * Returns true if the given object is an instance of AnomalyDetector.  This is designed to work even
@@ -38,7 +38,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
      */
-    public readonly anomalyDetectorConfig!: pulumi.Output<outputs.LookoutMetrics.AnomalyDetectorAnomalyDetectorConfig>;
+    public readonly anomalyDetectorConfig!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
      */
@@ -55,7 +55,7 @@ export class AnomalyDetector extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
      */
-    public readonly metricSetList!: pulumi.Output<outputs.LookoutMetrics.AnomalyDetectorMetricSet[]>;
+    public readonly metricSetList!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorMetricSet[]>;
 
     /**
      * Create a AnomalyDetector resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export interface AnomalyDetectorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
      */
-    anomalyDetectorConfig: pulumi.Input<inputs.LookoutMetrics.AnomalyDetectorAnomalyDetectorConfigArgs>;
+    anomalyDetectorConfig: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
      */
@@ -118,5 +118,5 @@ export interface AnomalyDetectorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
      */
-    metricSetList: pulumi.Input<pulumi.Input<inputs.LookoutMetrics.AnomalyDetectorMetricSetArgs>[]>;
+    metricSetList: pulumi.Input<pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorMetricSetArgs>[]>;
 }

@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IoTEvents:DetectorModel":
+            case "aws-native:iotevents:DetectorModel":
                 return new DetectorModel(name, <any>undefined, { urn })
-            case "aws-native:IoTEvents:Input":
+            case "aws-native:iotevents:Input":
                 return new Input(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IoTEvents", _module)
+pulumi.runtime.registerResourceModule("aws-native", "iotevents", _module)

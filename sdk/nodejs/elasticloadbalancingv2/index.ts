@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ElasticLoadBalancingV2:Listener":
+            case "aws-native:elasticloadbalancingv2:Listener":
                 return new Listener(name, <any>undefined, { urn })
-            case "aws-native:ElasticLoadBalancingV2:ListenerRule":
+            case "aws-native:elasticloadbalancingv2:ListenerRule":
                 return new ListenerRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ElasticLoadBalancingV2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "elasticloadbalancingv2", _module)

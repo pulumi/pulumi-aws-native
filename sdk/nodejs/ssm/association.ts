@@ -22,7 +22,7 @@ export class Association extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSM:Association';
+    public static readonly __pulumiType = 'aws-native:ssm:Association';
 
     /**
      * Returns true if the given object is an instance of Association.  This is designed to work even
@@ -79,7 +79,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    public readonly outputLocation!: pulumi.Output<outputs.SSM.AssociationInstanceAssociationOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
@@ -95,7 +95,7 @@ export class Association extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    public readonly targets!: pulumi.Output<outputs.SSM.AssociationTarget[] | undefined>;
+    public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */
@@ -205,7 +205,7 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
      */
-    outputLocation?: pulumi.Input<inputs.SSM.AssociationInstanceAssociationOutputLocationArgs>;
+    outputLocation?: pulumi.Input<inputs.ssm.AssociationInstanceAssociationOutputLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
      */
@@ -221,7 +221,7 @@ export interface AssociationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.SSM.AssociationTargetArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTargetArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
      */

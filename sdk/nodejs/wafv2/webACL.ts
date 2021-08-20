@@ -22,7 +22,7 @@ export class WebACL extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:WAFv2:WebACL';
+    public static readonly __pulumiType = 'aws-native:wafv2:WebACL';
 
     /**
      * Returns true if the given object is an instance of WebACL.  This is designed to work even
@@ -40,11 +40,11 @@ export class WebACL extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
      */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.WAFv2.WebACLCustomResponseBody} | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebACLCustomResponseBody} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    public readonly defaultAction!: pulumi.Output<outputs.WAFv2.WebACLDefaultAction>;
+    public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebACLDefaultAction>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
@@ -58,7 +58,7 @@ export class WebACL extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    public readonly rules!: pulumi.Output<outputs.WAFv2.WebACLRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.wafv2.WebACLRule[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
@@ -70,7 +70,7 @@ export class WebACL extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.WAFv2.WebACLVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebACLVisibilityConfig>;
 
     /**
      * Create a WebACL resource with the given unique name, arguments, and options.
@@ -132,11 +132,11 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
      */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.WAFv2.WebACLCustomResponseBodyArgs>}>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodyArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
      */
-    defaultAction: pulumi.Input<inputs.WAFv2.WebACLDefaultActionArgs>;
+    defaultAction: pulumi.Input<inputs.wafv2.WebACLDefaultActionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
      */
@@ -148,7 +148,7 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.WebACLRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
      */
@@ -160,5 +160,5 @@ export interface WebACLArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
      */
-    visibilityConfig: pulumi.Input<inputs.WAFv2.WebACLVisibilityConfigArgs>;
+    visibilityConfig: pulumi.Input<inputs.wafv2.WebACLVisibilityConfigArgs>;
 }

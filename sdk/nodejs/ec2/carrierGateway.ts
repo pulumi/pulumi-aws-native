@@ -22,7 +22,7 @@ export class CarrierGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:CarrierGateway';
+    public static readonly __pulumiType = 'aws-native:ec2:CarrierGateway';
 
     /**
      * Returns true if the given object is an instance of CarrierGateway.  This is designed to work even

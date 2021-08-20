@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:QuickSight:Analysis":
+            case "aws-native:quicksight:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
-            case "aws-native:QuickSight:Dashboard":
+            case "aws-native:quicksight:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
-            case "aws-native:QuickSight:DataSet":
+            case "aws-native:quicksight:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
-            case "aws-native:QuickSight:DataSource":
+            case "aws-native:quicksight:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
-            case "aws-native:QuickSight:Template":
+            case "aws-native:quicksight:Template":
                 return new Template(name, <any>undefined, { urn })
-            case "aws-native:QuickSight:Theme":
+            case "aws-native:quicksight:Theme":
                 return new Theme(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "QuickSight", _module)
+pulumi.runtime.registerResourceModule("aws-native", "quicksight", _module)

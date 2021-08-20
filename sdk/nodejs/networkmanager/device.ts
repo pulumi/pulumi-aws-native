@@ -22,7 +22,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkManager:Device';
+    public static readonly __pulumiType = 'aws-native:networkmanager:Device';
 
     /**
      * Returns true if the given object is an instance of Device.  This is designed to work even
@@ -48,7 +48,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    public readonly location!: pulumi.Output<outputs.NetworkManager.DeviceLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.networkmanager.DeviceLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */
@@ -134,7 +134,7 @@ export interface DeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
      */
-    location?: pulumi.Input<inputs.NetworkManager.DeviceLocationArgs>;
+    location?: pulumi.Input<inputs.networkmanager.DeviceLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
      */

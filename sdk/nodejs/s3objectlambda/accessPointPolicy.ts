@@ -21,7 +21,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3ObjectLambda:AccessPointPolicy';
+    public static readonly __pulumiType = 'aws-native:s3objectlambda:AccessPointPolicy';
 
     /**
      * Returns true if the given object is an instance of AccessPointPolicy.  This is designed to work even

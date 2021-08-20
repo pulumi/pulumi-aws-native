@@ -22,7 +22,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSM:ResourceDataSync';
+    public static readonly __pulumiType = 'aws-native:ssm:ResourceDataSync';
 
     /**
      * Returns true if the given object is an instance of ResourceDataSync.  This is designed to work even
@@ -54,7 +54,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
      */
-    public readonly s3Destination!: pulumi.Output<outputs.SSM.ResourceDataSyncS3Destination | undefined>;
+    public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
      */
@@ -63,7 +63,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
      */
-    public readonly syncSource!: pulumi.Output<outputs.SSM.ResourceDataSyncSyncSource | undefined>;
+    public readonly syncSource!: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
      */
@@ -133,7 +133,7 @@ export interface ResourceDataSyncArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
      */
-    s3Destination?: pulumi.Input<inputs.SSM.ResourceDataSyncS3DestinationArgs>;
+    s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
      */
@@ -145,7 +145,7 @@ export interface ResourceDataSyncArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
      */
-    syncSource?: pulumi.Input<inputs.SSM.ResourceDataSyncSyncSourceArgs>;
+    syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
      */

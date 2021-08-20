@@ -22,7 +22,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:Function';
+    public static readonly __pulumiType = 'aws-native:cloudfront:Function';
 
     /**
      * Returns true if the given object is an instance of Function.  This is designed to work even
@@ -47,11 +47,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
      */
-    public readonly functionConfig!: pulumi.Output<outputs.CloudFront.FunctionFunctionConfig | undefined>;
+    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionFunctionConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
      */
-    public readonly functionMetadata!: pulumi.Output<outputs.CloudFront.FunctionFunctionMetadata | undefined>;
+    public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionFunctionMetadata | undefined>;
     public /*out*/ readonly functionMetadataFunctionARN!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
@@ -113,11 +113,11 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
      */
-    functionConfig?: pulumi.Input<inputs.CloudFront.FunctionFunctionConfigArgs>;
+    functionConfig?: pulumi.Input<inputs.cloudfront.FunctionFunctionConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
      */
-    functionMetadata?: pulumi.Input<inputs.CloudFront.FunctionFunctionMetadataArgs>;
+    functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionFunctionMetadataArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
      */

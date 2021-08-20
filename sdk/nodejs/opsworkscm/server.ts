@@ -22,7 +22,7 @@ export class Server extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:OpsWorksCM:Server';
+    public static readonly __pulumiType = 'aws-native:opsworkscm:Server';
 
     /**
      * Returns true if the given object is an instance of Server.  This is designed to work even
@@ -72,7 +72,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
      */
-    public readonly engineAttributes!: pulumi.Output<outputs.OpsWorksCM.ServerEngineAttribute[] | undefined>;
+    public readonly engineAttributes!: pulumi.Output<outputs.opsworkscm.ServerEngineAttribute[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
      */
@@ -239,7 +239,7 @@ export interface ServerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
      */
-    engineAttributes?: pulumi.Input<pulumi.Input<inputs.OpsWorksCM.ServerEngineAttributeArgs>[]>;
+    engineAttributes?: pulumi.Input<pulumi.Input<inputs.opsworkscm.ServerEngineAttributeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
      */

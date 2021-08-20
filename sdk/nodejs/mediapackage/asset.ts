@@ -22,7 +22,7 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaPackage:Asset';
+    public static readonly __pulumiType = 'aws-native:mediapackage:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even
@@ -37,7 +37,7 @@ export class Asset extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public /*out*/ readonly egressEndpoints!: pulumi.Output<outputs.MediaPackage.AssetEgressEndpoint[]>;
+    public /*out*/ readonly egressEndpoints!: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
      */

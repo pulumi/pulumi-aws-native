@@ -22,7 +22,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3Outposts:Endpoint';
+    public static readonly __pulumiType = 'aws-native:s3outposts:Endpoint';
 
     /**
      * Returns true if the given object is an instance of Endpoint.  This is designed to work even
@@ -47,7 +47,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     public /*out*/ readonly id!: pulumi.Output<string>;
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.S3Outposts.EndpointNetworkInterface[]>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
      */

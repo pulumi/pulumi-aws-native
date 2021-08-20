@@ -22,7 +22,7 @@ export class ContactList extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SES:ContactList';
+    public static readonly __pulumiType = 'aws-native:ses:ContactList';
 
     /**
      * Returns true if the given object is an instance of ContactList.  This is designed to work even
@@ -50,7 +50,7 @@ export class ContactList extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
      */
-    public readonly topics!: pulumi.Output<outputs.SES.ContactListTopic[] | undefined>;
+    public readonly topics!: pulumi.Output<outputs.ses.ContactListTopic[] | undefined>;
 
     /**
      * Create a ContactList resource with the given unique name, arguments, and options.
@@ -99,5 +99,5 @@ export interface ContactListArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
      */
-    topics?: pulumi.Input<pulumi.Input<inputs.SES.ContactListTopicArgs>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.ses.ContactListTopicArgs>[]>;
 }

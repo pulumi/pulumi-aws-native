@@ -22,7 +22,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FIS:ExperimentTemplate';
+    public static readonly __pulumiType = 'aws-native:fis:ExperimentTemplate';
 
     /**
      * Returns true if the given object is an instance of ExperimentTemplate.  This is designed to work even
@@ -38,7 +38,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
      */
-    public readonly actions!: pulumi.Output<{[key: string]: outputs.FIS.ExperimentTemplateExperimentTemplateAction} | undefined>;
+    public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateExperimentTemplateAction} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
      */
@@ -51,7 +51,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
      */
-    public readonly stopConditions!: pulumi.Output<outputs.FIS.ExperimentTemplateExperimentTemplateStopCondition[]>;
+    public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateStopCondition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
      */
@@ -59,7 +59,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
      */
-    public readonly targets!: pulumi.Output<{[key: string]: outputs.FIS.ExperimentTemplateExperimentTemplateTarget}>;
+    public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateExperimentTemplateTarget}>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -117,7 +117,7 @@ export interface ExperimentTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
      */
-    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.FIS.ExperimentTemplateExperimentTemplateActionArgs>}>;
+    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateActionArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
      */
@@ -129,7 +129,7 @@ export interface ExperimentTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
      */
-    stopConditions: pulumi.Input<pulumi.Input<inputs.FIS.ExperimentTemplateExperimentTemplateStopConditionArgs>[]>;
+    stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateStopConditionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
      */
@@ -137,5 +137,5 @@ export interface ExperimentTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
      */
-    targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.FIS.ExperimentTemplateExperimentTemplateTargetArgs>}>;
+    targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateTargetArgs>}>;
 }

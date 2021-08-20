@@ -21,7 +21,7 @@ export class StreamingImage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NimbleStudio:StreamingImage';
+    public static readonly __pulumiType = 'aws-native:nimblestudio:StreamingImage';
 
     /**
      * Returns true if the given object is an instance of StreamingImage.  This is designed to work even

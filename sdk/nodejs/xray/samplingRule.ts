@@ -22,7 +22,7 @@ export class SamplingRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:XRay:SamplingRule';
+    public static readonly __pulumiType = 'aws-native:xray:SamplingRule';
 
     /**
      * Returns true if the given object is an instance of SamplingRule.  This is designed to work even
@@ -43,15 +43,15 @@ export class SamplingRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
      */
-    public readonly samplingRule!: pulumi.Output<outputs.XRay.SamplingRuleSamplingRule | undefined>;
+    public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRuleSamplingRule | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
      */
-    public readonly samplingRuleRecord!: pulumi.Output<outputs.XRay.SamplingRuleSamplingRuleRecord | undefined>;
+    public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleRecord | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
      */
-    public readonly samplingRuleUpdate!: pulumi.Output<outputs.XRay.SamplingRuleSamplingRuleUpdate | undefined>;
+    public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleUpdate | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
      */
@@ -100,15 +100,15 @@ export interface SamplingRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
      */
-    samplingRule?: pulumi.Input<inputs.XRay.SamplingRuleSamplingRuleArgs>;
+    samplingRule?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
      */
-    samplingRuleRecord?: pulumi.Input<inputs.XRay.SamplingRuleSamplingRuleRecordArgs>;
+    samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleRecordArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
      */
-    samplingRuleUpdate?: pulumi.Input<inputs.XRay.SamplingRuleSamplingRuleUpdateArgs>;
+    samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleUpdateArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
      */

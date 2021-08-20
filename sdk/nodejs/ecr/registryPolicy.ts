@@ -21,7 +21,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECR:RegistryPolicy';
+    public static readonly __pulumiType = 'aws-native:ecr:RegistryPolicy';
 
     /**
      * Returns true if the given object is an instance of RegistryPolicy.  This is designed to work even

@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CloudFormation:ModuleDefaultVersion":
+            case "aws-native:cloudformation:ModuleDefaultVersion":
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:ModuleVersion":
+            case "aws-native:cloudformation:ModuleVersion":
                 return new ModuleVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:PublicTypeVersion":
+            case "aws-native:cloudformation:PublicTypeVersion":
                 return new PublicTypeVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:Publisher":
+            case "aws-native:cloudformation:Publisher":
                 return new Publisher(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:ResourceDefaultVersion":
+            case "aws-native:cloudformation:ResourceDefaultVersion":
                 return new ResourceDefaultVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:ResourceVersion":
+            case "aws-native:cloudformation:ResourceVersion":
                 return new ResourceVersion(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:StackSet":
+            case "aws-native:cloudformation:StackSet":
                 return new StackSet(name, <any>undefined, { urn })
-            case "aws-native:CloudFormation:TypeActivation":
+            case "aws-native:cloudformation:TypeActivation":
                 return new TypeActivation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "CloudFormation", _module)
+pulumi.runtime.registerResourceModule("aws-native", "cloudformation", _module)

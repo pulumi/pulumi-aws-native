@@ -22,7 +22,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ImageBuilder:DistributionConfiguration';
+    public static readonly __pulumiType = 'aws-native:imagebuilder:DistributionConfiguration';
 
     /**
      * Returns true if the given object is an instance of DistributionConfiguration.  This is designed to work even
@@ -43,7 +43,7 @@ export class DistributionConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
      */
-    public readonly distributions!: pulumi.Output<outputs.ImageBuilder.DistributionConfigurationDistribution[]>;
+    public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
     public readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
@@ -97,7 +97,7 @@ export interface DistributionConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
      */
-    distributions: pulumi.Input<pulumi.Input<inputs.ImageBuilder.DistributionConfigurationDistributionArgs>[]>;
+    distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
      */

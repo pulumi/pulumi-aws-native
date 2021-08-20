@@ -22,7 +22,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GroundStation:DataflowEndpointGroup';
+    public static readonly __pulumiType = 'aws-native:groundstation:DataflowEndpointGroup';
 
     /**
      * Returns true if the given object is an instance of DataflowEndpointGroup.  This is designed to work even
@@ -39,7 +39,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
      */
-    public readonly endpointDetails!: pulumi.Output<outputs.GroundStation.DataflowEndpointGroupEndpointDetails[]>;
+    public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
@@ -84,7 +84,7 @@ export interface DataflowEndpointGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
      */
-    endpointDetails: pulumi.Input<pulumi.Input<inputs.GroundStation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
+    endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
      */

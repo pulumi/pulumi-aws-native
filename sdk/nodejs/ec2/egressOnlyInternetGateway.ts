@@ -21,7 +21,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:EgressOnlyInternetGateway';
+    public static readonly __pulumiType = 'aws-native:ec2:EgressOnlyInternetGateway';
 
     /**
      * Returns true if the given object is an instance of EgressOnlyInternetGateway.  This is designed to work even

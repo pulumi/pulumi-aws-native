@@ -22,7 +22,7 @@ export class FileSystem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EFS:FileSystem';
+    public static readonly __pulumiType = 'aws-native:efs:FileSystem';
 
     /**
      * Returns true if the given object is an instance of FileSystem.  This is designed to work even
@@ -43,7 +43,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    public readonly backupPolicy!: pulumi.Output<outputs.EFS.FileSystemBackupPolicy | undefined>;
+    public readonly backupPolicy!: pulumi.Output<outputs.efs.FileSystemBackupPolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
      */
@@ -60,7 +60,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    public readonly fileSystemTags!: pulumi.Output<outputs.EFS.FileSystemElasticFileSystemTag[] | undefined>;
+    public readonly fileSystemTags!: pulumi.Output<outputs.efs.FileSystemElasticFileSystemTag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
@@ -68,7 +68,7 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    public readonly lifecyclePolicies!: pulumi.Output<outputs.EFS.FileSystemLifecyclePolicy[] | undefined>;
+    public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */
@@ -139,7 +139,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
      */
-    backupPolicy?: pulumi.Input<inputs.EFS.FileSystemBackupPolicyArgs>;
+    backupPolicy?: pulumi.Input<inputs.efs.FileSystemBackupPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
      */
@@ -155,7 +155,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
      */
-    fileSystemTags?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemElasticFileSystemTagArgs>[]>;
+    fileSystemTags?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemElasticFileSystemTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
      */
@@ -163,7 +163,7 @@ export interface FileSystemArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
      */
-    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.EFS.FileSystemLifecyclePolicyArgs>[]>;
+    lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
      */

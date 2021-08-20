@@ -22,7 +22,7 @@ export class DetectorModel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTEvents:DetectorModel';
+    public static readonly __pulumiType = 'aws-native:iotevents:DetectorModel';
 
     /**
      * Returns true if the given object is an instance of DetectorModel.  This is designed to work even
@@ -38,7 +38,7 @@ export class DetectorModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
      */
-    public readonly detectorModelDefinition!: pulumi.Output<outputs.IoTEvents.DetectorModelDetectorModelDefinition>;
+    public readonly detectorModelDefinition!: pulumi.Output<outputs.iotevents.DetectorModelDetectorModelDefinition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
      */
@@ -111,7 +111,7 @@ export interface DetectorModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldefinition
      */
-    detectorModelDefinition: pulumi.Input<inputs.IoTEvents.DetectorModelDetectorModelDefinitionArgs>;
+    detectorModelDefinition: pulumi.Input<inputs.iotevents.DetectorModelDetectorModelDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodeldescription
      */

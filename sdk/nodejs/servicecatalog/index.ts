@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ServiceCatalog:CloudFormationProvisionedProduct":
+            case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:ServiceAction":
+            case "aws-native:servicecatalog:ServiceAction":
                 return new ServiceAction(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalog:ServiceActionAssociation":
+            case "aws-native:servicecatalog:ServiceActionAssociation":
                 return new ServiceActionAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ServiceCatalog", _module)
+pulumi.runtime.registerResourceModule("aws-native", "servicecatalog", _module)

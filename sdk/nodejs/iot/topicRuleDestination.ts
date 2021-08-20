@@ -22,7 +22,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:TopicRuleDestination';
+    public static readonly __pulumiType = 'aws-native:iot:TopicRuleDestination';
 
     /**
      * Returns true if the given object is an instance of TopicRuleDestination.  This is designed to work even
@@ -39,7 +39,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    public readonly httpUrlProperties!: pulumi.Output<outputs.IoT.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
+    public readonly httpUrlProperties!: pulumi.Output<outputs.iot.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
@@ -48,7 +48,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    public readonly vpcProperties!: pulumi.Output<outputs.IoT.TopicRuleDestinationVpcDestinationProperties | undefined>;
+    public readonly vpcProperties!: pulumi.Output<outputs.iot.TopicRuleDestinationVpcDestinationProperties | undefined>;
 
     /**
      * Create a TopicRuleDestination resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export interface TopicRuleDestinationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
      */
-    httpUrlProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
+    httpUrlProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationHttpUrlDestinationSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
      */
@@ -95,5 +95,5 @@ export interface TopicRuleDestinationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
      */
-    vpcProperties?: pulumi.Input<inputs.IoT.TopicRuleDestinationVpcDestinationPropertiesArgs>;
+    vpcProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationVpcDestinationPropertiesArgs>;
 }

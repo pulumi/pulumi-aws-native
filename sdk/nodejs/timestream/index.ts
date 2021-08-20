@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Timestream:Database":
+            case "aws-native:timestream:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "aws-native:Timestream:Table":
+            case "aws-native:timestream:Table":
                 return new Table(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Timestream", _module)
+pulumi.runtime.registerResourceModule("aws-native", "timestream", _module)

@@ -22,7 +22,7 @@ export class Stream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Kinesis:Stream';
+    public static readonly __pulumiType = 'aws-native:kinesis:Stream';
 
     /**
      * Returns true if the given object is an instance of Stream.  This is designed to work even
@@ -51,7 +51,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    public readonly streamEncryption!: pulumi.Output<outputs.Kinesis.StreamStreamEncryption | undefined>;
+    public readonly streamEncryption!: pulumi.Output<outputs.kinesis.StreamStreamEncryption | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */
@@ -111,7 +111,7 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
      */
-    streamEncryption?: pulumi.Input<inputs.Kinesis.StreamStreamEncryptionArgs>;
+    streamEncryption?: pulumi.Input<inputs.kinesis.StreamStreamEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
      */

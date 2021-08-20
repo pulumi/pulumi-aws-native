@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:NimbleStudio:LaunchProfile":
+            case "aws-native:nimblestudio:LaunchProfile":
                 return new LaunchProfile(name, <any>undefined, { urn })
-            case "aws-native:NimbleStudio:StreamingImage":
+            case "aws-native:nimblestudio:StreamingImage":
                 return new StreamingImage(name, <any>undefined, { urn })
-            case "aws-native:NimbleStudio:Studio":
+            case "aws-native:nimblestudio:Studio":
                 return new Studio(name, <any>undefined, { urn })
-            case "aws-native:NimbleStudio:StudioComponent":
+            case "aws-native:nimblestudio:StudioComponent":
                 return new StudioComponent(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "NimbleStudio", _module)
+pulumi.runtime.registerResourceModule("aws-native", "nimblestudio", _module)

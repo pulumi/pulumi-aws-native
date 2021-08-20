@@ -22,7 +22,7 @@ export class ServiceProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:ServiceProfile';
+    public static readonly __pulumiType = 'aws-native:iotwireless:ServiceProfile';
 
     /**
      * Returns true if the given object is an instance of ServiceProfile.  This is designed to work even
@@ -40,7 +40,7 @@ export class ServiceProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.IoTWireless.ServiceProfileLoRaWANServiceProfile | undefined>;
+    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWANServiceProfile | undefined>;
     public /*out*/ readonly loRaWANChannelMask!: pulumi.Output<string>;
     public /*out*/ readonly loRaWANDevStatusReqFreq!: pulumi.Output<number>;
     public /*out*/ readonly loRaWANDlBucketSize!: pulumi.Output<number>;
@@ -141,7 +141,7 @@ export interface ServiceProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
      */
-    loRaWAN?: pulumi.Input<inputs.IoTWireless.ServiceProfileLoRaWANServiceProfileArgs>;
+    loRaWAN?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWANServiceProfileArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
      */

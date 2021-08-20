@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:SSMIncidents:ReplicationSet":
+            case "aws-native:ssmincidents:ReplicationSet":
                 return new ReplicationSet(name, <any>undefined, { urn })
-            case "aws-native:SSMIncidents:ResponsePlan":
+            case "aws-native:ssmincidents:ResponsePlan":
                 return new ResponsePlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "SSMIncidents", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ssmincidents", _module)

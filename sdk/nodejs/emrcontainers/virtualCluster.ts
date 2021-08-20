@@ -22,7 +22,7 @@ export class VirtualCluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EMRContainers:VirtualCluster';
+    public static readonly __pulumiType = 'aws-native:emrcontainers:VirtualCluster';
 
     /**
      * Returns true if the given object is an instance of VirtualCluster.  This is designed to work even
@@ -39,7 +39,7 @@ export class VirtualCluster extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
      */
-    public readonly containerProvider!: pulumi.Output<outputs.EMRContainers.VirtualClusterContainerProvider>;
+    public readonly containerProvider!: pulumi.Output<outputs.emrcontainers.VirtualClusterContainerProvider>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
@@ -93,7 +93,7 @@ export interface VirtualClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
      */
-    containerProvider: pulumi.Input<inputs.EMRContainers.VirtualClusterContainerProviderArgs>;
+    containerProvider: pulumi.Input<inputs.emrcontainers.VirtualClusterContainerProviderArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
      */

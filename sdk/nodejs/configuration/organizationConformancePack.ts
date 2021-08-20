@@ -22,7 +22,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Configuration:OrganizationConformancePack';
+    public static readonly __pulumiType = 'aws-native:configuration:OrganizationConformancePack';
 
     /**
      * Returns true if the given object is an instance of OrganizationConformancePack.  This is designed to work even
@@ -38,7 +38,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
      */
-    public readonly conformancePackInputParameters!: pulumi.Output<outputs.Configuration.OrganizationConformancePackConformancePackInputParameter[] | undefined>;
+    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.OrganizationConformancePackConformancePackInputParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
      */
@@ -108,7 +108,7 @@ export interface OrganizationConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
      */
-    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.OrganizationConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
      */

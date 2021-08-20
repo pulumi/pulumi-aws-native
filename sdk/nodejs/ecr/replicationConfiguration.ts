@@ -22,7 +22,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECR:ReplicationConfiguration';
+    public static readonly __pulumiType = 'aws-native:ecr:ReplicationConfiguration';
 
     /**
      * Returns true if the given object is an instance of ReplicationConfiguration.  This is designed to work even
@@ -39,7 +39,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
      */
-    public readonly replicationConfiguration!: pulumi.Output<outputs.ECR.ReplicationConfigurationReplicationConfiguration>;
+    public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 
     /**
      * Create a ReplicationConfiguration resource with the given unique name, arguments, and options.
@@ -75,5 +75,5 @@ export interface ReplicationConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
      */
-    replicationConfiguration: pulumi.Input<inputs.ECR.ReplicationConfigurationReplicationConfigurationArgs>;
+    replicationConfiguration: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfigurationArgs>;
 }

@@ -22,7 +22,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:FeatureGroup';
+    public static readonly __pulumiType = 'aws-native:sagemaker:FeatureGroup';
 
     /**
      * Returns true if the given object is an instance of FeatureGroup.  This is designed to work even
@@ -46,7 +46,7 @@ export class FeatureGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
      */
-    public readonly featureDefinitions!: pulumi.Output<outputs.SageMaker.FeatureGroupFeatureDefinition[]>;
+    public readonly featureDefinitions!: pulumi.Output<outputs.sagemaker.FeatureGroupFeatureDefinition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
      */
@@ -137,7 +137,7 @@ export interface FeatureGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
      */
-    featureDefinitions: pulumi.Input<pulumi.Input<inputs.SageMaker.FeatureGroupFeatureDefinitionArgs>[]>;
+    featureDefinitions: pulumi.Input<pulumi.Input<inputs.sagemaker.FeatureGroupFeatureDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
      */

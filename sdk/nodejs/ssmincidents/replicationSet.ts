@@ -22,7 +22,7 @@ export class ReplicationSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSMIncidents:ReplicationSet';
+    public static readonly __pulumiType = 'aws-native:ssmincidents:ReplicationSet';
 
     /**
      * Returns true if the given object is an instance of ReplicationSet.  This is designed to work even
@@ -43,7 +43,7 @@ export class ReplicationSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
      */
-    public readonly regions!: pulumi.Output<outputs.SSMIncidents.ReplicationSetReplicationRegion[]>;
+    public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetReplicationRegion[]>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export interface ReplicationSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
      */
-    regions: pulumi.Input<pulumi.Input<inputs.SSMIncidents.ReplicationSetReplicationRegionArgs>[]>;
+    regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetReplicationRegionArgs>[]>;
 }

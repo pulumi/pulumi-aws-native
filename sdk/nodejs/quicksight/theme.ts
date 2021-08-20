@@ -22,7 +22,7 @@ export class Theme extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:Theme';
+    public static readonly __pulumiType = 'aws-native:quicksight:Theme';
 
     /**
      * Returns true if the given object is an instance of Theme.  This is designed to work even
@@ -47,7 +47,7 @@ export class Theme extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.QuickSight.ThemeThemeConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeThemeConfiguration | undefined>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class Theme extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.ThemeResourcePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
      */
@@ -137,7 +137,7 @@ export interface ThemeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
      */
-    configuration?: pulumi.Input<inputs.QuickSight.ThemeThemeConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.quicksight.ThemeThemeConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
      */
@@ -145,7 +145,7 @@ export interface ThemeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.ThemeResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
      */

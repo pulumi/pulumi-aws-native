@@ -22,7 +22,7 @@ export class LocationS3 extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationS3';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationS3';
 
     /**
      * Returns true if the given object is an instance of LocationS3.  This is designed to work even
@@ -44,7 +44,7 @@ export class LocationS3 extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
      */
-    public readonly s3Config!: pulumi.Output<outputs.DataSync.LocationS3S3Config>;
+    public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3S3Config>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
      */
@@ -109,7 +109,7 @@ export interface LocationS3Args {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
      */
-    s3Config: pulumi.Input<inputs.DataSync.LocationS3S3ConfigArgs>;
+    s3Config: pulumi.Input<inputs.datasync.LocationS3S3ConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
      */

@@ -21,7 +21,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EMR:StudioSessionMapping';
+    public static readonly __pulumiType = 'aws-native:emr:StudioSessionMapping';
 
     /**
      * Returns true if the given object is an instance of StudioSessionMapping.  This is designed to work even

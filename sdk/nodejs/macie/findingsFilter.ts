@@ -22,7 +22,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Macie:FindingsFilter';
+    public static readonly __pulumiType = 'aws-native:macie:FindingsFilter';
 
     /**
      * Returns true if the given object is an instance of FindingsFilter.  This is designed to work even
@@ -47,8 +47,8 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
      */
-    public readonly findingCriteria!: pulumi.Output<outputs.Macie.FindingsFilterFindingCriteria>;
-    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.Macie.FindingsFilterFindingsFilterListItem[]>;
+    public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
+    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterFindingsFilterListItem[]>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
@@ -116,7 +116,7 @@ export interface FindingsFilterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
      */
-    findingCriteria: pulumi.Input<inputs.Macie.FindingsFilterFindingCriteriaArgs>;
+    findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteriaArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
      */

@@ -22,7 +22,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:ClusterCapacityProviderAssociations';
+    public static readonly __pulumiType = 'aws-native:ecs:ClusterCapacityProviderAssociations';
 
     /**
      * Returns true if the given object is an instance of ClusterCapacityProviderAssociations.  This is designed to work even
@@ -46,7 +46,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
      */
-    public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ECS.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
+    public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
 
     /**
      * Create a ClusterCapacityProviderAssociations resource with the given unique name, arguments, and options.
@@ -98,5 +98,5 @@ export interface ClusterCapacityProviderAssociationsArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
      */
-    defaultCapacityProviderStrategy: pulumi.Input<pulumi.Input<inputs.ECS.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>[]>;
+    defaultCapacityProviderStrategy: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>[]>;
 }

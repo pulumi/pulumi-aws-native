@@ -22,7 +22,7 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53Resolver:FirewallRuleGroupAssociation';
+    public static readonly __pulumiType = 'aws-native:route53resolver:FirewallRuleGroupAssociation';
 
     /**
      * Returns true if the given object is an instance of FirewallRuleGroupAssociation.  This is designed to work even

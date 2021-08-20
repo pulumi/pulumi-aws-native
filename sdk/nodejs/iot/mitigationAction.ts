@@ -22,7 +22,7 @@ export class MitigationAction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:MitigationAction';
+    public static readonly __pulumiType = 'aws-native:iot:MitigationAction';
 
     /**
      * Returns true if the given object is an instance of MitigationAction.  This is designed to work even
@@ -42,7 +42,7 @@ export class MitigationAction extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
      */
-    public readonly actionParams!: pulumi.Output<outputs.IoT.MitigationActionActionParams>;
+    public readonly actionParams!: pulumi.Output<outputs.iot.MitigationActionActionParams>;
     public /*out*/ readonly mitigationActionArn!: pulumi.Output<string>;
     public /*out*/ readonly mitigationActionId!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export interface MitigationActionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
      */
-    actionParams: pulumi.Input<inputs.IoT.MitigationActionActionParamsArgs>;
+    actionParams: pulumi.Input<inputs.iot.MitigationActionActionParamsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
      */

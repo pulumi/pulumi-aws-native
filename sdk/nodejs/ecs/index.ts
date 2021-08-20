@@ -26,23 +26,23 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ECS:CapacityProvider":
+            case "aws-native:ecs:CapacityProvider":
                 return new CapacityProvider(name, <any>undefined, { urn })
-            case "aws-native:ECS:Cluster":
+            case "aws-native:ecs:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "aws-native:ECS:ClusterCapacityProviderAssociations":
+            case "aws-native:ecs:ClusterCapacityProviderAssociations":
                 return new ClusterCapacityProviderAssociations(name, <any>undefined, { urn })
-            case "aws-native:ECS:PrimaryTaskSet":
+            case "aws-native:ecs:PrimaryTaskSet":
                 return new PrimaryTaskSet(name, <any>undefined, { urn })
-            case "aws-native:ECS:Service":
+            case "aws-native:ecs:Service":
                 return new Service(name, <any>undefined, { urn })
-            case "aws-native:ECS:TaskDefinition":
+            case "aws-native:ecs:TaskDefinition":
                 return new TaskDefinition(name, <any>undefined, { urn })
-            case "aws-native:ECS:TaskSet":
+            case "aws-native:ecs:TaskSet":
                 return new TaskSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ECS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ecs", _module)

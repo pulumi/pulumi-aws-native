@@ -21,7 +21,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Chatbot:SlackChannelConfiguration';
+    public static readonly __pulumiType = 'aws-native:chatbot:SlackChannelConfiguration';
 
     /**
      * Returns true if the given object is an instance of SlackChannelConfiguration.  This is designed to work even

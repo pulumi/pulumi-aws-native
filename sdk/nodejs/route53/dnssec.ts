@@ -21,7 +21,7 @@ export class DNSSEC extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53:DNSSEC';
+    public static readonly __pulumiType = 'aws-native:route53:DNSSEC';
 
     /**
      * Returns true if the given object is an instance of DNSSEC.  This is designed to work even

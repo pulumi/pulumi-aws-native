@@ -50,47 +50,47 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:EC2:CarrierGateway":
+            case "aws-native:ec2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
-            case "aws-native:EC2:EC2Fleet":
+            case "aws-native:ec2:EC2Fleet":
                 return new EC2Fleet(name, <any>undefined, { urn })
-            case "aws-native:EC2:EgressOnlyInternetGateway":
+            case "aws-native:ec2:EgressOnlyInternetGateway":
                 return new EgressOnlyInternetGateway(name, <any>undefined, { urn })
-            case "aws-native:EC2:EnclaveCertificateIamRoleAssociation":
+            case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
                 return new EnclaveCertificateIamRoleAssociation(name, <any>undefined, { urn })
-            case "aws-native:EC2:FlowLog":
+            case "aws-native:ec2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
-            case "aws-native:EC2:GatewayRouteTableAssociation":
+            case "aws-native:ec2:GatewayRouteTableAssociation":
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
-            case "aws-native:EC2:LocalGatewayRoute":
+            case "aws-native:ec2:LocalGatewayRoute":
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
-            case "aws-native:EC2:LocalGatewayRouteTableVPCAssociation":
+            case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
                 return new LocalGatewayRouteTableVPCAssociation(name, <any>undefined, { urn })
-            case "aws-native:EC2:NetworkInsightsAnalysis":
+            case "aws-native:ec2:NetworkInsightsAnalysis":
                 return new NetworkInsightsAnalysis(name, <any>undefined, { urn })
-            case "aws-native:EC2:NetworkInsightsPath":
+            case "aws-native:ec2:NetworkInsightsPath":
                 return new NetworkInsightsPath(name, <any>undefined, { urn })
-            case "aws-native:EC2:PrefixList":
+            case "aws-native:ec2:PrefixList":
                 return new PrefixList(name, <any>undefined, { urn })
-            case "aws-native:EC2:SpotFleet":
+            case "aws-native:ec2:SpotFleet":
                 return new SpotFleet(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGateway":
+            case "aws-native:ec2:TransitGateway":
                 return new TransitGateway(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayConnect":
+            case "aws-native:ec2:TransitGatewayConnect":
                 return new TransitGatewayConnect(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayMulticastDomain":
+            case "aws-native:ec2:TransitGatewayMulticastDomain":
                 return new TransitGatewayMulticastDomain(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayMulticastDomainAssociation":
+            case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":
                 return new TransitGatewayMulticastDomainAssociation(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayMulticastGroupMember":
+            case "aws-native:ec2:TransitGatewayMulticastGroupMember":
                 return new TransitGatewayMulticastGroupMember(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayMulticastGroupSource":
+            case "aws-native:ec2:TransitGatewayMulticastGroupSource":
                 return new TransitGatewayMulticastGroupSource(name, <any>undefined, { urn })
-            case "aws-native:EC2:TransitGatewayPeeringAttachment":
+            case "aws-native:ec2:TransitGatewayPeeringAttachment":
                 return new TransitGatewayPeeringAttachment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "EC2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ec2", _module)

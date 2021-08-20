@@ -22,7 +22,7 @@ export class Input extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTEvents:Input';
+    public static readonly __pulumiType = 'aws-native:iotevents:Input';
 
     /**
      * Returns true if the given object is an instance of Input.  This is designed to work even
@@ -38,7 +38,7 @@ export class Input extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
      */
-    public readonly inputDefinition!: pulumi.Output<outputs.IoTEvents.InputInputDefinition>;
+    public readonly inputDefinition!: pulumi.Output<outputs.iotevents.InputInputDefinition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
      */
@@ -90,7 +90,7 @@ export interface InputArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
      */
-    inputDefinition: pulumi.Input<inputs.IoTEvents.InputInputDefinitionArgs>;
+    inputDefinition: pulumi.Input<inputs.iotevents.InputInputDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
      */

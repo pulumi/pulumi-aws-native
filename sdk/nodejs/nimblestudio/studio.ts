@@ -22,7 +22,7 @@ export class Studio extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NimbleStudio:Studio';
+    public static readonly __pulumiType = 'aws-native:nimblestudio:Studio';
 
     /**
      * Returns true if the given object is an instance of Studio.  This is designed to work even
@@ -48,7 +48,7 @@ export class Studio extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
      */
-    public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.NimbleStudio.StudioStudioEncryptionConfiguration | undefined>;
+    public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioStudioEncryptionConfiguration | undefined>;
     public /*out*/ readonly studioId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
@@ -131,7 +131,7 @@ export interface StudioArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
      */
-    studioEncryptionConfiguration?: pulumi.Input<inputs.NimbleStudio.StudioStudioEncryptionConfigurationArgs>;
+    studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioStudioEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
      */

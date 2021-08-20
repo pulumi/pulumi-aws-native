@@ -22,7 +22,7 @@ export class Document extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSM:Document';
+    public static readonly __pulumiType = 'aws-native:ssm:Document';
 
     /**
      * Returns true if the given object is an instance of Document.  This is designed to work even
@@ -38,7 +38,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
      */
-    public readonly attachments!: pulumi.Output<outputs.SSM.DocumentAttachmentsSource[] | undefined>;
+    public readonly attachments!: pulumi.Output<outputs.ssm.DocumentAttachmentsSource[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
      */
@@ -58,7 +58,7 @@ export class Document extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
      */
-    public readonly requires!: pulumi.Output<outputs.SSM.DocumentDocumentRequires[] | undefined>;
+    public readonly requires!: pulumi.Output<outputs.ssm.DocumentDocumentRequires[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
      */
@@ -120,7 +120,7 @@ export interface DocumentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
      */
-    attachments?: pulumi.Input<pulumi.Input<inputs.SSM.DocumentAttachmentsSourceArgs>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSourceArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
      */
@@ -140,7 +140,7 @@ export interface DocumentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
      */
-    requires?: pulumi.Input<pulumi.Input<inputs.SSM.DocumentDocumentRequiresArgs>[]>;
+    requires?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentDocumentRequiresArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
      */

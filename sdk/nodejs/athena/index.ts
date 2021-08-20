@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Athena:DataCatalog":
+            case "aws-native:athena:DataCatalog":
                 return new DataCatalog(name, <any>undefined, { urn })
-            case "aws-native:Athena:NamedQuery":
+            case "aws-native:athena:NamedQuery":
                 return new NamedQuery(name, <any>undefined, { urn })
-            case "aws-native:Athena:PreparedStatement":
+            case "aws-native:athena:PreparedStatement":
                 return new PreparedStatement(name, <any>undefined, { urn })
-            case "aws-native:Athena:WorkGroup":
+            case "aws-native:athena:WorkGroup":
                 return new WorkGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Athena", _module)
+pulumi.runtime.registerResourceModule("aws-native", "athena", _module)

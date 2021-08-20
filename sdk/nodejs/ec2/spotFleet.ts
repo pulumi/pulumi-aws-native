@@ -22,7 +22,7 @@ export class SpotFleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:SpotFleet';
+    public static readonly __pulumiType = 'aws-native:ec2:SpotFleet';
 
     /**
      * Returns true if the given object is an instance of SpotFleet.  This is designed to work even
@@ -39,7 +39,7 @@ export class SpotFleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
      */
-    public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.EC2.SpotFleetSpotFleetRequestConfigData>;
+    public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetSpotFleetRequestConfigData>;
 
     /**
      * Create a SpotFleet resource with the given unique name, arguments, and options.
@@ -75,5 +75,5 @@ export interface SpotFleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
      */
-    spotFleetRequestConfigData: pulumi.Input<inputs.EC2.SpotFleetSpotFleetRequestConfigDataArgs>;
+    spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetSpotFleetRequestConfigDataArgs>;
 }

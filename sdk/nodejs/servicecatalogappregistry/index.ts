@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ServiceCatalogAppRegistry:Application":
+            case "aws-native:servicecatalogappregistry:Application":
                 return new Application(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalogAppRegistry:AttributeGroup":
+            case "aws-native:servicecatalogappregistry:AttributeGroup":
                 return new AttributeGroup(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation":
+            case "aws-native:servicecatalogappregistry:AttributeGroupAssociation":
                 return new AttributeGroupAssociation(name, <any>undefined, { urn })
-            case "aws-native:ServiceCatalogAppRegistry:ResourceAssociation":
+            case "aws-native:servicecatalogappregistry:ResourceAssociation":
                 return new ResourceAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ServiceCatalogAppRegistry", _module)
+pulumi.runtime.registerResourceModule("aws-native", "servicecatalogappregistry", _module)

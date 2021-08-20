@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ApiGateway:ApiKey":
+            case "aws-native:apigateway:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:ClientCertificate":
+            case "aws-native:apigateway:ClientCertificate":
                 return new ClientCertificate(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:DocumentationVersion":
+            case "aws-native:apigateway:DocumentationVersion":
                 return new DocumentationVersion(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:DomainName":
+            case "aws-native:apigateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:Model":
+            case "aws-native:apigateway:Model":
                 return new Model(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:RequestValidator":
+            case "aws-native:apigateway:RequestValidator":
                 return new RequestValidator(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:Resource":
+            case "aws-native:apigateway:Resource":
                 return new Resource(name, <any>undefined, { urn })
-            case "aws-native:ApiGateway:UsagePlanKey":
+            case "aws-native:apigateway:UsagePlanKey":
                 return new UsagePlanKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ApiGateway", _module)
+pulumi.runtime.registerResourceModule("aws-native", "apigateway", _module)

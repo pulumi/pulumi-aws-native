@@ -22,7 +22,7 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ServiceCatalog:CloudFormationProvisionedProduct';
+    public static readonly __pulumiType = 'aws-native:servicecatalog:CloudFormationProvisionedProduct';
 
     /**
      * Returns true if the given object is an instance of CloudFormationProvisionedProduct.  This is designed to work even
@@ -76,11 +76,11 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
      */
-    public readonly provisioningParameters!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
+    public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
      */
-    public readonly provisioningPreferences!: pulumi.Output<outputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
+    public readonly provisioningPreferences!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
     public /*out*/ readonly recordId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
@@ -180,11 +180,11 @@ export interface CloudFormationProvisionedProductArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
      */
-    provisioningPreferences?: pulumi.Input<inputs.ServiceCatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
+    provisioningPreferences?: pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
      */

@@ -22,7 +22,7 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53:HealthCheck';
+    public static readonly __pulumiType = 'aws-native:route53:HealthCheck';
 
     /**
      * Returns true if the given object is an instance of HealthCheck.  This is designed to work even
@@ -43,7 +43,7 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    public readonly healthCheckTags!: pulumi.Output<outputs.Route53.HealthCheckHealthCheckTag[] | undefined>;
+    public readonly healthCheckTags!: pulumi.Output<outputs.route53.HealthCheckHealthCheckTag[] | undefined>;
 
     /**
      * Create a HealthCheck resource with the given unique name, arguments, and options.
@@ -85,5 +85,5 @@ export interface HealthCheckArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
      */
-    healthCheckTags?: pulumi.Input<pulumi.Input<inputs.Route53.HealthCheckHealthCheckTagArgs>[]>;
+    healthCheckTags?: pulumi.Input<pulumi.Input<inputs.route53.HealthCheckHealthCheckTagArgs>[]>;
 }

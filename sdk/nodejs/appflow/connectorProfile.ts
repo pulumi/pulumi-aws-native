@@ -22,7 +22,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AppFlow:ConnectorProfile';
+    public static readonly __pulumiType = 'aws-native:appflow:ConnectorProfile';
 
     /**
      * Returns true if the given object is an instance of ConnectorProfile.  This is designed to work even
@@ -43,7 +43,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    public readonly connectorProfileConfig!: pulumi.Output<outputs.AppFlow.ConnectorProfileConnectorProfileConfig | undefined>;
+    public readonly connectorProfileConfig!: pulumi.Output<outputs.appflow.ConnectorProfileConnectorProfileConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */
@@ -112,7 +112,7 @@ export interface ConnectorProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
      */
-    connectorProfileConfig?: pulumi.Input<inputs.AppFlow.ConnectorProfileConnectorProfileConfigArgs>;
+    connectorProfileConfig?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorProfileConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
      */

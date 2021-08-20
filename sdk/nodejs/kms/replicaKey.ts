@@ -22,7 +22,7 @@ export class ReplicaKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:KMS:ReplicaKey';
+    public static readonly __pulumiType = 'aws-native:kms:ReplicaKey';
 
     /**
      * Returns true if the given object is an instance of ReplicaKey.  This is designed to work even

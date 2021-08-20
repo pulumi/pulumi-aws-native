@@ -22,7 +22,7 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Glue:Schema';
+    public static readonly __pulumiType = 'aws-native:glue:Schema';
 
     /**
      * Returns true if the given object is an instance of Schema.  This is designed to work even
@@ -39,7 +39,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    public readonly checkpointVersion!: pulumi.Output<outputs.Glue.SchemaSchemaVersion | undefined>;
+    public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaSchemaVersion | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
@@ -60,7 +60,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
      */
-    public readonly registry!: pulumi.Output<outputs.Glue.SchemaRegistry | undefined>;
+    public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
      */
@@ -129,7 +129,7 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
      */
-    checkpointVersion?: pulumi.Input<inputs.Glue.SchemaSchemaVersionArgs>;
+    checkpointVersion?: pulumi.Input<inputs.glue.SchemaSchemaVersionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
      */
@@ -149,7 +149,7 @@ export interface SchemaArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
      */
-    registry?: pulumi.Input<inputs.Glue.SchemaRegistryArgs>;
+    registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
      */

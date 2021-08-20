@@ -22,7 +22,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FMS:Policy';
+    public static readonly __pulumiType = 'aws-native:fms:Policy';
 
     /**
      * Returns true if the given object is an instance of Policy.  This is designed to work even
@@ -43,7 +43,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    public readonly excludeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
+    public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
@@ -52,7 +52,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    public readonly includeMap!: pulumi.Output<outputs.FMS.PolicyIEMap | undefined>;
+    public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
@@ -64,7 +64,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    public readonly resourceTags!: pulumi.Output<outputs.FMS.PolicyResourceTag[] | undefined>;
+    public readonly resourceTags!: pulumi.Output<outputs.fms.PolicyResourceTag[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
@@ -80,7 +80,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    public readonly tags!: pulumi.Output<outputs.FMS.PolicyPolicyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.fms.PolicyPolicyTag[] | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -154,7 +154,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
      */
-    excludeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
+    excludeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
      */
@@ -162,7 +162,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
      */
-    includeMap?: pulumi.Input<inputs.FMS.PolicyIEMapArgs>;
+    includeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
      */
@@ -174,7 +174,7 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
      */
-    resourceTags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyResourceTagArgs>[]>;
+    resourceTags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyResourceTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
      */
@@ -190,5 +190,5 @@ export interface PolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.FMS.PolicyPolicyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyPolicyTagArgs>[]>;
 }

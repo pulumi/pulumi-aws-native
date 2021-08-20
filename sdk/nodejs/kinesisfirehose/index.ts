@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:KinesisFirehose:DeliveryStream":
+            case "aws-native:kinesisfirehose:DeliveryStream":
                 return new DeliveryStream(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "KinesisFirehose", _module)
+pulumi.runtime.registerResourceModule("aws-native", "kinesisfirehose", _module)

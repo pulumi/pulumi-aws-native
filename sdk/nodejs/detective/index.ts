@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Detective:Graph":
+            case "aws-native:detective:Graph":
                 return new Graph(name, <any>undefined, { urn })
-            case "aws-native:Detective:MemberInvitation":
+            case "aws-native:detective:MemberInvitation":
                 return new MemberInvitation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Detective", _module)
+pulumi.runtime.registerResourceModule("aws-native", "detective", _module)

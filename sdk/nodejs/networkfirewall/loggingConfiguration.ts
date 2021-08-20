@@ -22,7 +22,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkFirewall:LoggingConfiguration';
+    public static readonly __pulumiType = 'aws-native:networkfirewall:LoggingConfiguration';
 
     /**
      * Returns true if the given object is an instance of LoggingConfiguration.  This is designed to work even
@@ -46,7 +46,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.NetworkFirewall.LoggingConfigurationLoggingConfiguration>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
 
     /**
      * Create a LoggingConfiguration resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface LoggingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
      */
-    loggingConfiguration: pulumi.Input<inputs.NetworkFirewall.LoggingConfigurationLoggingConfigurationArgs>;
+    loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfigurationArgs>;
 }

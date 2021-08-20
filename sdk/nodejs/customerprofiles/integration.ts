@@ -22,7 +22,7 @@ export class Integration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CustomerProfiles:Integration';
+    public static readonly __pulumiType = 'aws-native:customerprofiles:Integration';
 
     /**
      * Returns true if the given object is an instance of Integration.  This is designed to work even
@@ -43,7 +43,7 @@ export class Integration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
      */
-    public readonly flowDefinition!: pulumi.Output<outputs.CustomerProfiles.IntegrationFlowDefinition | undefined>;
+    public readonly flowDefinition!: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
@@ -109,7 +109,7 @@ export interface IntegrationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
      */
-    flowDefinition?: pulumi.Input<inputs.CustomerProfiles.IntegrationFlowDefinitionArgs>;
+    flowDefinition?: pulumi.Input<inputs.customerprofiles.IntegrationFlowDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
      */

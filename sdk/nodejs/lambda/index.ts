@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Lambda:CodeSigningConfig":
+            case "aws-native:lambda:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
-            case "aws-native:Lambda:EventSourceMapping":
+            case "aws-native:lambda:EventSourceMapping":
                 return new EventSourceMapping(name, <any>undefined, { urn })
-            case "aws-native:Lambda:Function":
+            case "aws-native:lambda:Function":
                 return new Function(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Lambda", _module)
+pulumi.runtime.registerResourceModule("aws-native", "lambda", _module)

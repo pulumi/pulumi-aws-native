@@ -22,7 +22,7 @@ export class KeyGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:KeyGroup';
+    public static readonly __pulumiType = 'aws-native:cloudfront:KeyGroup';
 
     /**
      * Returns true if the given object is an instance of KeyGroup.  This is designed to work even
@@ -39,7 +39,7 @@ export class KeyGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    public readonly keyGroupConfig!: pulumi.Output<outputs.CloudFront.KeyGroupKeyGroupConfig>;
+    public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupKeyGroupConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -78,5 +78,5 @@ export interface KeyGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
      */
-    keyGroupConfig: pulumi.Input<inputs.CloudFront.KeyGroupKeyGroupConfigArgs>;
+    keyGroupConfig: pulumi.Input<inputs.cloudfront.KeyGroupKeyGroupConfigArgs>;
 }

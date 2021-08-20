@@ -22,7 +22,7 @@ export class ComponentVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GreengrassV2:ComponentVersion';
+    public static readonly __pulumiType = 'aws-native:greengrassv2:ComponentVersion';
 
     /**
      * Returns true if the given object is an instance of ComponentVersion.  This is designed to work even
@@ -45,7 +45,7 @@ export class ComponentVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    public readonly lambdaFunction!: pulumi.Output<outputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
+    public readonly lambdaFunction!: pulumi.Output<outputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */
@@ -94,7 +94,7 @@ export interface ComponentVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
      */
-    lambdaFunction?: pulumi.Input<inputs.GreengrassV2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
+    lambdaFunction?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
      */

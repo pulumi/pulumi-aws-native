@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Location:GeofenceCollection":
+            case "aws-native:location:GeofenceCollection":
                 return new GeofenceCollection(name, <any>undefined, { urn })
-            case "aws-native:Location:Map":
+            case "aws-native:location:Map":
                 return new Map(name, <any>undefined, { urn })
-            case "aws-native:Location:PlaceIndex":
+            case "aws-native:location:PlaceIndex":
                 return new PlaceIndex(name, <any>undefined, { urn })
-            case "aws-native:Location:RouteCalculator":
+            case "aws-native:location:RouteCalculator":
                 return new RouteCalculator(name, <any>undefined, { urn })
-            case "aws-native:Location:Tracker":
+            case "aws-native:location:Tracker":
                 return new Tracker(name, <any>undefined, { urn })
-            case "aws-native:Location:TrackerConsumer":
+            case "aws-native:location:TrackerConsumer":
                 return new TrackerConsumer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Location", _module)
+pulumi.runtime.registerResourceModule("aws-native", "location", _module)

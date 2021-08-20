@@ -22,7 +22,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Kendra:DataSource';
+    public static readonly __pulumiType = 'aws-native:kendra:DataSource';
 
     /**
      * Returns true if the given object is an instance of DataSource.  This is designed to work even
@@ -39,7 +39,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.Kendra.DataSourceDataSourceConfiguration | undefined>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceDataSourceConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */
@@ -126,7 +126,7 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-datasourceconfiguration
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.Kendra.DataSourceDataSourceConfigurationArgs>;
+    dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html#cfn-kendra-datasource-description
      */

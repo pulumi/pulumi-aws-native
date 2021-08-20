@@ -22,7 +22,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:OriginRequestPolicy';
+    public static readonly __pulumiType = 'aws-native:cloudfront:OriginRequestPolicy';
 
     /**
      * Returns true if the given object is an instance of OriginRequestPolicy.  This is designed to work even
@@ -40,7 +40,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
      */
-    public readonly originRequestPolicyConfig!: pulumi.Output<outputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfig>;
+    public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfig>;
 
     /**
      * Create a OriginRequestPolicy resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export interface OriginRequestPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
      */
-    originRequestPolicyConfig: pulumi.Input<inputs.CloudFront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
+    originRequestPolicyConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
 }

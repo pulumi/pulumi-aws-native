@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:S3ObjectLambda:AccessPoint":
+            case "aws-native:s3objectlambda:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "aws-native:S3ObjectLambda:AccessPointPolicy":
+            case "aws-native:s3objectlambda:AccessPointPolicy":
                 return new AccessPointPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "S3ObjectLambda", _module)
+pulumi.runtime.registerResourceModule("aws-native", "s3objectlambda", _module)

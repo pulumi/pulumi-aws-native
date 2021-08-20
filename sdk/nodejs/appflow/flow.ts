@@ -22,7 +22,7 @@ export class Flow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AppFlow:Flow';
+    public static readonly __pulumiType = 'aws-native:appflow:Flow';
 
     /**
      * Returns true if the given object is an instance of Flow.  This is designed to work even
@@ -42,7 +42,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    public readonly destinationFlowConfigList!: pulumi.Output<outputs.AppFlow.FlowDestinationFlowConfig[]>;
+    public readonly destinationFlowConfigList!: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     public /*out*/ readonly flowArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
@@ -55,7 +55,7 @@ export class Flow extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    public readonly sourceFlowConfig!: pulumi.Output<outputs.AppFlow.FlowSourceFlowConfig>;
+    public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
@@ -63,11 +63,11 @@ export class Flow extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    public readonly tasks!: pulumi.Output<outputs.AppFlow.FlowTask[]>;
+    public readonly tasks!: pulumi.Output<outputs.appflow.FlowTask[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    public readonly triggerConfig!: pulumi.Output<outputs.AppFlow.FlowTriggerConfig>;
+    public readonly triggerConfig!: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
      */
-    destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowDestinationFlowConfigArgs>[]>;
+    destinationFlowConfigList: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfigArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
      */
@@ -145,7 +145,7 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
      */
-    sourceFlowConfig: pulumi.Input<inputs.AppFlow.FlowSourceFlowConfigArgs>;
+    sourceFlowConfig: pulumi.Input<inputs.appflow.FlowSourceFlowConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
      */
@@ -153,9 +153,9 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
      */
-    tasks: pulumi.Input<pulumi.Input<inputs.AppFlow.FlowTaskArgs>[]>;
+    tasks: pulumi.Input<pulumi.Input<inputs.appflow.FlowTaskArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
      */
-    triggerConfig: pulumi.Input<inputs.AppFlow.FlowTriggerConfigArgs>;
+    triggerConfig: pulumi.Input<inputs.appflow.FlowTriggerConfigArgs>;
 }

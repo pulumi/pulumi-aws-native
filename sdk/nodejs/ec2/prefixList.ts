@@ -22,7 +22,7 @@ export class PrefixList extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:PrefixList';
+    public static readonly __pulumiType = 'aws-native:ec2:PrefixList';
 
     /**
      * Returns true if the given object is an instance of PrefixList.  This is designed to work even
@@ -43,7 +43,7 @@ export class PrefixList extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    public readonly entries!: pulumi.Output<outputs.EC2.PrefixListEntry[] | undefined>;
+    public readonly entries!: pulumi.Output<outputs.ec2.PrefixListEntry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */
@@ -118,7 +118,7 @@ export interface PrefixListArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
      */
-    entries?: pulumi.Input<pulumi.Input<inputs.EC2.PrefixListEntryArgs>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListEntryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
      */

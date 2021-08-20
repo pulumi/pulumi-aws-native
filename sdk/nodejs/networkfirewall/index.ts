@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:NetworkFirewall:Firewall":
+            case "aws-native:networkfirewall:Firewall":
                 return new Firewall(name, <any>undefined, { urn })
-            case "aws-native:NetworkFirewall:FirewallPolicy":
+            case "aws-native:networkfirewall:FirewallPolicy":
                 return new FirewallPolicy(name, <any>undefined, { urn })
-            case "aws-native:NetworkFirewall:LoggingConfiguration":
+            case "aws-native:networkfirewall:LoggingConfiguration":
                 return new LoggingConfiguration(name, <any>undefined, { urn })
-            case "aws-native:NetworkFirewall:RuleGroup":
+            case "aws-native:networkfirewall:RuleGroup":
                 return new RuleGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "NetworkFirewall", _module)
+pulumi.runtime.registerResourceModule("aws-native", "networkfirewall", _module)

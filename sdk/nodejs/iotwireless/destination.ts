@@ -22,7 +22,7 @@ export class Destination extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:Destination';
+    public static readonly __pulumiType = 'aws-native:iotwireless:Destination';
 
     /**
      * Returns true if the given object is an instance of Destination.  This is designed to work even

@@ -22,7 +22,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaPackage:Channel';
+    public static readonly __pulumiType = 'aws-native:mediapackage:Channel';
 
     /**
      * Returns true if the given object is an instance of Channel.  This is designed to work even
@@ -43,7 +43,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
      */
-    public readonly egressAccessLogs!: pulumi.Output<outputs.MediaPackage.ChannelLogConfiguration | undefined>;
+    public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
@@ -51,7 +51,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
      */
-    public readonly ingressAccessLogs!: pulumi.Output<outputs.MediaPackage.ChannelLogConfiguration | undefined>;
+    public readonly ingressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */
@@ -103,7 +103,7 @@ export interface ChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
      */
-    egressAccessLogs?: pulumi.Input<inputs.MediaPackage.ChannelLogConfigurationArgs>;
+    egressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
      */
@@ -111,7 +111,7 @@ export interface ChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
      */
-    ingressAccessLogs?: pulumi.Input<inputs.MediaPackage.ChannelLogConfigurationArgs>;
+    ingressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
      */

@@ -22,7 +22,7 @@ export class Studio extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EMR:Studio';
+    public static readonly __pulumiType = 'aws-native:emr:Studio';
 
     /**
      * Returns true if the given object is an instance of Studio.  This is designed to work even
