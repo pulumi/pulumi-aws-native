@@ -314,7 +314,7 @@ class EC2Fleet(pulumi.CustomResource):
             __props__.__dict__["valid_until"] = valid_until
             __props__.__dict__["fleet_id"] = None
         super(EC2Fleet, __self__).__init__(
-            'aws-native:EC2:EC2Fleet',
+            'aws-native:ec2:EC2Fleet',
             resource_name,
             __props__,
             opts)

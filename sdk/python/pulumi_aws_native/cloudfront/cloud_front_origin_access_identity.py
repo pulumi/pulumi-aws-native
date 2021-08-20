@@ -92,7 +92,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["s3_canonical_user_id"] = None
         super(CloudFrontOriginAccessIdentity, __self__).__init__(
-            'aws-native:CloudFront:CloudFrontOriginAccessIdentity',
+            'aws-native:cloudfront:CloudFrontOriginAccessIdentity',
             resource_name,
             __props__,
             opts)

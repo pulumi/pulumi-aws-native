@@ -193,7 +193,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Group, __self__).__init__(
-            'aws-native:ResourceGroups:Group',
+            'aws-native:resourcegroups:Group',
             resource_name,
             __props__,
             opts)

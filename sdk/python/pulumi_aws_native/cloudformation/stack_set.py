@@ -354,7 +354,7 @@ class StackSet(pulumi.CustomResource):
             __props__.__dict__["template_url"] = template_url
             __props__.__dict__["stack_set_id"] = None
         super(StackSet, __self__).__init__(
-            'aws-native:CloudFormation:StackSet',
+            'aws-native:cloudformation:StackSet',
             resource_name,
             __props__,
             opts)

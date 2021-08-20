@@ -151,7 +151,7 @@ class StudioSessionMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
         super(StudioSessionMapping, __self__).__init__(
-            'aws-native:EMR:StudioSessionMapping',
+            'aws-native:emr:StudioSessionMapping',
             resource_name,
             __props__,
             opts)

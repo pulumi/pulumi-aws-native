@@ -152,7 +152,7 @@ class CostCategory(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_start"] = None
         super(CostCategory, __self__).__init__(
-            'aws-native:CE:CostCategory',
+            'aws-native:ce:CostCategory',
             resource_name,
             __props__,
             opts)

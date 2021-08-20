@@ -130,7 +130,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
         super(SchemaVersionMetadata, __self__).__init__(
-            'aws-native:Glue:SchemaVersionMetadata',
+            'aws-native:glue:SchemaVersionMetadata',
             resource_name,
             __props__,
             opts)

@@ -301,7 +301,7 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["url"] = None
         super(Studio, __self__).__init__(
-            'aws-native:EMR:Studio',
+            'aws-native:emr:Studio',
             resource_name,
             __props__,
             opts)

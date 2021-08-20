@@ -176,7 +176,7 @@ class EventIntegration(pulumi.CustomResource):
             __props__.__dict__["associations"] = None
             __props__.__dict__["event_integration_arn"] = None
         super(EventIntegration, __self__).__init__(
-            'aws-native:AppIntegrations:EventIntegration',
+            'aws-native:appintegrations:EventIntegration',
             resource_name,
             __props__,
             opts)

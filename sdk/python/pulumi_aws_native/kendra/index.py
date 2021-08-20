@@ -276,7 +276,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(Index, __self__).__init__(
-            'aws-native:Kendra:Index',
+            'aws-native:kendra:Index',
             resource_name,
             __props__,
             opts)

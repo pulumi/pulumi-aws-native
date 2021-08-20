@@ -134,7 +134,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_multicast_domain_arn"] = None
             __props__.__dict__["transit_gateway_multicast_domain_id"] = None
         super(TransitGatewayMulticastDomain, __self__).__init__(
-            'aws-native:EC2:TransitGatewayMulticastDomain',
+            'aws-native:ec2:TransitGatewayMulticastDomain',
             resource_name,
             __props__,
             opts)

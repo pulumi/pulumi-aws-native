@@ -196,7 +196,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["rule_group_arn"] = None
             __props__.__dict__["rule_group_id"] = None
         super(RuleGroup, __self__).__init__(
-            'aws-native:NetworkFirewall:RuleGroup',
+            'aws-native:networkfirewall:RuleGroup',
             resource_name,
             __props__,
             opts)

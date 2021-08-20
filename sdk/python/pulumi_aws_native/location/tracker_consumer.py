@@ -109,7 +109,7 @@ class TrackerConsumer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'tracker_name'")
             __props__.__dict__["tracker_name"] = tracker_name
         super(TrackerConsumer, __self__).__init__(
-            'aws-native:Location:TrackerConsumer',
+            'aws-native:location:TrackerConsumer',
             resource_name,
             __props__,
             opts)

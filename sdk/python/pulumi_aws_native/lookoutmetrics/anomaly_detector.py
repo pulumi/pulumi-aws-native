@@ -172,7 +172,7 @@ class AnomalyDetector(pulumi.CustomResource):
             __props__.__dict__["metric_set_list"] = metric_set_list
             __props__.__dict__["arn"] = None
         super(AnomalyDetector, __self__).__init__(
-            'aws-native:LookoutMetrics:AnomalyDetector',
+            'aws-native:lookoutmetrics:AnomalyDetector',
             resource_name,
             __props__,
             opts)

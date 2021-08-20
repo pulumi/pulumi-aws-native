@@ -133,7 +133,7 @@ class DeviceProfile(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(DeviceProfile, __self__).__init__(
-            'aws-native:IoTWireless:DeviceProfile',
+            'aws-native:iotwireless:DeviceProfile',
             resource_name,
             __props__,
             opts)

@@ -214,7 +214,7 @@ class ResponsePlan(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ResponsePlan, __self__).__init__(
-            'aws-native:SSMIncidents:ResponsePlan',
+            'aws-native:ssmincidents:ResponsePlan',
             resource_name,
             __props__,
             opts)

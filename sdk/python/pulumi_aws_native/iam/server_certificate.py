@@ -190,7 +190,7 @@ class ServerCertificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ServerCertificate, __self__).__init__(
-            'aws-native:IAM:ServerCertificate',
+            'aws-native:iam:ServerCertificate',
             resource_name,
             __props__,
             opts)

@@ -192,7 +192,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
-            'aws-native:ECS:Cluster',
+            'aws-native:ecs:Cluster',
             resource_name,
             __props__,
             opts)

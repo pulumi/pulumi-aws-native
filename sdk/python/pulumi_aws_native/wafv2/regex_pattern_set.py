@@ -173,7 +173,7 @@ class RegexPatternSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(RegexPatternSet, __self__).__init__(
-            'aws-native:WAFv2:RegexPatternSet',
+            'aws-native:wafv2:RegexPatternSet',
             resource_name,
             __props__,
             opts)

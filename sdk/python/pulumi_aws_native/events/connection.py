@@ -151,7 +151,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["secret_arn"] = None
         super(Connection, __self__).__init__(
-            'aws-native:Events:Connection',
+            'aws-native:events:Connection',
             resource_name,
             __props__,
             opts)

@@ -217,7 +217,7 @@ class Faq(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(Faq, __self__).__init__(
-            'aws-native:Kendra:Faq',
+            'aws-native:kendra:Faq',
             resource_name,
             __props__,
             opts)

@@ -195,7 +195,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             __props__.__dict__["targets"] = targets
             __props__.__dict__["id"] = None
         super(ExperimentTemplate, __self__).__init__(
-            'aws-native:FIS:ExperimentTemplate',
+            'aws-native:fis:ExperimentTemplate',
             resource_name,
             __props__,
             opts)

@@ -192,7 +192,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
         super(Pipeline, __self__).__init__(
-            'aws-native:SageMaker:Pipeline',
+            'aws-native:sagemaker:Pipeline',
             resource_name,
             __props__,
             opts)

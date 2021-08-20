@@ -193,7 +193,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["network_origin"] = None
         super(AccessPoint, __self__).__init__(
-            'aws-native:S3:AccessPoint',
+            'aws-native:s3:AccessPoint',
             resource_name,
             __props__,
             opts)

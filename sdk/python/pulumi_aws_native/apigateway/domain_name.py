@@ -215,7 +215,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["regional_domain_name"] = None
             __props__.__dict__["regional_hosted_zone_id"] = None
         super(DomainName, __self__).__init__(
-            'aws-native:ApiGateway:DomainName',
+            'aws-native:apigateway:DomainName',
             resource_name,
             __props__,
             opts)

@@ -89,7 +89,7 @@ class RegistryPolicy(pulumi.CustomResource):
             __props__.__dict__["policy_text"] = policy_text
             __props__.__dict__["registry_id"] = None
         super(RegistryPolicy, __self__).__init__(
-            'aws-native:ECR:RegistryPolicy',
+            'aws-native:ecr:RegistryPolicy',
             resource_name,
             __props__,
             opts)

@@ -196,7 +196,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_status"] = None
             __props__.__dict__["status_reason"] = None
         super(Domain, __self__).__init__(
-            'aws-native:Amplify:Domain',
+            'aws-native:amplify:Domain',
             resource_name,
             __props__,
             opts)

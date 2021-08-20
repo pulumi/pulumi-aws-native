@@ -93,7 +93,7 @@ class SpotFleet(pulumi.CustomResource):
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data
             __props__.__dict__["id"] = None
         super(SpotFleet, __self__).__init__(
-            'aws-native:EC2:SpotFleet',
+            'aws-native:ec2:SpotFleet',
             resource_name,
             __props__,
             opts)

@@ -234,7 +234,7 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["domain_type"] = None
             __props__.__dict__["server_certificates"] = None
         super(DomainConfiguration, __self__).__init__(
-            'aws-native:IoT:DomainConfiguration',
+            'aws-native:iot:DomainConfiguration',
             resource_name,
             __props__,
             opts)

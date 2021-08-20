@@ -132,7 +132,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
         super(LocalGatewayRoute, __self__).__init__(
-            'aws-native:EC2:LocalGatewayRoute',
+            'aws-native:ec2:LocalGatewayRoute',
             resource_name,
             __props__,
             opts)

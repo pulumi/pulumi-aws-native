@@ -109,7 +109,7 @@ class WebACLAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'web_acl_arn'")
             __props__.__dict__["web_acl_arn"] = web_acl_arn
         super(WebACLAssociation, __self__).__init__(
-            'aws-native:WAFv2:WebACLAssociation',
+            'aws-native:wafv2:WebACLAssociation',
             resource_name,
             __props__,
             opts)

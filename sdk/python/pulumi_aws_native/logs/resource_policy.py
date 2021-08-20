@@ -109,7 +109,7 @@ class ResourcePolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
         super(ResourcePolicy, __self__).__init__(
-            'aws-native:Logs:ResourcePolicy',
+            'aws-native:logs:ResourcePolicy',
             resource_name,
             __props__,
             opts)

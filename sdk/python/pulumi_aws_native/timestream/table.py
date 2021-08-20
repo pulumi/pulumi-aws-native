@@ -152,7 +152,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
         super(Table, __self__).__init__(
-            'aws-native:Timestream:Table',
+            'aws-native:timestream:Table',
             resource_name,
             __props__,
             opts)

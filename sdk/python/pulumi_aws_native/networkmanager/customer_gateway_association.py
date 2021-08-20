@@ -150,7 +150,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
             __props__.__dict__["global_network_id"] = global_network_id
             __props__.__dict__["link_id"] = link_id
         super(CustomerGatewayAssociation, __self__).__init__(
-            'aws-native:NetworkManager:CustomerGatewayAssociation',
+            'aws-native:networkmanager:CustomerGatewayAssociation',
             resource_name,
             __props__,
             opts)

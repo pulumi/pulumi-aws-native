@@ -112,7 +112,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["status"] = None
         super(ResolverQueryLoggingConfigAssociation, __self__).__init__(
-            'aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation',
+            'aws-native:route53resolver:ResolverQueryLoggingConfigAssociation',
             resource_name,
             __props__,
             opts)

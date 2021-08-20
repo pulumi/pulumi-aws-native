@@ -112,7 +112,7 @@ class Publisher(pulumi.CustomResource):
             __props__.__dict__["publisher_profile"] = None
             __props__.__dict__["publisher_status"] = None
         super(Publisher, __self__).__init__(
-            'aws-native:CloudFormation:Publisher',
+            'aws-native:cloudformation:Publisher',
             resource_name,
             __props__,
             opts)

@@ -130,7 +130,7 @@ class ServiceActionAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_action_id'")
             __props__.__dict__["service_action_id"] = service_action_id
         super(ServiceActionAssociation, __self__).__init__(
-            'aws-native:ServiceCatalog:ServiceActionAssociation',
+            'aws-native:servicecatalog:ServiceActionAssociation',
             resource_name,
             __props__,
             opts)

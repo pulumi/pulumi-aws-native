@@ -173,7 +173,7 @@ class FlowVpcInterface(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["network_interface_ids"] = None
         super(FlowVpcInterface, __self__).__init__(
-            'aws-native:MediaConnect:FlowVpcInterface',
+            'aws-native:mediaconnect:FlowVpcInterface',
             resource_name,
             __props__,
             opts)

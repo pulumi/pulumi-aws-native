@@ -110,7 +110,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
             __props__.__dict__["route_table_id"] = route_table_id
             __props__.__dict__["association_id"] = None
         super(GatewayRouteTableAssociation, __self__).__init__(
-            'aws-native:EC2:GatewayRouteTableAssociation',
+            'aws-native:ec2:GatewayRouteTableAssociation',
             resource_name,
             __props__,
             opts)

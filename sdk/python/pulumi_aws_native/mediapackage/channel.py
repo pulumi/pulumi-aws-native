@@ -173,7 +173,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Channel, __self__).__init__(
-            'aws-native:MediaPackage:Channel',
+            'aws-native:mediapackage:Channel',
             resource_name,
             __props__,
             opts)

@@ -250,7 +250,7 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["sync_source"] = sync_source
             __props__.__dict__["sync_type"] = sync_type
         super(ResourceDataSync, __self__).__init__(
-            'aws-native:SSM:ResourceDataSync',
+            'aws-native:ssm:ResourceDataSync',
             resource_name,
             __props__,
             opts)

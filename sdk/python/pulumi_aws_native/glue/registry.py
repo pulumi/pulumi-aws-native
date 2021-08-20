@@ -131,7 +131,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Registry, __self__).__init__(
-            'aws-native:Glue:Registry',
+            'aws-native:glue:Registry',
             resource_name,
             __props__,
             opts)

@@ -174,7 +174,7 @@ class FindingsFilter(pulumi.CustomResource):
             __props__.__dict__["findings_filter_list_items"] = None
             __props__.__dict__["id"] = None
         super(FindingsFilter, __self__).__init__(
-            'aws-native:Macie:FindingsFilter',
+            'aws-native:macie:FindingsFilter',
             resource_name,
             __props__,
             opts)

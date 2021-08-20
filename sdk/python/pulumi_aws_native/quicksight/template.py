@@ -216,7 +216,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(Template, __self__).__init__(
-            'aws-native:QuickSight:Template',
+            'aws-native:quicksight:Template',
             resource_name,
             __props__,
             opts)

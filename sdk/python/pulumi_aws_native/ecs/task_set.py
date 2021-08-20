@@ -273,7 +273,7 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["id"] = None
         super(TaskSet, __self__).__init__(
-            'aws-native:ECS:TaskSet',
+            'aws-native:ecs:TaskSet',
             resource_name,
             __props__,
             opts)

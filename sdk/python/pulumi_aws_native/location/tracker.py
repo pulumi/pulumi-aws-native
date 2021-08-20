@@ -173,7 +173,7 @@ class Tracker(pulumi.CustomResource):
             __props__.__dict__["tracker_arn"] = None
             __props__.__dict__["update_time"] = None
         super(Tracker, __self__).__init__(
-            'aws-native:Location:Tracker',
+            'aws-native:location:Tracker',
             resource_name,
             __props__,
             opts)

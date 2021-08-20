@@ -253,7 +253,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
         super(Application, __self__).__init__(
-            'aws-native:ApplicationInsights:Application',
+            'aws-native:applicationinsights:Application',
             resource_name,
             __props__,
             opts)

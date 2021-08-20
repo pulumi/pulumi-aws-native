@@ -134,7 +134,7 @@ class RecordingConfiguration(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
         super(RecordingConfiguration, __self__).__init__(
-            'aws-native:IVS:RecordingConfiguration',
+            'aws-native:ivs:RecordingConfiguration',
             resource_name,
             __props__,
             opts)

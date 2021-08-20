@@ -170,7 +170,7 @@ class NamedQuery(pulumi.CustomResource):
             __props__.__dict__["work_group"] = work_group
             __props__.__dict__["named_query_id"] = None
         super(NamedQuery, __self__).__init__(
-            'aws-native:Athena:NamedQuery',
+            'aws-native:athena:NamedQuery',
             resource_name,
             __props__,
             opts)

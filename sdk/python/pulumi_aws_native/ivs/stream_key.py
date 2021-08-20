@@ -112,7 +112,7 @@ class StreamKey(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["value"] = None
         super(StreamKey, __self__).__init__(
-            'aws-native:IVS:StreamKey',
+            'aws-native:ivs:StreamKey',
             resource_name,
             __props__,
             opts)

@@ -113,7 +113,7 @@ class BackupPlan(pulumi.CustomResource):
             __props__.__dict__["backup_plan_id"] = None
             __props__.__dict__["version_id"] = None
         super(BackupPlan, __self__).__init__(
-            'aws-native:Backup:BackupPlan',
+            'aws-native:backup:BackupPlan',
             resource_name,
             __props__,
             opts)

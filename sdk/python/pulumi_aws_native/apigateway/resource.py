@@ -131,7 +131,7 @@ class Resource(pulumi.CustomResource):
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["resource_id"] = None
         super(Resource, __self__).__init__(
-            'aws-native:ApiGateway:Resource',
+            'aws-native:apigateway:Resource',
             resource_name,
             __props__,
             opts)

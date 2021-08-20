@@ -356,7 +356,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_domain"] = None
         super(App, __self__).__init__(
-            'aws-native:Amplify:App',
+            'aws-native:amplify:App',
             resource_name,
             __props__,
             opts)

@@ -177,7 +177,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["status"] = None
         super(Endpoint, __self__).__init__(
-            'aws-native:S3Outposts:Endpoint',
+            'aws-native:s3outposts:Endpoint',
             resource_name,
             __props__,
             opts)

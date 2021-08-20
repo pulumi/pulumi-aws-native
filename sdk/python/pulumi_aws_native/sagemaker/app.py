@@ -196,7 +196,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["app_arn"] = None
         super(App, __self__).__init__(
-            'aws-native:SageMaker:App',
+            'aws-native:sagemaker:App',
             resource_name,
             __props__,
             opts)

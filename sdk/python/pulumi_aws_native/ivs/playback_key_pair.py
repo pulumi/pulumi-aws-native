@@ -132,7 +132,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["fingerprint"] = None
         super(PlaybackKeyPair, __self__).__init__(
-            'aws-native:IVS:PlaybackKeyPair',
+            'aws-native:ivs:PlaybackKeyPair',
             resource_name,
             __props__,
             opts)

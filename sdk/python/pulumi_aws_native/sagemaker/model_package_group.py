@@ -153,7 +153,7 @@ class ModelPackageGroup(pulumi.CustomResource):
             __props__.__dict__["model_package_group_arn"] = None
             __props__.__dict__["model_package_group_status"] = None
         super(ModelPackageGroup, __self__).__init__(
-            'aws-native:SageMaker:ModelPackageGroup',
+            'aws-native:sagemaker:ModelPackageGroup',
             resource_name,
             __props__,
             opts)

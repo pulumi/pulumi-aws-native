@@ -336,7 +336,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["output_columns"] = None
         super(DataSet, __self__).__init__(
-            'aws-native:QuickSight:DataSet',
+            'aws-native:quicksight:DataSet',
             resource_name,
             __props__,
             opts)

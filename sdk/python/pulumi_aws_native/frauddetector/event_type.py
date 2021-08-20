@@ -198,7 +198,7 @@ class EventType(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(EventType, __self__).__init__(
-            'aws-native:FraudDetector:EventType',
+            'aws-native:frauddetector:EventType',
             resource_name,
             __props__,
             opts)

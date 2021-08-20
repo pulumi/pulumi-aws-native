@@ -194,7 +194,7 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None
         super(UserProfile, __self__).__init__(
-            'aws-native:SageMaker:UserProfile',
+            'aws-native:sagemaker:UserProfile',
             resource_name,
             __props__,
             opts)

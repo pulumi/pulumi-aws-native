@@ -136,7 +136,7 @@ class SigningProfile(pulumi.CustomResource):
             __props__.__dict__["profile_version"] = None
             __props__.__dict__["profile_version_arn"] = None
         super(SigningProfile, __self__).__init__(
-            'aws-native:Signer:SigningProfile',
+            'aws-native:signer:SigningProfile',
             resource_name,
             __props__,
             opts)

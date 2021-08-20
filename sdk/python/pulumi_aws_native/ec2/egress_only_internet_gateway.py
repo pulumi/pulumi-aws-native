@@ -89,7 +89,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["id"] = None
         super(EgressOnlyInternetGateway, __self__).__init__(
-            'aws-native:EC2:EgressOnlyInternetGateway',
+            'aws-native:ec2:EgressOnlyInternetGateway',
             resource_name,
             __props__,
             opts)

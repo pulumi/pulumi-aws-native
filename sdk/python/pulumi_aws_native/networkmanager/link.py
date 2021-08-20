@@ -216,7 +216,7 @@ class Link(pulumi.CustomResource):
             __props__.__dict__["link_arn"] = None
             __props__.__dict__["link_id"] = None
         super(Link, __self__).__init__(
-            'aws-native:NetworkManager:Link',
+            'aws-native:networkmanager:Link',
             resource_name,
             __props__,
             opts)

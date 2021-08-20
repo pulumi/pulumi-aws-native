@@ -174,7 +174,7 @@ class ConnectorProfile(pulumi.CustomResource):
             __props__.__dict__["connector_profile_arn"] = None
             __props__.__dict__["credentials_arn"] = None
         super(ConnectorProfile, __self__).__init__(
-            'aws-native:AppFlow:ConnectorProfile',
+            'aws-native:appflow:ConnectorProfile',
             resource_name,
             __props__,
             opts)

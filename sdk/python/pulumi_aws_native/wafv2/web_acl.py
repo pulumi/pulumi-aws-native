@@ -238,7 +238,7 @@ class WebACL(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["label_namespace"] = None
         super(WebACL, __self__).__init__(
-            'aws-native:WAFv2:WebACL',
+            'aws-native:wafv2:WebACL',
             resource_name,
             __props__,
             opts)

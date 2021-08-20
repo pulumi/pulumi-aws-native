@@ -236,7 +236,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["portal_id"] = None
             __props__.__dict__["portal_start_url"] = None
         super(Portal, __self__).__init__(
-            'aws-native:IoTSiteWise:Portal',
+            'aws-native:iotsitewise:Portal',
             resource_name,
             __props__,
             opts)

@@ -270,7 +270,7 @@ class TypeActivation(pulumi.CustomResource):
             __props__.__dict__["version_bump"] = version_bump
             __props__.__dict__["arn"] = None
         super(TypeActivation, __self__).__init__(
-            'aws-native:CloudFormation:TypeActivation',
+            'aws-native:cloudformation:TypeActivation',
             resource_name,
             __props__,
             opts)

@@ -153,7 +153,7 @@ class Recipe(pulumi.CustomResource):
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
         super(Recipe, __self__).__init__(
-            'aws-native:DataBrew:Recipe',
+            'aws-native:databrew:Recipe',
             resource_name,
             __props__,
             opts)

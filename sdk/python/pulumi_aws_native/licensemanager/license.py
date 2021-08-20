@@ -298,7 +298,7 @@ class License(pulumi.CustomResource):
             __props__.__dict__["license_arn"] = None
             __props__.__dict__["version"] = None
         super(License, __self__).__init__(
-            'aws-native:LicenseManager:License',
+            'aws-native:licensemanager:License',
             resource_name,
             __props__,
             opts)

@@ -237,7 +237,7 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["initial_schema_version_id"] = None
         super(Schema, __self__).__init__(
-            'aws-native:Glue:Schema',
+            'aws-native:glue:Schema',
             resource_name,
             __props__,
             opts)

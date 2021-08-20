@@ -193,7 +193,7 @@ class Assignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
         super(Assignment, __self__).__init__(
-            'aws-native:SSO:Assignment',
+            'aws-native:sso:Assignment',
             resource_name,
             __props__,
             opts)

@@ -151,7 +151,7 @@ class VirtualMFADevice(pulumi.CustomResource):
             __props__.__dict__["virtual_mfa_device_name"] = virtual_mfa_device_name
             __props__.__dict__["serial_number"] = None
         super(VirtualMFADevice, __self__).__init__(
-            'aws-native:IAM:VirtualMFADevice',
+            'aws-native:iam:VirtualMFADevice',
             resource_name,
             __props__,
             opts)

@@ -391,7 +391,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
             __props__.__dict__["association_id"] = None
         super(Association, __self__).__init__(
-            'aws-native:SSM:Association',
+            'aws-native:ssm:Association',
             resource_name,
             __props__,
             opts)

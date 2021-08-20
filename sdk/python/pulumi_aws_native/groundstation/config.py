@@ -136,7 +136,7 @@ class Config(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["type"] = None
         super(Config, __self__).__init__(
-            'aws-native:GroundStation:Config',
+            'aws-native:groundstation:Config',
             resource_name,
             __props__,
             opts)

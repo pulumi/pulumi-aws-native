@@ -154,7 +154,7 @@ class RouteCalculator(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
         super(RouteCalculator, __self__).__init__(
-            'aws-native:Location:RouteCalculator',
+            'aws-native:location:RouteCalculator',
             resource_name,
             __props__,
             opts)

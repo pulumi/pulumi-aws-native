@@ -175,7 +175,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
         super(Integration, __self__).__init__(
-            'aws-native:CustomerProfiles:Integration',
+            'aws-native:customerprofiles:Integration',
             resource_name,
             __props__,
             opts)

@@ -110,7 +110,7 @@ class ClientCertificate(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["client_certificate_id"] = None
         super(ClientCertificate, __self__).__init__(
-            'aws-native:ApiGateway:ClientCertificate',
+            'aws-native:apigateway:ClientCertificate',
             resource_name,
             __props__,
             opts)

@@ -192,7 +192,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["association_arn"] = None
         super(RepositoryAssociation, __self__).__init__(
-            'aws-native:CodeGuruReviewer:RepositoryAssociation',
+            'aws-native:codegurureviewer:RepositoryAssociation',
             resource_name,
             __props__,
             opts)

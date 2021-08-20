@@ -259,7 +259,7 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["sheets"] = None
             __props__.__dict__["status"] = None
         super(Analysis, __self__).__init__(
-            'aws-native:QuickSight:Analysis',
+            'aws-native:quicksight:Analysis',
             resource_name,
             __props__,
             opts)

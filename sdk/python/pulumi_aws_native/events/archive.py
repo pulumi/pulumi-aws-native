@@ -169,7 +169,7 @@ class Archive(pulumi.CustomResource):
             __props__.__dict__["source_arn"] = source_arn
             __props__.__dict__["arn"] = None
         super(Archive, __self__).__init__(
-            'aws-native:Events:Archive',
+            'aws-native:events:Archive',
             resource_name,
             __props__,
             opts)

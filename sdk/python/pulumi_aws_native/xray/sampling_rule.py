@@ -170,7 +170,7 @@ class SamplingRule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["rule_arn"] = None
         super(SamplingRule, __self__).__init__(
-            'aws-native:XRay:SamplingRule',
+            'aws-native:xray:SamplingRule',
             resource_name,
             __props__,
             opts)

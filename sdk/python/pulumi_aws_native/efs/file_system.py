@@ -291,7 +291,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["file_system_id"] = None
         super(FileSystem, __self__).__init__(
-            'aws-native:EFS:FileSystem',
+            'aws-native:efs:FileSystem',
             resource_name,
             __props__,
             opts)

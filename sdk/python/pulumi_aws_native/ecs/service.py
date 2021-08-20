@@ -493,7 +493,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["service_arn"] = None
         super(Service, __self__).__init__(
-            'aws-native:ECS:Service',
+            'aws-native:ecs:Service',
             resource_name,
             __props__,
             opts)

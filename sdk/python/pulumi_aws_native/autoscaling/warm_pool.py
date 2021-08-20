@@ -148,7 +148,7 @@ class WarmPool(pulumi.CustomResource):
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["pool_state"] = pool_state
         super(WarmPool, __self__).__init__(
-            'aws-native:AutoScaling:WarmPool',
+            'aws-native:autoscaling:WarmPool',
             resource_name,
             __props__,
             opts)

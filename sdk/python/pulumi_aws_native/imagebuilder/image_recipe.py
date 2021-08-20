@@ -254,7 +254,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
         super(ImageRecipe, __self__).__init__(
-            'aws-native:ImageBuilder:ImageRecipe',
+            'aws-native:imagebuilder:ImageRecipe',
             resource_name,
             __props__,
             opts)

@@ -195,7 +195,7 @@ class WirelessGateway(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["thing_name"] = None
         super(WirelessGateway, __self__).__init__(
-            'aws-native:IoTWireless:WirelessGateway',
+            'aws-native:iotwireless:WirelessGateway',
             resource_name,
             __props__,
             opts)

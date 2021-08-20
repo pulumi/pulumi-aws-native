@@ -113,7 +113,7 @@ class SuiteDefinition(pulumi.CustomResource):
             __props__.__dict__["suite_definition_id"] = None
             __props__.__dict__["suite_definition_version"] = None
         super(SuiteDefinition, __self__).__init__(
-            'aws-native:IoTCoreDeviceAdvisor:SuiteDefinition',
+            'aws-native:iotcoredeviceadvisor:SuiteDefinition',
             resource_name,
             __props__,
             opts)

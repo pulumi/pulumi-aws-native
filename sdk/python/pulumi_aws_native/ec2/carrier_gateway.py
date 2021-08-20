@@ -113,7 +113,7 @@ class CarrierGateway(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["state"] = None
         super(CarrierGateway, __self__).__init__(
-            'aws-native:EC2:CarrierGateway',
+            'aws-native:ec2:CarrierGateway',
             resource_name,
             __props__,
             opts)

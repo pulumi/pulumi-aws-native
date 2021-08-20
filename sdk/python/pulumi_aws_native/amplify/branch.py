@@ -314,7 +314,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Branch, __self__).__init__(
-            'aws-native:Amplify:Branch',
+            'aws-native:amplify:Branch',
             resource_name,
             __props__,
             opts)

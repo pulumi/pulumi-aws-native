@@ -109,7 +109,7 @@ class BucketPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
         super(BucketPolicy, __self__).__init__(
-            'aws-native:S3Outposts:BucketPolicy',
+            'aws-native:s3outposts:BucketPolicy',
             resource_name,
             __props__,
             opts)

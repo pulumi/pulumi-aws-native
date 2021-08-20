@@ -153,7 +153,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["connection_status"] = None
             __props__.__dict__["owner_account_id"] = None
         super(Connection, __self__).__init__(
-            'aws-native:CodeStarConnections:Connection',
+            'aws-native:codestarconnections:Connection',
             resource_name,
             __props__,
             opts)

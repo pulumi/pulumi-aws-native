@@ -134,7 +134,7 @@ class AccessPolicy(pulumi.CustomResource):
             __props__.__dict__["access_policy_arn"] = None
             __props__.__dict__["access_policy_id"] = None
         super(AccessPolicy, __self__).__init__(
-            'aws-native:IoTSiteWise:AccessPolicy',
+            'aws-native:iotsitewise:AccessPolicy',
             resource_name,
             __props__,
             opts)

@@ -152,7 +152,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(DistributionConfiguration, __self__).__init__(
-            'aws-native:ImageBuilder:DistributionConfiguration',
+            'aws-native:imagebuilder:DistributionConfiguration',
             resource_name,
             __props__,
             opts)

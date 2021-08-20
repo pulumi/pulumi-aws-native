@@ -153,7 +153,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
         super(AccessPoint, __self__).__init__(
-            'aws-native:S3Outposts:AccessPoint',
+            'aws-native:s3outposts:AccessPoint',
             resource_name,
             __props__,
             opts)

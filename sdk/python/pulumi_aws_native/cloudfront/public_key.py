@@ -92,7 +92,7 @@ class PublicKey(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["id"] = None
         super(PublicKey, __self__).__init__(
-            'aws-native:CloudFront:PublicKey',
+            'aws-native:cloudfront:PublicKey',
             resource_name,
             __props__,
             opts)

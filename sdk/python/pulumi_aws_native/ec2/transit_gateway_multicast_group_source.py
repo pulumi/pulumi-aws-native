@@ -138,7 +138,7 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
         super(TransitGatewayMulticastGroupSource, __self__).__init__(
-            'aws-native:EC2:TransitGatewayMulticastGroupSource',
+            'aws-native:ec2:TransitGatewayMulticastGroupSource',
             resource_name,
             __props__,
             opts)

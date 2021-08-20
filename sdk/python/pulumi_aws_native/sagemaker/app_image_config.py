@@ -133,7 +133,7 @@ class AppImageConfig(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_image_config_arn"] = None
         super(AppImageConfig, __self__).__init__(
-            'aws-native:SageMaker:AppImageConfig',
+            'aws-native:sagemaker:AppImageConfig',
             resource_name,
             __props__,
             opts)

@@ -233,7 +233,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None
         super(Repository, __self__).__init__(
-            'aws-native:CodeArtifact:Repository',
+            'aws-native:codeartifact:Repository',
             resource_name,
             __props__,
             opts)

@@ -197,7 +197,7 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["studio_url"] = None
         super(Studio, __self__).__init__(
-            'aws-native:NimbleStudio:Studio',
+            'aws-native:nimblestudio:Studio',
             resource_name,
             __props__,
             opts)

@@ -134,7 +134,7 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
             __props__.__dict__["local_gateway_route_table_vpc_association_id"] = None
             __props__.__dict__["state"] = None
         super(LocalGatewayRouteTableVPCAssociation, __self__).__init__(
-            'aws-native:EC2:LocalGatewayRouteTableVPCAssociation',
+            'aws-native:ec2:LocalGatewayRouteTableVPCAssociation',
             resource_name,
             __props__,
             opts)

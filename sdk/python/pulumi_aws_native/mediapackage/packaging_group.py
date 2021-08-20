@@ -154,7 +154,7 @@ class PackagingGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
         super(PackagingGroup, __self__).__init__(
-            'aws-native:MediaPackage:PackagingGroup',
+            'aws-native:mediapackage:PackagingGroup',
             resource_name,
             __props__,
             opts)

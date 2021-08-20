@@ -150,7 +150,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["group_arn"] = None
         super(Group, __self__).__init__(
-            'aws-native:XRay:Group',
+            'aws-native:xray:Group',
             resource_name,
             __props__,
             opts)

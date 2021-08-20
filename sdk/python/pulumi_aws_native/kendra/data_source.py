@@ -236,7 +236,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(DataSource, __self__).__init__(
-            'aws-native:Kendra:DataSource',
+            'aws-native:kendra:DataSource',
             resource_name,
             __props__,
             opts)

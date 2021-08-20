@@ -175,7 +175,7 @@ class QuickConnect(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["quick_connect_arn"] = None
         super(QuickConnect, __self__).__init__(
-            'aws-native:Connect:QuickConnect',
+            'aws-native:connect:QuickConnect',
             resource_name,
             __props__,
             opts)
