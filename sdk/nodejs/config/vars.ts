@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("aws-native");
 
 /**
- * the region to use for deployments
+ * The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
  */
 export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {

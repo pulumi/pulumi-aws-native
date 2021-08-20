@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
-// the region to use for deployments
+// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
 func GetRegion(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws-native:region")
 }

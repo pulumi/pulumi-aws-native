@@ -14,7 +14,7 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// the region to use for deployments
+	// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
 
@@ -37,13 +37,13 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// the region to use for deployments
+	// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
 	Region string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// the region to use for deployments
+	// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
 	Region pulumi.StringInput
 }
 

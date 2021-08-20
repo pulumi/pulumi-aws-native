@@ -10,6 +10,6 @@ from .. import _utilities
 
 region: Optional[str]
 """
-the region to use for deployments
+The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
 """
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
-        /// the region to use for deployments
+        /// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the region to use for deployments
+        /// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;

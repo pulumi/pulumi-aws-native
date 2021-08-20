@@ -20,7 +20,7 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * the region to use for deployments
+     * The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
      */
     public readonly region!: pulumi.Output<string>;
 
@@ -52,7 +52,7 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * the region to use for deployments
+     * The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
      */
     region: pulumi.Input<string>;
 }

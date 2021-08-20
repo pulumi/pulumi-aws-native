@@ -16,7 +16,7 @@ class ProviderArgs:
                  region: pulumi.Input[str]):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] region: the region to use for deployments
+        :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         """
         pulumi.set(__self__, "region", region)
 
@@ -24,7 +24,7 @@ class ProviderArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
         """
-        the region to use for deployments
+        The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         """
         return pulumi.get(self, "region")
 
@@ -44,7 +44,7 @@ class Provider(pulumi.ProviderResource):
         Create a Aws-native resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] region: the region to use for deployments
+        :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         """
         ...
     @overload
@@ -95,7 +95,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
         """
-        the region to use for deployments
+        The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         """
         return pulumi.get(self, "region")
 
