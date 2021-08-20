@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2021, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,13 +21,12 @@ import (
 	"encoding/base32"
 	"encoding/json"
 	"fmt"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -36,6 +35,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/aws/smithy-go"
+	"github.com/aws/smithy-go/middleware"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
@@ -43,11 +43,14 @@ import (
 	"github.com/jpillora/backoff"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type cancellationContext struct {
@@ -179,6 +182,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	cfg, err := config.LoadDefaultConfig(ctx)
 	cfg.Region = p.region
+	cfg.APIOptions = append(cfg.APIOptions, pulumiUserAgent()...)
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not load AWS config")
 	}
@@ -893,4 +897,14 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	}
 
 	return nil
+}
+
+// pulumiUserAgent adds a Pulumi-specific user-agent to the request middleware.
+// The resulting string looks like this: `APN/1.0 Pulumi/1.0 PulumiAwsNative/0.0.2`
+func pulumiUserAgent() []func(*middleware.Stack) error {
+	return []func(*middleware.Stack) error{
+		awsmiddleware.AddUserAgentKeyValue("APN", "1.0"),
+		awsmiddleware.AddUserAgentKeyValue("Pulumi", "1.0"),
+		awsmiddleware.AddUserAgentKeyValue("PulumiAwsNative", version.Version),
+	}
 }
