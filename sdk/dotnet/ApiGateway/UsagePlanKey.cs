@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:UsagePlanKey")]
+    [AwsNativeResourceType("aws-native:apigateway:UsagePlanKey")]
     public partial class UsagePlanKey : Pulumi.CustomResource
     {
         [Output("id")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UsagePlanKey(string name, UsagePlanKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:UsagePlanKey", name, args ?? new UsagePlanKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:UsagePlanKey", name, args ?? new UsagePlanKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UsagePlanKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:UsagePlanKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:UsagePlanKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

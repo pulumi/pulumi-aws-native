@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSM:ResourceDataSync")]
+    [AwsNativeResourceType("aws-native:ssm:ResourceDataSync")]
     public partial class ResourceDataSync : Pulumi.CustomResource
     {
         /// <summary>
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceDataSync(string name, ResourceDataSyncArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:ResourceDataSync", name, args ?? new ResourceDataSyncArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssm:ResourceDataSync", name, args ?? new ResourceDataSyncArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceDataSync(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:ResourceDataSync", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssm:ResourceDataSync", name, null, MakeResourceOptions(options, id))
         {
         }
 

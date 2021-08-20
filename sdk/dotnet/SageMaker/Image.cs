@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:Image")]
+    [AwsNativeResourceType("aws-native:sagemaker:Image")]
     public partial class Image : Pulumi.CustomResource
     {
         [Output("imageArn")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Image(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Image", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:Image", name, null, MakeResourceOptions(options, id))
         {
         }
 

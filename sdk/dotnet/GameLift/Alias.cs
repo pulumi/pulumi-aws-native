@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GameLift:Alias")]
+    [AwsNativeResourceType("aws-native:gamelift:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
         [Output("aliasId")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GameLift:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:gamelift:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GameLift:Alias", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:gamelift:Alias", name, null, MakeResourceOptions(options, id))
         {
         }
 

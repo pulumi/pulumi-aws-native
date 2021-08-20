@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Budgets
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Budgets:BudgetsAction")]
+    [AwsNativeResourceType("aws-native:budgets:BudgetsAction")]
     public partial class BudgetsAction : Pulumi.CustomResource
     {
         [Output("actionId")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.Budgets
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BudgetsAction(string name, BudgetsActionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Budgets:BudgetsAction", name, args ?? new BudgetsActionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:budgets:BudgetsAction", name, args ?? new BudgetsActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BudgetsAction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Budgets:BudgetsAction", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:budgets:BudgetsAction", name, null, MakeResourceOptions(options, id))
         {
         }
 

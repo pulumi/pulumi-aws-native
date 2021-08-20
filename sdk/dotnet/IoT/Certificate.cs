@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:Certificate")]
+    [AwsNativeResourceType("aws-native:iot:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppIntegrations
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AppIntegrations:EventIntegration")]
+    [AwsNativeResourceType("aws-native:appintegrations:EventIntegration")]
     public partial class EventIntegration : Pulumi.CustomResource
     {
         [Output("associations")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventIntegration(string name, EventIntegrationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AppIntegrations:EventIntegration", name, args ?? new EventIntegrationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:appintegrations:EventIntegration", name, args ?? new EventIntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventIntegration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AppIntegrations:EventIntegration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:appintegrations:EventIntegration", name, null, MakeResourceOptions(options, id))
         {
         }
 

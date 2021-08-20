@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CustomerProfiles:Integration")]
+    [AwsNativeResourceType("aws-native:customerprofiles:Integration")]
     public partial class Integration : Pulumi.CustomResource
     {
         [Output("createdAt")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Integration(string name, IntegrationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:customerprofiles:Integration", name, args ?? new IntegrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Integration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:Integration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:customerprofiles:Integration", name, null, MakeResourceOptions(options, id))
         {
         }
 

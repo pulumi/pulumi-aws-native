@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EKS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EKS:FargateProfile")]
+    [AwsNativeResourceType("aws-native:eks:FargateProfile")]
     public partial class FargateProfile : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.EKS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FargateProfile(string name, FargateProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EKS:FargateProfile", name, args ?? new FargateProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:eks:FargateProfile", name, args ?? new FargateProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FargateProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EKS:FargateProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:eks:FargateProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

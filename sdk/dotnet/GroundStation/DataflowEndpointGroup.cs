@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GroundStation:DataflowEndpointGroup")]
+    [AwsNativeResourceType("aws-native:groundstation:DataflowEndpointGroup")]
     public partial class DataflowEndpointGroup : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.GroundStation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataflowEndpointGroup(string name, DataflowEndpointGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:DataflowEndpointGroup", name, args ?? new DataflowEndpointGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:groundstation:DataflowEndpointGroup", name, args ?? new DataflowEndpointGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataflowEndpointGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:DataflowEndpointGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:groundstation:DataflowEndpointGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:TopicRuleDestination")]
+    [AwsNativeResourceType("aws-native:iot:TopicRuleDestination")]
     public partial class TopicRuleDestination : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TopicRuleDestination(string name, TopicRuleDestinationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:TopicRuleDestination", name, args ?? new TopicRuleDestinationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:TopicRuleDestination", name, args ?? new TopicRuleDestinationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TopicRuleDestination(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:TopicRuleDestination", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:TopicRuleDestination", name, null, MakeResourceOptions(options, id))
         {
         }
 

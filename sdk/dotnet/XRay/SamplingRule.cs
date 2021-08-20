@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.XRay
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:XRay:SamplingRule")]
+    [AwsNativeResourceType("aws-native:xray:SamplingRule")]
     public partial class SamplingRule : Pulumi.CustomResource
     {
         [Output("ruleARN")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.XRay
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SamplingRule(string name, SamplingRuleArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:XRay:SamplingRule", name, args ?? new SamplingRuleArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:xray:SamplingRule", name, args ?? new SamplingRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SamplingRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:XRay:SamplingRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:xray:SamplingRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

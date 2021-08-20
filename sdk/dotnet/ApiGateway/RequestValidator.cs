@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:RequestValidator")]
+    [AwsNativeResourceType("aws-native:apigateway:RequestValidator")]
     public partial class RequestValidator : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RequestValidator(string name, RequestValidatorArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:RequestValidator", name, args ?? new RequestValidatorArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:RequestValidator", name, args ?? new RequestValidatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RequestValidator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:RequestValidator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:RequestValidator", name, null, MakeResourceOptions(options, id))
         {
         }
 

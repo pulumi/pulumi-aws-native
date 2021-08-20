@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ElastiCache:UserGroup")]
+    [AwsNativeResourceType("aws-native:elasticache:UserGroup")]
     public partial class UserGroup : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserGroup(string name, UserGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:UserGroup", name, args ?? new UserGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:elasticache:UserGroup", name, args ?? new UserGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:UserGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:elasticache:UserGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:FraudDetector:Outcome")]
+    [AwsNativeResourceType("aws-native:frauddetector:Outcome")]
     public partial class Outcome : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Outcome(string name, OutcomeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:Outcome", name, args ?? new OutcomeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:frauddetector:Outcome", name, args ?? new OutcomeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Outcome(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:Outcome", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:frauddetector:Outcome", name, null, MakeResourceOptions(options, id))
         {
         }
 

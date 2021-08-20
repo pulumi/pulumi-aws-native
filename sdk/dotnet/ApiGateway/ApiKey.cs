@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:ApiKey")]
+    [AwsNativeResourceType("aws-native:apigateway:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
         [Output("aPIKeyId")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiKey(string name, ApiKeyArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:ApiKey", name, args ?? new ApiKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:ApiKey", name, args ?? new ApiKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:ApiKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:ApiKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:RDS:DBProxy")]
+    [AwsNativeResourceType("aws-native:rds:DBProxy")]
     public partial class DBProxy : Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AwsNative.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBProxy(string name, DBProxyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxy", name, args ?? new DBProxyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:rds:DBProxy", name, args ?? new DBProxyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBProxy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:rds:DBProxy", name, null, MakeResourceOptions(options, id))
         {
         }
 

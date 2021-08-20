@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:Device")]
+    [AwsNativeResourceType("aws-native:networkmanager:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Device(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:Device", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:Device", name, null, MakeResourceOptions(options, id))
         {
         }
 

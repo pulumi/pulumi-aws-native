@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:ImageVersion")]
+    [AwsNativeResourceType("aws-native:sagemaker:ImageVersion")]
     public partial class ImageVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImageVersion(string name, ImageVersionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ImageVersion", name, args ?? new ImageVersionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:ImageVersion", name, args ?? new ImageVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImageVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ImageVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:ImageVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

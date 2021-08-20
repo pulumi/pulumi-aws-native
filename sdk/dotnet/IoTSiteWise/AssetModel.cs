@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:AssetModel")]
+    [AwsNativeResourceType("aws-native:iotsitewise:AssetModel")]
     public partial class AssetModel : Pulumi.CustomResource
     {
         [Output("assetModelArn")]
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AssetModel(string name, AssetModelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:AssetModel", name, args ?? new AssetModelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:AssetModel", name, args ?? new AssetModelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AssetModel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:AssetModel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:AssetModel", name, null, MakeResourceOptions(options, id))
         {
         }
 

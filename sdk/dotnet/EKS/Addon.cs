@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EKS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EKS:Addon")]
+    [AwsNativeResourceType("aws-native:eks:Addon")]
     public partial class Addon : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.EKS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Addon(string name, AddonArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EKS:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:eks:Addon", name, args ?? new AddonArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Addon(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EKS:Addon", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:eks:Addon", name, null, MakeResourceOptions(options, id))
         {
         }
 

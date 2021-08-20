@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkFirewall:FirewallPolicy")]
+    [AwsNativeResourceType("aws-native:networkfirewall:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallPolicy(string name, FirewallPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:FirewallPolicy", name, args ?? new FirewallPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkfirewall:FirewallPolicy", name, args ?? new FirewallPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:FirewallPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkfirewall:FirewallPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

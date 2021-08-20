@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryReadiness:RecoveryGroup")]
+    [AwsNativeResourceType("aws-native:route53recoveryreadiness:RecoveryGroup")]
     public partial class RecoveryGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecoveryGroup(string name, RecoveryGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:RecoveryGroup", name, args ?? new RecoveryGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoveryreadiness:RecoveryGroup", name, args ?? new RecoveryGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecoveryGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:RecoveryGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoveryreadiness:RecoveryGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

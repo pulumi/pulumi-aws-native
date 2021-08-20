@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkFirewall:LoggingConfiguration")]
+    [AwsNativeResourceType("aws-native:networkfirewall:LoggingConfiguration")]
     public partial class LoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LoggingConfiguration(string name, LoggingConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:LoggingConfiguration", name, args ?? new LoggingConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkfirewall:LoggingConfiguration", name, args ?? new LoggingConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LoggingConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:LoggingConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkfirewall:LoggingConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

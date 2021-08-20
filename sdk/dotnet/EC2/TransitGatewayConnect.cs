@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGatewayConnect")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGatewayConnect")]
     public partial class TransitGatewayConnect : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayConnect(string name, TransitGatewayConnectArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayConnect", name, args ?? new TransitGatewayConnectArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGatewayConnect", name, args ?? new TransitGatewayConnectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayConnect(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayConnect", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGatewayConnect", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IVS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IVS:RecordingConfiguration")]
+    [AwsNativeResourceType("aws-native:ivs:RecordingConfiguration")]
     public partial class RecordingConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RecordingConfiguration(string name, RecordingConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:RecordingConfiguration", name, args ?? new RecordingConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ivs:RecordingConfiguration", name, args ?? new RecordingConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RecordingConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:RecordingConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ivs:RecordingConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

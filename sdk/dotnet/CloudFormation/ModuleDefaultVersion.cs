@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFormation:ModuleDefaultVersion")]
+    [AwsNativeResourceType("aws-native:cloudformation:ModuleDefaultVersion")]
     public partial class ModuleDefaultVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModuleDefaultVersion(string name, ModuleDefaultVersionArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:ModuleDefaultVersion", name, args ?? new ModuleDefaultVersionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudformation:ModuleDefaultVersion", name, args ?? new ModuleDefaultVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModuleDefaultVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:ModuleDefaultVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudformation:ModuleDefaultVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

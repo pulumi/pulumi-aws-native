@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECS:TaskSet")]
+    [AwsNativeResourceType("aws-native:ecs:TaskSet")]
     public partial class TaskSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AwsNative.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskSet(string name, TaskSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:TaskSet", name, args ?? new TaskSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecs:TaskSet", name, args ?? new TaskSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:TaskSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecs:TaskSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

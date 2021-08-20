@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NimbleStudio:Studio")]
+    [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
     public partial class Studio : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Studio(string name, StudioArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:Studio", name, args ?? new StudioArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:nimblestudio:Studio", name, args ?? new StudioArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Studio(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:Studio", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:nimblestudio:Studio", name, null, MakeResourceOptions(options, id))
         {
         }
 

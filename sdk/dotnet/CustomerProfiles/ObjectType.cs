@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CustomerProfiles:ObjectType")]
+    [AwsNativeResourceType("aws-native:customerprofiles:ObjectType")]
     public partial class ObjectType : Pulumi.CustomResource
     {
         /// <summary>
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ObjectType(string name, ObjectTypeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:ObjectType", name, args ?? new ObjectTypeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:customerprofiles:ObjectType", name, args ?? new ObjectTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ObjectType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:ObjectType", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:customerprofiles:ObjectType", name, null, MakeResourceOptions(options, id))
         {
         }
 

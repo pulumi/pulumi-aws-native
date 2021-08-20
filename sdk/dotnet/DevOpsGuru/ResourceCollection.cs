@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DevOpsGuru:ResourceCollection")]
+    [AwsNativeResourceType("aws-native:devopsguru:ResourceCollection")]
     public partial class ResourceCollection : Pulumi.CustomResource
     {
         /// <summary>
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceCollection(string name, ResourceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DevOpsGuru:ResourceCollection", name, args ?? new ResourceCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:devopsguru:ResourceCollection", name, args ?? new ResourceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DevOpsGuru:ResourceCollection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:devopsguru:ResourceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 

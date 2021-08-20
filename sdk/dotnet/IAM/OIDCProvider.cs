@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IAM:OIDCProvider")]
+    [AwsNativeResourceType("aws-native:iam:OIDCProvider")]
     public partial class OIDCProvider : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OIDCProvider(string name, OIDCProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:OIDCProvider", name, args ?? new OIDCProviderArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iam:OIDCProvider", name, args ?? new OIDCProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OIDCProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:OIDCProvider", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iam:OIDCProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 

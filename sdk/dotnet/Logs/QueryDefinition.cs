@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Logs:QueryDefinition")]
+    [AwsNativeResourceType("aws-native:logs:QueryDefinition")]
     public partial class QueryDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Logs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QueryDefinition(string name, QueryDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Logs:QueryDefinition", name, args ?? new QueryDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:logs:QueryDefinition", name, args ?? new QueryDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QueryDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Logs:QueryDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:logs:QueryDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

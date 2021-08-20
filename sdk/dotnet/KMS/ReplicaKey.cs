@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:KMS:ReplicaKey")]
+    [AwsNativeResourceType("aws-native:kms:ReplicaKey")]
     public partial class ReplicaKey : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.KMS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicaKey(string name, ReplicaKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:KMS:ReplicaKey", name, args ?? new ReplicaKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kms:ReplicaKey", name, args ?? new ReplicaKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicaKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:KMS:ReplicaKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kms:ReplicaKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

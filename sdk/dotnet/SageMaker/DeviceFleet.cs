@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:DeviceFleet")]
+    [AwsNativeResourceType("aws-native:sagemaker:DeviceFleet")]
     public partial class DeviceFleet : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceFleet(string name, DeviceFleetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:DeviceFleet", name, args ?? new DeviceFleetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:DeviceFleet", name, args ?? new DeviceFleetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeviceFleet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:DeviceFleet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:DeviceFleet", name, null, MakeResourceOptions(options, id))
         {
         }
 

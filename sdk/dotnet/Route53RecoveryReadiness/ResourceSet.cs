@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryReadiness:ResourceSet")]
+    [AwsNativeResourceType("aws-native:route53recoveryreadiness:ResourceSet")]
     public partial class ResourceSet : Pulumi.CustomResource
     {
         [Output("resourceSetArn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceSet(string name, ResourceSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:ResourceSet", name, args ?? new ResourceSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoveryreadiness:ResourceSet", name, args ?? new ResourceSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:ResourceSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoveryreadiness:ResourceSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

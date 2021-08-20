@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Location
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Location:GeofenceCollection")]
+    [AwsNativeResourceType("aws-native:location:GeofenceCollection")]
     public partial class GeofenceCollection : Pulumi.CustomResource
     {
         [Output("collectionArn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.Location
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GeofenceCollection(string name, GeofenceCollectionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Location:GeofenceCollection", name, args ?? new GeofenceCollectionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:location:GeofenceCollection", name, args ?? new GeofenceCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GeofenceCollection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Location:GeofenceCollection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:location:GeofenceCollection", name, null, MakeResourceOptions(options, id))
         {
         }
 

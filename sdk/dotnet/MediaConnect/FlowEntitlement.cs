@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaConnect:FlowEntitlement")]
+    [AwsNativeResourceType("aws-native:mediaconnect:FlowEntitlement")]
     public partial class FlowEntitlement : Pulumi.CustomResource
     {
         /// <summary>
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowEntitlement(string name, FlowEntitlementArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowEntitlement", name, args ?? new FlowEntitlementArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediaconnect:FlowEntitlement", name, args ?? new FlowEntitlementArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowEntitlement(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowEntitlement", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediaconnect:FlowEntitlement", name, null, MakeResourceOptions(options, id))
         {
         }
 

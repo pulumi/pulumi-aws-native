@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation")]
+    [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroupAssociation")]
     public partial class AttributeGroupAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AttributeGroupAssociation(string name, AttributeGroupAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation", name, args ?? new AttributeGroupAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:servicecatalogappregistry:AttributeGroupAssociation", name, args ?? new AttributeGroupAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AttributeGroupAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:servicecatalogappregistry:AttributeGroupAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

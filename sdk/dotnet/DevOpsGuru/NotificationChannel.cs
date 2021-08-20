@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DevOpsGuru
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DevOpsGuru:NotificationChannel")]
+    [AwsNativeResourceType("aws-native:devopsguru:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NotificationChannel(string name, NotificationChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DevOpsGuru:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:devopsguru:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NotificationChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DevOpsGuru:NotificationChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:devopsguru:NotificationChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

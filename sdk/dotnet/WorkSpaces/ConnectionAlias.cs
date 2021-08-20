@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WorkSpaces
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:WorkSpaces:ConnectionAlias")]
+    [AwsNativeResourceType("aws-native:workspaces:ConnectionAlias")]
     public partial class ConnectionAlias : Pulumi.CustomResource
     {
         [Output("aliasId")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectionAlias(string name, ConnectionAliasArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:WorkSpaces:ConnectionAlias", name, args ?? new ConnectionAliasArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:workspaces:ConnectionAlias", name, args ?? new ConnectionAliasArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectionAlias(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:WorkSpaces:ConnectionAlias", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:workspaces:ConnectionAlias", name, null, MakeResourceOptions(options, id))
         {
         }
 

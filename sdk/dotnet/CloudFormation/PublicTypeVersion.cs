@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFormation:PublicTypeVersion")]
+    [AwsNativeResourceType("aws-native:cloudformation:PublicTypeVersion")]
     public partial class PublicTypeVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublicTypeVersion(string name, PublicTypeVersionArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:PublicTypeVersion", name, args ?? new PublicTypeVersionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudformation:PublicTypeVersion", name, args ?? new PublicTypeVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PublicTypeVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:PublicTypeVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudformation:PublicTypeVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

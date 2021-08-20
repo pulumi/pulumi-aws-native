@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataSync:LocationNFS")]
+    [AwsNativeResourceType("aws-native:datasync:LocationNFS")]
     public partial class LocationNFS : Pulumi.CustomResource
     {
         [Output("locationArn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LocationNFS(string name, LocationNFSArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationNFS", name, args ?? new LocationNFSArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:datasync:LocationNFS", name, args ?? new LocationNFSArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LocationNFS(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationNFS", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:datasync:LocationNFS", name, null, MakeResourceOptions(options, id))
         {
         }
 

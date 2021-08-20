@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaConnect:FlowSource")]
+    [AwsNativeResourceType("aws-native:mediaconnect:FlowSource")]
     public partial class FlowSource : Pulumi.CustomResource
     {
         /// <summary>
@@ -102,12 +102,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowSource(string name, FlowSourceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowSource", name, args ?? new FlowSourceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediaconnect:FlowSource", name, args ?? new FlowSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowSource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediaconnect:FlowSource", name, null, MakeResourceOptions(options, id))
         {
         }
 

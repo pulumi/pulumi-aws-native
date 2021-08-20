@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Logs
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Logs:LogGroup")]
+    [AwsNativeResourceType("aws-native:logs:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Logs
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LogGroup(string name, LogGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Logs:LogGroup", name, args ?? new LogGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:logs:LogGroup", name, args ?? new LogGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LogGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Logs:LogGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:logs:LogGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

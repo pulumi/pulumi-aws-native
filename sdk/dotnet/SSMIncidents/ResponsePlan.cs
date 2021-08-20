@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSMIncidents:ResponsePlan")]
+    [AwsNativeResourceType("aws-native:ssmincidents:ResponsePlan")]
     public partial class ResponsePlan : Pulumi.CustomResource
     {
         /// <summary>
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResponsePlan(string name, ResponsePlanArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSMIncidents:ResponsePlan", name, args ?? new ResponsePlanArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssmincidents:ResponsePlan", name, args ?? new ResponsePlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResponsePlan(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSMIncidents:ResponsePlan", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssmincidents:ResponsePlan", name, null, MakeResourceOptions(options, id))
         {
         }
 

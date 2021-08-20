@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NimbleStudio:StreamingImage")]
+    [AwsNativeResourceType("aws-native:nimblestudio:StreamingImage")]
     public partial class StreamingImage : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamingImage(string name, StreamingImageArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:StreamingImage", name, args ?? new StreamingImageArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:nimblestudio:StreamingImage", name, args ?? new StreamingImageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamingImage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:StreamingImage", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:nimblestudio:StreamingImage", name, null, MakeResourceOptions(options, id))
         {
         }
 

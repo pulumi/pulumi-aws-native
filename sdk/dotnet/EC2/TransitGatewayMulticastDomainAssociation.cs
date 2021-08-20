@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGatewayMulticastDomainAssociation")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomainAssociation")]
     public partial class TransitGatewayMulticastDomainAssociation : Pulumi.CustomResource
     {
         [Output("resourceId")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayMulticastDomainAssociation(string name, TransitGatewayMulticastDomainAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastDomainAssociation", name, args ?? new TransitGatewayMulticastDomainAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, args ?? new TransitGatewayMulticastDomainAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayMulticastDomainAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastDomainAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

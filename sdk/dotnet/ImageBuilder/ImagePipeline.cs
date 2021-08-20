@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ImageBuilder:ImagePipeline")]
+    [AwsNativeResourceType("aws-native:imagebuilder:ImagePipeline")]
     public partial class ImagePipeline : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ImagePipeline(string name, ImagePipelineArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:ImagePipeline", name, args ?? new ImagePipelineArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:imagebuilder:ImagePipeline", name, args ?? new ImagePipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ImagePipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:ImagePipeline", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:imagebuilder:ImagePipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

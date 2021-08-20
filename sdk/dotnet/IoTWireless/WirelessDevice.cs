@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTWireless:WirelessDevice")]
+    [AwsNativeResourceType("aws-native:iotwireless:WirelessDevice")]
     public partial class WirelessDevice : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -81,12 +81,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WirelessDevice(string name, WirelessDeviceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:WirelessDevice", name, args ?? new WirelessDeviceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotwireless:WirelessDevice", name, args ?? new WirelessDeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WirelessDevice(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:WirelessDevice", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotwireless:WirelessDevice", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:EgressOnlyInternetGateway")]
+    [AwsNativeResourceType("aws-native:ec2:EgressOnlyInternetGateway")]
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
         [Output("id")]
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EgressOnlyInternetGateway(string name, EgressOnlyInternetGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:EgressOnlyInternetGateway", name, args ?? new EgressOnlyInternetGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:EgressOnlyInternetGateway", name, args ?? new EgressOnlyInternetGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EgressOnlyInternetGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:EgressOnlyInternetGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:EgressOnlyInternetGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

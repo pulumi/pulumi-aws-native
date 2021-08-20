@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:CloudFrontOriginAccessIdentity")]
+    [AwsNativeResourceType("aws-native:cloudfront:CloudFrontOriginAccessIdentity")]
     public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CloudFrontOriginAccessIdentity(string name, CloudFrontOriginAccessIdentityArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, args ?? new CloudFrontOriginAccessIdentityArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:CloudFrontOriginAccessIdentity", name, args ?? new CloudFrontOriginAccessIdentityArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CloudFrontOriginAccessIdentity(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:CloudFrontOriginAccessIdentity", name, null, MakeResourceOptions(options, id))
         {
         }
 

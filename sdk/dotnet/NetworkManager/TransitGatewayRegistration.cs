@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:TransitGatewayRegistration")]
+    [AwsNativeResourceType("aws-native:networkmanager:TransitGatewayRegistration")]
     public partial class TransitGatewayRegistration : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayRegistration(string name, TransitGatewayRegistrationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:TransitGatewayRegistration", name, args ?? new TransitGatewayRegistrationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:TransitGatewayRegistration", name, args ?? new TransitGatewayRegistrationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayRegistration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:TransitGatewayRegistration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:TransitGatewayRegistration", name, null, MakeResourceOptions(options, id))
         {
         }
 

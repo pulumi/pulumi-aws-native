@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:AccountAuditConfiguration")]
+    [AwsNativeResourceType("aws-native:iot:AccountAuditConfiguration")]
     public partial class AccountAuditConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccountAuditConfiguration(string name, AccountAuditConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:AccountAuditConfiguration", name, args ?? new AccountAuditConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:AccountAuditConfiguration", name, args ?? new AccountAuditConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccountAuditConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:AccountAuditConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:AccountAuditConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

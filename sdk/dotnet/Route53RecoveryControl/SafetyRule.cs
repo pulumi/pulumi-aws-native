@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryControl:SafetyRule")]
+    [AwsNativeResourceType("aws-native:route53recoverycontrol:SafetyRule")]
     public partial class SafetyRule : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SafetyRule(string name, SafetyRuleArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:SafetyRule", name, args ?? new SafetyRuleArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoverycontrol:SafetyRule", name, args ?? new SafetyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SafetyRule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:SafetyRule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoverycontrol:SafetyRule", name, null, MakeResourceOptions(options, id))
         {
         }
 

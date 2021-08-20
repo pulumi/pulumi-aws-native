@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:UserProfile")]
+    [AwsNativeResourceType("aws-native:sagemaker:UserProfile")]
     public partial class UserProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public UserProfile(string name, UserProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:UserProfile", name, args ?? new UserProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:UserProfile", name, args ?? new UserProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private UserProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:UserProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:UserProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

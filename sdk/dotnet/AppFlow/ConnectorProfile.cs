@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppFlow
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AppFlow:ConnectorProfile")]
+    [AwsNativeResourceType("aws-native:appflow:ConnectorProfile")]
     public partial class ConnectorProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.AppFlow
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConnectorProfile(string name, ConnectorProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AppFlow:ConnectorProfile", name, args ?? new ConnectorProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:appflow:ConnectorProfile", name, args ?? new ConnectorProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConnectorProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AppFlow:ConnectorProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:appflow:ConnectorProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

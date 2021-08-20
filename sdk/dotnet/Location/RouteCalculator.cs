@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Location
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Location:RouteCalculator")]
+    [AwsNativeResourceType("aws-native:location:RouteCalculator")]
     public partial class RouteCalculator : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.Location
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RouteCalculator(string name, RouteCalculatorArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Location:RouteCalculator", name, args ?? new RouteCalculatorArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:location:RouteCalculator", name, args ?? new RouteCalculatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RouteCalculator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Location:RouteCalculator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:location:RouteCalculator", name, null, MakeResourceOptions(options, id))
         {
         }
 

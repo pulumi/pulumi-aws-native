@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGateway")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGateway")]
     public partial class TransitGateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -99,12 +99,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGateway(string name, TransitGatewayArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGateway", name, args ?? new TransitGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGateway", name, args ?? new TransitGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

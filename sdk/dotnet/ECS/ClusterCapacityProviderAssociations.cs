@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECS:ClusterCapacityProviderAssociations")]
+    [AwsNativeResourceType("aws-native:ecs:ClusterCapacityProviderAssociations")]
     public partial class ClusterCapacityProviderAssociations : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClusterCapacityProviderAssociations(string name, ClusterCapacityProviderAssociationsArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:ClusterCapacityProviderAssociations", name, args ?? new ClusterCapacityProviderAssociationsArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecs:ClusterCapacityProviderAssociations", name, args ?? new ClusterCapacityProviderAssociationsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClusterCapacityProviderAssociations(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:ClusterCapacityProviderAssociations", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecs:ClusterCapacityProviderAssociations", name, null, MakeResourceOptions(options, id))
         {
         }
 

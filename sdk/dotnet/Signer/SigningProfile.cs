@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Signer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Signer:SigningProfile")]
+    [AwsNativeResourceType("aws-native:signer:SigningProfile")]
     public partial class SigningProfile : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Signer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SigningProfile(string name, SigningProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Signer:SigningProfile", name, args ?? new SigningProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:signer:SigningProfile", name, args ?? new SigningProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SigningProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Signer:SigningProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:signer:SigningProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

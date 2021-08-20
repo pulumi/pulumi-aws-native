@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Kendra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-datasource.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Kendra:DataSource")]
+    [AwsNativeResourceType("aws-native:kendra:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.Kendra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSource(string name, DataSourceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kendra:DataSource", name, args ?? new DataSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:DataSource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kendra:DataSource", name, null, MakeResourceOptions(options, id))
         {
         }
 

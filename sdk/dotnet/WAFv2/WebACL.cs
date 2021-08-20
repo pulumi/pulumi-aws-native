@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:WAFv2:WebACL")]
+    [AwsNativeResourceType("aws-native:wafv2:WebACL")]
     public partial class WebACL : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.WAFv2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebACL(string name, WebACLArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:WebACL", name, args ?? new WebACLArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:wafv2:WebACL", name, args ?? new WebACLArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebACL(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:WebACL", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:wafv2:WebACL", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:Gateway")]
+    [AwsNativeResourceType("aws-native:iotsitewise:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Gateway(string name, GatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:Gateway", name, args ?? new GatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Gateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Gateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:Gateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

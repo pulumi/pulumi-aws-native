@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFormation:Publisher")]
+    [AwsNativeResourceType("aws-native:cloudformation:Publisher")]
     public partial class Publisher : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Publisher(string name, PublisherArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:Publisher", name, args ?? new PublisherArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudformation:Publisher", name, args ?? new PublisherArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Publisher(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:Publisher", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudformation:Publisher", name, null, MakeResourceOptions(options, id))
         {
         }
 

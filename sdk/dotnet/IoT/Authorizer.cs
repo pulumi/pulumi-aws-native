@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:Authorizer")]
+    [AwsNativeResourceType("aws-native:iot:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Authorizer(string name, AuthorizerArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:Authorizer", name, args ?? new AuthorizerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Authorizer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Authorizer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:Authorizer", name, null, MakeResourceOptions(options, id))
         {
         }
 

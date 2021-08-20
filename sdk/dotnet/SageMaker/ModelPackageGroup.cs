@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:ModelPackageGroup")]
+    [AwsNativeResourceType("aws-native:sagemaker:ModelPackageGroup")]
     public partial class ModelPackageGroup : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelPackageGroup(string name, ModelPackageGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelPackageGroup", name, args ?? new ModelPackageGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:ModelPackageGroup", name, args ?? new ModelPackageGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelPackageGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelPackageGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:ModelPackageGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

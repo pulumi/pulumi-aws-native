@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.XRay
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:XRay:Group")]
+    [AwsNativeResourceType("aws-native:xray:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.XRay
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:XRay:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:xray:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:XRay:Group", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:xray:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 

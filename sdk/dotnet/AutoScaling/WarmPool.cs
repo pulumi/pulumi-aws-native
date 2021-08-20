@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AutoScaling
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AutoScaling:WarmPool")]
+    [AwsNativeResourceType("aws-native:autoscaling:WarmPool")]
     public partial class WarmPool : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.AutoScaling
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WarmPool(string name, WarmPoolArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AutoScaling:WarmPool", name, args ?? new WarmPoolArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:autoscaling:WarmPool", name, args ?? new WarmPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WarmPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AutoScaling:WarmPool", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:autoscaling:WarmPool", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Lambda:Function")]
+    [AwsNativeResourceType("aws-native:lambda:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -147,12 +147,12 @@ namespace Pulumi.AwsNative.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Function(string name, FunctionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:lambda:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Function(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:Function", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:lambda:Function", name, null, MakeResourceOptions(options, id))
         {
         }
 

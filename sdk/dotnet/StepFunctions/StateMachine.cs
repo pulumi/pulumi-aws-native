@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.StepFunctions
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:StepFunctions:StateMachine")]
+    [AwsNativeResourceType("aws-native:stepfunctions:StateMachine")]
     public partial class StateMachine : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.StepFunctions
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StateMachine(string name, StateMachineArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:StepFunctions:StateMachine", name, args ?? new StateMachineArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:stepfunctions:StateMachine", name, args ?? new StateMachineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StateMachine(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:StepFunctions:StateMachine", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:stepfunctions:StateMachine", name, null, MakeResourceOptions(options, id))
         {
         }
 

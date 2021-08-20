@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Timestream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Timestream:Table")]
+    [AwsNativeResourceType("aws-native:timestream:Table")]
     public partial class Table : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Timestream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Table(string name, TableArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Timestream:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:timestream:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Table(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Timestream:Table", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:timestream:Table", name, null, MakeResourceOptions(options, id))
         {
         }
 

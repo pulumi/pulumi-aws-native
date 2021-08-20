@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CodeGuruProfiler:ProfilingGroup")]
+    [AwsNativeResourceType("aws-native:codeguruprofiler:ProfilingGroup")]
     public partial class ProfilingGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfilingGroup(string name, ProfilingGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CodeGuruProfiler:ProfilingGroup", name, args ?? new ProfilingGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:codeguruprofiler:ProfilingGroup", name, args ?? new ProfilingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProfilingGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CodeGuruProfiler:ProfilingGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:codeguruprofiler:ProfilingGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

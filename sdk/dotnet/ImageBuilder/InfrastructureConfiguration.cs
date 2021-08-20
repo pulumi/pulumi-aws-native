@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ImageBuilder:InfrastructureConfiguration")]
+    [AwsNativeResourceType("aws-native:imagebuilder:InfrastructureConfiguration")]
     public partial class InfrastructureConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -96,12 +96,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InfrastructureConfiguration(string name, InfrastructureConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:InfrastructureConfiguration", name, args ?? new InfrastructureConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:imagebuilder:InfrastructureConfiguration", name, args ?? new InfrastructureConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InfrastructureConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:InfrastructureConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:imagebuilder:InfrastructureConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

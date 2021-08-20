@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53:KeySigningKey")]
+    [AwsNativeResourceType("aws-native:route53:KeySigningKey")]
     public partial class KeySigningKey : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeySigningKey(string name, KeySigningKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:KeySigningKey", name, args ?? new KeySigningKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53:KeySigningKey", name, args ?? new KeySigningKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KeySigningKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:KeySigningKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53:KeySigningKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataSync:LocationFSxWindows")]
+    [AwsNativeResourceType("aws-native:datasync:LocationFSxWindows")]
     public partial class LocationFSxWindows : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LocationFSxWindows(string name, LocationFSxWindowsArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationFSxWindows", name, args ?? new LocationFSxWindowsArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:datasync:LocationFSxWindows", name, args ?? new LocationFSxWindowsArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LocationFSxWindows(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationFSxWindows", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:datasync:LocationFSxWindows", name, null, MakeResourceOptions(options, id))
         {
         }
 

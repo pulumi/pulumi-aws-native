@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GlobalAccelerator:Accelerator")]
+    [AwsNativeResourceType("aws-native:globalaccelerator:Accelerator")]
     public partial class Accelerator : Pulumi.CustomResource
     {
         [Output("acceleratorArn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Accelerator(string name, AcceleratorArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:Accelerator", name, args ?? new AcceleratorArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:globalaccelerator:Accelerator", name, args ?? new AcceleratorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Accelerator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:Accelerator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:globalaccelerator:Accelerator", name, null, MakeResourceOptions(options, id))
         {
         }
 

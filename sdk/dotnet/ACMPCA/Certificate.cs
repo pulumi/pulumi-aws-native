@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ACMPCA:Certificate")]
+    [AwsNativeResourceType("aws-native:acmpca:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ACMPCA:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:acmpca:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Certificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ACMPCA:Certificate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:acmpca:Certificate", name, null, MakeResourceOptions(options, id))
         {
         }
 

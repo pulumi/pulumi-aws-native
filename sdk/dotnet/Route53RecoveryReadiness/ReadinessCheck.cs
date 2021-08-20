@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryReadiness:ReadinessCheck")]
+    [AwsNativeResourceType("aws-native:route53recoveryreadiness:ReadinessCheck")]
     public partial class ReadinessCheck : Pulumi.CustomResource
     {
         [Output("readinessCheckArn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReadinessCheck(string name, ReadinessCheckArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:ReadinessCheck", name, args ?? new ReadinessCheckArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoveryreadiness:ReadinessCheck", name, args ?? new ReadinessCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReadinessCheck(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:ReadinessCheck", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoveryreadiness:ReadinessCheck", name, null, MakeResourceOptions(options, id))
         {
         }
 

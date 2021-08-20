@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSO
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSO:InstanceAccessControlAttributeConfiguration")]
+    [AwsNativeResourceType("aws-native:sso:InstanceAccessControlAttributeConfiguration")]
     public partial class InstanceAccessControlAttributeConfiguration : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public InstanceAccessControlAttributeConfiguration(string name, InstanceAccessControlAttributeConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, args ?? new InstanceAccessControlAttributeConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sso:InstanceAccessControlAttributeConfiguration", name, args ?? new InstanceAccessControlAttributeConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private InstanceAccessControlAttributeConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sso:InstanceAccessControlAttributeConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

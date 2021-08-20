@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:QuickSight:Dashboard")]
+    [AwsNativeResourceType("aws-native:quicksight:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -96,12 +96,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:quicksight:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dashboard(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Dashboard", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:quicksight:Dashboard", name, null, MakeResourceOptions(options, id))
         {
         }
 

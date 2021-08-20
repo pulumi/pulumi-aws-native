@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:RDS:GlobalCluster")]
+    [AwsNativeResourceType("aws-native:rds:GlobalCluster")]
     public partial class GlobalCluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalCluster(string name, GlobalClusterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:rds:GlobalCluster", name, args ?? new GlobalClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:GlobalCluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:rds:GlobalCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 
