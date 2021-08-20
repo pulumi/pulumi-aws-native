@@ -38,7 +38,7 @@ func NewQueryDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryString'")
 	}
 	var resource QueryDefinition
-	err := ctx.RegisterResource("aws-native:Logs:QueryDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:logs:QueryDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewQueryDefinition(ctx *pulumi.Context,
 func GetQueryDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QueryDefinitionState, opts ...pulumi.ResourceOption) (*QueryDefinition, error) {
 	var resource QueryDefinition
-	err := ctx.ReadResource("aws-native:Logs:QueryDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:logs:QueryDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

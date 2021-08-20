@@ -56,7 +56,7 @@ func NewFeatureGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RecordIdentifierFeatureName'")
 	}
 	var resource FeatureGroup
-	err := ctx.RegisterResource("aws-native:SageMaker:FeatureGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:FeatureGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewFeatureGroup(ctx *pulumi.Context,
 func GetFeatureGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FeatureGroupState, opts ...pulumi.ResourceOption) (*FeatureGroup, error) {
 	var resource FeatureGroup
-	err := ctx.ReadResource("aws-native:SageMaker:FeatureGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:FeatureGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

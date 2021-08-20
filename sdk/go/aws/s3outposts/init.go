@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:S3Outposts:AccessPoint":
+	case "aws-native:s3outposts:AccessPoint":
 		r = &AccessPoint{}
-	case "aws-native:S3Outposts:Bucket":
+	case "aws-native:s3outposts:Bucket":
 		r = &Bucket{}
-	case "aws-native:S3Outposts:BucketPolicy":
+	case "aws-native:s3outposts:BucketPolicy":
 		r = &BucketPolicy{}
-	case "aws-native:S3Outposts:Endpoint":
+	case "aws-native:s3outposts:Endpoint":
 		r = &Endpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"S3Outposts",
+		"s3outposts",
 		&module{version},
 	)
 }

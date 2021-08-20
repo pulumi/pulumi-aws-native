@@ -36,7 +36,7 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RecoveryGroupName'")
 	}
 	var resource RecoveryGroup
-	err := ctx.RegisterResource("aws-native:Route53RecoveryReadiness:RecoveryGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:RecoveryGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 func GetRecoveryGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RecoveryGroupState, opts ...pulumi.ResourceOption) (*RecoveryGroup, error) {
 	var resource RecoveryGroup
-	err := ctx.ReadResource("aws-native:Route53RecoveryReadiness:RecoveryGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoveryreadiness:RecoveryGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

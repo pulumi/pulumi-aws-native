@@ -42,7 +42,7 @@ func NewAnomalyDetector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'MetricSetList'")
 	}
 	var resource AnomalyDetector
-	err := ctx.RegisterResource("aws-native:LookoutMetrics:AnomalyDetector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:lookoutmetrics:AnomalyDetector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewAnomalyDetector(ctx *pulumi.Context,
 func GetAnomalyDetector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AnomalyDetectorState, opts ...pulumi.ResourceOption) (*AnomalyDetector, error) {
 	var resource AnomalyDetector
-	err := ctx.ReadResource("aws-native:LookoutMetrics:AnomalyDetector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:lookoutmetrics:AnomalyDetector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -54,7 +54,7 @@ func NewTask(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceLocationArn'")
 	}
 	var resource Task
-	err := ctx.RegisterResource("aws-native:DataSync:Task", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:Task", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func NewTask(ctx *pulumi.Context,
 func GetTask(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskState, opts ...pulumi.ResourceOption) (*Task, error) {
 	var resource Task
-	err := ctx.ReadResource("aws-native:DataSync:Task", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:Task", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

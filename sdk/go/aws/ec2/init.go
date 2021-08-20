@@ -21,43 +21,43 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:EC2:CarrierGateway":
+	case "aws-native:ec2:CarrierGateway":
 		r = &CarrierGateway{}
-	case "aws-native:EC2:EC2Fleet":
+	case "aws-native:ec2:EC2Fleet":
 		r = &EC2Fleet{}
-	case "aws-native:EC2:EgressOnlyInternetGateway":
+	case "aws-native:ec2:EgressOnlyInternetGateway":
 		r = &EgressOnlyInternetGateway{}
-	case "aws-native:EC2:EnclaveCertificateIamRoleAssociation":
+	case "aws-native:ec2:EnclaveCertificateIamRoleAssociation":
 		r = &EnclaveCertificateIamRoleAssociation{}
-	case "aws-native:EC2:FlowLog":
+	case "aws-native:ec2:FlowLog":
 		r = &FlowLog{}
-	case "aws-native:EC2:GatewayRouteTableAssociation":
+	case "aws-native:ec2:GatewayRouteTableAssociation":
 		r = &GatewayRouteTableAssociation{}
-	case "aws-native:EC2:LocalGatewayRoute":
+	case "aws-native:ec2:LocalGatewayRoute":
 		r = &LocalGatewayRoute{}
-	case "aws-native:EC2:LocalGatewayRouteTableVPCAssociation":
+	case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":
 		r = &LocalGatewayRouteTableVPCAssociation{}
-	case "aws-native:EC2:NetworkInsightsAnalysis":
+	case "aws-native:ec2:NetworkInsightsAnalysis":
 		r = &NetworkInsightsAnalysis{}
-	case "aws-native:EC2:NetworkInsightsPath":
+	case "aws-native:ec2:NetworkInsightsPath":
 		r = &NetworkInsightsPath{}
-	case "aws-native:EC2:PrefixList":
+	case "aws-native:ec2:PrefixList":
 		r = &PrefixList{}
-	case "aws-native:EC2:SpotFleet":
+	case "aws-native:ec2:SpotFleet":
 		r = &SpotFleet{}
-	case "aws-native:EC2:TransitGateway":
+	case "aws-native:ec2:TransitGateway":
 		r = &TransitGateway{}
-	case "aws-native:EC2:TransitGatewayConnect":
+	case "aws-native:ec2:TransitGatewayConnect":
 		r = &TransitGatewayConnect{}
-	case "aws-native:EC2:TransitGatewayMulticastDomain":
+	case "aws-native:ec2:TransitGatewayMulticastDomain":
 		r = &TransitGatewayMulticastDomain{}
-	case "aws-native:EC2:TransitGatewayMulticastDomainAssociation":
+	case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":
 		r = &TransitGatewayMulticastDomainAssociation{}
-	case "aws-native:EC2:TransitGatewayMulticastGroupMember":
+	case "aws-native:ec2:TransitGatewayMulticastGroupMember":
 		r = &TransitGatewayMulticastGroupMember{}
-	case "aws-native:EC2:TransitGatewayMulticastGroupSource":
+	case "aws-native:ec2:TransitGatewayMulticastGroupSource":
 		r = &TransitGatewayMulticastGroupSource{}
-	case "aws-native:EC2:TransitGatewayPeeringAttachment":
+	case "aws-native:ec2:TransitGatewayPeeringAttachment":
 		r = &TransitGatewayPeeringAttachment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -74,7 +74,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"EC2",
+		"ec2",
 		&module{version},
 	)
 }

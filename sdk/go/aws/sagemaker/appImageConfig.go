@@ -36,7 +36,7 @@ func NewAppImageConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AppImageConfigName'")
 	}
 	var resource AppImageConfig
-	err := ctx.RegisterResource("aws-native:SageMaker:AppImageConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:AppImageConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewAppImageConfig(ctx *pulumi.Context,
 func GetAppImageConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppImageConfigState, opts ...pulumi.ResourceOption) (*AppImageConfig, error) {
 	var resource AppImageConfig
-	err := ctx.ReadResource("aws-native:SageMaker:AppImageConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:AppImageConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

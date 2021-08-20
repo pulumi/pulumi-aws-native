@@ -48,7 +48,7 @@ func NewGlobalReplicationGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Members'")
 	}
 	var resource GlobalReplicationGroup
-	err := ctx.RegisterResource("aws-native:ElastiCache:GlobalReplicationGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:elasticache:GlobalReplicationGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewGlobalReplicationGroup(ctx *pulumi.Context,
 func GetGlobalReplicationGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalReplicationGroupState, opts ...pulumi.ResourceOption) (*GlobalReplicationGroup, error) {
 	var resource GlobalReplicationGroup
-	err := ctx.ReadResource("aws-native:ElastiCache:GlobalReplicationGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:elasticache:GlobalReplicationGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

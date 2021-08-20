@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Route53RecoveryReadiness:Cell":
+	case "aws-native:route53recoveryreadiness:Cell":
 		r = &Cell{}
-	case "aws-native:Route53RecoveryReadiness:ReadinessCheck":
+	case "aws-native:route53recoveryreadiness:ReadinessCheck":
 		r = &ReadinessCheck{}
-	case "aws-native:Route53RecoveryReadiness:RecoveryGroup":
+	case "aws-native:route53recoveryreadiness:RecoveryGroup":
 		r = &RecoveryGroup{}
-	case "aws-native:Route53RecoveryReadiness:ResourceSet":
+	case "aws-native:route53recoveryreadiness:ResourceSet":
 		r = &ResourceSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Route53RecoveryReadiness",
+		"route53recoveryreadiness",
 		&module{version},
 	)
 }

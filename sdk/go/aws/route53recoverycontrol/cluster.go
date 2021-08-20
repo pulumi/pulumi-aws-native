@@ -29,7 +29,7 @@ func NewCluster(ctx *pulumi.Context,
 	}
 
 	var resource Cluster
-	err := ctx.RegisterResource("aws-native:Route53RecoveryControl:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoverycontrol:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("aws-native:Route53RecoveryControl:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoverycontrol:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

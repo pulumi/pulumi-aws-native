@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:CloudFormation:ModuleDefaultVersion":
+	case "aws-native:cloudformation:ModuleDefaultVersion":
 		r = &ModuleDefaultVersion{}
-	case "aws-native:CloudFormation:ModuleVersion":
+	case "aws-native:cloudformation:ModuleVersion":
 		r = &ModuleVersion{}
-	case "aws-native:CloudFormation:PublicTypeVersion":
+	case "aws-native:cloudformation:PublicTypeVersion":
 		r = &PublicTypeVersion{}
-	case "aws-native:CloudFormation:Publisher":
+	case "aws-native:cloudformation:Publisher":
 		r = &Publisher{}
-	case "aws-native:CloudFormation:ResourceDefaultVersion":
+	case "aws-native:cloudformation:ResourceDefaultVersion":
 		r = &ResourceDefaultVersion{}
-	case "aws-native:CloudFormation:ResourceVersion":
+	case "aws-native:cloudformation:ResourceVersion":
 		r = &ResourceVersion{}
-	case "aws-native:CloudFormation:StackSet":
+	case "aws-native:cloudformation:StackSet":
 		r = &StackSet{}
-	case "aws-native:CloudFormation:TypeActivation":
+	case "aws-native:cloudformation:TypeActivation":
 		r = &TypeActivation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"CloudFormation",
+		"cloudformation",
 		&module{version},
 	)
 }

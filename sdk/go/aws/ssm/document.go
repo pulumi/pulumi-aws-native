@@ -47,7 +47,7 @@ func NewDocument(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
 	var resource Document
-	err := ctx.RegisterResource("aws-native:SSM:Document", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssm:Document", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewDocument(ctx *pulumi.Context,
 func GetDocument(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DocumentState, opts ...pulumi.ResourceOption) (*Document, error) {
 	var resource Document
-	err := ctx.ReadResource("aws-native:SSM:Document", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssm:Document", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

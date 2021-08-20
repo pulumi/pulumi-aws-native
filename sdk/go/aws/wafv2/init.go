@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:WAFv2:IPSet":
+	case "aws-native:wafv2:IPSet":
 		r = &IPSet{}
-	case "aws-native:WAFv2:RegexPatternSet":
+	case "aws-native:wafv2:RegexPatternSet":
 		r = &RegexPatternSet{}
-	case "aws-native:WAFv2:RuleGroup":
+	case "aws-native:wafv2:RuleGroup":
 		r = &RuleGroup{}
-	case "aws-native:WAFv2:WebACL":
+	case "aws-native:wafv2:WebACL":
 		r = &WebACL{}
-	case "aws-native:WAFv2:WebACLAssociation":
+	case "aws-native:wafv2:WebACLAssociation":
 		r = &WebACLAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"WAFv2",
+		"wafv2",
 		&module{version},
 	)
 }

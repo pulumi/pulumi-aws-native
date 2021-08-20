@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ApiGateway:ApiKey":
+	case "aws-native:apigateway:ApiKey":
 		r = &ApiKey{}
-	case "aws-native:ApiGateway:ClientCertificate":
+	case "aws-native:apigateway:ClientCertificate":
 		r = &ClientCertificate{}
-	case "aws-native:ApiGateway:DocumentationVersion":
+	case "aws-native:apigateway:DocumentationVersion":
 		r = &DocumentationVersion{}
-	case "aws-native:ApiGateway:DomainName":
+	case "aws-native:apigateway:DomainName":
 		r = &DomainName{}
-	case "aws-native:ApiGateway:Model":
+	case "aws-native:apigateway:Model":
 		r = &Model{}
-	case "aws-native:ApiGateway:RequestValidator":
+	case "aws-native:apigateway:RequestValidator":
 		r = &RequestValidator{}
-	case "aws-native:ApiGateway:Resource":
+	case "aws-native:apigateway:Resource":
 		r = &Resource{}
-	case "aws-native:ApiGateway:UsagePlanKey":
+	case "aws-native:apigateway:UsagePlanKey":
 		r = &UsagePlanKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ApiGateway",
+		"apigateway",
 		&module{version},
 	)
 }

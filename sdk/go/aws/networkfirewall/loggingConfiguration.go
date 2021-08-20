@@ -37,7 +37,7 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'LoggingConfiguration'")
 	}
 	var resource LoggingConfiguration
-	err := ctx.RegisterResource("aws-native:NetworkFirewall:LoggingConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkfirewall:LoggingConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 func GetLoggingConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LoggingConfigurationState, opts ...pulumi.ResourceOption) (*LoggingConfiguration, error) {
 	var resource LoggingConfiguration
-	err := ctx.ReadResource("aws-native:NetworkFirewall:LoggingConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkfirewall:LoggingConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

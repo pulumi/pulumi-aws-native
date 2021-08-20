@@ -63,7 +63,7 @@ func NewModelQualityJobDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource ModelQualityJobDefinition
-	err := ctx.RegisterResource("aws-native:SageMaker:ModelQualityJobDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:ModelQualityJobDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func NewModelQualityJobDefinition(ctx *pulumi.Context,
 func GetModelQualityJobDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModelQualityJobDefinitionState, opts ...pulumi.ResourceOption) (*ModelQualityJobDefinition, error) {
 	var resource ModelQualityJobDefinition
-	err := ctx.ReadResource("aws-native:SageMaker:ModelQualityJobDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:ModelQualityJobDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

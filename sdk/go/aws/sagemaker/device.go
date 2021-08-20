@@ -35,7 +35,7 @@ func NewDevice(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
 	}
 	var resource Device
-	err := ctx.RegisterResource("aws-native:SageMaker:Device", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:Device", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewDevice(ctx *pulumi.Context,
 func GetDevice(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceState, opts ...pulumi.ResourceOption) (*Device, error) {
 	var resource Device
-	err := ctx.ReadResource("aws-native:SageMaker:Device", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:Device", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

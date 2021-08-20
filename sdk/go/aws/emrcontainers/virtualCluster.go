@@ -40,7 +40,7 @@ func NewVirtualCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource VirtualCluster
-	err := ctx.RegisterResource("aws-native:EMRContainers:VirtualCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:emrcontainers:VirtualCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewVirtualCluster(ctx *pulumi.Context,
 func GetVirtualCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualClusterState, opts ...pulumi.ResourceOption) (*VirtualCluster, error) {
 	var resource VirtualCluster
-	err := ctx.ReadResource("aws-native:EMRContainers:VirtualCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:emrcontainers:VirtualCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

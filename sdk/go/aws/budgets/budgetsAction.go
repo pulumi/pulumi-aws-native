@@ -60,7 +60,7 @@ func NewBudgetsAction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NotificationType'")
 	}
 	var resource BudgetsAction
-	err := ctx.RegisterResource("aws-native:Budgets:BudgetsAction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:budgets:BudgetsAction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +72,7 @@ func NewBudgetsAction(ctx *pulumi.Context,
 func GetBudgetsAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BudgetsActionState, opts ...pulumi.ResourceOption) (*BudgetsAction, error) {
 	var resource BudgetsAction
-	err := ctx.ReadResource("aws-native:Budgets:BudgetsAction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:budgets:BudgetsAction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

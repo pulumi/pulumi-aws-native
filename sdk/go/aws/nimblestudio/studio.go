@@ -53,7 +53,7 @@ func NewStudio(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserRoleArn'")
 	}
 	var resource Studio
-	err := ctx.RegisterResource("aws-native:NimbleStudio:Studio", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:nimblestudio:Studio", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewStudio(ctx *pulumi.Context,
 func GetStudio(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StudioState, opts ...pulumi.ResourceOption) (*Studio, error) {
 	var resource Studio
-	err := ctx.ReadResource("aws-native:NimbleStudio:Studio", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:nimblestudio:Studio", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

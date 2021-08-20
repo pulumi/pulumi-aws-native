@@ -38,7 +38,7 @@ func NewModel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
 	var resource Model
-	err := ctx.RegisterResource("aws-native:ApiGateway:Model", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:Model", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewModel(ctx *pulumi.Context,
 func GetModel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModelState, opts ...pulumi.ResourceOption) (*Model, error) {
 	var resource Model
-	err := ctx.ReadResource("aws-native:ApiGateway:Model", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:Model", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

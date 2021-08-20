@@ -55,7 +55,7 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServerHostname'")
 	}
 	var resource LocationObjectStorage
-	err := ctx.RegisterResource("aws-native:DataSync:LocationObjectStorage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationObjectStorage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 func GetLocationObjectStorage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationObjectStorageState, opts ...pulumi.ResourceOption) (*LocationObjectStorage, error) {
 	var resource LocationObjectStorage
-	err := ctx.ReadResource("aws-native:DataSync:LocationObjectStorage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationObjectStorage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

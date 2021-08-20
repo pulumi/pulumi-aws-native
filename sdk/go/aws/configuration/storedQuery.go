@@ -42,7 +42,7 @@ func NewStoredQuery(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryName'")
 	}
 	var resource StoredQuery
-	err := ctx.RegisterResource("aws-native:Configuration:StoredQuery", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:configuration:StoredQuery", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewStoredQuery(ctx *pulumi.Context,
 func GetStoredQuery(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StoredQueryState, opts ...pulumi.ResourceOption) (*StoredQuery, error) {
 	var resource StoredQuery
-	err := ctx.ReadResource("aws-native:Configuration:StoredQuery", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:configuration:StoredQuery", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

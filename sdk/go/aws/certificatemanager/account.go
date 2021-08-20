@@ -31,7 +31,7 @@ func NewAccount(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ExpiryEventsConfiguration'")
 	}
 	var resource Account
-	err := ctx.RegisterResource("aws-native:CertificateManager:Account", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:certificatemanager:Account", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewAccount(ctx *pulumi.Context,
 func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountState, opts ...pulumi.ResourceOption) (*Account, error) {
 	var resource Account
-	err := ctx.ReadResource("aws-native:CertificateManager:Account", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:certificatemanager:Account", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

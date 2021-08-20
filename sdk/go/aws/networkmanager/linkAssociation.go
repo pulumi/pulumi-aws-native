@@ -40,7 +40,7 @@ func NewLinkAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'LinkId'")
 	}
 	var resource LinkAssociation
-	err := ctx.RegisterResource("aws-native:NetworkManager:LinkAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:LinkAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewLinkAssociation(ctx *pulumi.Context,
 func GetLinkAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkAssociationState, opts ...pulumi.ResourceOption) (*LinkAssociation, error) {
 	var resource LinkAssociation
-	err := ctx.ReadResource("aws-native:NetworkManager:LinkAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:LinkAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

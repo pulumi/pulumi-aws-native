@@ -40,7 +40,7 @@ func NewConformancePack(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ConformancePackName'")
 	}
 	var resource ConformancePack
-	err := ctx.RegisterResource("aws-native:Configuration:ConformancePack", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:configuration:ConformancePack", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewConformancePack(ctx *pulumi.Context,
 func GetConformancePack(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConformancePackState, opts ...pulumi.ResourceOption) (*ConformancePack, error) {
 	var resource ConformancePack
-	err := ctx.ReadResource("aws-native:Configuration:ConformancePack", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:configuration:ConformancePack", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

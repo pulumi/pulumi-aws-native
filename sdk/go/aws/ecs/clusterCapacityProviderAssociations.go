@@ -40,7 +40,7 @@ func NewClusterCapacityProviderAssociations(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DefaultCapacityProviderStrategy'")
 	}
 	var resource ClusterCapacityProviderAssociations
-	err := ctx.RegisterResource("aws-native:ECS:ClusterCapacityProviderAssociations", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:ClusterCapacityProviderAssociations", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewClusterCapacityProviderAssociations(ctx *pulumi.Context,
 func GetClusterCapacityProviderAssociations(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterCapacityProviderAssociationsState, opts ...pulumi.ResourceOption) (*ClusterCapacityProviderAssociations, error) {
 	var resource ClusterCapacityProviderAssociations
-	err := ctx.ReadResource("aws-native:ECS:ClusterCapacityProviderAssociations", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:ClusterCapacityProviderAssociations", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -47,7 +47,7 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Regex'")
 	}
 	var resource CustomDataIdentifier
-	err := ctx.RegisterResource("aws-native:Macie:CustomDataIdentifier", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:macie:CustomDataIdentifier", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 func GetCustomDataIdentifier(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomDataIdentifierState, opts ...pulumi.ResourceOption) (*CustomDataIdentifier, error) {
 	var resource CustomDataIdentifier
-	err := ctx.ReadResource("aws-native:Macie:CustomDataIdentifier", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:macie:CustomDataIdentifier", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -55,7 +55,7 @@ func NewVariable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Variable
-	err := ctx.RegisterResource("aws-native:FraudDetector:Variable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:Variable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewVariable(ctx *pulumi.Context,
 func GetVariable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VariableState, opts ...pulumi.ResourceOption) (*Variable, error) {
 	var resource Variable
-	err := ctx.ReadResource("aws-native:FraudDetector:Variable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:Variable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

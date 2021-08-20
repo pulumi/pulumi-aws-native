@@ -36,7 +36,7 @@ func NewWarmPool(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupName'")
 	}
 	var resource WarmPool
-	err := ctx.RegisterResource("aws-native:AutoScaling:WarmPool", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:autoscaling:WarmPool", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewWarmPool(ctx *pulumi.Context,
 func GetWarmPool(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WarmPoolState, opts ...pulumi.ResourceOption) (*WarmPool, error) {
 	var resource WarmPool
-	err := ctx.ReadResource("aws-native:AutoScaling:WarmPool", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:autoscaling:WarmPool", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

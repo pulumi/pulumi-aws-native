@@ -42,7 +42,7 @@ func NewLocationEFS(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'EfsFilesystemArn'")
 	}
 	var resource LocationEFS
-	err := ctx.RegisterResource("aws-native:DataSync:LocationEFS", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationEFS", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewLocationEFS(ctx *pulumi.Context,
 func GetLocationEFS(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationEFSState, opts ...pulumi.ResourceOption) (*LocationEFS, error) {
 	var resource LocationEFS
-	err := ctx.ReadResource("aws-native:DataSync:LocationEFS", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationEFS", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

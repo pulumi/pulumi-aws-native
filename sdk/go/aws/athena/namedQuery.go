@@ -42,7 +42,7 @@ func NewNamedQuery(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryString'")
 	}
 	var resource NamedQuery
-	err := ctx.RegisterResource("aws-native:Athena:NamedQuery", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:athena:NamedQuery", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewNamedQuery(ctx *pulumi.Context,
 func GetNamedQuery(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NamedQueryState, opts ...pulumi.ResourceOption) (*NamedQuery, error) {
 	var resource NamedQuery
-	err := ctx.ReadResource("aws-native:Athena:NamedQuery", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:athena:NamedQuery", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -49,7 +49,7 @@ func NewPrefixList(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PrefixListName'")
 	}
 	var resource PrefixList
-	err := ctx.RegisterResource("aws-native:EC2:PrefixList", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:PrefixList", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewPrefixList(ctx *pulumi.Context,
 func GetPrefixList(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrefixListState, opts ...pulumi.ResourceOption) (*PrefixList, error) {
 	var resource PrefixList
-	err := ctx.ReadResource("aws-native:EC2:PrefixList", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:PrefixList", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

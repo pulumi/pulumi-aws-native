@@ -42,7 +42,7 @@ func NewAccountAuditConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource AccountAuditConfiguration
-	err := ctx.RegisterResource("aws-native:IoT:AccountAuditConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:AccountAuditConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewAccountAuditConfiguration(ctx *pulumi.Context,
 func GetAccountAuditConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccountAuditConfigurationState, opts ...pulumi.ResourceOption) (*AccountAuditConfiguration, error) {
 	var resource AccountAuditConfiguration
-	err := ctx.ReadResource("aws-native:IoT:AccountAuditConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:AccountAuditConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

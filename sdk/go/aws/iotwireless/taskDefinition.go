@@ -43,7 +43,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AutoCreateTasks'")
 	}
 	var resource TaskDefinition
-	err := ctx.RegisterResource("aws-native:IoTWireless:TaskDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:TaskDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 func GetTaskDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskDefinitionState, opts ...pulumi.ResourceOption) (*TaskDefinition, error) {
 	var resource TaskDefinition
-	err := ctx.ReadResource("aws-native:IoTWireless:TaskDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:TaskDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

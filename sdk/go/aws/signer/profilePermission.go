@@ -47,7 +47,7 @@ func NewProfilePermission(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StatementId'")
 	}
 	var resource ProfilePermission
-	err := ctx.RegisterResource("aws-native:Signer:ProfilePermission", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:signer:ProfilePermission", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewProfilePermission(ctx *pulumi.Context,
 func GetProfilePermission(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProfilePermissionState, opts ...pulumi.ResourceOption) (*ProfilePermission, error) {
 	var resource ProfilePermission
-	err := ctx.ReadResource("aws-native:Signer:ProfilePermission", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:signer:ProfilePermission", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

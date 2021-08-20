@@ -56,7 +56,7 @@ func NewComponent(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource Component
-	err := ctx.RegisterResource("aws-native:ImageBuilder:Component", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:Component", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewComponent(ctx *pulumi.Context,
 func GetComponent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentState, opts ...pulumi.ResourceOption) (*Component, error) {
 	var resource Component
-	err := ctx.ReadResource("aws-native:ImageBuilder:Component", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:Component", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

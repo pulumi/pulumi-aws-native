@@ -45,7 +45,7 @@ func NewResourceDataSync(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SyncName'")
 	}
 	var resource ResourceDataSync
-	err := ctx.RegisterResource("aws-native:SSM:ResourceDataSync", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssm:ResourceDataSync", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewResourceDataSync(ctx *pulumi.Context,
 func GetResourceDataSync(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceDataSyncState, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
 	var resource ResourceDataSync
-	err := ctx.ReadResource("aws-native:SSM:ResourceDataSync", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssm:ResourceDataSync", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

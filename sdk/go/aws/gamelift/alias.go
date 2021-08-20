@@ -38,7 +38,7 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoutingStrategy'")
 	}
 	var resource Alias
-	err := ctx.RegisterResource("aws-native:GameLift:Alias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:gamelift:Alias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewAlias(ctx *pulumi.Context,
 func GetAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
 	var resource Alias
-	err := ctx.ReadResource("aws-native:GameLift:Alias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:gamelift:Alias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

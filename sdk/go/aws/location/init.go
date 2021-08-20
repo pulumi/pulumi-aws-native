@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Location:GeofenceCollection":
+	case "aws-native:location:GeofenceCollection":
 		r = &GeofenceCollection{}
-	case "aws-native:Location:Map":
+	case "aws-native:location:Map":
 		r = &Map{}
-	case "aws-native:Location:PlaceIndex":
+	case "aws-native:location:PlaceIndex":
 		r = &PlaceIndex{}
-	case "aws-native:Location:RouteCalculator":
+	case "aws-native:location:RouteCalculator":
 		r = &RouteCalculator{}
-	case "aws-native:Location:Tracker":
+	case "aws-native:location:Tracker":
 		r = &Tracker{}
-	case "aws-native:Location:TrackerConsumer":
+	case "aws-native:location:TrackerConsumer":
 		r = &TrackerConsumer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Location",
+		"location",
 		&module{version},
 	)
 }

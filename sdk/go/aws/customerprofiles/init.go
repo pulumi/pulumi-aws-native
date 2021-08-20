@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:CustomerProfiles:Domain":
+	case "aws-native:customerprofiles:Domain":
 		r = &Domain{}
-	case "aws-native:CustomerProfiles:Integration":
+	case "aws-native:customerprofiles:Integration":
 		r = &Integration{}
-	case "aws-native:CustomerProfiles:ObjectType":
+	case "aws-native:customerprofiles:ObjectType":
 		r = &ObjectType{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"CustomerProfiles",
+		"customerprofiles",
 		&module{version},
 	)
 }

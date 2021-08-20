@@ -57,7 +57,7 @@ func NewFlowSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource FlowSource
-	err := ctx.RegisterResource("aws-native:MediaConnect:FlowSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediaconnect:FlowSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func NewFlowSource(ctx *pulumi.Context,
 func GetFlowSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowSourceState, opts ...pulumi.ResourceOption) (*FlowSource, error) {
 	var resource FlowSource
-	err := ctx.ReadResource("aws-native:MediaConnect:FlowSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediaconnect:FlowSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

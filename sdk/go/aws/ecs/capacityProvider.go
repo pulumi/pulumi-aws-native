@@ -35,7 +35,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
 	var resource CapacityProvider
-	err := ctx.RegisterResource("aws-native:ECS:CapacityProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:CapacityProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 func GetCapacityProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CapacityProviderState, opts ...pulumi.ResourceOption) (*CapacityProvider, error) {
 	var resource CapacityProvider
-	err := ctx.ReadResource("aws-native:ECS:CapacityProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:CapacityProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

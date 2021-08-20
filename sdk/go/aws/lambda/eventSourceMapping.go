@@ -65,7 +65,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
 	var resource EventSourceMapping
-	err := ctx.RegisterResource("aws-native:Lambda:EventSourceMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:lambda:EventSourceMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 func GetEventSourceMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventSourceMappingState, opts ...pulumi.ResourceOption) (*EventSourceMapping, error) {
 	var resource EventSourceMapping
-	err := ctx.ReadResource("aws-native:Lambda:EventSourceMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:lambda:EventSourceMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -47,7 +47,7 @@ func NewApiDestination(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'InvocationEndpoint'")
 	}
 	var resource ApiDestination
-	err := ctx.RegisterResource("aws-native:Events:ApiDestination", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:events:ApiDestination", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewApiDestination(ctx *pulumi.Context,
 func GetApiDestination(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiDestinationState, opts ...pulumi.ResourceOption) (*ApiDestination, error) {
 	var resource ApiDestination
-	err := ctx.ReadResource("aws-native:Events:ApiDestination", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:events:ApiDestination", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

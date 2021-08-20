@@ -53,7 +53,7 @@ func NewEventType(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource EventType
-	err := ctx.RegisterResource("aws-native:FraudDetector:EventType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:EventType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewEventType(ctx *pulumi.Context,
 func GetEventType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventTypeState, opts ...pulumi.ResourceOption) (*EventType, error) {
 	var resource EventType
-	err := ctx.ReadResource("aws-native:FraudDetector:EventType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:EventType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

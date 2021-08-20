@@ -41,7 +41,7 @@ func NewFunction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Function
-	err := ctx.RegisterResource("aws-native:CloudFront:Function", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:Function", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewFunction(ctx *pulumi.Context,
 func GetFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FunctionState, opts ...pulumi.ResourceOption) (*Function, error) {
 	var resource Function
-	err := ctx.ReadResource("aws-native:CloudFront:Function", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:Function", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -47,7 +47,7 @@ func NewPackagingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PackagingGroupId'")
 	}
 	var resource PackagingConfiguration
-	err := ctx.RegisterResource("aws-native:MediaPackage:PackagingConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediapackage:PackagingConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewPackagingConfiguration(ctx *pulumi.Context,
 func GetPackagingConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PackagingConfigurationState, opts ...pulumi.ResourceOption) (*PackagingConfiguration, error) {
 	var resource PackagingConfiguration
-	err := ctx.ReadResource("aws-native:MediaPackage:PackagingConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediapackage:PackagingConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

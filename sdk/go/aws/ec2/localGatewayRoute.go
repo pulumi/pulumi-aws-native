@@ -42,7 +42,7 @@ func NewLocalGatewayRoute(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'LocalGatewayVirtualInterfaceGroupId'")
 	}
 	var resource LocalGatewayRoute
-	err := ctx.RegisterResource("aws-native:EC2:LocalGatewayRoute", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRoute", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewLocalGatewayRoute(ctx *pulumi.Context,
 func GetLocalGatewayRoute(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocalGatewayRouteState, opts ...pulumi.ResourceOption) (*LocalGatewayRoute, error) {
 	var resource LocalGatewayRoute
-	err := ctx.ReadResource("aws-native:EC2:LocalGatewayRoute", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:LocalGatewayRoute", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

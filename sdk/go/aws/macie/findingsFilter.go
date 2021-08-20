@@ -44,7 +44,7 @@ func NewFindingsFilter(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource FindingsFilter
-	err := ctx.RegisterResource("aws-native:Macie:FindingsFilter", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:macie:FindingsFilter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewFindingsFilter(ctx *pulumi.Context,
 func GetFindingsFilter(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FindingsFilterState, opts ...pulumi.ResourceOption) (*FindingsFilter, error) {
 	var resource FindingsFilter
-	err := ctx.ReadResource("aws-native:Macie:FindingsFilter", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:macie:FindingsFilter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

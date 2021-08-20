@@ -32,7 +32,7 @@ func NewTopicRuleDestination(ctx *pulumi.Context,
 	}
 
 	var resource TopicRuleDestination
-	err := ctx.RegisterResource("aws-native:IoT:TopicRuleDestination", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:TopicRuleDestination", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewTopicRuleDestination(ctx *pulumi.Context,
 func GetTopicRuleDestination(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TopicRuleDestinationState, opts ...pulumi.ResourceOption) (*TopicRuleDestination, error) {
 	var resource TopicRuleDestination
-	err := ctx.ReadResource("aws-native:IoT:TopicRuleDestination", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:TopicRuleDestination", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

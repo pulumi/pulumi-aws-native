@@ -35,7 +35,7 @@ func NewStreamKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ChannelArn'")
 	}
 	var resource StreamKey
-	err := ctx.RegisterResource("aws-native:IVS:StreamKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ivs:StreamKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewStreamKey(ctx *pulumi.Context,
 func GetStreamKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamKeyState, opts ...pulumi.ResourceOption) (*StreamKey, error) {
 	var resource StreamKey
-	err := ctx.ReadResource("aws-native:IVS:StreamKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ivs:StreamKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

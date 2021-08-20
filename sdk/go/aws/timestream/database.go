@@ -32,7 +32,7 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 
 	var resource Database
-	err := ctx.RegisterResource("aws-native:Timestream:Database", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:timestream:Database", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewDatabase(ctx *pulumi.Context,
 func GetDatabase(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatabaseState, opts ...pulumi.ResourceOption) (*Database, error) {
 	var resource Database
-	err := ctx.ReadResource("aws-native:Timestream:Database", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:timestream:Database", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

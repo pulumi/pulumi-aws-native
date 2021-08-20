@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Configuration:ConfigurationAggregator":
+	case "aws-native:configuration:ConfigurationAggregator":
 		r = &ConfigurationAggregator{}
-	case "aws-native:Configuration:ConformancePack":
+	case "aws-native:configuration:ConformancePack":
 		r = &ConformancePack{}
-	case "aws-native:Configuration:OrganizationConformancePack":
+	case "aws-native:configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
-	case "aws-native:Configuration:StoredQuery":
+	case "aws-native:configuration:StoredQuery":
 		r = &StoredQuery{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Configuration",
+		"configuration",
 		&module{version},
 	)
 }

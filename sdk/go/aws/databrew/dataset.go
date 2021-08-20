@@ -44,7 +44,7 @@ func NewDataset(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Dataset
-	err := ctx.RegisterResource("aws-native:DataBrew:Dataset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:databrew:Dataset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewDataset(ctx *pulumi.Context,
 func GetDataset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DatasetState, opts ...pulumi.ResourceOption) (*Dataset, error) {
 	var resource Dataset
-	err := ctx.ReadResource("aws-native:DataBrew:Dataset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:databrew:Dataset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

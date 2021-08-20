@@ -47,7 +47,7 @@ func NewPipeline(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Pipeline
-	err := ctx.RegisterResource("aws-native:SageMaker:Pipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:Pipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewPipeline(ctx *pulumi.Context,
 func GetPipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PipelineState, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	var resource Pipeline
-	err := ctx.ReadResource("aws-native:SageMaker:Pipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:Pipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

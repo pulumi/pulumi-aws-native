@@ -55,7 +55,7 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource InfrastructureConfiguration
-	err := ctx.RegisterResource("aws-native:ImageBuilder:InfrastructureConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:InfrastructureConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 func GetInfrastructureConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InfrastructureConfigurationState, opts ...pulumi.ResourceOption) (*InfrastructureConfiguration, error) {
 	var resource InfrastructureConfiguration
-	err := ctx.ReadResource("aws-native:ImageBuilder:InfrastructureConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:InfrastructureConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

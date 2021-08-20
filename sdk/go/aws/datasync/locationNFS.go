@@ -47,7 +47,7 @@ func NewLocationNFS(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
 	var resource LocationNFS
-	err := ctx.RegisterResource("aws-native:DataSync:LocationNFS", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationNFS", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewLocationNFS(ctx *pulumi.Context,
 func GetLocationNFS(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationNFSState, opts ...pulumi.ResourceOption) (*LocationNFS, error) {
 	var resource LocationNFS
-	err := ctx.ReadResource("aws-native:DataSync:LocationNFS", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationNFS", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

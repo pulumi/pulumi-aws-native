@@ -36,7 +36,7 @@ func NewReadinessCheck(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ReadinessCheckName'")
 	}
 	var resource ReadinessCheck
-	err := ctx.RegisterResource("aws-native:Route53RecoveryReadiness:ReadinessCheck", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ReadinessCheck", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewReadinessCheck(ctx *pulumi.Context,
 func GetReadinessCheck(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReadinessCheckState, opts ...pulumi.ResourceOption) (*ReadinessCheck, error) {
 	var resource ReadinessCheck
-	err := ctx.ReadResource("aws-native:Route53RecoveryReadiness:ReadinessCheck", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoveryreadiness:ReadinessCheck", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

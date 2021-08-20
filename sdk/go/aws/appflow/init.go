@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:AppFlow:ConnectorProfile":
+	case "aws-native:appflow:ConnectorProfile":
 		r = &ConnectorProfile{}
-	case "aws-native:AppFlow:Flow":
+	case "aws-native:appflow:Flow":
 		r = &Flow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"AppFlow",
+		"appflow",
 		&module{version},
 	)
 }

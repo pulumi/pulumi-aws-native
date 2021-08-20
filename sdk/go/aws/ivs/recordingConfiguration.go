@@ -37,7 +37,7 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
 	}
 	var resource RecordingConfiguration
-	err := ctx.RegisterResource("aws-native:IVS:RecordingConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ivs:RecordingConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 func GetRecordingConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RecordingConfigurationState, opts ...pulumi.ResourceOption) (*RecordingConfiguration, error) {
 	var resource RecordingConfiguration
-	err := ctx.ReadResource("aws-native:IVS:RecordingConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ivs:RecordingConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

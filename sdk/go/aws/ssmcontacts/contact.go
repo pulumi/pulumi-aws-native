@@ -46,7 +46,7 @@ func NewContact(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Contact
-	err := ctx.RegisterResource("aws-native:SSMContacts:Contact", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssmcontacts:Contact", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewContact(ctx *pulumi.Context,
 func GetContact(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContactState, opts ...pulumi.ResourceOption) (*Contact, error) {
 	var resource Contact
-	err := ctx.ReadResource("aws-native:SSMContacts:Contact", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssmcontacts:Contact", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

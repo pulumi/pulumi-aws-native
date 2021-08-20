@@ -38,7 +38,7 @@ func NewBackupVault(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'BackupVaultName'")
 	}
 	var resource BackupVault
-	err := ctx.RegisterResource("aws-native:Backup:BackupVault", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:backup:BackupVault", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewBackupVault(ctx *pulumi.Context,
 func GetBackupVault(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupVaultState, opts ...pulumi.ResourceOption) (*BackupVault, error) {
 	var resource BackupVault
-	err := ctx.ReadResource("aws-native:Backup:BackupVault", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:backup:BackupVault", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

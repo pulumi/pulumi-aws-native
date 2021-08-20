@@ -73,7 +73,7 @@ func NewJob(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Job
-	err := ctx.RegisterResource("aws-native:DataBrew:Job", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:databrew:Job", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func NewJob(ctx *pulumi.Context,
 func GetJob(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *JobState, opts ...pulumi.ResourceOption) (*Job, error) {
 	var resource Job
-	err := ctx.ReadResource("aws-native:DataBrew:Job", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:databrew:Job", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

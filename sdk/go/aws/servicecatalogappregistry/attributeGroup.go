@@ -41,7 +41,7 @@ func NewAttributeGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource AttributeGroup
-	err := ctx.RegisterResource("aws-native:ServiceCatalogAppRegistry:AttributeGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:servicecatalogappregistry:AttributeGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewAttributeGroup(ctx *pulumi.Context,
 func GetAttributeGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AttributeGroupState, opts ...pulumi.ResourceOption) (*AttributeGroup, error) {
 	var resource AttributeGroup
-	err := ctx.ReadResource("aws-native:ServiceCatalogAppRegistry:AttributeGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:servicecatalogappregistry:AttributeGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

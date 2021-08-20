@@ -31,7 +31,7 @@ func NewResourceCollection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceCollectionFilter'")
 	}
 	var resource ResourceCollection
-	err := ctx.RegisterResource("aws-native:DevOpsGuru:ResourceCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:devopsguru:ResourceCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewResourceCollection(ctx *pulumi.Context,
 func GetResourceCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceCollectionState, opts ...pulumi.ResourceOption) (*ResourceCollection, error) {
 	var resource ResourceCollection
-	err := ctx.ReadResource("aws-native:DevOpsGuru:ResourceCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:devopsguru:ResourceCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

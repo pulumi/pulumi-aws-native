@@ -46,7 +46,7 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SubDomainSettings'")
 	}
 	var resource Domain
-	err := ctx.RegisterResource("aws-native:Amplify:Domain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:amplify:Domain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewDomain(ctx *pulumi.Context,
 func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
 	var resource Domain
-	err := ctx.ReadResource("aws-native:Amplify:Domain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:amplify:Domain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

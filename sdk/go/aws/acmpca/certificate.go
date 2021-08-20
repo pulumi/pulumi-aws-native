@@ -53,7 +53,7 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Validity'")
 	}
 	var resource Certificate
-	err := ctx.RegisterResource("aws-native:ACMPCA:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:acmpca:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("aws-native:ACMPCA:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:acmpca:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

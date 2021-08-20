@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:NetworkManager:CustomerGatewayAssociation":
+	case "aws-native:networkmanager:CustomerGatewayAssociation":
 		r = &CustomerGatewayAssociation{}
-	case "aws-native:NetworkManager:Device":
+	case "aws-native:networkmanager:Device":
 		r = &Device{}
-	case "aws-native:NetworkManager:GlobalNetwork":
+	case "aws-native:networkmanager:GlobalNetwork":
 		r = &GlobalNetwork{}
-	case "aws-native:NetworkManager:Link":
+	case "aws-native:networkmanager:Link":
 		r = &Link{}
-	case "aws-native:NetworkManager:LinkAssociation":
+	case "aws-native:networkmanager:LinkAssociation":
 		r = &LinkAssociation{}
-	case "aws-native:NetworkManager:Site":
+	case "aws-native:networkmanager:Site":
 		r = &Site{}
-	case "aws-native:NetworkManager:TransitGatewayRegistration":
+	case "aws-native:networkmanager:TransitGatewayRegistration":
 		r = &TransitGatewayRegistration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"NetworkManager",
+		"networkmanager",
 		&module{version},
 	)
 }

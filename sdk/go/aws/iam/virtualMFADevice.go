@@ -38,7 +38,7 @@ func NewVirtualMFADevice(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
 	var resource VirtualMFADevice
-	err := ctx.RegisterResource("aws-native:IAM:VirtualMFADevice", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iam:VirtualMFADevice", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewVirtualMFADevice(ctx *pulumi.Context,
 func GetVirtualMFADevice(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *VirtualMFADeviceState, opts ...pulumi.ResourceOption) (*VirtualMFADevice, error) {
 	var resource VirtualMFADevice
-	err := ctx.ReadResource("aws-native:IAM:VirtualMFADevice", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iam:VirtualMFADevice", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

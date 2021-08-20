@@ -42,7 +42,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AccessPolicyResource'")
 	}
 	var resource AccessPolicy
-	err := ctx.RegisterResource("aws-native:IoTSiteWise:AccessPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotsitewise:AccessPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 func GetAccessPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessPolicyState, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
 	var resource AccessPolicy
-	err := ctx.ReadResource("aws-native:IoTSiteWise:AccessPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotsitewise:AccessPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

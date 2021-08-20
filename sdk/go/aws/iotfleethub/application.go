@@ -48,7 +48,7 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Application
-	err := ctx.RegisterResource("aws-native:IoTFleetHub:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotfleethub:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("aws-native:IoTFleetHub:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotfleethub:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

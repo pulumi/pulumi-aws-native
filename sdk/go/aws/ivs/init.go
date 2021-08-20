@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IVS:Channel":
+	case "aws-native:ivs:Channel":
 		r = &Channel{}
-	case "aws-native:IVS:PlaybackKeyPair":
+	case "aws-native:ivs:PlaybackKeyPair":
 		r = &PlaybackKeyPair{}
-	case "aws-native:IVS:RecordingConfiguration":
+	case "aws-native:ivs:RecordingConfiguration":
 		r = &RecordingConfiguration{}
-	case "aws-native:IVS:StreamKey":
+	case "aws-native:ivs:StreamKey":
 		r = &StreamKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IVS",
+		"ivs",
 		&module{version},
 	)
 }

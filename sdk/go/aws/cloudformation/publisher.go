@@ -36,7 +36,7 @@ func NewPublisher(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AcceptTermsAndConditions'")
 	}
 	var resource Publisher
-	err := ctx.RegisterResource("aws-native:CloudFormation:Publisher", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:Publisher", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewPublisher(ctx *pulumi.Context,
 func GetPublisher(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublisherState, opts ...pulumi.ResourceOption) (*Publisher, error) {
 	var resource Publisher
-	err := ctx.ReadResource("aws-native:CloudFormation:Publisher", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:Publisher", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

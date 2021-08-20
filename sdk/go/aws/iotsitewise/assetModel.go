@@ -43,7 +43,7 @@ func NewAssetModel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AssetModelName'")
 	}
 	var resource AssetModel
-	err := ctx.RegisterResource("aws-native:IoTSiteWise:AssetModel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotsitewise:AssetModel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewAssetModel(ctx *pulumi.Context,
 func GetAssetModel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssetModelState, opts ...pulumi.ResourceOption) (*AssetModel, error) {
 	var resource AssetModel
-	err := ctx.ReadResource("aws-native:IoTSiteWise:AssetModel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotsitewise:AssetModel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

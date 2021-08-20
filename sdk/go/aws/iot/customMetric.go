@@ -38,7 +38,7 @@ func NewCustomMetric(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'MetricType'")
 	}
 	var resource CustomMetric
-	err := ctx.RegisterResource("aws-native:IoT:CustomMetric", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:CustomMetric", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewCustomMetric(ctx *pulumi.Context,
 func GetCustomMetric(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomMetricState, opts ...pulumi.ResourceOption) (*CustomMetric, error) {
 	var resource CustomMetric
-	err := ctx.ReadResource("aws-native:IoT:CustomMetric", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:CustomMetric", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

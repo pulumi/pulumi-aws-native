@@ -28,7 +28,7 @@ func NewGraph(ctx *pulumi.Context,
 	}
 
 	var resource Graph
-	err := ctx.RegisterResource("aws-native:Detective:Graph", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:detective:Graph", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -40,7 +40,7 @@ func NewGraph(ctx *pulumi.Context,
 func GetGraph(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GraphState, opts ...pulumi.ResourceOption) (*Graph, error) {
 	var resource Graph
-	err := ctx.ReadResource("aws-native:Detective:Graph", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:detective:Graph", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -36,7 +36,7 @@ func NewCarrierGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource CarrierGateway
-	err := ctx.RegisterResource("aws-native:EC2:CarrierGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:CarrierGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewCarrierGateway(ctx *pulumi.Context,
 func GetCarrierGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CarrierGatewayState, opts ...pulumi.ResourceOption) (*CarrierGateway, error) {
 	var resource CarrierGateway
-	err := ctx.ReadResource("aws-native:EC2:CarrierGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:CarrierGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

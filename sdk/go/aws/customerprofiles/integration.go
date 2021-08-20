@@ -44,7 +44,7 @@ func NewIntegration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ObjectTypeName'")
 	}
 	var resource Integration
-	err := ctx.RegisterResource("aws-native:CustomerProfiles:Integration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:customerprofiles:Integration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewIntegration(ctx *pulumi.Context,
 func GetIntegration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IntegrationState, opts ...pulumi.ResourceOption) (*Integration, error) {
 	var resource Integration
-	err := ctx.ReadResource("aws-native:CustomerProfiles:Integration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:customerprofiles:Integration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

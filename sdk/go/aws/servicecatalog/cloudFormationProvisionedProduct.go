@@ -52,7 +52,7 @@ func NewCloudFormationProvisionedProduct(ctx *pulumi.Context,
 	}
 
 	var resource CloudFormationProvisionedProduct
-	err := ctx.RegisterResource("aws-native:ServiceCatalog:CloudFormationProvisionedProduct", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:servicecatalog:CloudFormationProvisionedProduct", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewCloudFormationProvisionedProduct(ctx *pulumi.Context,
 func GetCloudFormationProvisionedProduct(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CloudFormationProvisionedProductState, opts ...pulumi.ResourceOption) (*CloudFormationProvisionedProduct, error) {
 	var resource CloudFormationProvisionedProduct
-	err := ctx.ReadResource("aws-native:ServiceCatalog:CloudFormationProvisionedProduct", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:servicecatalog:CloudFormationProvisionedProduct", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Athena:DataCatalog":
+	case "aws-native:athena:DataCatalog":
 		r = &DataCatalog{}
-	case "aws-native:Athena:NamedQuery":
+	case "aws-native:athena:NamedQuery":
 		r = &NamedQuery{}
-	case "aws-native:Athena:PreparedStatement":
+	case "aws-native:athena:PreparedStatement":
 		r = &PreparedStatement{}
-	case "aws-native:Athena:WorkGroup":
+	case "aws-native:athena:WorkGroup":
 		r = &WorkGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Athena",
+		"athena",
 		&module{version},
 	)
 }

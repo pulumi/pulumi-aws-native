@@ -56,7 +56,7 @@ func NewSchema(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
 	var resource Schema
-	err := ctx.RegisterResource("aws-native:Glue:Schema", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:glue:Schema", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewSchema(ctx *pulumi.Context,
 func GetSchema(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SchemaState, opts ...pulumi.ResourceOption) (*Schema, error) {
 	var resource Schema
-	err := ctx.ReadResource("aws-native:Glue:Schema", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:glue:Schema", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -45,7 +45,7 @@ func NewImage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
 	var resource Image
-	err := ctx.RegisterResource("aws-native:ImageBuilder:Image", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:Image", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewImage(ctx *pulumi.Context,
 func GetImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImageState, opts ...pulumi.ResourceOption) (*Image, error) {
 	var resource Image
-	err := ctx.ReadResource("aws-native:ImageBuilder:Image", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:Image", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

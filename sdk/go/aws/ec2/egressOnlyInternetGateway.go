@@ -31,7 +31,7 @@ func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource EgressOnlyInternetGateway
-	err := ctx.RegisterResource("aws-native:EC2:EgressOnlyInternetGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:EgressOnlyInternetGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 func GetEgressOnlyInternetGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EgressOnlyInternetGatewayState, opts ...pulumi.ResourceOption) (*EgressOnlyInternetGateway, error) {
 	var resource EgressOnlyInternetGateway
-	err := ctx.ReadResource("aws-native:EC2:EgressOnlyInternetGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:EgressOnlyInternetGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

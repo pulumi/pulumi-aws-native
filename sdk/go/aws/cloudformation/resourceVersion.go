@@ -45,7 +45,7 @@ func NewResourceVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
 	var resource ResourceVersion
-	err := ctx.RegisterResource("aws-native:CloudFormation:ResourceVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:ResourceVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewResourceVersion(ctx *pulumi.Context,
 func GetResourceVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceVersionState, opts ...pulumi.ResourceOption) (*ResourceVersion, error) {
 	var resource ResourceVersion
-	err := ctx.ReadResource("aws-native:CloudFormation:ResourceVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:ResourceVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

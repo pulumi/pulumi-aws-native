@@ -41,7 +41,7 @@ func NewConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Config
-	err := ctx.RegisterResource("aws-native:GroundStation:Config", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:groundstation:Config", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewConfig(ctx *pulumi.Context,
 func GetConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigState, opts ...pulumi.ResourceOption) (*Config, error) {
 	var resource Config
-	err := ctx.ReadResource("aws-native:GroundStation:Config", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:groundstation:Config", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

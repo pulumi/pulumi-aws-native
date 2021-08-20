@@ -29,7 +29,7 @@ func NewResolverDNSSECConfig(ctx *pulumi.Context,
 	}
 
 	var resource ResolverDNSSECConfig
-	err := ctx.RegisterResource("aws-native:Route53Resolver:ResolverDNSSECConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53resolver:ResolverDNSSECConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func NewResolverDNSSECConfig(ctx *pulumi.Context,
 func GetResolverDNSSECConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResolverDNSSECConfigState, opts ...pulumi.ResourceOption) (*ResolverDNSSECConfig, error) {
 	var resource ResolverDNSSECConfig
-	err := ctx.ReadResource("aws-native:Route53Resolver:ResolverDNSSECConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53resolver:ResolverDNSSECConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

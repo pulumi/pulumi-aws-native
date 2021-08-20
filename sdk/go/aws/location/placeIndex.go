@@ -48,7 +48,7 @@ func NewPlaceIndex(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource PlaceIndex
-	err := ctx.RegisterResource("aws-native:Location:PlaceIndex", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:location:PlaceIndex", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewPlaceIndex(ctx *pulumi.Context,
 func GetPlaceIndex(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PlaceIndexState, opts ...pulumi.ResourceOption) (*PlaceIndex, error) {
 	var resource PlaceIndex
-	err := ctx.ReadResource("aws-native:Location:PlaceIndex", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:location:PlaceIndex", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

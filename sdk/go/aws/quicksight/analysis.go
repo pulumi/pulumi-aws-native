@@ -56,7 +56,7 @@ func NewAnalysis(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AwsAccountId'")
 	}
 	var resource Analysis
-	err := ctx.RegisterResource("aws-native:QuickSight:Analysis", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:quicksight:Analysis", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewAnalysis(ctx *pulumi.Context,
 func GetAnalysis(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AnalysisState, opts ...pulumi.ResourceOption) (*Analysis, error) {
 	var resource Analysis
-	err := ctx.ReadResource("aws-native:QuickSight:Analysis", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:quicksight:Analysis", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

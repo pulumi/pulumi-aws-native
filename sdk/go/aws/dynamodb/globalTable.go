@@ -59,7 +59,7 @@ func NewGlobalTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Replicas'")
 	}
 	var resource GlobalTable
-	err := ctx.RegisterResource("aws-native:DynamoDB:GlobalTable", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:dynamodb:GlobalTable", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func NewGlobalTable(ctx *pulumi.Context,
 func GetGlobalTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalTableState, opts ...pulumi.ResourceOption) (*GlobalTable, error) {
 	var resource GlobalTable
-	err := ctx.ReadResource("aws-native:DynamoDB:GlobalTable", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:dynamodb:GlobalTable", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

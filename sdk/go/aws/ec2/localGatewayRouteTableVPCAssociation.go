@@ -41,7 +41,7 @@ func NewLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource LocalGatewayRouteTableVPCAssociation
-	err := ctx.RegisterResource("aws-native:EC2:LocalGatewayRouteTableVPCAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRouteTableVPCAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context,
 func GetLocalGatewayRouteTableVPCAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocalGatewayRouteTableVPCAssociationState, opts ...pulumi.ResourceOption) (*LocalGatewayRouteTableVPCAssociation, error) {
 	var resource LocalGatewayRouteTableVPCAssociation
-	err := ctx.ReadResource("aws-native:EC2:LocalGatewayRouteTableVPCAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:LocalGatewayRouteTableVPCAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

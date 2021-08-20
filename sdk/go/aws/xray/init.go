@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:XRay:Group":
+	case "aws-native:xray:Group":
 		r = &Group{}
-	case "aws-native:XRay:SamplingRule":
+	case "aws-native:xray:SamplingRule":
 		r = &SamplingRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"XRay",
+		"xray",
 		&module{version},
 	)
 }

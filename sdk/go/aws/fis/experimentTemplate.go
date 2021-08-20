@@ -53,7 +53,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
 	var resource ExperimentTemplate
-	err := ctx.RegisterResource("aws-native:FIS:ExperimentTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:fis:ExperimentTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewExperimentTemplate(ctx *pulumi.Context,
 func GetExperimentTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ExperimentTemplateState, opts ...pulumi.ResourceOption) (*ExperimentTemplate, error) {
 	var resource ExperimentTemplate
-	err := ctx.ReadResource("aws-native:FIS:ExperimentTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:fis:ExperimentTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -80,7 +80,7 @@ func NewServer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
 	var resource Server
-	err := ctx.RegisterResource("aws-native:OpsWorksCM:Server", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:opsworkscm:Server", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +92,7 @@ func NewServer(ctx *pulumi.Context,
 func GetServer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerState, opts ...pulumi.ResourceOption) (*Server, error) {
 	var resource Server
-	err := ctx.ReadResource("aws-native:OpsWorksCM:Server", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:opsworkscm:Server", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

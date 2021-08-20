@@ -33,7 +33,7 @@ func NewContactList(ctx *pulumi.Context,
 	}
 
 	var resource ContactList
-	err := ctx.RegisterResource("aws-native:SES:ContactList", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ses:ContactList", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewContactList(ctx *pulumi.Context,
 func GetContactList(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContactListState, opts ...pulumi.ResourceOption) (*ContactList, error) {
 	var resource ContactList
-	err := ctx.ReadResource("aws-native:SES:ContactList", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ses:ContactList", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -29,7 +29,7 @@ func NewKeyspace(ctx *pulumi.Context,
 	}
 
 	var resource Keyspace
-	err := ctx.RegisterResource("aws-native:Cassandra:Keyspace", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cassandra:Keyspace", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func NewKeyspace(ctx *pulumi.Context,
 func GetKeyspace(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyspaceState, opts ...pulumi.ResourceOption) (*Keyspace, error) {
 	var resource Keyspace
-	err := ctx.ReadResource("aws-native:Cassandra:Keyspace", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cassandra:Keyspace", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

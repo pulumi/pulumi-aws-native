@@ -70,7 +70,7 @@ func NewLicense(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Validity'")
 	}
 	var resource License
-	err := ctx.RegisterResource("aws-native:LicenseManager:License", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:licensemanager:License", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -82,7 +82,7 @@ func NewLicense(ctx *pulumi.Context,
 func GetLicense(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LicenseState, opts ...pulumi.ResourceOption) (*License, error) {
 	var resource License
-	err := ctx.ReadResource("aws-native:LicenseManager:License", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:licensemanager:License", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

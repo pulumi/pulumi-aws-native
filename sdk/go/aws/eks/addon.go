@@ -45,7 +45,7 @@ func NewAddon(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
 	var resource Addon
-	err := ctx.RegisterResource("aws-native:EKS:Addon", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:eks:Addon", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewAddon(ctx *pulumi.Context,
 func GetAddon(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AddonState, opts ...pulumi.ResourceOption) (*Addon, error) {
 	var resource Addon
-	err := ctx.ReadResource("aws-native:EKS:Addon", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:eks:Addon", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

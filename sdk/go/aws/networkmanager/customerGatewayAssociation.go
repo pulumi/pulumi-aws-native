@@ -42,7 +42,7 @@ func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
 	var resource CustomerGatewayAssociation
-	err := ctx.RegisterResource("aws-native:NetworkManager:CustomerGatewayAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:CustomerGatewayAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 func GetCustomerGatewayAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CustomerGatewayAssociationState, opts ...pulumi.ResourceOption) (*CustomerGatewayAssociation, error) {
 	var resource CustomerGatewayAssociation
-	err := ctx.ReadResource("aws-native:NetworkManager:CustomerGatewayAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:CustomerGatewayAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

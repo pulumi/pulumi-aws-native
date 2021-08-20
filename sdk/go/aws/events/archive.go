@@ -38,7 +38,7 @@ func NewArchive(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
 	var resource Archive
-	err := ctx.RegisterResource("aws-native:Events:Archive", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:events:Archive", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewArchive(ctx *pulumi.Context,
 func GetArchive(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ArchiveState, opts ...pulumi.ResourceOption) (*Archive, error) {
 	var resource Archive
-	err := ctx.ReadResource("aws-native:Events:Archive", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:events:Archive", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

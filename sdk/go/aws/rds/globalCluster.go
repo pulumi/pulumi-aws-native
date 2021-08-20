@@ -36,7 +36,7 @@ func NewGlobalCluster(ctx *pulumi.Context,
 	}
 
 	var resource GlobalCluster
-	err := ctx.RegisterResource("aws-native:RDS:GlobalCluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:rds:GlobalCluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewGlobalCluster(ctx *pulumi.Context,
 func GetGlobalCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalClusterState, opts ...pulumi.ResourceOption) (*GlobalCluster, error) {
 	var resource GlobalCluster
-	err := ctx.ReadResource("aws-native:RDS:GlobalCluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:rds:GlobalCluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

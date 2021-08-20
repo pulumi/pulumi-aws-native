@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:FMS:NotificationChannel":
+	case "aws-native:fms:NotificationChannel":
 		r = &NotificationChannel{}
-	case "aws-native:FMS:Policy":
+	case "aws-native:fms:Policy":
 		r = &Policy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"FMS",
+		"fms",
 		&module{version},
 	)
 }

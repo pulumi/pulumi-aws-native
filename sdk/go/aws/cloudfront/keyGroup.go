@@ -32,7 +32,7 @@ func NewKeyGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'KeyGroupConfig'")
 	}
 	var resource KeyGroup
-	err := ctx.RegisterResource("aws-native:CloudFront:KeyGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:KeyGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewKeyGroup(ctx *pulumi.Context,
 func GetKeyGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyGroupState, opts ...pulumi.ResourceOption) (*KeyGroup, error) {
 	var resource KeyGroup
-	err := ctx.ReadResource("aws-native:CloudFront:KeyGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:KeyGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

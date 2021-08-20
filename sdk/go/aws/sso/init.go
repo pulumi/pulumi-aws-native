@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:SSO:Assignment":
+	case "aws-native:sso:Assignment":
 		r = &Assignment{}
-	case "aws-native:SSO:InstanceAccessControlAttributeConfiguration":
+	case "aws-native:sso:InstanceAccessControlAttributeConfiguration":
 		r = &InstanceAccessControlAttributeConfiguration{}
-	case "aws-native:SSO:PermissionSet":
+	case "aws-native:sso:PermissionSet":
 		r = &PermissionSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"SSO",
+		"sso",
 		&module{version},
 	)
 }

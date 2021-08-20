@@ -42,7 +42,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
 	}
 	var resource FirewallPolicy
-	err := ctx.RegisterResource("aws-native:NetworkFirewall:FirewallPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkfirewall:FirewallPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 func GetFirewallPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallPolicyState, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
 	var resource FirewallPolicy
-	err := ctx.ReadResource("aws-native:NetworkFirewall:FirewallPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkfirewall:FirewallPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

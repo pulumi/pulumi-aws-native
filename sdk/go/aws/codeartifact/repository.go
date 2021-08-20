@@ -48,7 +48,7 @@ func NewRepository(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
 	var resource Repository
-	err := ctx.RegisterResource("aws-native:CodeArtifact:Repository", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:codeartifact:Repository", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewRepository(ctx *pulumi.Context,
 func GetRepository(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RepositoryState, opts ...pulumi.ResourceOption) (*Repository, error) {
 	var resource Repository
-	err := ctx.ReadResource("aws-native:CodeArtifact:Repository", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:codeartifact:Repository", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

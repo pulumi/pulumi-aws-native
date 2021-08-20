@@ -45,7 +45,7 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsPathId'")
 	}
 	var resource NetworkInsightsAnalysis
-	err := ctx.RegisterResource("aws-native:EC2:NetworkInsightsAnalysis", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:NetworkInsightsAnalysis", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 func GetNetworkInsightsAnalysis(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NetworkInsightsAnalysisState, opts ...pulumi.ResourceOption) (*NetworkInsightsAnalysis, error) {
 	var resource NetworkInsightsAnalysis
-	err := ctx.ReadResource("aws-native:EC2:NetworkInsightsAnalysis", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:NetworkInsightsAnalysis", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

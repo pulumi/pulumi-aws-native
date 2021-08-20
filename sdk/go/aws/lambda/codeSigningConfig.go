@@ -36,7 +36,7 @@ func NewCodeSigningConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AllowedPublishers'")
 	}
 	var resource CodeSigningConfig
-	err := ctx.RegisterResource("aws-native:Lambda:CodeSigningConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:lambda:CodeSigningConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewCodeSigningConfig(ctx *pulumi.Context,
 func GetCodeSigningConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CodeSigningConfigState, opts ...pulumi.ResourceOption) (*CodeSigningConfig, error) {
 	var resource CodeSigningConfig
-	err := ctx.ReadResource("aws-native:Lambda:CodeSigningConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:lambda:CodeSigningConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

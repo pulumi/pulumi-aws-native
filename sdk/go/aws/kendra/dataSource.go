@@ -53,7 +53,7 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource DataSource
-	err := ctx.RegisterResource("aws-native:Kendra:DataSource", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kendra:DataSource", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewDataSource(ctx *pulumi.Context,
 func GetDataSource(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataSourceState, opts ...pulumi.ResourceOption) (*DataSource, error) {
 	var resource DataSource
-	err := ctx.ReadResource("aws-native:Kendra:DataSource", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kendra:DataSource", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

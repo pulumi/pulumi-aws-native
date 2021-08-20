@@ -32,7 +32,7 @@ func NewCachePolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CachePolicyConfig'")
 	}
 	var resource CachePolicy
-	err := ctx.RegisterResource("aws-native:CloudFront:CachePolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:CachePolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewCachePolicy(ctx *pulumi.Context,
 func GetCachePolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CachePolicyState, opts ...pulumi.ResourceOption) (*CachePolicy, error) {
 	var resource CachePolicy
-	err := ctx.ReadResource("aws-native:CloudFront:CachePolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:CachePolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

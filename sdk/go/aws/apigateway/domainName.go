@@ -43,7 +43,7 @@ func NewDomainName(ctx *pulumi.Context,
 	}
 
 	var resource DomainName
-	err := ctx.RegisterResource("aws-native:ApiGateway:DomainName", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:DomainName", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewDomainName(ctx *pulumi.Context,
 func GetDomainName(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainNameState, opts ...pulumi.ResourceOption) (*DomainName, error) {
 	var resource DomainName
-	err := ctx.ReadResource("aws-native:ApiGateway:DomainName", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:DomainName", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

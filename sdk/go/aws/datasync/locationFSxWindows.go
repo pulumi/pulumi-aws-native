@@ -54,7 +54,7 @@ func NewLocationFSxWindows(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource LocationFSxWindows
-	err := ctx.RegisterResource("aws-native:DataSync:LocationFSxWindows", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationFSxWindows", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func NewLocationFSxWindows(ctx *pulumi.Context,
 func GetLocationFSxWindows(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationFSxWindowsState, opts ...pulumi.ResourceOption) (*LocationFSxWindows, error) {
 	var resource LocationFSxWindows
-	err := ctx.ReadResource("aws-native:DataSync:LocationFSxWindows", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationFSxWindows", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -38,7 +38,7 @@ func NewServerCertificate(ctx *pulumi.Context,
 	}
 
 	var resource ServerCertificate
-	err := ctx.RegisterResource("aws-native:IAM:ServerCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iam:ServerCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewServerCertificate(ctx *pulumi.Context,
 func GetServerCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServerCertificateState, opts ...pulumi.ResourceOption) (*ServerCertificate, error) {
 	var resource ServerCertificate
-	err := ctx.ReadResource("aws-native:IAM:ServerCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iam:ServerCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -38,7 +38,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Analyzer
-	err := ctx.RegisterResource("aws-native:AccessAnalyzer:Analyzer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:accessanalyzer:Analyzer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 func GetAnalyzer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AnalyzerState, opts ...pulumi.ResourceOption) (*Analyzer, error) {
 	var resource Analyzer
-	err := ctx.ReadResource("aws-native:AccessAnalyzer:Analyzer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:accessanalyzer:Analyzer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -35,7 +35,7 @@ func NewDataflowEndpointGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'EndpointDetails'")
 	}
 	var resource DataflowEndpointGroup
-	err := ctx.RegisterResource("aws-native:GroundStation:DataflowEndpointGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:groundstation:DataflowEndpointGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewDataflowEndpointGroup(ctx *pulumi.Context,
 func GetDataflowEndpointGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataflowEndpointGroupState, opts ...pulumi.ResourceOption) (*DataflowEndpointGroup, error) {
 	var resource DataflowEndpointGroup
-	err := ctx.ReadResource("aws-native:GroundStation:DataflowEndpointGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:groundstation:DataflowEndpointGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

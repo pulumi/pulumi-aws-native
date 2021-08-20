@@ -39,7 +39,7 @@ func NewSite(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
 	var resource Site
-	err := ctx.RegisterResource("aws-native:NetworkManager:Site", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:Site", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewSite(ctx *pulumi.Context,
 func GetSite(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SiteState, opts ...pulumi.ResourceOption) (*Site, error) {
 	var resource Site
-	err := ctx.ReadResource("aws-native:NetworkManager:Site", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:Site", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

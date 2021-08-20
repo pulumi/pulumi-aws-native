@@ -40,7 +40,7 @@ func NewRecipe(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
 	var resource Recipe
-	err := ctx.RegisterResource("aws-native:DataBrew:Recipe", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:databrew:Recipe", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewRecipe(ctx *pulumi.Context,
 func GetRecipe(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RecipeState, opts ...pulumi.ResourceOption) (*Recipe, error) {
 	var resource Recipe
-	err := ctx.ReadResource("aws-native:DataBrew:Recipe", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:databrew:Recipe", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

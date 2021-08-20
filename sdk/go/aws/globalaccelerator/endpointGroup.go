@@ -52,7 +52,7 @@ func NewEndpointGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ListenerArn'")
 	}
 	var resource EndpointGroup
-	err := ctx.RegisterResource("aws-native:GlobalAccelerator:EndpointGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:globalaccelerator:EndpointGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewEndpointGroup(ctx *pulumi.Context,
 func GetEndpointGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EndpointGroupState, opts ...pulumi.ResourceOption) (*EndpointGroup, error) {
 	var resource EndpointGroup
-	err := ctx.ReadResource("aws-native:GlobalAccelerator:EndpointGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:globalaccelerator:EndpointGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

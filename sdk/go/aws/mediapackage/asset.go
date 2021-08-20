@@ -53,7 +53,7 @@ func NewAsset(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceRoleArn'")
 	}
 	var resource Asset
-	err := ctx.RegisterResource("aws-native:MediaPackage:Asset", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediapackage:Asset", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewAsset(ctx *pulumi.Context,
 func GetAsset(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssetState, opts ...pulumi.ResourceOption) (*Asset, error) {
 	var resource Asset
-	err := ctx.ReadResource("aws-native:MediaPackage:Asset", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediapackage:Asset", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

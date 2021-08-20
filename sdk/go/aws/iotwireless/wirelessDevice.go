@@ -51,7 +51,7 @@ func NewWirelessDevice(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource WirelessDevice
-	err := ctx.RegisterResource("aws-native:IoTWireless:WirelessDevice", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:WirelessDevice", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewWirelessDevice(ctx *pulumi.Context,
 func GetWirelessDevice(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WirelessDeviceState, opts ...pulumi.ResourceOption) (*WirelessDevice, error) {
 	var resource WirelessDevice
-	err := ctx.ReadResource("aws-native:IoTWireless:WirelessDevice", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:WirelessDevice", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

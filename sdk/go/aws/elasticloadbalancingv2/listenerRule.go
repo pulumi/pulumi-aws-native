@@ -47,7 +47,7 @@ func NewListenerRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Priority'")
 	}
 	var resource ListenerRule
-	err := ctx.RegisterResource("aws-native:ElasticLoadBalancingV2:ListenerRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:elasticloadbalancingv2:ListenerRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewListenerRule(ctx *pulumi.Context,
 func GetListenerRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ListenerRuleState, opts ...pulumi.ResourceOption) (*ListenerRule, error) {
 	var resource ListenerRule
-	err := ctx.ReadResource("aws-native:ElasticLoadBalancingV2:ListenerRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:elasticloadbalancingv2:ListenerRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

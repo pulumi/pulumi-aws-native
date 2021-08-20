@@ -41,7 +41,7 @@ func NewFirewallRuleGroup(ctx *pulumi.Context,
 	}
 
 	var resource FirewallRuleGroup
-	err := ctx.RegisterResource("aws-native:Route53Resolver:FirewallRuleGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53resolver:FirewallRuleGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewFirewallRuleGroup(ctx *pulumi.Context,
 func GetFirewallRuleGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleGroupState, opts ...pulumi.ResourceOption) (*FirewallRuleGroup, error) {
 	var resource FirewallRuleGroup
-	err := ctx.ReadResource("aws-native:Route53Resolver:FirewallRuleGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53resolver:FirewallRuleGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,7 +44,7 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
 	var resource Project
-	err := ctx.RegisterResource("aws-native:SageMaker:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("aws-native:SageMaker:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

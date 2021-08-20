@@ -55,7 +55,7 @@ func NewStudioComponent(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource StudioComponent
-	err := ctx.RegisterResource("aws-native:NimbleStudio:StudioComponent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:nimblestudio:StudioComponent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewStudioComponent(ctx *pulumi.Context,
 func GetStudioComponent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StudioComponentState, opts ...pulumi.ResourceOption) (*StudioComponent, error) {
 	var resource StudioComponent
-	err := ctx.ReadResource("aws-native:NimbleStudio:StudioComponent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:nimblestudio:StudioComponent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

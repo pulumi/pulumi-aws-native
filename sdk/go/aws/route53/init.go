@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Route53:DNSSEC":
+	case "aws-native:route53:DNSSEC":
 		r = &DNSSEC{}
-	case "aws-native:Route53:HealthCheck":
+	case "aws-native:route53:HealthCheck":
 		r = &HealthCheck{}
-	case "aws-native:Route53:HostedZone":
+	case "aws-native:route53:HostedZone":
 		r = &HostedZone{}
-	case "aws-native:Route53:KeySigningKey":
+	case "aws-native:route53:KeySigningKey":
 		r = &KeySigningKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Route53",
+		"route53",
 		&module{version},
 	)
 }

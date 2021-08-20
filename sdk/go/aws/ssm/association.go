@@ -61,7 +61,7 @@ func NewAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Association
-	err := ctx.RegisterResource("aws-native:SSM:Association", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssm:Association", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func NewAssociation(ctx *pulumi.Context,
 func GetAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssociationState, opts ...pulumi.ResourceOption) (*Association, error) {
 	var resource Association
-	err := ctx.ReadResource("aws-native:SSM:Association", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssm:Association", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
