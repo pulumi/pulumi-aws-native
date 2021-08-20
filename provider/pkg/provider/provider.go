@@ -901,11 +901,11 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	return nil
 }
 
-// getPulumiVersion parses the version of the pulumi used in the running program.
+// getPulumiVersion parses the version of the pulumi SDK used in the running program.
 func getPulumiVersion() string {
 	if bi, ok := debug.ReadBuildInfo(); ok {
 		for _, dep := range bi.Deps {
-			if strings.HasPrefix(dep.Path, "github.com/pulumi/pulumi/pkg") {
+			if strings.HasPrefix(dep.Path, "github.com/pulumi/pulumi/sdk") {
 				return strings.TrimPrefix(dep.Version, "v")
 			}
 		}
