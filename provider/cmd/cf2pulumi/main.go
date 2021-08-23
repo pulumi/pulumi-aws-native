@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
 	"log"
 	"os"
 	"strings"
@@ -24,11 +25,11 @@ func main() {
 
 	target, templatePath := os.Args[1], os.Args[2]
 
-	template, err := RenderFile(templatePath)
+	template, err := cf2pulumi.RenderFile(templatePath)
 	if err != nil {
 		log.Fatalf("failed to render template: %v", err)
 	}
-	formatBody(template)
+	cf2pulumi.FormatBody(template)
 	programText := fmt.Sprintf("%v", template)
 
 	parser := syntax.NewParser()
