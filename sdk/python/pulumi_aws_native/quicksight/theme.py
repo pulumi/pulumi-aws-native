@@ -237,7 +237,7 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["type"] = None
         super(Theme, __self__).__init__(
-            'aws-native:QuickSight:Theme',
+            'aws-native:quicksight:Theme',
             resource_name,
             __props__,
             opts)

@@ -277,7 +277,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["last_published_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(Dashboard, __self__).__init__(
-            'aws-native:QuickSight:Dashboard',
+            'aws-native:quicksight:Dashboard',
             resource_name,
             __props__,
             opts)

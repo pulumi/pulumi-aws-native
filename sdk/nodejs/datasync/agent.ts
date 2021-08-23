@@ -22,7 +22,7 @@ export class Agent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:Agent';
+    public static readonly __pulumiType = 'aws-native:datasync:Agent';
 
     /**
      * Returns true if the given object is an instance of Agent.  This is designed to work even

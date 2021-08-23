@@ -22,7 +22,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Cassandra:Table';
+    public static readonly __pulumiType = 'aws-native:cassandra:Table';
 
     /**
      * Returns true if the given object is an instance of Table.  This is designed to work even
@@ -38,15 +38,15 @@ export class Table extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
      */
-    public readonly billingMode!: pulumi.Output<outputs.Cassandra.TableBillingMode | undefined>;
+    public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
      */
-    public readonly clusteringKeyColumns!: pulumi.Output<outputs.Cassandra.TableClusteringKeyColumn[] | undefined>;
+    public readonly clusteringKeyColumns!: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
      */
-    public readonly encryptionSpecification!: pulumi.Output<outputs.Cassandra.TableEncryptionSpecification | undefined>;
+    public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
      */
@@ -54,7 +54,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
      */
-    public readonly partitionKeyColumns!: pulumi.Output<outputs.Cassandra.TableColumn[]>;
+    public readonly partitionKeyColumns!: pulumi.Output<outputs.cassandra.TableColumn[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
      */
@@ -62,7 +62,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
      */
-    public readonly regularColumns!: pulumi.Output<outputs.Cassandra.TableColumn[] | undefined>;
+    public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
      */
@@ -123,15 +123,15 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
      */
-    billingMode?: pulumi.Input<inputs.Cassandra.TableBillingModeArgs>;
+    billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
      */
-    clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableClusteringKeyColumnArgs>[]>;
+    clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableClusteringKeyColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
      */
-    encryptionSpecification?: pulumi.Input<inputs.Cassandra.TableEncryptionSpecificationArgs>;
+    encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
      */
@@ -139,7 +139,7 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
      */
-    partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
+    partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
      */
@@ -147,7 +147,7 @@ export interface TableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
      */
-    regularColumns?: pulumi.Input<pulumi.Input<inputs.Cassandra.TableColumnArgs>[]>;
+    regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
      */

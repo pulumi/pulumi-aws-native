@@ -212,7 +212,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["ssl_policy"] = ssl_policy
             __props__.__dict__["listener_arn"] = None
         super(Listener, __self__).__init__(
-            'aws-native:ElasticLoadBalancingV2:Listener',
+            'aws-native:elasticloadbalancingv2:Listener',
             resource_name,
             __props__,
             opts)

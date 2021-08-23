@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EFS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EFS:FileSystem")]
+    [AwsNativeResourceType("aws-native:efs:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -96,12 +96,12 @@ namespace Pulumi.AwsNative.EFS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FileSystem(string name, FileSystemArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:EFS:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:efs:FileSystem", name, args ?? new FileSystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FileSystem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EFS:FileSystem", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:efs:FileSystem", name, null, MakeResourceOptions(options, id))
         {
         }
 

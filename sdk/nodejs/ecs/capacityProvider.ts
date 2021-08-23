@@ -22,7 +22,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:CapacityProvider';
+    public static readonly __pulumiType = 'aws-native:ecs:CapacityProvider';
 
     /**
      * Returns true if the given object is an instance of CapacityProvider.  This is designed to work even
@@ -38,7 +38,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
      */
-    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ECS.CapacityProviderAutoScalingGroupProvider>;
+    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
      */
@@ -84,7 +84,7 @@ export interface CapacityProviderArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider
      */
-    autoScalingGroupProvider: pulumi.Input<inputs.ECS.CapacityProviderAutoScalingGroupProviderArgs>;
+    autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html#cfn-ecs-capacityprovider-name
      */

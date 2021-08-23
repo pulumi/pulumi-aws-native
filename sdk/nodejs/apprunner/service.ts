@@ -22,7 +22,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AppRunner:Service';
+    public static readonly __pulumiType = 'aws-native:apprunner:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -42,15 +42,15 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.AppRunner.ServiceEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.apprunner.ServiceEncryptionConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
      */
-    public readonly healthCheckConfiguration!: pulumi.Output<outputs.AppRunner.ServiceHealthCheckConfiguration | undefined>;
+    public readonly healthCheckConfiguration!: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
      */
-    public readonly instanceConfiguration!: pulumi.Output<outputs.AppRunner.ServiceInstanceConfiguration | undefined>;
+    public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration | undefined>;
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
     /**
@@ -61,7 +61,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
      */
-    public readonly sourceConfiguration!: pulumi.Output<outputs.AppRunner.ServiceSourceConfiguration>;
+    public readonly sourceConfiguration!: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
@@ -124,15 +124,15 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
      */
-    encryptionConfiguration?: pulumi.Input<inputs.AppRunner.ServiceEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
      */
-    healthCheckConfiguration?: pulumi.Input<inputs.AppRunner.ServiceHealthCheckConfigurationArgs>;
+    healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
      */
-    instanceConfiguration?: pulumi.Input<inputs.AppRunner.ServiceInstanceConfigurationArgs>;
+    instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
      */
@@ -140,7 +140,7 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
      */
-    sourceConfiguration: pulumi.Input<inputs.AppRunner.ServiceSourceConfigurationArgs>;
+    sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
      */

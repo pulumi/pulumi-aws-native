@@ -153,7 +153,7 @@ class StoredQuery(pulumi.CustomResource):
             __props__.__dict__["query_arn"] = None
             __props__.__dict__["query_id"] = None
         super(StoredQuery, __self__).__init__(
-            'aws-native:Configuration:StoredQuery',
+            'aws-native:configuration:StoredQuery',
             resource_name,
             __props__,
             opts)

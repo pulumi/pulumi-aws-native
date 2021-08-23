@@ -40,7 +40,7 @@ func NewConnection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ConnectionName'")
 	}
 	var resource Connection
-	err := ctx.RegisterResource("aws-native:CodeStarConnections:Connection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:codestarconnections:Connection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewConnection(ctx *pulumi.Context,
 func GetConnection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionState, opts ...pulumi.ResourceOption) (*Connection, error) {
 	var resource Connection
-	err := ctx.ReadResource("aws-native:CodeStarConnections:Connection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:codestarconnections:Connection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

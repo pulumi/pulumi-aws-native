@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:Resource")]
+    [AwsNativeResourceType("aws-native:apigateway:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Resource(string name, ResourceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:Resource", name, args ?? new ResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Resource(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:Resource", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:Resource", name, null, MakeResourceOptions(options, id))
         {
         }
 

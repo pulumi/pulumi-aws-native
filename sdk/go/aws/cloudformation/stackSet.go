@@ -61,7 +61,7 @@ func NewStackSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StackSetName'")
 	}
 	var resource StackSet
-	err := ctx.RegisterResource("aws-native:CloudFormation:StackSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:StackSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func NewStackSet(ctx *pulumi.Context,
 func GetStackSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StackSetState, opts ...pulumi.ResourceOption) (*StackSet, error) {
 	var resource StackSet
-	err := ctx.ReadResource("aws-native:CloudFormation:StackSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:StackSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -1,4 +1,6 @@
-package main
+// Copyright 2016-2021, Pulumi Corporation.
+
+package cf2pulumi
 
 import (
 	"strings"
@@ -265,8 +267,8 @@ func (f *formatter) formatBody(body *model.Body) {
 	}
 }
 
-// formatBody formats a PCL body.
-func formatBody(body *model.Body) {
+// FormatBody formats a PCL body.
+func FormatBody(body *model.Body) {
 	var f formatter
 	f.formatBody(body)
 }

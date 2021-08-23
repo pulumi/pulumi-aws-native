@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaConnect
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaConnect:FlowVpcInterface")]
+    [AwsNativeResourceType("aws-native:mediaconnect:FlowVpcInterface")]
     public partial class FlowVpcInterface : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowVpcInterface(string name, FlowVpcInterfaceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowVpcInterface", name, args ?? new FlowVpcInterfaceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediaconnect:FlowVpcInterface", name, args ?? new FlowVpcInterfaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowVpcInterface(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaConnect:FlowVpcInterface", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediaconnect:FlowVpcInterface", name, null, MakeResourceOptions(options, id))
         {
         }
 

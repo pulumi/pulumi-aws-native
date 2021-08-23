@@ -22,7 +22,7 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:RDS:DBProxyEndpoint';
+    public static readonly __pulumiType = 'aws-native:rds:DBProxyEndpoint';
 
     /**
      * Returns true if the given object is an instance of DBProxyEndpoint.  This is designed to work even
@@ -49,7 +49,7 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
      */
-    public readonly tags!: pulumi.Output<outputs.RDS.DBProxyEndpointTagFormat[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.rds.DBProxyEndpointTagFormat[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
      */
@@ -128,7 +128,7 @@ export interface DBProxyEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyEndpointTagFormatArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.rds.DBProxyEndpointTagFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
      */

@@ -454,7 +454,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         super(Job, __self__).__init__(
-            'aws-native:DataBrew:Job',
+            'aws-native:databrew:Job',
             resource_name,
             __props__,
             opts)

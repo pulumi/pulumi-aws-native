@@ -172,7 +172,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["access_point_id"] = None
             __props__.__dict__["arn"] = None
         super(AccessPoint, __self__).__init__(
-            'aws-native:EFS:AccessPoint',
+            'aws-native:efs:AccessPoint',
             resource_name,
             __props__,
             opts)

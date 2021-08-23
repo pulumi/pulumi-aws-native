@@ -21,7 +21,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ServiceCatalogAppRegistry:ResourceAssociation';
+    public static readonly __pulumiType = 'aws-native:servicecatalogappregistry:ResourceAssociation';
 
     /**
      * Returns true if the given object is an instance of ResourceAssociation.  This is designed to work even

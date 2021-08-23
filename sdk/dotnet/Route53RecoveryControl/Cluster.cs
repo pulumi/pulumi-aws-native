@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryControl:Cluster")]
+    [AwsNativeResourceType("aws-native:route53recoverycontrol:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         [Output("clusterArn")]
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoverycontrol:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoverycontrol:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

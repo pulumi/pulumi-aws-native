@@ -213,7 +213,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["image_id"] = None
             __props__.__dict__["name"] = None
         super(Image, __self__).__init__(
-            'aws-native:ImageBuilder:Image',
+            'aws-native:imagebuilder:Image',
             resource_name,
             __props__,
             opts)

@@ -22,7 +22,7 @@ export class Template extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:Template';
+    public static readonly __pulumiType = 'aws-native:quicksight:Template';
 
     /**
      * Returns true if the given object is an instance of Template.  This is designed to work even
@@ -49,11 +49,11 @@ export class Template extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.TemplateResourcePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.QuickSight.TemplateTemplateSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateTemplateSourceEntity | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
      */
@@ -128,11 +128,11 @@ export interface TemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.TemplateResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
      */
-    sourceEntity?: pulumi.Input<inputs.QuickSight.TemplateTemplateSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateTemplateSourceEntityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
      */

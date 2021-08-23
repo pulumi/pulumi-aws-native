@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53:HealthCheck")]
+    [AwsNativeResourceType("aws-native:route53:HealthCheck")]
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public HealthCheck(string name, HealthCheckArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53:HealthCheck", name, args ?? new HealthCheckArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private HealthCheck(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:HealthCheck", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53:HealthCheck", name, null, MakeResourceOptions(options, id))
         {
         }
 

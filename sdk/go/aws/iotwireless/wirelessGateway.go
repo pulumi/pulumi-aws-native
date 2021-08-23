@@ -44,7 +44,7 @@ func NewWirelessGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'LoRaWAN'")
 	}
 	var resource WirelessGateway
-	err := ctx.RegisterResource("aws-native:IoTWireless:WirelessGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:WirelessGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewWirelessGateway(ctx *pulumi.Context,
 func GetWirelessGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WirelessGatewayState, opts ...pulumi.ResourceOption) (*WirelessGateway, error) {
 	var resource WirelessGateway
-	err := ctx.ReadResource("aws-native:IoTWireless:WirelessGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:WirelessGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

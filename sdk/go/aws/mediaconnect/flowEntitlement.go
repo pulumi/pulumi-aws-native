@@ -52,7 +52,7 @@ func NewFlowEntitlement(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
 	var resource FlowEntitlement
-	err := ctx.RegisterResource("aws-native:MediaConnect:FlowEntitlement", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediaconnect:FlowEntitlement", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewFlowEntitlement(ctx *pulumi.Context,
 func GetFlowEntitlement(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowEntitlementState, opts ...pulumi.ResourceOption) (*FlowEntitlement, error) {
 	var resource FlowEntitlement
-	err := ctx.ReadResource("aws-native:MediaConnect:FlowEntitlement", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediaconnect:FlowEntitlement", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

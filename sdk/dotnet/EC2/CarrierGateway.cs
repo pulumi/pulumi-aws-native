@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:CarrierGateway")]
+    [AwsNativeResourceType("aws-native:ec2:CarrierGateway")]
     public partial class CarrierGateway : Pulumi.CustomResource
     {
         [Output("carrierGatewayId")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CarrierGateway(string name, CarrierGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:CarrierGateway", name, args ?? new CarrierGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:CarrierGateway", name, args ?? new CarrierGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CarrierGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:CarrierGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:CarrierGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

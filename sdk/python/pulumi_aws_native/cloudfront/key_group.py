@@ -92,7 +92,7 @@ class KeyGroup(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(KeyGroup, __self__).__init__(
-            'aws-native:CloudFront:KeyGroup',
+            'aws-native:cloudfront:KeyGroup',
             resource_name,
             __props__,
             opts)

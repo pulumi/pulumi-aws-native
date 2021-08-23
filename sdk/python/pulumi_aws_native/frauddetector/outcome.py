@@ -133,7 +133,7 @@ class Outcome(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(Outcome, __self__).__init__(
-            'aws-native:FraudDetector:Outcome',
+            'aws-native:frauddetector:Outcome',
             resource_name,
             __props__,
             opts)

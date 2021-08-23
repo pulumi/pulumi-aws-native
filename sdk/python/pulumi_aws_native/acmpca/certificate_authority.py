@@ -237,7 +237,7 @@ class CertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_signing_request"] = None
         super(CertificateAuthority, __self__).__init__(
-            'aws-native:ACMPCA:CertificateAuthority',
+            'aws-native:acmpca:CertificateAuthority',
             resource_name,
             __props__,
             opts)

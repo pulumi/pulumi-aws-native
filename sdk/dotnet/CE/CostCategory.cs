@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CE
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CE:CostCategory")]
+    [AwsNativeResourceType("aws-native:ce:CostCategory")]
     public partial class CostCategory : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.CE
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CostCategory(string name, CostCategoryArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CE:CostCategory", name, args ?? new CostCategoryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ce:CostCategory", name, args ?? new CostCategoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CostCategory(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CE:CostCategory", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ce:CostCategory", name, null, MakeResourceOptions(options, id))
         {
         }
 

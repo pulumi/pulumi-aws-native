@@ -21,7 +21,7 @@ export class Grant extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:LicenseManager:Grant';
+    public static readonly __pulumiType = 'aws-native:licensemanager:Grant';
 
     /**
      * Returns true if the given object is an instance of Grant.  This is designed to work even

@@ -22,7 +22,7 @@ export class FlowOutput extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaConnect:FlowOutput';
+    public static readonly __pulumiType = 'aws-native:mediaconnect:FlowOutput';
 
     /**
      * Returns true if the given object is an instance of FlowOutput.  This is designed to work even
@@ -50,7 +50,7 @@ export class FlowOutput extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
      */
-    public readonly encryption!: pulumi.Output<outputs.MediaConnect.FlowOutputEncryption | undefined>;
+    public readonly encryption!: pulumi.Output<outputs.mediaconnect.FlowOutputEncryption | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
      */
@@ -87,7 +87,7 @@ export class FlowOutput extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
      */
-    public readonly vpcInterfaceAttachment!: pulumi.Output<outputs.MediaConnect.FlowOutputVpcInterfaceAttachment | undefined>;
+    public readonly vpcInterfaceAttachment!: pulumi.Output<outputs.mediaconnect.FlowOutputVpcInterfaceAttachment | undefined>;
 
     /**
      * Create a FlowOutput resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export interface FlowOutputArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
      */
-    encryption?: pulumi.Input<inputs.MediaConnect.FlowOutputEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.mediaconnect.FlowOutputEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
      */
@@ -198,5 +198,5 @@ export interface FlowOutputArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
      */
-    vpcInterfaceAttachment?: pulumi.Input<inputs.MediaConnect.FlowOutputVpcInterfaceAttachmentArgs>;
+    vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowOutputVpcInterfaceAttachmentArgs>;
 }

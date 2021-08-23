@@ -40,7 +40,7 @@ func NewProfilingGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProfilingGroupName'")
 	}
 	var resource ProfilingGroup
-	err := ctx.RegisterResource("aws-native:CodeGuruProfiler:ProfilingGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:codeguruprofiler:ProfilingGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewProfilingGroup(ctx *pulumi.Context,
 func GetProfilingGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProfilingGroupState, opts ...pulumi.ResourceOption) (*ProfilingGroup, error) {
 	var resource ProfilingGroup
-	err := ctx.ReadResource("aws-native:CodeGuruProfiler:ProfilingGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:codeguruprofiler:ProfilingGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

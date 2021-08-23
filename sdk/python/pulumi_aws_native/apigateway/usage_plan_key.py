@@ -131,7 +131,7 @@ class UsagePlanKey(pulumi.CustomResource):
             __props__.__dict__["usage_plan_id"] = usage_plan_id
             __props__.__dict__["id"] = None
         super(UsagePlanKey, __self__).__init__(
-            'aws-native:ApiGateway:UsagePlanKey',
+            'aws-native:apigateway:UsagePlanKey',
             resource_name,
             __props__,
             opts)

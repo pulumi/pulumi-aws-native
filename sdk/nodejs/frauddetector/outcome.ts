@@ -22,7 +22,7 @@ export class Outcome extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FraudDetector:Outcome';
+    public static readonly __pulumiType = 'aws-native:frauddetector:Outcome';
 
     /**
      * Returns true if the given object is an instance of Outcome.  This is designed to work even

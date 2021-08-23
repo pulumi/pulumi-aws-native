@@ -109,7 +109,7 @@ class Session(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = None
             __props__.__dict__["service_role"] = None
         super(Session, __self__).__init__(
-            'aws-native:Macie:Session',
+            'aws-native:macie:Session',
             resource_name,
             __props__,
             opts)

@@ -22,7 +22,7 @@ export class Config extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GroundStation:Config';
+    public static readonly __pulumiType = 'aws-native:groundstation:Config';
 
     /**
      * Returns true if the given object is an instance of Config.  This is designed to work even
@@ -39,7 +39,7 @@ export class Config extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
      */
-    public readonly configData!: pulumi.Output<outputs.GroundStation.ConfigConfigData>;
+    public readonly configData!: pulumi.Output<outputs.groundstation.ConfigConfigData>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
@@ -96,7 +96,7 @@ export interface ConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
      */
-    configData: pulumi.Input<inputs.GroundStation.ConfigConfigDataArgs>;
+    configData: pulumi.Input<inputs.groundstation.ConfigConfigDataArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
      */

@@ -191,7 +191,7 @@ class ApiDestination(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
         super(ApiDestination, __self__).__init__(
-            'aws-native:Events:ApiDestination',
+            'aws-native:events:ApiDestination',
             resource_name,
             __props__,
             opts)

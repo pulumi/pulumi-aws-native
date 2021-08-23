@@ -44,7 +44,7 @@ func NewCostCategory(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	var resource CostCategory
-	err := ctx.RegisterResource("aws-native:CE:CostCategory", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ce:CostCategory", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewCostCategory(ctx *pulumi.Context,
 func GetCostCategory(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CostCategoryState, opts ...pulumi.ResourceOption) (*CostCategory, error) {
 	var resource CostCategory
-	err := ctx.ReadResource("aws-native:CE:CostCategory", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ce:CostCategory", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

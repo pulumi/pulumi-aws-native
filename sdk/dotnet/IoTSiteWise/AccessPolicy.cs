@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:AccessPolicy")]
+    [AwsNativeResourceType("aws-native:iotsitewise:AccessPolicy")]
     public partial class AccessPolicy : Pulumi.CustomResource
     {
         [Output("accessPolicyArn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPolicy(string name, AccessPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:AccessPolicy", name, args ?? new AccessPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:AccessPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:AccessPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

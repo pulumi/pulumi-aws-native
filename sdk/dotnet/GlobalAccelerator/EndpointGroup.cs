@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GlobalAccelerator:EndpointGroup")]
+    [AwsNativeResourceType("aws-native:globalaccelerator:EndpointGroup")]
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EndpointGroup(string name, EndpointGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:EndpointGroup", name, args ?? new EndpointGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:globalaccelerator:EndpointGroup", name, args ?? new EndpointGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EndpointGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:EndpointGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:globalaccelerator:EndpointGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

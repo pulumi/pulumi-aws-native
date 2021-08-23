@@ -141,7 +141,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
         super(FirewallRuleGroup, __self__).__init__(
-            'aws-native:Route53Resolver:FirewallRuleGroup',
+            'aws-native:route53resolver:FirewallRuleGroup',
             resource_name,
             __props__,
             opts)

@@ -22,7 +22,7 @@ export class Faq extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Kendra:Faq';
+    public static readonly __pulumiType = 'aws-native:kendra:Faq';
 
     /**
      * Returns true if the given object is an instance of Faq.  This is designed to work even
@@ -60,7 +60,7 @@ export class Faq extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
      */
-    public readonly s3Path!: pulumi.Output<outputs.Kendra.FaqS3Path>;
+    public readonly s3Path!: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */
@@ -143,7 +143,7 @@ export interface FaqArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-s3path
      */
-    s3Path: pulumi.Input<inputs.Kendra.FaqS3PathArgs>;
+    s3Path: pulumi.Input<inputs.kendra.FaqS3PathArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html#cfn-kendra-faq-tags
      */

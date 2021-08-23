@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSMIncidents
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSMIncidents:ReplicationSet")]
+    [AwsNativeResourceType("aws-native:ssmincidents:ReplicationSet")]
     public partial class ReplicationSet : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationSet(string name, ReplicationSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSMIncidents:ReplicationSet", name, args ?? new ReplicationSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssmincidents:ReplicationSet", name, args ?? new ReplicationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSMIncidents:ReplicationSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssmincidents:ReplicationSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

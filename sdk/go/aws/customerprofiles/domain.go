@@ -41,7 +41,7 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
 	var resource Domain
-	err := ctx.RegisterResource("aws-native:CustomerProfiles:Domain", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:customerprofiles:Domain", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewDomain(ctx *pulumi.Context,
 func GetDomain(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainState, opts ...pulumi.ResourceOption) (*Domain, error) {
 	var resource Domain
-	err := ctx.ReadResource("aws-native:CustomerProfiles:Domain", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:customerprofiles:Domain", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

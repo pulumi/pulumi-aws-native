@@ -52,7 +52,7 @@ func NewTheme(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ThemeId'")
 	}
 	var resource Theme
-	err := ctx.RegisterResource("aws-native:QuickSight:Theme", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:quicksight:Theme", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -64,7 +64,7 @@ func NewTheme(ctx *pulumi.Context,
 func GetTheme(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ThemeState, opts ...pulumi.ResourceOption) (*Theme, error) {
 	var resource Theme
-	err := ctx.ReadResource("aws-native:QuickSight:Theme", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:quicksight:Theme", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

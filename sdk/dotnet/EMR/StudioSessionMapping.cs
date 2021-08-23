@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EMR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EMR:StudioSessionMapping")]
+    [AwsNativeResourceType("aws-native:emr:StudioSessionMapping")]
     public partial class StudioSessionMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.EMR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StudioSessionMapping(string name, StudioSessionMappingArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EMR:StudioSessionMapping", name, args ?? new StudioSessionMappingArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:emr:StudioSessionMapping", name, args ?? new StudioSessionMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StudioSessionMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EMR:StudioSessionMapping", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:emr:StudioSessionMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -450,7 +450,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["fleet_id"] = None
         super(Fleet, __self__).__init__(
-            'aws-native:GameLift:Fleet',
+            'aws-native:gamelift:Fleet',
             resource_name,
             __props__,
             opts)

@@ -153,7 +153,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_id"] = None
         super(Project, __self__).__init__(
-            'aws-native:IoTSiteWise:Project',
+            'aws-native:iotsitewise:Project',
             resource_name,
             __props__,
             opts)

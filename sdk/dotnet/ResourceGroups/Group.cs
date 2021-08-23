@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ResourceGroups
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ResourceGroups:Group")]
+    [AwsNativeResourceType("aws-native:resourcegroups:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ResourceGroups:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:resourcegroups:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Group(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ResourceGroups:Group", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:resourcegroups:Group", name, null, MakeResourceOptions(options, id))
         {
         }
 

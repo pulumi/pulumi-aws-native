@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:AutoScaling:WarmPool":
+            case "aws-native:autoscaling:WarmPool":
                 return new WarmPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "AutoScaling", _module)
+pulumi.runtime.registerResourceModule("aws-native", "autoscaling", _module)

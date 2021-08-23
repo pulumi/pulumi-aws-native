@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaPackage:PackagingGroup")]
+    [AwsNativeResourceType("aws-native:mediapackage:PackagingGroup")]
     public partial class PackagingGroup : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PackagingGroup(string name, PackagingGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediapackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PackagingGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:PackagingGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediapackage:PackagingGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

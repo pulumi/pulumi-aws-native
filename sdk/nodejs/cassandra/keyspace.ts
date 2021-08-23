@@ -22,7 +22,7 @@ export class Keyspace extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Cassandra:Keyspace';
+    public static readonly __pulumiType = 'aws-native:cassandra:Keyspace';
 
     /**
      * Returns true if the given object is an instance of Keyspace.  This is designed to work even

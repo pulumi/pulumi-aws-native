@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:KMS:Alias":
+	case "aws-native:kms:Alias":
 		r = &Alias{}
-	case "aws-native:KMS:Key":
+	case "aws-native:kms:Key":
 		r = &Key{}
-	case "aws-native:KMS:ReplicaKey":
+	case "aws-native:kms:ReplicaKey":
 		r = &ReplicaKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"KMS",
+		"kms",
 		&module{version},
 	)
 }

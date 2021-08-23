@@ -22,7 +22,7 @@ export class BackupVault extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Backup:BackupVault';
+    public static readonly __pulumiType = 'aws-native:backup:BackupVault';
 
     /**
      * Returns true if the given object is an instance of BackupVault.  This is designed to work even
@@ -52,7 +52,7 @@ export class BackupVault extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    public readonly notifications!: pulumi.Output<outputs.Backup.BackupVaultNotificationObjectType | undefined>;
+    public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
      * Create a BackupVault resource with the given unique name, arguments, and options.
@@ -112,5 +112,5 @@ export interface BackupVaultArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
      */
-    notifications?: pulumi.Input<inputs.Backup.BackupVaultNotificationObjectTypeArgs>;
+    notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:Dashboard")]
+    [AwsNativeResourceType("aws-native:iotsitewise:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
         [Output("dashboardArn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dashboard(string name, DashboardArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:Dashboard", name, args ?? new DashboardArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dashboard(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Dashboard", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:Dashboard", name, null, MakeResourceOptions(options, id))
         {
         }
 

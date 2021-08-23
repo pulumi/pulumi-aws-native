@@ -62,7 +62,7 @@ func NewOriginEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Id'")
 	}
 	var resource OriginEndpoint
-	err := ctx.RegisterResource("aws-native:MediaPackage:OriginEndpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediapackage:OriginEndpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -74,7 +74,7 @@ func NewOriginEndpoint(ctx *pulumi.Context,
 func GetOriginEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OriginEndpointState, opts ...pulumi.ResourceOption) (*OriginEndpoint, error) {
 	var resource OriginEndpoint
-	err := ctx.ReadResource("aws-native:MediaPackage:OriginEndpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediapackage:OriginEndpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:TaskDefinition';
+    public static readonly __pulumiType = 'aws-native:iotwireless:TaskDefinition';
 
     /**
      * Returns true if the given object is an instance of TaskDefinition.  This is designed to work even
@@ -44,7 +44,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
      */
-    public readonly loRaWANUpdateGatewayTaskEntry!: pulumi.Output<outputs.IoTWireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
+    public readonly loRaWANUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
      */
@@ -60,7 +60,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
      */
-    public readonly update!: pulumi.Output<outputs.IoTWireless.TaskDefinitionUpdateWirelessGatewayTaskCreate | undefined>;
+    public readonly update!: pulumi.Output<outputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreate | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
      */
-    loRaWANUpdateGatewayTaskEntry?: pulumi.Input<inputs.IoTWireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
+    loRaWANUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
      */
@@ -128,5 +128,5 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
      */
-    update?: pulumi.Input<inputs.IoTWireless.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs>;
+    update?: pulumi.Input<inputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs>;
 }

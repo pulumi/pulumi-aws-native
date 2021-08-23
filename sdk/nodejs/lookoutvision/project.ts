@@ -21,7 +21,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:LookoutVision:Project';
+    public static readonly __pulumiType = 'aws-native:lookoutvision:Project';
 
     /**
      * Returns true if the given object is an instance of Project.  This is designed to work even

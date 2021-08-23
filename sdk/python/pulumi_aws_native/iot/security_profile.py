@@ -212,7 +212,7 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["target_arns"] = target_arns
             __props__.__dict__["security_profile_arn"] = None
         super(SecurityProfile, __self__).__init__(
-            'aws-native:IoT:SecurityProfile',
+            'aws-native:iot:SecurityProfile',
             resource_name,
             __props__,
             opts)

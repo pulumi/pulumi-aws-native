@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Connect:QuickConnect":
+            case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Connect", _module)
+pulumi.runtime.registerResourceModule("aws-native", "connect", _module)

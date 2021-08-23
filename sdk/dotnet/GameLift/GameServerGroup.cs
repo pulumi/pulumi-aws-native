@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GameLift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GameLift:GameServerGroup")]
+    [AwsNativeResourceType("aws-native:gamelift:GameServerGroup")]
     public partial class GameServerGroup : Pulumi.CustomResource
     {
         [Output("autoScalingGroupArn")]
@@ -102,12 +102,12 @@ namespace Pulumi.AwsNative.GameLift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GameServerGroup(string name, GameServerGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GameLift:GameServerGroup", name, args ?? new GameServerGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:gamelift:GameServerGroup", name, args ?? new GameServerGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GameServerGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GameLift:GameServerGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:gamelift:GameServerGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

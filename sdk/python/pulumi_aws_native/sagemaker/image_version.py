@@ -113,7 +113,7 @@ class ImageVersion(pulumi.CustomResource):
             __props__.__dict__["image_version_arn"] = None
             __props__.__dict__["version"] = None
         super(ImageVersion, __self__).__init__(
-            'aws-native:SageMaker:ImageVersion',
+            'aws-native:sagemaker:ImageVersion',
             resource_name,
             __props__,
             opts)

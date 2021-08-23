@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeStarConnections
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CodeStarConnections:Connection")]
+    [AwsNativeResourceType("aws-native:codestarconnections:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         [Output("connectionArn")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CodeStarConnections:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:codestarconnections:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CodeStarConnections:Connection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:codestarconnections:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 

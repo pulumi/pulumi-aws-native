@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Cassandra:Keyspace":
+            case "aws-native:cassandra:Keyspace":
                 return new Keyspace(name, <any>undefined, { urn })
-            case "aws-native:Cassandra:Table":
+            case "aws-native:cassandra:Table":
                 return new Table(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Cassandra", _module)
+pulumi.runtime.registerResourceModule("aws-native", "cassandra", _module)

@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IVS:Channel":
+            case "aws-native:ivs:Channel":
                 return new Channel(name, <any>undefined, { urn })
-            case "aws-native:IVS:PlaybackKeyPair":
+            case "aws-native:ivs:PlaybackKeyPair":
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
-            case "aws-native:IVS:RecordingConfiguration":
+            case "aws-native:ivs:RecordingConfiguration":
                 return new RecordingConfiguration(name, <any>undefined, { urn })
-            case "aws-native:IVS:StreamKey":
+            case "aws-native:ivs:StreamKey":
                 return new StreamKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IVS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ivs", _module)

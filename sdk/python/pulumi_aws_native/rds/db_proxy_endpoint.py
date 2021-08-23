@@ -196,7 +196,7 @@ class DBProxyEndpoint(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["vpc_id"] = None
         super(DBProxyEndpoint, __self__).__init__(
-            'aws-native:RDS:DBProxyEndpoint',
+            'aws-native:rds:DBProxyEndpoint',
             resource_name,
             __props__,
             opts)

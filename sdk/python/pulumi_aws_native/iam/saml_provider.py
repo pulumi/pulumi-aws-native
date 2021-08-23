@@ -131,7 +131,7 @@ class SAMLProvider(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(SAMLProvider, __self__).__init__(
-            'aws-native:IAM:SAMLProvider',
+            'aws-native:iam:SAMLProvider',
             resource_name,
             __props__,
             opts)

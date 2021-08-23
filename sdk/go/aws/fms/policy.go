@@ -64,7 +64,7 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SecurityServicePolicyData'")
 	}
 	var resource Policy
-	err := ctx.RegisterResource("aws-native:FMS:Policy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:fms:Policy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func NewPolicy(ctx *pulumi.Context,
 func GetPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PolicyState, opts ...pulumi.ResourceOption) (*Policy, error) {
 	var resource Policy
-	err := ctx.ReadResource("aws-native:FMS:Policy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:fms:Policy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

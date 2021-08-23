@@ -132,7 +132,7 @@ class ComponentVersion(pulumi.CustomResource):
             __props__.__dict__["component_name"] = None
             __props__.__dict__["component_version"] = None
         super(ComponentVersion, __self__).__init__(
-            'aws-native:GreengrassV2:ComponentVersion',
+            'aws-native:greengrassv2:ComponentVersion',
             resource_name,
             __props__,
             opts)

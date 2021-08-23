@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IoTWireless:Destination":
+	case "aws-native:iotwireless:Destination":
 		r = &Destination{}
-	case "aws-native:IoTWireless:DeviceProfile":
+	case "aws-native:iotwireless:DeviceProfile":
 		r = &DeviceProfile{}
-	case "aws-native:IoTWireless:ServiceProfile":
+	case "aws-native:iotwireless:ServiceProfile":
 		r = &ServiceProfile{}
-	case "aws-native:IoTWireless:TaskDefinition":
+	case "aws-native:iotwireless:TaskDefinition":
 		r = &TaskDefinition{}
-	case "aws-native:IoTWireless:WirelessDevice":
+	case "aws-native:iotwireless:WirelessDevice":
 		r = &WirelessDevice{}
-	case "aws-native:IoTWireless:WirelessGateway":
+	case "aws-native:iotwireless:WirelessGateway":
 		r = &WirelessGateway{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IoTWireless",
+		"iotwireless",
 		&module{version},
 	)
 }

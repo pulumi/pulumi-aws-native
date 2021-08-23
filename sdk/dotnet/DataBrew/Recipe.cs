@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataBrew:Recipe")]
+    [AwsNativeResourceType("aws-native:databrew:Recipe")]
     public partial class Recipe : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Recipe(string name, RecipeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataBrew:Recipe", name, args ?? new RecipeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:databrew:Recipe", name, args ?? new RecipeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Recipe(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataBrew:Recipe", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:databrew:Recipe", name, null, MakeResourceOptions(options, id))
         {
         }
 

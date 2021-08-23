@@ -22,7 +22,7 @@ export class Branch extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Amplify:Branch';
+    public static readonly __pulumiType = 'aws-native:amplify:Branch';
 
     /**
      * Returns true if the given object is an instance of Branch.  This is designed to work even
@@ -43,7 +43,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
      */
-    public readonly basicAuthConfig!: pulumi.Output<outputs.Amplify.BranchBasicAuthConfig | undefined>;
+    public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.BranchBasicAuthConfig | undefined>;
     public readonly branchName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
@@ -68,7 +68,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.Amplify.BranchEnvironmentVariable[] | undefined>;
+    public readonly environmentVariables!: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
      */
@@ -145,7 +145,7 @@ export interface BranchArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
      */
-    basicAuthConfig?: pulumi.Input<inputs.Amplify.BranchBasicAuthConfigArgs>;
+    basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
      */
@@ -173,7 +173,7 @@ export interface BranchArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.Amplify.BranchEnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
      */

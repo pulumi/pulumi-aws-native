@@ -58,7 +58,7 @@ func NewFlowOutput(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
 	var resource FlowOutput
-	err := ctx.RegisterResource("aws-native:MediaConnect:FlowOutput", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediaconnect:FlowOutput", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewFlowOutput(ctx *pulumi.Context,
 func GetFlowOutput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowOutputState, opts ...pulumi.ResourceOption) (*FlowOutput, error) {
 	var resource FlowOutput
-	err := ctx.ReadResource("aws-native:MediaConnect:FlowOutput", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediaconnect:FlowOutput", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

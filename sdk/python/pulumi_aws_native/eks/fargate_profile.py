@@ -195,7 +195,7 @@ class FargateProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(FargateProfile, __self__).__init__(
-            'aws-native:EKS:FargateProfile',
+            'aws-native:eks:FargateProfile',
             resource_name,
             __props__,
             opts)

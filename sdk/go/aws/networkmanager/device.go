@@ -49,7 +49,7 @@ func NewDevice(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
 	var resource Device
-	err := ctx.RegisterResource("aws-native:NetworkManager:Device", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:Device", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewDevice(ctx *pulumi.Context,
 func GetDevice(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceState, opts ...pulumi.ResourceOption) (*Device, error) {
 	var resource Device
-	err := ctx.ReadResource("aws-native:NetworkManager:Device", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:Device", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

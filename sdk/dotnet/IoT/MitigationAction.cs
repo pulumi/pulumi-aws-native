@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:MitigationAction")]
+    [AwsNativeResourceType("aws-native:iot:MitigationAction")]
     public partial class MitigationAction : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MitigationAction(string name, MitigationActionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:MitigationAction", name, args ?? new MitigationActionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:MitigationAction", name, args ?? new MitigationActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MitigationAction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:MitigationAction", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:MitigationAction", name, null, MakeResourceOptions(options, id))
         {
         }
 

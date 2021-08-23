@@ -36,7 +36,7 @@ func NewControlPanel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ControlPanel
-	err := ctx.RegisterResource("aws-native:Route53RecoveryControl:ControlPanel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoverycontrol:ControlPanel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewControlPanel(ctx *pulumi.Context,
 func GetControlPanel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ControlPanelState, opts ...pulumi.ResourceOption) (*ControlPanel, error) {
 	var resource ControlPanel
-	err := ctx.ReadResource("aws-native:Route53RecoveryControl:ControlPanel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoverycontrol:ControlPanel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

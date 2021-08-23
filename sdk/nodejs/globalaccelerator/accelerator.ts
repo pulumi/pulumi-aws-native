@@ -22,7 +22,7 @@ export class Accelerator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GlobalAccelerator:Accelerator';
+    public static readonly __pulumiType = 'aws-native:globalaccelerator:Accelerator';
 
     /**
      * Returns true if the given object is an instance of Accelerator.  This is designed to work even

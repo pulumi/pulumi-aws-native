@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:GroundStation:Config":
+	case "aws-native:groundstation:Config":
 		r = &Config{}
-	case "aws-native:GroundStation:DataflowEndpointGroup":
+	case "aws-native:groundstation:DataflowEndpointGroup":
 		r = &DataflowEndpointGroup{}
-	case "aws-native:GroundStation:MissionProfile":
+	case "aws-native:groundstation:MissionProfile":
 		r = &MissionProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"GroundStation",
+		"groundstation",
 		&module{version},
 	)
 }

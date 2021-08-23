@@ -174,7 +174,7 @@ class SafetyRule(pulumi.CustomResource):
             __props__.__dict__["safety_rule_arn"] = None
             __props__.__dict__["status"] = None
         super(SafetyRule, __self__).__init__(
-            'aws-native:Route53RecoveryControl:SafetyRule',
+            'aws-native:route53recoverycontrol:SafetyRule',
             resource_name,
             __props__,
             opts)

@@ -129,7 +129,7 @@ class DocumentationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
         super(DocumentationVersion, __self__).__init__(
-            'aws-native:ApiGateway:DocumentationVersion',
+            'aws-native:apigateway:DocumentationVersion',
             resource_name,
             __props__,
             opts)

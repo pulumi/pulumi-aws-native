@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:S3Outposts:AccessPoint":
+            case "aws-native:s3outposts:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "aws-native:S3Outposts:Bucket":
+            case "aws-native:s3outposts:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
-            case "aws-native:S3Outposts:BucketPolicy":
+            case "aws-native:s3outposts:BucketPolicy":
                 return new BucketPolicy(name, <any>undefined, { urn })
-            case "aws-native:S3Outposts:Endpoint":
+            case "aws-native:s3outposts:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "S3Outposts", _module)
+pulumi.runtime.registerResourceModule("aws-native", "s3outposts", _module)

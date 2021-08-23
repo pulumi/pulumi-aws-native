@@ -38,7 +38,7 @@ func NewEntityType(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource EntityType
-	err := ctx.RegisterResource("aws-native:FraudDetector:EntityType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:EntityType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewEntityType(ctx *pulumi.Context,
 func GetEntityType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EntityTypeState, opts ...pulumi.ResourceOption) (*EntityType, error) {
 	var resource EntityType
-	err := ctx.ReadResource("aws-native:FraudDetector:EntityType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:EntityType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

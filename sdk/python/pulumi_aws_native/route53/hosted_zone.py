@@ -172,7 +172,7 @@ class HostedZone(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["name_servers"] = None
         super(HostedZone, __self__).__init__(
-            'aws-native:Route53:HostedZone',
+            'aws-native:route53:HostedZone',
             resource_name,
             __props__,
             opts)

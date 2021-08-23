@@ -22,7 +22,7 @@ export class Variable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FraudDetector:Variable';
+    public static readonly __pulumiType = 'aws-native:frauddetector:Variable';
 
     /**
      * Returns true if the given object is an instance of Variable.  This is designed to work even

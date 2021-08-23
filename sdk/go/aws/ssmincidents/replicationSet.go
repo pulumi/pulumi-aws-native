@@ -33,7 +33,7 @@ func NewReplicationSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Regions'")
 	}
 	var resource ReplicationSet
-	err := ctx.RegisterResource("aws-native:SSMIncidents:ReplicationSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssmincidents:ReplicationSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewReplicationSet(ctx *pulumi.Context,
 func GetReplicationSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationSetState, opts ...pulumi.ResourceOption) (*ReplicationSet, error) {
 	var resource ReplicationSet
-	err := ctx.ReadResource("aws-native:SSMIncidents:ReplicationSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssmincidents:ReplicationSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

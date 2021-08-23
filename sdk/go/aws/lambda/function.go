@@ -73,7 +73,7 @@ func NewFunction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	var resource Function
-	err := ctx.RegisterResource("aws-native:Lambda:Function", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:lambda:Function", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func NewFunction(ctx *pulumi.Context,
 func GetFunction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FunctionState, opts ...pulumi.ResourceOption) (*Function, error) {
 	var resource Function
-	err := ctx.ReadResource("aws-native:Lambda:Function", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:lambda:Function", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

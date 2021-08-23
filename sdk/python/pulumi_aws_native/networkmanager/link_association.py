@@ -130,7 +130,7 @@ class LinkAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'link_id'")
             __props__.__dict__["link_id"] = link_id
         super(LinkAssociation, __self__).__init__(
-            'aws-native:NetworkManager:LinkAssociation',
+            'aws-native:networkmanager:LinkAssociation',
             resource_name,
             __props__,
             opts)

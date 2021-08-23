@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Synthetics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Synthetics:Canary")]
+    [AwsNativeResourceType("aws-native:synthetics:Canary")]
     public partial class Canary : Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Canary(string name, CanaryArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Synthetics:Canary", name, args ?? new CanaryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:synthetics:Canary", name, args ?? new CanaryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Canary(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Synthetics:Canary", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:synthetics:Canary", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -133,7 +133,7 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["topic_rule_payload"] = topic_rule_payload
             __props__.__dict__["arn"] = None
         super(TopicRule, __self__).__init__(
-            'aws-native:IoT:TopicRule',
+            'aws-native:iot:TopicRule',
             resource_name,
             __props__,
             opts)

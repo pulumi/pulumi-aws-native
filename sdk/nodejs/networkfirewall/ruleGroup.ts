@@ -22,7 +22,7 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkFirewall:RuleGroup';
+    public static readonly __pulumiType = 'aws-native:networkfirewall:RuleGroup';
 
     /**
      * Returns true if the given object is an instance of RuleGroup.  This is designed to work even
@@ -46,7 +46,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    public readonly ruleGroup!: pulumi.Output<outputs.NetworkFirewall.RuleGroupRuleGroup | undefined>;
+    public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup | undefined>;
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
      */
-    ruleGroup?: pulumi.Input<inputs.NetworkFirewall.RuleGroupRuleGroupArgs>;
+    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
      */

@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:SSMIncidents:ReplicationSet":
+	case "aws-native:ssmincidents:ReplicationSet":
 		r = &ReplicationSet{}
-	case "aws-native:SSMIncidents:ResponsePlan":
+	case "aws-native:ssmincidents:ResponsePlan":
 		r = &ResponsePlan{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"SSMIncidents",
+		"ssmincidents",
 		&module{version},
 	)
 }

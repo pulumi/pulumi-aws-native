@@ -22,7 +22,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ImageBuilder:ContainerRecipe';
+    public static readonly __pulumiType = 'aws-native:imagebuilder:ContainerRecipe';
 
     /**
      * Returns true if the given object is an instance of ContainerRecipe.  This is designed to work even
@@ -39,7 +39,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
      */
-    public readonly components!: pulumi.Output<outputs.ImageBuilder.ContainerRecipeComponentConfiguration[]>;
+    public readonly components!: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponentConfiguration[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
      */
@@ -63,7 +63,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
      */
-    public readonly instanceConfiguration!: pulumi.Output<outputs.ImageBuilder.ContainerRecipeInstanceConfiguration | undefined>;
+    public readonly instanceConfiguration!: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
      */
@@ -84,7 +84,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
      */
-    public readonly targetRepository!: pulumi.Output<outputs.ImageBuilder.ContainerRecipeTargetContainerRepository>;
+    public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetContainerRepository>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
      */
@@ -171,7 +171,7 @@ export interface ContainerRecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
      */
-    components: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ContainerRecipeComponentConfigurationArgs>[]>;
+    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
      */
@@ -195,7 +195,7 @@ export interface ContainerRecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
      */
-    instanceConfiguration?: pulumi.Input<inputs.ImageBuilder.ContainerRecipeInstanceConfigurationArgs>;
+    instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
      */
@@ -219,7 +219,7 @@ export interface ContainerRecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
      */
-    targetRepository: pulumi.Input<inputs.ImageBuilder.ContainerRecipeTargetContainerRepositoryArgs>;
+    targetRepository: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetContainerRepositoryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
      */

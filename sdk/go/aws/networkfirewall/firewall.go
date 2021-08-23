@@ -59,7 +59,7 @@ func NewFirewall(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource Firewall
-	err := ctx.RegisterResource("aws-native:NetworkFirewall:Firewall", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkfirewall:Firewall", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func NewFirewall(ctx *pulumi.Context,
 func GetFirewall(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallState, opts ...pulumi.ResourceOption) (*Firewall, error) {
 	var resource Firewall
-	err := ctx.ReadResource("aws-native:NetworkFirewall:Firewall", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkfirewall:Firewall", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

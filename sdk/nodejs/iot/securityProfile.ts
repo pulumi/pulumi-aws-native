@@ -22,7 +22,7 @@ export class SecurityProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:SecurityProfile';
+    public static readonly __pulumiType = 'aws-native:iot:SecurityProfile';
 
     /**
      * Returns true if the given object is an instance of SecurityProfile.  This is designed to work even
@@ -38,15 +38,15 @@ export class SecurityProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
      */
-    public readonly additionalMetricsToRetainV2!: pulumi.Output<outputs.IoT.SecurityProfileMetricToRetain[] | undefined>;
+    public readonly additionalMetricsToRetainV2!: pulumi.Output<outputs.iot.SecurityProfileMetricToRetain[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
      */
-    public readonly alertTargets!: pulumi.Output<{[key: string]: outputs.IoT.SecurityProfileAlertTarget} | undefined>;
+    public readonly alertTargets!: pulumi.Output<{[key: string]: outputs.iot.SecurityProfileAlertTarget} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
      */
-    public readonly behaviors!: pulumi.Output<outputs.IoT.SecurityProfileBehavior[] | undefined>;
+    public readonly behaviors!: pulumi.Output<outputs.iot.SecurityProfileBehavior[] | undefined>;
     public /*out*/ readonly securityProfileArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
@@ -108,15 +108,15 @@ export interface SecurityProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
      */
-    additionalMetricsToRetainV2?: pulumi.Input<pulumi.Input<inputs.IoT.SecurityProfileMetricToRetainArgs>[]>;
+    additionalMetricsToRetainV2?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileMetricToRetainArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
      */
-    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.IoT.SecurityProfileAlertTargetArgs>}>;
+    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iot.SecurityProfileAlertTargetArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
      */
-    behaviors?: pulumi.Input<pulumi.Input<inputs.IoT.SecurityProfileBehaviorArgs>[]>;
+    behaviors?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileBehaviorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
      */

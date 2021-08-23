@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataSync:Agent")]
+    [AwsNativeResourceType("aws-native:datasync:Agent")]
     public partial class Agent : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Agent(string name, AgentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:Agent", name, args ?? new AgentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:datasync:Agent", name, args ?? new AgentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Agent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:Agent", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:datasync:Agent", name, null, MakeResourceOptions(options, id))
         {
         }
 

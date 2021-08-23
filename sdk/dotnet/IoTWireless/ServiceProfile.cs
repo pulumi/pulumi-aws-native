@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTWireless:ServiceProfile")]
+    [AwsNativeResourceType("aws-native:iotwireless:ServiceProfile")]
     public partial class ServiceProfile : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -102,12 +102,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceProfile(string name, ServiceProfileArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:ServiceProfile", name, args ?? new ServiceProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotwireless:ServiceProfile", name, args ?? new ServiceProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:ServiceProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotwireless:ServiceProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

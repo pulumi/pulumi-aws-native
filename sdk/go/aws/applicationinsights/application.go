@@ -48,7 +48,7 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Application
-	err := ctx.RegisterResource("aws-native:ApplicationInsights:Application", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:applicationinsights:Application", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewApplication(ctx *pulumi.Context,
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApplicationState, opts ...pulumi.ResourceOption) (*Application, error) {
 	var resource Application
-	err := ctx.ReadResource("aws-native:ApplicationInsights:Application", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:applicationinsights:Application", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

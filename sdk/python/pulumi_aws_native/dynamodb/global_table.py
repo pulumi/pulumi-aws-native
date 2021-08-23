@@ -297,7 +297,7 @@ class GlobalTable(pulumi.CustomResource):
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["table_id"] = None
         super(GlobalTable, __self__).__init__(
-            'aws-native:DynamoDB:GlobalTable',
+            'aws-native:dynamodb:GlobalTable',
             resource_name,
             __props__,
             opts)

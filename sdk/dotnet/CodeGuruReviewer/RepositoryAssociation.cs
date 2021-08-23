@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CodeGuruReviewer:RepositoryAssociation")]
+    [AwsNativeResourceType("aws-native:codegurureviewer:RepositoryAssociation")]
     public partial class RepositoryAssociation : Pulumi.CustomResource
     {
         [Output("associationArn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RepositoryAssociation(string name, RepositoryAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CodeGuruReviewer:RepositoryAssociation", name, args ?? new RepositoryAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:codegurureviewer:RepositoryAssociation", name, args ?? new RepositoryAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RepositoryAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CodeGuruReviewer:RepositoryAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:codegurureviewer:RepositoryAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

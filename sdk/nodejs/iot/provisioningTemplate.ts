@@ -22,7 +22,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:ProvisioningTemplate';
+    public static readonly __pulumiType = 'aws-native:iot:ProvisioningTemplate';
 
     /**
      * Returns true if the given object is an instance of ProvisioningTemplate.  This is designed to work even
@@ -46,7 +46,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    public readonly preProvisioningHook!: pulumi.Output<outputs.IoT.ProvisioningTemplateProvisioningHook | undefined>;
+    public readonly preProvisioningHook!: pulumi.Output<outputs.iot.ProvisioningTemplateProvisioningHook | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */
@@ -122,7 +122,7 @@ export interface ProvisioningTemplateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
      */
-    preProvisioningHook?: pulumi.Input<inputs.IoT.ProvisioningTemplateProvisioningHookArgs>;
+    preProvisioningHook?: pulumi.Input<inputs.iot.ProvisioningTemplateProvisioningHookArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
      */

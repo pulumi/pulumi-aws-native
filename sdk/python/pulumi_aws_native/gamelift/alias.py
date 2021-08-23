@@ -132,7 +132,7 @@ class Alias(pulumi.CustomResource):
             __props__.__dict__["routing_strategy"] = routing_strategy
             __props__.__dict__["alias_id"] = None
         super(Alias, __self__).__init__(
-            'aws-native:GameLift:Alias',
+            'aws-native:gamelift:Alias',
             resource_name,
             __props__,
             opts)

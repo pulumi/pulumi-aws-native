@@ -22,7 +22,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Location:PlaceIndex';
+    public static readonly __pulumiType = 'aws-native:location:PlaceIndex';
 
     /**
      * Returns true if the given object is an instance of PlaceIndex.  This is designed to work even
@@ -44,7 +44,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.Location.PlaceIndexDataSourceConfiguration | undefined>;
+    public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
      */
@@ -118,7 +118,7 @@ export interface PlaceIndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
      */
-    dataSourceConfiguration?: pulumi.Input<inputs.Location.PlaceIndexDataSourceConfigurationArgs>;
+    dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
      */

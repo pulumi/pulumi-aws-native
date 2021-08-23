@@ -21,7 +21,7 @@ export class ResourceDefaultVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:ResourceDefaultVersion';
+    public static readonly __pulumiType = 'aws-native:cloudformation:ResourceDefaultVersion';
 
     /**
      * Returns true if the given object is an instance of ResourceDefaultVersion.  This is designed to work even

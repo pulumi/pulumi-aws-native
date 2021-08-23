@@ -33,7 +33,7 @@ func NewHealthCheck(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'HealthCheckConfig'")
 	}
 	var resource HealthCheck
-	err := ctx.RegisterResource("aws-native:Route53:HealthCheck", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53:HealthCheck", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewHealthCheck(ctx *pulumi.Context,
 func GetHealthCheck(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HealthCheckState, opts ...pulumi.ResourceOption) (*HealthCheck, error) {
 	var resource HealthCheck
-	err := ctx.ReadResource("aws-native:Route53:HealthCheck", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53:HealthCheck", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -44,7 +44,7 @@ func NewLocationS3(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'S3Config'")
 	}
 	var resource LocationS3
-	err := ctx.RegisterResource("aws-native:DataSync:LocationS3", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationS3", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewLocationS3(ctx *pulumi.Context,
 func GetLocationS3(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationS3State, opts ...pulumi.ResourceOption) (*LocationS3, error) {
 	var resource LocationS3
-	err := ctx.ReadResource("aws-native:DataSync:LocationS3", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationS3", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -46,7 +46,7 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SamplingRate'")
 	}
 	var resource RealtimeLogConfig
-	err := ctx.RegisterResource("aws-native:CloudFront:RealtimeLogConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:RealtimeLogConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 func GetRealtimeLogConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RealtimeLogConfigState, opts ...pulumi.ResourceOption) (*RealtimeLogConfig, error) {
 	var resource RealtimeLogConfig
-	err := ctx.ReadResource("aws-native:CloudFront:RealtimeLogConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:RealtimeLogConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

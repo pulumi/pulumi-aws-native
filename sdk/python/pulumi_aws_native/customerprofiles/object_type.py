@@ -274,7 +274,7 @@ class ObjectType(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
         super(ObjectType, __self__).__init__(
-            'aws-native:CustomerProfiles:ObjectType',
+            'aws-native:customerprofiles:ObjectType',
             resource_name,
             __props__,
             opts)

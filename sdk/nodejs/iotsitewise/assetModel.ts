@@ -22,7 +22,7 @@ export class AssetModel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTSiteWise:AssetModel';
+    public static readonly __pulumiType = 'aws-native:iotsitewise:AssetModel';
 
     /**
      * Returns true if the given object is an instance of AssetModel.  This is designed to work even
@@ -39,7 +39,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
      */
-    public readonly assetModelCompositeModels!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelCompositeModel[] | undefined>;
+    public readonly assetModelCompositeModels!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelCompositeModel[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */
@@ -47,7 +47,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
      */
-    public readonly assetModelHierarchies!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelHierarchy[] | undefined>;
+    public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelHierarchy[] | undefined>;
     public /*out*/ readonly assetModelId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
@@ -56,7 +56,7 @@ export class AssetModel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
      */
-    public readonly assetModelProperties!: pulumi.Output<outputs.IoTSiteWise.AssetModelAssetModelProperty[] | undefined>;
+    public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelProperty[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
      */
@@ -108,7 +108,7 @@ export interface AssetModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
      */
-    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelCompositeModelArgs>[]>;
+    assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelCompositeModelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
      */
@@ -116,7 +116,7 @@ export interface AssetModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
      */
-    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelHierarchyArgs>[]>;
+    assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelHierarchyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
      */
@@ -124,7 +124,7 @@ export interface AssetModelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
      */
-    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetModelAssetModelPropertyArgs>[]>;
+    assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelPropertyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
      */

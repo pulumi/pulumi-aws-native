@@ -310,7 +310,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
             __props__.__dict__["id"] = None
         super(TransitGateway, __self__).__init__(
-            'aws-native:EC2:TransitGateway',
+            'aws-native:ec2:TransitGateway',
             resource_name,
             __props__,
             opts)

@@ -44,7 +44,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AuthorizerFunctionArn'")
 	}
 	var resource Authorizer
-	err := ctx.RegisterResource("aws-native:IoT:Authorizer", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:Authorizer", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 func GetAuthorizer(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AuthorizerState, opts ...pulumi.ResourceOption) (*Authorizer, error) {
 	var resource Authorizer
-	err := ctx.ReadResource("aws-native:IoT:Authorizer", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:Authorizer", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

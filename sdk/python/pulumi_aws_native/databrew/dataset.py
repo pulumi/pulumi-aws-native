@@ -193,7 +193,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["path_options"] = path_options
             __props__.__dict__["tags"] = tags
         super(Dataset, __self__).__init__(
-            'aws-native:DataBrew:Dataset',
+            'aws-native:databrew:Dataset',
             resource_name,
             __props__,
             opts)

@@ -132,7 +132,7 @@ class Cell(pulumi.CustomResource):
             __props__.__dict__["cell_arn"] = None
             __props__.__dict__["parent_readiness_scopes"] = None
         super(Cell, __self__).__init__(
-            'aws-native:Route53RecoveryReadiness:Cell',
+            'aws-native:route53recoveryreadiness:Cell',
             resource_name,
             __props__,
             opts)

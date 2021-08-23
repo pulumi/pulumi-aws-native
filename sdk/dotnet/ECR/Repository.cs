@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECR:Repository")]
+    [AwsNativeResourceType("aws-native:ecr:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.ECR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecr:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Repository(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:Repository", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecr:Repository", name, null, MakeResourceOptions(options, id))
         {
         }
 

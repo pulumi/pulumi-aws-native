@@ -92,7 +92,7 @@ class CachePolicy(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(CachePolicy, __self__).__init__(
-            'aws-native:CloudFront:CachePolicy',
+            'aws-native:cloudfront:CachePolicy',
             resource_name,
             __props__,
             opts)

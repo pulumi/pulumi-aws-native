@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:CustomMetric")]
+    [AwsNativeResourceType("aws-native:iot:CustomMetric")]
     public partial class CustomMetric : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomMetric(string name, CustomMetricArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:CustomMetric", name, args ?? new CustomMetricArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:CustomMetric", name, args ?? new CustomMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomMetric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:CustomMetric", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:CustomMetric", name, null, MakeResourceOptions(options, id))
         {
         }
 

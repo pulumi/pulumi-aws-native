@@ -45,7 +45,7 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource RepositoryAssociation
-	err := ctx.RegisterResource("aws-native:CodeGuruReviewer:RepositoryAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:codegurureviewer:RepositoryAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewRepositoryAssociation(ctx *pulumi.Context,
 func GetRepositoryAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RepositoryAssociationState, opts ...pulumi.ResourceOption) (*RepositoryAssociation, error) {
 	var resource RepositoryAssociation
-	err := ctx.ReadResource("aws-native:CodeGuruReviewer:RepositoryAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:codegurureviewer:RepositoryAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

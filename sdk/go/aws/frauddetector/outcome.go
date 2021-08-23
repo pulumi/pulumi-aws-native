@@ -38,7 +38,7 @@ func NewOutcome(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Outcome
-	err := ctx.RegisterResource("aws-native:FraudDetector:Outcome", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:Outcome", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewOutcome(ctx *pulumi.Context,
 func GetOutcome(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OutcomeState, opts ...pulumi.ResourceOption) (*Outcome, error) {
 	var resource Outcome
-	err := ctx.ReadResource("aws-native:FraudDetector:Outcome", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:Outcome", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -218,7 +218,7 @@ class MissionProfile(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["region"] = None
         super(MissionProfile, __self__).__init__(
-            'aws-native:GroundStation:MissionProfile',
+            'aws-native:groundstation:MissionProfile',
             resource_name,
             __props__,
             opts)

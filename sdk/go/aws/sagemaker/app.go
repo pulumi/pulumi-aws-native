@@ -51,7 +51,7 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
 	var resource App
-	err := ctx.RegisterResource("aws-native:SageMaker:App", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:App", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewApp(ctx *pulumi.Context,
 func GetApp(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppState, opts ...pulumi.ResourceOption) (*App, error) {
 	var resource App
-	err := ctx.ReadResource("aws-native:SageMaker:App", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:App", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

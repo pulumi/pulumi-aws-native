@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaPackage:Asset")]
+    [AwsNativeResourceType("aws-native:mediapackage:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Asset(string name, AssetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediapackage:Asset", name, args ?? new AssetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Asset(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:Asset", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediapackage:Asset", name, null, MakeResourceOptions(options, id))
         {
         }
 

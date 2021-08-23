@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:AppRunner:Service":
+            case "aws-native:apprunner:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "AppRunner", _module)
+pulumi.runtime.registerResourceModule("aws-native", "apprunner", _module)

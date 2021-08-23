@@ -22,7 +22,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationObjectStorage';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationObjectStorage';
 
     /**
      * Returns true if the given object is an instance of LocationObjectStorage.  This is designed to work even

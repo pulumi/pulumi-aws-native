@@ -22,7 +22,7 @@ export class MetricStream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudWatch:MetricStream';
+    public static readonly __pulumiType = 'aws-native:cloudwatch:MetricStream';
 
     /**
      * Returns true if the given object is an instance of MetricStream.  This is designed to work even
@@ -40,7 +40,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    public readonly excludeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public readonly excludeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamMetricStreamFilter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
@@ -48,7 +48,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    public readonly includeFilters!: pulumi.Output<outputs.CloudWatch.MetricStreamMetricStreamFilter[] | undefined>;
+    public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamMetricStreamFilter[] | undefined>;
     public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
@@ -126,7 +126,7 @@ export interface MetricStreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
      */
-    excludeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilterArgs>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamMetricStreamFilterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
      */
@@ -134,7 +134,7 @@ export interface MetricStreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
      */
-    includeFilters?: pulumi.Input<pulumi.Input<inputs.CloudWatch.MetricStreamMetricStreamFilterArgs>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamMetricStreamFilterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
      */

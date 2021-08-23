@@ -36,7 +36,7 @@ func NewRegistry(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Registry
-	err := ctx.RegisterResource("aws-native:Glue:Registry", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:glue:Registry", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewRegistry(ctx *pulumi.Context,
 func GetRegistry(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistryState, opts ...pulumi.ResourceOption) (*Registry, error) {
 	var resource Registry
-	err := ctx.ReadResource("aws-native:Glue:Registry", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:glue:Registry", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkFirewall:FirewallPolicy';
+    public static readonly __pulumiType = 'aws-native:networkfirewall:FirewallPolicy';
 
     /**
      * Returns true if the given object is an instance of FirewallPolicy.  This is designed to work even
@@ -42,7 +42,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    public readonly firewallPolicy!: pulumi.Output<outputs.NetworkFirewall.FirewallPolicyFirewallPolicy>;
+    public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
     public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
     public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export interface FirewallPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
      */
-    firewallPolicy: pulumi.Input<inputs.NetworkFirewall.FirewallPolicyFirewallPolicyArgs>;
+    firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
      */

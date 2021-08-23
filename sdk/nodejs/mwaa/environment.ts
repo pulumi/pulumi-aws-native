@@ -22,7 +22,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MWAA:Environment';
+    public static readonly __pulumiType = 'aws-native:mwaa:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even
@@ -63,7 +63,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
     public /*out*/ readonly loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly loggingConfigurationSchedulerLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly loggingConfigurationTaskLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
@@ -84,7 +84,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.MWAA.EnvironmentNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
      */
@@ -112,7 +112,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
      */
-    public readonly tags!: pulumi.Output<outputs.MWAA.EnvironmentTagMap | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mwaa.EnvironmentTagMap | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
      */
@@ -231,7 +231,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
      */
-    loggingConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
      */
@@ -247,7 +247,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
      */
-    networkConfiguration?: pulumi.Input<inputs.MWAA.EnvironmentNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
      */
@@ -275,7 +275,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
      */
-    tags?: pulumi.Input<inputs.MWAA.EnvironmentTagMapArgs>;
+    tags?: pulumi.Input<inputs.mwaa.EnvironmentTagMapArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
      */

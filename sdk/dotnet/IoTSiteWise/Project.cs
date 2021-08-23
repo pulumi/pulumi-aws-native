@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:Project")]
+    [AwsNativeResourceType("aws-native:iotsitewise:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

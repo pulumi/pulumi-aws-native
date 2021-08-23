@@ -114,7 +114,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = None
             __props__.__dict__["id"] = None
         super(Distribution, __self__).__init__(
-            'aws-native:CloudFront:Distribution',
+            'aws-native:cloudfront:Distribution',
             resource_name,
             __props__,
             opts)

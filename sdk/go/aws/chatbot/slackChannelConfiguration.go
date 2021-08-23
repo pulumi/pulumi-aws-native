@@ -50,7 +50,7 @@ func NewSlackChannelConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SlackWorkspaceId'")
 	}
 	var resource SlackChannelConfiguration
-	err := ctx.RegisterResource("aws-native:Chatbot:SlackChannelConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:chatbot:SlackChannelConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewSlackChannelConfiguration(ctx *pulumi.Context,
 func GetSlackChannelConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SlackChannelConfigurationState, opts ...pulumi.ResourceOption) (*SlackChannelConfiguration, error) {
 	var resource SlackChannelConfiguration
-	err := ctx.ReadResource("aws-native:Chatbot:SlackChannelConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:chatbot:SlackChannelConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

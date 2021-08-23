@@ -21,39 +21,39 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:SageMaker:App":
+	case "aws-native:sagemaker:App":
 		r = &App{}
-	case "aws-native:SageMaker:AppImageConfig":
+	case "aws-native:sagemaker:AppImageConfig":
 		r = &AppImageConfig{}
-	case "aws-native:SageMaker:DataQualityJobDefinition":
+	case "aws-native:sagemaker:DataQualityJobDefinition":
 		r = &DataQualityJobDefinition{}
-	case "aws-native:SageMaker:Device":
+	case "aws-native:sagemaker:Device":
 		r = &Device{}
-	case "aws-native:SageMaker:DeviceFleet":
+	case "aws-native:sagemaker:DeviceFleet":
 		r = &DeviceFleet{}
-	case "aws-native:SageMaker:Domain":
+	case "aws-native:sagemaker:Domain":
 		r = &Domain{}
-	case "aws-native:SageMaker:FeatureGroup":
+	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
-	case "aws-native:SageMaker:Image":
+	case "aws-native:sagemaker:Image":
 		r = &Image{}
-	case "aws-native:SageMaker:ImageVersion":
+	case "aws-native:sagemaker:ImageVersion":
 		r = &ImageVersion{}
-	case "aws-native:SageMaker:ModelBiasJobDefinition":
+	case "aws-native:sagemaker:ModelBiasJobDefinition":
 		r = &ModelBiasJobDefinition{}
-	case "aws-native:SageMaker:ModelExplainabilityJobDefinition":
+	case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
 		r = &ModelExplainabilityJobDefinition{}
-	case "aws-native:SageMaker:ModelPackageGroup":
+	case "aws-native:sagemaker:ModelPackageGroup":
 		r = &ModelPackageGroup{}
-	case "aws-native:SageMaker:ModelQualityJobDefinition":
+	case "aws-native:sagemaker:ModelQualityJobDefinition":
 		r = &ModelQualityJobDefinition{}
-	case "aws-native:SageMaker:MonitoringSchedule":
+	case "aws-native:sagemaker:MonitoringSchedule":
 		r = &MonitoringSchedule{}
-	case "aws-native:SageMaker:Pipeline":
+	case "aws-native:sagemaker:Pipeline":
 		r = &Pipeline{}
-	case "aws-native:SageMaker:Project":
+	case "aws-native:sagemaker:Project":
 		r = &Project{}
-	case "aws-native:SageMaker:UserProfile":
+	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -70,7 +70,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"SageMaker",
+		"sagemaker",
 		&module{version},
 	)
 }

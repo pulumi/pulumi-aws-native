@@ -44,7 +44,7 @@ func NewDomainConfiguration(ctx *pulumi.Context,
 	}
 
 	var resource DomainConfiguration
-	err := ctx.RegisterResource("aws-native:IoT:DomainConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:DomainConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewDomainConfiguration(ctx *pulumi.Context,
 func GetDomainConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DomainConfigurationState, opts ...pulumi.ResourceOption) (*DomainConfiguration, error) {
 	var resource DomainConfiguration
-	err := ctx.ReadResource("aws-native:IoT:DomainConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:DomainConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

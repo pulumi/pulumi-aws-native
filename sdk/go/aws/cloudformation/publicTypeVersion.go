@@ -37,7 +37,7 @@ func NewPublicTypeVersion(ctx *pulumi.Context,
 	}
 
 	var resource PublicTypeVersion
-	err := ctx.RegisterResource("aws-native:CloudFormation:PublicTypeVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:PublicTypeVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewPublicTypeVersion(ctx *pulumi.Context,
 func GetPublicTypeVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublicTypeVersionState, opts ...pulumi.ResourceOption) (*PublicTypeVersion, error) {
 	var resource PublicTypeVersion
-	err := ctx.ReadResource("aws-native:CloudFormation:PublicTypeVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:PublicTypeVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

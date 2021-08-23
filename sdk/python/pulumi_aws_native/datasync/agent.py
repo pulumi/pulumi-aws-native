@@ -192,7 +192,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["agent_arn"] = None
             __props__.__dict__["endpoint_type"] = None
         super(Agent, __self__).__init__(
-            'aws-native:DataSync:Agent',
+            'aws-native:datasync:Agent',
             resource_name,
             __props__,
             opts)

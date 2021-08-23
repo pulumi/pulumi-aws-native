@@ -22,7 +22,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CertificateManager:Account';
+    public static readonly __pulumiType = 'aws-native:certificatemanager:Account';
 
     /**
      * Returns true if the given object is an instance of Account.  This is designed to work even
@@ -39,7 +39,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
      */
-    public readonly expiryEventsConfiguration!: pulumi.Output<outputs.CertificateManager.AccountExpiryEventsConfiguration>;
+    public readonly expiryEventsConfiguration!: pulumi.Output<outputs.certificatemanager.AccountExpiryEventsConfiguration>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -75,5 +75,5 @@ export interface AccountArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
      */
-    expiryEventsConfiguration: pulumi.Input<inputs.CertificateManager.AccountExpiryEventsConfigurationArgs>;
+    expiryEventsConfiguration: pulumi.Input<inputs.certificatemanager.AccountExpiryEventsConfigurationArgs>;
 }

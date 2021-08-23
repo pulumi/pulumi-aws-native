@@ -127,7 +127,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
             __props__.__dict__["module_name"] = module_name
             __props__.__dict__["version_id"] = version_id
         super(ModuleDefaultVersion, __self__).__init__(
-            'aws-native:CloudFormation:ModuleDefaultVersion',
+            'aws-native:cloudformation:ModuleDefaultVersion',
             resource_name,
             __props__,
             opts)

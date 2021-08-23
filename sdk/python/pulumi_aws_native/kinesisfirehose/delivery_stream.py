@@ -292,7 +292,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(DeliveryStream, __self__).__init__(
-            'aws-native:KinesisFirehose:DeliveryStream',
+            'aws-native:kinesisfirehose:DeliveryStream',
             resource_name,
             __props__,
             opts)

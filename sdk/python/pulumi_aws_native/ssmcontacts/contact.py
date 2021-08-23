@@ -154,7 +154,7 @@ class Contact(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
         super(Contact, __self__).__init__(
-            'aws-native:SSMContacts:Contact',
+            'aws-native:ssmcontacts:Contact',
             resource_name,
             __props__,
             opts)

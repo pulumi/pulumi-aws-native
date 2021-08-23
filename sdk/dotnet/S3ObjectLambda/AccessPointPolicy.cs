@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:S3ObjectLambda:AccessPointPolicy")]
+    [AwsNativeResourceType("aws-native:s3objectlambda:AccessPointPolicy")]
     public partial class AccessPointPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPointPolicy(string name, AccessPointPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:S3ObjectLambda:AccessPointPolicy", name, args ?? new AccessPointPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:s3objectlambda:AccessPointPolicy", name, args ?? new AccessPointPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPointPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:S3ObjectLambda:AccessPointPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:s3objectlambda:AccessPointPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

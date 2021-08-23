@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ElasticLoadBalancingV2:Listener":
+	case "aws-native:elasticloadbalancingv2:Listener":
 		r = &Listener{}
-	case "aws-native:ElasticLoadBalancingV2:ListenerRule":
+	case "aws-native:elasticloadbalancingv2:ListenerRule":
 		r = &ListenerRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ElasticLoadBalancingV2",
+		"elasticloadbalancingv2",
 		&module{version},
 	)
 }

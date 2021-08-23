@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-registry.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Glue:Registry")]
+    [AwsNativeResourceType("aws-native:glue:Registry")]
     public partial class Registry : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Registry(string name, RegistryArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:glue:Registry", name, args ?? new RegistryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Registry(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:Registry", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:glue:Registry", name, null, MakeResourceOptions(options, id))
         {
         }
 

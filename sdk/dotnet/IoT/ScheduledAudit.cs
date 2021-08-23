@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:ScheduledAudit")]
+    [AwsNativeResourceType("aws-native:iot:ScheduledAudit")]
     public partial class ScheduledAudit : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ScheduledAudit(string name, ScheduledAuditArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:ScheduledAudit", name, args ?? new ScheduledAuditArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:ScheduledAudit", name, args ?? new ScheduledAuditArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ScheduledAudit(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:ScheduledAudit", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:ScheduledAudit", name, null, MakeResourceOptions(options, id))
         {
         }
 

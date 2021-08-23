@@ -51,7 +51,7 @@ func NewServiceProfile(ctx *pulumi.Context,
 	}
 
 	var resource ServiceProfile
-	err := ctx.RegisterResource("aws-native:IoTWireless:ServiceProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:ServiceProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewServiceProfile(ctx *pulumi.Context,
 func GetServiceProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceProfileState, opts ...pulumi.ResourceOption) (*ServiceProfile, error) {
 	var resource ServiceProfile
-	err := ctx.ReadResource("aws-native:IoTWireless:ServiceProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:ServiceProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -92,7 +92,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(OriginRequestPolicy, __self__).__init__(
-            'aws-native:CloudFront:OriginRequestPolicy',
+            'aws-native:cloudfront:OriginRequestPolicy',
             resource_name,
             __props__,
             opts)

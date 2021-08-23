@@ -35,7 +35,7 @@ func NewAccessPointPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
 	var resource AccessPointPolicy
-	err := ctx.RegisterResource("aws-native:S3ObjectLambda:AccessPointPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3objectlambda:AccessPointPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewAccessPointPolicy(ctx *pulumi.Context,
 func GetAccessPointPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessPointPolicyState, opts ...pulumi.ResourceOption) (*AccessPointPolicy, error) {
 	var resource AccessPointPolicy
-	err := ctx.ReadResource("aws-native:S3ObjectLambda:AccessPointPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3objectlambda:AccessPointPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

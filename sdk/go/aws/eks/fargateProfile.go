@@ -48,7 +48,7 @@ func NewFargateProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
 	var resource FargateProfile
-	err := ctx.RegisterResource("aws-native:EKS:FargateProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:eks:FargateProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewFargateProfile(ctx *pulumi.Context,
 func GetFargateProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FargateProfileState, opts ...pulumi.ResourceOption) (*FargateProfile, error) {
 	var resource FargateProfile
-	err := ctx.ReadResource("aws-native:EKS:FargateProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:eks:FargateProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

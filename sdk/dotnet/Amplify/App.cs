@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Amplify
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Amplify:App")]
+    [AwsNativeResourceType("aws-native:amplify:App")]
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>
@@ -120,12 +120,12 @@ namespace Pulumi.AwsNative.Amplify
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Amplify:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:amplify:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Amplify:App", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:amplify:App", name, null, MakeResourceOptions(options, id))
         {
         }
 

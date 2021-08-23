@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:LookoutMetrics:Alert")]
+    [AwsNativeResourceType("aws-native:lookoutmetrics:Alert")]
     public partial class Alert : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Alert(string name, AlertArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:LookoutMetrics:Alert", name, args ?? new AlertArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:lookoutmetrics:Alert", name, args ?? new AlertArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Alert(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:LookoutMetrics:Alert", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:lookoutmetrics:Alert", name, null, MakeResourceOptions(options, id))
         {
         }
 

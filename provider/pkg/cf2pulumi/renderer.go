@@ -1,4 +1,6 @@
-package main
+// Copyright 2016-2021, Pulumi Corporation.
+
+package cf2pulumi
 
 import (
 	"fmt"
@@ -1255,7 +1257,7 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 	}
 
 	body := &model.Body{Items: items}
-	formatBody(body)
+	FormatBody(body)
 	return body, nil
 }
 

@@ -21,7 +21,7 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:EnclaveCertificateIamRoleAssociation';
+    public static readonly __pulumiType = 'aws-native:ec2:EnclaveCertificateIamRoleAssociation';
 
     /**
      * Returns true if the given object is an instance of EnclaveCertificateIamRoleAssociation.  This is designed to work even

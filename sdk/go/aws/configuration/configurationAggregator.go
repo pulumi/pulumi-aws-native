@@ -34,7 +34,7 @@ func NewConfigurationAggregator(ctx *pulumi.Context,
 	}
 
 	var resource ConfigurationAggregator
-	err := ctx.RegisterResource("aws-native:Configuration:ConfigurationAggregator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:configuration:ConfigurationAggregator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func NewConfigurationAggregator(ctx *pulumi.Context,
 func GetConfigurationAggregator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationAggregatorState, opts ...pulumi.ResourceOption) (*ConfigurationAggregator, error) {
 	var resource ConfigurationAggregator
-	err := ctx.ReadResource("aws-native:Configuration:ConfigurationAggregator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:configuration:ConfigurationAggregator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

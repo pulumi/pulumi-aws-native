@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IoTSiteWise:AccessPolicy":
+	case "aws-native:iotsitewise:AccessPolicy":
 		r = &AccessPolicy{}
-	case "aws-native:IoTSiteWise:Asset":
+	case "aws-native:iotsitewise:Asset":
 		r = &Asset{}
-	case "aws-native:IoTSiteWise:AssetModel":
+	case "aws-native:iotsitewise:AssetModel":
 		r = &AssetModel{}
-	case "aws-native:IoTSiteWise:Dashboard":
+	case "aws-native:iotsitewise:Dashboard":
 		r = &Dashboard{}
-	case "aws-native:IoTSiteWise:Gateway":
+	case "aws-native:iotsitewise:Gateway":
 		r = &Gateway{}
-	case "aws-native:IoTSiteWise:Portal":
+	case "aws-native:iotsitewise:Portal":
 		r = &Portal{}
-	case "aws-native:IoTSiteWise:Project":
+	case "aws-native:iotsitewise:Project":
 		r = &Project{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IoTSiteWise",
+		"iotsitewise",
 		&module{version},
 	)
 }

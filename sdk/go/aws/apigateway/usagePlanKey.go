@@ -41,7 +41,7 @@ func NewUsagePlanKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UsagePlanId'")
 	}
 	var resource UsagePlanKey
-	err := ctx.RegisterResource("aws-native:ApiGateway:UsagePlanKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:UsagePlanKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewUsagePlanKey(ctx *pulumi.Context,
 func GetUsagePlanKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UsagePlanKeyState, opts ...pulumi.ResourceOption) (*UsagePlanKey, error) {
 	var resource UsagePlanKey
-	err := ctx.ReadResource("aws-native:ApiGateway:UsagePlanKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:UsagePlanKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

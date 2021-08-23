@@ -22,7 +22,7 @@ export class StudioComponent extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NimbleStudio:StudioComponent';
+    public static readonly __pulumiType = 'aws-native:nimblestudio:StudioComponent';
 
     /**
      * Returns true if the given object is an instance of StudioComponent.  This is designed to work even
@@ -38,7 +38,7 @@ export class StudioComponent extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.NimbleStudio.StudioComponentStudioComponentConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentStudioComponentConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
      */
@@ -50,7 +50,7 @@ export class StudioComponent extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
      */
-    public readonly initializationScripts!: pulumi.Output<outputs.NimbleStudio.StudioComponentStudioComponentInitializationScript[] | undefined>;
+    public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentStudioComponentInitializationScript[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
      */
@@ -58,7 +58,7 @@ export class StudioComponent extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
      */
-    public readonly scriptParameters!: pulumi.Output<outputs.NimbleStudio.StudioComponentScriptParameterKeyValue[] | undefined>;
+    public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
@@ -135,7 +135,7 @@ export interface StudioComponentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
      */
-    configuration?: pulumi.Input<inputs.NimbleStudio.StudioComponentStudioComponentConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentStudioComponentConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
      */
@@ -147,7 +147,7 @@ export interface StudioComponentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
      */
-    initializationScripts?: pulumi.Input<pulumi.Input<inputs.NimbleStudio.StudioComponentStudioComponentInitializationScriptArgs>[]>;
+    initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentStudioComponentInitializationScriptArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
      */
@@ -155,7 +155,7 @@ export interface StudioComponentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
      */
-    scriptParameters?: pulumi.Input<pulumi.Input<inputs.NimbleStudio.StudioComponentScriptParameterKeyValueArgs>[]>;
+    scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
      */

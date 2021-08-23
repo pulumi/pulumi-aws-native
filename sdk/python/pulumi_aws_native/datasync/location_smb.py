@@ -238,7 +238,7 @@ class LocationSMB(pulumi.CustomResource):
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
         super(LocationSMB, __self__).__init__(
-            'aws-native:DataSync:LocationSMB',
+            'aws-native:datasync:LocationSMB',
             resource_name,
             __props__,
             opts)

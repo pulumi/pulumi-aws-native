@@ -48,7 +48,7 @@ func NewTransitGatewayMulticastGroupMember(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
 	var resource TransitGatewayMulticastGroupMember
-	err := ctx.RegisterResource("aws-native:EC2:TransitGatewayMulticastGroupMember", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastGroupMember", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewTransitGatewayMulticastGroupMember(ctx *pulumi.Context,
 func GetTransitGatewayMulticastGroupMember(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayMulticastGroupMemberState, opts ...pulumi.ResourceOption) (*TransitGatewayMulticastGroupMember, error) {
 	var resource TransitGatewayMulticastGroupMember
-	err := ctx.ReadResource("aws-native:EC2:TransitGatewayMulticastGroupMember", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:TransitGatewayMulticastGroupMember", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

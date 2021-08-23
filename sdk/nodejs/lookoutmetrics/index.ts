@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:LookoutMetrics:Alert":
+            case "aws-native:lookoutmetrics:Alert":
                 return new Alert(name, <any>undefined, { urn })
-            case "aws-native:LookoutMetrics:AnomalyDetector":
+            case "aws-native:lookoutmetrics:AnomalyDetector":
                 return new AnomalyDetector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "LookoutMetrics", _module)
+pulumi.runtime.registerResourceModule("aws-native", "lookoutmetrics", _module)

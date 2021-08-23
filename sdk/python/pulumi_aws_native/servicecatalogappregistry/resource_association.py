@@ -133,7 +133,7 @@ class ResourceAssociation(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["resource_arn"] = None
         super(ResourceAssociation, __self__).__init__(
-            'aws-native:ServiceCatalogAppRegistry:ResourceAssociation',
+            'aws-native:servicecatalogappregistry:ResourceAssociation',
             resource_name,
             __props__,
             opts)

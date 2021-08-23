@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkFirewall:RuleGroup")]
+    [AwsNativeResourceType("aws-native:networkfirewall:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RuleGroup(string name, RuleGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:RuleGroup", name, args ?? new RuleGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkfirewall:RuleGroup", name, args ?? new RuleGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RuleGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkFirewall:RuleGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkfirewall:RuleGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

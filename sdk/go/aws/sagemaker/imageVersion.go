@@ -39,7 +39,7 @@ func NewImageVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ImageName'")
 	}
 	var resource ImageVersion
-	err := ctx.RegisterResource("aws-native:SageMaker:ImageVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:ImageVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewImageVersion(ctx *pulumi.Context,
 func GetImageVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImageVersionState, opts ...pulumi.ResourceOption) (*ImageVersion, error) {
 	var resource ImageVersion
-	err := ctx.ReadResource("aws-native:SageMaker:ImageVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:ImageVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

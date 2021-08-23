@@ -310,7 +310,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
             __props__.__dict__["arn"] = None
         super(InfrastructureConfiguration, __self__).__init__(
-            'aws-native:ImageBuilder:InfrastructureConfiguration',
+            'aws-native:imagebuilder:InfrastructureConfiguration',
             resource_name,
             __props__,
             opts)

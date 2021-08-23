@@ -22,7 +22,7 @@ export class FlowEntitlement extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaConnect:FlowEntitlement';
+    public static readonly __pulumiType = 'aws-native:mediaconnect:FlowEntitlement';
 
     /**
      * Returns true if the given object is an instance of FlowEntitlement.  This is designed to work even
@@ -46,7 +46,7 @@ export class FlowEntitlement extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
      */
-    public readonly encryption!: pulumi.Output<outputs.MediaConnect.FlowEntitlementEncryption | undefined>;
+    public readonly encryption!: pulumi.Output<outputs.mediaconnect.FlowEntitlementEncryption | undefined>;
     public /*out*/ readonly entitlementArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
@@ -128,7 +128,7 @@ export interface FlowEntitlementArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
      */
-    encryption?: pulumi.Input<inputs.MediaConnect.FlowEntitlementEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.mediaconnect.FlowEntitlementEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
      */

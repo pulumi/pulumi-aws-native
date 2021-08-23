@@ -51,7 +51,7 @@ func NewLink(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SiteId'")
 	}
 	var resource Link
-	err := ctx.RegisterResource("aws-native:NetworkManager:Link", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:Link", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewLink(ctx *pulumi.Context,
 func GetLink(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LinkState, opts ...pulumi.ResourceOption) (*Link, error) {
 	var resource Link
-	err := ctx.ReadResource("aws-native:NetworkManager:Link", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:Link", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

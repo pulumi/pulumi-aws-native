@@ -252,7 +252,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["global_replication_group_id"] = None
             __props__.__dict__["status"] = None
         super(GlobalReplicationGroup, __self__).__init__(
-            'aws-native:ElastiCache:GlobalReplicationGroup',
+            'aws-native:elasticache:GlobalReplicationGroup',
             resource_name,
             __props__,
             opts)

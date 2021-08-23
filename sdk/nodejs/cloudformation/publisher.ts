@@ -21,7 +21,7 @@ export class Publisher extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:Publisher';
+    public static readonly __pulumiType = 'aws-native:cloudformation:Publisher';
 
     /**
      * Returns true if the given object is an instance of Publisher.  This is designed to work even

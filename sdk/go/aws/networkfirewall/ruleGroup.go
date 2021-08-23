@@ -49,7 +49,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource RuleGroup
-	err := ctx.RegisterResource("aws-native:NetworkFirewall:RuleGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkfirewall:RuleGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 func GetRuleGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RuleGroupState, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
 	var resource RuleGroup
-	err := ctx.ReadResource("aws-native:NetworkFirewall:RuleGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkfirewall:RuleGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

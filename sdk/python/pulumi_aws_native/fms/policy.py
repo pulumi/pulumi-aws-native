@@ -296,7 +296,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(Policy, __self__).__init__(
-            'aws-native:FMS:Policy',
+            'aws-native:fms:Policy',
             resource_name,
             __props__,
             opts)

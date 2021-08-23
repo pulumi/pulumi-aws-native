@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTSiteWise:Portal")]
+    [AwsNativeResourceType("aws-native:iotsitewise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Portal(string name, PortalArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Portal", name, args ?? new PortalArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotsitewise:Portal", name, args ?? new PortalArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Portal(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTSiteWise:Portal", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotsitewise:Portal", name, null, MakeResourceOptions(options, id))
         {
         }
 

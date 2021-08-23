@@ -171,7 +171,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
         super(BackupVault, __self__).__init__(
-            'aws-native:Backup:BackupVault',
+            'aws-native:backup:BackupVault',
             resource_name,
             __props__,
             opts)

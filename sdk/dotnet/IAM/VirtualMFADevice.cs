@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IAM:VirtualMFADevice")]
+    [AwsNativeResourceType("aws-native:iam:VirtualMFADevice")]
     public partial class VirtualMFADevice : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualMFADevice(string name, VirtualMFADeviceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:VirtualMFADevice", name, args ?? new VirtualMFADeviceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iam:VirtualMFADevice", name, args ?? new VirtualMFADeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualMFADevice(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:VirtualMFADevice", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iam:VirtualMFADevice", name, null, MakeResourceOptions(options, id))
         {
         }
 

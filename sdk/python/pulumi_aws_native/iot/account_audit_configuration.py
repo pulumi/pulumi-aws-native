@@ -152,7 +152,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
         super(AccountAuditConfiguration, __self__).__init__(
-            'aws-native:IoT:AccountAuditConfiguration',
+            'aws-native:iot:AccountAuditConfiguration',
             resource_name,
             __props__,
             opts)

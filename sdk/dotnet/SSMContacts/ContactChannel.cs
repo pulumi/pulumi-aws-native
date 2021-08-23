@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSMContacts
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSMContacts:ContactChannel")]
+    [AwsNativeResourceType("aws-native:ssmcontacts:ContactChannel")]
     public partial class ContactChannel : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContactChannel(string name, ContactChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSMContacts:ContactChannel", name, args ?? new ContactChannelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssmcontacts:ContactChannel", name, args ?? new ContactChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContactChannel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSMContacts:ContactChannel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssmcontacts:ContactChannel", name, null, MakeResourceOptions(options, id))
         {
         }
 

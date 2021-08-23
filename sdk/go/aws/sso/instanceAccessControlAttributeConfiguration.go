@@ -32,7 +32,7 @@ func NewInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
 	var resource InstanceAccessControlAttributeConfiguration
-	err := ctx.RegisterResource("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sso:InstanceAccessControlAttributeConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context,
 func GetInstanceAccessControlAttributeConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InstanceAccessControlAttributeConfigurationState, opts ...pulumi.ResourceOption) (*InstanceAccessControlAttributeConfiguration, error) {
 	var resource InstanceAccessControlAttributeConfiguration
-	err := ctx.ReadResource("aws-native:SSO:InstanceAccessControlAttributeConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sso:InstanceAccessControlAttributeConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

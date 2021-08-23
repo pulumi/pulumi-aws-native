@@ -22,7 +22,7 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GameLift:Fleet';
+    public static readonly __pulumiType = 'aws-native:gamelift:Fleet';
 
     /**
      * Returns true if the given object is an instance of Fleet.  This is designed to work even
@@ -42,7 +42,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
      */
-    public readonly certificateConfiguration!: pulumi.Output<outputs.GameLift.FleetCertificateConfiguration | undefined>;
+    public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
      */
@@ -54,7 +54,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
      */
-    public readonly eC2InboundPermissions!: pulumi.Output<outputs.GameLift.FleetIpPermission[] | undefined>;
+    public readonly eC2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetIpPermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
      */
@@ -71,7 +71,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
      */
-    public readonly locations!: pulumi.Output<outputs.GameLift.FleetLocationConfiguration[] | undefined>;
+    public readonly locations!: pulumi.Output<outputs.gamelift.FleetLocationConfiguration[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
      */
@@ -103,11 +103,11 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
      */
-    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.GameLift.FleetResourceCreationLimitPolicy | undefined>;
+    public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
      */
-    public readonly runtimeConfiguration!: pulumi.Output<outputs.GameLift.FleetRuntimeConfiguration | undefined>;
+    public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
      */
@@ -184,7 +184,7 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
      */
-    certificateConfiguration?: pulumi.Input<inputs.GameLift.FleetCertificateConfigurationArgs>;
+    certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
      */
@@ -196,7 +196,7 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
      */
-    eC2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.GameLift.FleetIpPermissionArgs>[]>;
+    eC2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetIpPermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
      */
@@ -212,7 +212,7 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
      */
-    locations?: pulumi.Input<pulumi.Input<inputs.GameLift.FleetLocationConfigurationArgs>[]>;
+    locations?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetLocationConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
      */
@@ -244,11 +244,11 @@ export interface FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
      */
-    resourceCreationLimitPolicy?: pulumi.Input<inputs.GameLift.FleetResourceCreationLimitPolicyArgs>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
      */
-    runtimeConfiguration?: pulumi.Input<inputs.GameLift.FleetRuntimeConfigurationArgs>;
+    runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
      */

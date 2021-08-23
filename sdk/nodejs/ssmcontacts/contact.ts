@@ -22,7 +22,7 @@ export class Contact extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSMContacts:Contact';
+    public static readonly __pulumiType = 'aws-native:ssmcontacts:Contact';
 
     /**
      * Returns true if the given object is an instance of Contact.  This is designed to work even
@@ -47,7 +47,7 @@ export class Contact extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
      */
-    public readonly plan!: pulumi.Output<outputs.SSMContacts.ContactStage[]>;
+    public readonly plan!: pulumi.Output<outputs.ssmcontacts.ContactStage[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
      */
@@ -110,7 +110,7 @@ export interface ContactArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
      */
-    plan: pulumi.Input<pulumi.Input<inputs.SSMContacts.ContactStageArgs>[]>;
+    plan: pulumi.Input<pulumi.Input<inputs.ssmcontacts.ContactStageArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
      */

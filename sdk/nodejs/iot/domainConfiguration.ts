@@ -22,7 +22,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:DomainConfiguration';
+    public static readonly __pulumiType = 'aws-native:iot:DomainConfiguration';
 
     /**
      * Returns true if the given object is an instance of DomainConfiguration.  This is designed to work even
@@ -39,7 +39,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
      */
-    public readonly authorizerConfig!: pulumi.Output<outputs.IoT.DomainConfigurationAuthorizerConfig | undefined>;
+    public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
      */
@@ -57,7 +57,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
      */
     public readonly serverCertificateArns!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.IoT.DomainConfigurationServerCertificateSummary[]>;
+    public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
      */
@@ -120,7 +120,7 @@ export interface DomainConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
      */
-    authorizerConfig?: pulumi.Input<inputs.IoT.DomainConfigurationAuthorizerConfigArgs>;
+    authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
      */

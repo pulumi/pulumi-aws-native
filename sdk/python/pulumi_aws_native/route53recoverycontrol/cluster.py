@@ -91,7 +91,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_endpoints"] = None
             __props__.__dict__["status"] = None
         super(Cluster, __self__).__init__(
-            'aws-native:Route53RecoveryControl:Cluster',
+            'aws-native:route53recoverycontrol:Cluster',
             resource_name,
             __props__,
             opts)

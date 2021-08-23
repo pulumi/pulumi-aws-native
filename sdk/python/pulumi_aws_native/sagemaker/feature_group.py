@@ -255,7 +255,7 @@ class FeatureGroup(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
         super(FeatureGroup, __self__).__init__(
-            'aws-native:SageMaker:FeatureGroup',
+            'aws-native:sagemaker:FeatureGroup',
             resource_name,
             __props__,
             opts)

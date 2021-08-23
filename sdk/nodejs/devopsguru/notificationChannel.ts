@@ -22,7 +22,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DevOpsGuru:NotificationChannel';
+    public static readonly __pulumiType = 'aws-native:devopsguru:NotificationChannel';
 
     /**
      * Returns true if the given object is an instance of NotificationChannel.  This is designed to work even
@@ -38,7 +38,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    public readonly config!: pulumi.Output<outputs.DevOpsGuru.NotificationChannelNotificationChannelConfig>;
+    public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelNotificationChannelConfig>;
     public /*out*/ readonly id!: pulumi.Output<string>;
 
     /**
@@ -75,5 +75,5 @@ export interface NotificationChannelArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
      */
-    config: pulumi.Input<inputs.DevOpsGuru.NotificationChannelNotificationChannelConfigArgs>;
+    config: pulumi.Input<inputs.devopsguru.NotificationChannelNotificationChannelConfigArgs>;
 }

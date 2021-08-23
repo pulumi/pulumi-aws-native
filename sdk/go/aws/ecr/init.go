@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ECR:RegistryPolicy":
+	case "aws-native:ecr:RegistryPolicy":
 		r = &RegistryPolicy{}
-	case "aws-native:ECR:ReplicationConfiguration":
+	case "aws-native:ecr:ReplicationConfiguration":
 		r = &ReplicationConfiguration{}
-	case "aws-native:ECR:Repository":
+	case "aws-native:ecr:Repository":
 		r = &Repository{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ECR",
+		"ecr",
 		&module{version},
 	)
 }

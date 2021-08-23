@@ -51,7 +51,7 @@ func NewObjectType(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
 	var resource ObjectType
-	err := ctx.RegisterResource("aws-native:CustomerProfiles:ObjectType", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:customerprofiles:ObjectType", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewObjectType(ctx *pulumi.Context,
 func GetObjectType(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ObjectTypeState, opts ...pulumi.ResourceOption) (*ObjectType, error) {
 	var resource ObjectType
-	err := ctx.ReadResource("aws-native:CustomerProfiles:ObjectType", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:customerprofiles:ObjectType", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

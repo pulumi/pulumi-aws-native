@@ -31,7 +31,7 @@ func NewRegistryPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyText'")
 	}
 	var resource RegistryPolicy
-	err := ctx.RegisterResource("aws-native:ECR:RegistryPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecr:RegistryPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewRegistryPolicy(ctx *pulumi.Context,
 func GetRegistryPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistryPolicyState, opts ...pulumi.ResourceOption) (*RegistryPolicy, error) {
 	var resource RegistryPolicy
-	err := ctx.ReadResource("aws-native:ECR:RegistryPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecr:RegistryPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

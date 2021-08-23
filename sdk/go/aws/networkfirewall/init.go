@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:NetworkFirewall:Firewall":
+	case "aws-native:networkfirewall:Firewall":
 		r = &Firewall{}
-	case "aws-native:NetworkFirewall:FirewallPolicy":
+	case "aws-native:networkfirewall:FirewallPolicy":
 		r = &FirewallPolicy{}
-	case "aws-native:NetworkFirewall:LoggingConfiguration":
+	case "aws-native:networkfirewall:LoggingConfiguration":
 		r = &LoggingConfiguration{}
-	case "aws-native:NetworkFirewall:RuleGroup":
+	case "aws-native:networkfirewall:RuleGroup":
 		r = &RuleGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"NetworkFirewall",
+		"networkfirewall",
 		&module{version},
 	)
 }

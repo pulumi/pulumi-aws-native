@@ -151,7 +151,7 @@ class ServiceProfile(pulumi.CustomResource):
             __props__.__dict__["lo_ra_wan_ul_rate"] = None
             __props__.__dict__["lo_ra_wan_ul_rate_policy"] = None
         super(ServiceProfile, __self__).__init__(
-            'aws-native:IoTWireless:ServiceProfile',
+            'aws-native:iotwireless:ServiceProfile',
             resource_name,
             __props__,
             opts)

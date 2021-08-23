@@ -48,7 +48,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 	}
 
 	var resource DeliveryStream
-	err := ctx.RegisterResource("aws-native:KinesisFirehose:DeliveryStream", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kinesisfirehose:DeliveryStream", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 func GetDeliveryStream(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeliveryStreamState, opts ...pulumi.ResourceOption) (*DeliveryStream, error) {
 	var resource DeliveryStream
-	err := ctx.ReadResource("aws-native:KinesisFirehose:DeliveryStream", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kinesisfirehose:DeliveryStream", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

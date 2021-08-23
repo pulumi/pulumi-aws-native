@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IVS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IVS:Channel")]
+    [AwsNativeResourceType("aws-native:ivs:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ivs:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:Channel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ivs:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 

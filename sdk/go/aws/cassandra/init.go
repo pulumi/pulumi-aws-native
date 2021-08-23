@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Cassandra:Keyspace":
+	case "aws-native:cassandra:Keyspace":
 		r = &Keyspace{}
-	case "aws-native:Cassandra:Table":
+	case "aws-native:cassandra:Table":
 		r = &Table{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Cassandra",
+		"cassandra",
 		&module{version},
 	)
 }

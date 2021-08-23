@@ -42,7 +42,7 @@ func NewOrganizationConformancePack(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'OrganizationConformancePackName'")
 	}
 	var resource OrganizationConformancePack
-	err := ctx.RegisterResource("aws-native:Configuration:OrganizationConformancePack", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:configuration:OrganizationConformancePack", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewOrganizationConformancePack(ctx *pulumi.Context,
 func GetOrganizationConformancePack(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OrganizationConformancePackState, opts ...pulumi.ResourceOption) (*OrganizationConformancePack, error) {
 	var resource OrganizationConformancePack
-	err := ctx.ReadResource("aws-native:Configuration:OrganizationConformancePack", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:configuration:OrganizationConformancePack", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

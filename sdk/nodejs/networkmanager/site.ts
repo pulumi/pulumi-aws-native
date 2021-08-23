@@ -22,7 +22,7 @@ export class Site extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NetworkManager:Site';
+    public static readonly __pulumiType = 'aws-native:networkmanager:Site';
 
     /**
      * Returns true if the given object is an instance of Site.  This is designed to work even
@@ -46,7 +46,7 @@ export class Site extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
      */
-    public readonly location!: pulumi.Output<outputs.NetworkManager.SiteLocation | undefined>;
+    public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
     public /*out*/ readonly siteArn!: pulumi.Output<string>;
     public /*out*/ readonly siteId!: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export interface SiteArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
      */
-    location?: pulumi.Input<inputs.NetworkManager.SiteLocationArgs>;
+    location?: pulumi.Input<inputs.networkmanager.SiteLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
      */

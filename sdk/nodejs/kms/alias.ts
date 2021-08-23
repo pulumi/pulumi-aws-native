@@ -21,7 +21,7 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:KMS:Alias';
+    public static readonly __pulumiType = 'aws-native:kms:Alias';
 
     /**
      * Returns true if the given object is an instance of Alias.  This is designed to work even

@@ -272,7 +272,7 @@ class EndpointGroup(pulumi.CustomResource):
             __props__.__dict__["traffic_dial_percentage"] = traffic_dial_percentage
             __props__.__dict__["endpoint_group_arn"] = None
         super(EndpointGroup, __self__).__init__(
-            'aws-native:GlobalAccelerator:EndpointGroup',
+            'aws-native:globalaccelerator:EndpointGroup',
             resource_name,
             __props__,
             opts)

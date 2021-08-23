@@ -21,7 +21,7 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:LocalGatewayRoute';
+    public static readonly __pulumiType = 'aws-native:ec2:LocalGatewayRoute';
 
     /**
      * Returns true if the given object is an instance of LocalGatewayRoute.  This is designed to work even

@@ -22,7 +22,7 @@ export class WirelessGateway extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:WirelessGateway';
+    public static readonly __pulumiType = 'aws-native:iotwireless:WirelessGateway';
 
     /**
      * Returns true if the given object is an instance of WirelessGateway.  This is designed to work even
@@ -48,7 +48,7 @@ export class WirelessGateway extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.IoTWireless.WirelessGatewayLoRaWANGateway>;
+    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWANGateway>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
      */
@@ -119,7 +119,7 @@ export interface WirelessGatewayArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
      */
-    loRaWAN: pulumi.Input<inputs.IoTWireless.WirelessGatewayLoRaWANGatewayArgs>;
+    loRaWAN: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWANGatewayArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
      */

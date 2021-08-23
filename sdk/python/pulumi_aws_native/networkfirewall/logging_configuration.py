@@ -131,7 +131,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__.__dict__["logging_configuration"] = logging_configuration
         super(LoggingConfiguration, __self__).__init__(
-            'aws-native:NetworkFirewall:LoggingConfiguration',
+            'aws-native:networkfirewall:LoggingConfiguration',
             resource_name,
             __props__,
             opts)

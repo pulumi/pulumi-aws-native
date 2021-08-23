@@ -56,7 +56,7 @@ func NewBranch(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'BranchName'")
 	}
 	var resource Branch
-	err := ctx.RegisterResource("aws-native:Amplify:Branch", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:amplify:Branch", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewBranch(ctx *pulumi.Context,
 func GetBranch(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BranchState, opts ...pulumi.ResourceOption) (*Branch, error) {
 	var resource Branch
-	err := ctx.ReadResource("aws-native:Amplify:Branch", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:amplify:Branch", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

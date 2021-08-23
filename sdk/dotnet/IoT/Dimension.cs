@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:Dimension")]
+    [AwsNativeResourceType("aws-native:iot:Dimension")]
     public partial class Dimension : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dimension(string name, DimensionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Dimension", name, args ?? new DimensionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:Dimension", name, args ?? new DimensionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Dimension(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:Dimension", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:Dimension", name, null, MakeResourceOptions(options, id))
         {
         }
 

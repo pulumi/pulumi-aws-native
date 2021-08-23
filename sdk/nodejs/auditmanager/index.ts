@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:AuditManager:Assessment":
+            case "aws-native:auditmanager:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "AuditManager", _module)
+pulumi.runtime.registerResourceModule("aws-native", "auditmanager", _module)

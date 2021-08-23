@@ -131,7 +131,7 @@ class TopicRuleDestination(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["status_reason"] = None
         super(TopicRuleDestination, __self__).__init__(
-            'aws-native:IoT:TopicRuleDestination',
+            'aws-native:iot:TopicRuleDestination',
             resource_name,
             __props__,
             opts)

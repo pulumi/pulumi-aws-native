@@ -22,7 +22,7 @@ export class ResourceCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DevOpsGuru:ResourceCollection';
+    public static readonly __pulumiType = 'aws-native:devopsguru:ResourceCollection';
 
     /**
      * Returns true if the given object is an instance of ResourceCollection.  This is designed to work even
@@ -38,7 +38,7 @@ export class ResourceCollection extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
      */
-    public readonly resourceCollectionFilter!: pulumi.Output<outputs.DevOpsGuru.ResourceCollectionResourceCollectionFilter>;
+    public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionResourceCollectionFilter>;
     public /*out*/ readonly resourceCollectionType!: pulumi.Output<string>;
 
     /**
@@ -75,5 +75,5 @@ export interface ResourceCollectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
      */
-    resourceCollectionFilter: pulumi.Input<inputs.DevOpsGuru.ResourceCollectionResourceCollectionFilterArgs>;
+    resourceCollectionFilter: pulumi.Input<inputs.devopsguru.ResourceCollectionResourceCollectionFilterArgs>;
 }

@@ -431,7 +431,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
             __props__.__dict__["id"] = None
         super(EventSourceMapping, __self__).__init__(
-            'aws-native:Lambda:EventSourceMapping',
+            'aws-native:lambda:EventSourceMapping',
             resource_name,
             __props__,
             opts)

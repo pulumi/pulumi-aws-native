@@ -40,7 +40,7 @@ func NewSecurityProfile(ctx *pulumi.Context,
 	}
 
 	var resource SecurityProfile
-	err := ctx.RegisterResource("aws-native:IoT:SecurityProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:SecurityProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewSecurityProfile(ctx *pulumi.Context,
 func GetSecurityProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SecurityProfileState, opts ...pulumi.ResourceOption) (*SecurityProfile, error) {
 	var resource SecurityProfile
-	err := ctx.ReadResource("aws-native:IoT:SecurityProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:SecurityProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

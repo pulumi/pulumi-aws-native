@@ -239,7 +239,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["task_arn"] = None
         super(Task, __self__).__init__(
-            'aws-native:DataSync:Task',
+            'aws-native:datasync:Task',
             resource_name,
             __props__,
             opts)

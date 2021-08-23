@@ -50,7 +50,7 @@ func NewTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PartitionKeyColumns'")
 	}
 	var resource Table
-	err := ctx.RegisterResource("aws-native:Cassandra:Table", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cassandra:Table", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewTable(ctx *pulumi.Context,
 func GetTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TableState, opts ...pulumi.ResourceOption) (*Table, error) {
 	var resource Table
-	err := ctx.ReadResource("aws-native:Cassandra:Table", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cassandra:Table", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

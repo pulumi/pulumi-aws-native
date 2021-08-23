@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:QuickSight:Theme")]
+    [AwsNativeResourceType("aws-native:quicksight:Theme")]
     public partial class Theme : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Theme(string name, ThemeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Theme", name, args ?? new ThemeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:quicksight:Theme", name, args ?? new ThemeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Theme(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Theme", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:quicksight:Theme", name, null, MakeResourceOptions(options, id))
         {
         }
 

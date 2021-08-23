@@ -91,7 +91,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["expiry_events_configuration"] = expiry_events_configuration
             __props__.__dict__["account_id"] = None
         super(Account, __self__).__init__(
-            'aws-native:CertificateManager:Account',
+            'aws-native:certificatemanager:Account',
             resource_name,
             __props__,
             opts)

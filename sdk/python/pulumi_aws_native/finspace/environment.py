@@ -177,7 +177,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["sage_maker_studio_domain_url"] = None
             __props__.__dict__["status"] = None
         super(Environment, __self__).__init__(
-            'aws-native:FinSpace:Environment',
+            'aws-native:finspace:Environment',
             resource_name,
             __props__,
             opts)

@@ -40,7 +40,7 @@ func NewPrimaryTaskSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TaskSetId'")
 	}
 	var resource PrimaryTaskSet
-	err := ctx.RegisterResource("aws-native:ECS:PrimaryTaskSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:PrimaryTaskSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewPrimaryTaskSet(ctx *pulumi.Context,
 func GetPrimaryTaskSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PrimaryTaskSetState, opts ...pulumi.ResourceOption) (*PrimaryTaskSet, error) {
 	var resource PrimaryTaskSet
-	err := ctx.ReadResource("aws-native:ECS:PrimaryTaskSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:PrimaryTaskSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

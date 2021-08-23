@@ -31,7 +31,7 @@ func NewResourceDefaultVersion(ctx *pulumi.Context,
 	}
 
 	var resource ResourceDefaultVersion
-	err := ctx.RegisterResource("aws-native:CloudFormation:ResourceDefaultVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:ResourceDefaultVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewResourceDefaultVersion(ctx *pulumi.Context,
 func GetResourceDefaultVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceDefaultVersionState, opts ...pulumi.ResourceOption) (*ResourceDefaultVersion, error) {
 	var resource ResourceDefaultVersion
-	err := ctx.ReadResource("aws-native:CloudFormation:ResourceDefaultVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:ResourceDefaultVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

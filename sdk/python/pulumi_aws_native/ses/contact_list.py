@@ -151,7 +151,7 @@ class ContactList(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
         super(ContactList, __self__).__init__(
-            'aws-native:SES:ContactList',
+            'aws-native:ses:ContactList',
             resource_name,
             __props__,
             opts)

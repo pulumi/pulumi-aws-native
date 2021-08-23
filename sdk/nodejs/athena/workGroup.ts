@@ -22,7 +22,7 @@ export class WorkGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Athena:WorkGroup';
+    public static readonly __pulumiType = 'aws-native:athena:WorkGroup';
 
     /**
      * Returns true if the given object is an instance of WorkGroup.  This is designed to work even
@@ -59,12 +59,12 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
-    public readonly workGroupConfiguration!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfiguration | undefined>;
+    public readonly workGroupConfiguration!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfiguration | undefined>;
     public /*out*/ readonly workGroupConfigurationEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
-    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.Athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
+    public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
     public /*out*/ readonly workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
 
     /**
@@ -137,9 +137,9 @@ export interface WorkGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
      */
-    workGroupConfiguration?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationArgs>;
+    workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
      */
-    workGroupConfigurationUpdates?: pulumi.Input<inputs.Athena.WorkGroupWorkGroupConfigurationUpdatesArgs>;
+    workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationUpdatesArgs>;
 }

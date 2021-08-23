@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IoTWireless:Destination":
+            case "aws-native:iotwireless:Destination":
                 return new Destination(name, <any>undefined, { urn })
-            case "aws-native:IoTWireless:DeviceProfile":
+            case "aws-native:iotwireless:DeviceProfile":
                 return new DeviceProfile(name, <any>undefined, { urn })
-            case "aws-native:IoTWireless:ServiceProfile":
+            case "aws-native:iotwireless:ServiceProfile":
                 return new ServiceProfile(name, <any>undefined, { urn })
-            case "aws-native:IoTWireless:TaskDefinition":
+            case "aws-native:iotwireless:TaskDefinition":
                 return new TaskDefinition(name, <any>undefined, { urn })
-            case "aws-native:IoTWireless:WirelessDevice":
+            case "aws-native:iotwireless:WirelessDevice":
                 return new WirelessDevice(name, <any>undefined, { urn })
-            case "aws-native:IoTWireless:WirelessGateway":
+            case "aws-native:iotwireless:WirelessGateway":
                 return new WirelessGateway(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IoTWireless", _module)
+pulumi.runtime.registerResourceModule("aws-native", "iotwireless", _module)

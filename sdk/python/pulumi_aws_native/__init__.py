@@ -348,1085 +348,1085 @@ _utilities.register(
 [
  {
   "pkg": "aws-native",
-  "mod": "ACMPCA",
-  "fqn": "pulumi_aws_native.acmpca",
-  "classes": {
-   "aws-native:ACMPCA:Certificate": "Certificate",
-   "aws-native:ACMPCA:CertificateAuthority": "CertificateAuthority",
-   "aws-native:ACMPCA:CertificateAuthorityActivation": "CertificateAuthorityActivation"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "AccessAnalyzer",
+  "mod": "accessanalyzer",
   "fqn": "pulumi_aws_native.accessanalyzer",
   "classes": {
-   "aws-native:AccessAnalyzer:Analyzer": "Analyzer"
+   "aws-native:accessanalyzer:Analyzer": "Analyzer"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Amplify",
+  "mod": "acmpca",
+  "fqn": "pulumi_aws_native.acmpca",
+  "classes": {
+   "aws-native:acmpca:Certificate": "Certificate",
+   "aws-native:acmpca:CertificateAuthority": "CertificateAuthority",
+   "aws-native:acmpca:CertificateAuthorityActivation": "CertificateAuthorityActivation"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "amplify",
   "fqn": "pulumi_aws_native.amplify",
   "classes": {
-   "aws-native:Amplify:App": "App",
-   "aws-native:Amplify:Branch": "Branch",
-   "aws-native:Amplify:Domain": "Domain"
+   "aws-native:amplify:App": "App",
+   "aws-native:amplify:Branch": "Branch",
+   "aws-native:amplify:Domain": "Domain"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ApiGateway",
+  "mod": "apigateway",
   "fqn": "pulumi_aws_native.apigateway",
   "classes": {
-   "aws-native:ApiGateway:ApiKey": "ApiKey",
-   "aws-native:ApiGateway:ClientCertificate": "ClientCertificate",
-   "aws-native:ApiGateway:DocumentationVersion": "DocumentationVersion",
-   "aws-native:ApiGateway:DomainName": "DomainName",
-   "aws-native:ApiGateway:Model": "Model",
-   "aws-native:ApiGateway:RequestValidator": "RequestValidator",
-   "aws-native:ApiGateway:Resource": "Resource",
-   "aws-native:ApiGateway:UsagePlanKey": "UsagePlanKey"
+   "aws-native:apigateway:ApiKey": "ApiKey",
+   "aws-native:apigateway:ClientCertificate": "ClientCertificate",
+   "aws-native:apigateway:DocumentationVersion": "DocumentationVersion",
+   "aws-native:apigateway:DomainName": "DomainName",
+   "aws-native:apigateway:Model": "Model",
+   "aws-native:apigateway:RequestValidator": "RequestValidator",
+   "aws-native:apigateway:Resource": "Resource",
+   "aws-native:apigateway:UsagePlanKey": "UsagePlanKey"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "AppFlow",
+  "mod": "appflow",
   "fqn": "pulumi_aws_native.appflow",
   "classes": {
-   "aws-native:AppFlow:ConnectorProfile": "ConnectorProfile",
-   "aws-native:AppFlow:Flow": "Flow"
+   "aws-native:appflow:ConnectorProfile": "ConnectorProfile",
+   "aws-native:appflow:Flow": "Flow"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "AppIntegrations",
+  "mod": "appintegrations",
   "fqn": "pulumi_aws_native.appintegrations",
   "classes": {
-   "aws-native:AppIntegrations:EventIntegration": "EventIntegration"
+   "aws-native:appintegrations:EventIntegration": "EventIntegration"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "AppRunner",
-  "fqn": "pulumi_aws_native.apprunner",
-  "classes": {
-   "aws-native:AppRunner:Service": "Service"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "ApplicationInsights",
+  "mod": "applicationinsights",
   "fqn": "pulumi_aws_native.applicationinsights",
   "classes": {
-   "aws-native:ApplicationInsights:Application": "Application"
+   "aws-native:applicationinsights:Application": "Application"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Athena",
+  "mod": "apprunner",
+  "fqn": "pulumi_aws_native.apprunner",
+  "classes": {
+   "aws-native:apprunner:Service": "Service"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "athena",
   "fqn": "pulumi_aws_native.athena",
   "classes": {
-   "aws-native:Athena:DataCatalog": "DataCatalog",
-   "aws-native:Athena:NamedQuery": "NamedQuery",
-   "aws-native:Athena:PreparedStatement": "PreparedStatement",
-   "aws-native:Athena:WorkGroup": "WorkGroup"
+   "aws-native:athena:DataCatalog": "DataCatalog",
+   "aws-native:athena:NamedQuery": "NamedQuery",
+   "aws-native:athena:PreparedStatement": "PreparedStatement",
+   "aws-native:athena:WorkGroup": "WorkGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "AuditManager",
+  "mod": "auditmanager",
   "fqn": "pulumi_aws_native.auditmanager",
   "classes": {
-   "aws-native:AuditManager:Assessment": "Assessment"
+   "aws-native:auditmanager:Assessment": "Assessment"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "AutoScaling",
+  "mod": "autoscaling",
   "fqn": "pulumi_aws_native.autoscaling",
   "classes": {
-   "aws-native:AutoScaling:WarmPool": "WarmPool"
+   "aws-native:autoscaling:WarmPool": "WarmPool"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Backup",
+  "mod": "backup",
   "fqn": "pulumi_aws_native.backup",
   "classes": {
-   "aws-native:Backup:BackupPlan": "BackupPlan",
-   "aws-native:Backup:BackupSelection": "BackupSelection",
-   "aws-native:Backup:BackupVault": "BackupVault"
+   "aws-native:backup:BackupPlan": "BackupPlan",
+   "aws-native:backup:BackupSelection": "BackupSelection",
+   "aws-native:backup:BackupVault": "BackupVault"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Budgets",
+  "mod": "budgets",
   "fqn": "pulumi_aws_native.budgets",
   "classes": {
-   "aws-native:Budgets:BudgetsAction": "BudgetsAction"
+   "aws-native:budgets:BudgetsAction": "BudgetsAction"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CE",
-  "fqn": "pulumi_aws_native.ce",
-  "classes": {
-   "aws-native:CE:CostCategory": "CostCategory"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "Cassandra",
+  "mod": "cassandra",
   "fqn": "pulumi_aws_native.cassandra",
   "classes": {
-   "aws-native:Cassandra:Keyspace": "Keyspace",
-   "aws-native:Cassandra:Table": "Table"
+   "aws-native:cassandra:Keyspace": "Keyspace",
+   "aws-native:cassandra:Table": "Table"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CertificateManager",
+  "mod": "ce",
+  "fqn": "pulumi_aws_native.ce",
+  "classes": {
+   "aws-native:ce:CostCategory": "CostCategory"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "certificatemanager",
   "fqn": "pulumi_aws_native.certificatemanager",
   "classes": {
-   "aws-native:CertificateManager:Account": "Account"
+   "aws-native:certificatemanager:Account": "Account"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Chatbot",
+  "mod": "chatbot",
   "fqn": "pulumi_aws_native.chatbot",
   "classes": {
-   "aws-native:Chatbot:SlackChannelConfiguration": "SlackChannelConfiguration"
+   "aws-native:chatbot:SlackChannelConfiguration": "SlackChannelConfiguration"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CloudFormation",
+  "mod": "cloudformation",
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
-   "aws-native:CloudFormation:ModuleDefaultVersion": "ModuleDefaultVersion",
-   "aws-native:CloudFormation:ModuleVersion": "ModuleVersion",
-   "aws-native:CloudFormation:PublicTypeVersion": "PublicTypeVersion",
-   "aws-native:CloudFormation:Publisher": "Publisher",
-   "aws-native:CloudFormation:ResourceDefaultVersion": "ResourceDefaultVersion",
-   "aws-native:CloudFormation:ResourceVersion": "ResourceVersion",
-   "aws-native:CloudFormation:StackSet": "StackSet",
-   "aws-native:CloudFormation:TypeActivation": "TypeActivation"
+   "aws-native:cloudformation:ModuleDefaultVersion": "ModuleDefaultVersion",
+   "aws-native:cloudformation:ModuleVersion": "ModuleVersion",
+   "aws-native:cloudformation:PublicTypeVersion": "PublicTypeVersion",
+   "aws-native:cloudformation:Publisher": "Publisher",
+   "aws-native:cloudformation:ResourceDefaultVersion": "ResourceDefaultVersion",
+   "aws-native:cloudformation:ResourceVersion": "ResourceVersion",
+   "aws-native:cloudformation:StackSet": "StackSet",
+   "aws-native:cloudformation:TypeActivation": "TypeActivation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CloudFront",
+  "mod": "cloudfront",
   "fqn": "pulumi_aws_native.cloudfront",
   "classes": {
-   "aws-native:CloudFront:CachePolicy": "CachePolicy",
-   "aws-native:CloudFront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
-   "aws-native:CloudFront:Distribution": "Distribution",
-   "aws-native:CloudFront:Function": "Function",
-   "aws-native:CloudFront:KeyGroup": "KeyGroup",
-   "aws-native:CloudFront:OriginRequestPolicy": "OriginRequestPolicy",
-   "aws-native:CloudFront:PublicKey": "PublicKey",
-   "aws-native:CloudFront:RealtimeLogConfig": "RealtimeLogConfig"
+   "aws-native:cloudfront:CachePolicy": "CachePolicy",
+   "aws-native:cloudfront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
+   "aws-native:cloudfront:Distribution": "Distribution",
+   "aws-native:cloudfront:Function": "Function",
+   "aws-native:cloudfront:KeyGroup": "KeyGroup",
+   "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
+   "aws-native:cloudfront:PublicKey": "PublicKey",
+   "aws-native:cloudfront:RealtimeLogConfig": "RealtimeLogConfig"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CloudWatch",
+  "mod": "cloudwatch",
   "fqn": "pulumi_aws_native.cloudwatch",
   "classes": {
-   "aws-native:CloudWatch:CompositeAlarm": "CompositeAlarm",
-   "aws-native:CloudWatch:MetricStream": "MetricStream"
+   "aws-native:cloudwatch:CompositeAlarm": "CompositeAlarm",
+   "aws-native:cloudwatch:MetricStream": "MetricStream"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CodeArtifact",
+  "mod": "codeartifact",
   "fqn": "pulumi_aws_native.codeartifact",
   "classes": {
-   "aws-native:CodeArtifact:Domain": "Domain",
-   "aws-native:CodeArtifact:Repository": "Repository"
+   "aws-native:codeartifact:Domain": "Domain",
+   "aws-native:codeartifact:Repository": "Repository"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CodeGuruProfiler",
+  "mod": "codeguruprofiler",
   "fqn": "pulumi_aws_native.codeguruprofiler",
   "classes": {
-   "aws-native:CodeGuruProfiler:ProfilingGroup": "ProfilingGroup"
+   "aws-native:codeguruprofiler:ProfilingGroup": "ProfilingGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CodeGuruReviewer",
+  "mod": "codegurureviewer",
   "fqn": "pulumi_aws_native.codegurureviewer",
   "classes": {
-   "aws-native:CodeGuruReviewer:RepositoryAssociation": "RepositoryAssociation"
+   "aws-native:codegurureviewer:RepositoryAssociation": "RepositoryAssociation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CodeStarConnections",
+  "mod": "codestarconnections",
   "fqn": "pulumi_aws_native.codestarconnections",
   "classes": {
-   "aws-native:CodeStarConnections:Connection": "Connection"
+   "aws-native:codestarconnections:Connection": "Connection"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Configuration",
+  "mod": "configuration",
   "fqn": "pulumi_aws_native.configuration",
   "classes": {
-   "aws-native:Configuration:ConfigurationAggregator": "ConfigurationAggregator",
-   "aws-native:Configuration:ConformancePack": "ConformancePack",
-   "aws-native:Configuration:OrganizationConformancePack": "OrganizationConformancePack",
-   "aws-native:Configuration:StoredQuery": "StoredQuery"
+   "aws-native:configuration:ConfigurationAggregator": "ConfigurationAggregator",
+   "aws-native:configuration:ConformancePack": "ConformancePack",
+   "aws-native:configuration:OrganizationConformancePack": "OrganizationConformancePack",
+   "aws-native:configuration:StoredQuery": "StoredQuery"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Connect",
+  "mod": "connect",
   "fqn": "pulumi_aws_native.connect",
   "classes": {
-   "aws-native:Connect:QuickConnect": "QuickConnect"
+   "aws-native:connect:QuickConnect": "QuickConnect"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "CustomerProfiles",
+  "mod": "customerprofiles",
   "fqn": "pulumi_aws_native.customerprofiles",
   "classes": {
-   "aws-native:CustomerProfiles:Domain": "Domain",
-   "aws-native:CustomerProfiles:Integration": "Integration",
-   "aws-native:CustomerProfiles:ObjectType": "ObjectType"
+   "aws-native:customerprofiles:Domain": "Domain",
+   "aws-native:customerprofiles:Integration": "Integration",
+   "aws-native:customerprofiles:ObjectType": "ObjectType"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "DataBrew",
+  "mod": "databrew",
   "fqn": "pulumi_aws_native.databrew",
   "classes": {
-   "aws-native:DataBrew:Dataset": "Dataset",
-   "aws-native:DataBrew:Job": "Job",
-   "aws-native:DataBrew:Project": "Project",
-   "aws-native:DataBrew:Recipe": "Recipe",
-   "aws-native:DataBrew:Schedule": "Schedule"
+   "aws-native:databrew:Dataset": "Dataset",
+   "aws-native:databrew:Job": "Job",
+   "aws-native:databrew:Project": "Project",
+   "aws-native:databrew:Recipe": "Recipe",
+   "aws-native:databrew:Schedule": "Schedule"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "DataSync",
+  "mod": "datasync",
   "fqn": "pulumi_aws_native.datasync",
   "classes": {
-   "aws-native:DataSync:Agent": "Agent",
-   "aws-native:DataSync:LocationEFS": "LocationEFS",
-   "aws-native:DataSync:LocationFSxWindows": "LocationFSxWindows",
-   "aws-native:DataSync:LocationNFS": "LocationNFS",
-   "aws-native:DataSync:LocationObjectStorage": "LocationObjectStorage",
-   "aws-native:DataSync:LocationS3": "LocationS3",
-   "aws-native:DataSync:LocationSMB": "LocationSMB",
-   "aws-native:DataSync:Task": "Task"
+   "aws-native:datasync:Agent": "Agent",
+   "aws-native:datasync:LocationEFS": "LocationEFS",
+   "aws-native:datasync:LocationFSxWindows": "LocationFSxWindows",
+   "aws-native:datasync:LocationNFS": "LocationNFS",
+   "aws-native:datasync:LocationObjectStorage": "LocationObjectStorage",
+   "aws-native:datasync:LocationS3": "LocationS3",
+   "aws-native:datasync:LocationSMB": "LocationSMB",
+   "aws-native:datasync:Task": "Task"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Detective",
+  "mod": "detective",
   "fqn": "pulumi_aws_native.detective",
   "classes": {
-   "aws-native:Detective:Graph": "Graph",
-   "aws-native:Detective:MemberInvitation": "MemberInvitation"
+   "aws-native:detective:Graph": "Graph",
+   "aws-native:detective:MemberInvitation": "MemberInvitation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "DevOpsGuru",
+  "mod": "devopsguru",
   "fqn": "pulumi_aws_native.devopsguru",
   "classes": {
-   "aws-native:DevOpsGuru:NotificationChannel": "NotificationChannel",
-   "aws-native:DevOpsGuru:ResourceCollection": "ResourceCollection"
+   "aws-native:devopsguru:NotificationChannel": "NotificationChannel",
+   "aws-native:devopsguru:ResourceCollection": "ResourceCollection"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "DynamoDB",
+  "mod": "dynamodb",
   "fqn": "pulumi_aws_native.dynamodb",
   "classes": {
-   "aws-native:DynamoDB:GlobalTable": "GlobalTable"
+   "aws-native:dynamodb:GlobalTable": "GlobalTable"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "EC2",
+  "mod": "ec2",
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
-   "aws-native:EC2:CarrierGateway": "CarrierGateway",
-   "aws-native:EC2:EC2Fleet": "EC2Fleet",
-   "aws-native:EC2:EgressOnlyInternetGateway": "EgressOnlyInternetGateway",
-   "aws-native:EC2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
-   "aws-native:EC2:FlowLog": "FlowLog",
-   "aws-native:EC2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
-   "aws-native:EC2:LocalGatewayRoute": "LocalGatewayRoute",
-   "aws-native:EC2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
-   "aws-native:EC2:NetworkInsightsAnalysis": "NetworkInsightsAnalysis",
-   "aws-native:EC2:NetworkInsightsPath": "NetworkInsightsPath",
-   "aws-native:EC2:PrefixList": "PrefixList",
-   "aws-native:EC2:SpotFleet": "SpotFleet",
-   "aws-native:EC2:TransitGateway": "TransitGateway",
-   "aws-native:EC2:TransitGatewayConnect": "TransitGatewayConnect",
-   "aws-native:EC2:TransitGatewayMulticastDomain": "TransitGatewayMulticastDomain",
-   "aws-native:EC2:TransitGatewayMulticastDomainAssociation": "TransitGatewayMulticastDomainAssociation",
-   "aws-native:EC2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
-   "aws-native:EC2:TransitGatewayMulticastGroupSource": "TransitGatewayMulticastGroupSource",
-   "aws-native:EC2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment"
+   "aws-native:ec2:CarrierGateway": "CarrierGateway",
+   "aws-native:ec2:EC2Fleet": "EC2Fleet",
+   "aws-native:ec2:EgressOnlyInternetGateway": "EgressOnlyInternetGateway",
+   "aws-native:ec2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
+   "aws-native:ec2:FlowLog": "FlowLog",
+   "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
+   "aws-native:ec2:LocalGatewayRoute": "LocalGatewayRoute",
+   "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
+   "aws-native:ec2:NetworkInsightsAnalysis": "NetworkInsightsAnalysis",
+   "aws-native:ec2:NetworkInsightsPath": "NetworkInsightsPath",
+   "aws-native:ec2:PrefixList": "PrefixList",
+   "aws-native:ec2:SpotFleet": "SpotFleet",
+   "aws-native:ec2:TransitGateway": "TransitGateway",
+   "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
+   "aws-native:ec2:TransitGatewayMulticastDomain": "TransitGatewayMulticastDomain",
+   "aws-native:ec2:TransitGatewayMulticastDomainAssociation": "TransitGatewayMulticastDomainAssociation",
+   "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
+   "aws-native:ec2:TransitGatewayMulticastGroupSource": "TransitGatewayMulticastGroupSource",
+   "aws-native:ec2:TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachment"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ECR",
+  "mod": "ecr",
   "fqn": "pulumi_aws_native.ecr",
   "classes": {
-   "aws-native:ECR:RegistryPolicy": "RegistryPolicy",
-   "aws-native:ECR:ReplicationConfiguration": "ReplicationConfiguration",
-   "aws-native:ECR:Repository": "Repository"
+   "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
+   "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
+   "aws-native:ecr:Repository": "Repository"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ECS",
+  "mod": "ecs",
   "fqn": "pulumi_aws_native.ecs",
   "classes": {
-   "aws-native:ECS:CapacityProvider": "CapacityProvider",
-   "aws-native:ECS:Cluster": "Cluster",
-   "aws-native:ECS:ClusterCapacityProviderAssociations": "ClusterCapacityProviderAssociations",
-   "aws-native:ECS:PrimaryTaskSet": "PrimaryTaskSet",
-   "aws-native:ECS:Service": "Service",
-   "aws-native:ECS:TaskDefinition": "TaskDefinition",
-   "aws-native:ECS:TaskSet": "TaskSet"
+   "aws-native:ecs:CapacityProvider": "CapacityProvider",
+   "aws-native:ecs:Cluster": "Cluster",
+   "aws-native:ecs:ClusterCapacityProviderAssociations": "ClusterCapacityProviderAssociations",
+   "aws-native:ecs:PrimaryTaskSet": "PrimaryTaskSet",
+   "aws-native:ecs:Service": "Service",
+   "aws-native:ecs:TaskDefinition": "TaskDefinition",
+   "aws-native:ecs:TaskSet": "TaskSet"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "EFS",
+  "mod": "efs",
   "fqn": "pulumi_aws_native.efs",
   "classes": {
-   "aws-native:EFS:AccessPoint": "AccessPoint",
-   "aws-native:EFS:FileSystem": "FileSystem"
+   "aws-native:efs:AccessPoint": "AccessPoint",
+   "aws-native:efs:FileSystem": "FileSystem"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "EKS",
+  "mod": "eks",
   "fqn": "pulumi_aws_native.eks",
   "classes": {
-   "aws-native:EKS:Addon": "Addon",
-   "aws-native:EKS:FargateProfile": "FargateProfile"
+   "aws-native:eks:Addon": "Addon",
+   "aws-native:eks:FargateProfile": "FargateProfile"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "EMR",
-  "fqn": "pulumi_aws_native.emr",
-  "classes": {
-   "aws-native:EMR:Studio": "Studio",
-   "aws-native:EMR:StudioSessionMapping": "StudioSessionMapping"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "EMRContainers",
-  "fqn": "pulumi_aws_native.emrcontainers",
-  "classes": {
-   "aws-native:EMRContainers:VirtualCluster": "VirtualCluster"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "ElastiCache",
+  "mod": "elasticache",
   "fqn": "pulumi_aws_native.elasticache",
   "classes": {
-   "aws-native:ElastiCache:GlobalReplicationGroup": "GlobalReplicationGroup",
-   "aws-native:ElastiCache:User": "User",
-   "aws-native:ElastiCache:UserGroup": "UserGroup"
+   "aws-native:elasticache:GlobalReplicationGroup": "GlobalReplicationGroup",
+   "aws-native:elasticache:User": "User",
+   "aws-native:elasticache:UserGroup": "UserGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ElasticLoadBalancingV2",
+  "mod": "elasticloadbalancingv2",
   "fqn": "pulumi_aws_native.elasticloadbalancingv2",
   "classes": {
-   "aws-native:ElasticLoadBalancingV2:Listener": "Listener",
-   "aws-native:ElasticLoadBalancingV2:ListenerRule": "ListenerRule"
+   "aws-native:elasticloadbalancingv2:Listener": "Listener",
+   "aws-native:elasticloadbalancingv2:ListenerRule": "ListenerRule"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "EventSchemas",
-  "fqn": "pulumi_aws_native.eventschemas",
+  "mod": "emr",
+  "fqn": "pulumi_aws_native.emr",
   "classes": {
-   "aws-native:EventSchemas:RegistryPolicy": "RegistryPolicy"
+   "aws-native:emr:Studio": "Studio",
+   "aws-native:emr:StudioSessionMapping": "StudioSessionMapping"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Events",
+  "mod": "emrcontainers",
+  "fqn": "pulumi_aws_native.emrcontainers",
+  "classes": {
+   "aws-native:emrcontainers:VirtualCluster": "VirtualCluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "events",
   "fqn": "pulumi_aws_native.events",
   "classes": {
-   "aws-native:Events:ApiDestination": "ApiDestination",
-   "aws-native:Events:Archive": "Archive",
-   "aws-native:Events:Connection": "Connection"
+   "aws-native:events:ApiDestination": "ApiDestination",
+   "aws-native:events:Archive": "Archive",
+   "aws-native:events:Connection": "Connection"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "FIS",
-  "fqn": "pulumi_aws_native.fis",
+  "mod": "eventschemas",
+  "fqn": "pulumi_aws_native.eventschemas",
   "classes": {
-   "aws-native:FIS:ExperimentTemplate": "ExperimentTemplate"
+   "aws-native:eventschemas:RegistryPolicy": "RegistryPolicy"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "FMS",
-  "fqn": "pulumi_aws_native.fms",
-  "classes": {
-   "aws-native:FMS:NotificationChannel": "NotificationChannel",
-   "aws-native:FMS:Policy": "Policy"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "FinSpace",
+  "mod": "finspace",
   "fqn": "pulumi_aws_native.finspace",
   "classes": {
-   "aws-native:FinSpace:Environment": "Environment"
+   "aws-native:finspace:Environment": "Environment"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "FraudDetector",
+  "mod": "fis",
+  "fqn": "pulumi_aws_native.fis",
+  "classes": {
+   "aws-native:fis:ExperimentTemplate": "ExperimentTemplate"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "fms",
+  "fqn": "pulumi_aws_native.fms",
+  "classes": {
+   "aws-native:fms:NotificationChannel": "NotificationChannel",
+   "aws-native:fms:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "frauddetector",
   "fqn": "pulumi_aws_native.frauddetector",
   "classes": {
-   "aws-native:FraudDetector:Detector": "Detector",
-   "aws-native:FraudDetector:EntityType": "EntityType",
-   "aws-native:FraudDetector:EventType": "EventType",
-   "aws-native:FraudDetector:Label": "Label",
-   "aws-native:FraudDetector:Outcome": "Outcome",
-   "aws-native:FraudDetector:Variable": "Variable"
+   "aws-native:frauddetector:Detector": "Detector",
+   "aws-native:frauddetector:EntityType": "EntityType",
+   "aws-native:frauddetector:EventType": "EventType",
+   "aws-native:frauddetector:Label": "Label",
+   "aws-native:frauddetector:Outcome": "Outcome",
+   "aws-native:frauddetector:Variable": "Variable"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "GameLift",
+  "mod": "gamelift",
   "fqn": "pulumi_aws_native.gamelift",
   "classes": {
-   "aws-native:GameLift:Alias": "Alias",
-   "aws-native:GameLift:Fleet": "Fleet",
-   "aws-native:GameLift:GameServerGroup": "GameServerGroup"
+   "aws-native:gamelift:Alias": "Alias",
+   "aws-native:gamelift:Fleet": "Fleet",
+   "aws-native:gamelift:GameServerGroup": "GameServerGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "GlobalAccelerator",
+  "mod": "globalaccelerator",
   "fqn": "pulumi_aws_native.globalaccelerator",
   "classes": {
-   "aws-native:GlobalAccelerator:Accelerator": "Accelerator",
-   "aws-native:GlobalAccelerator:EndpointGroup": "EndpointGroup",
-   "aws-native:GlobalAccelerator:Listener": "Listener"
+   "aws-native:globalaccelerator:Accelerator": "Accelerator",
+   "aws-native:globalaccelerator:EndpointGroup": "EndpointGroup",
+   "aws-native:globalaccelerator:Listener": "Listener"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Glue",
+  "mod": "glue",
   "fqn": "pulumi_aws_native.glue",
   "classes": {
-   "aws-native:Glue:Registry": "Registry",
-   "aws-native:Glue:Schema": "Schema",
-   "aws-native:Glue:SchemaVersion": "SchemaVersion",
-   "aws-native:Glue:SchemaVersionMetadata": "SchemaVersionMetadata"
+   "aws-native:glue:Registry": "Registry",
+   "aws-native:glue:Schema": "Schema",
+   "aws-native:glue:SchemaVersion": "SchemaVersion",
+   "aws-native:glue:SchemaVersionMetadata": "SchemaVersionMetadata"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "GreengrassV2",
+  "mod": "greengrassv2",
   "fqn": "pulumi_aws_native.greengrassv2",
   "classes": {
-   "aws-native:GreengrassV2:ComponentVersion": "ComponentVersion"
+   "aws-native:greengrassv2:ComponentVersion": "ComponentVersion"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "GroundStation",
+  "mod": "groundstation",
   "fqn": "pulumi_aws_native.groundstation",
   "classes": {
-   "aws-native:GroundStation:Config": "Config",
-   "aws-native:GroundStation:DataflowEndpointGroup": "DataflowEndpointGroup",
-   "aws-native:GroundStation:MissionProfile": "MissionProfile"
+   "aws-native:groundstation:Config": "Config",
+   "aws-native:groundstation:DataflowEndpointGroup": "DataflowEndpointGroup",
+   "aws-native:groundstation:MissionProfile": "MissionProfile"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IAM",
+  "mod": "iam",
   "fqn": "pulumi_aws_native.iam",
   "classes": {
-   "aws-native:IAM:OIDCProvider": "OIDCProvider",
-   "aws-native:IAM:SAMLProvider": "SAMLProvider",
-   "aws-native:IAM:ServerCertificate": "ServerCertificate",
-   "aws-native:IAM:VirtualMFADevice": "VirtualMFADevice"
+   "aws-native:iam:OIDCProvider": "OIDCProvider",
+   "aws-native:iam:SAMLProvider": "SAMLProvider",
+   "aws-native:iam:ServerCertificate": "ServerCertificate",
+   "aws-native:iam:VirtualMFADevice": "VirtualMFADevice"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IVS",
-  "fqn": "pulumi_aws_native.ivs",
-  "classes": {
-   "aws-native:IVS:Channel": "Channel",
-   "aws-native:IVS:PlaybackKeyPair": "PlaybackKeyPair",
-   "aws-native:IVS:RecordingConfiguration": "RecordingConfiguration",
-   "aws-native:IVS:StreamKey": "StreamKey"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "ImageBuilder",
+  "mod": "imagebuilder",
   "fqn": "pulumi_aws_native.imagebuilder",
   "classes": {
-   "aws-native:ImageBuilder:Component": "Component",
-   "aws-native:ImageBuilder:ContainerRecipe": "ContainerRecipe",
-   "aws-native:ImageBuilder:DistributionConfiguration": "DistributionConfiguration",
-   "aws-native:ImageBuilder:Image": "Image",
-   "aws-native:ImageBuilder:ImagePipeline": "ImagePipeline",
-   "aws-native:ImageBuilder:ImageRecipe": "ImageRecipe",
-   "aws-native:ImageBuilder:InfrastructureConfiguration": "InfrastructureConfiguration"
+   "aws-native:imagebuilder:Component": "Component",
+   "aws-native:imagebuilder:ContainerRecipe": "ContainerRecipe",
+   "aws-native:imagebuilder:DistributionConfiguration": "DistributionConfiguration",
+   "aws-native:imagebuilder:Image": "Image",
+   "aws-native:imagebuilder:ImagePipeline": "ImagePipeline",
+   "aws-native:imagebuilder:ImageRecipe": "ImageRecipe",
+   "aws-native:imagebuilder:InfrastructureConfiguration": "InfrastructureConfiguration"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoT",
+  "mod": "iot",
   "fqn": "pulumi_aws_native.iot",
   "classes": {
-   "aws-native:IoT:AccountAuditConfiguration": "AccountAuditConfiguration",
-   "aws-native:IoT:Authorizer": "Authorizer",
-   "aws-native:IoT:Certificate": "Certificate",
-   "aws-native:IoT:CustomMetric": "CustomMetric",
-   "aws-native:IoT:Dimension": "Dimension",
-   "aws-native:IoT:DomainConfiguration": "DomainConfiguration",
-   "aws-native:IoT:MitigationAction": "MitigationAction",
-   "aws-native:IoT:ProvisioningTemplate": "ProvisioningTemplate",
-   "aws-native:IoT:ScheduledAudit": "ScheduledAudit",
-   "aws-native:IoT:SecurityProfile": "SecurityProfile",
-   "aws-native:IoT:TopicRule": "TopicRule",
-   "aws-native:IoT:TopicRuleDestination": "TopicRuleDestination"
+   "aws-native:iot:AccountAuditConfiguration": "AccountAuditConfiguration",
+   "aws-native:iot:Authorizer": "Authorizer",
+   "aws-native:iot:Certificate": "Certificate",
+   "aws-native:iot:CustomMetric": "CustomMetric",
+   "aws-native:iot:Dimension": "Dimension",
+   "aws-native:iot:DomainConfiguration": "DomainConfiguration",
+   "aws-native:iot:MitigationAction": "MitigationAction",
+   "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
+   "aws-native:iot:ScheduledAudit": "ScheduledAudit",
+   "aws-native:iot:SecurityProfile": "SecurityProfile",
+   "aws-native:iot:TopicRule": "TopicRule",
+   "aws-native:iot:TopicRuleDestination": "TopicRuleDestination"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoTCoreDeviceAdvisor",
+  "mod": "iotcoredeviceadvisor",
   "fqn": "pulumi_aws_native.iotcoredeviceadvisor",
   "classes": {
-   "aws-native:IoTCoreDeviceAdvisor:SuiteDefinition": "SuiteDefinition"
+   "aws-native:iotcoredeviceadvisor:SuiteDefinition": "SuiteDefinition"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoTEvents",
+  "mod": "iotevents",
   "fqn": "pulumi_aws_native.iotevents",
   "classes": {
-   "aws-native:IoTEvents:DetectorModel": "DetectorModel",
-   "aws-native:IoTEvents:Input": "Input"
+   "aws-native:iotevents:DetectorModel": "DetectorModel",
+   "aws-native:iotevents:Input": "Input"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoTFleetHub",
+  "mod": "iotfleethub",
   "fqn": "pulumi_aws_native.iotfleethub",
   "classes": {
-   "aws-native:IoTFleetHub:Application": "Application"
+   "aws-native:iotfleethub:Application": "Application"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoTSiteWise",
+  "mod": "iotsitewise",
   "fqn": "pulumi_aws_native.iotsitewise",
   "classes": {
-   "aws-native:IoTSiteWise:AccessPolicy": "AccessPolicy",
-   "aws-native:IoTSiteWise:Asset": "Asset",
-   "aws-native:IoTSiteWise:AssetModel": "AssetModel",
-   "aws-native:IoTSiteWise:Dashboard": "Dashboard",
-   "aws-native:IoTSiteWise:Gateway": "Gateway",
-   "aws-native:IoTSiteWise:Portal": "Portal",
-   "aws-native:IoTSiteWise:Project": "Project"
+   "aws-native:iotsitewise:AccessPolicy": "AccessPolicy",
+   "aws-native:iotsitewise:Asset": "Asset",
+   "aws-native:iotsitewise:AssetModel": "AssetModel",
+   "aws-native:iotsitewise:Dashboard": "Dashboard",
+   "aws-native:iotsitewise:Gateway": "Gateway",
+   "aws-native:iotsitewise:Portal": "Portal",
+   "aws-native:iotsitewise:Project": "Project"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "IoTWireless",
+  "mod": "iotwireless",
   "fqn": "pulumi_aws_native.iotwireless",
   "classes": {
-   "aws-native:IoTWireless:Destination": "Destination",
-   "aws-native:IoTWireless:DeviceProfile": "DeviceProfile",
-   "aws-native:IoTWireless:ServiceProfile": "ServiceProfile",
-   "aws-native:IoTWireless:TaskDefinition": "TaskDefinition",
-   "aws-native:IoTWireless:WirelessDevice": "WirelessDevice",
-   "aws-native:IoTWireless:WirelessGateway": "WirelessGateway"
+   "aws-native:iotwireless:Destination": "Destination",
+   "aws-native:iotwireless:DeviceProfile": "DeviceProfile",
+   "aws-native:iotwireless:ServiceProfile": "ServiceProfile",
+   "aws-native:iotwireless:TaskDefinition": "TaskDefinition",
+   "aws-native:iotwireless:WirelessDevice": "WirelessDevice",
+   "aws-native:iotwireless:WirelessGateway": "WirelessGateway"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "KMS",
-  "fqn": "pulumi_aws_native.kms",
+  "mod": "ivs",
+  "fqn": "pulumi_aws_native.ivs",
   "classes": {
-   "aws-native:KMS:Alias": "Alias",
-   "aws-native:KMS:Key": "Key",
-   "aws-native:KMS:ReplicaKey": "ReplicaKey"
+   "aws-native:ivs:Channel": "Channel",
+   "aws-native:ivs:PlaybackKeyPair": "PlaybackKeyPair",
+   "aws-native:ivs:RecordingConfiguration": "RecordingConfiguration",
+   "aws-native:ivs:StreamKey": "StreamKey"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Kendra",
+  "mod": "kendra",
   "fqn": "pulumi_aws_native.kendra",
   "classes": {
-   "aws-native:Kendra:DataSource": "DataSource",
-   "aws-native:Kendra:Faq": "Faq",
-   "aws-native:Kendra:Index": "Index"
+   "aws-native:kendra:DataSource": "DataSource",
+   "aws-native:kendra:Faq": "Faq",
+   "aws-native:kendra:Index": "Index"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Kinesis",
+  "mod": "kinesis",
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
-   "aws-native:Kinesis:Stream": "Stream"
+   "aws-native:kinesis:Stream": "Stream"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "KinesisFirehose",
+  "mod": "kinesisfirehose",
   "fqn": "pulumi_aws_native.kinesisfirehose",
   "classes": {
-   "aws-native:KinesisFirehose:DeliveryStream": "DeliveryStream"
+   "aws-native:kinesisfirehose:DeliveryStream": "DeliveryStream"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Lambda",
+  "mod": "kms",
+  "fqn": "pulumi_aws_native.kms",
+  "classes": {
+   "aws-native:kms:Alias": "Alias",
+   "aws-native:kms:Key": "Key",
+   "aws-native:kms:ReplicaKey": "ReplicaKey"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "lambda",
   "fqn": "pulumi_aws_native.lambda_",
   "classes": {
-   "aws-native:Lambda:CodeSigningConfig": "CodeSigningConfig",
-   "aws-native:Lambda:EventSourceMapping": "EventSourceMapping",
-   "aws-native:Lambda:Function": "Function"
+   "aws-native:lambda:CodeSigningConfig": "CodeSigningConfig",
+   "aws-native:lambda:EventSourceMapping": "EventSourceMapping",
+   "aws-native:lambda:Function": "Function"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "LicenseManager",
+  "mod": "licensemanager",
   "fqn": "pulumi_aws_native.licensemanager",
   "classes": {
-   "aws-native:LicenseManager:Grant": "Grant",
-   "aws-native:LicenseManager:License": "License"
+   "aws-native:licensemanager:Grant": "Grant",
+   "aws-native:licensemanager:License": "License"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Location",
+  "mod": "location",
   "fqn": "pulumi_aws_native.location",
   "classes": {
-   "aws-native:Location:GeofenceCollection": "GeofenceCollection",
-   "aws-native:Location:Map": "Map",
-   "aws-native:Location:PlaceIndex": "PlaceIndex",
-   "aws-native:Location:RouteCalculator": "RouteCalculator",
-   "aws-native:Location:Tracker": "Tracker",
-   "aws-native:Location:TrackerConsumer": "TrackerConsumer"
+   "aws-native:location:GeofenceCollection": "GeofenceCollection",
+   "aws-native:location:Map": "Map",
+   "aws-native:location:PlaceIndex": "PlaceIndex",
+   "aws-native:location:RouteCalculator": "RouteCalculator",
+   "aws-native:location:Tracker": "Tracker",
+   "aws-native:location:TrackerConsumer": "TrackerConsumer"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Logs",
+  "mod": "logs",
   "fqn": "pulumi_aws_native.logs",
   "classes": {
-   "aws-native:Logs:LogGroup": "LogGroup",
-   "aws-native:Logs:QueryDefinition": "QueryDefinition",
-   "aws-native:Logs:ResourcePolicy": "ResourcePolicy"
+   "aws-native:logs:LogGroup": "LogGroup",
+   "aws-native:logs:QueryDefinition": "QueryDefinition",
+   "aws-native:logs:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "LookoutMetrics",
+  "mod": "lookoutmetrics",
   "fqn": "pulumi_aws_native.lookoutmetrics",
   "classes": {
-   "aws-native:LookoutMetrics:Alert": "Alert",
-   "aws-native:LookoutMetrics:AnomalyDetector": "AnomalyDetector"
+   "aws-native:lookoutmetrics:Alert": "Alert",
+   "aws-native:lookoutmetrics:AnomalyDetector": "AnomalyDetector"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "LookoutVision",
+  "mod": "lookoutvision",
   "fqn": "pulumi_aws_native.lookoutvision",
   "classes": {
-   "aws-native:LookoutVision:Project": "Project"
+   "aws-native:lookoutvision:Project": "Project"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "MWAA",
-  "fqn": "pulumi_aws_native.mwaa",
-  "classes": {
-   "aws-native:MWAA:Environment": "Environment"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "Macie",
+  "mod": "macie",
   "fqn": "pulumi_aws_native.macie",
   "classes": {
-   "aws-native:Macie:CustomDataIdentifier": "CustomDataIdentifier",
-   "aws-native:Macie:FindingsFilter": "FindingsFilter",
-   "aws-native:Macie:Session": "Session"
+   "aws-native:macie:CustomDataIdentifier": "CustomDataIdentifier",
+   "aws-native:macie:FindingsFilter": "FindingsFilter",
+   "aws-native:macie:Session": "Session"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "MediaConnect",
+  "mod": "mediaconnect",
   "fqn": "pulumi_aws_native.mediaconnect",
   "classes": {
-   "aws-native:MediaConnect:Flow": "Flow",
-   "aws-native:MediaConnect:FlowEntitlement": "FlowEntitlement",
-   "aws-native:MediaConnect:FlowOutput": "FlowOutput",
-   "aws-native:MediaConnect:FlowSource": "FlowSource",
-   "aws-native:MediaConnect:FlowVpcInterface": "FlowVpcInterface"
+   "aws-native:mediaconnect:Flow": "Flow",
+   "aws-native:mediaconnect:FlowEntitlement": "FlowEntitlement",
+   "aws-native:mediaconnect:FlowOutput": "FlowOutput",
+   "aws-native:mediaconnect:FlowSource": "FlowSource",
+   "aws-native:mediaconnect:FlowVpcInterface": "FlowVpcInterface"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "MediaPackage",
+  "mod": "mediapackage",
   "fqn": "pulumi_aws_native.mediapackage",
   "classes": {
-   "aws-native:MediaPackage:Asset": "Asset",
-   "aws-native:MediaPackage:Channel": "Channel",
-   "aws-native:MediaPackage:OriginEndpoint": "OriginEndpoint",
-   "aws-native:MediaPackage:PackagingConfiguration": "PackagingConfiguration",
-   "aws-native:MediaPackage:PackagingGroup": "PackagingGroup"
+   "aws-native:mediapackage:Asset": "Asset",
+   "aws-native:mediapackage:Channel": "Channel",
+   "aws-native:mediapackage:OriginEndpoint": "OriginEndpoint",
+   "aws-native:mediapackage:PackagingConfiguration": "PackagingConfiguration",
+   "aws-native:mediapackage:PackagingGroup": "PackagingGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "NetworkFirewall",
+  "mod": "mwaa",
+  "fqn": "pulumi_aws_native.mwaa",
+  "classes": {
+   "aws-native:mwaa:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "networkfirewall",
   "fqn": "pulumi_aws_native.networkfirewall",
   "classes": {
-   "aws-native:NetworkFirewall:Firewall": "Firewall",
-   "aws-native:NetworkFirewall:FirewallPolicy": "FirewallPolicy",
-   "aws-native:NetworkFirewall:LoggingConfiguration": "LoggingConfiguration",
-   "aws-native:NetworkFirewall:RuleGroup": "RuleGroup"
+   "aws-native:networkfirewall:Firewall": "Firewall",
+   "aws-native:networkfirewall:FirewallPolicy": "FirewallPolicy",
+   "aws-native:networkfirewall:LoggingConfiguration": "LoggingConfiguration",
+   "aws-native:networkfirewall:RuleGroup": "RuleGroup"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "NetworkManager",
+  "mod": "networkmanager",
   "fqn": "pulumi_aws_native.networkmanager",
   "classes": {
-   "aws-native:NetworkManager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
-   "aws-native:NetworkManager:Device": "Device",
-   "aws-native:NetworkManager:GlobalNetwork": "GlobalNetwork",
-   "aws-native:NetworkManager:Link": "Link",
-   "aws-native:NetworkManager:LinkAssociation": "LinkAssociation",
-   "aws-native:NetworkManager:Site": "Site",
-   "aws-native:NetworkManager:TransitGatewayRegistration": "TransitGatewayRegistration"
+   "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
+   "aws-native:networkmanager:Device": "Device",
+   "aws-native:networkmanager:GlobalNetwork": "GlobalNetwork",
+   "aws-native:networkmanager:Link": "Link",
+   "aws-native:networkmanager:LinkAssociation": "LinkAssociation",
+   "aws-native:networkmanager:Site": "Site",
+   "aws-native:networkmanager:TransitGatewayRegistration": "TransitGatewayRegistration"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "NimbleStudio",
+  "mod": "nimblestudio",
   "fqn": "pulumi_aws_native.nimblestudio",
   "classes": {
-   "aws-native:NimbleStudio:LaunchProfile": "LaunchProfile",
-   "aws-native:NimbleStudio:StreamingImage": "StreamingImage",
-   "aws-native:NimbleStudio:Studio": "Studio",
-   "aws-native:NimbleStudio:StudioComponent": "StudioComponent"
+   "aws-native:nimblestudio:LaunchProfile": "LaunchProfile",
+   "aws-native:nimblestudio:StreamingImage": "StreamingImage",
+   "aws-native:nimblestudio:Studio": "Studio",
+   "aws-native:nimblestudio:StudioComponent": "StudioComponent"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "OpsWorksCM",
+  "mod": "opsworkscm",
   "fqn": "pulumi_aws_native.opsworkscm",
   "classes": {
-   "aws-native:OpsWorksCM:Server": "Server"
+   "aws-native:opsworkscm:Server": "Server"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "QLDB",
+  "mod": "qldb",
   "fqn": "pulumi_aws_native.qldb",
   "classes": {
-   "aws-native:QLDB:Stream": "Stream"
+   "aws-native:qldb:Stream": "Stream"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "QuickSight",
+  "mod": "quicksight",
   "fqn": "pulumi_aws_native.quicksight",
   "classes": {
-   "aws-native:QuickSight:Analysis": "Analysis",
-   "aws-native:QuickSight:Dashboard": "Dashboard",
-   "aws-native:QuickSight:DataSet": "DataSet",
-   "aws-native:QuickSight:DataSource": "DataSource",
-   "aws-native:QuickSight:Template": "Template",
-   "aws-native:QuickSight:Theme": "Theme"
+   "aws-native:quicksight:Analysis": "Analysis",
+   "aws-native:quicksight:Dashboard": "Dashboard",
+   "aws-native:quicksight:DataSet": "DataSet",
+   "aws-native:quicksight:DataSource": "DataSource",
+   "aws-native:quicksight:Template": "Template",
+   "aws-native:quicksight:Theme": "Theme"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "RDS",
+  "mod": "rds",
   "fqn": "pulumi_aws_native.rds",
   "classes": {
-   "aws-native:RDS:DBProxy": "DBProxy",
-   "aws-native:RDS:DBProxyEndpoint": "DBProxyEndpoint",
-   "aws-native:RDS:DBProxyTargetGroup": "DBProxyTargetGroup",
-   "aws-native:RDS:GlobalCluster": "GlobalCluster"
+   "aws-native:rds:DBProxy": "DBProxy",
+   "aws-native:rds:DBProxyEndpoint": "DBProxyEndpoint",
+   "aws-native:rds:DBProxyTargetGroup": "DBProxyTargetGroup",
+   "aws-native:rds:GlobalCluster": "GlobalCluster"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Redshift",
+  "mod": "redshift",
   "fqn": "pulumi_aws_native.redshift",
   "classes": {
-   "aws-native:Redshift:Cluster": "Cluster"
+   "aws-native:redshift:Cluster": "Cluster"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ResourceGroups",
+  "mod": "resourcegroups",
   "fqn": "pulumi_aws_native.resourcegroups",
   "classes": {
-   "aws-native:ResourceGroups:Group": "Group"
+   "aws-native:resourcegroups:Group": "Group"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Route53",
+  "mod": "route53",
   "fqn": "pulumi_aws_native.route53",
   "classes": {
-   "aws-native:Route53:DNSSEC": "DNSSEC",
-   "aws-native:Route53:HealthCheck": "HealthCheck",
-   "aws-native:Route53:HostedZone": "HostedZone",
-   "aws-native:Route53:KeySigningKey": "KeySigningKey"
+   "aws-native:route53:DNSSEC": "DNSSEC",
+   "aws-native:route53:HealthCheck": "HealthCheck",
+   "aws-native:route53:HostedZone": "HostedZone",
+   "aws-native:route53:KeySigningKey": "KeySigningKey"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Route53RecoveryControl",
+  "mod": "route53recoverycontrol",
   "fqn": "pulumi_aws_native.route53recoverycontrol",
   "classes": {
-   "aws-native:Route53RecoveryControl:Cluster": "Cluster",
-   "aws-native:Route53RecoveryControl:ControlPanel": "ControlPanel",
-   "aws-native:Route53RecoveryControl:RoutingControl": "RoutingControl",
-   "aws-native:Route53RecoveryControl:SafetyRule": "SafetyRule"
+   "aws-native:route53recoverycontrol:Cluster": "Cluster",
+   "aws-native:route53recoverycontrol:ControlPanel": "ControlPanel",
+   "aws-native:route53recoverycontrol:RoutingControl": "RoutingControl",
+   "aws-native:route53recoverycontrol:SafetyRule": "SafetyRule"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Route53RecoveryReadiness",
+  "mod": "route53recoveryreadiness",
   "fqn": "pulumi_aws_native.route53recoveryreadiness",
   "classes": {
-   "aws-native:Route53RecoveryReadiness:Cell": "Cell",
-   "aws-native:Route53RecoveryReadiness:ReadinessCheck": "ReadinessCheck",
-   "aws-native:Route53RecoveryReadiness:RecoveryGroup": "RecoveryGroup",
-   "aws-native:Route53RecoveryReadiness:ResourceSet": "ResourceSet"
+   "aws-native:route53recoveryreadiness:Cell": "Cell",
+   "aws-native:route53recoveryreadiness:ReadinessCheck": "ReadinessCheck",
+   "aws-native:route53recoveryreadiness:RecoveryGroup": "RecoveryGroup",
+   "aws-native:route53recoveryreadiness:ResourceSet": "ResourceSet"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Route53Resolver",
+  "mod": "route53resolver",
   "fqn": "pulumi_aws_native.route53resolver",
   "classes": {
-   "aws-native:Route53Resolver:FirewallDomainList": "FirewallDomainList",
-   "aws-native:Route53Resolver:FirewallRuleGroup": "FirewallRuleGroup",
-   "aws-native:Route53Resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
-   "aws-native:Route53Resolver:ResolverDNSSECConfig": "ResolverDNSSECConfig",
-   "aws-native:Route53Resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",
-   "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation"
+   "aws-native:route53resolver:FirewallDomainList": "FirewallDomainList",
+   "aws-native:route53resolver:FirewallRuleGroup": "FirewallRuleGroup",
+   "aws-native:route53resolver:FirewallRuleGroupAssociation": "FirewallRuleGroupAssociation",
+   "aws-native:route53resolver:ResolverDNSSECConfig": "ResolverDNSSECConfig",
+   "aws-native:route53resolver:ResolverQueryLoggingConfig": "ResolverQueryLoggingConfig",
+   "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation": "ResolverQueryLoggingConfigAssociation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "S3",
+  "mod": "s3",
   "fqn": "pulumi_aws_native.s3",
   "classes": {
-   "aws-native:S3:AccessPoint": "AccessPoint",
-   "aws-native:S3:StorageLens": "StorageLens"
+   "aws-native:s3:AccessPoint": "AccessPoint",
+   "aws-native:s3:StorageLens": "StorageLens"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "S3ObjectLambda",
+  "mod": "s3objectlambda",
   "fqn": "pulumi_aws_native.s3objectlambda",
   "classes": {
-   "aws-native:S3ObjectLambda:AccessPoint": "AccessPoint",
-   "aws-native:S3ObjectLambda:AccessPointPolicy": "AccessPointPolicy"
+   "aws-native:s3objectlambda:AccessPoint": "AccessPoint",
+   "aws-native:s3objectlambda:AccessPointPolicy": "AccessPointPolicy"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "S3Outposts",
+  "mod": "s3outposts",
   "fqn": "pulumi_aws_native.s3outposts",
   "classes": {
-   "aws-native:S3Outposts:AccessPoint": "AccessPoint",
-   "aws-native:S3Outposts:Bucket": "Bucket",
-   "aws-native:S3Outposts:BucketPolicy": "BucketPolicy",
-   "aws-native:S3Outposts:Endpoint": "Endpoint"
+   "aws-native:s3outposts:AccessPoint": "AccessPoint",
+   "aws-native:s3outposts:Bucket": "Bucket",
+   "aws-native:s3outposts:BucketPolicy": "BucketPolicy",
+   "aws-native:s3outposts:Endpoint": "Endpoint"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "SES",
-  "fqn": "pulumi_aws_native.ses",
-  "classes": {
-   "aws-native:SES:ConfigurationSet": "ConfigurationSet",
-   "aws-native:SES:ContactList": "ContactList"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "SSM",
-  "fqn": "pulumi_aws_native.ssm",
-  "classes": {
-   "aws-native:SSM:Association": "Association",
-   "aws-native:SSM:Document": "Document",
-   "aws-native:SSM:ResourceDataSync": "ResourceDataSync"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "SSMContacts",
-  "fqn": "pulumi_aws_native.ssmcontacts",
-  "classes": {
-   "aws-native:SSMContacts:Contact": "Contact",
-   "aws-native:SSMContacts:ContactChannel": "ContactChannel"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "SSMIncidents",
-  "fqn": "pulumi_aws_native.ssmincidents",
-  "classes": {
-   "aws-native:SSMIncidents:ReplicationSet": "ReplicationSet",
-   "aws-native:SSMIncidents:ResponsePlan": "ResponsePlan"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "SSO",
-  "fqn": "pulumi_aws_native.sso",
-  "classes": {
-   "aws-native:SSO:Assignment": "Assignment",
-   "aws-native:SSO:InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfiguration",
-   "aws-native:SSO:PermissionSet": "PermissionSet"
-  }
- },
- {
-  "pkg": "aws-native",
-  "mod": "SageMaker",
+  "mod": "sagemaker",
   "fqn": "pulumi_aws_native.sagemaker",
   "classes": {
-   "aws-native:SageMaker:App": "App",
-   "aws-native:SageMaker:AppImageConfig": "AppImageConfig",
-   "aws-native:SageMaker:DataQualityJobDefinition": "DataQualityJobDefinition",
-   "aws-native:SageMaker:Device": "Device",
-   "aws-native:SageMaker:DeviceFleet": "DeviceFleet",
-   "aws-native:SageMaker:Domain": "Domain",
-   "aws-native:SageMaker:FeatureGroup": "FeatureGroup",
-   "aws-native:SageMaker:Image": "Image",
-   "aws-native:SageMaker:ImageVersion": "ImageVersion",
-   "aws-native:SageMaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
-   "aws-native:SageMaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",
-   "aws-native:SageMaker:ModelPackageGroup": "ModelPackageGroup",
-   "aws-native:SageMaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
-   "aws-native:SageMaker:MonitoringSchedule": "MonitoringSchedule",
-   "aws-native:SageMaker:Pipeline": "Pipeline",
-   "aws-native:SageMaker:Project": "Project",
-   "aws-native:SageMaker:UserProfile": "UserProfile"
+   "aws-native:sagemaker:App": "App",
+   "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
+   "aws-native:sagemaker:DataQualityJobDefinition": "DataQualityJobDefinition",
+   "aws-native:sagemaker:Device": "Device",
+   "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
+   "aws-native:sagemaker:Domain": "Domain",
+   "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
+   "aws-native:sagemaker:Image": "Image",
+   "aws-native:sagemaker:ImageVersion": "ImageVersion",
+   "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",
+   "aws-native:sagemaker:ModelExplainabilityJobDefinition": "ModelExplainabilityJobDefinition",
+   "aws-native:sagemaker:ModelPackageGroup": "ModelPackageGroup",
+   "aws-native:sagemaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
+   "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
+   "aws-native:sagemaker:Pipeline": "Pipeline",
+   "aws-native:sagemaker:Project": "Project",
+   "aws-native:sagemaker:UserProfile": "UserProfile"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ServiceCatalog",
+  "mod": "servicecatalog",
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
-   "aws-native:ServiceCatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
-   "aws-native:ServiceCatalog:ServiceAction": "ServiceAction",
-   "aws-native:ServiceCatalog:ServiceActionAssociation": "ServiceActionAssociation"
+   "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
+   "aws-native:servicecatalog:ServiceAction": "ServiceAction",
+   "aws-native:servicecatalog:ServiceActionAssociation": "ServiceActionAssociation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "ServiceCatalogAppRegistry",
+  "mod": "servicecatalogappregistry",
   "fqn": "pulumi_aws_native.servicecatalogappregistry",
   "classes": {
-   "aws-native:ServiceCatalogAppRegistry:Application": "Application",
-   "aws-native:ServiceCatalogAppRegistry:AttributeGroup": "AttributeGroup",
-   "aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation": "AttributeGroupAssociation",
-   "aws-native:ServiceCatalogAppRegistry:ResourceAssociation": "ResourceAssociation"
+   "aws-native:servicecatalogappregistry:Application": "Application",
+   "aws-native:servicecatalogappregistry:AttributeGroup": "AttributeGroup",
+   "aws-native:servicecatalogappregistry:AttributeGroupAssociation": "AttributeGroupAssociation",
+   "aws-native:servicecatalogappregistry:ResourceAssociation": "ResourceAssociation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Signer",
+  "mod": "ses",
+  "fqn": "pulumi_aws_native.ses",
+  "classes": {
+   "aws-native:ses:ConfigurationSet": "ConfigurationSet",
+   "aws-native:ses:ContactList": "ContactList"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "signer",
   "fqn": "pulumi_aws_native.signer",
   "classes": {
-   "aws-native:Signer:ProfilePermission": "ProfilePermission",
-   "aws-native:Signer:SigningProfile": "SigningProfile"
+   "aws-native:signer:ProfilePermission": "ProfilePermission",
+   "aws-native:signer:SigningProfile": "SigningProfile"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "StepFunctions",
+  "mod": "ssm",
+  "fqn": "pulumi_aws_native.ssm",
+  "classes": {
+   "aws-native:ssm:Association": "Association",
+   "aws-native:ssm:Document": "Document",
+   "aws-native:ssm:ResourceDataSync": "ResourceDataSync"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ssmcontacts",
+  "fqn": "pulumi_aws_native.ssmcontacts",
+  "classes": {
+   "aws-native:ssmcontacts:Contact": "Contact",
+   "aws-native:ssmcontacts:ContactChannel": "ContactChannel"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "ssmincidents",
+  "fqn": "pulumi_aws_native.ssmincidents",
+  "classes": {
+   "aws-native:ssmincidents:ReplicationSet": "ReplicationSet",
+   "aws-native:ssmincidents:ResponsePlan": "ResponsePlan"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "sso",
+  "fqn": "pulumi_aws_native.sso",
+  "classes": {
+   "aws-native:sso:Assignment": "Assignment",
+   "aws-native:sso:InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfiguration",
+   "aws-native:sso:PermissionSet": "PermissionSet"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "stepfunctions",
   "fqn": "pulumi_aws_native.stepfunctions",
   "classes": {
-   "aws-native:StepFunctions:StateMachine": "StateMachine"
+   "aws-native:stepfunctions:StateMachine": "StateMachine"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Synthetics",
+  "mod": "synthetics",
   "fqn": "pulumi_aws_native.synthetics",
   "classes": {
-   "aws-native:Synthetics:Canary": "Canary"
+   "aws-native:synthetics:Canary": "Canary"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "Timestream",
+  "mod": "timestream",
   "fqn": "pulumi_aws_native.timestream",
   "classes": {
-   "aws-native:Timestream:Database": "Database",
-   "aws-native:Timestream:Table": "Table"
+   "aws-native:timestream:Database": "Database",
+   "aws-native:timestream:Table": "Table"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "WAFv2",
+  "mod": "wafv2",
   "fqn": "pulumi_aws_native.wafv2",
   "classes": {
-   "aws-native:WAFv2:IPSet": "IPSet",
-   "aws-native:WAFv2:RegexPatternSet": "RegexPatternSet",
-   "aws-native:WAFv2:RuleGroup": "RuleGroup",
-   "aws-native:WAFv2:WebACL": "WebACL",
-   "aws-native:WAFv2:WebACLAssociation": "WebACLAssociation"
+   "aws-native:wafv2:IPSet": "IPSet",
+   "aws-native:wafv2:RegexPatternSet": "RegexPatternSet",
+   "aws-native:wafv2:RuleGroup": "RuleGroup",
+   "aws-native:wafv2:WebACL": "WebACL",
+   "aws-native:wafv2:WebACLAssociation": "WebACLAssociation"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "WorkSpaces",
+  "mod": "workspaces",
   "fqn": "pulumi_aws_native.workspaces",
   "classes": {
-   "aws-native:WorkSpaces:ConnectionAlias": "ConnectionAlias"
+   "aws-native:workspaces:ConnectionAlias": "ConnectionAlias"
   }
  },
  {
   "pkg": "aws-native",
-  "mod": "XRay",
+  "mod": "xray",
   "fqn": "pulumi_aws_native.xray",
   "classes": {
-   "aws-native:XRay:Group": "Group",
-   "aws-native:XRay:SamplingRule": "SamplingRule"
+   "aws-native:xray:Group": "Group",
+   "aws-native:xray:SamplingRule": "SamplingRule"
   }
  }
 ]

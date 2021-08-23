@@ -58,7 +58,7 @@ func NewDetector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
 	var resource Detector
-	err := ctx.RegisterResource("aws-native:FraudDetector:Detector", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:Detector", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewDetector(ctx *pulumi.Context,
 func GetDetector(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DetectorState, opts ...pulumi.ResourceOption) (*Detector, error) {
 	var resource Detector
-	err := ctx.ReadResource("aws-native:FraudDetector:Detector", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:Detector", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

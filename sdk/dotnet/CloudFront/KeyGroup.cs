@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:KeyGroup")]
+    [AwsNativeResourceType("aws-native:cloudfront:KeyGroup")]
     public partial class KeyGroup : Pulumi.CustomResource
     {
         [Output("id")]
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KeyGroup(string name, KeyGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:KeyGroup", name, args ?? new KeyGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:KeyGroup", name, args ?? new KeyGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KeyGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:KeyGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:KeyGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:SSO:Assignment":
+            case "aws-native:sso:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
-            case "aws-native:SSO:InstanceAccessControlAttributeConfiguration":
+            case "aws-native:sso:InstanceAccessControlAttributeConfiguration":
                 return new InstanceAccessControlAttributeConfiguration(name, <any>undefined, { urn })
-            case "aws-native:SSO:PermissionSet":
+            case "aws-native:sso:PermissionSet":
                 return new PermissionSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "SSO", _module)
+pulumi.runtime.registerResourceModule("aws-native", "sso", _module)

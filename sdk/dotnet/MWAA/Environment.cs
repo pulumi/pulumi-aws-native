@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MWAA
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MWAA:Environment")]
+    [AwsNativeResourceType("aws-native:mwaa:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
@@ -165,12 +165,12 @@ namespace Pulumi.AwsNative.MWAA
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MWAA:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mwaa:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MWAA:Environment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mwaa:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 

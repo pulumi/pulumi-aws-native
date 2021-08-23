@@ -53,7 +53,7 @@ func NewImagePipeline(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ImagePipeline
-	err := ctx.RegisterResource("aws-native:ImageBuilder:ImagePipeline", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:ImagePipeline", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewImagePipeline(ctx *pulumi.Context,
 func GetImagePipeline(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImagePipelineState, opts ...pulumi.ResourceOption) (*ImagePipeline, error) {
 	var resource ImagePipeline
-	err := ctx.ReadResource("aws-native:ImageBuilder:ImagePipeline", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:ImagePipeline", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Lambda:EventSourceMapping';
+    public static readonly __pulumiType = 'aws-native:lambda:EventSourceMapping';
 
     /**
      * Returns true if the given object is an instance of EventSourceMapping.  This is designed to work even
@@ -46,7 +46,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
      */
-    public readonly destinationConfig!: pulumi.Output<outputs.Lambda.EventSourceMappingDestinationConfig | undefined>;
+    public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
      */
@@ -87,11 +87,11 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
      */
-    public readonly selfManagedEventSource!: pulumi.Output<outputs.Lambda.EventSourceMappingSelfManagedEventSource | undefined>;
+    public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
      */
-    public readonly sourceAccessConfigurations!: pulumi.Output<outputs.Lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
+    public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
      */
@@ -185,7 +185,7 @@ export interface EventSourceMappingArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
      */
-    destinationConfig?: pulumi.Input<inputs.Lambda.EventSourceMappingDestinationConfigArgs>;
+    destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
      */
@@ -225,11 +225,11 @@ export interface EventSourceMappingArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
      */
-    selfManagedEventSource?: pulumi.Input<inputs.Lambda.EventSourceMappingSelfManagedEventSourceArgs>;
+    selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
      */
-    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.Lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
+    sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
      */

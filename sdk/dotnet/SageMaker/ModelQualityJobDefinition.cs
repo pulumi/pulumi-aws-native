@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:ModelQualityJobDefinition")]
+    [AwsNativeResourceType("aws-native:sagemaker:ModelQualityJobDefinition")]
     public partial class ModelQualityJobDefinition : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelQualityJobDefinition(string name, ModelQualityJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelQualityJobDefinition", name, args ?? new ModelQualityJobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:ModelQualityJobDefinition", name, args ?? new ModelQualityJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelQualityJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelQualityJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:ModelQualityJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

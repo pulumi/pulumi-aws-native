@@ -22,7 +22,7 @@ export class StoredQuery extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Configuration:StoredQuery';
+    public static readonly __pulumiType = 'aws-native:configuration:StoredQuery';
 
     /**
      * Returns true if the given object is an instance of StoredQuery.  This is designed to work even

@@ -42,7 +42,7 @@ func NewApiKey(ctx *pulumi.Context,
 	}
 
 	var resource ApiKey
-	err := ctx.RegisterResource("aws-native:ApiGateway:ApiKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:ApiKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewApiKey(ctx *pulumi.Context,
 func GetApiKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ApiKeyState, opts ...pulumi.ResourceOption) (*ApiKey, error) {
 	var resource ApiKey
-	err := ctx.ReadResource("aws-native:ApiGateway:ApiKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:ApiKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

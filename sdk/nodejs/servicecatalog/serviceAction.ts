@@ -22,7 +22,7 @@ export class ServiceAction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ServiceCatalog:ServiceAction';
+    public static readonly __pulumiType = 'aws-native:servicecatalog:ServiceAction';
 
     /**
      * Returns true if the given object is an instance of ServiceAction.  This is designed to work even
@@ -42,7 +42,7 @@ export class ServiceAction extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
      */
-    public readonly definition!: pulumi.Output<outputs.ServiceCatalog.ServiceActionDefinitionParameter[]>;
+    public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
      */
@@ -109,7 +109,7 @@ export interface ServiceActionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
      */
-    definition: pulumi.Input<pulumi.Input<inputs.ServiceCatalog.ServiceActionDefinitionParameterArgs>[]>;
+    definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
      */

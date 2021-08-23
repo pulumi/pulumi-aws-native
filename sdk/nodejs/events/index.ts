@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Events:ApiDestination":
+            case "aws-native:events:ApiDestination":
                 return new ApiDestination(name, <any>undefined, { urn })
-            case "aws-native:Events:Archive":
+            case "aws-native:events:Archive":
                 return new Archive(name, <any>undefined, { urn })
-            case "aws-native:Events:Connection":
+            case "aws-native:events:Connection":
                 return new Connection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Events", _module)
+pulumi.runtime.registerResourceModule("aws-native", "events", _module)

@@ -130,7 +130,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Database, __self__).__init__(
-            'aws-native:Timestream:Database',
+            'aws-native:timestream:Database',
             resource_name,
             __props__,
             opts)

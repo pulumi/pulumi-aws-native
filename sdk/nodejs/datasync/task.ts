@@ -22,7 +22,7 @@ export class Task extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:Task';
+    public static readonly __pulumiType = 'aws-native:datasync:Task';
 
     /**
      * Returns true if the given object is an instance of Task.  This is designed to work even
@@ -49,7 +49,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
      */
-    public readonly excludes!: pulumi.Output<outputs.DataSync.TaskFilterRule[] | undefined>;
+    public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
      */
@@ -57,11 +57,11 @@ export class Task extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
      */
-    public readonly options!: pulumi.Output<outputs.DataSync.TaskOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
      */
-    public readonly schedule!: pulumi.Output<outputs.DataSync.TaskTaskSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.datasync.TaskTaskSchedule | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
      */
@@ -143,7 +143,7 @@ export interface TaskArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
      */
-    excludes?: pulumi.Input<pulumi.Input<inputs.DataSync.TaskFilterRuleArgs>[]>;
+    excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
      */
@@ -151,11 +151,11 @@ export interface TaskArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
      */
-    options?: pulumi.Input<inputs.DataSync.TaskOptionsArgs>;
+    options?: pulumi.Input<inputs.datasync.TaskOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
      */
-    schedule?: pulumi.Input<inputs.DataSync.TaskTaskScheduleArgs>;
+    schedule?: pulumi.Input<inputs.datasync.TaskTaskScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
      */

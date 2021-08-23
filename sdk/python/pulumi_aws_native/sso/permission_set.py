@@ -232,7 +232,7 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["permission_set_arn"] = None
         super(PermissionSet, __self__).__init__(
-            'aws-native:SSO:PermissionSet',
+            'aws-native:sso:PermissionSet',
             resource_name,
             __props__,
             opts)

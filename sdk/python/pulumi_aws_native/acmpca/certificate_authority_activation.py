@@ -150,7 +150,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["complete_certificate_chain"] = None
         super(CertificateAuthorityActivation, __self__).__init__(
-            'aws-native:ACMPCA:CertificateAuthorityActivation',
+            'aws-native:acmpca:CertificateAuthorityActivation',
             resource_name,
             __props__,
             opts)

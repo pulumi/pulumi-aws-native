@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:PrefixList")]
+    [AwsNativeResourceType("aws-native:ec2:PrefixList")]
     public partial class PrefixList : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrefixList(string name, PrefixListArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:PrefixList", name, args ?? new PrefixListArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:PrefixList", name, args ?? new PrefixListArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrefixList(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:PrefixList", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:PrefixList", name, null, MakeResourceOptions(options, id))
         {
         }
 

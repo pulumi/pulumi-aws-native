@@ -278,7 +278,7 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["job_definition_arn"] = None
         super(ModelQualityJobDefinition, __self__).__init__(
-            'aws-native:SageMaker:ModelQualityJobDefinition',
+            'aws-native:sagemaker:ModelQualityJobDefinition',
             resource_name,
             __props__,
             opts)

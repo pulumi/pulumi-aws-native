@@ -477,7 +477,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["logging_configuration_worker_logs_cloud_watch_log_group_arn"] = None
             __props__.__dict__["webserver_url"] = None
         super(Environment, __self__).__init__(
-            'aws-native:MWAA:Environment',
+            'aws-native:mwaa:Environment',
             resource_name,
             __props__,
             opts)

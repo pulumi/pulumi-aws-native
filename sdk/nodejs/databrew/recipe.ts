@@ -22,7 +22,7 @@ export class Recipe extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataBrew:Recipe';
+    public static readonly __pulumiType = 'aws-native:databrew:Recipe';
 
     /**
      * Returns true if the given object is an instance of Recipe.  This is designed to work even
@@ -46,7 +46,7 @@ export class Recipe extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
      */
-    public readonly steps!: pulumi.Output<outputs.DataBrew.RecipeRecipeStep[]>;
+    public readonly steps!: pulumi.Output<outputs.databrew.RecipeRecipeStep[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
      */
@@ -101,7 +101,7 @@ export interface RecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
      */
-    steps: pulumi.Input<pulumi.Input<inputs.DataBrew.RecipeRecipeStepArgs>[]>;
+    steps: pulumi.Input<pulumi.Input<inputs.databrew.RecipeRecipeStepArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
      */

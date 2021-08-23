@@ -133,7 +133,7 @@ class EntityType(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(EntityType, __self__).__init__(
-            'aws-native:FraudDetector:EntityType',
+            'aws-native:frauddetector:EntityType',
             resource_name,
             __props__,
             opts)

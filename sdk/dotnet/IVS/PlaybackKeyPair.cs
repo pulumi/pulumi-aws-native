@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IVS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IVS:PlaybackKeyPair")]
+    [AwsNativeResourceType("aws-native:ivs:PlaybackKeyPair")]
     public partial class PlaybackKeyPair : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlaybackKeyPair(string name, PlaybackKeyPairArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:PlaybackKeyPair", name, args ?? new PlaybackKeyPairArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ivs:PlaybackKeyPair", name, args ?? new PlaybackKeyPairArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PlaybackKeyPair(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:PlaybackKeyPair", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ivs:PlaybackKeyPair", name, null, MakeResourceOptions(options, id))
         {
         }
 

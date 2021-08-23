@@ -174,7 +174,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["dashboard_arn"] = None
             __props__.__dict__["dashboard_id"] = None
         super(Dashboard, __self__).__init__(
-            'aws-native:IoTSiteWise:Dashboard',
+            'aws-native:iotsitewise:Dashboard',
             resource_name,
             __props__,
             opts)

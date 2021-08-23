@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:FraudDetector:Label")]
+    [AwsNativeResourceType("aws-native:frauddetector:Label")]
     public partial class Label : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Label(string name, LabelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:Label", name, args ?? new LabelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:frauddetector:Label", name, args ?? new LabelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Label(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:Label", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:frauddetector:Label", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -58,7 +58,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 	}
 
 	var resource TaskDefinition
-	err := ctx.RegisterResource("aws-native:ECS:TaskDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:TaskDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewTaskDefinition(ctx *pulumi.Context,
 func GetTaskDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskDefinitionState, opts ...pulumi.ResourceOption) (*TaskDefinition, error) {
 	var resource TaskDefinition
-	err := ctx.ReadResource("aws-native:ECS:TaskDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:TaskDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

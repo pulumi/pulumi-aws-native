@@ -22,7 +22,7 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IVS:PlaybackKeyPair';
+    public static readonly __pulumiType = 'aws-native:ivs:PlaybackKeyPair';
 
     /**
      * Returns true if the given object is an instance of PlaybackKeyPair.  This is designed to work even

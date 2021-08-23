@@ -170,7 +170,7 @@ class PublicTypeVersion(pulumi.CustomResource):
             __props__.__dict__["publisher_id"] = None
             __props__.__dict__["type_version_arn"] = None
         super(PublicTypeVersion, __self__).__init__(
-            'aws-native:CloudFormation:PublicTypeVersion',
+            'aws-native:cloudformation:PublicTypeVersion',
             resource_name,
             __props__,
             opts)

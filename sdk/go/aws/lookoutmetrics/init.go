@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:LookoutMetrics:Alert":
+	case "aws-native:lookoutmetrics:Alert":
 		r = &Alert{}
-	case "aws-native:LookoutMetrics:AnomalyDetector":
+	case "aws-native:lookoutmetrics:AnomalyDetector":
 		r = &AnomalyDetector{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"LookoutMetrics",
+		"lookoutmetrics",
 		&module{version},
 	)
 }

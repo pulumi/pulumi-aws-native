@@ -252,7 +252,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["key_id"] = None
         super(Key, __self__).__init__(
-            'aws-native:KMS:Key',
+            'aws-native:kms:Key',
             resource_name,
             __props__,
             opts)

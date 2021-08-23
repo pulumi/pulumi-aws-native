@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:ProvisioningTemplate")]
+    [AwsNativeResourceType("aws-native:iot:ProvisioningTemplate")]
     public partial class ProvisioningTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProvisioningTemplate(string name, ProvisioningTemplateArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:ProvisioningTemplate", name, args ?? new ProvisioningTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:ProvisioningTemplate", name, args ?? new ProvisioningTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProvisioningTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:ProvisioningTemplate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:ProvisioningTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 

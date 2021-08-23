@@ -21,7 +21,7 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ApiGateway:Resource';
+    public static readonly __pulumiType = 'aws-native:apigateway:Resource';
 
     /**
      * Returns true if the given object is an instance of Resource.  This is designed to work even

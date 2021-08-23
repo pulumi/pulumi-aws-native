@@ -53,7 +53,7 @@ func NewMetricStream(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource MetricStream
-	err := ctx.RegisterResource("aws-native:CloudWatch:MetricStream", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudwatch:MetricStream", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func NewMetricStream(ctx *pulumi.Context,
 func GetMetricStream(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MetricStreamState, opts ...pulumi.ResourceOption) (*MetricStream, error) {
 	var resource MetricStream
-	err := ctx.ReadResource("aws-native:CloudWatch:MetricStream", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudwatch:MetricStream", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

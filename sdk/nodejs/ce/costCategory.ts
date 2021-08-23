@@ -21,7 +21,7 @@ export class CostCategory extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CE:CostCategory';
+    public static readonly __pulumiType = 'aws-native:ce:CostCategory';
 
     /**
      * Returns true if the given object is an instance of CostCategory.  This is designed to work even

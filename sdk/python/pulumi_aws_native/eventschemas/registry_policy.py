@@ -130,7 +130,7 @@ class RegistryPolicy(pulumi.CustomResource):
             __props__.__dict__["revision_id"] = revision_id
             __props__.__dict__["id"] = None
         super(RegistryPolicy, __self__).__init__(
-            'aws-native:EventSchemas:RegistryPolicy',
+            'aws-native:eventschemas:RegistryPolicy',
             resource_name,
             __props__,
             opts)

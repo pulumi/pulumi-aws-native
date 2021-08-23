@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53Resolver:ResolverQueryLoggingConfig")]
+    [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfig")]
     public partial class ResolverQueryLoggingConfig : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverQueryLoggingConfig(string name, ResolverQueryLoggingConfigArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfig", name, args ?? new ResolverQueryLoggingConfigArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53resolver:ResolverQueryLoggingConfig", name, args ?? new ResolverQueryLoggingConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResolverQueryLoggingConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53resolver:ResolverQueryLoggingConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

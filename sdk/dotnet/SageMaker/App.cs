@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:App")]
+    [AwsNativeResourceType("aws-native:sagemaker:App")]
     public partial class App : Pulumi.CustomResource
     {
         [Output("appArn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public App(string name, AppArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:App", name, args ?? new AppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private App(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:App", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:App", name, null, MakeResourceOptions(options, id))
         {
         }
 

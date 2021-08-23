@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ServiceCatalogAppRegistry:ResourceAssociation")]
+    [AwsNativeResourceType("aws-native:servicecatalogappregistry:ResourceAssociation")]
     public partial class ResourceAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResourceAssociation(string name, ResourceAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:ResourceAssociation", name, args ?? new ResourceAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:servicecatalogappregistry:ResourceAssociation", name, args ?? new ResourceAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResourceAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:ResourceAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:servicecatalogappregistry:ResourceAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

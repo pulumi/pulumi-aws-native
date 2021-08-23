@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SES:ConfigurationSet")]
+    [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -30,12 +30,12 @@ namespace Pulumi.AwsNative.SES
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationSet(string name, ConfigurationSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:SES:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ses:ConfigurationSet", name, args ?? new ConfigurationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SES:ConfigurationSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ses:ConfigurationSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

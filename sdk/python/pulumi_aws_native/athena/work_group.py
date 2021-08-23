@@ -215,7 +215,7 @@ class WorkGroup(pulumi.CustomResource):
             __props__.__dict__["work_group_configuration_engine_version_effective_engine_version"] = None
             __props__.__dict__["work_group_configuration_updates_engine_version_effective_engine_version"] = None
         super(WorkGroup, __self__).__init__(
-            'aws-native:Athena:WorkGroup',
+            'aws-native:athena:WorkGroup',
             resource_name,
             __props__,
             opts)

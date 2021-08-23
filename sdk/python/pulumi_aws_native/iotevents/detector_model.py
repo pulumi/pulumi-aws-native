@@ -213,7 +213,7 @@ class DetectorModel(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
         super(DetectorModel, __self__).__init__(
-            'aws-native:IoTEvents:DetectorModel',
+            'aws-native:iotevents:DetectorModel',
             resource_name,
             __props__,
             opts)

@@ -21,7 +21,7 @@ export class PublicTypeVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:PublicTypeVersion';
+    public static readonly __pulumiType = 'aws-native:cloudformation:PublicTypeVersion';
 
     /**
      * Returns true if the given object is an instance of PublicTypeVersion.  This is designed to work even

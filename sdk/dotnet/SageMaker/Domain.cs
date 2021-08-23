@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:Domain")]
+    [AwsNativeResourceType("aws-native:sagemaker:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Domain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 

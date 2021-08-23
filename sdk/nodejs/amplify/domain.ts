@@ -22,7 +22,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Amplify:Domain';
+    public static readonly __pulumiType = 'aws-native:amplify:Domain';
 
     /**
      * Returns true if the given object is an instance of Domain.  This is designed to work even
@@ -50,7 +50,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
      */
-    public readonly subDomainSettings!: pulumi.Output<outputs.Amplify.DomainSubDomainSetting[]>;
+    public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface DomainArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
      */
-    subDomainSettings: pulumi.Input<pulumi.Input<inputs.Amplify.DomainSubDomainSettingArgs>[]>;
+    subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
 }

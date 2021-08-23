@@ -157,7 +157,7 @@ class ResourceVersion(pulumi.CustomResource):
             __props__.__dict__["version_id"] = None
             __props__.__dict__["visibility"] = None
         super(ResourceVersion, __self__).__init__(
-            'aws-native:CloudFormation:ResourceVersion',
+            'aws-native:cloudformation:ResourceVersion',
             resource_name,
             __props__,
             opts)

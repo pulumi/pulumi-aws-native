@@ -278,7 +278,7 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["job_definition_arn"] = None
         super(ModelBiasJobDefinition, __self__).__init__(
-            'aws-native:SageMaker:ModelBiasJobDefinition',
+            'aws-native:sagemaker:ModelBiasJobDefinition',
             resource_name,
             __props__,
             opts)

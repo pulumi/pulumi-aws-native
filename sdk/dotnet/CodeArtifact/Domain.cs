@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CodeArtifact:Domain")]
+    [AwsNativeResourceType("aws-native:codeartifact:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CodeArtifact:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:codeartifact:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CodeArtifact:Domain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:codeartifact:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 

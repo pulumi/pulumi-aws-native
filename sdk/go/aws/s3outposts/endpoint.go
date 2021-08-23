@@ -50,7 +50,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource Endpoint
-	err := ctx.RegisterResource("aws-native:S3Outposts:Endpoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3outposts:Endpoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewEndpoint(ctx *pulumi.Context,
 func GetEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EndpointState, opts ...pulumi.ResourceOption) (*Endpoint, error) {
 	var resource Endpoint
-	err := ctx.ReadResource("aws-native:S3Outposts:Endpoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3outposts:Endpoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

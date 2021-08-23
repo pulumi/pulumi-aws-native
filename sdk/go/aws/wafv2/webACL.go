@@ -55,7 +55,7 @@ func NewWebACL(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
 	var resource WebACL
-	err := ctx.RegisterResource("aws-native:WAFv2:WebACL", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:wafv2:WebACL", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewWebACL(ctx *pulumi.Context,
 func GetWebACL(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebACLState, opts ...pulumi.ResourceOption) (*WebACL, error) {
 	var resource WebACL
-	err := ctx.ReadResource("aws-native:WAFv2:WebACL", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:wafv2:WebACL", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

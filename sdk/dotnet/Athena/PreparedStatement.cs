@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Athena
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Athena:PreparedStatement")]
+    [AwsNativeResourceType("aws-native:athena:PreparedStatement")]
     public partial class PreparedStatement : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PreparedStatement(string name, PreparedStatementArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:PreparedStatement", name, args ?? new PreparedStatementArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:athena:PreparedStatement", name, args ?? new PreparedStatementArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PreparedStatement(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:PreparedStatement", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:athena:PreparedStatement", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class PublicKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:PublicKey';
+    public static readonly __pulumiType = 'aws-native:cloudfront:PublicKey';
 
     /**
      * Returns true if the given object is an instance of PublicKey.  This is designed to work even
@@ -40,7 +40,7 @@ export class PublicKey extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
      */
-    public readonly publicKeyConfig!: pulumi.Output<outputs.CloudFront.PublicKeyPublicKeyConfig>;
+    public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyPublicKeyConfig>;
 
     /**
      * Create a PublicKey resource with the given unique name, arguments, and options.
@@ -78,5 +78,5 @@ export interface PublicKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
      */
-    publicKeyConfig: pulumi.Input<inputs.CloudFront.PublicKeyPublicKeyConfigArgs>;
+    publicKeyConfig: pulumi.Input<inputs.cloudfront.PublicKeyPublicKeyConfigArgs>;
 }

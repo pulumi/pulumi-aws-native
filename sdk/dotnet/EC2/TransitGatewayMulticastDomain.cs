@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGatewayMulticastDomain")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomain")]
     public partial class TransitGatewayMulticastDomain : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayMulticastDomain(string name, TransitGatewayMulticastDomainArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastDomain", name, args ?? new TransitGatewayMulticastDomainArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGatewayMulticastDomain", name, args ?? new TransitGatewayMulticastDomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayMulticastDomain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastDomain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGatewayMulticastDomain", name, null, MakeResourceOptions(options, id))
         {
         }
 

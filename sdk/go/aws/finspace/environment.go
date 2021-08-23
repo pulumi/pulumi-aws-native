@@ -45,7 +45,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Environment
-	err := ctx.RegisterResource("aws-native:FinSpace:Environment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:finspace:Environment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewEnvironment(ctx *pulumi.Context,
 func GetEnvironment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnvironmentState, opts ...pulumi.ResourceOption) (*Environment, error) {
 	var resource Environment
-	err := ctx.ReadResource("aws-native:FinSpace:Environment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:finspace:Environment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

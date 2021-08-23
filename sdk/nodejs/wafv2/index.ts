@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:WAFv2:IPSet":
+            case "aws-native:wafv2:IPSet":
                 return new IPSet(name, <any>undefined, { urn })
-            case "aws-native:WAFv2:RegexPatternSet":
+            case "aws-native:wafv2:RegexPatternSet":
                 return new RegexPatternSet(name, <any>undefined, { urn })
-            case "aws-native:WAFv2:RuleGroup":
+            case "aws-native:wafv2:RuleGroup":
                 return new RuleGroup(name, <any>undefined, { urn })
-            case "aws-native:WAFv2:WebACL":
+            case "aws-native:wafv2:WebACL":
                 return new WebACL(name, <any>undefined, { urn })
-            case "aws-native:WAFv2:WebACLAssociation":
+            case "aws-native:wafv2:WebACLAssociation":
                 return new WebACLAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "WAFv2", _module)
+pulumi.runtime.registerResourceModule("aws-native", "wafv2", _module)

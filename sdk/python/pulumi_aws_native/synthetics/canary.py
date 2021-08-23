@@ -340,7 +340,7 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["state"] = None
         super(Canary, __self__).__init__(
-            'aws-native:Synthetics:Canary',
+            'aws-native:synthetics:Canary',
             resource_name,
             __props__,
             opts)

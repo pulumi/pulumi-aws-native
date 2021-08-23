@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Macie:CustomDataIdentifier":
+	case "aws-native:macie:CustomDataIdentifier":
 		r = &CustomDataIdentifier{}
-	case "aws-native:Macie:FindingsFilter":
+	case "aws-native:macie:FindingsFilter":
 		r = &FindingsFilter{}
-	case "aws-native:Macie:Session":
+	case "aws-native:macie:Session":
 		r = &Session{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Macie",
+		"macie",
 		&module{version},
 	)
 }

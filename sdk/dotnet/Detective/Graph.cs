@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Detective
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Detective:Graph")]
+    [AwsNativeResourceType("aws-native:detective:Graph")]
     public partial class Graph : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.Detective
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Graph(string name, GraphArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Detective:Graph", name, args ?? new GraphArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:detective:Graph", name, args ?? new GraphArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Graph(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Detective:Graph", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:detective:Graph", name, null, MakeResourceOptions(options, id))
         {
         }
 

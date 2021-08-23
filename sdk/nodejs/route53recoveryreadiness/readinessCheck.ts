@@ -22,7 +22,7 @@ export class ReadinessCheck extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53RecoveryReadiness:ReadinessCheck';
+    public static readonly __pulumiType = 'aws-native:route53recoveryreadiness:ReadinessCheck';
 
     /**
      * Returns true if the given object is an instance of ReadinessCheck.  This is designed to work even

@@ -35,7 +35,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
 	var resource NotificationChannel
-	err := ctx.RegisterResource("aws-native:FMS:NotificationChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:fms:NotificationChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewNotificationChannel(ctx *pulumi.Context,
 func GetNotificationChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *NotificationChannelState, opts ...pulumi.ResourceOption) (*NotificationChannel, error) {
 	var resource NotificationChannel
-	err := ctx.ReadResource("aws-native:FMS:NotificationChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:fms:NotificationChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

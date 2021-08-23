@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:KMS:Alias":
+            case "aws-native:kms:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "aws-native:KMS:Key":
+            case "aws-native:kms:Key":
                 return new Key(name, <any>undefined, { urn })
-            case "aws-native:KMS:ReplicaKey":
+            case "aws-native:kms:ReplicaKey":
                 return new ReplicaKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "KMS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "kms", _module)

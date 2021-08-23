@@ -258,7 +258,7 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["firewall_arn"] = None
             __props__.__dict__["firewall_id"] = None
         super(Firewall, __self__).__init__(
-            'aws-native:NetworkFirewall:Firewall',
+            'aws-native:networkfirewall:Firewall',
             resource_name,
             __props__,
             opts)

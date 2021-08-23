@@ -38,7 +38,7 @@ func NewOIDCProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ThumbprintList'")
 	}
 	var resource OIDCProvider
-	err := ctx.RegisterResource("aws-native:IAM:OIDCProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iam:OIDCProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewOIDCProvider(ctx *pulumi.Context,
 func GetOIDCProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OIDCProviderState, opts ...pulumi.ResourceOption) (*OIDCProvider, error) {
 	var resource OIDCProvider
-	err := ctx.ReadResource("aws-native:IAM:OIDCProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iam:OIDCProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

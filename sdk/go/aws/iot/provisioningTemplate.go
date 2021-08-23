@@ -47,7 +47,7 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
 	var resource ProvisioningTemplate
-	err := ctx.RegisterResource("aws-native:IoT:ProvisioningTemplate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:ProvisioningTemplate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 func GetProvisioningTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProvisioningTemplateState, opts ...pulumi.ResourceOption) (*ProvisioningTemplate, error) {
 	var resource ProvisioningTemplate
-	err := ctx.ReadResource("aws-native:IoT:ProvisioningTemplate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:ProvisioningTemplate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CodeStarConnections:Connection":
+            case "aws-native:codestarconnections:Connection":
                 return new Connection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "CodeStarConnections", _module)
+pulumi.runtime.registerResourceModule("aws-native", "codestarconnections", _module)

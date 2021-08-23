@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECS:PrimaryTaskSet")]
+    [AwsNativeResourceType("aws-native:ecs:PrimaryTaskSet")]
     public partial class PrimaryTaskSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrimaryTaskSet(string name, PrimaryTaskSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:PrimaryTaskSet", name, args ?? new PrimaryTaskSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecs:PrimaryTaskSet", name, args ?? new PrimaryTaskSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrimaryTaskSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:PrimaryTaskSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecs:PrimaryTaskSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

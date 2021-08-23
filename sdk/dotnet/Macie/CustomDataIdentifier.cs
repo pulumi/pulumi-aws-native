@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Macie
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Macie:CustomDataIdentifier")]
+    [AwsNativeResourceType("aws-native:macie:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomDataIdentifier(string name, CustomDataIdentifierArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Macie:CustomDataIdentifier", name, args ?? new CustomDataIdentifierArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:macie:CustomDataIdentifier", name, args ?? new CustomDataIdentifierArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomDataIdentifier(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Macie:CustomDataIdentifier", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:macie:CustomDataIdentifier", name, null, MakeResourceOptions(options, id))
         {
         }
 

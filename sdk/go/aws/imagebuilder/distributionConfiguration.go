@@ -39,7 +39,7 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource DistributionConfiguration
-	err := ctx.RegisterResource("aws-native:ImageBuilder:DistributionConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:DistributionConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 func GetDistributionConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DistributionConfigurationState, opts ...pulumi.ResourceOption) (*DistributionConfiguration, error) {
 	var resource DistributionConfiguration
-	err := ctx.ReadResource("aws-native:ImageBuilder:DistributionConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:DistributionConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

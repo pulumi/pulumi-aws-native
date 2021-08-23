@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:QuickSight:Analysis":
+	case "aws-native:quicksight:Analysis":
 		r = &Analysis{}
-	case "aws-native:QuickSight:Dashboard":
+	case "aws-native:quicksight:Dashboard":
 		r = &Dashboard{}
-	case "aws-native:QuickSight:DataSet":
+	case "aws-native:quicksight:DataSet":
 		r = &DataSet{}
-	case "aws-native:QuickSight:DataSource":
+	case "aws-native:quicksight:DataSource":
 		r = &DataSource{}
-	case "aws-native:QuickSight:Template":
+	case "aws-native:quicksight:Template":
 		r = &Template{}
-	case "aws-native:QuickSight:Theme":
+	case "aws-native:quicksight:Theme":
 		r = &Theme{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"QuickSight",
+		"quicksight",
 		&module{version},
 	)
 }

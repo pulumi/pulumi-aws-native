@@ -22,7 +22,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTSiteWise:Dashboard';
+    public static readonly __pulumiType = 'aws-native:iotsitewise:Dashboard';
 
     /**
      * Returns true if the given object is an instance of Dashboard.  This is designed to work even

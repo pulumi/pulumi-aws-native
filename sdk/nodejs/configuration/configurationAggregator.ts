@@ -22,7 +22,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Configuration:ConfigurationAggregator';
+    public static readonly __pulumiType = 'aws-native:configuration:ConfigurationAggregator';
 
     /**
      * Returns true if the given object is an instance of ConfigurationAggregator.  This is designed to work even
@@ -38,7 +38,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
      */
-    public readonly accountAggregationSources!: pulumi.Output<outputs.Configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
+    public readonly accountAggregationSources!: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
     public /*out*/ readonly configurationAggregatorArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
@@ -47,7 +47,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
      */
-    public readonly organizationAggregationSource!: pulumi.Output<outputs.Configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
+    public readonly organizationAggregationSource!: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
      */
@@ -90,7 +90,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
      */
-    accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.Configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
+    accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
      */
@@ -98,7 +98,7 @@ export interface ConfigurationAggregatorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
      */
-    organizationAggregationSource?: pulumi.Input<inputs.Configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
+    organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
      */

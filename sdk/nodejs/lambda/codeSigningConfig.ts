@@ -22,7 +22,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Lambda:CodeSigningConfig';
+    public static readonly __pulumiType = 'aws-native:lambda:CodeSigningConfig';
 
     /**
      * Returns true if the given object is an instance of CodeSigningConfig.  This is designed to work even
@@ -38,13 +38,13 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    public readonly allowedPublishers!: pulumi.Output<outputs.Lambda.CodeSigningConfigAllowedPublishers>;
+    public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
     public /*out*/ readonly codeSigningConfigArn!: pulumi.Output<string>;
     public /*out*/ readonly codeSigningConfigId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    public readonly codeSigningPolicies!: pulumi.Output<outputs.Lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
+    public readonly codeSigningPolicies!: pulumi.Output<outputs.lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */
@@ -90,11 +90,11 @@ export interface CodeSigningConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
      */
-    allowedPublishers: pulumi.Input<inputs.Lambda.CodeSigningConfigAllowedPublishersArgs>;
+    allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
      */
-    codeSigningPolicies?: pulumi.Input<inputs.Lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
+    codeSigningPolicies?: pulumi.Input<inputs.lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
      */

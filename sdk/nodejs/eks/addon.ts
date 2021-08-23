@@ -22,7 +22,7 @@ export class Addon extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EKS:Addon';
+    public static readonly __pulumiType = 'aws-native:eks:Addon';
 
     /**
      * Returns true if the given object is an instance of Addon.  This is designed to work even

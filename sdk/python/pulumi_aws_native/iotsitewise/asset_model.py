@@ -194,7 +194,7 @@ class AssetModel(pulumi.CustomResource):
             __props__.__dict__["asset_model_arn"] = None
             __props__.__dict__["asset_model_id"] = None
         super(AssetModel, __self__).__init__(
-            'aws-native:IoTSiteWise:AssetModel',
+            'aws-native:iotsitewise:AssetModel',
             resource_name,
             __props__,
             opts)

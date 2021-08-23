@@ -55,7 +55,7 @@ func NewTaskSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
 	var resource TaskSet
-	err := ctx.RegisterResource("aws-native:ECS:TaskSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:TaskSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewTaskSet(ctx *pulumi.Context,
 func GetTaskSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TaskSetState, opts ...pulumi.ResourceOption) (*TaskSet, error) {
 	var resource TaskSet
-	err := ctx.ReadResource("aws-native:ECS:TaskSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:TaskSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

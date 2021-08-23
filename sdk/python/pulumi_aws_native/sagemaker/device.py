@@ -130,7 +130,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["device_fleet_name"] = device_fleet_name
             __props__.__dict__["tags"] = tags
         super(Device, __self__).__init__(
-            'aws-native:SageMaker:Device',
+            'aws-native:sagemaker:Device',
             resource_name,
             __props__,
             opts)

@@ -22,7 +22,7 @@ export class App extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Amplify:App';
+    public static readonly __pulumiType = 'aws-native:amplify:App';
 
     /**
      * Returns true if the given object is an instance of App.  This is designed to work even
@@ -45,11 +45,11 @@ export class App extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
      */
-    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.Amplify.AppAutoBranchCreationConfig | undefined>;
+    public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
      */
-    public readonly basicAuthConfig!: pulumi.Output<outputs.Amplify.AppBasicAuthConfig | undefined>;
+    public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.AppBasicAuthConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
      */
@@ -61,7 +61,7 @@ export class App extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
      */
-    public readonly customRules!: pulumi.Output<outputs.Amplify.AppCustomRule[] | undefined>;
+    public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
     public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
@@ -74,7 +74,7 @@ export class App extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.Amplify.AppEnvironmentVariable[] | undefined>;
+    public readonly environmentVariables!: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
      */
@@ -166,11 +166,11 @@ export interface AppArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
      */
-    autoBranchCreationConfig?: pulumi.Input<inputs.Amplify.AppAutoBranchCreationConfigArgs>;
+    autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
      */
-    basicAuthConfig?: pulumi.Input<inputs.Amplify.AppBasicAuthConfigArgs>;
+    basicAuthConfig?: pulumi.Input<inputs.amplify.AppBasicAuthConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
      */
@@ -182,7 +182,7 @@ export interface AppArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.Amplify.AppCustomRuleArgs>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
      */
@@ -194,7 +194,7 @@ export interface AppArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.Amplify.AppEnvironmentVariableArgs>[]>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
      */

@@ -22,7 +22,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ACMPCA:CertificateAuthority';
+    public static readonly __pulumiType = 'aws-native:acmpca:CertificateAuthority';
 
     /**
      * Returns true if the given object is an instance of CertificateAuthority.  This is designed to work even
@@ -40,7 +40,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
      */
-    public readonly csrExtensions!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityCsrExtensions | undefined>;
+    public readonly csrExtensions!: pulumi.Output<outputs.acmpca.CertificateAuthorityCsrExtensions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
@@ -52,7 +52,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    public readonly revocationConfiguration!: pulumi.Output<outputs.ACMPCA.CertificateAuthorityRevocationConfiguration | undefined>;
+    public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
@@ -60,7 +60,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    public readonly subject!: pulumi.Output<outputs.ACMPCA.CertificateAuthoritySubject>;
+    public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */
@@ -129,7 +129,7 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
      */
-    csrExtensions?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityCsrExtensionsArgs>;
+    csrExtensions?: pulumi.Input<inputs.acmpca.CertificateAuthorityCsrExtensionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
      */
@@ -141,7 +141,7 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
      */
-    revocationConfiguration?: pulumi.Input<inputs.ACMPCA.CertificateAuthorityRevocationConfigurationArgs>;
+    revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
      */
@@ -149,7 +149,7 @@ export interface CertificateAuthorityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
      */
-    subject: pulumi.Input<inputs.ACMPCA.CertificateAuthoritySubjectArgs>;
+    subject: pulumi.Input<inputs.acmpca.CertificateAuthoritySubjectArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
      */

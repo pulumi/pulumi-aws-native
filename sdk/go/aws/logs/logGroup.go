@@ -31,7 +31,7 @@ func NewLogGroup(ctx *pulumi.Context,
 	}
 
 	var resource LogGroup
-	err := ctx.RegisterResource("aws-native:Logs:LogGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:logs:LogGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewLogGroup(ctx *pulumi.Context,
 func GetLogGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LogGroupState, opts ...pulumi.ResourceOption) (*LogGroup, error) {
 	var resource LogGroup
-	err := ctx.ReadResource("aws-native:Logs:LogGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:logs:LogGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

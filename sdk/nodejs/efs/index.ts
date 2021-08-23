@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:EFS:AccessPoint":
+            case "aws-native:efs:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
-            case "aws-native:EFS:FileSystem":
+            case "aws-native:efs:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "EFS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "efs", _module)

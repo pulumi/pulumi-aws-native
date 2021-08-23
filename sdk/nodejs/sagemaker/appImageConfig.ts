@@ -22,7 +22,7 @@ export class AppImageConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:AppImageConfig';
+    public static readonly __pulumiType = 'aws-native:sagemaker:AppImageConfig';
 
     /**
      * Returns true if the given object is an instance of AppImageConfig.  This is designed to work even
@@ -43,7 +43,7 @@ export class AppImageConfig extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
      */
-    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.SageMaker.AppImageConfigKernelGatewayImageConfig | undefined>;
+    public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
      */
@@ -91,7 +91,7 @@ export interface AppImageConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.SageMaker.AppImageConfigKernelGatewayImageConfigArgs>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
      */

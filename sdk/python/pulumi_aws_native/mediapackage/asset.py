@@ -197,7 +197,7 @@ class Asset(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["egress_endpoints"] = None
         super(Asset, __self__).__init__(
-            'aws-native:MediaPackage:Asset',
+            'aws-native:mediapackage:Asset',
             resource_name,
             __props__,
             opts)

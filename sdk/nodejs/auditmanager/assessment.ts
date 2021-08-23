@@ -22,7 +22,7 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AuditManager:Assessment';
+    public static readonly __pulumiType = 'aws-native:auditmanager:Assessment';
 
     /**
      * Returns true if the given object is an instance of Assessment.  This is designed to work even
@@ -40,13 +40,13 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
      */
-    public readonly assessmentReportsDestination!: pulumi.Output<outputs.AuditManager.AssessmentAssessmentReportsDestination | undefined>;
+    public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentAssessmentReportsDestination | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
      */
-    public readonly awsAccount!: pulumi.Output<outputs.AuditManager.AssessmentAWSAccount | undefined>;
+    public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAWSAccount | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
-    public /*out*/ readonly delegations!: pulumi.Output<outputs.AuditManager.AssessmentDelegation[]>;
+    public /*out*/ readonly delegations!: pulumi.Output<outputs.auditmanager.AssessmentDelegation[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
@@ -62,11 +62,11 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
      */
-    public readonly roles!: pulumi.Output<outputs.AuditManager.AssessmentRole[] | undefined>;
+    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
      */
-    public readonly scope!: pulumi.Output<outputs.AuditManager.AssessmentScope | undefined>;
+    public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
      */
@@ -129,11 +129,11 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
      */
-    assessmentReportsDestination?: pulumi.Input<inputs.AuditManager.AssessmentAssessmentReportsDestinationArgs>;
+    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentAssessmentReportsDestinationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
      */
-    awsAccount?: pulumi.Input<inputs.AuditManager.AssessmentAWSAccountArgs>;
+    awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAWSAccountArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
      */
@@ -149,11 +149,11 @@ export interface AssessmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.AuditManager.AssessmentRoleArgs>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
      */
-    scope?: pulumi.Input<inputs.AuditManager.AssessmentScopeArgs>;
+    scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
      */

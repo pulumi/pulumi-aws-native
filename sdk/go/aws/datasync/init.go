@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:DataSync:Agent":
+	case "aws-native:datasync:Agent":
 		r = &Agent{}
-	case "aws-native:DataSync:LocationEFS":
+	case "aws-native:datasync:LocationEFS":
 		r = &LocationEFS{}
-	case "aws-native:DataSync:LocationFSxWindows":
+	case "aws-native:datasync:LocationFSxWindows":
 		r = &LocationFSxWindows{}
-	case "aws-native:DataSync:LocationNFS":
+	case "aws-native:datasync:LocationNFS":
 		r = &LocationNFS{}
-	case "aws-native:DataSync:LocationObjectStorage":
+	case "aws-native:datasync:LocationObjectStorage":
 		r = &LocationObjectStorage{}
-	case "aws-native:DataSync:LocationS3":
+	case "aws-native:datasync:LocationS3":
 		r = &LocationS3{}
-	case "aws-native:DataSync:LocationSMB":
+	case "aws-native:datasync:LocationSMB":
 		r = &LocationSMB{}
-	case "aws-native:DataSync:Task":
+	case "aws-native:datasync:Task":
 		r = &Task{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"DataSync",
+		"datasync",
 		&module{version},
 	)
 }

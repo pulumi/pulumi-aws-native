@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ServiceCatalog:ServiceAction")]
+    [AwsNativeResourceType("aws-native:servicecatalog:ServiceAction")]
     public partial class ServiceAction : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceAction(string name, ServiceActionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalog:ServiceAction", name, args ?? new ServiceActionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:servicecatalog:ServiceAction", name, args ?? new ServiceActionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceAction(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalog:ServiceAction", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:servicecatalog:ServiceAction", name, null, MakeResourceOptions(options, id))
         {
         }
 

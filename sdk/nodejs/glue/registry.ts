@@ -22,7 +22,7 @@ export class Registry extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Glue:Registry';
+    public static readonly __pulumiType = 'aws-native:glue:Registry';
 
     /**
      * Returns true if the given object is an instance of Registry.  This is designed to work even

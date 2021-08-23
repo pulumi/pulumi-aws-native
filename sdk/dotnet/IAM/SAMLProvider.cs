@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IAM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IAM:SAMLProvider")]
+    [AwsNativeResourceType("aws-native:iam:SAMLProvider")]
     public partial class SAMLProvider : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.IAM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SAMLProvider(string name, SAMLProviderArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:SAMLProvider", name, args ?? new SAMLProviderArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iam:SAMLProvider", name, args ?? new SAMLProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SAMLProvider(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IAM:SAMLProvider", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iam:SAMLProvider", name, null, MakeResourceOptions(options, id))
         {
         }
 

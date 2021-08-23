@@ -187,7 +187,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
         super(GlobalCluster, __self__).__init__(
-            'aws-native:RDS:GlobalCluster',
+            'aws-native:rds:GlobalCluster',
             resource_name,
             __props__,
             opts)

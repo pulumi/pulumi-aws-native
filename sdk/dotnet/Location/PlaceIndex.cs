@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Location
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Location:PlaceIndex")]
+    [AwsNativeResourceType("aws-native:location:PlaceIndex")]
     public partial class PlaceIndex : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.Location
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PlaceIndex(string name, PlaceIndexArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Location:PlaceIndex", name, args ?? new PlaceIndexArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:location:PlaceIndex", name, args ?? new PlaceIndexArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PlaceIndex(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Location:PlaceIndex", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:location:PlaceIndex", name, null, MakeResourceOptions(options, id))
         {
         }
 

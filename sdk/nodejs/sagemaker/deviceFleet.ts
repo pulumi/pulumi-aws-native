@@ -22,7 +22,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:DeviceFleet';
+    public static readonly __pulumiType = 'aws-native:sagemaker:DeviceFleet';
 
     /**
      * Returns true if the given object is an instance of DeviceFleet.  This is designed to work even
@@ -46,7 +46,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    public readonly outputConfig!: pulumi.Output<outputs.SageMaker.DeviceFleetEdgeOutputConfig>;
+    public readonly outputConfig!: pulumi.Output<outputs.sagemaker.DeviceFleetEdgeOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */
@@ -110,7 +110,7 @@ export interface DeviceFleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
      */
-    outputConfig: pulumi.Input<inputs.SageMaker.DeviceFleetEdgeOutputConfigArgs>;
+    outputConfig: pulumi.Input<inputs.sagemaker.DeviceFleetEdgeOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
      */

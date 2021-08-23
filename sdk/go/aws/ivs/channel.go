@@ -40,7 +40,7 @@ func NewChannel(ctx *pulumi.Context,
 	}
 
 	var resource Channel
-	err := ctx.RegisterResource("aws-native:IVS:Channel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ivs:Channel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewChannel(ctx *pulumi.Context,
 func GetChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ChannelState, opts ...pulumi.ResourceOption) (*Channel, error) {
 	var resource Channel
-	err := ctx.ReadResource("aws-native:IVS:Channel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ivs:Channel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

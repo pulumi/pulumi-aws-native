@@ -22,7 +22,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FinSpace:Environment';
+    public static readonly __pulumiType = 'aws-native:finspace:Environment';
 
     /**
      * Returns true if the given object is an instance of Environment.  This is designed to work even
@@ -51,7 +51,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
      */
-    public readonly federationParameters!: pulumi.Output<outputs.FinSpace.EnvironmentFederationParameters | undefined>;
+    public readonly federationParameters!: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
      */
@@ -125,7 +125,7 @@ export interface EnvironmentArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
      */
-    federationParameters?: pulumi.Input<inputs.FinSpace.EnvironmentFederationParametersArgs>;
+    federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
      */

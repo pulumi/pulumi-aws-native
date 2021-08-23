@@ -55,7 +55,7 @@ func NewAssignment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
 	var resource Assignment
-	err := ctx.RegisterResource("aws-native:SSO:Assignment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sso:Assignment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewAssignment(ctx *pulumi.Context,
 func GetAssignment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssignmentState, opts ...pulumi.ResourceOption) (*Assignment, error) {
 	var resource Assignment
-	err := ctx.ReadResource("aws-native:SSO:Assignment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sso:Assignment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

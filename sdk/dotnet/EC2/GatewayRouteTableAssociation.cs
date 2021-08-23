@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:GatewayRouteTableAssociation")]
+    [AwsNativeResourceType("aws-native:ec2:GatewayRouteTableAssociation")]
     public partial class GatewayRouteTableAssociation : Pulumi.CustomResource
     {
         [Output("associationId")]
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GatewayRouteTableAssociation(string name, GatewayRouteTableAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:GatewayRouteTableAssociation", name, args ?? new GatewayRouteTableAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:GatewayRouteTableAssociation", name, args ?? new GatewayRouteTableAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GatewayRouteTableAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:GatewayRouteTableAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:GatewayRouteTableAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

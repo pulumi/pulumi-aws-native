@@ -40,7 +40,7 @@ func NewSchemaVersionMetadata(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource SchemaVersionMetadata
-	err := ctx.RegisterResource("aws-native:Glue:SchemaVersionMetadata", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:glue:SchemaVersionMetadata", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewSchemaVersionMetadata(ctx *pulumi.Context,
 func GetSchemaVersionMetadata(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SchemaVersionMetadataState, opts ...pulumi.ResourceOption) (*SchemaVersionMetadata, error) {
 	var resource SchemaVersionMetadata
-	err := ctx.ReadResource("aws-native:Glue:SchemaVersionMetadata", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:glue:SchemaVersionMetadata", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

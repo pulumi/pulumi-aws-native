@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSM:Association")]
+    [AwsNativeResourceType("aws-native:ssm:Association")]
     public partial class Association : Pulumi.CustomResource
     {
         /// <summary>
@@ -123,12 +123,12 @@ namespace Pulumi.AwsNative.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Association(string name, AssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssm:Association", name, args ?? new AssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Association(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:Association", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssm:Association", name, null, MakeResourceOptions(options, id))
         {
         }
 

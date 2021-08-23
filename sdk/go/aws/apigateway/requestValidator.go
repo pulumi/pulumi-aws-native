@@ -37,7 +37,7 @@ func NewRequestValidator(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
 	var resource RequestValidator
-	err := ctx.RegisterResource("aws-native:ApiGateway:RequestValidator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:RequestValidator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewRequestValidator(ctx *pulumi.Context,
 func GetRequestValidator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RequestValidatorState, opts ...pulumi.ResourceOption) (*RequestValidator, error) {
 	var resource RequestValidator
-	err := ctx.ReadResource("aws-native:ApiGateway:RequestValidator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:RequestValidator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

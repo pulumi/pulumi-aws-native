@@ -51,7 +51,7 @@ func NewTransitGatewayPeeringAttachment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
 	var resource TransitGatewayPeeringAttachment
-	err := ctx.RegisterResource("aws-native:EC2:TransitGatewayPeeringAttachment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayPeeringAttachment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewTransitGatewayPeeringAttachment(ctx *pulumi.Context,
 func GetTransitGatewayPeeringAttachment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayPeeringAttachmentState, opts ...pulumi.ResourceOption) (*TransitGatewayPeeringAttachment, error) {
 	var resource TransitGatewayPeeringAttachment
-	err := ctx.ReadResource("aws-native:EC2:TransitGatewayPeeringAttachment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:TransitGatewayPeeringAttachment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

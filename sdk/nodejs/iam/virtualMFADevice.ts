@@ -22,7 +22,7 @@ export class VirtualMFADevice extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IAM:VirtualMFADevice';
+    public static readonly __pulumiType = 'aws-native:iam:VirtualMFADevice';
 
     /**
      * Returns true if the given object is an instance of VirtualMFADevice.  This is designed to work even

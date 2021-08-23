@@ -22,7 +22,7 @@ export class Alert extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:LookoutMetrics:Alert';
+    public static readonly __pulumiType = 'aws-native:lookoutmetrics:Alert';
 
     /**
      * Returns true if the given object is an instance of Alert.  This is designed to work even
@@ -38,7 +38,7 @@ export class Alert extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
      */
-    public readonly action!: pulumi.Output<outputs.LookoutMetrics.AlertAction>;
+    public readonly action!: pulumi.Output<outputs.lookoutmetrics.AlertAction>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
      */
@@ -105,7 +105,7 @@ export interface AlertArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
      */
-    action: pulumi.Input<inputs.LookoutMetrics.AlertActionArgs>;
+    action: pulumi.Input<inputs.lookoutmetrics.AlertActionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
      */

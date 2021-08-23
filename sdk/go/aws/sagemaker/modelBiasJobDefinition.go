@@ -63,7 +63,7 @@ func NewModelBiasJobDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource ModelBiasJobDefinition
-	err := ctx.RegisterResource("aws-native:SageMaker:ModelBiasJobDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:ModelBiasJobDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func NewModelBiasJobDefinition(ctx *pulumi.Context,
 func GetModelBiasJobDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModelBiasJobDefinitionState, opts ...pulumi.ResourceOption) (*ModelBiasJobDefinition, error) {
 	var resource ModelBiasJobDefinition
-	err := ctx.ReadResource("aws-native:SageMaker:ModelBiasJobDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:ModelBiasJobDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -33,7 +33,7 @@ func NewGroup(ctx *pulumi.Context,
 	}
 
 	var resource Group
-	err := ctx.RegisterResource("aws-native:XRay:Group", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:xray:Group", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewGroup(ctx *pulumi.Context,
 func GetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
 	var resource Group
-	err := ctx.ReadResource("aws-native:XRay:Group", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:xray:Group", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

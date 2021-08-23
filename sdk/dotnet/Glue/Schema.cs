@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Glue:Schema")]
+    [AwsNativeResourceType("aws-native:glue:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schema(string name, SchemaArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:glue:Schema", name, args ?? new SchemaArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schema(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:Schema", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:glue:Schema", name, null, MakeResourceOptions(options, id))
         {
         }
 

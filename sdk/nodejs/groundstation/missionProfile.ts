@@ -22,7 +22,7 @@ export class MissionProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GroundStation:MissionProfile';
+    public static readonly __pulumiType = 'aws-native:groundstation:MissionProfile';
 
     /**
      * Returns true if the given object is an instance of MissionProfile.  This is designed to work even
@@ -47,7 +47,7 @@ export class MissionProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    public readonly dataflowEdges!: pulumi.Output<outputs.GroundStation.MissionProfileDataflowEdge[]>;
+    public readonly dataflowEdges!: pulumi.Output<outputs.groundstation.MissionProfileDataflowEdge[]>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
@@ -134,7 +134,7 @@ export interface MissionProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
      */
-    dataflowEdges: pulumi.Input<pulumi.Input<inputs.GroundStation.MissionProfileDataflowEdgeArgs>[]>;
+    dataflowEdges: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileDataflowEdgeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
      */

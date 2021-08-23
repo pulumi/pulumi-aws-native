@@ -75,7 +75,7 @@ func NewCanary(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StartCanaryAfterCreation'")
 	}
 	var resource Canary
-	err := ctx.RegisterResource("aws-native:Synthetics:Canary", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:synthetics:Canary", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +87,7 @@ func NewCanary(ctx *pulumi.Context,
 func GetCanary(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CanaryState, opts ...pulumi.ResourceOption) (*Canary, error) {
 	var resource Canary
-	err := ctx.ReadResource("aws-native:Synthetics:Canary", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:synthetics:Canary", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

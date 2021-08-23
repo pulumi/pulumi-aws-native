@@ -21,7 +21,7 @@ export class ApiDestination extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Events:ApiDestination';
+    public static readonly __pulumiType = 'aws-native:events:ApiDestination';
 
     /**
      * Returns true if the given object is an instance of ApiDestination.  This is designed to work even

@@ -42,7 +42,7 @@ func NewDataCatalog(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource DataCatalog
-	err := ctx.RegisterResource("aws-native:Athena:DataCatalog", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:athena:DataCatalog", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewDataCatalog(ctx *pulumi.Context,
 func GetDataCatalog(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataCatalogState, opts ...pulumi.ResourceOption) (*DataCatalog, error) {
 	var resource DataCatalog
-	err := ctx.ReadResource("aws-native:Athena:DataCatalog", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:athena:DataCatalog", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:XRay:Group';
+    public static readonly __pulumiType = 'aws-native:xray:Group';
 
     /**
      * Returns true if the given object is an instance of Group.  This is designed to work even
@@ -47,7 +47,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
      */
-    public readonly insightsConfiguration!: pulumi.Output<outputs.XRay.GroupInsightsConfiguration | undefined>;
+    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
      */
@@ -98,7 +98,7 @@ export interface GroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
      */
-    insightsConfiguration?: pulumi.Input<inputs.XRay.GroupInsightsConfigurationArgs>;
+    insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
      */

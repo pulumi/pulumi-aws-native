@@ -55,7 +55,7 @@ func NewPortal(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Portal
-	err := ctx.RegisterResource("aws-native:IoTSiteWise:Portal", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotsitewise:Portal", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewPortal(ctx *pulumi.Context,
 func GetPortal(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PortalState, opts ...pulumi.ResourceOption) (*Portal, error) {
 	var resource Portal
-	err := ctx.ReadResource("aws-native:IoTSiteWise:Portal", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotsitewise:Portal", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

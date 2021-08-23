@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:WAFv2:WebACLAssociation")]
+    [AwsNativeResourceType("aws-native:wafv2:WebACLAssociation")]
     public partial class WebACLAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.WAFv2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WebACLAssociation(string name, WebACLAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:WebACLAssociation", name, args ?? new WebACLAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:wafv2:WebACLAssociation", name, args ?? new WebACLAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WebACLAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:WebACLAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:wafv2:WebACLAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

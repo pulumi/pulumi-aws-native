@@ -22,7 +22,7 @@ export class CachePolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:CachePolicy';
+    public static readonly __pulumiType = 'aws-native:cloudfront:CachePolicy';
 
     /**
      * Returns true if the given object is an instance of CachePolicy.  This is designed to work even
@@ -38,7 +38,7 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    public readonly cachePolicyConfig!: pulumi.Output<outputs.CloudFront.CachePolicyCachePolicyConfig>;
+    public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyCachePolicyConfig>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
@@ -78,5 +78,5 @@ export interface CachePolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
      */
-    cachePolicyConfig: pulumi.Input<inputs.CloudFront.CachePolicyCachePolicyConfigArgs>;
+    cachePolicyConfig: pulumi.Input<inputs.cloudfront.CachePolicyCachePolicyConfigArgs>;
 }

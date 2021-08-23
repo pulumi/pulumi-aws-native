@@ -45,7 +45,7 @@ func NewDeviceFleet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource DeviceFleet
-	err := ctx.RegisterResource("aws-native:SageMaker:DeviceFleet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:DeviceFleet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewDeviceFleet(ctx *pulumi.Context,
 func GetDeviceFleet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceFleetState, opts ...pulumi.ResourceOption) (*DeviceFleet, error) {
 	var resource DeviceFleet
-	err := ctx.ReadResource("aws-native:SageMaker:DeviceFleet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:DeviceFleet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

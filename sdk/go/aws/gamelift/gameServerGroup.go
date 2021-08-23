@@ -64,7 +64,7 @@ func NewGameServerGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource GameServerGroup
-	err := ctx.RegisterResource("aws-native:GameLift:GameServerGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:gamelift:GameServerGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -76,7 +76,7 @@ func NewGameServerGroup(ctx *pulumi.Context,
 func GetGameServerGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GameServerGroupState, opts ...pulumi.ResourceOption) (*GameServerGroup, error) {
 	var resource GameServerGroup
-	err := ctx.ReadResource("aws-native:GameLift:GameServerGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:gamelift:GameServerGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

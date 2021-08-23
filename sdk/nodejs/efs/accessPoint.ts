@@ -22,7 +22,7 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EFS:AccessPoint';
+    public static readonly __pulumiType = 'aws-native:efs:AccessPoint';
 
     /**
      * Returns true if the given object is an instance of AccessPoint.  This is designed to work even
@@ -39,7 +39,7 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    public readonly accessPointTags!: pulumi.Output<outputs.EFS.AccessPointAccessPointTag[] | undefined>;
+    public readonly accessPointTags!: pulumi.Output<outputs.efs.AccessPointAccessPointTag[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
@@ -52,11 +52,11 @@ export class AccessPoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    public readonly posixUser!: pulumi.Output<outputs.EFS.AccessPointPosixUser | undefined>;
+    public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    public readonly rootDirectory!: pulumi.Output<outputs.EFS.AccessPointRootDirectory | undefined>;
+    public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory | undefined>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
      */
-    accessPointTags?: pulumi.Input<pulumi.Input<inputs.EFS.AccessPointAccessPointTagArgs>[]>;
+    accessPointTags?: pulumi.Input<pulumi.Input<inputs.efs.AccessPointAccessPointTagArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
      */
@@ -114,9 +114,9 @@ export interface AccessPointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
      */
-    posixUser?: pulumi.Input<inputs.EFS.AccessPointPosixUserArgs>;
+    posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUserArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
      */
-    rootDirectory?: pulumi.Input<inputs.EFS.AccessPointRootDirectoryArgs>;
+    rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectoryArgs>;
 }

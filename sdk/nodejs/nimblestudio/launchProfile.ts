@@ -22,7 +22,7 @@ export class LaunchProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:NimbleStudio:LaunchProfile';
+    public static readonly __pulumiType = 'aws-native:nimblestudio:LaunchProfile';
 
     /**
      * Returns true if the given object is an instance of LaunchProfile.  This is designed to work even
@@ -55,7 +55,7 @@ export class LaunchProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
      */
-    public readonly streamConfiguration!: pulumi.Output<outputs.NimbleStudio.LaunchProfileStreamConfiguration>;
+    public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
      */
@@ -148,7 +148,7 @@ export interface LaunchProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
      */
-    streamConfiguration: pulumi.Input<inputs.NimbleStudio.LaunchProfileStreamConfigurationArgs>;
+    streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
      */

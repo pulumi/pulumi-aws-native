@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IoTEvents:DetectorModel":
+	case "aws-native:iotevents:DetectorModel":
 		r = &DetectorModel{}
-	case "aws-native:IoTEvents:Input":
+	case "aws-native:iotevents:Input":
 		r = &Input{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IoTEvents",
+		"iotevents",
 		&module{version},
 	)
 }

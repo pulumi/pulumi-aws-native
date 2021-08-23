@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Configuration:OrganizationConformancePack")]
+    [AwsNativeResourceType("aws-native:configuration:OrganizationConformancePack")]
     public partial class OrganizationConformancePack : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OrganizationConformancePack(string name, OrganizationConformancePackArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:OrganizationConformancePack", name, args ?? new OrganizationConformancePackArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:configuration:OrganizationConformancePack", name, args ?? new OrganizationConformancePackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OrganizationConformancePack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:OrganizationConformancePack", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:configuration:OrganizationConformancePack", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53RecoveryControl:Cluster';
+    public static readonly __pulumiType = 'aws-native:route53recoverycontrol:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -36,7 +36,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly clusterArn!: pulumi.Output<string>;
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.Route53RecoveryControl.ClusterClusterEndpoint[]>;
+    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
      */

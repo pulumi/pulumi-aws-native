@@ -190,7 +190,7 @@ class ConformancePack(pulumi.CustomResource):
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
         super(ConformancePack, __self__).__init__(
-            'aws-native:Configuration:ConformancePack',
+            'aws-native:configuration:ConformancePack',
             resource_name,
             __props__,
             opts)

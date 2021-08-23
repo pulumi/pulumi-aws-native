@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppRunner
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AppRunner:Service")]
+    [AwsNativeResourceType("aws-native:apprunner:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Service(string name, ServiceArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AppRunner:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apprunner:Service", name, args ?? new ServiceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Service(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AppRunner:Service", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apprunner:Service", name, null, MakeResourceOptions(options, id))
         {
         }
 

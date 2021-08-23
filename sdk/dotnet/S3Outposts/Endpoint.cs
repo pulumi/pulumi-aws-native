@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:S3Outposts:Endpoint")]
+    [AwsNativeResourceType("aws-native:s3outposts:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Endpoint(string name, EndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:s3outposts:Endpoint", name, args ?? new EndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Endpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:Endpoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:s3outposts:Endpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

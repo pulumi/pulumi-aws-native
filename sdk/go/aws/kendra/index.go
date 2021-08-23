@@ -57,7 +57,7 @@ func NewIndex(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Index
-	err := ctx.RegisterResource("aws-native:Kendra:Index", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kendra:Index", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func NewIndex(ctx *pulumi.Context,
 func GetIndex(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IndexState, opts ...pulumi.ResourceOption) (*Index, error) {
 	var resource Index
-	err := ctx.ReadResource("aws-native:Kendra:Index", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kendra:Index", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

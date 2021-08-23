@@ -38,7 +38,7 @@ func NewLabel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Label
-	err := ctx.RegisterResource("aws-native:FraudDetector:Label", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:frauddetector:Label", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewLabel(ctx *pulumi.Context,
 func GetLabel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LabelState, opts ...pulumi.ResourceOption) (*Label, error) {
 	var resource Label
-	err := ctx.ReadResource("aws-native:FraudDetector:Label", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:frauddetector:Label", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

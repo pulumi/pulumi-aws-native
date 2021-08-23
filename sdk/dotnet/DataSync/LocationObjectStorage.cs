@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataSync
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataSync:LocationObjectStorage")]
+    [AwsNativeResourceType("aws-native:datasync:LocationObjectStorage")]
     public partial class LocationObjectStorage : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.DataSync
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LocationObjectStorage(string name, LocationObjectStorageArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationObjectStorage", name, args ?? new LocationObjectStorageArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:datasync:LocationObjectStorage", name, args ?? new LocationObjectStorageArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LocationObjectStorage(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataSync:LocationObjectStorage", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:datasync:LocationObjectStorage", name, null, MakeResourceOptions(options, id))
         {
         }
 

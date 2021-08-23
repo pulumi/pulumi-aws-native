@@ -51,7 +51,7 @@ func NewFlowVpcInterface(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource FlowVpcInterface
-	err := ctx.RegisterResource("aws-native:MediaConnect:FlowVpcInterface", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:mediaconnect:FlowVpcInterface", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewFlowVpcInterface(ctx *pulumi.Context,
 func GetFlowVpcInterface(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowVpcInterfaceState, opts ...pulumi.ResourceOption) (*FlowVpcInterface, error) {
 	var resource FlowVpcInterface
-	err := ctx.ReadResource("aws-native:MediaConnect:FlowVpcInterface", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:mediaconnect:FlowVpcInterface", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

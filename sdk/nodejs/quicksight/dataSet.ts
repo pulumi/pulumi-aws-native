@@ -22,7 +22,7 @@ export class DataSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:DataSet';
+    public static readonly __pulumiType = 'aws-native:quicksight:DataSet';
 
     /**
      * Returns true if the given object is an instance of DataSet.  This is designed to work even
@@ -43,11 +43,11 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
      */
-    public readonly columnGroups!: pulumi.Output<outputs.QuickSight.DataSetColumnGroup[] | undefined>;
+    public readonly columnGroups!: pulumi.Output<outputs.quicksight.DataSetColumnGroup[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
      */
-    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.QuickSight.DataSetColumnLevelPermissionRule[] | undefined>;
+    public readonly columnLevelPermissionRules!: pulumi.Output<outputs.quicksight.DataSetColumnLevelPermissionRule[] | undefined>;
     public /*out*/ readonly consumedSpiceCapacityInBytes!: pulumi.Output<number>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
@@ -57,7 +57,7 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
      */
-    public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.QuickSight.DataSetFieldFolder} | undefined>;
+    public readonly fieldFolders!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetFieldFolder} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
      */
@@ -65,29 +65,29 @@ export class DataSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
      */
-    public readonly ingestionWaitPolicy!: pulumi.Output<outputs.QuickSight.DataSetIngestionWaitPolicy | undefined>;
+    public readonly ingestionWaitPolicy!: pulumi.Output<outputs.quicksight.DataSetIngestionWaitPolicy | undefined>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
      */
-    public readonly logicalTableMap!: pulumi.Output<{[key: string]: outputs.QuickSight.DataSetLogicalTable} | undefined>;
+    public readonly logicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetLogicalTable} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.QuickSight.DataSetOutputColumn[]>;
+    public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.DataSetResourcePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSetResourcePermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
      */
-    public readonly physicalTableMap!: pulumi.Output<{[key: string]: outputs.QuickSight.DataSetPhysicalTable} | undefined>;
+    public readonly physicalTableMap!: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
      */
-    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.QuickSight.DataSetRowLevelPermissionDataSet | undefined>;
+    public readonly rowLevelPermissionDataSet!: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
      */
@@ -160,11 +160,11 @@ export interface DataSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
      */
-    columnGroups?: pulumi.Input<pulumi.Input<inputs.QuickSight.DataSetColumnGroupArgs>[]>;
+    columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
      */
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.QuickSight.DataSetColumnLevelPermissionRuleArgs>[]>;
+    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
      */
@@ -172,7 +172,7 @@ export interface DataSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
      */
-    fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.QuickSight.DataSetFieldFolderArgs>}>;
+    fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
      */
@@ -180,11 +180,11 @@ export interface DataSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
      */
-    ingestionWaitPolicy?: pulumi.Input<inputs.QuickSight.DataSetIngestionWaitPolicyArgs>;
+    ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
      */
-    logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.QuickSight.DataSetLogicalTableArgs>}>;
+    logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetLogicalTableArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
      */
@@ -192,15 +192,15 @@ export interface DataSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.DataSetResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
      */
-    physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.QuickSight.DataSetPhysicalTableArgs>}>;
+    physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
      */
-    rowLevelPermissionDataSet?: pulumi.Input<inputs.QuickSight.DataSetRowLevelPermissionDataSetArgs>;
+    rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
      */

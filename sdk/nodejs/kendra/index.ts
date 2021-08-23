@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Kendra:DataSource":
+            case "aws-native:kendra:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
-            case "aws-native:Kendra:Faq":
+            case "aws-native:kendra:Faq":
                 return new Faq(name, <any>undefined, { urn })
-            case "aws-native:Kendra:Index":
+            case "aws-native:kendra:Index":
                 return new Index(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Kendra", _module)
+pulumi.runtime.registerResourceModule("aws-native", "kendra", _module)

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Location
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Location:Map")]
+    [AwsNativeResourceType("aws-native:location:Map")]
     public partial class Map : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.Location
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Map(string name, MapArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Location:Map", name, args ?? new MapArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:location:Map", name, args ?? new MapArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Map(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Location:Map", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:location:Map", name, null, MakeResourceOptions(options, id))
         {
         }
 

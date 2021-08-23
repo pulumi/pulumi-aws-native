@@ -48,7 +48,7 @@ func NewStreamingImage(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
 	var resource StreamingImage
-	err := ctx.RegisterResource("aws-native:NimbleStudio:StreamingImage", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:nimblestudio:StreamingImage", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewStreamingImage(ctx *pulumi.Context,
 func GetStreamingImage(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamingImageState, opts ...pulumi.ResourceOption) (*StreamingImage, error) {
 	var resource StreamingImage
-	err := ctx.ReadResource("aws-native:NimbleStudio:StreamingImage", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:nimblestudio:StreamingImage", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

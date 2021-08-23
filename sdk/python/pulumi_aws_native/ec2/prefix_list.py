@@ -178,7 +178,7 @@ class PrefixList(pulumi.CustomResource):
             __props__.__dict__["prefix_list_id"] = None
             __props__.__dict__["version"] = None
         super(PrefixList, __self__).__init__(
-            'aws-native:EC2:PrefixList',
+            'aws-native:ec2:PrefixList',
             resource_name,
             __props__,
             opts)

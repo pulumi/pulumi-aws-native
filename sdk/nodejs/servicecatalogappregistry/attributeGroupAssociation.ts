@@ -21,7 +21,7 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ServiceCatalogAppRegistry:AttributeGroupAssociation';
+    public static readonly __pulumiType = 'aws-native:servicecatalogappregistry:AttributeGroupAssociation';
 
     /**
      * Returns true if the given object is an instance of AttributeGroupAssociation.  This is designed to work even

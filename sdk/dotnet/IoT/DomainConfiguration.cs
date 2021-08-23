@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:DomainConfiguration")]
+    [AwsNativeResourceType("aws-native:iot:DomainConfiguration")]
     public partial class DomainConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -81,12 +81,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainConfiguration(string name, DomainConfigurationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:DomainConfiguration", name, args ?? new DomainConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:DomainConfiguration", name, args ?? new DomainConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:DomainConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:DomainConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

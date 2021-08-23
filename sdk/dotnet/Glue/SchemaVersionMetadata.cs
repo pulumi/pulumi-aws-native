@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Glue
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Glue:SchemaVersionMetadata")]
+    [AwsNativeResourceType("aws-native:glue:SchemaVersionMetadata")]
     public partial class SchemaVersionMetadata : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.Glue
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SchemaVersionMetadata(string name, SchemaVersionMetadataArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:SchemaVersionMetadata", name, args ?? new SchemaVersionMetadataArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:glue:SchemaVersionMetadata", name, args ?? new SchemaVersionMetadataArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SchemaVersionMetadata(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Glue:SchemaVersionMetadata", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:glue:SchemaVersionMetadata", name, null, MakeResourceOptions(options, id))
         {
         }
 

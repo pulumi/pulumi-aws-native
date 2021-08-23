@@ -109,7 +109,7 @@ class Keyspace(pulumi.CustomResource):
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["tags"] = tags
         super(Keyspace, __self__).__init__(
-            'aws-native:Cassandra:Keyspace',
+            'aws-native:cassandra:Keyspace',
             resource_name,
             __props__,
             opts)

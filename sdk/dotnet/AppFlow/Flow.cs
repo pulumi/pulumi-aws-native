@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AppFlow
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AppFlow:Flow")]
+    [AwsNativeResourceType("aws-native:appflow:Flow")]
     public partial class Flow : Pulumi.CustomResource
     {
         /// <summary>
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.AppFlow
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Flow(string name, FlowArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AppFlow:Flow", name, args ?? new FlowArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:appflow:Flow", name, args ?? new FlowArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Flow(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AppFlow:Flow", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:appflow:Flow", name, null, MakeResourceOptions(options, id))
         {
         }
 

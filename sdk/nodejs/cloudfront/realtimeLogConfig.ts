@@ -22,7 +22,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:RealtimeLogConfig';
+    public static readonly __pulumiType = 'aws-native:cloudfront:RealtimeLogConfig';
 
     /**
      * Returns true if the given object is an instance of RealtimeLogConfig.  This is designed to work even
@@ -39,7 +39,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    public readonly endPoints!: pulumi.Output<outputs.CloudFront.RealtimeLogConfigEndPoint[]>;
+    public readonly endPoints!: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndPoint[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */
@@ -102,7 +102,7 @@ export interface RealtimeLogConfigArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
      */
-    endPoints: pulumi.Input<pulumi.Input<inputs.CloudFront.RealtimeLogConfigEndPointArgs>[]>;
+    endPoints: pulumi.Input<pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndPointArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
      */

@@ -22,7 +22,7 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:TransitGatewayMulticastDomain';
+    public static readonly __pulumiType = 'aws-native:ec2:TransitGatewayMulticastDomain';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayMulticastDomain.  This is designed to work even

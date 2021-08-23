@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ECS:CapacityProvider":
+	case "aws-native:ecs:CapacityProvider":
 		r = &CapacityProvider{}
-	case "aws-native:ECS:Cluster":
+	case "aws-native:ecs:Cluster":
 		r = &Cluster{}
-	case "aws-native:ECS:ClusterCapacityProviderAssociations":
+	case "aws-native:ecs:ClusterCapacityProviderAssociations":
 		r = &ClusterCapacityProviderAssociations{}
-	case "aws-native:ECS:PrimaryTaskSet":
+	case "aws-native:ecs:PrimaryTaskSet":
 		r = &PrimaryTaskSet{}
-	case "aws-native:ECS:Service":
+	case "aws-native:ecs:Service":
 		r = &Service{}
-	case "aws-native:ECS:TaskDefinition":
+	case "aws-native:ecs:TaskDefinition":
 		r = &TaskDefinition{}
-	case "aws-native:ECS:TaskSet":
+	case "aws-native:ecs:TaskSet":
 		r = &TaskSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ECS",
+		"ecs",
 		&module{version},
 	)
 }

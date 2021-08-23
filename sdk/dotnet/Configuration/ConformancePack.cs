@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Configuration:ConformancePack")]
+    [AwsNativeResourceType("aws-native:configuration:ConformancePack")]
     public partial class ConformancePack : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConformancePack(string name, ConformancePackArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:ConformancePack", name, args ?? new ConformancePackArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:configuration:ConformancePack", name, args ?? new ConformancePackArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConformancePack(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:ConformancePack", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:configuration:ConformancePack", name, null, MakeResourceOptions(options, id))
         {
         }
 

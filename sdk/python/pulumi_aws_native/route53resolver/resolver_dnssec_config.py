@@ -90,7 +90,7 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["validation_status"] = None
         super(ResolverDNSSECConfig, __self__).__init__(
-            'aws-native:Route53Resolver:ResolverDNSSECConfig',
+            'aws-native:route53resolver:ResolverDNSSECConfig',
             resource_name,
             __props__,
             opts)

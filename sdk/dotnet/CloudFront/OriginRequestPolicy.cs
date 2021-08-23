@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:OriginRequestPolicy")]
+    [AwsNativeResourceType("aws-native:cloudfront:OriginRequestPolicy")]
     public partial class OriginRequestPolicy : Pulumi.CustomResource
     {
         [Output("id")]
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginRequestPolicy(string name, OriginRequestPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:OriginRequestPolicy", name, args ?? new OriginRequestPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:OriginRequestPolicy", name, args ?? new OriginRequestPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginRequestPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:OriginRequestPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:OriginRequestPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

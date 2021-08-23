@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Kendra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Kendra:Index")]
+    [AwsNativeResourceType("aws-native:kendra:Index")]
     public partial class Index : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.Kendra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Index(string name, IndexArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:Index", name, args ?? new IndexArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kendra:Index", name, args ?? new IndexArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Index(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:Index", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kendra:Index", name, null, MakeResourceOptions(options, id))
         {
         }
 

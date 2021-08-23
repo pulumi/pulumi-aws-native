@@ -21,7 +21,7 @@ export class TransitGatewayMulticastGroupSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:TransitGatewayMulticastGroupSource';
+    public static readonly __pulumiType = 'aws-native:ec2:TransitGatewayMulticastGroupSource';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayMulticastGroupSource.  This is designed to work even

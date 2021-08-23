@@ -152,7 +152,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["input_name"] = input_name
             __props__.__dict__["tags"] = tags
         super(Input, __self__).__init__(
-            'aws-native:IoTEvents:Input',
+            'aws-native:iotevents:Input',
             resource_name,
             __props__,
             opts)

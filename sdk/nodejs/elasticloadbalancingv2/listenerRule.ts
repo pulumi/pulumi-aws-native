@@ -22,7 +22,7 @@ export class ListenerRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ElasticLoadBalancingV2:ListenerRule';
+    public static readonly __pulumiType = 'aws-native:elasticloadbalancingv2:ListenerRule';
 
     /**
      * Returns true if the given object is an instance of ListenerRule.  This is designed to work even
@@ -38,11 +38,11 @@ export class ListenerRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    public readonly actions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleAction[]>;
+    public readonly actions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleAction[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    public readonly conditions!: pulumi.Output<outputs.ElasticLoadBalancingV2.ListenerRuleRuleCondition[]>;
+    public readonly conditions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleRuleCondition[]>;
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
@@ -105,11 +105,11 @@ export interface ListenerRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
      */
-    actions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleActionArgs>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleActionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
      */
-    conditions: pulumi.Input<pulumi.Input<inputs.ElasticLoadBalancingV2.ListenerRuleRuleConditionArgs>[]>;
+    conditions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleRuleConditionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
      */

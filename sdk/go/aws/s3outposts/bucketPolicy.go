@@ -35,7 +35,7 @@ func NewBucketPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
 	var resource BucketPolicy
-	err := ctx.RegisterResource("aws-native:S3Outposts:BucketPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3outposts:BucketPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewBucketPolicy(ctx *pulumi.Context,
 func GetBucketPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BucketPolicyState, opts ...pulumi.ResourceOption) (*BucketPolicy, error) {
 	var resource BucketPolicy
-	err := ctx.ReadResource("aws-native:S3Outposts:BucketPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3outposts:BucketPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

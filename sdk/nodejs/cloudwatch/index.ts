@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CloudWatch:CompositeAlarm":
+            case "aws-native:cloudwatch:CompositeAlarm":
                 return new CompositeAlarm(name, <any>undefined, { urn })
-            case "aws-native:CloudWatch:MetricStream":
+            case "aws-native:cloudwatch:MetricStream":
                 return new MetricStream(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "CloudWatch", _module)
+pulumi.runtime.registerResourceModule("aws-native", "cloudwatch", _module)

@@ -21,7 +21,7 @@ export class FlowVpcInterface extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaConnect:FlowVpcInterface';
+    public static readonly __pulumiType = 'aws-native:mediaconnect:FlowVpcInterface';
 
     /**
      * Returns true if the given object is an instance of FlowVpcInterface.  This is designed to work even

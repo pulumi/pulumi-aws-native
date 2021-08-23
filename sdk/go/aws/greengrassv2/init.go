@@ -21,7 +21,7 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:GreengrassV2:ComponentVersion":
+	case "aws-native:greengrassv2:ComponentVersion":
 		r = &ComponentVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -38,7 +38,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"GreengrassV2",
+		"greengrassv2",
 		&module{version},
 	)
 }

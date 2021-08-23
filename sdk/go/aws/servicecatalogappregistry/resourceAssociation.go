@@ -43,7 +43,7 @@ func NewResourceAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	var resource ResourceAssociation
-	err := ctx.RegisterResource("aws-native:ServiceCatalogAppRegistry:ResourceAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:servicecatalogappregistry:ResourceAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewResourceAssociation(ctx *pulumi.Context,
 func GetResourceAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceAssociationState, opts ...pulumi.ResourceOption) (*ResourceAssociation, error) {
 	var resource ResourceAssociation
-	err := ctx.ReadResource("aws-native:ServiceCatalogAppRegistry:ResourceAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:servicecatalogappregistry:ResourceAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

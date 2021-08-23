@@ -22,7 +22,7 @@ export class Repository extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECR:Repository';
+    public static readonly __pulumiType = 'aws-native:ecr:Repository';
 
     /**
      * Returns true if the given object is an instance of Repository.  This is designed to work even
@@ -39,11 +39,11 @@ export class Repository extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
      */
-    public readonly encryptionConfiguration!: pulumi.Output<outputs.ECR.RepositoryEncryptionConfiguration | undefined>;
+    public readonly encryptionConfiguration!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ECR.RepositoryImageScanningConfiguration | undefined>;
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
@@ -51,7 +51,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    public readonly lifecyclePolicy!: pulumi.Output<outputs.ECR.RepositoryLifecyclePolicy | undefined>;
+    public readonly lifecyclePolicy!: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */
@@ -111,11 +111,11 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
      */
-    encryptionConfiguration?: pulumi.Input<inputs.ECR.RepositoryEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.ECR.RepositoryImageScanningConfigurationArgs>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
      */
@@ -123,7 +123,7 @@ export interface RepositoryArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
      */
-    lifecyclePolicy?: pulumi.Input<inputs.ECR.RepositoryLifecyclePolicyArgs>;
+    lifecyclePolicy?: pulumi.Input<inputs.ecr.RepositoryLifecyclePolicyArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
      */

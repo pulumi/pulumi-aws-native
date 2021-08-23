@@ -22,7 +22,7 @@ export class Dataset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataBrew:Dataset';
+    public static readonly __pulumiType = 'aws-native:databrew:Dataset';
 
     /**
      * Returns true if the given object is an instance of Dataset.  This is designed to work even
@@ -42,11 +42,11 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    public readonly formatOptions!: pulumi.Output<outputs.DataBrew.DatasetFormatOptions | undefined>;
+    public readonly formatOptions!: pulumi.Output<outputs.databrew.DatasetFormatOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    public readonly input!: pulumi.Output<outputs.DataBrew.DatasetInput>;
+    public readonly input!: pulumi.Output<outputs.databrew.DatasetInput>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
@@ -54,7 +54,7 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
      */
-    public readonly pathOptions!: pulumi.Output<outputs.DataBrew.DatasetPathOptions | undefined>;
+    public readonly pathOptions!: pulumi.Output<outputs.databrew.DatasetPathOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */
@@ -109,11 +109,11 @@ export interface DatasetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
      */
-    formatOptions?: pulumi.Input<inputs.DataBrew.DatasetFormatOptionsArgs>;
+    formatOptions?: pulumi.Input<inputs.databrew.DatasetFormatOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
      */
-    input: pulumi.Input<inputs.DataBrew.DatasetInputArgs>;
+    input: pulumi.Input<inputs.databrew.DatasetInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
      */
@@ -121,7 +121,7 @@ export interface DatasetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
      */
-    pathOptions?: pulumi.Input<inputs.DataBrew.DatasetPathOptionsArgs>;
+    pathOptions?: pulumi.Input<inputs.databrew.DatasetPathOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
      */

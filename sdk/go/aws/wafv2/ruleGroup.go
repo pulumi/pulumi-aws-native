@@ -56,7 +56,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
 	var resource RuleGroup
-	err := ctx.RegisterResource("aws-native:WAFv2:RuleGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:wafv2:RuleGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 func GetRuleGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RuleGroupState, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
 	var resource RuleGroup
-	err := ctx.ReadResource("aws-native:WAFv2:RuleGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:wafv2:RuleGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

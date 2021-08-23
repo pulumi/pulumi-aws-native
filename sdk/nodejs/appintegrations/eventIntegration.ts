@@ -22,7 +22,7 @@ export class EventIntegration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AppIntegrations:EventIntegration';
+    public static readonly __pulumiType = 'aws-native:appintegrations:EventIntegration';
 
     /**
      * Returns true if the given object is an instance of EventIntegration.  This is designed to work even
@@ -35,7 +35,7 @@ export class EventIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventIntegration.__pulumiType;
     }
 
-    public /*out*/ readonly associations!: pulumi.Output<outputs.AppIntegrations.EventIntegrationEventIntegrationAssociation[]>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.appintegrations.EventIntegrationEventIntegrationAssociation[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
      */
@@ -47,7 +47,7 @@ export class EventIntegration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
      */
-    public readonly eventFilter!: pulumi.Output<outputs.AppIntegrations.EventIntegrationEventFilter>;
+    public readonly eventFilter!: pulumi.Output<outputs.appintegrations.EventIntegrationEventFilter>;
     public /*out*/ readonly eventIntegrationArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
@@ -116,7 +116,7 @@ export interface EventIntegrationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
      */
-    eventFilter: pulumi.Input<inputs.AppIntegrations.EventIntegrationEventFilterArgs>;
+    eventFilter: pulumi.Input<inputs.appintegrations.EventIntegrationEventFilterArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
      */

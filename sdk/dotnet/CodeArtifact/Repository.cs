@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CodeArtifact
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CodeArtifact:Repository")]
+    [AwsNativeResourceType("aws-native:codeartifact:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Repository(string name, RepositoryArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CodeArtifact:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:codeartifact:Repository", name, args ?? new RepositoryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Repository(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CodeArtifact:Repository", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:codeartifact:Repository", name, null, MakeResourceOptions(options, id))
         {
         }
 

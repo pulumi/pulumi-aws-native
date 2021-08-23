@@ -22,7 +22,7 @@ export class Cell extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53RecoveryReadiness:Cell';
+    public static readonly __pulumiType = 'aws-native:route53recoveryreadiness:Cell';
 
     /**
      * Returns true if the given object is an instance of Cell.  This is designed to work even

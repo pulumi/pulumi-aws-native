@@ -26,7 +26,7 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	}
 
 	var resource ConfigurationSet
-	err := ctx.RegisterResource("aws-native:SES:ConfigurationSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ses:ConfigurationSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -38,7 +38,7 @@ func NewConfigurationSet(ctx *pulumi.Context,
 func GetConfigurationSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConfigurationSetState, opts ...pulumi.ResourceOption) (*ConfigurationSet, error) {
 	var resource ConfigurationSet
-	err := ctx.ReadResource("aws-native:SES:ConfigurationSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ses:ConfigurationSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

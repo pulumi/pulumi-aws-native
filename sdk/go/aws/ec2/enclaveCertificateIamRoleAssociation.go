@@ -38,7 +38,7 @@ func NewEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource EnclaveCertificateIamRoleAssociation
-	err := ctx.RegisterResource("aws-native:EC2:EnclaveCertificateIamRoleAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:EnclaveCertificateIamRoleAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context,
 func GetEnclaveCertificateIamRoleAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EnclaveCertificateIamRoleAssociationState, opts ...pulumi.ResourceOption) (*EnclaveCertificateIamRoleAssociation, error) {
 	var resource EnclaveCertificateIamRoleAssociation
-	err := ctx.ReadResource("aws-native:EC2:EnclaveCertificateIamRoleAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:EnclaveCertificateIamRoleAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

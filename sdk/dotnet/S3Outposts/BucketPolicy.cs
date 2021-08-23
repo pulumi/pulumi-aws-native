@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:S3Outposts:BucketPolicy")]
+    [AwsNativeResourceType("aws-native:s3outposts:BucketPolicy")]
     public partial class BucketPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BucketPolicy(string name, BucketPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:BucketPolicy", name, args ?? new BucketPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:s3outposts:BucketPolicy", name, args ?? new BucketPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BucketPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:BucketPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:s3outposts:BucketPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

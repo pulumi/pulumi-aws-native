@@ -317,7 +317,7 @@ class GameServerGroup(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_group_arn"] = None
             __props__.__dict__["game_server_group_arn"] = None
         super(GameServerGroup, __self__).__init__(
-            'aws-native:GameLift:GameServerGroup',
+            'aws-native:gamelift:GameServerGroup',
             resource_name,
             __props__,
             opts)

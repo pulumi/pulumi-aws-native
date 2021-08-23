@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Route53Resolver:FirewallDomainList":
+            case "aws-native:route53resolver:FirewallDomainList":
                 return new FirewallDomainList(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:FirewallRuleGroup":
+            case "aws-native:route53resolver:FirewallRuleGroup":
                 return new FirewallRuleGroup(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:FirewallRuleGroupAssociation":
+            case "aws-native:route53resolver:FirewallRuleGroupAssociation":
                 return new FirewallRuleGroupAssociation(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:ResolverDNSSECConfig":
+            case "aws-native:route53resolver:ResolverDNSSECConfig":
                 return new ResolverDNSSECConfig(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
+            case "aws-native:route53resolver:ResolverQueryLoggingConfig":
                 return new ResolverQueryLoggingConfig(name, <any>undefined, { urn })
-            case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":
+            case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":
                 return new ResolverQueryLoggingConfigAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Route53Resolver", _module)
+pulumi.runtime.registerResourceModule("aws-native", "route53resolver", _module)

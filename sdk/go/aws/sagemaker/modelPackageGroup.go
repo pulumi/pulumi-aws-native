@@ -40,7 +40,7 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
 	}
 	var resource ModelPackageGroup
-	err := ctx.RegisterResource("aws-native:SageMaker:ModelPackageGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:ModelPackageGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 func GetModelPackageGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModelPackageGroupState, opts ...pulumi.ResourceOption) (*ModelPackageGroup, error) {
 	var resource ModelPackageGroup
-	err := ctx.ReadResource("aws-native:SageMaker:ModelPackageGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:ModelPackageGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

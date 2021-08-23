@@ -22,7 +22,7 @@ export class DeviceProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:DeviceProfile';
+    public static readonly __pulumiType = 'aws-native:iotwireless:DeviceProfile';
 
     /**
      * Returns true if the given object is an instance of DeviceProfile.  This is designed to work even
@@ -40,7 +40,7 @@ export class DeviceProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.IoTWireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
+    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
      */
@@ -87,7 +87,7 @@ export interface DeviceProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
      */
-    loRaWAN?: pulumi.Input<inputs.IoTWireless.DeviceProfileLoRaWANDeviceProfileArgs>;
+    loRaWAN?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWANDeviceProfileArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
      */

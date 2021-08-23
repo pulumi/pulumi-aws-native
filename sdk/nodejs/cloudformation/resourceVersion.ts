@@ -22,7 +22,7 @@ export class ResourceVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:ResourceVersion';
+    public static readonly __pulumiType = 'aws-native:cloudformation:ResourceVersion';
 
     /**
      * Returns true if the given object is an instance of ResourceVersion.  This is designed to work even
@@ -44,7 +44,7 @@ export class ResourceVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.CloudFormation.ResourceVersionLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.ResourceVersionLoggingConfig | undefined>;
     public /*out*/ readonly provisioningType!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
@@ -115,7 +115,7 @@ export interface ResourceVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
      */
-    loggingConfig?: pulumi.Input<inputs.CloudFormation.ResourceVersionLoggingConfigArgs>;
+    loggingConfig?: pulumi.Input<inputs.cloudformation.ResourceVersionLoggingConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
      */

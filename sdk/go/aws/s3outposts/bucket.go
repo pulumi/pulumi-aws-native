@@ -41,7 +41,7 @@ func NewBucket(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'OutpostId'")
 	}
 	var resource Bucket
-	err := ctx.RegisterResource("aws-native:S3Outposts:Bucket", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3outposts:Bucket", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewBucket(ctx *pulumi.Context,
 func GetBucket(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BucketState, opts ...pulumi.ResourceOption) (*Bucket, error) {
 	var resource Bucket
-	err := ctx.ReadResource("aws-native:S3Outposts:Bucket", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3outposts:Bucket", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

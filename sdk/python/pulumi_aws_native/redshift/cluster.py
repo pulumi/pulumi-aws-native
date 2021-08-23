@@ -679,7 +679,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["endpoint_port"] = None
             __props__.__dict__["id"] = None
         super(Cluster, __self__).__init__(
-            'aws-native:Redshift:Cluster',
+            'aws-native:redshift:Cluster',
             resource_name,
             __props__,
             opts)

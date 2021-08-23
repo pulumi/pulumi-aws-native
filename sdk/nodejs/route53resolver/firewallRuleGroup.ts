@@ -22,7 +22,7 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53Resolver:FirewallRuleGroup';
+    public static readonly __pulumiType = 'aws-native:route53resolver:FirewallRuleGroup';
 
     /**
      * Returns true if the given object is an instance of FirewallRuleGroup.  This is designed to work even
@@ -41,7 +41,7 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
      */
-    public readonly firewallRules!: pulumi.Output<outputs.Route53Resolver.FirewallRuleGroupFirewallRule[] | undefined>;
+    public readonly firewallRules!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupFirewallRule[] | undefined>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly modificationTime!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export interface FirewallRuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
      */
-    firewallRules?: pulumi.Input<pulumi.Input<inputs.Route53Resolver.FirewallRuleGroupFirewallRuleArgs>[]>;
+    firewallRules?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupFirewallRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
      */

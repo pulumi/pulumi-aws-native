@@ -49,7 +49,7 @@ func NewTemplate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TemplateId'")
 	}
 	var resource Template
-	err := ctx.RegisterResource("aws-native:QuickSight:Template", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:quicksight:Template", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewTemplate(ctx *pulumi.Context,
 func GetTemplate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TemplateState, opts ...pulumi.ResourceOption) (*Template, error) {
 	var resource Template
-	err := ctx.ReadResource("aws-native:QuickSight:Template", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:quicksight:Template", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

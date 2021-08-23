@@ -332,7 +332,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
             __props__.__dict__["output_arn"] = None
         super(FlowOutput, __self__).__init__(
-            'aws-native:MediaConnect:FlowOutput',
+            'aws-native:mediaconnect:FlowOutput',
             resource_name,
             __props__,
             opts)

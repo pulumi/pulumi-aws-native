@@ -30,7 +30,7 @@ func NewDNSSEC(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
 	var resource DNSSEC
-	err := ctx.RegisterResource("aws-native:Route53:DNSSEC", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53:DNSSEC", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func NewDNSSEC(ctx *pulumi.Context,
 func GetDNSSEC(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DNSSECState, opts ...pulumi.ResourceOption) (*DNSSEC, error) {
 	var resource DNSSEC
-	err := ctx.ReadResource("aws-native:Route53:DNSSEC", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53:DNSSEC", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

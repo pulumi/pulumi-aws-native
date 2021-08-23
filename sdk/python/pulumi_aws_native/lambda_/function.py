@@ -474,7 +474,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         super(Function, __self__).__init__(
-            'aws-native:Lambda:Function',
+            'aws-native:lambda:Function',
             resource_name,
             __props__,
             opts)

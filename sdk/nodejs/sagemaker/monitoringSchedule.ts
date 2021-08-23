@@ -22,7 +22,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:MonitoringSchedule';
+    public static readonly __pulumiType = 'aws-native:sagemaker:MonitoringSchedule';
 
     /**
      * Returns true if the given object is an instance of MonitoringSchedule.  This is designed to work even
@@ -48,12 +48,12 @@ export class MonitoringSchedule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    public readonly lastMonitoringExecutionSummary!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
+    public readonly lastMonitoringExecutionSummary!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
     public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.SageMaker.MonitoringScheduleMonitoringScheduleConfig>;
+    public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */
@@ -128,11 +128,11 @@ export interface MonitoringScheduleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
      */
-    lastMonitoringExecutionSummary?: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
+    lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
      */
-    monitoringScheduleConfig: pulumi.Input<inputs.SageMaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
+    monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
      */

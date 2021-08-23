@@ -22,7 +22,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ResourceGroups:Group';
+    public static readonly __pulumiType = 'aws-native:resourcegroups:Group';
 
     /**
      * Returns true if the given object is an instance of Group.  This is designed to work even
@@ -39,7 +39,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.ResourceGroups.GroupConfigurationItem[] | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.resourcegroups.GroupConfigurationItem[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
      */
@@ -51,7 +51,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
      */
-    public readonly resourceQuery!: pulumi.Output<outputs.ResourceGroups.GroupResourceQuery | undefined>;
+    public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
      */
@@ -105,7 +105,7 @@ export interface GroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-configuration
      */
-    configuration?: pulumi.Input<pulumi.Input<inputs.ResourceGroups.GroupConfigurationItemArgs>[]>;
+    configuration?: pulumi.Input<pulumi.Input<inputs.resourcegroups.GroupConfigurationItemArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-description
      */
@@ -117,7 +117,7 @@ export interface GroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resourcequery
      */
-    resourceQuery?: pulumi.Input<inputs.ResourceGroups.GroupResourceQueryArgs>;
+    resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-resources
      */

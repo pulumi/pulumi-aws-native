@@ -40,7 +40,7 @@ func NewSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Schedule
-	err := ctx.RegisterResource("aws-native:DataBrew:Schedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:databrew:Schedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewSchedule(ctx *pulumi.Context,
 func GetSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduleState, opts ...pulumi.ResourceOption) (*Schedule, error) {
 	var resource Schedule
-	err := ctx.ReadResource("aws-native:DataBrew:Schedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:databrew:Schedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

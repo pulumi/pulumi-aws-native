@@ -211,7 +211,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["token_signing_public_keys"] = token_signing_public_keys
             __props__.__dict__["arn"] = None
         super(Authorizer, __self__).__init__(
-            'aws-native:IoT:Authorizer',
+            'aws-native:iot:Authorizer',
             resource_name,
             __props__,
             opts)

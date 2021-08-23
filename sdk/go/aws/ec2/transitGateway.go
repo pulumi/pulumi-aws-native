@@ -50,7 +50,7 @@ func NewTransitGateway(ctx *pulumi.Context,
 	}
 
 	var resource TransitGateway
-	err := ctx.RegisterResource("aws-native:EC2:TransitGateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:TransitGateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewTransitGateway(ctx *pulumi.Context,
 func GetTransitGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayState, opts ...pulumi.ResourceOption) (*TransitGateway, error) {
 	var resource TransitGateway
-	err := ctx.ReadResource("aws-native:EC2:TransitGateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:TransitGateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

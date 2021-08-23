@@ -59,7 +59,7 @@ func NewLocationSMB(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	var resource LocationSMB
-	err := ctx.RegisterResource("aws-native:DataSync:LocationSMB", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:LocationSMB", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func NewLocationSMB(ctx *pulumi.Context,
 func GetLocationSMB(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LocationSMBState, opts ...pulumi.ResourceOption) (*LocationSMB, error) {
 	var resource LocationSMB
-	err := ctx.ReadResource("aws-native:DataSync:LocationSMB", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:LocationSMB", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

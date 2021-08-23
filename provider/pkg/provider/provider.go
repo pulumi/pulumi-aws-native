@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2021, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,13 +21,13 @@ import (
 	"encoding/base32"
 	"encoding/json"
 	"fmt"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/status"
 	"net/http"
+	"runtime/debug"
 	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
+	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
@@ -36,6 +36,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/aws/smithy-go"
+	"github.com/aws/smithy-go/middleware"
 	"github.com/golang/glog"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	pbstruct "github.com/golang/protobuf/ptypes/struct"
@@ -43,11 +44,15 @@ import (
 	"github.com/jpillora/backoff"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type cancellationContext struct {
@@ -73,6 +78,7 @@ type cfnProvider struct {
 	accountID    string
 	region       string
 	schema       schema.CloudFormationSchema
+	cfTypes      map[string]string
 	pulumiSchema []byte
 
 	cfn *cloudformation.Client
@@ -179,6 +185,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 
 	cfg, err := config.LoadDefaultConfig(ctx)
 	cfg.Region = p.region
+	cfg.APIOptions = append(cfg.APIOptions, pulumiUserAgent()...)
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not load AWS config")
 	}
@@ -198,7 +205,19 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not fetch CloudFormation schema")
 	}
+
+	// Map to convert module names to CF modules.
+	cfTypes := map[string]string{}
+	for key := range schema.ResourceTypes {
+		parts := strings.Split(key, "::")
+		if len(parts) != 3 {
+			return nil, errors.Errorf("invalid resource type %s", key)
+		}
+		resourceKey := fmt.Sprintf("%s::%s::%s", parts[0], strings.ToLower(parts[1]), parts[2])
+		cfTypes[resourceKey] = key
+	}
 	p.schema = *schema
+	p.cfTypes = cfTypes
 
 	p.configured = true
 
@@ -328,7 +347,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	label := fmt.Sprintf("%s.Check(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -371,7 +390,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -410,7 +429,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, errors.Wrapf(err, "malformed resource inputs")
 	}
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -486,7 +505,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 
 	// Read the resource state from AWS.
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -565,7 +584,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	glog.V(9).Infof("%s executing", label)
 
 	id := req.GetId()
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -629,7 +648,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("%s.Delete(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -686,7 +705,7 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 	return &pbempty.Empty{}, nil
 }
 
-func resourceInfoFromURN(urn resource.URN) (string, string, error) {
+func (p *cfnProvider) resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	// Transform the URN's type into its CloudFormation type.
 	ns, service := "AWS", ""
 
@@ -707,6 +726,10 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	}
 
 	typ := strings.Join([]string{ns, service, string(urn.Type().Name())}, "::")
+	cfType, has := p.cfTypes[typ]
+	if !has {
+		return "", "", errors.Errorf("resource type %s not found", typ)
+	}
 
 	// Now build the resource's logical ID from the first 223 characters of its name and the base32-encoded SHA-1 hash of
 	// its URN. The latter is necessary to accurately map the Pulumi URN identity model onto the CF logical ID identity
@@ -723,7 +746,7 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 		name = name[:maxNameLen]
 	}
 
-	return name + hash, typ, nil
+	return name + hash, cfType, nil
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
@@ -893,4 +916,28 @@ func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
 	}
 
 	return nil
+}
+
+// getPulumiVersion parses the version of the pulumi SDK used in the running program.
+func getPulumiVersion() string {
+	if bi, ok := debug.ReadBuildInfo(); ok {
+		for _, dep := range bi.Deps {
+			if strings.HasPrefix(dep.Path, "github.com/pulumi/pulumi/sdk") {
+				return strings.TrimPrefix(dep.Version, "v")
+			}
+		}
+	}
+	// We should never get here but let's not panic and return something sensible if we do.
+	logging.V(4).Info("No Pulumi package version found, using '3.0' as the default version for user-agent")
+	return "3.0"
+}
+
+// pulumiUserAgent adds a Pulumi-specific user-agent to the request middleware.
+// The resulting string looks like this: `APN/1.0 Pulumi/1.0 PulumiAwsNative/0.0.2`
+func pulumiUserAgent() []func(*middleware.Stack) error {
+	return []func(*middleware.Stack) error{
+		awsmiddleware.AddUserAgentKeyValue("APN", "1.0"),
+		awsmiddleware.AddUserAgentKeyValue("Pulumi", getPulumiVersion()),
+		awsmiddleware.AddUserAgentKeyValue("PulumiAwsNative", version.Version),
+	}
 }

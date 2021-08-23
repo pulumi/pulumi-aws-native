@@ -239,7 +239,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["label_namespace"] = None
         super(RuleGroup, __self__).__init__(
-            'aws-native:WAFv2:RuleGroup',
+            'aws-native:wafv2:RuleGroup',
             resource_name,
             __props__,
             opts)

@@ -255,7 +255,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["delegations"] = None
         super(Assessment, __self__).__init__(
-            'aws-native:AuditManager:Assessment',
+            'aws-native:auditmanager:Assessment',
             resource_name,
             __props__,
             opts)

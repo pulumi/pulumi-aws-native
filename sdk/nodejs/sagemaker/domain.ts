@@ -22,7 +22,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:Domain';
+    public static readonly __pulumiType = 'aws-native:sagemaker:Domain';
 
     /**
      * Returns true if the given object is an instance of Domain.  This is designed to work even
@@ -46,7 +46,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
      */
-    public readonly defaultUserSettings!: pulumi.Output<outputs.SageMaker.DomainUserSettings>;
+    public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainUserSettings>;
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface DomainArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
      */
-    defaultUserSettings: pulumi.Input<inputs.SageMaker.DomainUserSettingsArgs>;
+    defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainUserSettingsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
      */

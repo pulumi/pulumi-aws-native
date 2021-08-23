@@ -155,7 +155,7 @@ class ListenerRule(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["rule_arn"] = None
         super(ListenerRule, __self__).__init__(
-            'aws-native:ElasticLoadBalancingV2:ListenerRule',
+            'aws-native:elasticloadbalancingv2:ListenerRule',
             resource_name,
             __props__,
             opts)

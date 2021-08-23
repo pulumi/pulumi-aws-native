@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:GlobalNetwork")]
+    [AwsNativeResourceType("aws-native:networkmanager:GlobalNetwork")]
     public partial class GlobalNetwork : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalNetwork(string name, GlobalNetworkArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:GlobalNetwork", name, args ?? new GlobalNetworkArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:GlobalNetwork", name, args ?? new GlobalNetworkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalNetwork(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:GlobalNetwork", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:GlobalNetwork", name, null, MakeResourceOptions(options, id))
         {
         }
 

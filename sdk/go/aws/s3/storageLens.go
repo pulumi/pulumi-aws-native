@@ -34,7 +34,7 @@ func NewStorageLens(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
 	var resource StorageLens
-	err := ctx.RegisterResource("aws-native:S3:StorageLens", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3:StorageLens", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func NewStorageLens(ctx *pulumi.Context,
 func GetStorageLens(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StorageLensState, opts ...pulumi.ResourceOption) (*StorageLens, error) {
 	var resource StorageLens
-	err := ctx.ReadResource("aws-native:S3:StorageLens", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3:StorageLens", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

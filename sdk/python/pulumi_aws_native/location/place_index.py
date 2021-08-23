@@ -176,7 +176,7 @@ class PlaceIndex(pulumi.CustomResource):
             __props__.__dict__["index_arn"] = None
             __props__.__dict__["update_time"] = None
         super(PlaceIndex, __self__).__init__(
-            'aws-native:Location:PlaceIndex',
+            'aws-native:location:PlaceIndex',
             resource_name,
             __props__,
             opts)

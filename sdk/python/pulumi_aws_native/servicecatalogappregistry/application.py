@@ -130,7 +130,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(Application, __self__).__init__(
-            'aws-native:ServiceCatalogAppRegistry:Application',
+            'aws-native:servicecatalogappregistry:Application',
             resource_name,
             __props__,
             opts)

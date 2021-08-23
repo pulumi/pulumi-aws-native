@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSO
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSO:PermissionSet")]
+    [AwsNativeResourceType("aws-native:sso:PermissionSet")]
     public partial class PermissionSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PermissionSet(string name, PermissionSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:PermissionSet", name, args ?? new PermissionSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sso:PermissionSet", name, args ?? new PermissionSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PermissionSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:PermissionSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sso:PermissionSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -31,7 +31,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ReplicationConfiguration'")
 	}
 	var resource ReplicationConfiguration
-	err := ctx.RegisterResource("aws-native:ECR:ReplicationConfiguration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecr:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 func GetReplicationConfiguration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicationConfigurationState, opts ...pulumi.ResourceOption) (*ReplicationConfiguration, error) {
 	var resource ReplicationConfiguration
-	err := ctx.ReadResource("aws-native:ECR:ReplicationConfiguration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecr:ReplicationConfiguration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

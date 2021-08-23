@@ -42,7 +42,7 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ProjectName'")
 	}
 	var resource Project
-	err := ctx.RegisterResource("aws-native:IoTSiteWise:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotsitewise:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("aws-native:IoTSiteWise:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotsitewise:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

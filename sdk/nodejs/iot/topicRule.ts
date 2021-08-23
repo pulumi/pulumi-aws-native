@@ -22,7 +22,7 @@ export class TopicRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:TopicRule';
+    public static readonly __pulumiType = 'aws-native:iot:TopicRule';
 
     /**
      * Returns true if the given object is an instance of TopicRule.  This is designed to work even
@@ -47,7 +47,7 @@ export class TopicRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    public readonly topicRulePayload!: pulumi.Output<outputs.IoT.TopicRuleTopicRulePayload>;
+    public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRuleTopicRulePayload>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -95,5 +95,5 @@ export interface TopicRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
      */
-    topicRulePayload: pulumi.Input<inputs.IoT.TopicRuleTopicRulePayloadArgs>;
+    topicRulePayload: pulumi.Input<inputs.iot.TopicRuleTopicRulePayloadArgs>;
 }

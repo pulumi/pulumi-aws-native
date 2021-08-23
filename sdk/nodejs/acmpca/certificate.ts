@@ -22,7 +22,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ACMPCA:Certificate';
+    public static readonly __pulumiType = 'aws-native:acmpca:Certificate';
 
     /**
      * Returns true if the given object is an instance of Certificate.  This is designed to work even
@@ -38,7 +38,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
      */
-    public readonly apiPassthrough!: pulumi.Output<outputs.ACMPCA.CertificateApiPassthrough | undefined>;
+    public readonly apiPassthrough!: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
@@ -60,11 +60,11 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
-    public readonly validity!: pulumi.Output<outputs.ACMPCA.CertificateValidity>;
+    public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
      */
-    public readonly validityNotBefore!: pulumi.Output<outputs.ACMPCA.CertificateValidity | undefined>;
+    public readonly validityNotBefore!: pulumi.Output<outputs.acmpca.CertificateValidity | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -123,7 +123,7 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
      */
-    apiPassthrough?: pulumi.Input<inputs.ACMPCA.CertificateApiPassthroughArgs>;
+    apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
      */
@@ -143,9 +143,9 @@ export interface CertificateArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
      */
-    validity: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
+    validity: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
      */
-    validityNotBefore?: pulumi.Input<inputs.ACMPCA.CertificateValidityArgs>;
+    validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
 }

@@ -42,7 +42,7 @@ func NewGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Group
-	err := ctx.RegisterResource("aws-native:ResourceGroups:Group", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:resourcegroups:Group", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewGroup(ctx *pulumi.Context,
 func GetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GroupState, opts ...pulumi.ResourceOption) (*Group, error) {
 	var resource Group
-	err := ctx.ReadResource("aws-native:ResourceGroups:Group", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:resourcegroups:Group", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

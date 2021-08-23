@@ -22,7 +22,7 @@ export class FargateProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EKS:FargateProfile';
+    public static readonly __pulumiType = 'aws-native:eks:FargateProfile';
 
     /**
      * Returns true if the given object is an instance of FargateProfile.  This is designed to work even
@@ -51,7 +51,7 @@ export class FargateProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    public readonly selectors!: pulumi.Output<outputs.EKS.FargateProfileSelector[]>;
+    public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */
@@ -123,7 +123,7 @@ export interface FargateProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
      */
-    selectors: pulumi.Input<pulumi.Input<inputs.EKS.FargateProfileSelectorArgs>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelectorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
      */

@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Redshift:Cluster';
+    public static readonly __pulumiType = 'aws-native:redshift:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -86,7 +86,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
      */
-    public readonly endpoint!: pulumi.Output<outputs.Redshift.ClusterEndpoint | undefined>;
+    public readonly endpoint!: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
     public /*out*/ readonly endpointAddress!: pulumi.Output<string>;
     public /*out*/ readonly endpointPort!: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
      */
-    public readonly loggingProperties!: pulumi.Output<outputs.Redshift.ClusterLoggingProperties | undefined>;
+    public readonly loggingProperties!: pulumi.Output<outputs.redshift.ClusterLoggingProperties | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
      */
@@ -315,7 +315,7 @@ export interface ClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
      */
-    endpoint?: pulumi.Input<inputs.Redshift.ClusterEndpointArgs>;
+    endpoint?: pulumi.Input<inputs.redshift.ClusterEndpointArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
      */
@@ -335,7 +335,7 @@ export interface ClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
      */
-    loggingProperties?: pulumi.Input<inputs.Redshift.ClusterLoggingPropertiesArgs>;
+    loggingProperties?: pulumi.Input<inputs.redshift.ClusterLoggingPropertiesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
      */

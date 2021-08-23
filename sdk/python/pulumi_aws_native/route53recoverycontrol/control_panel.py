@@ -112,7 +112,7 @@ class ControlPanel(pulumi.CustomResource):
             __props__.__dict__["routing_control_count"] = None
             __props__.__dict__["status"] = None
         super(ControlPanel, __self__).__init__(
-            'aws-native:Route53RecoveryControl:ControlPanel',
+            'aws-native:route53recoverycontrol:ControlPanel',
             resource_name,
             __props__,
             opts)

@@ -315,7 +315,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
         super(DataSource, __self__).__init__(
-            'aws-native:QuickSight:DataSource',
+            'aws-native:quicksight:DataSource',
             resource_name,
             __props__,
             opts)

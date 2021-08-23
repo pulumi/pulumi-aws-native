@@ -22,7 +22,7 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:TaskSet';
+    public static readonly __pulumiType = 'aws-native:ecs:TaskSet';
 
     /**
      * Returns true if the given object is an instance of TaskSet.  This is designed to work even
@@ -51,11 +51,11 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ECS.TaskSetLoadBalancer[] | undefined>;
+    public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ECS.TaskSetNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
@@ -63,7 +63,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    public readonly scale!: pulumi.Output<outputs.ECS.TaskSetScale | undefined>;
+    public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
@@ -71,7 +71,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ECS.TaskSetServiceRegistry[] | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */
@@ -147,11 +147,11 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetLoadBalancerArgs>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancerArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
      */
-    networkConfiguration?: pulumi.Input<inputs.ECS.TaskSetNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
      */
@@ -159,7 +159,7 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
      */
-    scale?: pulumi.Input<inputs.ECS.TaskSetScaleArgs>;
+    scale?: pulumi.Input<inputs.ecs.TaskSetScaleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
      */
@@ -167,7 +167,7 @@ export interface TaskSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
      */
-    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.TaskSetServiceRegistryArgs>[]>;
+    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetServiceRegistryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
      */

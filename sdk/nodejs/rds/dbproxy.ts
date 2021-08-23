@@ -22,7 +22,7 @@ export class DBProxy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:RDS:DBProxy';
+    public static readonly __pulumiType = 'aws-native:rds:DBProxy';
 
     /**
      * Returns true if the given object is an instance of DBProxy.  This is designed to work even
@@ -38,7 +38,7 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    public readonly auth!: pulumi.Output<outputs.RDS.DBProxyAuthFormat[]>;
+    public readonly auth!: pulumi.Output<outputs.rds.DBProxyAuthFormat[]>;
     public /*out*/ readonly dBProxyArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
@@ -68,7 +68,7 @@ export class DBProxy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    public readonly tags!: pulumi.Output<outputs.RDS.DBProxyTagFormat[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.rds.DBProxyTagFormat[] | undefined>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
@@ -147,7 +147,7 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
      */
-    auth: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyAuthFormatArgs>[]>;
+    auth: pulumi.Input<pulumi.Input<inputs.rds.DBProxyAuthFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
      */
@@ -175,7 +175,7 @@ export interface DBProxyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.RDS.DBProxyTagFormatArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.rds.DBProxyTagFormatArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
      */

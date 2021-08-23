@@ -24,21 +24,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:FraudDetector:Detector":
+            case "aws-native:frauddetector:Detector":
                 return new Detector(name, <any>undefined, { urn })
-            case "aws-native:FraudDetector:EntityType":
+            case "aws-native:frauddetector:EntityType":
                 return new EntityType(name, <any>undefined, { urn })
-            case "aws-native:FraudDetector:EventType":
+            case "aws-native:frauddetector:EventType":
                 return new EventType(name, <any>undefined, { urn })
-            case "aws-native:FraudDetector:Label":
+            case "aws-native:frauddetector:Label":
                 return new Label(name, <any>undefined, { urn })
-            case "aws-native:FraudDetector:Outcome":
+            case "aws-native:frauddetector:Outcome":
                 return new Outcome(name, <any>undefined, { urn })
-            case "aws-native:FraudDetector:Variable":
+            case "aws-native:frauddetector:Variable":
                 return new Variable(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "FraudDetector", _module)
+pulumi.runtime.registerResourceModule("aws-native", "frauddetector", _module)

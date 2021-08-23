@@ -151,7 +151,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(Schedule, __self__).__init__(
-            'aws-native:DataBrew:Schedule',
+            'aws-native:databrew:Schedule',
             resource_name,
             __props__,
             opts)

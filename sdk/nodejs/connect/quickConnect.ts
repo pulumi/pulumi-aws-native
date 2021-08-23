@@ -22,7 +22,7 @@ export class QuickConnect extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Connect:QuickConnect';
+    public static readonly __pulumiType = 'aws-native:connect:QuickConnect';
 
     /**
      * Returns true if the given object is an instance of QuickConnect.  This is designed to work even
@@ -51,7 +51,7 @@ export class QuickConnect extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
      */
-    public readonly quickConnectConfig!: pulumi.Output<outputs.Connect.QuickConnectQuickConnectConfig>;
+    public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectQuickConnectConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
      */
@@ -117,7 +117,7 @@ export interface QuickConnectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
      */
-    quickConnectConfig: pulumi.Input<inputs.Connect.QuickConnectQuickConnectConfigArgs>;
+    quickConnectConfig: pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
      */

@@ -128,7 +128,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
             __props__.__dict__["version_id"] = version_id
             __props__.__dict__["arn"] = None
         super(ResourceDefaultVersion, __self__).__init__(
-            'aws-native:CloudFormation:ResourceDefaultVersion',
+            'aws-native:cloudformation:ResourceDefaultVersion',
             resource_name,
             __props__,
             opts)

@@ -47,7 +47,7 @@ func NewResponsePlan(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ResponsePlan
-	err := ctx.RegisterResource("aws-native:SSMIncidents:ResponsePlan", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssmincidents:ResponsePlan", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewResponsePlan(ctx *pulumi.Context,
 func GetResponsePlan(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResponsePlanState, opts ...pulumi.ResourceOption) (*ResponsePlan, error) {
 	var resource ResponsePlan
-	err := ctx.ReadResource("aws-native:SSMIncidents:ResponsePlan", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssmincidents:ResponsePlan", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

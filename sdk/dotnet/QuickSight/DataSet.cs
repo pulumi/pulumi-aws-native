@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:QuickSight:DataSet")]
+    [AwsNativeResourceType("aws-native:quicksight:DataSet")]
     public partial class DataSet : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -117,12 +117,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataSet(string name, DataSetArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:quicksight:DataSet", name, args ?? new DataSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DataSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:DataSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:quicksight:DataSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

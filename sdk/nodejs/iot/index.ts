@@ -36,33 +36,33 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IoT:AccountAuditConfiguration":
+            case "aws-native:iot:AccountAuditConfiguration":
                 return new AccountAuditConfiguration(name, <any>undefined, { urn })
-            case "aws-native:IoT:Authorizer":
+            case "aws-native:iot:Authorizer":
                 return new Authorizer(name, <any>undefined, { urn })
-            case "aws-native:IoT:Certificate":
+            case "aws-native:iot:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
-            case "aws-native:IoT:CustomMetric":
+            case "aws-native:iot:CustomMetric":
                 return new CustomMetric(name, <any>undefined, { urn })
-            case "aws-native:IoT:Dimension":
+            case "aws-native:iot:Dimension":
                 return new Dimension(name, <any>undefined, { urn })
-            case "aws-native:IoT:DomainConfiguration":
+            case "aws-native:iot:DomainConfiguration":
                 return new DomainConfiguration(name, <any>undefined, { urn })
-            case "aws-native:IoT:MitigationAction":
+            case "aws-native:iot:MitigationAction":
                 return new MitigationAction(name, <any>undefined, { urn })
-            case "aws-native:IoT:ProvisioningTemplate":
+            case "aws-native:iot:ProvisioningTemplate":
                 return new ProvisioningTemplate(name, <any>undefined, { urn })
-            case "aws-native:IoT:ScheduledAudit":
+            case "aws-native:iot:ScheduledAudit":
                 return new ScheduledAudit(name, <any>undefined, { urn })
-            case "aws-native:IoT:SecurityProfile":
+            case "aws-native:iot:SecurityProfile":
                 return new SecurityProfile(name, <any>undefined, { urn })
-            case "aws-native:IoT:TopicRule":
+            case "aws-native:iot:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
-            case "aws-native:IoT:TopicRuleDestination":
+            case "aws-native:iot:TopicRuleDestination":
                 return new TopicRuleDestination(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IoT", _module)
+pulumi.runtime.registerResourceModule("aws-native", "iot", _module)

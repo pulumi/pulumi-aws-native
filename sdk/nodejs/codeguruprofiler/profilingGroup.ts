@@ -22,7 +22,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CodeGuruProfiler:ProfilingGroup';
+    public static readonly __pulumiType = 'aws-native:codeguruprofiler:ProfilingGroup';
 
     /**
      * Returns true if the given object is an instance of ProfilingGroup.  This is designed to work even
@@ -42,7 +42,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
      */
-    public readonly anomalyDetectionNotificationConfiguration!: pulumi.Output<outputs.CodeGuruProfiler.ProfilingGroupChannel[] | undefined>;
+    public readonly anomalyDetectionNotificationConfiguration!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupChannel[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
@@ -103,7 +103,7 @@ export interface ProfilingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
      */
-    anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.CodeGuruProfiler.ProfilingGroupChannelArgs>[]>;
+    anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupChannelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
      */
