@@ -17,11 +17,27 @@ CFN_SCHEMA_URL      ?= https://cfn-resource-specifications-${CFN_SCHEMA_REGION}-
 CFN_SCHEMA_DIR      := provider/cmd/pulumi-gen-${PACK}
 CFN_SCHEMA_FILE     := ${CFN_SCHEMA_DIR}/cfn-spec-${CFN_SCHEMA_REGION}.json
 
-discovery::codegen
+init_submodules::
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		if [ ! -f "$$submodule/.git" ]; then \
+			echo "Initializing submodule $$submodule" ; \
+			(cd $$submodule && git submodule update --init); \
+		fi; \
+	done
+
+update_submodules:: init_submodules
+	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
+		echo "Updating submodule $$submodule" ; \
+		(cd $$submodule && git checkout main && git pull origin main); \
+	done
+	rm ./azure-provider-versions/provider_list.json
+	az provider list >> ./azure-provider-versions/provider_list.json
+
+discovery:: update_submodules codegen
 	curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
 	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_FILE) ${VERSION}
 
-ensure::
+ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
 	cd aws-sdk-go-v2-cf-preview && GO111MODULE=on go mod tidy
 	cd provider && GO111MODULE=on go mod tidy

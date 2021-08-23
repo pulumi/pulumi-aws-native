@@ -12,6 +12,8 @@ import (
 	"github.com/goccy/go-yaml/parser"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -437,7 +439,6 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 				Collection: &model.ScopeTraversalExpression{
 					Traversal: hcl.Traversal{
 						hcl.TraverseRoot{Name: resourceVar.Name},
-						hcl.TraverseAttr{Name: "attributes"},
 					},
 					Parts: []model.Traversable{
 						resourceVar,
@@ -448,11 +449,11 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 			}, nil
 		}
 
+		propName := schema.ToPropertyName(attrName)
 		return &model.ScopeTraversalExpression{
 			Traversal: hcl.Traversal{
 				hcl.TraverseRoot{Name: resourceVar.Name},
-				hcl.TraverseAttr{Name: "attributes"},
-				hcl.TraverseAttr{Name: strings.Replace(attrName, ".", "", -1)},
+				hcl.TraverseAttr{Name: strings.Replace(propName, ".", "", -1)},
 			},
 			Parts: []model.Traversable{
 				resourceVar,
@@ -625,7 +626,7 @@ func (ctx *renderContext) renderValue(node ast.Node) (model.Expression, error) {
 			if err != nil {
 				return nil, err
 			}
-			items = append(items, objectConsItem(keyString(f), v))
+			items = append(items, objectConsItem(camel(keyString(f)), v))
 		}
 		return &model.ObjectConsExpression{
 			Items: items,
@@ -871,14 +872,20 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 	for _, f := range values {
 		switch keyString(f) {
 		case "CreationPolicy", "DeletionPolicy", "Metadata", "Properties", "UpdatePolicy", "UpdateReplacePolicy":
-			v, err := ctx.renderValue(f.Value)
-			if err != nil {
-				return nil, err
+			subValues, ok := mapValues(f.Value)
+			if !ok {
+				return nil, fmt.Errorf("'%v' must be a mapping", keyString(f))
 			}
-			items = append(items, &model.Attribute{
-				Name:  camel(keyString(f)),
-				Value: v,
-			})
+			for _, sf := range subValues {
+				sv, err := ctx.renderValue(sf.Value)
+				if err != nil {
+					return nil, err
+				}
+				items = append(items, &model.Attribute{
+					Name:  camel(keyString(sf)),
+					Value: sv,
+				})
+			}
 		case "DependsOn":
 			var arr []ast.Node
 			switch f.Value.Type() {
@@ -919,7 +926,13 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 			if f.Value.Type() != ast.StringType {
 				return nil, fmt.Errorf("the \"Type\" of reosurce '%v' must be a string", name)
 			}
-			token = resourceToken(f.Value.(*ast.StringNode).Value)
+			cfType := f.Value.(*ast.StringNode).Value
+			resourceType := cfType
+			parts := strings.Split(cfType, "::")
+			if len(parts) == 3 {
+				resourceType = fmt.Sprintf("%s::%s::%s", parts[0], strings.ToLower(parts[1]), parts[2])
+			}
+			token = resourceToken(resourceType)
 		default:
 			return nil, fmt.Errorf("unsupported property '%v' in resource '%v'", f.Key, name)
 		}
@@ -1267,6 +1280,21 @@ func RenderFile(path string) (*model.Body, error) {
 	file, err := parser.ParseFile(path, parser.ParseComments)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse %s: %w", path, err)
+	}
+	return RenderTemplate(file)
+}
+
+// RenderText parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
+// the function returns an error.
+func RenderText(yaml string) (body *model.Body, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("panic recovered during YAML parsing: %v", r)
+		}
+	}()
+	file, err := parser.ParseBytes([]byte(yaml), parser.ParseComments)
+	if err != nil {
+		return nil, errors.Wrapf(err, "failed to parse %s", yaml)
 	}
 	return RenderTemplate(file)
 }
