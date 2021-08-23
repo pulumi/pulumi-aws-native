@@ -1,4 +1,6 @@
-package main
+// Copyright 2016-2021, Pulumi Corporation.
+
+package cf2pulumi
 
 import (
 	"strings"
