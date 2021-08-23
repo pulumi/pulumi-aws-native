@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2021, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import (
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
-// Serve launches the gRPC server for the Pulumi Kubernetes resource provider.
+// Serve launches the gRPC server for the native Pulumi AWS resource provider.
 func Serve(version string, pulumiSchema []byte) {
 	// Start gRPC service.
 	err := provider.Main("aws-native", func(host *provider.HostClient) (pulumirpc.ResourceProviderServer, error) {
