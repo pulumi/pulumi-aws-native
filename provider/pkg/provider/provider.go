@@ -73,6 +73,7 @@ type cfnProvider struct {
 	accountID    string
 	region       string
 	schema       schema.CloudFormationSchema
+	cfTypes      map[string]string
 	pulumiSchema []byte
 
 	cfn *cloudformation.Client
@@ -198,7 +199,19 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	if err != nil {
 		return nil, errors.Wrapf(err, "could not fetch CloudFormation schema")
 	}
+
+	// Map to convert module names to CF modules.
+	cfTypes := map[string]string{}
+	for key := range schema.ResourceTypes {
+		parts := strings.Split(key, "::")
+		if len(parts) != 3 {
+			return nil, errors.Errorf("invalid resource type %s", key)
+		}
+		resourceKey := fmt.Sprintf("%s::%s::%s", parts[0], strings.ToLower(parts[1]), parts[2])
+		cfTypes[resourceKey] = key
+	}
 	p.schema = *schema
+	p.cfTypes = cfTypes
 
 	p.configured = true
 
@@ -328,7 +341,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	label := fmt.Sprintf("%s.Check(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -371,7 +384,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -410,7 +423,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		return nil, errors.Wrapf(err, "malformed resource inputs")
 	}
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -486,7 +499,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	}
 
 	// Read the resource state from AWS.
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -565,7 +578,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	glog.V(9).Infof("%s executing", label)
 
 	id := req.GetId()
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -629,7 +642,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 	label := fmt.Sprintf("%s.Delete(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
 
-	_, resourceType, err := resourceInfoFromURN(urn)
+	_, resourceType, err := p.resourceInfoFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
@@ -686,7 +699,7 @@ func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, e
 	return &pbempty.Empty{}, nil
 }
 
-func resourceInfoFromURN(urn resource.URN) (string, string, error) {
+func (p *cfnProvider) resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	// Transform the URN's type into its CloudFormation type.
 	ns, service := "AWS", ""
 
@@ -707,6 +720,10 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 	}
 
 	typ := strings.Join([]string{ns, service, string(urn.Type().Name())}, "::")
+	cfType, has := p.cfTypes[typ]
+	if !has {
+		return "", "", errors.Errorf("resource type %s not found", typ)
+	}
 
 	// Now build the resource's logical ID from the first 223 characters of its name and the base32-encoded SHA-1 hash of
 	// its URN. The latter is necessary to accurately map the Pulumi URN identity model onto the CF logical ID identity
@@ -723,7 +740,7 @@ func resourceInfoFromURN(urn resource.URN) (string, string, error) {
 		name = name[:maxNameLen]
 	}
 
-	return name + hash, typ, nil
+	return name + hash, cfType, nil
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
