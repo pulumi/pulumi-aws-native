@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ElastiCache:GlobalReplicationGroup":
+	case "aws-native:elasticache:GlobalReplicationGroup":
 		r = &GlobalReplicationGroup{}
-	case "aws-native:ElastiCache:User":
+	case "aws-native:elasticache:User":
 		r = &User{}
-	case "aws-native:ElastiCache:UserGroup":
+	case "aws-native:elasticache:UserGroup":
 		r = &UserGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ElastiCache",
+		"elasticache",
 		&module{version},
 	)
 }

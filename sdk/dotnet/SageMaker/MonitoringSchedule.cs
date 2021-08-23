@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:MonitoringSchedule")]
+    [AwsNativeResourceType("aws-native:sagemaker:MonitoringSchedule")]
     public partial class MonitoringSchedule : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MonitoringSchedule(string name, MonitoringScheduleArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:MonitoringSchedule", name, args ?? new MonitoringScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:MonitoringSchedule", name, args ?? new MonitoringScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MonitoringSchedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:MonitoringSchedule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:MonitoringSchedule", name, null, MakeResourceOptions(options, id))
         {
         }
 

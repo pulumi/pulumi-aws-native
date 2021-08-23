@@ -172,7 +172,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
         super(Domain, __self__).__init__(
-            'aws-native:CustomerProfiles:Domain',
+            'aws-native:customerprofiles:Domain',
             resource_name,
             __props__,
             opts)

@@ -27,6 +27,18 @@ func rawMessage(v interface{}) pschema.RawMessage {
 	return bytes
 }
 
+func moduleName(resourceType string) string {
+	resourceTypeComponents := strings.Split(resourceType, "::")
+	module := resourceTypeComponents[1]
+
+	// Override the name of the Config module.
+	if module == "Config" {
+		module = "Configuration"
+	}
+
+	return module
+}
+
 func typeToken(typ string) string {
 	components := strings.Split(typ, ".")
 	if len(components) == 1 {
@@ -35,14 +47,10 @@ func typeToken(typ string) string {
 
 	resourceType, name := components[0], components[1]
 	resourceTypeComponents := strings.Split(resourceType, "::")
+	resourceName := resourceTypeComponents[2]
+	module := strings.ToLower(moduleName(resourceType))
 	contract.Assertf(len(resourceTypeComponents) == 3, "expected three parts in type %q", resourceTypeComponents)
-	moduleName, resourceName := resourceTypeComponents[1], resourceTypeComponents[2]
-
-	// Override the name of the Config module.
-	if moduleName == "Config" {
-		moduleName = "Configuration"
-	}
-	return packageName + ":" + moduleName + ":" + resourceName + name
+	return fmt.Sprintf("%s:%s:%s%s", packageName, module, resourceName, name)
 }
 
 func typeName(typ string) string {
@@ -264,12 +272,6 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 	csharpNamespaces := map[string]string{
 		"aws-native": "AwsNative",
 	}
-	p.Language["csharp"] = rawMessage(map[string]interface{}{
-		"packageReferences": map[string]string{
-			"Pulumi": "3.*",
-		},
-		"namespaces": csharpNamespaces,
-	})
 	p.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath": "github.com/pulumi/pulumi-aws-native/sdk/go/aws",
 		"packageImportAliases": map[string]string{
@@ -337,6 +339,8 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 		resourceCount += 1
 		if supportedResources.Has(name) {
 			ctx.gatherResourceType(&p, name, spec)
+			module := moduleName(name)
+			csharpNamespaces[strings.ToLower(module)] = module
 		}
 	}
 	fmt.Printf("%v\n", resourceCount)
@@ -352,6 +356,13 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 			},
 		}
 	}
+
+	p.Language["csharp"] = rawMessage(map[string]interface{}{
+		"packageReferences": map[string]string{
+			"Pulumi": "3.*",
+		},
+		"namespaces": csharpNamespaces,
+	})
 
 	// Add CFN instrinsics.
 	p.Functions[packageName+":index:getAzs"] = pschema.FunctionSpec{

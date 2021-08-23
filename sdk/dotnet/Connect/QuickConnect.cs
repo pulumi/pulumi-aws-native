@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Connect
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Connect:QuickConnect")]
+    [AwsNativeResourceType("aws-native:connect:QuickConnect")]
     public partial class QuickConnect : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.Connect
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public QuickConnect(string name, QuickConnectArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Connect:QuickConnect", name, args ?? new QuickConnectArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:connect:QuickConnect", name, args ?? new QuickConnectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private QuickConnect(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Connect:QuickConnect", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:connect:QuickConnect", name, null, MakeResourceOptions(options, id))
         {
         }
 

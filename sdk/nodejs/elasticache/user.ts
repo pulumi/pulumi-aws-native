@@ -21,7 +21,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ElastiCache:User';
+    public static readonly __pulumiType = 'aws-native:elasticache:User';
 
     /**
      * Returns true if the given object is an instance of User.  This is designed to work even

@@ -46,43 +46,43 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:SageMaker:App":
+            case "aws-native:sagemaker:App":
                 return new App(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:AppImageConfig":
+            case "aws-native:sagemaker:AppImageConfig":
                 return new AppImageConfig(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:DataQualityJobDefinition":
+            case "aws-native:sagemaker:DataQualityJobDefinition":
                 return new DataQualityJobDefinition(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:Device":
+            case "aws-native:sagemaker:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:DeviceFleet":
+            case "aws-native:sagemaker:DeviceFleet":
                 return new DeviceFleet(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:Domain":
+            case "aws-native:sagemaker:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:FeatureGroup":
+            case "aws-native:sagemaker:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:Image":
+            case "aws-native:sagemaker:Image":
                 return new Image(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:ImageVersion":
+            case "aws-native:sagemaker:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:ModelBiasJobDefinition":
+            case "aws-native:sagemaker:ModelBiasJobDefinition":
                 return new ModelBiasJobDefinition(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:ModelExplainabilityJobDefinition":
+            case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
                 return new ModelExplainabilityJobDefinition(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:ModelPackageGroup":
+            case "aws-native:sagemaker:ModelPackageGroup":
                 return new ModelPackageGroup(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:ModelQualityJobDefinition":
+            case "aws-native:sagemaker:ModelQualityJobDefinition":
                 return new ModelQualityJobDefinition(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:MonitoringSchedule":
+            case "aws-native:sagemaker:MonitoringSchedule":
                 return new MonitoringSchedule(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:Pipeline":
+            case "aws-native:sagemaker:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:Project":
+            case "aws-native:sagemaker:Project":
                 return new Project(name, <any>undefined, { urn })
-            case "aws-native:SageMaker:UserProfile":
+            case "aws-native:sagemaker:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "SageMaker", _module)
+pulumi.runtime.registerResourceModule("aws-native", "sagemaker", _module)

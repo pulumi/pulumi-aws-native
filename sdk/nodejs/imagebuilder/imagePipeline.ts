@@ -22,7 +22,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ImageBuilder:ImagePipeline';
+    public static readonly __pulumiType = 'aws-native:imagebuilder:ImagePipeline';
 
     /**
      * Returns true if the given object is an instance of ImagePipeline.  This is designed to work even
@@ -59,7 +59,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */
-    public readonly imageTestsConfiguration!: pulumi.Output<outputs.ImageBuilder.ImagePipelineImageTestsConfiguration | undefined>;
+    public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
      */
@@ -68,7 +68,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
      */
-    public readonly schedule!: pulumi.Output<outputs.ImageBuilder.ImagePipelineSchedule | undefined>;
+    public readonly schedule!: pulumi.Output<outputs.imagebuilder.ImagePipelineSchedule | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
      */
@@ -155,7 +155,7 @@ export interface ImagePipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
      */
-    imageTestsConfiguration?: pulumi.Input<inputs.ImageBuilder.ImagePipelineImageTestsConfigurationArgs>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageTestsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
      */
@@ -167,7 +167,7 @@ export interface ImagePipelineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
      */
-    schedule?: pulumi.Input<inputs.ImageBuilder.ImagePipelineScheduleArgs>;
+    schedule?: pulumi.Input<inputs.imagebuilder.ImagePipelineScheduleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
      */

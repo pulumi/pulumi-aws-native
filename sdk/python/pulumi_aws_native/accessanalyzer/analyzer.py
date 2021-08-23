@@ -153,7 +153,7 @@ class Analyzer(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
         super(Analyzer, __self__).__init__(
-            'aws-native:AccessAnalyzer:Analyzer',
+            'aws-native:accessanalyzer:Analyzer',
             resource_name,
             __props__,
             opts)

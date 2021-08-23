@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTWireless:Destination")]
+    [AwsNativeResourceType("aws-native:iotwireless:Destination")]
     public partial class Destination : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Destination(string name, DestinationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:Destination", name, args ?? new DestinationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotwireless:Destination", name, args ?? new DestinationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Destination(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:Destination", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotwireless:Destination", name, null, MakeResourceOptions(options, id))
         {
         }
 

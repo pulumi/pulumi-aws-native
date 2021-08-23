@@ -195,7 +195,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["sample"] = sample
             __props__.__dict__["tags"] = tags
         super(Project, __self__).__init__(
-            'aws-native:DataBrew:Project',
+            'aws-native:databrew:Project',
             resource_name,
             __props__,
             opts)

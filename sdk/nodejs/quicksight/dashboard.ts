@@ -22,7 +22,7 @@ export class Dashboard extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:Dashboard';
+    public static readonly __pulumiType = 'aws-native:quicksight:Dashboard';
 
     /**
      * Returns true if the given object is an instance of Dashboard.  This is designed to work even
@@ -48,7 +48,7 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
      */
-    public readonly dashboardPublishOptions!: pulumi.Output<outputs.QuickSight.DashboardDashboardPublishOptions | undefined>;
+    public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions | undefined>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
@@ -58,15 +58,15 @@ export class Dashboard extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
      */
-    public readonly parameters!: pulumi.Output<outputs.QuickSight.DashboardParameters | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.DashboardResourcePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
      */
-    public readonly sourceEntity!: pulumi.Output<outputs.QuickSight.DashboardDashboardSourceEntity | undefined>;
+    public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardDashboardSourceEntity | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
      */
@@ -149,7 +149,7 @@ export interface DashboardArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
      */
-    dashboardPublishOptions?: pulumi.Input<inputs.QuickSight.DashboardDashboardPublishOptionsArgs>;
+    dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
      */
@@ -157,15 +157,15 @@ export interface DashboardArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
      */
-    parameters?: pulumi.Input<inputs.QuickSight.DashboardParametersArgs>;
+    parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.DashboardResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
      */
-    sourceEntity?: pulumi.Input<inputs.QuickSight.DashboardDashboardSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.DashboardDashboardSourceEntityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
      */

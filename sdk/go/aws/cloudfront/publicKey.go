@@ -32,7 +32,7 @@ func NewPublicKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PublicKeyConfig'")
 	}
 	var resource PublicKey
-	err := ctx.RegisterResource("aws-native:CloudFront:PublicKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:PublicKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewPublicKey(ctx *pulumi.Context,
 func GetPublicKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PublicKeyState, opts ...pulumi.ResourceOption) (*PublicKey, error) {
 	var resource PublicKey
-	err := ctx.ReadResource("aws-native:CloudFront:PublicKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:PublicKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -39,7 +39,7 @@ func NewTable(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
 	var resource Table
-	err := ctx.RegisterResource("aws-native:Timestream:Table", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:timestream:Table", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewTable(ctx *pulumi.Context,
 func GetTable(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TableState, opts ...pulumi.ResourceOption) (*Table, error) {
 	var resource Table
-	err := ctx.ReadResource("aws-native:Timestream:Table", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:timestream:Table", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

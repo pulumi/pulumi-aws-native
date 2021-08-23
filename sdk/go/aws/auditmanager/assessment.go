@@ -47,7 +47,7 @@ func NewAssessment(ctx *pulumi.Context,
 	}
 
 	var resource Assessment
-	err := ctx.RegisterResource("aws-native:AuditManager:Assessment", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:auditmanager:Assessment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewAssessment(ctx *pulumi.Context,
 func GetAssessment(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AssessmentState, opts ...pulumi.ResourceOption) (*Assessment, error) {
 	var resource Assessment
-	err := ctx.ReadResource("aws-native:AuditManager:Assessment", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:auditmanager:Assessment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

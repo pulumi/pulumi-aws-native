@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Configuration
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Configuration:ConfigurationAggregator")]
+    [AwsNativeResourceType("aws-native:configuration:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.Configuration
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ConfigurationAggregator(string name, ConfigurationAggregatorArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:configuration:ConfigurationAggregator", name, args ?? new ConfigurationAggregatorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ConfigurationAggregator(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Configuration:ConfigurationAggregator", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:configuration:ConfigurationAggregator", name, null, MakeResourceOptions(options, id))
         {
         }
 

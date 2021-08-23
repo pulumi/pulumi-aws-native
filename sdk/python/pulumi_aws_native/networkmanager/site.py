@@ -154,7 +154,7 @@ class Site(pulumi.CustomResource):
             __props__.__dict__["site_arn"] = None
             __props__.__dict__["site_id"] = None
         super(Site, __self__).__init__(
-            'aws-native:NetworkManager:Site',
+            'aws-native:networkmanager:Site',
             resource_name,
             __props__,
             opts)

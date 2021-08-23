@@ -42,7 +42,7 @@ func NewDBProxyTargetGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
 	var resource DBProxyTargetGroup
-	err := ctx.RegisterResource("aws-native:RDS:DBProxyTargetGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:rds:DBProxyTargetGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewDBProxyTargetGroup(ctx *pulumi.Context,
 func GetDBProxyTargetGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DBProxyTargetGroupState, opts ...pulumi.ResourceOption) (*DBProxyTargetGroup, error) {
 	var resource DBProxyTargetGroup
-	err := ctx.ReadResource("aws-native:RDS:DBProxyTargetGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:rds:DBProxyTargetGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Logs:LogGroup":
+	case "aws-native:logs:LogGroup":
 		r = &LogGroup{}
-	case "aws-native:Logs:QueryDefinition":
+	case "aws-native:logs:QueryDefinition":
 		r = &QueryDefinition{}
-	case "aws-native:Logs:ResourcePolicy":
+	case "aws-native:logs:ResourcePolicy":
 		r = &ResourcePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Logs",
+		"logs",
 		&module{version},
 	)
 }

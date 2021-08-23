@@ -215,7 +215,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["network_insights_path_arn"] = None
             __props__.__dict__["network_insights_path_id"] = None
         super(NetworkInsightsPath, __self__).__init__(
-            'aws-native:EC2:NetworkInsightsPath',
+            'aws-native:ec2:NetworkInsightsPath',
             resource_name,
             __props__,
             opts)

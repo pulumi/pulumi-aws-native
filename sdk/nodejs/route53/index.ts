@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Route53:DNSSEC":
+            case "aws-native:route53:DNSSEC":
                 return new DNSSEC(name, <any>undefined, { urn })
-            case "aws-native:Route53:HealthCheck":
+            case "aws-native:route53:HealthCheck":
                 return new HealthCheck(name, <any>undefined, { urn })
-            case "aws-native:Route53:HostedZone":
+            case "aws-native:route53:HostedZone":
                 return new HostedZone(name, <any>undefined, { urn })
-            case "aws-native:Route53:KeySigningKey":
+            case "aws-native:route53:KeySigningKey":
                 return new KeySigningKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Route53", _module)
+pulumi.runtime.registerResourceModule("aws-native", "route53", _module)

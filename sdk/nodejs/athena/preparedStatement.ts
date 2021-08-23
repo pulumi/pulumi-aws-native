@@ -21,7 +21,7 @@ export class PreparedStatement extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Athena:PreparedStatement';
+    public static readonly __pulumiType = 'aws-native:athena:PreparedStatement';
 
     /**
      * Returns true if the given object is an instance of PreparedStatement.  This is designed to work even

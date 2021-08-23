@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Backup
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Backup:BackupVault")]
+    [AwsNativeResourceType("aws-native:backup:BackupVault")]
     public partial class BackupVault : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupVault(string name, BackupVaultArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Backup:BackupVault", name, args ?? new BackupVaultArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:backup:BackupVault", name, args ?? new BackupVaultArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupVault(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Backup:BackupVault", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:backup:BackupVault", name, null, MakeResourceOptions(options, id))
         {
         }
 

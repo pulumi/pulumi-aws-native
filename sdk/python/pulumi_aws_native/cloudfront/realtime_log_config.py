@@ -154,7 +154,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
             __props__.__dict__["sampling_rate"] = sampling_rate
             __props__.__dict__["arn"] = None
         super(RealtimeLogConfig, __self__).__init__(
-            'aws-native:CloudFront:RealtimeLogConfig',
+            'aws-native:cloudfront:RealtimeLogConfig',
             resource_name,
             __props__,
             opts)

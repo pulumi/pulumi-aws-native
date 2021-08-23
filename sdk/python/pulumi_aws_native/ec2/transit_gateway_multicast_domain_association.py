@@ -133,7 +133,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = None
             __props__.__dict__["state"] = None
         super(TransitGatewayMulticastDomainAssociation, __self__).__init__(
-            'aws-native:EC2:TransitGatewayMulticastDomainAssociation',
+            'aws-native:ec2:TransitGatewayMulticastDomainAssociation',
             resource_name,
             __props__,
             opts)

@@ -153,7 +153,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["listener_arn"] = None
         super(Listener, __self__).__init__(
-            'aws-native:GlobalAccelerator:Listener',
+            'aws-native:globalaccelerator:Listener',
             resource_name,
             __props__,
             opts)

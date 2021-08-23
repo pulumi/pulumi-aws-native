@@ -38,7 +38,7 @@ func NewRegistryPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
 	var resource RegistryPolicy
-	err := ctx.RegisterResource("aws-native:EventSchemas:RegistryPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:eventschemas:RegistryPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewRegistryPolicy(ctx *pulumi.Context,
 func GetRegistryPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegistryPolicyState, opts ...pulumi.ResourceOption) (*RegistryPolicy, error) {
 	var resource RegistryPolicy
-	err := ctx.ReadResource("aws-native:EventSchemas:RegistryPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:eventschemas:RegistryPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

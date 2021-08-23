@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Signer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Signer:ProfilePermission")]
+    [AwsNativeResourceType("aws-native:signer:ProfilePermission")]
     public partial class ProfilePermission : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Signer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfilePermission(string name, ProfilePermissionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Signer:ProfilePermission", name, args ?? new ProfilePermissionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:signer:ProfilePermission", name, args ?? new ProfilePermissionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ProfilePermission(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Signer:ProfilePermission", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:signer:ProfilePermission", name, null, MakeResourceOptions(options, id))
         {
         }
 

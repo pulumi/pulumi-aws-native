@@ -44,7 +44,7 @@ func NewResourceSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Resources'")
 	}
 	var resource ResourceSet
-	err := ctx.RegisterResource("aws-native:Route53RecoveryReadiness:ResourceSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:ResourceSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewResourceSet(ctx *pulumi.Context,
 func GetResourceSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourceSetState, opts ...pulumi.ResourceOption) (*ResourceSet, error) {
 	var resource ResourceSet
-	err := ctx.ReadResource("aws-native:Route53RecoveryReadiness:ResourceSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoveryreadiness:ResourceSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

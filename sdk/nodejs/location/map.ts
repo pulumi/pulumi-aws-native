@@ -22,7 +22,7 @@ export class Map extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Location:Map';
+    public static readonly __pulumiType = 'aws-native:location:Map';
 
     /**
      * Returns true if the given object is an instance of Map.  This is designed to work even
@@ -39,7 +39,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.Location.MapMapConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.location.MapMapConfiguration>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public /*out*/ readonly dataSource!: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export interface MapArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
      */
-    configuration: pulumi.Input<inputs.Location.MapMapConfigurationArgs>;
+    configuration: pulumi.Input<inputs.location.MapMapConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
      */

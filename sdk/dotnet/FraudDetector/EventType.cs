@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FraudDetector
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:FraudDetector:EventType")]
+    [AwsNativeResourceType("aws-native:frauddetector:EventType")]
     public partial class EventType : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventType(string name, EventTypeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:EventType", name, args ?? new EventTypeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:frauddetector:EventType", name, args ?? new EventTypeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventType(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:FraudDetector:EventType", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:frauddetector:EventType", name, null, MakeResourceOptions(options, id))
         {
         }
 

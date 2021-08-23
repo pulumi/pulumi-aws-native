@@ -22,7 +22,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ApiGateway:DomainName';
+    public static readonly __pulumiType = 'aws-native:apigateway:DomainName';
 
     /**
      * Returns true if the given object is an instance of DomainName.  This is designed to work even
@@ -48,11 +48,11 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    public readonly endpointConfiguration!: pulumi.Output<outputs.ApiGateway.DomainNameEndpointConfiguration | undefined>;
+    public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.ApiGateway.DomainNameMutualTlsAuthentication | undefined>;
+    public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
@@ -125,11 +125,11 @@ export interface DomainNameArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
      */
-    endpointConfiguration?: pulumi.Input<inputs.ApiGateway.DomainNameEndpointConfigurationArgs>;
+    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
-    mutualTlsAuthentication?: pulumi.Input<inputs.ApiGateway.DomainNameMutualTlsAuthenticationArgs>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthenticationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */

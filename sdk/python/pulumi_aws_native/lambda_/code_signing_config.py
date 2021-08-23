@@ -132,7 +132,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             __props__.__dict__["code_signing_config_arn"] = None
             __props__.__dict__["code_signing_config_id"] = None
         super(CodeSigningConfig, __self__).__init__(
-            'aws-native:Lambda:CodeSigningConfig',
+            'aws-native:lambda:CodeSigningConfig',
             resource_name,
             __props__,
             opts)

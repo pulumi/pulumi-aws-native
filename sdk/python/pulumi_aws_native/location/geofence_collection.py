@@ -172,7 +172,7 @@ class GeofenceCollection(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
         super(GeofenceCollection, __self__).__init__(
-            'aws-native:Location:GeofenceCollection',
+            'aws-native:location:GeofenceCollection',
             resource_name,
             __props__,
             opts)

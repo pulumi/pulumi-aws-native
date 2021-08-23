@@ -192,7 +192,7 @@ class ScheduledAudit(pulumi.CustomResource):
             __props__.__dict__["target_check_names"] = target_check_names
             __props__.__dict__["scheduled_audit_arn"] = None
         super(ScheduledAudit, __self__).__init__(
-            'aws-native:IoT:ScheduledAudit',
+            'aws-native:iot:ScheduledAudit',
             resource_name,
             __props__,
             opts)

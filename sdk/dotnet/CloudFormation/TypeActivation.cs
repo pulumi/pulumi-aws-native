@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFormation:TypeActivation")]
+    [AwsNativeResourceType("aws-native:cloudformation:TypeActivation")]
     public partial class TypeActivation : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -87,12 +87,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TypeActivation(string name, TypeActivationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:TypeActivation", name, args ?? new TypeActivationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudformation:TypeActivation", name, args ?? new TypeActivationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TypeActivation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:TypeActivation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudformation:TypeActivation", name, null, MakeResourceOptions(options, id))
         {
         }
 

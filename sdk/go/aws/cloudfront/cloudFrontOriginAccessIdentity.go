@@ -32,7 +32,7 @@ func NewCloudFrontOriginAccessIdentity(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CloudFrontOriginAccessIdentityConfig'")
 	}
 	var resource CloudFrontOriginAccessIdentity
-	err := ctx.RegisterResource("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:CloudFrontOriginAccessIdentity", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewCloudFrontOriginAccessIdentity(ctx *pulumi.Context,
 func GetCloudFrontOriginAccessIdentity(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CloudFrontOriginAccessIdentityState, opts ...pulumi.ResourceOption) (*CloudFrontOriginAccessIdentity, error) {
 	var resource CloudFrontOriginAccessIdentity
-	err := ctx.ReadResource("aws-native:CloudFront:CloudFrontOriginAccessIdentity", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:CloudFrontOriginAccessIdentity", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

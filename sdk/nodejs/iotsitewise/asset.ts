@@ -22,7 +22,7 @@ export class Asset extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTSiteWise:Asset';
+    public static readonly __pulumiType = 'aws-native:iotsitewise:Asset';
 
     /**
      * Returns true if the given object is an instance of Asset.  This is designed to work even
@@ -39,7 +39,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
      */
-    public readonly assetHierarchies!: pulumi.Output<outputs.IoTSiteWise.AssetAssetHierarchy[] | undefined>;
+    public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetAssetHierarchy[] | undefined>;
     public /*out*/ readonly assetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
@@ -52,7 +52,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
      */
-    public readonly assetProperties!: pulumi.Output<outputs.IoTSiteWise.AssetAssetProperty[] | undefined>;
+    public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetAssetProperty[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
      */
@@ -105,7 +105,7 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
      */
-    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetHierarchyArgs>[]>;
+    assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetHierarchyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
      */
@@ -117,7 +117,7 @@ export interface AssetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
      */
-    assetProperties?: pulumi.Input<pulumi.Input<inputs.IoTSiteWise.AssetAssetPropertyArgs>[]>;
+    assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetPropertyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
      */

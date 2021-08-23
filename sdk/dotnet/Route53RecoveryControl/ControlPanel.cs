@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryControl:ControlPanel")]
+    [AwsNativeResourceType("aws-native:route53recoverycontrol:ControlPanel")]
     public partial class ControlPanel : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ControlPanel(string name, ControlPanelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:ControlPanel", name, args ?? new ControlPanelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoverycontrol:ControlPanel", name, args ?? new ControlPanelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ControlPanel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:ControlPanel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoverycontrol:ControlPanel", name, null, MakeResourceOptions(options, id))
         {
         }
 

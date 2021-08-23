@@ -22,7 +22,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:Cluster';
+    public static readonly __pulumiType = 'aws-native:ecs:Cluster';
 
     /**
      * Returns true if the given object is an instance of Cluster.  This is designed to work even
@@ -47,15 +47,15 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
      */
-    public readonly clusterSettings!: pulumi.Output<outputs.ECS.ClusterClusterSettings[] | undefined>;
+    public readonly clusterSettings!: pulumi.Output<outputs.ecs.ClusterClusterSettings[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
      */
-    public readonly configuration!: pulumi.Output<outputs.ECS.ClusterClusterConfiguration | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.ecs.ClusterClusterConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
      */
-    public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ECS.ClusterCapacityProviderStrategyItem[] | undefined>;
+    public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderStrategyItem[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
      */
@@ -110,15 +110,15 @@ export interface ClusterArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
      */
-    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterClusterSettingsArgs>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterClusterSettingsArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-configuration
      */
-    configuration?: pulumi.Input<inputs.ECS.ClusterClusterConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.ecs.ClusterClusterConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-defaultcapacityproviderstrategy
      */
-    defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ClusterCapacityProviderStrategyItemArgs>[]>;
+    defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
      */

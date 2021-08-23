@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.S3Outposts
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:S3Outposts:AccessPoint")]
+    [AwsNativeResourceType("aws-native:s3outposts:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.S3Outposts
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AccessPoint(string name, AccessPointArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:s3outposts:AccessPoint", name, args ?? new AccessPointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AccessPoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:S3Outposts:AccessPoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:s3outposts:AccessPoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

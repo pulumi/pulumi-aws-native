@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Redshift
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Redshift:Cluster")]
+    [AwsNativeResourceType("aws-native:redshift:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
@@ -213,12 +213,12 @@ namespace Pulumi.AwsNative.Redshift
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cluster(string name, ClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Redshift:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:redshift:Cluster", name, args ?? new ClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Redshift:Cluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:redshift:Cluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

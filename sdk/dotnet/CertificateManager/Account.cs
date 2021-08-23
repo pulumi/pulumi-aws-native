@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CertificateManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CertificateManager:Account")]
+    [AwsNativeResourceType("aws-native:certificatemanager:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         [Output("accountId")]
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.CertificateManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Account(string name, AccountArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CertificateManager:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:certificatemanager:Account", name, args ?? new AccountArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Account(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CertificateManager:Account", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:certificatemanager:Account", name, null, MakeResourceOptions(options, id))
         {
         }
 

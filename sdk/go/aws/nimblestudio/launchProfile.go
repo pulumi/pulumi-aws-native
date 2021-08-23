@@ -60,7 +60,7 @@ func NewLaunchProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
 	var resource LaunchProfile
-	err := ctx.RegisterResource("aws-native:NimbleStudio:LaunchProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:nimblestudio:LaunchProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +72,7 @@ func NewLaunchProfile(ctx *pulumi.Context,
 func GetLaunchProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *LaunchProfileState, opts ...pulumi.ResourceOption) (*LaunchProfile, error) {
 	var resource LaunchProfile
-	err := ctx.ReadResource("aws-native:NimbleStudio:LaunchProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:nimblestudio:LaunchProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

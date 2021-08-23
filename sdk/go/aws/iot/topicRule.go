@@ -36,7 +36,7 @@ func NewTopicRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TopicRulePayload'")
 	}
 	var resource TopicRule
-	err := ctx.RegisterResource("aws-native:IoT:TopicRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:TopicRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewTopicRule(ctx *pulumi.Context,
 func GetTopicRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TopicRuleState, opts ...pulumi.ResourceOption) (*TopicRule, error) {
 	var resource TopicRule
-	err := ctx.ReadResource("aws-native:IoT:TopicRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:TopicRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

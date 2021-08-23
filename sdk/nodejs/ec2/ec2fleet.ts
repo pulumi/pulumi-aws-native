@@ -22,7 +22,7 @@ export class EC2Fleet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:EC2Fleet';
+    public static readonly __pulumiType = 'aws-native:ec2:EC2Fleet';
 
     /**
      * Returns true if the given object is an instance of EC2Fleet.  This is designed to work even
@@ -47,11 +47,11 @@ export class EC2Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
      */
-    public readonly launchTemplateConfigs!: pulumi.Output<outputs.EC2.EC2FleetFleetLaunchTemplateConfigRequest[]>;
+    public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.EC2FleetFleetLaunchTemplateConfigRequest[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
      */
-    public readonly onDemandOptions!: pulumi.Output<outputs.EC2.EC2FleetOnDemandOptionsRequest | undefined>;
+    public readonly onDemandOptions!: pulumi.Output<outputs.ec2.EC2FleetOnDemandOptionsRequest | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
      */
@@ -59,15 +59,15 @@ export class EC2Fleet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
      */
-    public readonly spotOptions!: pulumi.Output<outputs.EC2.EC2FleetSpotOptionsRequest | undefined>;
+    public readonly spotOptions!: pulumi.Output<outputs.ec2.EC2FleetSpotOptionsRequest | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
      */
-    public readonly tagSpecifications!: pulumi.Output<outputs.EC2.EC2FleetTagSpecification[] | undefined>;
+    public readonly tagSpecifications!: pulumi.Output<outputs.ec2.EC2FleetTagSpecification[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
      */
-    public readonly targetCapacitySpecification!: pulumi.Output<outputs.EC2.EC2FleetTargetCapacitySpecificationRequest>;
+    public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.EC2FleetTargetCapacitySpecificationRequest>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
      */
@@ -152,11 +152,11 @@ export interface EC2FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
      */
-    launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.EC2.EC2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
+    launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
      */
-    onDemandOptions?: pulumi.Input<inputs.EC2.EC2FleetOnDemandOptionsRequestArgs>;
+    onDemandOptions?: pulumi.Input<inputs.ec2.EC2FleetOnDemandOptionsRequestArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
      */
@@ -164,15 +164,15 @@ export interface EC2FleetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
      */
-    spotOptions?: pulumi.Input<inputs.EC2.EC2FleetSpotOptionsRequestArgs>;
+    spotOptions?: pulumi.Input<inputs.ec2.EC2FleetSpotOptionsRequestArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
      */
-    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.EC2.EC2FleetTagSpecificationArgs>[]>;
+    tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetTagSpecificationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
      */
-    targetCapacitySpecification: pulumi.Input<inputs.EC2.EC2FleetTargetCapacitySpecificationRequestArgs>;
+    targetCapacitySpecification: pulumi.Input<inputs.ec2.EC2FleetTargetCapacitySpecificationRequestArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
      */

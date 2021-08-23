@@ -22,7 +22,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Budgets:BudgetsAction';
+    public static readonly __pulumiType = 'aws-native:budgets:BudgetsAction';
 
     /**
      * Returns true if the given object is an instance of BudgetsAction.  This is designed to work even
@@ -39,7 +39,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
      */
-    public readonly actionThreshold!: pulumi.Output<outputs.Budgets.BudgetsActionActionThreshold>;
+    public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetsActionActionThreshold>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
      */
@@ -55,7 +55,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
      */
-    public readonly definition!: pulumi.Output<outputs.Budgets.BudgetsActionDefinition>;
+    public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
      */
@@ -67,7 +67,7 @@ export class BudgetsAction extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
      */
-    public readonly subscribers!: pulumi.Output<outputs.Budgets.BudgetsActionSubscriber[] | undefined>;
+    public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[] | undefined>;
 
     /**
      * Create a BudgetsAction resource with the given unique name, arguments, and options.
@@ -132,7 +132,7 @@ export interface BudgetsActionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
      */
-    actionThreshold: pulumi.Input<inputs.Budgets.BudgetsActionActionThresholdArgs>;
+    actionThreshold: pulumi.Input<inputs.budgets.BudgetsActionActionThresholdArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
      */
@@ -148,7 +148,7 @@ export interface BudgetsActionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
      */
-    definition: pulumi.Input<inputs.Budgets.BudgetsActionDefinitionArgs>;
+    definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
      */
@@ -160,5 +160,5 @@ export interface BudgetsActionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
      */
-    subscribers?: pulumi.Input<pulumi.Input<inputs.Budgets.BudgetsActionSubscriberArgs>[]>;
+    subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

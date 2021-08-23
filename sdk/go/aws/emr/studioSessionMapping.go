@@ -45,7 +45,7 @@ func NewStudioSessionMapping(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
 	var resource StudioSessionMapping
-	err := ctx.RegisterResource("aws-native:EMR:StudioSessionMapping", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:emr:StudioSessionMapping", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewStudioSessionMapping(ctx *pulumi.Context,
 func GetStudioSessionMapping(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StudioSessionMappingState, opts ...pulumi.ResourceOption) (*StudioSessionMapping, error) {
 	var resource StudioSessionMapping
-	err := ctx.ReadResource("aws-native:EMR:StudioSessionMapping", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:emr:StudioSessionMapping", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

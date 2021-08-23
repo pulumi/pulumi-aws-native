@@ -40,7 +40,7 @@ func NewStream(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ShardCount'")
 	}
 	var resource Stream
-	err := ctx.RegisterResource("aws-native:Kinesis:Stream", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kinesis:Stream", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewStream(ctx *pulumi.Context,
 func GetStream(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamState, opts ...pulumi.ResourceOption) (*Stream, error) {
 	var resource Stream
-	err := ctx.ReadResource("aws-native:Kinesis:Stream", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kinesis:Stream", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

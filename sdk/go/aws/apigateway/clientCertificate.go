@@ -30,7 +30,7 @@ func NewClientCertificate(ctx *pulumi.Context,
 	}
 
 	var resource ClientCertificate
-	err := ctx.RegisterResource("aws-native:ApiGateway:ClientCertificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:ClientCertificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func NewClientCertificate(ctx *pulumi.Context,
 func GetClientCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClientCertificateState, opts ...pulumi.ResourceOption) (*ClientCertificate, error) {
 	var resource ClientCertificate
-	err := ctx.ReadResource("aws-native:ApiGateway:ClientCertificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:ClientCertificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

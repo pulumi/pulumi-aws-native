@@ -273,7 +273,7 @@ class StudioComponent(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["studio_component_id"] = None
         super(StudioComponent, __self__).__init__(
-            'aws-native:NimbleStudio:StudioComponent',
+            'aws-native:nimblestudio:StudioComponent',
             resource_name,
             __props__,
             opts)

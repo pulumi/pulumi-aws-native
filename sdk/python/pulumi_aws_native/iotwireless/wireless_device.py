@@ -236,7 +236,7 @@ class WirelessDevice(pulumi.CustomResource):
             __props__.__dict__["id"] = None
             __props__.__dict__["thing_name"] = None
         super(WirelessDevice, __self__).__init__(
-            'aws-native:IoTWireless:WirelessDevice',
+            'aws-native:iotwireless:WirelessDevice',
             resource_name,
             __props__,
             opts)

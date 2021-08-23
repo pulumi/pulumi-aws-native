@@ -46,7 +46,7 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
 	var resource CompositeAlarm
-	err := ctx.RegisterResource("aws-native:CloudWatch:CompositeAlarm", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudwatch:CompositeAlarm", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 func GetCompositeAlarm(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CompositeAlarmState, opts ...pulumi.ResourceOption) (*CompositeAlarm, error) {
 	var resource CompositeAlarm
-	err := ctx.ReadResource("aws-native:CloudWatch:CompositeAlarm", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudwatch:CompositeAlarm", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

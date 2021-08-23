@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryControl:RoutingControl")]
+    [AwsNativeResourceType("aws-native:route53recoverycontrol:RoutingControl")]
     public partial class RoutingControl : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RoutingControl(string name, RoutingControlArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:RoutingControl", name, args ?? new RoutingControlArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoverycontrol:RoutingControl", name, args ?? new RoutingControlArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RoutingControl(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryControl:RoutingControl", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoverycontrol:RoutingControl", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LookoutVision
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:LookoutVision:Project")]
+    [AwsNativeResourceType("aws-native:lookoutvision:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.LookoutVision
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:LookoutVision:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:lookoutvision:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Project(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:LookoutVision:Project", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:lookoutvision:Project", name, null, MakeResourceOptions(options, id))
         {
         }
 

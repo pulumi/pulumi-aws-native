@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ECR:RegistryPolicy":
+            case "aws-native:ecr:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
-            case "aws-native:ECR:ReplicationConfiguration":
+            case "aws-native:ecr:ReplicationConfiguration":
                 return new ReplicationConfiguration(name, <any>undefined, { urn })
-            case "aws-native:ECR:Repository":
+            case "aws-native:ecr:Repository":
                 return new Repository(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ECR", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ecr", _module)

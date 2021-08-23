@@ -22,7 +22,7 @@ export class BackupSelection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Backup:BackupSelection';
+    public static readonly __pulumiType = 'aws-native:backup:BackupSelection';
 
     /**
      * Returns true if the given object is an instance of BackupSelection.  This is designed to work even
@@ -39,7 +39,7 @@ export class BackupSelection extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
      */
-    public readonly backupSelection!: pulumi.Output<outputs.Backup.BackupSelectionBackupSelectionResourceType>;
+    public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionBackupSelectionResourceType>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
@@ -88,5 +88,5 @@ export interface BackupSelectionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
      */
-    backupSelection: pulumi.Input<inputs.Backup.BackupSelectionBackupSelectionResourceTypeArgs>;
+    backupSelection: pulumi.Input<inputs.backup.BackupSelectionBackupSelectionResourceTypeArgs>;
 }

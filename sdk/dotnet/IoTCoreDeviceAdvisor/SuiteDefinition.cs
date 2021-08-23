@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTCoreDeviceAdvisor:SuiteDefinition")]
+    [AwsNativeResourceType("aws-native:iotcoredeviceadvisor:SuiteDefinition")]
     public partial class SuiteDefinition : Pulumi.CustomResource
     {
         [Output("suiteDefinitionArn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SuiteDefinition(string name, SuiteDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTCoreDeviceAdvisor:SuiteDefinition", name, args ?? new SuiteDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotcoredeviceadvisor:SuiteDefinition", name, args ?? new SuiteDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SuiteDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTCoreDeviceAdvisor:SuiteDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotcoredeviceadvisor:SuiteDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -168,7 +168,7 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["rest_api_id"] = rest_api_id
             __props__.__dict__["schema"] = schema
         super(Model, __self__).__init__(
-            'aws-native:ApiGateway:Model',
+            'aws-native:apigateway:Model',
             resource_name,
             __props__,
             opts)

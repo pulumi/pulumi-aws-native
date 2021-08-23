@@ -173,7 +173,7 @@ class ServiceAction(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["id"] = None
         super(ServiceAction, __self__).__init__(
-            'aws-native:ServiceCatalog:ServiceAction',
+            'aws-native:servicecatalog:ServiceAction',
             resource_name,
             __props__,
             opts)

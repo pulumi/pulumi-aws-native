@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaPackage:Channel")]
+    [AwsNativeResourceType("aws-native:mediapackage:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediapackage:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Channel(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:Channel", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediapackage:Channel", name, null, MakeResourceOptions(options, id))
         {
         }
 

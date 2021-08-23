@@ -172,7 +172,7 @@ class DBProxyTargetGroup(pulumi.CustomResource):
             __props__.__dict__["target_group_name"] = target_group_name
             __props__.__dict__["target_group_arn"] = None
         super(DBProxyTargetGroup, __self__).__init__(
-            'aws-native:RDS:DBProxyTargetGroup',
+            'aws-native:rds:DBProxyTargetGroup',
             resource_name,
             __props__,
             opts)

@@ -214,7 +214,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["template_arn"] = None
         super(ProvisioningTemplate, __self__).__init__(
-            'aws-native:IoT:ProvisioningTemplate',
+            'aws-native:iot:ProvisioningTemplate',
             resource_name,
             __props__,
             opts)

@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IoTCoreDeviceAdvisor:SuiteDefinition":
+            case "aws-native:iotcoredeviceadvisor:SuiteDefinition":
                 return new SuiteDefinition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IoTCoreDeviceAdvisor", _module)
+pulumi.runtime.registerResourceModule("aws-native", "iotcoredeviceadvisor", _module)

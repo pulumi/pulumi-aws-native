@@ -22,7 +22,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ElastiCache:GlobalReplicationGroup';
+    public static readonly __pulumiType = 'aws-native:elasticache:GlobalReplicationGroup';
 
     /**
      * Returns true if the given object is an instance of GlobalReplicationGroup.  This is designed to work even
@@ -67,11 +67,11 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
      */
-    public readonly members!: pulumi.Output<outputs.ElastiCache.GlobalReplicationGroupGlobalReplicationGroupMember[]>;
+    public readonly members!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupGlobalReplicationGroupMember[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
      */
-    public readonly regionalConfigurations!: pulumi.Output<outputs.ElastiCache.GlobalReplicationGroupRegionalConfiguration[] | undefined>;
+    public readonly regionalConfigurations!: pulumi.Output<outputs.elasticache.GlobalReplicationGroupRegionalConfiguration[] | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -154,9 +154,9 @@ export interface GlobalReplicationGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
      */
-    members: pulumi.Input<pulumi.Input<inputs.ElastiCache.GlobalReplicationGroupGlobalReplicationGroupMemberArgs>[]>;
+    members: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupGlobalReplicationGroupMemberArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
      */
-    regionalConfigurations?: pulumi.Input<pulumi.Input<inputs.ElastiCache.GlobalReplicationGroupRegionalConfigurationArgs>[]>;
+    regionalConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.GlobalReplicationGroupRegionalConfigurationArgs>[]>;
 }

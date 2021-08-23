@@ -159,7 +159,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["error_message"] = None
             __props__.__dict__["sso_client_id"] = None
         super(Application, __self__).__init__(
-            'aws-native:IoTFleetHub:Application',
+            'aws-native:iotfleethub:Application',
             resource_name,
             __props__,
             opts)

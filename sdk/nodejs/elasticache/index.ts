@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ElastiCache:GlobalReplicationGroup":
+            case "aws-native:elasticache:GlobalReplicationGroup":
                 return new GlobalReplicationGroup(name, <any>undefined, { urn })
-            case "aws-native:ElastiCache:User":
+            case "aws-native:elasticache:User":
                 return new User(name, <any>undefined, { urn })
-            case "aws-native:ElastiCache:UserGroup":
+            case "aws-native:elasticache:UserGroup":
                 return new UserGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ElastiCache", _module)
+pulumi.runtime.registerResourceModule("aws-native", "elasticache", _module)

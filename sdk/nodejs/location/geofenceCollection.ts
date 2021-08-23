@@ -21,7 +21,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Location:GeofenceCollection';
+    public static readonly __pulumiType = 'aws-native:location:GeofenceCollection';
 
     /**
      * Returns true if the given object is an instance of GeofenceCollection.  This is designed to work even

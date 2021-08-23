@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Lambda:CodeSigningConfig")]
+    [AwsNativeResourceType("aws-native:lambda:CodeSigningConfig")]
     public partial class CodeSigningConfig : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CodeSigningConfig(string name, CodeSigningConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:CodeSigningConfig", name, args ?? new CodeSigningConfigArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:lambda:CodeSigningConfig", name, args ?? new CodeSigningConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CodeSigningConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:CodeSigningConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:lambda:CodeSigningConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

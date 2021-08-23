@@ -42,7 +42,7 @@ func NewFirewallDomainList(ctx *pulumi.Context,
 	}
 
 	var resource FirewallDomainList
-	err := ctx.RegisterResource("aws-native:Route53Resolver:FirewallDomainList", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53resolver:FirewallDomainList", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewFirewallDomainList(ctx *pulumi.Context,
 func GetFirewallDomainList(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallDomainListState, opts ...pulumi.ResourceOption) (*FirewallDomainList, error) {
 	var resource FirewallDomainList
-	err := ctx.ReadResource("aws-native:Route53Resolver:FirewallDomainList", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53resolver:FirewallDomainList", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

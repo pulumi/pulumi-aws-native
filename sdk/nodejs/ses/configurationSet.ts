@@ -21,7 +21,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SES:ConfigurationSet';
+    public static readonly __pulumiType = 'aws-native:ses:ConfigurationSet';
 
     /**
      * Returns true if the given object is an instance of ConfigurationSet.  This is designed to work even

@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:SES:ConfigurationSet":
+            case "aws-native:ses:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
-            case "aws-native:SES:ContactList":
+            case "aws-native:ses:ContactList":
                 return new ContactList(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "SES", _module)
+pulumi.runtime.registerResourceModule("aws-native", "ses", _module)

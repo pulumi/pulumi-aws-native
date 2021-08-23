@@ -22,7 +22,7 @@ export class SuiteDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTCoreDeviceAdvisor:SuiteDefinition';
+    public static readonly __pulumiType = 'aws-native:iotcoredeviceadvisor:SuiteDefinition';
 
     /**
      * Returns true if the given object is an instance of SuiteDefinition.  This is designed to work even

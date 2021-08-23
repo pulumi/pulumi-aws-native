@@ -22,7 +22,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ImageBuilder:ImageRecipe';
+    public static readonly __pulumiType = 'aws-native:imagebuilder:ImageRecipe';
 
     /**
      * Returns true if the given object is an instance of ImageRecipe.  This is designed to work even
@@ -38,16 +38,16 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
      */
-    public readonly additionalInstanceConfiguration!: pulumi.Output<outputs.ImageBuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
+    public readonly additionalInstanceConfiguration!: pulumi.Output<outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */
-    public readonly blockDeviceMappings!: pulumi.Output<outputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
+    public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
      */
-    public readonly components!: pulumi.Output<outputs.ImageBuilder.ImageRecipeComponentConfiguration[]>;
+    public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */
@@ -129,15 +129,15 @@ export interface ImageRecipeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
      */
-    additionalInstanceConfiguration?: pulumi.Input<inputs.ImageBuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
+    additionalInstanceConfiguration?: pulumi.Input<inputs.imagebuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
      */
-    components: pulumi.Input<pulumi.Input<inputs.ImageBuilder.ImageRecipeComponentConfigurationArgs>[]>;
+    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
      */

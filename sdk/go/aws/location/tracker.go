@@ -45,7 +45,7 @@ func NewTracker(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
 	var resource Tracker
-	err := ctx.RegisterResource("aws-native:Location:Tracker", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:location:Tracker", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewTracker(ctx *pulumi.Context,
 func GetTracker(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TrackerState, opts ...pulumi.ResourceOption) (*Tracker, error) {
 	var resource Tracker
-	err := ctx.ReadResource("aws-native:Location:Tracker", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:location:Tracker", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

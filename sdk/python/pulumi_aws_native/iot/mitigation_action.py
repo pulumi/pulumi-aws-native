@@ -155,7 +155,7 @@ class MitigationAction(pulumi.CustomResource):
             __props__.__dict__["mitigation_action_arn"] = None
             __props__.__dict__["mitigation_action_id"] = None
         super(MitigationAction, __self__).__init__(
-            'aws-native:IoT:MitigationAction',
+            'aws-native:iot:MitigationAction',
             resource_name,
             __props__,
             opts)

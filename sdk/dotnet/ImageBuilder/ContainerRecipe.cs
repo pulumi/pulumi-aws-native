@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ImageBuilder:ContainerRecipe")]
+    [AwsNativeResourceType("aws-native:imagebuilder:ContainerRecipe")]
     public partial class ContainerRecipe : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -114,12 +114,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContainerRecipe(string name, ContainerRecipeArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:ContainerRecipe", name, args ?? new ContainerRecipeArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:imagebuilder:ContainerRecipe", name, args ?? new ContainerRecipeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContainerRecipe(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:ContainerRecipe", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:imagebuilder:ContainerRecipe", name, null, MakeResourceOptions(options, id))
         {
         }
 

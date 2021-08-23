@@ -22,7 +22,7 @@ export class Index extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Kendra:Index';
+    public static readonly __pulumiType = 'aws-native:kendra:Index';
 
     /**
      * Returns true if the given object is an instance of Index.  This is designed to work even
@@ -39,7 +39,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    public readonly capacityUnits!: pulumi.Output<outputs.Kendra.IndexCapacityUnitsConfiguration | undefined>;
+    public readonly capacityUnits!: pulumi.Output<outputs.kendra.IndexCapacityUnitsConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
@@ -47,7 +47,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    public readonly documentMetadataConfigurations!: pulumi.Output<outputs.Kendra.IndexDocumentMetadataConfiguration[] | undefined>;
+    public readonly documentMetadataConfigurations!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
@@ -64,7 +64,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.Kendra.IndexServerSideEncryptionConfiguration | undefined>;
+    public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.kendra.IndexServerSideEncryptionConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
@@ -76,7 +76,7 @@ export class Index extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    public readonly userTokenConfigurations!: pulumi.Output<outputs.Kendra.IndexUserTokenConfiguration[] | undefined>;
+    public readonly userTokenConfigurations!: pulumi.Output<outputs.kendra.IndexUserTokenConfiguration[] | undefined>;
 
     /**
      * Create a Index resource with the given unique name, arguments, and options.
@@ -138,7 +138,7 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
      */
-    capacityUnits?: pulumi.Input<inputs.Kendra.IndexCapacityUnitsConfigurationArgs>;
+    capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnitsConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
      */
@@ -146,7 +146,7 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
      */
-    documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexDocumentMetadataConfigurationArgs>[]>;
+    documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
      */
@@ -162,7 +162,7 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.Kendra.IndexServerSideEncryptionConfigurationArgs>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
      */
@@ -174,5 +174,5 @@ export interface IndexArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
      */
-    userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.Kendra.IndexUserTokenConfigurationArgs>[]>;
+    userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[]>;
 }

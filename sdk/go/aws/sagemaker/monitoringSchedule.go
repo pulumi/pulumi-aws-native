@@ -49,7 +49,7 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleName'")
 	}
 	var resource MonitoringSchedule
-	err := ctx.RegisterResource("aws-native:SageMaker:MonitoringSchedule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sagemaker:MonitoringSchedule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 func GetMonitoringSchedule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MonitoringScheduleState, opts ...pulumi.ResourceOption) (*MonitoringSchedule, error) {
 	var resource MonitoringSchedule
-	err := ctx.ReadResource("aws-native:SageMaker:MonitoringSchedule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sagemaker:MonitoringSchedule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

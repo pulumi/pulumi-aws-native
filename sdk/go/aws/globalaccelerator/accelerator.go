@@ -41,7 +41,7 @@ func NewAccelerator(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Accelerator
-	err := ctx.RegisterResource("aws-native:GlobalAccelerator:Accelerator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:globalaccelerator:Accelerator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewAccelerator(ctx *pulumi.Context,
 func GetAccelerator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AcceleratorState, opts ...pulumi.ResourceOption) (*Accelerator, error) {
 	var resource Accelerator
-	err := ctx.ReadResource("aws-native:GlobalAccelerator:Accelerator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:globalaccelerator:Accelerator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

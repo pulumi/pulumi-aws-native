@@ -56,7 +56,7 @@ func NewDashboard(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DashboardId'")
 	}
 	var resource Dashboard
-	err := ctx.RegisterResource("aws-native:QuickSight:Dashboard", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:quicksight:Dashboard", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewDashboard(ctx *pulumi.Context,
 func GetDashboard(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DashboardState, opts ...pulumi.ResourceOption) (*Dashboard, error) {
 	var resource Dashboard
-	err := ctx.ReadResource("aws-native:QuickSight:Dashboard", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:quicksight:Dashboard", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

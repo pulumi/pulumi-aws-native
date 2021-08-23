@@ -176,7 +176,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
         super(TransitGatewayPeeringAttachment, __self__).__init__(
-            'aws-native:EC2:TransitGatewayPeeringAttachment',
+            'aws-native:ec2:TransitGatewayPeeringAttachment',
             resource_name,
             __props__,
             opts)

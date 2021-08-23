@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:CachePolicy")]
+    [AwsNativeResourceType("aws-native:cloudfront:CachePolicy")]
     public partial class CachePolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CachePolicy(string name, CachePolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:CachePolicy", name, args ?? new CachePolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:CachePolicy", name, args ?? new CachePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CachePolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:CachePolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:CachePolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

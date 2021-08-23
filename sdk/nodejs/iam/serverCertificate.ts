@@ -22,7 +22,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IAM:ServerCertificate';
+    public static readonly __pulumiType = 'aws-native:iam:ServerCertificate';
 
     /**
      * Returns true if the given object is an instance of ServerCertificate.  This is designed to work even

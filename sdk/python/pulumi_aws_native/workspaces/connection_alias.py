@@ -114,7 +114,7 @@ class ConnectionAlias(pulumi.CustomResource):
             __props__.__dict__["associations"] = None
             __props__.__dict__["connection_alias_state"] = None
         super(ConnectionAlias, __self__).__init__(
-            'aws-native:WorkSpaces:ConnectionAlias',
+            'aws-native:workspaces:ConnectionAlias',
             resource_name,
             __props__,
             opts)

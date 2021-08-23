@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IAM:OIDCProvider":
+	case "aws-native:iam:OIDCProvider":
 		r = &OIDCProvider{}
-	case "aws-native:IAM:SAMLProvider":
+	case "aws-native:iam:SAMLProvider":
 		r = &SAMLProvider{}
-	case "aws-native:IAM:ServerCertificate":
+	case "aws-native:iam:ServerCertificate":
 		r = &ServerCertificate{}
-	case "aws-native:IAM:VirtualMFADevice":
+	case "aws-native:iam:VirtualMFADevice":
 		r = &VirtualMFADevice{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IAM",
+		"iam",
 		&module{version},
 	)
 }

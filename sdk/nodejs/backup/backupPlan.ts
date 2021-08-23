@@ -22,7 +22,7 @@ export class BackupPlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Backup:BackupPlan';
+    public static readonly __pulumiType = 'aws-native:backup:BackupPlan';
 
     /**
      * Returns true if the given object is an instance of BackupPlan.  This is designed to work even
@@ -38,7 +38,7 @@ export class BackupPlan extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
      */
-    public readonly backupPlan!: pulumi.Output<outputs.Backup.BackupPlanBackupPlanResourceType>;
+    public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanBackupPlanResourceType>;
     public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export interface BackupPlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
      */
-    backupPlan: pulumi.Input<inputs.Backup.BackupPlanBackupPlanResourceTypeArgs>;
+    backupPlan: pulumi.Input<inputs.backup.BackupPlanBackupPlanResourceTypeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
      */

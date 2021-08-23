@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:DomainName")]
+    [AwsNativeResourceType("aws-native:apigateway:DomainName")]
     public partial class DomainName : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DomainName(string name, DomainNameArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:DomainName", name, args ?? new DomainNameArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:DomainName", name, args ?? new DomainNameArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DomainName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:DomainName", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:DomainName", name, null, MakeResourceOptions(options, id))
         {
         }
 

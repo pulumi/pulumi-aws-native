@@ -36,7 +36,7 @@ func NewResolverQueryLoggingConfig(ctx *pulumi.Context,
 	}
 
 	var resource ResolverQueryLoggingConfig
-	err := ctx.RegisterResource("aws-native:Route53Resolver:ResolverQueryLoggingConfig", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53resolver:ResolverQueryLoggingConfig", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewResolverQueryLoggingConfig(ctx *pulumi.Context,
 func GetResolverQueryLoggingConfig(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResolverQueryLoggingConfigState, opts ...pulumi.ResourceOption) (*ResolverQueryLoggingConfig, error) {
 	var resource ResolverQueryLoggingConfig
-	err := ctx.ReadResource("aws-native:Route53Resolver:ResolverQueryLoggingConfig", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53resolver:ResolverQueryLoggingConfig", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

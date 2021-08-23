@@ -21,29 +21,29 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:IoT:AccountAuditConfiguration":
+	case "aws-native:iot:AccountAuditConfiguration":
 		r = &AccountAuditConfiguration{}
-	case "aws-native:IoT:Authorizer":
+	case "aws-native:iot:Authorizer":
 		r = &Authorizer{}
-	case "aws-native:IoT:Certificate":
+	case "aws-native:iot:Certificate":
 		r = &Certificate{}
-	case "aws-native:IoT:CustomMetric":
+	case "aws-native:iot:CustomMetric":
 		r = &CustomMetric{}
-	case "aws-native:IoT:Dimension":
+	case "aws-native:iot:Dimension":
 		r = &Dimension{}
-	case "aws-native:IoT:DomainConfiguration":
+	case "aws-native:iot:DomainConfiguration":
 		r = &DomainConfiguration{}
-	case "aws-native:IoT:MitigationAction":
+	case "aws-native:iot:MitigationAction":
 		r = &MitigationAction{}
-	case "aws-native:IoT:ProvisioningTemplate":
+	case "aws-native:iot:ProvisioningTemplate":
 		r = &ProvisioningTemplate{}
-	case "aws-native:IoT:ScheduledAudit":
+	case "aws-native:iot:ScheduledAudit":
 		r = &ScheduledAudit{}
-	case "aws-native:IoT:SecurityProfile":
+	case "aws-native:iot:SecurityProfile":
 		r = &SecurityProfile{}
-	case "aws-native:IoT:TopicRule":
+	case "aws-native:iot:TopicRule":
 		r = &TopicRule{}
-	case "aws-native:IoT:TopicRuleDestination":
+	case "aws-native:iot:TopicRuleDestination":
 		r = &TopicRuleDestination{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -60,7 +60,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"IoT",
+		"iot",
 		&module{version},
 	)
 }

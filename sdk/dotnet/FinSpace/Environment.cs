@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FinSpace
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:FinSpace:Environment")]
+    [AwsNativeResourceType("aws-native:finspace:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
         [Output("awsAccountId")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.FinSpace
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:FinSpace:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:finspace:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Environment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:FinSpace:Environment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:finspace:Environment", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -37,7 +37,7 @@ func NewInput(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'InputDefinition'")
 	}
 	var resource Input
-	err := ctx.RegisterResource("aws-native:IoTEvents:Input", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotevents:Input", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewInput(ctx *pulumi.Context,
 func GetInput(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *InputState, opts ...pulumi.ResourceOption) (*Input, error) {
 	var resource Input
-	err := ctx.ReadResource("aws-native:IoTEvents:Input", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotevents:Input", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

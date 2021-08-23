@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:ApplicationInsights:Application":
+            case "aws-native:applicationinsights:Application":
                 return new Application(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "ApplicationInsights", _module)
+pulumi.runtime.registerResourceModule("aws-native", "applicationinsights", _module)

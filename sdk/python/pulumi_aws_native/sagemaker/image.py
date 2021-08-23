@@ -172,7 +172,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["image_arn"] = None
         super(Image, __self__).__init__(
-            'aws-native:SageMaker:Image',
+            'aws-native:sagemaker:Image',
             resource_name,
             __props__,
             opts)

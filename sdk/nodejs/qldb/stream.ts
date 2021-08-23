@@ -22,7 +22,7 @@ export class Stream extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QLDB:Stream';
+    public static readonly __pulumiType = 'aws-native:qldb:Stream';
 
     /**
      * Returns true if the given object is an instance of Stream.  This is designed to work even
@@ -48,7 +48,7 @@ export class Stream extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    public readonly kinesisConfiguration!: pulumi.Output<outputs.QLDB.StreamKinesisConfiguration>;
+    public readonly kinesisConfiguration!: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */
@@ -134,7 +134,7 @@ export interface StreamArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
      */
-    kinesisConfiguration: pulumi.Input<inputs.QLDB.StreamKinesisConfigurationArgs>;
+    kinesisConfiguration: pulumi.Input<inputs.qldb.StreamKinesisConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
      */

@@ -104,7 +104,7 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
 	var resource Cluster
-	err := ctx.RegisterResource("aws-native:Redshift:Cluster", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:redshift:Cluster", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func NewCluster(ctx *pulumi.Context,
 func GetCluster(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ClusterState, opts ...pulumi.ResourceOption) (*Cluster, error) {
 	var resource Cluster
-	err := ctx.ReadResource("aws-native:Redshift:Cluster", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:redshift:Cluster", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

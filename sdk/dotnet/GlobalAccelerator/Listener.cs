@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GlobalAccelerator:Listener")]
+    [AwsNativeResourceType("aws-native:globalaccelerator:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Listener(string name, ListenerArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:globalaccelerator:Listener", name, args ?? new ListenerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Listener(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GlobalAccelerator:Listener", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:globalaccelerator:Listener", name, null, MakeResourceOptions(options, id))
         {
         }
 

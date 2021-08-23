@@ -22,19 +22,19 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:MediaConnect:Flow":
+            case "aws-native:mediaconnect:Flow":
                 return new Flow(name, <any>undefined, { urn })
-            case "aws-native:MediaConnect:FlowEntitlement":
+            case "aws-native:mediaconnect:FlowEntitlement":
                 return new FlowEntitlement(name, <any>undefined, { urn })
-            case "aws-native:MediaConnect:FlowOutput":
+            case "aws-native:mediaconnect:FlowOutput":
                 return new FlowOutput(name, <any>undefined, { urn })
-            case "aws-native:MediaConnect:FlowSource":
+            case "aws-native:mediaconnect:FlowSource":
                 return new FlowSource(name, <any>undefined, { urn })
-            case "aws-native:MediaConnect:FlowVpcInterface":
+            case "aws-native:mediaconnect:FlowVpcInterface":
                 return new FlowVpcInterface(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "MediaConnect", _module)
+pulumi.runtime.registerResourceModule("aws-native", "mediaconnect", _module)

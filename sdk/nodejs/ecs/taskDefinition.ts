@@ -22,7 +22,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:TaskDefinition';
+    public static readonly __pulumiType = 'aws-native:ecs:TaskDefinition';
 
     /**
      * Returns true if the given object is an instance of TaskDefinition.  This is designed to work even
@@ -38,7 +38,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
      */
-    public readonly containerDefinitions!: pulumi.Output<outputs.ECS.TaskDefinitionContainerDefinition[] | undefined>;
+    public readonly containerDefinitions!: pulumi.Output<outputs.ecs.TaskDefinitionContainerDefinition[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
@@ -46,7 +46,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
      */
-    public readonly ephemeralStorage!: pulumi.Output<outputs.ECS.TaskDefinitionEphemeralStorage | undefined>;
+    public readonly ephemeralStorage!: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */
@@ -58,7 +58,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
      */
-    public readonly inferenceAccelerators!: pulumi.Output<outputs.ECS.TaskDefinitionInferenceAccelerator[] | undefined>;
+    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
      */
@@ -78,11 +78,11 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ecs.TaskDefinitionTaskDefinitionPlacementConstraint[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
      */
-    public readonly proxyConfiguration!: pulumi.Output<outputs.ECS.TaskDefinitionProxyConfiguration | undefined>;
+    public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
      */
@@ -99,7 +99,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
      */
-    public readonly volumes!: pulumi.Output<outputs.ECS.TaskDefinitionVolume[] | undefined>;
+    public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
     /**
      * Create a TaskDefinition resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
      */
-    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionContainerDefinitionArgs>[]>;
+    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionContainerDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
      */
@@ -170,7 +170,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
      */
-    ephemeralStorage?: pulumi.Input<inputs.ECS.TaskDefinitionEphemeralStorageArgs>;
+    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
      */
@@ -182,7 +182,7 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
      */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionInferenceAcceleratorArgs>[]>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAcceleratorArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
      */
@@ -202,11 +202,11 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionTaskDefinitionPlacementConstraintArgs>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionTaskDefinitionPlacementConstraintArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
      */
-    proxyConfiguration?: pulumi.Input<inputs.ECS.TaskDefinitionProxyConfigurationArgs>;
+    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
      */
@@ -222,5 +222,5 @@ export interface TaskDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ECS.TaskDefinitionVolumeArgs>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolumeArgs>[]>;
 }

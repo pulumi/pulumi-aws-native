@@ -35,7 +35,7 @@ func NewDistribution(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'DistributionConfig'")
 	}
 	var resource Distribution
-	err := ctx.RegisterResource("aws-native:CloudFront:Distribution", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:Distribution", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewDistribution(ctx *pulumi.Context,
 func GetDistribution(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DistributionState, opts ...pulumi.ResourceOption) (*Distribution, error) {
 	var resource Distribution
-	err := ctx.ReadResource("aws-native:CloudFront:Distribution", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:Distribution", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

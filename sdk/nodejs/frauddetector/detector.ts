@@ -22,7 +22,7 @@ export class Detector extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FraudDetector:Detector';
+    public static readonly __pulumiType = 'aws-native:frauddetector:Detector';
 
     /**
      * Returns true if the given object is an instance of Detector.  This is designed to work even
@@ -39,7 +39,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
      */
-    public readonly associatedModels!: pulumi.Output<outputs.FraudDetector.DetectorModel[] | undefined>;
+    public readonly associatedModels!: pulumi.Output<outputs.frauddetector.DetectorModel[] | undefined>;
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
@@ -57,7 +57,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
      */
-    public readonly eventType!: pulumi.Output<outputs.FraudDetector.DetectorEventType>;
+    public readonly eventType!: pulumi.Output<outputs.frauddetector.DetectorEventType>;
     public /*out*/ readonly eventTypeArn!: pulumi.Output<string>;
     public /*out*/ readonly eventTypeCreatedTime!: pulumi.Output<string>;
     public /*out*/ readonly eventTypeLastUpdatedTime!: pulumi.Output<string>;
@@ -69,7 +69,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
      */
-    public readonly rules!: pulumi.Output<outputs.FraudDetector.DetectorRule[]>;
+    public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
      */
@@ -141,7 +141,7 @@ export interface DetectorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
      */
-    associatedModels?: pulumi.Input<pulumi.Input<inputs.FraudDetector.DetectorModelArgs>[]>;
+    associatedModels?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorModelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
      */
@@ -157,7 +157,7 @@ export interface DetectorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
      */
-    eventType: pulumi.Input<inputs.FraudDetector.DetectorEventTypeArgs>;
+    eventType: pulumi.Input<inputs.frauddetector.DetectorEventTypeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
      */
@@ -165,7 +165,7 @@ export interface DetectorArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
      */
-    rules: pulumi.Input<pulumi.Input<inputs.FraudDetector.DetectorRuleArgs>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
      */

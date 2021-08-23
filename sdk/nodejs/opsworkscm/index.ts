@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:OpsWorksCM:Server":
+            case "aws-native:opsworkscm:Server":
                 return new Server(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "OpsWorksCM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "opsworkscm", _module)

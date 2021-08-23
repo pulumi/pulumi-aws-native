@@ -37,7 +37,7 @@ func NewDocumentationVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
 	var resource DocumentationVersion
-	err := ctx.RegisterResource("aws-native:ApiGateway:DocumentationVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apigateway:DocumentationVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewDocumentationVersion(ctx *pulumi.Context,
 func GetDocumentationVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DocumentationVersionState, opts ...pulumi.ResourceOption) (*DocumentationVersion, error) {
 	var resource DocumentationVersion
-	err := ctx.ReadResource("aws-native:ApiGateway:DocumentationVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apigateway:DocumentationVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.QuickSight
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:QuickSight:Template")]
+    [AwsNativeResourceType("aws-native:quicksight:Template")]
     public partial class Template : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Template(string name, TemplateArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Template", name, args ?? new TemplateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:quicksight:Template", name, args ?? new TemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Template(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:QuickSight:Template", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:quicksight:Template", name, null, MakeResourceOptions(options, id))
         {
         }
 

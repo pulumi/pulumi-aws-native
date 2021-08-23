@@ -45,7 +45,7 @@ func NewScheduledAudit(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetCheckNames'")
 	}
 	var resource ScheduledAudit
-	err := ctx.RegisterResource("aws-native:IoT:ScheduledAudit", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:ScheduledAudit", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewScheduledAudit(ctx *pulumi.Context,
 func GetScheduledAudit(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ScheduledAuditState, opts ...pulumi.ResourceOption) (*ScheduledAudit, error) {
 	var resource ScheduledAudit
-	err := ctx.ReadResource("aws-native:IoT:ScheduledAudit", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:ScheduledAudit", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

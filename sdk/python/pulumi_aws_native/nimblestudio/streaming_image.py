@@ -174,7 +174,7 @@ class StreamingImage(pulumi.CustomResource):
             __props__.__dict__["platform"] = None
             __props__.__dict__["streaming_image_id"] = None
         super(StreamingImage, __self__).__init__(
-            'aws-native:NimbleStudio:StreamingImage',
+            'aws-native:nimblestudio:StreamingImage',
             resource_name,
             __props__,
             opts)

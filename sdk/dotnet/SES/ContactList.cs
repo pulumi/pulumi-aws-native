@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SES
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SES:ContactList")]
+    [AwsNativeResourceType("aws-native:ses:ContactList")]
     public partial class ContactList : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.SES
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ContactList(string name, ContactListArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:SES:ContactList", name, args ?? new ContactListArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ses:ContactList", name, args ?? new ContactListArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ContactList(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SES:ContactList", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ses:ContactList", name, null, MakeResourceOptions(options, id))
         {
         }
 

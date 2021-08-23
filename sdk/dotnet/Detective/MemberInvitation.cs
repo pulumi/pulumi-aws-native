@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Detective
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Detective:MemberInvitation")]
+    [AwsNativeResourceType("aws-native:detective:MemberInvitation")]
     public partial class MemberInvitation : Pulumi.CustomResource
     {
         /// <summary>
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Detective
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MemberInvitation(string name, MemberInvitationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Detective:MemberInvitation", name, args ?? new MemberInvitationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:detective:MemberInvitation", name, args ?? new MemberInvitationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MemberInvitation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Detective:MemberInvitation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:detective:MemberInvitation", name, null, MakeResourceOptions(options, id))
         {
         }
 

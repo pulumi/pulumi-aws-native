@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Cassandra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Cassandra:Keyspace")]
+    [AwsNativeResourceType("aws-native:cassandra:Keyspace")]
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.Cassandra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Keyspace(string name, KeyspaceArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Cassandra:Keyspace", name, args ?? new KeyspaceArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cassandra:Keyspace", name, args ?? new KeyspaceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Keyspace(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Cassandra:Keyspace", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cassandra:Keyspace", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -45,7 +45,7 @@ func NewTypeActivation(ctx *pulumi.Context,
 	}
 
 	var resource TypeActivation
-	err := ctx.RegisterResource("aws-native:CloudFormation:TypeActivation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:TypeActivation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewTypeActivation(ctx *pulumi.Context,
 func GetTypeActivation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TypeActivationState, opts ...pulumi.ResourceOption) (*TypeActivation, error) {
 	var resource TypeActivation
-	err := ctx.ReadResource("aws-native:CloudFormation:TypeActivation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:TypeActivation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

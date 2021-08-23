@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.LicenseManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:LicenseManager:License")]
+    [AwsNativeResourceType("aws-native:licensemanager:License")]
     public partial class License : Pulumi.CustomResource
     {
         /// <summary>
@@ -96,12 +96,12 @@ namespace Pulumi.AwsNative.LicenseManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public License(string name, LicenseArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:LicenseManager:License", name, args ?? new LicenseArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:licensemanager:License", name, args ?? new LicenseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private License(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:LicenseManager:License", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:licensemanager:License", name, null, MakeResourceOptions(options, id))
         {
         }
 

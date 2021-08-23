@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGatewayMulticastGroupMember")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastGroupMember")]
     public partial class TransitGatewayMulticastGroupMember : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayMulticastGroupMember(string name, TransitGatewayMulticastGroupMemberArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastGroupMember", name, args ?? new TransitGatewayMulticastGroupMemberArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGatewayMulticastGroupMember", name, args ?? new TransitGatewayMulticastGroupMemberArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayMulticastGroupMember(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayMulticastGroupMember", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGatewayMulticastGroupMember", name, null, MakeResourceOptions(options, id))
         {
         }
 

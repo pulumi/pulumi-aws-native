@@ -171,7 +171,7 @@ class ProfilePermission(pulumi.CustomResource):
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
         super(ProfilePermission, __self__).__init__(
-            'aws-native:Signer:ProfilePermission',
+            'aws-native:signer:ProfilePermission',
             resource_name,
             __props__,
             opts)

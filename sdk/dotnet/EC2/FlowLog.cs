@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:FlowLog")]
+    [AwsNativeResourceType("aws-native:ec2:FlowLog")]
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>
@@ -87,12 +87,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FlowLog(string name, FlowLogArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:FlowLog", name, args ?? new FlowLogArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FlowLog(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:FlowLog", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:FlowLog", name, null, MakeResourceOptions(options, id))
         {
         }
 

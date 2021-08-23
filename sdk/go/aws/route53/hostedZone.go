@@ -40,7 +40,7 @@ func NewHostedZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource HostedZone
-	err := ctx.RegisterResource("aws-native:Route53:HostedZone", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53:HostedZone", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewHostedZone(ctx *pulumi.Context,
 func GetHostedZone(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *HostedZoneState, opts ...pulumi.ResourceOption) (*HostedZone, error) {
 	var resource HostedZone
-	err := ctx.ReadResource("aws-native:Route53:HostedZone", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53:HostedZone", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

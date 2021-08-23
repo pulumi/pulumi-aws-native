@@ -56,7 +56,7 @@ func NewEC2Fleet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
 	var resource EC2Fleet
-	err := ctx.RegisterResource("aws-native:EC2:EC2Fleet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:EC2Fleet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewEC2Fleet(ctx *pulumi.Context,
 func GetEC2Fleet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EC2FleetState, opts ...pulumi.ResourceOption) (*EC2Fleet, error) {
 	var resource EC2Fleet
-	err := ctx.ReadResource("aws-native:EC2:EC2Fleet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:EC2Fleet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

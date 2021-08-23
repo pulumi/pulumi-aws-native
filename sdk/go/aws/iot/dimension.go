@@ -41,7 +41,7 @@ func NewDimension(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource Dimension
-	err := ctx.RegisterResource("aws-native:IoT:Dimension", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:Dimension", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewDimension(ctx *pulumi.Context,
 func GetDimension(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DimensionState, opts ...pulumi.ResourceOption) (*Dimension, error) {
 	var resource Dimension
-	err := ctx.ReadResource("aws-native:IoT:Dimension", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:Dimension", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

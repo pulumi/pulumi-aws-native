@@ -173,7 +173,7 @@ class Alert(pulumi.CustomResource):
             __props__.__dict__["anomaly_detector_arn"] = anomaly_detector_arn
             __props__.__dict__["arn"] = None
         super(Alert, __self__).__init__(
-            'aws-native:LookoutMetrics:Alert',
+            'aws-native:lookoutmetrics:Alert',
             resource_name,
             __props__,
             opts)

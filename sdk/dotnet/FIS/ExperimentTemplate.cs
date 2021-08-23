@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.FIS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:FIS:ExperimentTemplate")]
+    [AwsNativeResourceType("aws-native:fis:ExperimentTemplate")]
     public partial class ExperimentTemplate : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.FIS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ExperimentTemplate(string name, ExperimentTemplateArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:FIS:ExperimentTemplate", name, args ?? new ExperimentTemplateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:fis:ExperimentTemplate", name, args ?? new ExperimentTemplateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ExperimentTemplate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:FIS:ExperimentTemplate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:fis:ExperimentTemplate", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Location
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Location:Tracker")]
+    [AwsNativeResourceType("aws-native:location:Tracker")]
     public partial class Tracker : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.Location
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Tracker(string name, TrackerArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Location:Tracker", name, args ?? new TrackerArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:location:Tracker", name, args ?? new TrackerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Tracker(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Location:Tracker", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:location:Tracker", name, null, MakeResourceOptions(options, id))
         {
         }
 

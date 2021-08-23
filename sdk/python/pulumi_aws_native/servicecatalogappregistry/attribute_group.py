@@ -151,7 +151,7 @@ class AttributeGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(AttributeGroup, __self__).__init__(
-            'aws-native:ServiceCatalogAppRegistry:AttributeGroup',
+            'aws-native:servicecatalogappregistry:AttributeGroup',
             resource_name,
             __props__,
             opts)

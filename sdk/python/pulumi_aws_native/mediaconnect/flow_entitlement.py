@@ -214,7 +214,7 @@ class FlowEntitlement(pulumi.CustomResource):
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["entitlement_arn"] = None
         super(FlowEntitlement, __self__).__init__(
-            'aws-native:MediaConnect:FlowEntitlement',
+            'aws-native:mediaconnect:FlowEntitlement',
             resource_name,
             __props__,
             opts)

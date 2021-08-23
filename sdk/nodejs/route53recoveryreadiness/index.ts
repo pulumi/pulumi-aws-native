@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Route53RecoveryReadiness:Cell":
+            case "aws-native:route53recoveryreadiness:Cell":
                 return new Cell(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryReadiness:ReadinessCheck":
+            case "aws-native:route53recoveryreadiness:ReadinessCheck":
                 return new ReadinessCheck(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryReadiness:RecoveryGroup":
+            case "aws-native:route53recoveryreadiness:RecoveryGroup":
                 return new RecoveryGroup(name, <any>undefined, { urn })
-            case "aws-native:Route53RecoveryReadiness:ResourceSet":
+            case "aws-native:route53recoveryreadiness:ResourceSet":
                 return new ResourceSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Route53RecoveryReadiness", _module)
+pulumi.runtime.registerResourceModule("aws-native", "route53recoveryreadiness", _module)

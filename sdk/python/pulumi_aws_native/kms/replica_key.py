@@ -193,7 +193,7 @@ class ReplicaKey(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["key_id"] = None
         super(ReplicaKey, __self__).__init__(
-            'aws-native:KMS:ReplicaKey',
+            'aws-native:kms:ReplicaKey',
             resource_name,
             __props__,
             opts)

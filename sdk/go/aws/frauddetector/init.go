@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:FraudDetector:Detector":
+	case "aws-native:frauddetector:Detector":
 		r = &Detector{}
-	case "aws-native:FraudDetector:EntityType":
+	case "aws-native:frauddetector:EntityType":
 		r = &EntityType{}
-	case "aws-native:FraudDetector:EventType":
+	case "aws-native:frauddetector:EventType":
 		r = &EventType{}
-	case "aws-native:FraudDetector:Label":
+	case "aws-native:frauddetector:Label":
 		r = &Label{}
-	case "aws-native:FraudDetector:Outcome":
+	case "aws-native:frauddetector:Outcome":
 		r = &Outcome{}
-	case "aws-native:FraudDetector:Variable":
+	case "aws-native:frauddetector:Variable":
 		r = &Variable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"FraudDetector",
+		"frauddetector",
 		&module{version},
 	)
 }

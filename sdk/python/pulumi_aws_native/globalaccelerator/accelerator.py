@@ -172,7 +172,7 @@ class Accelerator(pulumi.CustomResource):
             __props__.__dict__["accelerator_arn"] = None
             __props__.__dict__["dns_name"] = None
         super(Accelerator, __self__).__init__(
-            'aws-native:GlobalAccelerator:Accelerator',
+            'aws-native:globalaccelerator:Accelerator',
             resource_name,
             __props__,
             opts)

@@ -149,7 +149,7 @@ class RequestValidator(pulumi.CustomResource):
             __props__.__dict__["validate_request_parameters"] = validate_request_parameters
             __props__.__dict__["request_validator_id"] = None
         super(RequestValidator, __self__).__init__(
-            'aws-native:ApiGateway:RequestValidator',
+            'aws-native:apigateway:RequestValidator',
             resource_name,
             __props__,
             opts)

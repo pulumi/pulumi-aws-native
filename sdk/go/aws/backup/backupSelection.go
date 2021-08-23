@@ -36,7 +36,7 @@ func NewBackupSelection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'BackupSelection'")
 	}
 	var resource BackupSelection
-	err := ctx.RegisterResource("aws-native:Backup:BackupSelection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:backup:BackupSelection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewBackupSelection(ctx *pulumi.Context,
 func GetBackupSelection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *BackupSelectionState, opts ...pulumi.ResourceOption) (*BackupSelection, error) {
 	var resource BackupSelection
-	err := ctx.ReadResource("aws-native:Backup:BackupSelection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:backup:BackupSelection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

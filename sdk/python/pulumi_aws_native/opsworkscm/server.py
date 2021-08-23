@@ -497,7 +497,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["id"] = None
         super(Server, __self__).__init__(
-            'aws-native:OpsWorksCM:Server',
+            'aws-native:opsworkscm:Server',
             resource_name,
             __props__,
             opts)

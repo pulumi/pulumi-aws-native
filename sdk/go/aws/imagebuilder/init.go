@@ -21,19 +21,19 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:ImageBuilder:Component":
+	case "aws-native:imagebuilder:Component":
 		r = &Component{}
-	case "aws-native:ImageBuilder:ContainerRecipe":
+	case "aws-native:imagebuilder:ContainerRecipe":
 		r = &ContainerRecipe{}
-	case "aws-native:ImageBuilder:DistributionConfiguration":
+	case "aws-native:imagebuilder:DistributionConfiguration":
 		r = &DistributionConfiguration{}
-	case "aws-native:ImageBuilder:Image":
+	case "aws-native:imagebuilder:Image":
 		r = &Image{}
-	case "aws-native:ImageBuilder:ImagePipeline":
+	case "aws-native:imagebuilder:ImagePipeline":
 		r = &ImagePipeline{}
-	case "aws-native:ImageBuilder:ImageRecipe":
+	case "aws-native:imagebuilder:ImageRecipe":
 		r = &ImageRecipe{}
-	case "aws-native:ImageBuilder:InfrastructureConfiguration":
+	case "aws-native:imagebuilder:InfrastructureConfiguration":
 		r = &InfrastructureConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -50,7 +50,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"ImageBuilder",
+		"imagebuilder",
 		&module{version},
 	)
 }

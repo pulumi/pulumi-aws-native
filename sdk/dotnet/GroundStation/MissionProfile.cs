@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GroundStation:MissionProfile")]
+    [AwsNativeResourceType("aws-native:groundstation:MissionProfile")]
     public partial class MissionProfile : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.GroundStation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public MissionProfile(string name, MissionProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:MissionProfile", name, args ?? new MissionProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:groundstation:MissionProfile", name, args ?? new MissionProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private MissionProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:MissionProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:groundstation:MissionProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

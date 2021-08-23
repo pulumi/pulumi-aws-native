@@ -21,7 +21,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FMS:NotificationChannel';
+    public static readonly __pulumiType = 'aws-native:fms:NotificationChannel';
 
     /**
      * Returns true if the given object is an instance of NotificationChannel.  This is designed to work even

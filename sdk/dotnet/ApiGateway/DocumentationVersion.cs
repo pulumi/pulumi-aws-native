@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:DocumentationVersion")]
+    [AwsNativeResourceType("aws-native:apigateway:DocumentationVersion")]
     public partial class DocumentationVersion : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DocumentationVersion(string name, DocumentationVersionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:DocumentationVersion", name, args ?? new DocumentationVersionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:DocumentationVersion", name, args ?? new DocumentationVersionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DocumentationVersion(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:DocumentationVersion", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:DocumentationVersion", name, null, MakeResourceOptions(options, id))
         {
         }
 

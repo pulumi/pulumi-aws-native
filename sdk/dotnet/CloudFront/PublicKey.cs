@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:PublicKey")]
+    [AwsNativeResourceType("aws-native:cloudfront:PublicKey")]
     public partial class PublicKey : Pulumi.CustomResource
     {
         [Output("createdTime")]
@@ -36,12 +36,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PublicKey(string name, PublicKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:PublicKey", name, args ?? new PublicKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:PublicKey", name, args ?? new PublicKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PublicKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:PublicKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:PublicKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

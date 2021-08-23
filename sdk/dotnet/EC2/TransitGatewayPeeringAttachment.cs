@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EC2:TransitGatewayPeeringAttachment")]
+    [AwsNativeResourceType("aws-native:ec2:TransitGatewayPeeringAttachment")]
     public partial class TransitGatewayPeeringAttachment : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TransitGatewayPeeringAttachment(string name, TransitGatewayPeeringAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayPeeringAttachment", name, args ?? new TransitGatewayPeeringAttachmentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ec2:TransitGatewayPeeringAttachment", name, args ?? new TransitGatewayPeeringAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TransitGatewayPeeringAttachment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EC2:TransitGatewayPeeringAttachment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ec2:TransitGatewayPeeringAttachment", name, null, MakeResourceOptions(options, id))
         {
         }
 

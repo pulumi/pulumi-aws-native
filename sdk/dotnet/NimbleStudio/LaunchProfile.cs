@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NimbleStudio:LaunchProfile")]
+    [AwsNativeResourceType("aws-native:nimblestudio:LaunchProfile")]
     public partial class LaunchProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LaunchProfile(string name, LaunchProfileArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:LaunchProfile", name, args ?? new LaunchProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:nimblestudio:LaunchProfile", name, args ?? new LaunchProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LaunchProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NimbleStudio:LaunchProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:nimblestudio:LaunchProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

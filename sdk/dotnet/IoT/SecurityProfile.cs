@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoT
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoT:SecurityProfile")]
+    [AwsNativeResourceType("aws-native:iot:SecurityProfile")]
     public partial class SecurityProfile : Pulumi.CustomResource
     {
         /// <summary>
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.IoT
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SecurityProfile(string name, SecurityProfileArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:SecurityProfile", name, args ?? new SecurityProfileArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iot:SecurityProfile", name, args ?? new SecurityProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SecurityProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoT:SecurityProfile", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iot:SecurityProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 

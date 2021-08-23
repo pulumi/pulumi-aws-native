@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53Resolver:FirewallRuleGroupAssociation")]
+    [AwsNativeResourceType("aws-native:route53resolver:FirewallRuleGroupAssociation")]
     public partial class FirewallRuleGroupAssociation : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FirewallRuleGroupAssociation(string name, FirewallRuleGroupAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:FirewallRuleGroupAssociation", name, args ?? new FirewallRuleGroupAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53resolver:FirewallRuleGroupAssociation", name, args ?? new FirewallRuleGroupAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FirewallRuleGroupAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:FirewallRuleGroupAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53resolver:FirewallRuleGroupAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class StateMachine extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:StepFunctions:StateMachine';
+    public static readonly __pulumiType = 'aws-native:stepfunctions:StateMachine';
 
     /**
      * Returns true if the given object is an instance of StateMachine.  This is designed to work even
@@ -39,11 +39,11 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
      */
-    public readonly definition!: pulumi.Output<outputs.StepFunctions.StateMachineDefinition | undefined>;
+    public readonly definition!: pulumi.Output<outputs.stepfunctions.StateMachineDefinition | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
-    public readonly definitionS3Location!: pulumi.Output<outputs.StepFunctions.StateMachineS3Location | undefined>;
+    public readonly definitionS3Location!: pulumi.Output<outputs.stepfunctions.StateMachineS3Location | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
      */
@@ -55,7 +55,7 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
-    public readonly loggingConfiguration!: pulumi.Output<outputs.StepFunctions.StateMachineLoggingConfiguration | undefined>;
+    public readonly loggingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineLoggingConfiguration | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
@@ -72,11 +72,11 @@ export class StateMachine extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
      */
-    public readonly tags!: pulumi.Output<outputs.StepFunctions.StateMachineTagsEntry[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.stepfunctions.StateMachineTagsEntry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
      */
-    public readonly tracingConfiguration!: pulumi.Output<outputs.StepFunctions.StateMachineTracingConfiguration | undefined>;
+    public readonly tracingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -132,11 +132,11 @@ export interface StateMachineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
      */
-    definition?: pulumi.Input<inputs.StepFunctions.StateMachineDefinitionArgs>;
+    definition?: pulumi.Input<inputs.stepfunctions.StateMachineDefinitionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
      */
-    definitionS3Location?: pulumi.Input<inputs.StepFunctions.StateMachineS3LocationArgs>;
+    definitionS3Location?: pulumi.Input<inputs.stepfunctions.StateMachineS3LocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
      */
@@ -148,7 +148,7 @@ export interface StateMachineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
      */
-    loggingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineLoggingConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
      */
@@ -164,9 +164,9 @@ export interface StateMachineArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.StepFunctions.StateMachineTagsEntryArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineTagsEntryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
      */
-    tracingConfiguration?: pulumi.Input<inputs.StepFunctions.StateMachineTracingConfigurationArgs>;
+    tracingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineTracingConfigurationArgs>;
 }

@@ -35,7 +35,7 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
 	var resource Alias
-	err := ctx.RegisterResource("aws-native:KMS:Alias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kms:Alias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewAlias(ctx *pulumi.Context,
 func GetAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AliasState, opts ...pulumi.ResourceOption) (*Alias, error) {
 	var resource Alias
-	err := ctx.ReadResource("aws-native:KMS:Alias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kms:Alias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

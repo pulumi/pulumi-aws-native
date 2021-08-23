@@ -41,7 +41,7 @@ func NewRepository(ctx *pulumi.Context,
 	}
 
 	var resource Repository
-	err := ctx.RegisterResource("aws-native:ECR:Repository", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecr:Repository", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewRepository(ctx *pulumi.Context,
 func GetRepository(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RepositoryState, opts ...pulumi.ResourceOption) (*Repository, error) {
 	var resource Repository
-	err := ctx.ReadResource("aws-native:ECR:Repository", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecr:Repository", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

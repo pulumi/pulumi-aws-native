@@ -22,7 +22,7 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:TransitGatewayConnect';
+    public static readonly __pulumiType = 'aws-native:ec2:TransitGatewayConnect';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayConnect.  This is designed to work even
@@ -39,7 +39,7 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
      */
-    public readonly options!: pulumi.Output<outputs.EC2.TransitGatewayConnectTransitGatewayConnectOptions>;
+    public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayConnectTransitGatewayConnectOptions>;
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
@@ -99,7 +99,7 @@ export interface TransitGatewayConnectArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
      */
-    options: pulumi.Input<inputs.EC2.TransitGatewayConnectTransitGatewayConnectOptionsArgs>;
+    options: pulumi.Input<inputs.ec2.TransitGatewayConnectTransitGatewayConnectOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
      */

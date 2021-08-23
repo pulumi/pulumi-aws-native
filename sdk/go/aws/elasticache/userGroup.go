@@ -39,7 +39,7 @@ func NewUserGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserGroupId'")
 	}
 	var resource UserGroup
-	err := ctx.RegisterResource("aws-native:ElastiCache:UserGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:elasticache:UserGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewUserGroup(ctx *pulumi.Context,
 func GetUserGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *UserGroupState, opts ...pulumi.ResourceOption) (*UserGroup, error) {
 	var resource UserGroup
-	err := ctx.ReadResource("aws-native:ElastiCache:UserGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:elasticache:UserGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

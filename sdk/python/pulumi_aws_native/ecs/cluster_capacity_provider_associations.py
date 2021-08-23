@@ -132,7 +132,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_capacity_provider_strategy'")
             __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
         super(ClusterCapacityProviderAssociations, __self__).__init__(
-            'aws-native:ECS:ClusterCapacityProviderAssociations',
+            'aws-native:ecs:ClusterCapacityProviderAssociations',
             resource_name,
             __props__,
             opts)

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.GroundStation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:GroundStation:Config")]
+    [AwsNativeResourceType("aws-native:groundstation:Config")]
     public partial class Config : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.GroundStation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Config(string name, ConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:Config", name, args ?? new ConfigArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:groundstation:Config", name, args ?? new ConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Config(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:GroundStation:Config", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:groundstation:Config", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -46,7 +46,7 @@ func NewQuickConnect(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QuickConnectConfig'")
 	}
 	var resource QuickConnect
-	err := ctx.RegisterResource("aws-native:Connect:QuickConnect", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:connect:QuickConnect", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewQuickConnect(ctx *pulumi.Context,
 func GetQuickConnect(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *QuickConnectState, opts ...pulumi.ResourceOption) (*QuickConnect, error) {
 	var resource QuickConnect
-	err := ctx.ReadResource("aws-native:Connect:QuickConnect", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:connect:QuickConnect", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

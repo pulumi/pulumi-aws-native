@@ -22,7 +22,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTWireless:WirelessDevice';
+    public static readonly __pulumiType = 'aws-native:iotwireless:WirelessDevice';
 
     /**
      * Returns true if the given object is an instance of WirelessDevice.  This is designed to work even
@@ -52,7 +52,7 @@ export class WirelessDevice extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
      */
-    public readonly loRaWAN!: pulumi.Output<outputs.IoTWireless.WirelessDeviceLoRaWANDevice | undefined>;
+    public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.WirelessDeviceLoRaWANDevice | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
      */
@@ -138,7 +138,7 @@ export interface WirelessDeviceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
      */
-    loRaWAN?: pulumi.Input<inputs.IoTWireless.WirelessDeviceLoRaWANDeviceArgs>;
+    loRaWAN?: pulumi.Input<inputs.iotwireless.WirelessDeviceLoRaWANDeviceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
      */

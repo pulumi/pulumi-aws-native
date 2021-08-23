@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EMRContainers
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EMRContainers:VirtualCluster")]
+    [AwsNativeResourceType("aws-native:emrcontainers:VirtualCluster")]
     public partial class VirtualCluster : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.EMRContainers
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualCluster(string name, VirtualClusterArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EMRContainers:VirtualCluster", name, args ?? new VirtualClusterArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:emrcontainers:VirtualCluster", name, args ?? new VirtualClusterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VirtualCluster(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EMRContainers:VirtualCluster", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:emrcontainers:VirtualCluster", name, null, MakeResourceOptions(options, id))
         {
         }
 

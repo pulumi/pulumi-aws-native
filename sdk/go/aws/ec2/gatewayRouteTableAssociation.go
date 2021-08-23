@@ -36,7 +36,7 @@ func NewGatewayRouteTableAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
 	var resource GatewayRouteTableAssociation
-	err := ctx.RegisterResource("aws-native:EC2:GatewayRouteTableAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:GatewayRouteTableAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewGatewayRouteTableAssociation(ctx *pulumi.Context,
 func GetGatewayRouteTableAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayRouteTableAssociationState, opts ...pulumi.ResourceOption) (*GatewayRouteTableAssociation, error) {
 	var resource GatewayRouteTableAssociation
-	err := ctx.ReadResource("aws-native:EC2:GatewayRouteTableAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:GatewayRouteTableAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

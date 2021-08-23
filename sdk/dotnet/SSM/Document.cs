@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSM:Document")]
+    [AwsNativeResourceType("aws-native:ssm:Document")]
     public partial class Document : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.SSM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Document(string name, DocumentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:Document", name, args ?? new DocumentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ssm:Document", name, args ?? new DocumentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Document(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSM:Document", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ssm:Document", name, null, MakeResourceOptions(options, id))
         {
         }
 

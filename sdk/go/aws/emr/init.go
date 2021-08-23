@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:EMR:Studio":
+	case "aws-native:emr:Studio":
 		r = &Studio{}
-	case "aws-native:EMR:StudioSessionMapping":
+	case "aws-native:emr:StudioSessionMapping":
 		r = &StudioSessionMapping{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"EMR",
+		"emr",
 		&module{version},
 	)
 }

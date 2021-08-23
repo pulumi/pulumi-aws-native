@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApiGateway
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApiGateway:ClientCertificate")]
+    [AwsNativeResourceType("aws-native:apigateway:ClientCertificate")]
     public partial class ClientCertificate : Pulumi.CustomResource
     {
         [Output("clientCertificateId")]
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ClientCertificate(string name, ClientCertificateArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:ClientCertificate", name, args ?? new ClientCertificateArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:apigateway:ClientCertificate", name, args ?? new ClientCertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ClientCertificate(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApiGateway:ClientCertificate", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:apigateway:ClientCertificate", name, null, MakeResourceOptions(options, id))
         {
         }
 

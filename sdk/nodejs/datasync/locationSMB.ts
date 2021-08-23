@@ -22,7 +22,7 @@ export class LocationSMB extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationSMB';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationSMB';
 
     /**
      * Returns true if the given object is an instance of LocationSMB.  This is designed to work even
@@ -48,7 +48,7 @@ export class LocationSMB extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
      */
-    public readonly mountOptions!: pulumi.Output<outputs.DataSync.LocationSMBMountOptions | undefined>;
+    public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationSMBMountOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
      */
@@ -140,7 +140,7 @@ export interface LocationSMBArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
      */
-    mountOptions?: pulumi.Input<inputs.DataSync.LocationSMBMountOptionsArgs>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSMBMountOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
      */

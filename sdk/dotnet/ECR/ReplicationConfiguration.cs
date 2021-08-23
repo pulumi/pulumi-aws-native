@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECR:ReplicationConfiguration")]
+    [AwsNativeResourceType("aws-native:ecr:ReplicationConfiguration")]
     public partial class ReplicationConfiguration : Pulumi.CustomResource
     {
         [Output("registryId")]
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.ECR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ReplicationConfiguration(string name, ReplicationConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:ReplicationConfiguration", name, args ?? new ReplicationConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecr:ReplicationConfiguration", name, args ?? new ReplicationConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ReplicationConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:ReplicationConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecr:ReplicationConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

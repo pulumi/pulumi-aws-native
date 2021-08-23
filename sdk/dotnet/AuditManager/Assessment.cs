@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AuditManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AuditManager:Assessment")]
+    [AwsNativeResourceType("aws-native:auditmanager:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.AuditManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assessment(string name, AssessmentArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:AuditManager:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:auditmanager:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assessment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AuditManager:Assessment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:auditmanager:Assessment", name, null, MakeResourceOptions(options, id))
         {
         }
 

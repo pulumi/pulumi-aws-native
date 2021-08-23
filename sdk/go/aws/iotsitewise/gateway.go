@@ -41,7 +41,7 @@ func NewGateway(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'GatewayPlatform'")
 	}
 	var resource Gateway
-	err := ctx.RegisterResource("aws-native:IoTSiteWise:Gateway", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotsitewise:Gateway", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func NewGateway(ctx *pulumi.Context,
 func GetGateway(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GatewayState, opts ...pulumi.ResourceOption) (*Gateway, error) {
 	var resource Gateway
-	err := ctx.ReadResource("aws-native:IoTSiteWise:Gateway", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotsitewise:Gateway", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class ObjectType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CustomerProfiles:ObjectType';
+    public static readonly __pulumiType = 'aws-native:customerprofiles:ObjectType';
 
     /**
      * Returns true if the given object is an instance of ObjectType.  This is designed to work even
@@ -59,11 +59,11 @@ export class ObjectType extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
      */
-    public readonly fields!: pulumi.Output<outputs.CustomerProfiles.ObjectTypeFieldMap[] | undefined>;
+    public readonly fields!: pulumi.Output<outputs.customerprofiles.ObjectTypeFieldMap[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
      */
-    public readonly keys!: pulumi.Output<outputs.CustomerProfiles.ObjectTypeKeyMap[] | undefined>;
+    public readonly keys!: pulumi.Output<outputs.customerprofiles.ObjectTypeKeyMap[] | undefined>;
     public /*out*/ readonly lastUpdatedAt!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
@@ -152,11 +152,11 @@ export interface ObjectTypeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
      */
-    fields?: pulumi.Input<pulumi.Input<inputs.CustomerProfiles.ObjectTypeFieldMapArgs>[]>;
+    fields?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeFieldMapArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
      */
-    keys?: pulumi.Input<pulumi.Input<inputs.CustomerProfiles.ObjectTypeKeyMapArgs>[]>;
+    keys?: pulumi.Input<pulumi.Input<inputs.customerprofiles.ObjectTypeKeyMapArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
      */

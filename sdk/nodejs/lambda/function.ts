@@ -22,7 +22,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Lambda:Function';
+    public static readonly __pulumiType = 'aws-native:lambda:Function';
 
     /**
      * Returns true if the given object is an instance of Function.  This is designed to work even
@@ -39,7 +39,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
      */
-    public readonly code!: pulumi.Output<outputs.Lambda.FunctionCode>;
+    public readonly code!: pulumi.Output<outputs.lambda.FunctionCode>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
      */
@@ -47,7 +47,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
      */
-    public readonly deadLetterConfig!: pulumi.Output<outputs.Lambda.FunctionDeadLetterConfig | undefined>;
+    public readonly deadLetterConfig!: pulumi.Output<outputs.lambda.FunctionDeadLetterConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
      */
@@ -55,11 +55,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
      */
-    public readonly environment!: pulumi.Output<outputs.Lambda.FunctionEnvironment | undefined>;
+    public readonly environment!: pulumi.Output<outputs.lambda.FunctionEnvironment | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
      */
-    public readonly fileSystemConfigs!: pulumi.Output<outputs.Lambda.FunctionFileSystemConfig[] | undefined>;
+    public readonly fileSystemConfigs!: pulumi.Output<outputs.lambda.FunctionFileSystemConfig[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
      */
@@ -71,7 +71,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
      */
-    public readonly imageConfig!: pulumi.Output<outputs.Lambda.FunctionImageConfig | undefined>;
+    public readonly imageConfig!: pulumi.Output<outputs.lambda.FunctionImageConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
      */
@@ -111,11 +111,11 @@ export class Function extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
      */
-    public readonly tracingConfig!: pulumi.Output<outputs.Lambda.FunctionTracingConfig | undefined>;
+    public readonly tracingConfig!: pulumi.Output<outputs.lambda.FunctionTracingConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
      */
-    public readonly vpcConfig!: pulumi.Output<outputs.Lambda.FunctionVpcConfig | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.lambda.FunctionVpcConfig | undefined>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -192,7 +192,7 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
      */
-    code: pulumi.Input<inputs.Lambda.FunctionCodeArgs>;
+    code: pulumi.Input<inputs.lambda.FunctionCodeArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
      */
@@ -200,7 +200,7 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
      */
-    deadLetterConfig?: pulumi.Input<inputs.Lambda.FunctionDeadLetterConfigArgs>;
+    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
      */
@@ -208,11 +208,11 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
      */
-    environment?: pulumi.Input<inputs.Lambda.FunctionEnvironmentArgs>;
+    environment?: pulumi.Input<inputs.lambda.FunctionEnvironmentArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
      */
-    fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.Lambda.FunctionFileSystemConfigArgs>[]>;
+    fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfigArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
      */
@@ -224,7 +224,7 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
      */
-    imageConfig?: pulumi.Input<inputs.Lambda.FunctionImageConfigArgs>;
+    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
      */
@@ -264,9 +264,9 @@ export interface FunctionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
      */
-    tracingConfig?: pulumi.Input<inputs.Lambda.FunctionTracingConfigArgs>;
+    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
      */
-    vpcConfig?: pulumi.Input<inputs.Lambda.FunctionVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfigArgs>;
 }

@@ -35,7 +35,7 @@ func NewSamplingRule(ctx *pulumi.Context,
 	}
 
 	var resource SamplingRule
-	err := ctx.RegisterResource("aws-native:XRay:SamplingRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:xray:SamplingRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewSamplingRule(ctx *pulumi.Context,
 func GetSamplingRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SamplingRuleState, opts ...pulumi.ResourceOption) (*SamplingRule, error) {
 	var resource SamplingRule
-	err := ctx.ReadResource("aws-native:XRay:SamplingRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:xray:SamplingRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

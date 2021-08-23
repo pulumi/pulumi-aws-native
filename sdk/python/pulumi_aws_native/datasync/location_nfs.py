@@ -176,7 +176,7 @@ class LocationNFS(pulumi.CustomResource):
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
         super(LocationNFS, __self__).__init__(
-            'aws-native:DataSync:LocationNFS',
+            'aws-native:datasync:LocationNFS',
             resource_name,
             __props__,
             opts)

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudWatch
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudWatch:CompositeAlarm")]
+    [AwsNativeResourceType("aws-native:cloudwatch:CompositeAlarm")]
     public partial class CompositeAlarm : Pulumi.CustomResource
     {
         /// <summary>
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CompositeAlarm(string name, CompositeAlarmArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudWatch:CompositeAlarm", name, args ?? new CompositeAlarmArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudwatch:CompositeAlarm", name, args ?? new CompositeAlarmArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CompositeAlarm(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudWatch:CompositeAlarm", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudwatch:CompositeAlarm", name, null, MakeResourceOptions(options, id))
         {
         }
 

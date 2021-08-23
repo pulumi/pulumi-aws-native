@@ -355,7 +355,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["url"] = None
         super(OriginEndpoint, __self__).__init__(
-            'aws-native:MediaPackage:OriginEndpoint',
+            'aws-native:mediapackage:OriginEndpoint',
             resource_name,
             __props__,
             opts)

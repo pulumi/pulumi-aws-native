@@ -36,7 +36,7 @@ func NewConnectionAlias(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ConnectionString'")
 	}
 	var resource ConnectionAlias
-	err := ctx.RegisterResource("aws-native:WorkSpaces:ConnectionAlias", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:workspaces:ConnectionAlias", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewConnectionAlias(ctx *pulumi.Context,
 func GetConnectionAlias(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectionAliasState, opts ...pulumi.ResourceOption) (*ConnectionAlias, error) {
 	var resource ConnectionAlias
-	err := ctx.ReadResource("aws-native:WorkSpaces:ConnectionAlias", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:workspaces:ConnectionAlias", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

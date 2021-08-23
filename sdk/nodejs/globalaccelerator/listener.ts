@@ -22,7 +22,7 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GlobalAccelerator:Listener';
+    public static readonly __pulumiType = 'aws-native:globalaccelerator:Listener';
 
     /**
      * Returns true if the given object is an instance of Listener.  This is designed to work even
@@ -47,7 +47,7 @@ export class Listener extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    public readonly portRanges!: pulumi.Output<outputs.GlobalAccelerator.ListenerPortRange[]>;
+    public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */
@@ -107,7 +107,7 @@ export interface ListenerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
      */
-    portRanges: pulumi.Input<pulumi.Input<inputs.GlobalAccelerator.ListenerPortRangeArgs>[]>;
+    portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRangeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
      */

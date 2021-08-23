@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECR
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECR:RegistryPolicy")]
+    [AwsNativeResourceType("aws-native:ecr:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
         /// <summary>
@@ -33,12 +33,12 @@ namespace Pulumi.AwsNative.ECR
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistryPolicy(string name, RegistryPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecr:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistryPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECR:RegistryPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecr:RegistryPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

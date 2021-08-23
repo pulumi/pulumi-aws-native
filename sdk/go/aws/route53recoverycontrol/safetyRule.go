@@ -46,7 +46,7 @@ func NewSafetyRule(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RuleConfig'")
 	}
 	var resource SafetyRule
-	err := ctx.RegisterResource("aws-native:Route53RecoveryControl:SafetyRule", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoverycontrol:SafetyRule", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewSafetyRule(ctx *pulumi.Context,
 func GetSafetyRule(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SafetyRuleState, opts ...pulumi.ResourceOption) (*SafetyRule, error) {
 	var resource SafetyRule
-	err := ctx.ReadResource("aws-native:Route53RecoveryControl:SafetyRule", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoverycontrol:SafetyRule", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

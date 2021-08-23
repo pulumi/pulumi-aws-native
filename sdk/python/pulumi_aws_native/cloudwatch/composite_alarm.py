@@ -210,7 +210,7 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["o_k_actions"] = o_k_actions
             __props__.__dict__["arn"] = None
         super(CompositeAlarm, __self__).__init__(
-            'aws-native:CloudWatch:CompositeAlarm',
+            'aws-native:cloudwatch:CompositeAlarm',
             resource_name,
             __props__,
             opts)

@@ -132,7 +132,7 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(CapacityProvider, __self__).__init__(
-            'aws-native:ECS:CapacityProvider',
+            'aws-native:ecs:CapacityProvider',
             resource_name,
             __props__,
             opts)

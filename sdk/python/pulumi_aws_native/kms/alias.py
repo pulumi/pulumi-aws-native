@@ -109,7 +109,7 @@ class Alias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_key_id'")
             __props__.__dict__["target_key_id"] = target_key_id
         super(Alias, __self__).__init__(
-            'aws-native:KMS:Alias',
+            'aws-native:kms:Alias',
             resource_name,
             __props__,
             opts)

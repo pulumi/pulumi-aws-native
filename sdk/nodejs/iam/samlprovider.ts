@@ -22,7 +22,7 @@ export class SAMLProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IAM:SAMLProvider';
+    public static readonly __pulumiType = 'aws-native:iam:SAMLProvider';
 
     /**
      * Returns true if the given object is an instance of SAMLProvider.  This is designed to work even

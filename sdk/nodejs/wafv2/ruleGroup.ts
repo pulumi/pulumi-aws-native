@@ -22,7 +22,7 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:WAFv2:RuleGroup';
+    public static readonly __pulumiType = 'aws-native:wafv2:RuleGroup';
 
     /**
      * Returns true if the given object is an instance of RuleGroup.  This is designed to work even
@@ -36,16 +36,16 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly availableLabels!: pulumi.Output<outputs.WAFv2.RuleGroupLabelSummary[]>;
+    public /*out*/ readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
      */
     public readonly capacity!: pulumi.Output<number>;
-    public /*out*/ readonly consumedLabels!: pulumi.Output<outputs.WAFv2.RuleGroupLabelSummary[]>;
+    public /*out*/ readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
      */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.WAFv2.RuleGroupCustomResponseBody} | undefined>;
+    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.RuleGroupCustomResponseBody} | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
@@ -59,7 +59,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    public readonly rules!: pulumi.Output<outputs.WAFv2.RuleGroupRule[] | undefined>;
+    public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
@@ -71,7 +71,7 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
      */
-    public readonly visibilityConfig!: pulumi.Output<outputs.WAFv2.RuleGroupVisibilityConfig>;
+    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
      */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.WAFv2.RuleGroupCustomResponseBodyArgs>}>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodyArgs>}>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
      */
@@ -151,7 +151,7 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.WAFv2.RuleGroupRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
      */
@@ -163,5 +163,5 @@ export interface RuleGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
      */
-    visibilityConfig: pulumi.Input<inputs.WAFv2.RuleGroupVisibilityConfigArgs>;
+    visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfigArgs>;
 }

@@ -45,7 +45,7 @@ func NewServiceAction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ServiceAction
-	err := ctx.RegisterResource("aws-native:ServiceCatalog:ServiceAction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:servicecatalog:ServiceAction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewServiceAction(ctx *pulumi.Context,
 func GetServiceAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceActionState, opts ...pulumi.ResourceOption) (*ServiceAction, error) {
 	var resource ServiceAction
-	err := ctx.ReadResource("aws-native:ServiceCatalog:ServiceAction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:servicecatalog:ServiceAction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

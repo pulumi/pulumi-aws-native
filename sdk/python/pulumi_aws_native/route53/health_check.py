@@ -111,7 +111,7 @@ class HealthCheck(pulumi.CustomResource):
             __props__.__dict__["health_check_tags"] = health_check_tags
             __props__.__dict__["health_check_id"] = None
         super(HealthCheck, __self__).__init__(
-            'aws-native:Route53:HealthCheck',
+            'aws-native:route53:HealthCheck',
             resource_name,
             __props__,
             opts)

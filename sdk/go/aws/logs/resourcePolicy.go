@@ -35,7 +35,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
 	var resource ResourcePolicy
-	err := ctx.RegisterResource("aws-native:Logs:ResourcePolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:logs:ResourcePolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 func GetResourcePolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ResourcePolicyState, opts ...pulumi.ResourceOption) (*ResourcePolicy, error) {
 	var resource ResourcePolicy
-	err := ctx.ReadResource("aws-native:Logs:ResourcePolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:logs:ResourcePolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

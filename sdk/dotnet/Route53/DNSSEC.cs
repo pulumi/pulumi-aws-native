@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53:DNSSEC")]
+    [AwsNativeResourceType("aws-native:route53:DNSSEC")]
     public partial class DNSSEC : Pulumi.CustomResource
     {
         /// <summary>
@@ -30,12 +30,12 @@ namespace Pulumi.AwsNative.Route53
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DNSSEC(string name, DNSSECArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:DNSSEC", name, args ?? new DNSSECArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53:DNSSEC", name, args ?? new DNSSECArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DNSSEC(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53:DNSSEC", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53:DNSSEC", name, null, MakeResourceOptions(options, id))
         {
         }
 

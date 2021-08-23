@@ -22,7 +22,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSO:InstanceAccessControlAttributeConfiguration';
+    public static readonly __pulumiType = 'aws-native:sso:InstanceAccessControlAttributeConfiguration';
 
     /**
      * Returns true if the given object is an instance of InstanceAccessControlAttributeConfiguration.  This is designed to work even
@@ -38,7 +38,7 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
      */
-    public readonly accessControlAttributes!: pulumi.Output<outputs.SSO.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
+    public readonly accessControlAttributes!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */
@@ -78,7 +78,7 @@ export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
      */
-    accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.SSO.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
+    accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
      */

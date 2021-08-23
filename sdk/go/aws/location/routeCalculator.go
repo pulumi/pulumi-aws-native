@@ -46,7 +46,7 @@ func NewRouteCalculator(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource RouteCalculator
-	err := ctx.RegisterResource("aws-native:Location:RouteCalculator", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:location:RouteCalculator", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewRouteCalculator(ctx *pulumi.Context,
 func GetRouteCalculator(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RouteCalculatorState, opts ...pulumi.ResourceOption) (*RouteCalculator, error) {
 	var resource RouteCalculator
-	err := ctx.ReadResource("aws-native:Location:RouteCalculator", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:location:RouteCalculator", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

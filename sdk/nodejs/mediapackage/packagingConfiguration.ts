@@ -22,7 +22,7 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaPackage:PackagingConfiguration';
+    public static readonly __pulumiType = 'aws-native:mediapackage:PackagingConfiguration';
 
     /**
      * Returns true if the given object is an instance of PackagingConfiguration.  This is designed to work even
@@ -39,15 +39,15 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    public readonly cmafPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationCmafPackage | undefined>;
+    public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationCmafPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    public readonly dashPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationDashPackage | undefined>;
+    public readonly dashPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationDashPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    public readonly hlsPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationHlsPackage | undefined>;
+    public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationHlsPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
@@ -55,7 +55,7 @@ export class PackagingConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    public readonly mssPackage!: pulumi.Output<outputs.MediaPackage.PackagingConfigurationMssPackage | undefined>;
+    public readonly mssPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationMssPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */
@@ -114,15 +114,15 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
      */
-    cmafPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationCmafPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
      */
-    dashPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationDashPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
      */
-    hlsPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationHlsPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
      */
@@ -130,7 +130,7 @@ export interface PackagingConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
      */
-    mssPackage?: pulumi.Input<inputs.MediaPackage.PackagingConfigurationMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationMssPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
      */

@@ -45,7 +45,7 @@ func NewKeySigningKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
 	var resource KeySigningKey
-	err := ctx.RegisterResource("aws-native:Route53:KeySigningKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53:KeySigningKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewKeySigningKey(ctx *pulumi.Context,
 func GetKeySigningKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeySigningKeyState, opts ...pulumi.ResourceOption) (*KeySigningKey, error) {
 	var resource KeySigningKey
-	err := ctx.ReadResource("aws-native:Route53:KeySigningKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53:KeySigningKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

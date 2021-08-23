@@ -88,7 +88,7 @@ class DNSSEC(pulumi.CustomResource):
                 raise TypeError("Missing required property 'hosted_zone_id'")
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         super(DNSSEC, __self__).__init__(
-            'aws-native:Route53:DNSSEC',
+            'aws-native:route53:DNSSEC',
             resource_name,
             __props__,
             opts)

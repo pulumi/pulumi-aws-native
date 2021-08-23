@@ -49,7 +49,7 @@ func NewKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'KeyPolicy'")
 	}
 	var resource Key
-	err := ctx.RegisterResource("aws-native:KMS:Key", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kms:Key", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewKey(ctx *pulumi.Context,
 func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *KeyState, opts ...pulumi.ResourceOption) (*Key, error) {
 	var resource Key
-	err := ctx.ReadResource("aws-native:KMS:Key", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kms:Key", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

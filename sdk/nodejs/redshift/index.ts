@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Redshift:Cluster":
+            case "aws-native:redshift:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Redshift", _module)
+pulumi.runtime.registerResourceModule("aws-native", "redshift", _module)

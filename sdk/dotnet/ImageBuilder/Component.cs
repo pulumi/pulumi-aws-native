@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ImageBuilder:Component")]
+    [AwsNativeResourceType("aws-native:imagebuilder:Component")]
     public partial class Component : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Component(string name, ComponentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:imagebuilder:Component", name, args ?? new ComponentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Component(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:Component", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:imagebuilder:Component", name, null, MakeResourceOptions(options, id))
         {
         }
 

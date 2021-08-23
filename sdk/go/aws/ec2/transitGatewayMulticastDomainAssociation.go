@@ -43,7 +43,7 @@ func NewTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
 	var resource TransitGatewayMulticastDomainAssociation
-	err := ctx.RegisterResource("aws-native:EC2:TransitGatewayMulticastDomainAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context,
 func GetTransitGatewayMulticastDomainAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayMulticastDomainAssociationState, opts ...pulumi.ResourceOption) (*TransitGatewayMulticastDomainAssociation, error) {
 	var resource TransitGatewayMulticastDomainAssociation
-	err := ctx.ReadResource("aws-native:EC2:TransitGatewayMulticastDomainAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:TransitGatewayMulticastDomainAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

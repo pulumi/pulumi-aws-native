@@ -37,7 +37,7 @@ func NewPlaybackKeyPair(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PublicKeyMaterial'")
 	}
 	var resource PlaybackKeyPair
-	err := ctx.RegisterResource("aws-native:IVS:PlaybackKeyPair", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ivs:PlaybackKeyPair", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewPlaybackKeyPair(ctx *pulumi.Context,
 func GetPlaybackKeyPair(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PlaybackKeyPairState, opts ...pulumi.ResourceOption) (*PlaybackKeyPair, error) {
 	var resource PlaybackKeyPair
-	err := ctx.ReadResource("aws-native:IVS:PlaybackKeyPair", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ivs:PlaybackKeyPair", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

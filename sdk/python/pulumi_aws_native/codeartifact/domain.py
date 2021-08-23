@@ -153,7 +153,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["owner"] = None
         super(Domain, __self__).__init__(
-            'aws-native:CodeArtifact:Domain',
+            'aws-native:codeartifact:Domain',
             resource_name,
             __props__,
             opts)

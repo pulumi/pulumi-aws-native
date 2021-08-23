@@ -61,7 +61,7 @@ func NewApp(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource App
-	err := ctx.RegisterResource("aws-native:Amplify:App", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:amplify:App", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -73,7 +73,7 @@ func NewApp(ctx *pulumi.Context,
 func GetApp(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AppState, opts ...pulumi.ResourceOption) (*App, error) {
 	var resource App
-	err := ctx.ReadResource("aws-native:Amplify:App", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:amplify:App", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

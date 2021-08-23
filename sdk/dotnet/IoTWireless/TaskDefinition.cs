@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTWireless:TaskDefinition")]
+    [AwsNativeResourceType("aws-native:iotwireless:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskDefinition(string name, TaskDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotwireless:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:TaskDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotwireless:TaskDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

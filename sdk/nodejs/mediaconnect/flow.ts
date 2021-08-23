@@ -22,7 +22,7 @@ export class Flow extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaConnect:Flow';
+    public static readonly __pulumiType = 'aws-native:mediaconnect:Flow';
 
     /**
      * Returns true if the given object is an instance of Flow.  This is designed to work even
@@ -48,11 +48,11 @@ export class Flow extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
      */
-    public readonly source!: pulumi.Output<outputs.MediaConnect.FlowSource>;
+    public readonly source!: pulumi.Output<outputs.mediaconnect.FlowSource>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
      */
-    public readonly sourceFailoverConfig!: pulumi.Output<outputs.MediaConnect.FlowFailoverConfig | undefined>;
+    public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
     public /*out*/ readonly sourceIngestIp!: pulumi.Output<string>;
     public /*out*/ readonly sourceSourceArn!: pulumi.Output<string>;
 
@@ -113,9 +113,9 @@ export interface FlowArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
      */
-    source: pulumi.Input<inputs.MediaConnect.FlowSourceArgs>;
+    source: pulumi.Input<inputs.mediaconnect.FlowSourceArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
      */
-    sourceFailoverConfig?: pulumi.Input<inputs.MediaConnect.FlowFailoverConfigArgs>;
+    sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs>;
 }

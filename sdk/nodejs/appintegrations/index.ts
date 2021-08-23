@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:AppIntegrations:EventIntegration":
+            case "aws-native:appintegrations:EventIntegration":
                 return new EventIntegration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "AppIntegrations", _module)
+pulumi.runtime.registerResourceModule("aws-native", "appintegrations", _module)

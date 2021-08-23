@@ -32,7 +32,7 @@ func NewOriginRequestPolicy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'OriginRequestPolicyConfig'")
 	}
 	var resource OriginRequestPolicy
-	err := ctx.RegisterResource("aws-native:CloudFront:OriginRequestPolicy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudfront:OriginRequestPolicy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -44,7 +44,7 @@ func NewOriginRequestPolicy(ctx *pulumi.Context,
 func GetOriginRequestPolicy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *OriginRequestPolicyState, opts ...pulumi.ResourceOption) (*OriginRequestPolicy, error) {
 	var resource OriginRequestPolicy
-	err := ctx.ReadResource("aws-native:CloudFront:OriginRequestPolicy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudfront:OriginRequestPolicy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

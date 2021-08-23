@@ -21,7 +21,7 @@ export class Tracker extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Location:Tracker';
+    public static readonly __pulumiType = 'aws-native:location:Tracker';
 
     /**
      * Returns true if the given object is an instance of Tracker.  This is designed to work even

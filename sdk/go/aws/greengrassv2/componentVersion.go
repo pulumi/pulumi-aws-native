@@ -33,7 +33,7 @@ func NewComponentVersion(ctx *pulumi.Context,
 	}
 
 	var resource ComponentVersion
-	err := ctx.RegisterResource("aws-native:GreengrassV2:ComponentVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:greengrassv2:ComponentVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewComponentVersion(ctx *pulumi.Context,
 func GetComponentVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ComponentVersionState, opts ...pulumi.ResourceOption) (*ComponentVersion, error) {
 	var resource ComponentVersion
-	err := ctx.ReadResource("aws-native:GreengrassV2:ComponentVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:greengrassv2:ComponentVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

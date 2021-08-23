@@ -113,7 +113,7 @@ class StorageLens(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["storage_lens_configuration_storage_lens_arn"] = None
         super(StorageLens, __self__).__init__(
-            'aws-native:S3:StorageLens',
+            'aws-native:s3:StorageLens',
             resource_name,
             __props__,
             opts)

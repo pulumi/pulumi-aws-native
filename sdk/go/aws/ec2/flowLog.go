@@ -56,7 +56,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TrafficType'")
 	}
 	var resource FlowLog
-	err := ctx.RegisterResource("aws-native:EC2:FlowLog", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:FlowLog", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewFlowLog(ctx *pulumi.Context,
 func GetFlowLog(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowLogState, opts ...pulumi.ResourceOption) (*FlowLog, error) {
 	var resource FlowLog
-	err := ctx.ReadResource("aws-native:EC2:FlowLog", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:FlowLog", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

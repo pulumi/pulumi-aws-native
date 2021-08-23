@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFront
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFront:Function")]
+    [AwsNativeResourceType("aws-native:cloudfront:Function")]
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Function(string name, FunctionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudfront:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Function(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFront:Function", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudfront:Function", name, null, MakeResourceOptions(options, id))
         {
         }
 

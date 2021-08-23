@@ -35,7 +35,7 @@ func NewTransitGatewayRegistration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransitGatewayArn'")
 	}
 	var resource TransitGatewayRegistration
-	err := ctx.RegisterResource("aws-native:NetworkManager:TransitGatewayRegistration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:TransitGatewayRegistration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewTransitGatewayRegistration(ctx *pulumi.Context,
 func GetTransitGatewayRegistration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayRegistrationState, opts ...pulumi.ResourceOption) (*TransitGatewayRegistration, error) {
 	var resource TransitGatewayRegistration
-	err := ctx.ReadResource("aws-native:NetworkManager:TransitGatewayRegistration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:TransitGatewayRegistration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

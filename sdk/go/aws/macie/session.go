@@ -30,7 +30,7 @@ func NewSession(ctx *pulumi.Context,
 	}
 
 	var resource Session
-	err := ctx.RegisterResource("aws-native:Macie:Session", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:macie:Session", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func NewSession(ctx *pulumi.Context,
 func GetSession(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SessionState, opts ...pulumi.ResourceOption) (*Session, error) {
 	var resource Session
-	err := ctx.ReadResource("aws-native:Macie:Session", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:macie:Session", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

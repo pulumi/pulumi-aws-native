@@ -236,7 +236,7 @@ class LaunchProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["launch_profile_id"] = None
         super(LaunchProfile, __self__).__init__(
-            'aws-native:NimbleStudio:LaunchProfile',
+            'aws-native:nimblestudio:LaunchProfile',
             resource_name,
             __props__,
             opts)

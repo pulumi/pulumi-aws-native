@@ -69,7 +69,7 @@ func NewService(ctx *pulumi.Context,
 	}
 
 	var resource Service
-	err := ctx.RegisterResource("aws-native:ECS:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ecs:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("aws-native:ECS:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ecs:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

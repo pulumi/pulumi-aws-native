@@ -30,7 +30,7 @@ func NewModuleDefaultVersion(ctx *pulumi.Context,
 	}
 
 	var resource ModuleDefaultVersion
-	err := ctx.RegisterResource("aws-native:CloudFormation:ModuleDefaultVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:ModuleDefaultVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -42,7 +42,7 @@ func NewModuleDefaultVersion(ctx *pulumi.Context,
 func GetModuleDefaultVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModuleDefaultVersionState, opts ...pulumi.ResourceOption) (*ModuleDefaultVersion, error) {
 	var resource ModuleDefaultVersion
-	err := ctx.ReadResource("aws-native:CloudFormation:ModuleDefaultVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:ModuleDefaultVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

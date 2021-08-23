@@ -130,7 +130,7 @@ class RoutingControl(pulumi.CustomResource):
             __props__.__dict__["routing_control_arn"] = None
             __props__.__dict__["status"] = None
         super(RoutingControl, __self__).__init__(
-            'aws-native:Route53RecoveryControl:RoutingControl',
+            'aws-native:route53recoverycontrol:RoutingControl',
             resource_name,
             __props__,
             opts)

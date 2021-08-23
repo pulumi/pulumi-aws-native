@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:Pipeline")]
+    [AwsNativeResourceType("aws-native:sagemaker:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Pipeline(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:Pipeline", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:Pipeline", name, null, MakeResourceOptions(options, id))
         {
         }
 

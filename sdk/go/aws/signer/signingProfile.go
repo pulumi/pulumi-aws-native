@@ -39,7 +39,7 @@ func NewSigningProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
 	var resource SigningProfile
-	err := ctx.RegisterResource("aws-native:Signer:SigningProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:signer:SigningProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func NewSigningProfile(ctx *pulumi.Context,
 func GetSigningProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SigningProfileState, opts ...pulumi.ResourceOption) (*SigningProfile, error) {
 	var resource SigningProfile
-	err := ctx.ReadResource("aws-native:Signer:SigningProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:signer:SigningProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

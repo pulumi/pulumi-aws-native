@@ -56,7 +56,7 @@ func NewDataSet(ctx *pulumi.Context,
 	}
 
 	var resource DataSet
-	err := ctx.RegisterResource("aws-native:QuickSight:DataSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:quicksight:DataSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func NewDataSet(ctx *pulumi.Context,
 func GetDataSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DataSetState, opts ...pulumi.ResourceOption) (*DataSet, error) {
 	var resource DataSet
-	err := ctx.ReadResource("aws-native:QuickSight:DataSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:quicksight:DataSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

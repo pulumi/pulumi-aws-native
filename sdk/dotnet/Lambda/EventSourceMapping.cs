@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Lambda
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Lambda:EventSourceMapping")]
+    [AwsNativeResourceType("aws-native:lambda:EventSourceMapping")]
     public partial class EventSourceMapping : Pulumi.CustomResource
     {
         /// <summary>
@@ -135,12 +135,12 @@ namespace Pulumi.AwsNative.Lambda
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public EventSourceMapping(string name, EventSourceMappingArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:EventSourceMapping", name, args ?? new EventSourceMappingArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:lambda:EventSourceMapping", name, args ?? new EventSourceMappingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private EventSourceMapping(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Lambda:EventSourceMapping", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:lambda:EventSourceMapping", name, null, MakeResourceOptions(options, id))
         {
         }
 

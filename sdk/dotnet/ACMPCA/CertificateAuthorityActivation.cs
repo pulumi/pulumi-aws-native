@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ACMPCA
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ACMPCA:CertificateAuthorityActivation")]
+    [AwsNativeResourceType("aws-native:acmpca:CertificateAuthorityActivation")]
     public partial class CertificateAuthorityActivation : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.ACMPCA
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertificateAuthorityActivation(string name, CertificateAuthorityActivationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ACMPCA:CertificateAuthorityActivation", name, args ?? new CertificateAuthorityActivationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:acmpca:CertificateAuthorityActivation", name, args ?? new CertificateAuthorityActivationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CertificateAuthorityActivation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ACMPCA:CertificateAuthorityActivation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:acmpca:CertificateAuthorityActivation", name, null, MakeResourceOptions(options, id))
         {
         }
 

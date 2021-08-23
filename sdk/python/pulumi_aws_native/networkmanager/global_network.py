@@ -111,7 +111,7 @@ class GlobalNetwork(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(GlobalNetwork, __self__).__init__(
-            'aws-native:NetworkManager:GlobalNetwork',
+            'aws-native:networkmanager:GlobalNetwork',
             resource_name,
             __props__,
             opts)

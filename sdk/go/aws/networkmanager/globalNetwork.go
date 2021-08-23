@@ -31,7 +31,7 @@ func NewGlobalNetwork(ctx *pulumi.Context,
 	}
 
 	var resource GlobalNetwork
-	err := ctx.RegisterResource("aws-native:NetworkManager:GlobalNetwork", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:networkmanager:GlobalNetwork", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewGlobalNetwork(ctx *pulumi.Context,
 func GetGlobalNetwork(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GlobalNetworkState, opts ...pulumi.ResourceOption) (*GlobalNetwork, error) {
 	var resource GlobalNetwork
-	err := ctx.ReadResource("aws-native:NetworkManager:GlobalNetwork", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:networkmanager:GlobalNetwork", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

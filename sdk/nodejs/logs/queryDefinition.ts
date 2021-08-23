@@ -21,7 +21,7 @@ export class QueryDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Logs:QueryDefinition';
+    public static readonly __pulumiType = 'aws-native:logs:QueryDefinition';
 
     /**
      * Returns true if the given object is an instance of QueryDefinition.  This is designed to work even

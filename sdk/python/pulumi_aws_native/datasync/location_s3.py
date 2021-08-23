@@ -175,7 +175,7 @@ class LocationS3(pulumi.CustomResource):
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
         super(LocationS3, __self__).__init__(
-            'aws-native:DataSync:LocationS3',
+            'aws-native:datasync:LocationS3',
             resource_name,
             __props__,
             opts)

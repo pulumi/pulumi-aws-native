@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CustomerProfiles:Domain")]
+    [AwsNativeResourceType("aws-native:customerprofiles:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         [Output("createdAt")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:customerprofiles:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Domain(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CustomerProfiles:Domain", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:customerprofiles:Domain", name, null, MakeResourceOptions(options, id))
         {
         }
 

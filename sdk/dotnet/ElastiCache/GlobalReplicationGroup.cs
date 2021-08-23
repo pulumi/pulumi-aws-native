@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ElastiCache:GlobalReplicationGroup")]
+    [AwsNativeResourceType("aws-native:elasticache:GlobalReplicationGroup")]
     public partial class GlobalReplicationGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GlobalReplicationGroup(string name, GlobalReplicationGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:GlobalReplicationGroup", name, args ?? new GlobalReplicationGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:elasticache:GlobalReplicationGroup", name, args ?? new GlobalReplicationGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GlobalReplicationGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:GlobalReplicationGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:elasticache:GlobalReplicationGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

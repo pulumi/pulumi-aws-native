@@ -109,7 +109,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
         super(AccessPointPolicy, __self__).__init__(
-            'aws-native:S3ObjectLambda:AccessPointPolicy',
+            'aws-native:s3objectlambda:AccessPointPolicy',
             resource_name,
             __props__,
             opts)

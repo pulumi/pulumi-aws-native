@@ -35,7 +35,7 @@ func NewWebACLAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WebACLArn'")
 	}
 	var resource WebACLAssociation
-	err := ctx.RegisterResource("aws-native:WAFv2:WebACLAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:wafv2:WebACLAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -47,7 +47,7 @@ func NewWebACLAssociation(ctx *pulumi.Context,
 func GetWebACLAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WebACLAssociationState, opts ...pulumi.ResourceOption) (*WebACLAssociation, error) {
 	var resource WebACLAssociation
-	err := ctx.ReadResource("aws-native:WAFv2:WebACLAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:wafv2:WebACLAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -21,13 +21,13 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Glue:Registry":
+	case "aws-native:glue:Registry":
 		r = &Registry{}
-	case "aws-native:Glue:Schema":
+	case "aws-native:glue:Schema":
 		r = &Schema{}
-	case "aws-native:Glue:SchemaVersion":
+	case "aws-native:glue:SchemaVersion":
 		r = &SchemaVersion{}
-	case "aws-native:Glue:SchemaVersionMetadata":
+	case "aws-native:glue:SchemaVersionMetadata":
 		r = &SchemaVersionMetadata{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -44,7 +44,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Glue",
+		"glue",
 		&module{version},
 	)
 }

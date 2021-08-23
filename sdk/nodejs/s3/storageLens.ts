@@ -22,7 +22,7 @@ export class StorageLens extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:S3:StorageLens';
+    public static readonly __pulumiType = 'aws-native:s3:StorageLens';
 
     /**
      * Returns true if the given object is an instance of StorageLens.  This is designed to work even
@@ -38,7 +38,7 @@ export class StorageLens extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
      */
-    public readonly storageLensConfiguration!: pulumi.Output<outputs.S3.StorageLensStorageLensConfiguration>;
+    public readonly storageLensConfiguration!: pulumi.Output<outputs.s3.StorageLensStorageLensConfiguration>;
     public /*out*/ readonly storageLensConfigurationStorageLensArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
@@ -81,7 +81,7 @@ export interface StorageLensArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
      */
-    storageLensConfiguration: pulumi.Input<inputs.S3.StorageLensStorageLensConfigurationArgs>;
+    storageLensConfiguration: pulumi.Input<inputs.s3.StorageLensStorageLensConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
      */

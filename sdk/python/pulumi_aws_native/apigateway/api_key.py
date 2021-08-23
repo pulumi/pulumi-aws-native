@@ -232,7 +232,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["a_pi_key_id"] = None
         super(ApiKey, __self__).__init__(
-            'aws-native:ApiGateway:ApiKey',
+            'aws-native:apigateway:ApiKey',
             resource_name,
             __props__,
             opts)

@@ -22,7 +22,7 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:GameLift:Alias';
+    public static readonly __pulumiType = 'aws-native:gamelift:Alias';
 
     /**
      * Returns true if the given object is an instance of Alias.  This is designed to work even
@@ -47,7 +47,7 @@ export class Alias extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
      */
-    public readonly routingStrategy!: pulumi.Output<outputs.GameLift.AliasRoutingStrategy>;
+    public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -98,5 +98,5 @@ export interface AliasArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
      */
-    routingStrategy: pulumi.Input<inputs.GameLift.AliasRoutingStrategyArgs>;
+    routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategyArgs>;
 }

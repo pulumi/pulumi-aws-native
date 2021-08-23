@@ -150,7 +150,7 @@ class PreparedStatement(pulumi.CustomResource):
                 raise TypeError("Missing required property 'work_group'")
             __props__.__dict__["work_group"] = work_group
         super(PreparedStatement, __self__).__init__(
-            'aws-native:Athena:PreparedStatement',
+            'aws-native:athena:PreparedStatement',
             resource_name,
             __props__,
             opts)

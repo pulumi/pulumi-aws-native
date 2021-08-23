@@ -50,7 +50,7 @@ func NewProject(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Project
-	err := ctx.RegisterResource("aws-native:DataBrew:Project", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:databrew:Project", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewProject(ctx *pulumi.Context,
 func GetProject(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ProjectState, opts ...pulumi.ResourceOption) (*Project, error) {
 	var resource Project
-	err := ctx.ReadResource("aws-native:DataBrew:Project", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:databrew:Project", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

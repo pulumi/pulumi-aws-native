@@ -55,7 +55,7 @@ func NewImageRecipe(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	var resource ImageRecipe
-	err := ctx.RegisterResource("aws-native:ImageBuilder:ImageRecipe", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:imagebuilder:ImageRecipe", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewImageRecipe(ctx *pulumi.Context,
 func GetImageRecipe(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ImageRecipeState, opts ...pulumi.ResourceOption) (*ImageRecipe, error) {
 	var resource ImageRecipe
-	err := ctx.ReadResource("aws-native:ImageBuilder:ImageRecipe", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:imagebuilder:ImageRecipe", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

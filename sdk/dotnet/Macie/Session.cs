@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Macie
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Macie:Session")]
+    [AwsNativeResourceType("aws-native:macie:Session")]
     public partial class Session : Pulumi.CustomResource
     {
         [Output("awsAccountId")]
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.Macie
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Session(string name, SessionArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Macie:Session", name, args ?? new SessionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:macie:Session", name, args ?? new SessionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Session(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Macie:Session", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:macie:Session", name, null, MakeResourceOptions(options, id))
         {
         }
 

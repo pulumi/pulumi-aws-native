@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:LicenseManager:Grant":
+	case "aws-native:licensemanager:Grant":
 		r = &Grant{}
-	case "aws-native:LicenseManager:License":
+	case "aws-native:licensemanager:License":
 		r = &License{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"LicenseManager",
+		"licensemanager",
 		&module{version},
 	)
 }

@@ -89,7 +89,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_name"] = project_name
             __props__.__dict__["arn"] = None
         super(Project, __self__).__init__(
-            'aws-native:LookoutVision:Project',
+            'aws-native:lookoutvision:Project',
             resource_name,
             __props__,
             opts)

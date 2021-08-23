@@ -22,7 +22,7 @@ export class LocationEFS extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationEFS';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationEFS';
 
     /**
      * Returns true if the given object is an instance of LocationEFS.  This is designed to work even
@@ -38,7 +38,7 @@ export class LocationEFS extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
      */
-    public readonly ec2Config!: pulumi.Output<outputs.DataSync.LocationEFSEc2Config>;
+    public readonly ec2Config!: pulumi.Output<outputs.datasync.LocationEFSEc2Config>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
      */
@@ -99,7 +99,7 @@ export interface LocationEFSArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
      */
-    ec2Config: pulumi.Input<inputs.DataSync.LocationEFSEc2ConfigArgs>;
+    ec2Config: pulumi.Input<inputs.datasync.LocationEFSEc2ConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
      */

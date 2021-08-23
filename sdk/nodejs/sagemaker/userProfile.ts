@@ -22,7 +22,7 @@ export class UserProfile extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:UserProfile';
+    public static readonly __pulumiType = 'aws-native:sagemaker:UserProfile';
 
     /**
      * Returns true if the given object is an instance of UserProfile.  This is designed to work even
@@ -59,7 +59,7 @@ export class UserProfile extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
      */
-    public readonly userSettings!: pulumi.Output<outputs.SageMaker.UserProfileUserSettings | undefined>;
+    public readonly userSettings!: pulumi.Output<outputs.sagemaker.UserProfileUserSettings | undefined>;
 
     /**
      * Create a UserProfile resource with the given unique name, arguments, and options.
@@ -128,5 +128,5 @@ export interface UserProfileArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
      */
-    userSettings?: pulumi.Input<inputs.SageMaker.UserProfileUserSettingsArgs>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsArgs>;
 }

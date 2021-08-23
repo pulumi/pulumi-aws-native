@@ -313,7 +313,7 @@ class FlowSource(pulumi.CustomResource):
             __props__.__dict__["ingest_ip"] = None
             __props__.__dict__["source_arn"] = None
         super(FlowSource, __self__).__init__(
-            'aws-native:MediaConnect:FlowSource',
+            'aws-native:mediaconnect:FlowSource',
             resource_name,
             __props__,
             opts)

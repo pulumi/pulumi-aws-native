@@ -22,7 +22,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:CloudFrontOriginAccessIdentity';
+    public static readonly __pulumiType = 'aws-native:cloudfront:CloudFrontOriginAccessIdentity';
 
     /**
      * Returns true if the given object is an instance of CloudFrontOriginAccessIdentity.  This is designed to work even
@@ -38,7 +38,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig>;
+    public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly s3CanonicalUserId!: pulumi.Output<string>;
 
@@ -78,5 +78,5 @@ export interface CloudFrontOriginAccessIdentityArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
      */
-    cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.CloudFront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs>;
+    cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.cloudfront.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs>;
 }

@@ -63,7 +63,7 @@ func NewDBProxy(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
 	var resource DBProxy
-	err := ctx.RegisterResource("aws-native:RDS:DBProxy", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:rds:DBProxy", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func NewDBProxy(ctx *pulumi.Context,
 func GetDBProxy(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DBProxyState, opts ...pulumi.ResourceOption) (*DBProxy, error) {
 	var resource DBProxy
-	err := ctx.ReadResource("aws-native:RDS:DBProxy", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:rds:DBProxy", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

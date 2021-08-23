@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:CustomerProfiles:Domain":
+            case "aws-native:customerprofiles:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "aws-native:CustomerProfiles:Integration":
+            case "aws-native:customerprofiles:Integration":
                 return new Integration(name, <any>undefined, { urn })
-            case "aws-native:CustomerProfiles:ObjectType":
+            case "aws-native:customerprofiles:ObjectType":
                 return new ObjectType(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "CustomerProfiles", _module)
+pulumi.runtime.registerResourceModule("aws-native", "customerprofiles", _module)

@@ -44,7 +44,7 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource GeofenceCollection
-	err := ctx.RegisterResource("aws-native:Location:GeofenceCollection", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:location:GeofenceCollection", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 func GetGeofenceCollection(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GeofenceCollectionState, opts ...pulumi.ResourceOption) (*GeofenceCollection, error) {
 	var resource GeofenceCollection
-	err := ctx.ReadResource("aws-native:Location:GeofenceCollection", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:location:GeofenceCollection", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

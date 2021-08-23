@@ -112,7 +112,7 @@ class SchemaVersion(pulumi.CustomResource):
             __props__.__dict__["schema_definition"] = schema_definition
             __props__.__dict__["version_id"] = None
         super(SchemaVersion, __self__).__init__(
-            'aws-native:Glue:SchemaVersion',
+            'aws-native:glue:SchemaVersion',
             resource_name,
             __props__,
             opts)

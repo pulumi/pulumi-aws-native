@@ -151,7 +151,7 @@ class KeySigningKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
         super(KeySigningKey, __self__).__init__(
-            'aws-native:Route53:KeySigningKey',
+            'aws-native:route53:KeySigningKey',
             resource_name,
             __props__,
             opts)

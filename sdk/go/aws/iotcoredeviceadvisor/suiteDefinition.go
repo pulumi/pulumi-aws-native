@@ -36,7 +36,7 @@ func NewSuiteDefinition(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SuiteDefinitionConfiguration'")
 	}
 	var resource SuiteDefinition
-	err := ctx.RegisterResource("aws-native:IoTCoreDeviceAdvisor:SuiteDefinition", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotcoredeviceadvisor:SuiteDefinition", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewSuiteDefinition(ctx *pulumi.Context,
 func GetSuiteDefinition(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SuiteDefinitionState, opts ...pulumi.ResourceOption) (*SuiteDefinition, error) {
 	var resource SuiteDefinition
-	err := ctx.ReadResource("aws-native:IoTCoreDeviceAdvisor:SuiteDefinition", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotcoredeviceadvisor:SuiteDefinition", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

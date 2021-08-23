@@ -189,7 +189,7 @@ class Grant(pulumi.CustomResource):
             __props__.__dict__["grant_arn"] = None
             __props__.__dict__["version"] = None
         super(Grant, __self__).__init__(
-            'aws-native:LicenseManager:Grant',
+            'aws-native:licensemanager:Grant',
             resource_name,
             __props__,
             opts)

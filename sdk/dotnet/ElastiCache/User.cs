@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ElastiCache:User")]
+    [AwsNativeResourceType("aws-native:elasticache:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public User(string name, UserArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:elasticache:User", name, args ?? new UserArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private User(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ElastiCache:User", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:elasticache:User", name, null, MakeResourceOptions(options, id))
         {
         }
 

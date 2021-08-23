@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:WorkSpaces:ConnectionAlias":
+            case "aws-native:workspaces:ConnectionAlias":
                 return new ConnectionAlias(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "WorkSpaces", _module)
+pulumi.runtime.registerResourceModule("aws-native", "workspaces", _module)

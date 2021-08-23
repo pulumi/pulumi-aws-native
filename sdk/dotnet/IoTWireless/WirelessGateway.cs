@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTWireless
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTWireless:WirelessGateway")]
+    [AwsNativeResourceType("aws-native:iotwireless:WirelessGateway")]
     public partial class WirelessGateway : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -69,12 +69,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WirelessGateway(string name, WirelessGatewayArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:WirelessGateway", name, args ?? new WirelessGatewayArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotwireless:WirelessGateway", name, args ?? new WirelessGatewayArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WirelessGateway(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTWireless:WirelessGateway", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotwireless:WirelessGateway", name, null, MakeResourceOptions(options, id))
         {
         }
 

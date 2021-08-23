@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ImageBuilder:DistributionConfiguration")]
+    [AwsNativeResourceType("aws-native:imagebuilder:DistributionConfiguration")]
     public partial class DistributionConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DistributionConfiguration(string name, DistributionConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:DistributionConfiguration", name, args ?? new DistributionConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:imagebuilder:DistributionConfiguration", name, args ?? new DistributionConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DistributionConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ImageBuilder:DistributionConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:imagebuilder:DistributionConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

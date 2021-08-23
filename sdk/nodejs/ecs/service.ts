@@ -22,7 +22,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ECS:Service';
+    public static readonly __pulumiType = 'aws-native:ecs:Service';
 
     /**
      * Returns true if the given object is an instance of Service.  This is designed to work even
@@ -38,7 +38,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
      */
-    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ECS.ServiceCapacityProviderStrategyItem[] | undefined>;
+    public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.ServiceCapacityProviderStrategyItem[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
      */
@@ -46,11 +46,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
      */
-    public readonly deploymentConfiguration!: pulumi.Output<outputs.ECS.ServiceDeploymentConfiguration | undefined>;
+    public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
      */
-    public readonly deploymentController!: pulumi.Output<outputs.ECS.ServiceDeploymentController | undefined>;
+    public readonly deploymentController!: pulumi.Output<outputs.ecs.ServiceDeploymentController | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
      */
@@ -74,20 +74,20 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
      */
-    public readonly loadBalancers!: pulumi.Output<outputs.ECS.ServiceLoadBalancer[] | undefined>;
+    public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.ECS.ServiceNetworkConfiguration | undefined>;
+    public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
      */
-    public readonly placementConstraints!: pulumi.Output<outputs.ECS.ServicePlacementConstraint[] | undefined>;
+    public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
      */
-    public readonly placementStrategies!: pulumi.Output<outputs.ECS.ServicePlacementStrategy[] | undefined>;
+    public readonly placementStrategies!: pulumi.Output<outputs.ecs.ServicePlacementStrategy[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
      */
@@ -112,7 +112,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
      */
-    public readonly serviceRegistries!: pulumi.Output<outputs.ECS.ServiceServiceRegistry[] | undefined>;
+    public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistry[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
      */
@@ -195,7 +195,7 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
      */
-    capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceCapacityProviderStrategyItemArgs>[]>;
+    capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceCapacityProviderStrategyItemArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
      */
@@ -203,11 +203,11 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
      */
-    deploymentConfiguration?: pulumi.Input<inputs.ECS.ServiceDeploymentConfigurationArgs>;
+    deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
      */
-    deploymentController?: pulumi.Input<inputs.ECS.ServiceDeploymentControllerArgs>;
+    deploymentController?: pulumi.Input<inputs.ecs.ServiceDeploymentControllerArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
      */
@@ -231,19 +231,19 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
      */
-    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceLoadBalancerArgs>[]>;
+    loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancerArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
      */
-    networkConfiguration?: pulumi.Input<inputs.ECS.ServiceNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
      */
-    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementConstraintArgs>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraintArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
      */
-    placementStrategies?: pulumi.Input<pulumi.Input<inputs.ECS.ServicePlacementStrategyArgs>[]>;
+    placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementStrategyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
      */
@@ -267,7 +267,7 @@ export interface ServiceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
      */
-    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ECS.ServiceServiceRegistryArgs>[]>;
+    serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceRegistryArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
      */

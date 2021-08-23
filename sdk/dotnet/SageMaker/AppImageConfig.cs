@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:AppImageConfig")]
+    [AwsNativeResourceType("aws-native:sagemaker:AppImageConfig")]
     public partial class AppImageConfig : Pulumi.CustomResource
     {
         [Output("appImageConfigArn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AppImageConfig(string name, AppImageConfigArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:AppImageConfig", name, args ?? new AppImageConfigArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:AppImageConfig", name, args ?? new AppImageConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AppImageConfig(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:AppImageConfig", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:AppImageConfig", name, null, MakeResourceOptions(options, id))
         {
         }
 

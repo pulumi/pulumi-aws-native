@@ -236,7 +236,7 @@ class BudgetsAction(pulumi.CustomResource):
             __props__.__dict__["subscribers"] = subscribers
             __props__.__dict__["action_id"] = None
         super(BudgetsAction, __self__).__init__(
-            'aws-native:Budgets:BudgetsAction',
+            'aws-native:budgets:BudgetsAction',
             resource_name,
             __props__,
             opts)

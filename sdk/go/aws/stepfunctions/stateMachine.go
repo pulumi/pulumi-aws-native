@@ -50,7 +50,7 @@ func NewStateMachine(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource StateMachine
-	err := ctx.RegisterResource("aws-native:StepFunctions:StateMachine", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:stepfunctions:StateMachine", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func NewStateMachine(ctx *pulumi.Context,
 func GetStateMachine(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StateMachineState, opts ...pulumi.ResourceOption) (*StateMachine, error) {
 	var resource StateMachine
-	err := ctx.ReadResource("aws-native:StepFunctions:StateMachine", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:stepfunctions:StateMachine", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

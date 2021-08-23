@@ -213,7 +213,7 @@ class Repository(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["repository_uri"] = None
         super(Repository, __self__).__init__(
-            'aws-native:ECR:Repository',
+            'aws-native:ecr:Repository',
             resource_name,
             __props__,
             opts)

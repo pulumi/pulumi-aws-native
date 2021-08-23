@@ -130,7 +130,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'task_set_id'")
             __props__.__dict__["task_set_id"] = task_set_id
         super(PrimaryTaskSet, __self__).__init__(
-            'aws-native:ECS:PrimaryTaskSet',
+            'aws-native:ecs:PrimaryTaskSet',
             resource_name,
             __props__,
             opts)

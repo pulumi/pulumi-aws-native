@@ -22,7 +22,7 @@ export class ResponsePlan extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSMIncidents:ResponsePlan';
+    public static readonly __pulumiType = 'aws-native:ssmincidents:ResponsePlan';
 
     /**
      * Returns true if the given object is an instance of ResponsePlan.  This is designed to work even
@@ -38,12 +38,12 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
      */
-    public readonly actions!: pulumi.Output<outputs.SSMIncidents.ResponsePlanAction[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.ssmincidents.ResponsePlanAction[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
      */
-    public readonly chatChannel!: pulumi.Output<outputs.SSMIncidents.ResponsePlanChatChannel | undefined>;
+    public readonly chatChannel!: pulumi.Output<outputs.ssmincidents.ResponsePlanChatChannel | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
      */
@@ -55,7 +55,7 @@ export class ResponsePlan extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
      */
-    public readonly incidentTemplate!: pulumi.Output<outputs.SSMIncidents.ResponsePlanIncidentTemplate>;
+    public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
      */
@@ -114,11 +114,11 @@ export interface ResponsePlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.SSMIncidents.ResponsePlanActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanActionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
      */
-    chatChannel?: pulumi.Input<inputs.SSMIncidents.ResponsePlanChatChannelArgs>;
+    chatChannel?: pulumi.Input<inputs.ssmincidents.ResponsePlanChatChannelArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
      */
@@ -130,7 +130,7 @@ export interface ResponsePlanArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
      */
-    incidentTemplate: pulumi.Input<inputs.SSMIncidents.ResponsePlanIncidentTemplateArgs>;
+    incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplateArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
      */

@@ -43,7 +43,7 @@ func NewListener(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
 	var resource Listener
-	err := ctx.RegisterResource("aws-native:GlobalAccelerator:Listener", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:globalaccelerator:Listener", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewListener(ctx *pulumi.Context,
 func GetListener(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ListenerState, opts ...pulumi.ResourceOption) (*Listener, error) {
 	var resource Listener
-	err := ctx.ReadResource("aws-native:GlobalAccelerator:Listener", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:globalaccelerator:Listener", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

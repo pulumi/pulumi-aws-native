@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IVS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IVS:StreamKey")]
+    [AwsNativeResourceType("aws-native:ivs:StreamKey")]
     public partial class StreamKey : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.IVS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StreamKey(string name, StreamKeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:StreamKey", name, args ?? new StreamKeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ivs:StreamKey", name, args ?? new StreamKeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StreamKey(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IVS:StreamKey", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ivs:StreamKey", name, null, MakeResourceOptions(options, id))
         {
         }
 

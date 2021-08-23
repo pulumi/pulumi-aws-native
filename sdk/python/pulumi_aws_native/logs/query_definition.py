@@ -130,7 +130,7 @@ class QueryDefinition(pulumi.CustomResource):
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["query_definition_id"] = None
         super(QueryDefinition, __self__).__init__(
-            'aws-native:Logs:QueryDefinition',
+            'aws-native:logs:QueryDefinition',
             resource_name,
             __props__,
             opts)

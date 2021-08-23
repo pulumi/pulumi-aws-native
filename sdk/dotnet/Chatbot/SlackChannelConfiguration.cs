@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Chatbot
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Chatbot:SlackChannelConfiguration")]
+    [AwsNativeResourceType("aws-native:chatbot:SlackChannelConfiguration")]
     public partial class SlackChannelConfiguration : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SlackChannelConfiguration(string name, SlackChannelConfigurationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Chatbot:SlackChannelConfiguration", name, args ?? new SlackChannelConfigurationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:chatbot:SlackChannelConfiguration", name, args ?? new SlackChannelConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private SlackChannelConfiguration(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Chatbot:SlackChannelConfiguration", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:chatbot:SlackChannelConfiguration", name, null, MakeResourceOptions(options, id))
         {
         }
 

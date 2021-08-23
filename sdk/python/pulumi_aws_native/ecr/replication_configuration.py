@@ -91,7 +91,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["registry_id"] = None
         super(ReplicationConfiguration, __self__).__init__(
-            'aws-native:ECR:ReplicationConfiguration',
+            'aws-native:ecr:ReplicationConfiguration',
             resource_name,
             __props__,
             opts)

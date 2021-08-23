@@ -37,7 +37,7 @@ func NewCell(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CellName'")
 	}
 	var resource Cell
-	err := ctx.RegisterResource("aws-native:Route53RecoveryReadiness:Cell", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoveryreadiness:Cell", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func NewCell(ctx *pulumi.Context,
 func GetCell(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CellState, opts ...pulumi.ResourceOption) (*Cell, error) {
 	var resource Cell
-	err := ctx.ReadResource("aws-native:Route53RecoveryReadiness:Cell", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoveryreadiness:Cell", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

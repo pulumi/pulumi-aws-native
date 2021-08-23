@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KMS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:KMS:Key")]
+    [AwsNativeResourceType("aws-native:kms:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -84,12 +84,12 @@ namespace Pulumi.AwsNative.KMS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Key(string name, KeyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:KMS:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kms:Key", name, args ?? new KeyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Key(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:KMS:Key", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kms:Key", name, null, MakeResourceOptions(options, id))
         {
         }
 

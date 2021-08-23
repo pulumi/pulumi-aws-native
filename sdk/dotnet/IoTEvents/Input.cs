@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTEvents
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTEvents:Input")]
+    [AwsNativeResourceType("aws-native:iotevents:Input")]
     public partial class Input : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.IoTEvents
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Input(string name, InputArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTEvents:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotevents:Input", name, args ?? new InputArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Input(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTEvents:Input", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotevents:Input", name, null, MakeResourceOptions(options, id))
         {
         }
 

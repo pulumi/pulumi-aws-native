@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Athena
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Athena:WorkGroup")]
+    [AwsNativeResourceType("aws-native:athena:WorkGroup")]
     public partial class WorkGroup : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -75,12 +75,12 @@ namespace Pulumi.AwsNative.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public WorkGroup(string name, WorkGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:WorkGroup", name, args ?? new WorkGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:athena:WorkGroup", name, args ?? new WorkGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private WorkGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:WorkGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:athena:WorkGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

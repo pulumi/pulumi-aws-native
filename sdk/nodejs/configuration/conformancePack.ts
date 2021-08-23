@@ -22,7 +22,7 @@ export class ConformancePack extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Configuration:ConformancePack';
+    public static readonly __pulumiType = 'aws-native:configuration:ConformancePack';
 
     /**
      * Returns true if the given object is an instance of ConformancePack.  This is designed to work even
@@ -38,7 +38,7 @@ export class ConformancePack extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    public readonly conformancePackInputParameters!: pulumi.Output<outputs.Configuration.ConformancePackConformancePackInputParameter[] | undefined>;
+    public readonly conformancePackInputParameters!: pulumi.Output<outputs.configuration.ConformancePackConformancePackInputParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */
@@ -102,7 +102,7 @@ export interface ConformancePackArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
      */
-    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.Configuration.ConformancePackConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.ConformancePackConformancePackInputParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
      */

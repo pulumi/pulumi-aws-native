@@ -55,7 +55,7 @@ func NewFirewallRuleGroupAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	var resource FirewallRuleGroupAssociation
-	err := ctx.RegisterResource("aws-native:Route53Resolver:FirewallRuleGroupAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53resolver:FirewallRuleGroupAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewFirewallRuleGroupAssociation(ctx *pulumi.Context,
 func GetFirewallRuleGroupAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FirewallRuleGroupAssociationState, opts ...pulumi.ResourceOption) (*FirewallRuleGroupAssociation, error) {
 	var resource FirewallRuleGroupAssociation
-	err := ctx.ReadResource("aws-native:Route53Resolver:FirewallRuleGroupAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53resolver:FirewallRuleGroupAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

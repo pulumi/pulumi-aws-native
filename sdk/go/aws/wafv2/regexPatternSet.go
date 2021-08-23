@@ -44,7 +44,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource RegexPatternSet
-	err := ctx.RegisterResource("aws-native:WAFv2:RegexPatternSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:wafv2:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 func GetRegexPatternSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RegexPatternSetState, opts ...pulumi.ResourceOption) (*RegexPatternSet, error) {
 	var resource RegexPatternSet
-	err := ctx.ReadResource("aws-native:WAFv2:RegexPatternSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:wafv2:RegexPatternSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

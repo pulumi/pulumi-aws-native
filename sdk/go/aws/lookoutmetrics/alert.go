@@ -45,7 +45,7 @@ func NewAlert(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AnomalyDetectorArn'")
 	}
 	var resource Alert
-	err := ctx.RegisterResource("aws-native:LookoutMetrics:Alert", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:lookoutmetrics:Alert", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func NewAlert(ctx *pulumi.Context,
 func GetAlert(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AlertState, opts ...pulumi.ResourceOption) (*Alert, error) {
 	var resource Alert
-	err := ctx.ReadResource("aws-native:LookoutMetrics:Alert", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:lookoutmetrics:Alert", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

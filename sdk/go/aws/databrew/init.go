@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:DataBrew:Dataset":
+	case "aws-native:databrew:Dataset":
 		r = &Dataset{}
-	case "aws-native:DataBrew:Job":
+	case "aws-native:databrew:Job":
 		r = &Job{}
-	case "aws-native:DataBrew:Project":
+	case "aws-native:databrew:Project":
 		r = &Project{}
-	case "aws-native:DataBrew:Recipe":
+	case "aws-native:databrew:Recipe":
 		r = &Recipe{}
-	case "aws-native:DataBrew:Schedule":
+	case "aws-native:databrew:Schedule":
 		r = &Schedule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"DataBrew",
+		"databrew",
 		&module{version},
 	)
 }

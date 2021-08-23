@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:WAFv2:IPSet")]
+    [AwsNativeResourceType("aws-native:wafv2:IPSet")]
     public partial class IPSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -66,12 +66,12 @@ namespace Pulumi.AwsNative.WAFv2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IPSet(string name, IPSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:wafv2:IPSet", name, args ?? new IPSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private IPSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:IPSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:wafv2:IPSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -128,7 +128,7 @@ class LogGroup(pulumi.CustomResource):
             __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["arn"] = None
         super(LogGroup, __self__).__init__(
-            'aws-native:Logs:LogGroup',
+            'aws-native:logs:LogGroup',
             resource_name,
             __props__,
             opts)

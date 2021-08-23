@@ -218,7 +218,7 @@ class MetricStream(pulumi.CustomResource):
             __props__.__dict__["last_update_date"] = None
             __props__.__dict__["state"] = None
         super(MetricStream, __self__).__init__(
-            'aws-native:CloudWatch:MetricStream',
+            'aws-native:cloudwatch:MetricStream',
             resource_name,
             __props__,
             opts)

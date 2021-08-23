@@ -38,7 +38,7 @@ func NewGrant(ctx *pulumi.Context,
 	}
 
 	var resource Grant
-	err := ctx.RegisterResource("aws-native:LicenseManager:Grant", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:licensemanager:Grant", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -50,7 +50,7 @@ func NewGrant(ctx *pulumi.Context,
 func GetGrant(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *GrantState, opts ...pulumi.ResourceOption) (*Grant, error) {
 	var resource Grant
-	err := ctx.ReadResource("aws-native:LicenseManager:Grant", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:licensemanager:Grant", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

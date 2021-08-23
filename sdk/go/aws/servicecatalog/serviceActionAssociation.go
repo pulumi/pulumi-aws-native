@@ -40,7 +40,7 @@ func NewServiceActionAssociation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceActionId'")
 	}
 	var resource ServiceActionAssociation
-	err := ctx.RegisterResource("aws-native:ServiceCatalog:ServiceActionAssociation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:servicecatalog:ServiceActionAssociation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewServiceActionAssociation(ctx *pulumi.Context,
 func GetServiceActionAssociation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceActionAssociationState, opts ...pulumi.ResourceOption) (*ServiceActionAssociation, error) {
 	var resource ServiceActionAssociation
-	err := ctx.ReadResource("aws-native:ServiceCatalog:ServiceActionAssociation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:servicecatalog:ServiceActionAssociation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

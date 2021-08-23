@@ -22,7 +22,7 @@ export class StackSet extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:StackSet';
+    public static readonly __pulumiType = 'aws-native:cloudformation:StackSet';
 
     /**
      * Returns true if the given object is an instance of StackSet.  This is designed to work even
@@ -42,7 +42,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    public readonly autoDeployment!: pulumi.Output<outputs.CloudFormation.StackSetAutoDeployment | undefined>;
+    public readonly autoDeployment!: pulumi.Output<outputs.cloudformation.StackSetAutoDeployment | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
      */
@@ -62,11 +62,11 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    public readonly operationPreferences!: pulumi.Output<outputs.CloudFormation.StackSetOperationPreferences | undefined>;
+    public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetOperationPreferences | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    public readonly parameters!: pulumi.Output<outputs.CloudFormation.StackSetParameter[] | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.cloudformation.StackSetParameter[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
@@ -74,7 +74,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    public readonly stackInstancesGroup!: pulumi.Output<outputs.CloudFormation.StackSetStackInstances[] | undefined>;
+    public readonly stackInstancesGroup!: pulumi.Output<outputs.cloudformation.StackSetStackInstances[] | undefined>;
     public /*out*/ readonly stackSetId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
@@ -160,7 +160,7 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
      */
-    autoDeployment?: pulumi.Input<inputs.CloudFormation.StackSetAutoDeploymentArgs>;
+    autoDeployment?: pulumi.Input<inputs.cloudformation.StackSetAutoDeploymentArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
      */
@@ -180,11 +180,11 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
      */
-    operationPreferences?: pulumi.Input<inputs.CloudFormation.StackSetOperationPreferencesArgs>;
+    operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetOperationPreferencesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetParameterArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
      */
@@ -192,7 +192,7 @@ export interface StackSetArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
      */
-    stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.CloudFormation.StackSetStackInstancesArgs>[]>;
+    stackInstancesGroup?: pulumi.Input<pulumi.Input<inputs.cloudformation.StackSetStackInstancesArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
      */

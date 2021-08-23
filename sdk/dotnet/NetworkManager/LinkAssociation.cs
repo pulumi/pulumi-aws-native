@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:LinkAssociation")]
+    [AwsNativeResourceType("aws-native:networkmanager:LinkAssociation")]
     public partial class LinkAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public LinkAssociation(string name, LinkAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:LinkAssociation", name, args ?? new LinkAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:LinkAssociation", name, args ?? new LinkAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private LinkAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:LinkAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:LinkAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

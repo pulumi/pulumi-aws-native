@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:Link")]
+    [AwsNativeResourceType("aws-native:networkmanager:Link")]
     public partial class Link : Pulumi.CustomResource
     {
         /// <summary>
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Link(string name, LinkArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:Link", name, args ?? new LinkArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Link(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:Link", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:Link", name, null, MakeResourceOptions(options, id))
         {
         }
 

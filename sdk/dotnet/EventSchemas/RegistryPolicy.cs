@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.EventSchemas
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:EventSchemas:RegistryPolicy")]
+    [AwsNativeResourceType("aws-native:eventschemas:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
         [Output("id")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.EventSchemas
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegistryPolicy(string name, RegistryPolicyArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:EventSchemas:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:eventschemas:RegistryPolicy", name, args ?? new RegistryPolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegistryPolicy(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:EventSchemas:RegistryPolicy", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:eventschemas:RegistryPolicy", name, null, MakeResourceOptions(options, id))
         {
         }
 

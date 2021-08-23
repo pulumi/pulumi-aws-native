@@ -154,7 +154,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["gateway_id"] = None
         super(Gateway, __self__).__init__(
-            'aws-native:IoTSiteWise:Gateway',
+            'aws-native:iotsitewise:Gateway',
             resource_name,
             __props__,
             opts)

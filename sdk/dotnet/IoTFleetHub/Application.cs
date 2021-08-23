@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.IoTFleetHub
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:IoTFleetHub:Application")]
+    [AwsNativeResourceType("aws-native:iotfleethub:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         [Output("applicationArn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.IoTFleetHub
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:IoTFleetHub:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:iotfleethub:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:IoTFleetHub:Application", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:iotfleethub:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 

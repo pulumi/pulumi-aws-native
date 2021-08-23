@@ -273,7 +273,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["traffic_type"] = traffic_type
             __props__.__dict__["id"] = None
         super(FlowLog, __self__).__init__(
-            'aws-native:EC2:FlowLog',
+            'aws-native:ec2:FlowLog',
             resource_name,
             __props__,
             opts)

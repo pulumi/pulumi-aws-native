@@ -22,7 +22,7 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:AccountAuditConfiguration';
+    public static readonly __pulumiType = 'aws-native:iot:AccountAuditConfiguration';
 
     /**
      * Returns true if the given object is an instance of AccountAuditConfiguration.  This is designed to work even
@@ -42,11 +42,11 @@ export class AccountAuditConfiguration extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
      */
-    public readonly auditCheckConfigurations!: pulumi.Output<outputs.IoT.AccountAuditConfigurationAuditCheckConfigurations>;
+    public readonly auditCheckConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditCheckConfigurations>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
      */
-    public readonly auditNotificationTargetConfigurations!: pulumi.Output<outputs.IoT.AccountAuditConfigurationAuditNotificationTargetConfigurations | undefined>;
+    public readonly auditNotificationTargetConfigurations!: pulumi.Output<outputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurations | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
      */
@@ -100,11 +100,11 @@ export interface AccountAuditConfigurationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
      */
-    auditCheckConfigurations: pulumi.Input<inputs.IoT.AccountAuditConfigurationAuditCheckConfigurationsArgs>;
+    auditCheckConfigurations: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
      */
-    auditNotificationTargetConfigurations?: pulumi.Input<inputs.IoT.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>;
+    auditNotificationTargetConfigurations?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
      */

@@ -157,7 +157,7 @@ class Map(pulumi.CustomResource):
             __props__.__dict__["map_arn"] = None
             __props__.__dict__["update_time"] = None
         super(Map, __self__).__init__(
-            'aws-native:Location:Map',
+            'aws-native:location:Map',
             resource_name,
             __props__,
             opts)

@@ -40,7 +40,7 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Status'")
 	}
 	var resource Certificate
-	err := ctx.RegisterResource("aws-native:IoT:Certificate", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:Certificate", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewCertificate(ctx *pulumi.Context,
 func GetCertificate(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateState, opts ...pulumi.ResourceOption) (*Certificate, error) {
 	var resource Certificate
-	err := ctx.ReadResource("aws-native:IoT:Certificate", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:Certificate", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

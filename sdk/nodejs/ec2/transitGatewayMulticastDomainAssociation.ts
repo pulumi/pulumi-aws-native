@@ -21,7 +21,7 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:TransitGatewayMulticastDomainAssociation';
+    public static readonly __pulumiType = 'aws-native:ec2:TransitGatewayMulticastDomainAssociation';
 
     /**
      * Returns true if the given object is an instance of TransitGatewayMulticastDomainAssociation.  This is designed to work even

@@ -131,7 +131,7 @@ class ReadinessCheck(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["readiness_check_arn"] = None
         super(ReadinessCheck, __self__).__init__(
-            'aws-native:Route53RecoveryReadiness:ReadinessCheck',
+            'aws-native:route53recoveryreadiness:ReadinessCheck',
             resource_name,
             __props__,
             opts)

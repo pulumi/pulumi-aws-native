@@ -46,7 +46,7 @@ func NewConnectorProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ConnectorType'")
 	}
 	var resource ConnectorProfile
-	err := ctx.RegisterResource("aws-native:AppFlow:ConnectorProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:appflow:ConnectorProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewConnectorProfile(ctx *pulumi.Context,
 func GetConnectorProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ConnectorProfileState, opts ...pulumi.ResourceOption) (*ConnectorProfile, error) {
 	var resource ConnectorProfile
-	err := ctx.ReadResource("aws-native:AppFlow:ConnectorProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:appflow:ConnectorProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

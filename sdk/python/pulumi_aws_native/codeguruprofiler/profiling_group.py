@@ -173,7 +173,7 @@ class ProfilingGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ProfilingGroup, __self__).__init__(
-            'aws-native:CodeGuruProfiler:ProfilingGroup',
+            'aws-native:codeguruprofiler:ProfilingGroup',
             resource_name,
             __props__,
             opts)

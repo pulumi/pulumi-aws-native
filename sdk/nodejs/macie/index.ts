@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Macie:CustomDataIdentifier":
+            case "aws-native:macie:CustomDataIdentifier":
                 return new CustomDataIdentifier(name, <any>undefined, { urn })
-            case "aws-native:Macie:FindingsFilter":
+            case "aws-native:macie:FindingsFilter":
                 return new FindingsFilter(name, <any>undefined, { urn })
-            case "aws-native:Macie:Session":
+            case "aws-native:macie:Session":
                 return new Session(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Macie", _module)
+pulumi.runtime.registerResourceModule("aws-native", "macie", _module)

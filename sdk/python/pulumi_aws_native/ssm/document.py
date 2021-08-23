@@ -252,7 +252,7 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["version_name"] = version_name
         super(Document, __self__).__init__(
-            'aws-native:SSM:Document',
+            'aws-native:ssm:Document',
             resource_name,
             __props__,
             opts)

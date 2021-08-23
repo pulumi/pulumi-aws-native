@@ -46,7 +46,7 @@ func NewDetectorModel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource DetectorModel
-	err := ctx.RegisterResource("aws-native:IoTEvents:DetectorModel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotevents:DetectorModel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewDetectorModel(ctx *pulumi.Context,
 func GetDetectorModel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DetectorModelState, opts ...pulumi.ResourceOption) (*DetectorModel, error) {
 	var resource DetectorModel
-	err := ctx.ReadResource("aws-native:IoTEvents:DetectorModel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotevents:DetectorModel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

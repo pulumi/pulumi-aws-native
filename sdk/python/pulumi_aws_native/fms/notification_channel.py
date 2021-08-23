@@ -109,7 +109,7 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         super(NotificationChannel, __self__).__init__(
-            'aws-native:FMS:NotificationChannel',
+            'aws-native:fms:NotificationChannel',
             resource_name,
             __props__,
             opts)

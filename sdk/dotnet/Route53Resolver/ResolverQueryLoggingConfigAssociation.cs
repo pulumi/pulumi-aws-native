@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation")]
+    [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation")]
     public partial class ResolverQueryLoggingConfigAssociation : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ResolverQueryLoggingConfigAssociation(string name, ResolverQueryLoggingConfigAssociationArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, args ?? new ResolverQueryLoggingConfigAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation", name, args ?? new ResolverQueryLoggingConfigAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ResolverQueryLoggingConfigAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

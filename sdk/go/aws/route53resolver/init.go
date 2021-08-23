@@ -21,17 +21,17 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:Route53Resolver:FirewallDomainList":
+	case "aws-native:route53resolver:FirewallDomainList":
 		r = &FirewallDomainList{}
-	case "aws-native:Route53Resolver:FirewallRuleGroup":
+	case "aws-native:route53resolver:FirewallRuleGroup":
 		r = &FirewallRuleGroup{}
-	case "aws-native:Route53Resolver:FirewallRuleGroupAssociation":
+	case "aws-native:route53resolver:FirewallRuleGroupAssociation":
 		r = &FirewallRuleGroupAssociation{}
-	case "aws-native:Route53Resolver:ResolverDNSSECConfig":
+	case "aws-native:route53resolver:ResolverDNSSECConfig":
 		r = &ResolverDNSSECConfig{}
-	case "aws-native:Route53Resolver:ResolverQueryLoggingConfig":
+	case "aws-native:route53resolver:ResolverQueryLoggingConfig":
 		r = &ResolverQueryLoggingConfig{}
-	case "aws-native:Route53Resolver:ResolverQueryLoggingConfigAssociation":
+	case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":
 		r = &ResolverQueryLoggingConfigAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -48,7 +48,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"Route53Resolver",
+		"route53resolver",
 		&module{version},
 	)
 }

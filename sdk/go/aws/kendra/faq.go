@@ -54,7 +54,7 @@ func NewFaq(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'S3Path'")
 	}
 	var resource Faq
-	err := ctx.RegisterResource("aws-native:Kendra:Faq", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kendra:Faq", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func NewFaq(ctx *pulumi.Context,
 func GetFaq(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FaqState, opts ...pulumi.ResourceOption) (*Faq, error) {
 	var resource Faq
-	err := ctx.ReadResource("aws-native:Kendra:Faq", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kendra:Faq", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

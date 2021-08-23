@@ -22,7 +22,7 @@ export class GlobalTable extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DynamoDB:GlobalTable';
+    public static readonly __pulumiType = 'aws-native:dynamodb:GlobalTable';
 
     /**
      * Returns true if the given object is an instance of GlobalTable.  This is designed to work even
@@ -39,7 +39,7 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
      */
-    public readonly attributeDefinitions!: pulumi.Output<outputs.DynamoDB.GlobalTableAttributeDefinition[]>;
+    public readonly attributeDefinitions!: pulumi.Output<outputs.dynamodb.GlobalTableAttributeDefinition[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
      */
@@ -47,28 +47,28 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
      */
-    public readonly globalSecondaryIndexes!: pulumi.Output<outputs.DynamoDB.GlobalTableGlobalSecondaryIndex[] | undefined>;
+    public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableGlobalSecondaryIndex[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
      */
-    public readonly keySchema!: pulumi.Output<outputs.DynamoDB.GlobalTableKeySchema[]>;
+    public readonly keySchema!: pulumi.Output<outputs.dynamodb.GlobalTableKeySchema[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
      */
-    public readonly localSecondaryIndexes!: pulumi.Output<outputs.DynamoDB.GlobalTableLocalSecondaryIndex[] | undefined>;
+    public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.GlobalTableLocalSecondaryIndex[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
      */
-    public readonly replicas!: pulumi.Output<outputs.DynamoDB.GlobalTableReplicaSpecification[]>;
+    public readonly replicas!: pulumi.Output<outputs.dynamodb.GlobalTableReplicaSpecification[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
      */
-    public readonly sSESpecification!: pulumi.Output<outputs.DynamoDB.GlobalTableSSESpecification | undefined>;
+    public readonly sSESpecification!: pulumi.Output<outputs.dynamodb.GlobalTableSSESpecification | undefined>;
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
      */
-    public readonly streamSpecification!: pulumi.Output<outputs.DynamoDB.GlobalTableStreamSpecification | undefined>;
+    public readonly streamSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableStreamSpecification | undefined>;
     public /*out*/ readonly tableId!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
@@ -77,11 +77,11 @@ export class GlobalTable extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
      */
-    public readonly timeToLiveSpecification!: pulumi.Output<outputs.DynamoDB.GlobalTableTimeToLiveSpecification | undefined>;
+    public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
      */
-    public readonly writeProvisionedThroughputSettings!: pulumi.Output<outputs.DynamoDB.GlobalTableWriteProvisionedThroughputSettings | undefined>;
+    public readonly writeProvisionedThroughputSettings!: pulumi.Output<outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings | undefined>;
 
     /**
      * Create a GlobalTable resource with the given unique name, arguments, and options.
@@ -147,7 +147,7 @@ export interface GlobalTableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
      */
-    attributeDefinitions: pulumi.Input<pulumi.Input<inputs.DynamoDB.GlobalTableAttributeDefinitionArgs>[]>;
+    attributeDefinitions: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableAttributeDefinitionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
      */
@@ -155,27 +155,27 @@ export interface GlobalTableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
      */
-    globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.DynamoDB.GlobalTableGlobalSecondaryIndexArgs>[]>;
+    globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableGlobalSecondaryIndexArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
      */
-    keySchema: pulumi.Input<pulumi.Input<inputs.DynamoDB.GlobalTableKeySchemaArgs>[]>;
+    keySchema: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableKeySchemaArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
      */
-    localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.DynamoDB.GlobalTableLocalSecondaryIndexArgs>[]>;
+    localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableLocalSecondaryIndexArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
      */
-    replicas: pulumi.Input<pulumi.Input<inputs.DynamoDB.GlobalTableReplicaSpecificationArgs>[]>;
+    replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplicaSpecificationArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
      */
-    sSESpecification?: pulumi.Input<inputs.DynamoDB.GlobalTableSSESpecificationArgs>;
+    sSESpecification?: pulumi.Input<inputs.dynamodb.GlobalTableSSESpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
      */
-    streamSpecification?: pulumi.Input<inputs.DynamoDB.GlobalTableStreamSpecificationArgs>;
+    streamSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableStreamSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
      */
@@ -183,9 +183,9 @@ export interface GlobalTableArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
      */
-    timeToLiveSpecification?: pulumi.Input<inputs.DynamoDB.GlobalTableTimeToLiveSpecificationArgs>;
+    timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
      */
-    writeProvisionedThroughputSettings?: pulumi.Input<inputs.DynamoDB.GlobalTableWriteProvisionedThroughputSettingsArgs>;
+    writeProvisionedThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteProvisionedThroughputSettingsArgs>;
 }

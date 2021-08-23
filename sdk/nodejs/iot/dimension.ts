@@ -22,7 +22,7 @@ export class Dimension extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:Dimension';
+    public static readonly __pulumiType = 'aws-native:iot:Dimension';
 
     /**
      * Returns true if the given object is an instance of Dimension.  This is designed to work even

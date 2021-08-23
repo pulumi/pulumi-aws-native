@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.OpsWorksCM
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:OpsWorksCM:Server")]
+    [AwsNativeResourceType("aws-native:opsworkscm:Server")]
     public partial class Server : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -159,12 +159,12 @@ namespace Pulumi.AwsNative.OpsWorksCM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Server(string name, ServerArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:OpsWorksCM:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:opsworkscm:Server", name, args ?? new ServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Server(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:OpsWorksCM:Server", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:opsworkscm:Server", name, null, MakeResourceOptions(options, id))
         {
         }
 

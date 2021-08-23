@@ -192,7 +192,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
             __props__.__dict__["sns_topic_arns"] = sns_topic_arns
             __props__.__dict__["arn"] = None
         super(SlackChannelConfiguration, __self__).__init__(
-            'aws-native:Chatbot:SlackChannelConfiguration',
+            'aws-native:chatbot:SlackChannelConfiguration',
             resource_name,
             __props__,
             opts)

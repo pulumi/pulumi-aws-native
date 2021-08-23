@@ -314,7 +314,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioned_product_id"] = None
             __props__.__dict__["record_id"] = None
         super(CloudFormationProvisionedProduct, __self__).__init__(
-            'aws-native:ServiceCatalog:CloudFormationProvisionedProduct',
+            'aws-native:servicecatalog:CloudFormationProvisionedProduct',
             resource_name,
             __props__,
             opts)

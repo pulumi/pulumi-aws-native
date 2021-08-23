@@ -49,7 +49,7 @@ func NewIPSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource IPSet
-	err := ctx.RegisterResource("aws-native:WAFv2:IPSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:wafv2:IPSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewIPSet(ctx *pulumi.Context,
 func GetIPSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *IPSetState, opts ...pulumi.ResourceOption) (*IPSet, error) {
 	var resource IPSet
-	err := ctx.ReadResource("aws-native:WAFv2:IPSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:wafv2:IPSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:ModelExplainabilityJobDefinition")]
+    [AwsNativeResourceType("aws-native:sagemaker:ModelExplainabilityJobDefinition")]
     public partial class ModelExplainabilityJobDefinition : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelExplainabilityJobDefinition(string name, ModelExplainabilityJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelExplainabilityJobDefinition", name, args ?? new ModelExplainabilityJobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:ModelExplainabilityJobDefinition", name, args ?? new ModelExplainabilityJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelExplainabilityJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelExplainabilityJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:ModelExplainabilityJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

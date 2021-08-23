@@ -376,7 +376,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
         super(ContainerRecipe, __self__).__init__(
-            'aws-native:ImageBuilder:ContainerRecipe',
+            'aws-native:imagebuilder:ContainerRecipe',
             resource_name,
             __props__,
             opts)

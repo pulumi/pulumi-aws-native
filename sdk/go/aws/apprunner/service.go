@@ -47,7 +47,7 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SourceConfiguration'")
 	}
 	var resource Service
-	err := ctx.RegisterResource("aws-native:AppRunner:Service", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:apprunner:Service", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewService(ctx *pulumi.Context,
 func GetService(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ServiceState, opts ...pulumi.ResourceOption) (*Service, error) {
 	var resource Service
-	err := ctx.ReadResource("aws-native:AppRunner:Service", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:apprunner:Service", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

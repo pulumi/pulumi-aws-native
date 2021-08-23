@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Events
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Events:ApiDestination")]
+    [AwsNativeResourceType("aws-native:events:ApiDestination")]
     public partial class ApiDestination : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -63,12 +63,12 @@ namespace Pulumi.AwsNative.Events
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ApiDestination(string name, ApiDestinationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Events:ApiDestination", name, args ?? new ApiDestinationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:events:ApiDestination", name, args ?? new ApiDestinationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ApiDestination(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Events:ApiDestination", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:events:ApiDestination", name, null, MakeResourceOptions(options, id))
         {
         }
 

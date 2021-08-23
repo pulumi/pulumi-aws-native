@@ -22,7 +22,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaPackage:OriginEndpoint';
+    public static readonly __pulumiType = 'aws-native:mediapackage:OriginEndpoint';
 
     /**
      * Returns true if the given object is an instance of OriginEndpoint.  This is designed to work even
@@ -39,7 +39,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
      */
-    public readonly authorization!: pulumi.Output<outputs.MediaPackage.OriginEndpointAuthorization | undefined>;
+    public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
      */
@@ -47,11 +47,11 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
      */
-    public readonly cmafPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointCmafPackage | undefined>;
+    public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointCmafPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
      */
-    public readonly dashPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointDashPackage | undefined>;
+    public readonly dashPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointDashPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
      */
@@ -59,7 +59,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
      */
-    public readonly hlsPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointHlsPackage | undefined>;
+    public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointHlsPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
      */
@@ -71,7 +71,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
      */
-    public readonly mssPackage!: pulumi.Output<outputs.MediaPackage.OriginEndpointMssPackage | undefined>;
+    public readonly mssPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointMssPackage | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
      */
@@ -159,7 +159,7 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
      */
-    authorization?: pulumi.Input<inputs.MediaPackage.OriginEndpointAuthorizationArgs>;
+    authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
      */
@@ -167,11 +167,11 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
      */
-    cmafPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointCmafPackageArgs>;
+    cmafPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointCmafPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
      */
-    dashPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointDashPackageArgs>;
+    dashPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointDashPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
      */
@@ -179,7 +179,7 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
      */
-    hlsPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointHlsPackageArgs>;
+    hlsPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
      */
@@ -191,7 +191,7 @@ export interface OriginEndpointArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
      */
-    mssPackage?: pulumi.Input<inputs.MediaPackage.OriginEndpointMssPackageArgs>;
+    mssPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointMssPackageArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
      */

@@ -173,7 +173,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["function_metadata_function_arn"] = None
             __props__.__dict__["stage"] = None
         super(Function, __self__).__init__(
-            'aws-native:CloudFront:Function',
+            'aws-native:cloudfront:Function',
             resource_name,
             __props__,
             opts)

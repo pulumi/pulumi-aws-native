@@ -110,7 +110,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
         super(InstanceAccessControlAttributeConfiguration, __self__).__init__(
-            'aws-native:SSO:InstanceAccessControlAttributeConfiguration',
+            'aws-native:sso:InstanceAccessControlAttributeConfiguration',
             resource_name,
             __props__,
             opts)

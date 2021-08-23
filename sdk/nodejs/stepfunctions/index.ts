@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:StepFunctions:StateMachine":
+            case "aws-native:stepfunctions:StateMachine":
                 return new StateMachine(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "StepFunctions", _module)
+pulumi.runtime.registerResourceModule("aws-native", "stepfunctions", _module)

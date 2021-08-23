@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.NetworkManager
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:NetworkManager:CustomerGatewayAssociation")]
+    [AwsNativeResourceType("aws-native:networkmanager:CustomerGatewayAssociation")]
     public partial class CustomerGatewayAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CustomerGatewayAssociation(string name, CustomerGatewayAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:CustomerGatewayAssociation", name, args ?? new CustomerGatewayAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:networkmanager:CustomerGatewayAssociation", name, args ?? new CustomerGatewayAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private CustomerGatewayAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:NetworkManager:CustomerGatewayAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:networkmanager:CustomerGatewayAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

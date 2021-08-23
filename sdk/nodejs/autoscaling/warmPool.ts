@@ -21,7 +21,7 @@ export class WarmPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AutoScaling:WarmPool';
+    public static readonly __pulumiType = 'aws-native:autoscaling:WarmPool';
 
     /**
      * Returns true if the given object is an instance of WarmPool.  This is designed to work even

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Timestream
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Timestream:Database")]
+    [AwsNativeResourceType("aws-native:timestream:Database")]
     public partial class Database : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -45,12 +45,12 @@ namespace Pulumi.AwsNative.Timestream
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Database(string name, DatabaseArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:Timestream:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:timestream:Database", name, args ?? new DatabaseArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Database(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Timestream:Database", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:timestream:Database", name, null, MakeResourceOptions(options, id))
         {
         }
 

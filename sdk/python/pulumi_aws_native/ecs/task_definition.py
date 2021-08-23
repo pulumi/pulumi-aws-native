@@ -392,7 +392,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["task_definition_arn"] = None
         super(TaskDefinition, __self__).__init__(
-            'aws-native:ECS:TaskDefinition',
+            'aws-native:ecs:TaskDefinition',
             resource_name,
             __props__,
             opts)

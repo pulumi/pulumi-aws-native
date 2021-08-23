@@ -42,7 +42,7 @@ func NewPreparedStatement(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WorkGroup'")
 	}
 	var resource PreparedStatement
-	err := ctx.RegisterResource("aws-native:Athena:PreparedStatement", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:athena:PreparedStatement", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewPreparedStatement(ctx *pulumi.Context,
 func GetPreparedStatement(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PreparedStatementState, opts ...pulumi.ResourceOption) (*PreparedStatement, error) {
 	var resource PreparedStatement
-	err := ctx.ReadResource("aws-native:Athena:PreparedStatement", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:athena:PreparedStatement", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

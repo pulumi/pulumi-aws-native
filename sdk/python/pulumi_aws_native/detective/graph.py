@@ -90,7 +90,7 @@ class Graph(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Graph, __self__).__init__(
-            'aws-native:Detective:Graph',
+            'aws-native:detective:Graph',
             resource_name,
             __props__,
             opts)

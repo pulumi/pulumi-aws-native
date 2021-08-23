@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Athena
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Athena:NamedQuery")]
+    [AwsNativeResourceType("aws-native:athena:NamedQuery")]
     public partial class NamedQuery : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.Athena
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NamedQuery(string name, NamedQueryArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:athena:NamedQuery", name, args ?? new NamedQueryArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NamedQuery(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Athena:NamedQuery", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:athena:NamedQuery", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -292,7 +292,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ImagePipeline, __self__).__init__(
-            'aws-native:ImageBuilder:ImagePipeline',
+            'aws-native:imagebuilder:ImagePipeline',
             resource_name,
             __props__,
             opts)

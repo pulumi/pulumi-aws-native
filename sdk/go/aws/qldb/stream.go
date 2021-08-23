@@ -57,7 +57,7 @@ func NewStream(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StreamName'")
 	}
 	var resource Stream
-	err := ctx.RegisterResource("aws-native:QLDB:Stream", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:qldb:Stream", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -69,7 +69,7 @@ func NewStream(ctx *pulumi.Context,
 func GetStream(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *StreamState, opts ...pulumi.ResourceOption) (*Stream, error) {
 	var resource Stream
-	err := ctx.ReadResource("aws-native:QLDB:Stream", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:qldb:Stream", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

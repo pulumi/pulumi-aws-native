@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Route53RecoveryReadiness:Cell")]
+    [AwsNativeResourceType("aws-native:route53recoveryreadiness:Cell")]
     public partial class Cell : Pulumi.CustomResource
     {
         [Output("cellArn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Cell(string name, CellArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:Cell", name, args ?? new CellArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:route53recoveryreadiness:Cell", name, args ?? new CellArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Cell(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Route53RecoveryReadiness:Cell", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:route53recoveryreadiness:Cell", name, null, MakeResourceOptions(options, id))
         {
         }
 

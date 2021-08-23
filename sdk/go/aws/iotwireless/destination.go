@@ -51,7 +51,7 @@ func NewDestination(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource Destination
-	err := ctx.RegisterResource("aws-native:IoTWireless:Destination", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:Destination", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,7 +63,7 @@ func NewDestination(ctx *pulumi.Context,
 func GetDestination(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DestinationState, opts ...pulumi.ResourceOption) (*Destination, error) {
 	var resource Destination
-	err := ctx.ReadResource("aws-native:IoTWireless:Destination", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:Destination", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -91,7 +91,7 @@ class ResourceCollection(pulumi.CustomResource):
             __props__.__dict__["resource_collection_filter"] = resource_collection_filter
             __props__.__dict__["resource_collection_type"] = None
         super(ResourceCollection, __self__).__init__(
-            'aws-native:DevOpsGuru:ResourceCollection',
+            'aws-native:devopsguru:ResourceCollection',
             resource_name,
             __props__,
             opts)

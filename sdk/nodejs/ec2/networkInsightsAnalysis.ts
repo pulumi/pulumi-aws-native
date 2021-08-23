@@ -22,7 +22,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:EC2:NetworkInsightsAnalysis';
+    public static readonly __pulumiType = 'aws-native:ec2:NetworkInsightsAnalysis';
 
     /**
      * Returns true if the given object is an instance of NetworkInsightsAnalysis.  This is designed to work even
@@ -35,13 +35,13 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAnalysis.__pulumiType;
     }
 
-    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisAlternatePathHint[]>;
-    public /*out*/ readonly explanations!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisExplanation[]>;
+    public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
+    public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
      */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
+    public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     public /*out*/ readonly networkInsightsAnalysisArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsAnalysisId!: pulumi.Output<string>;
     /**
@@ -49,7 +49,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public readonly networkInsightsPathId!: pulumi.Output<string>;
     public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
-    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.EC2.NetworkInsightsAnalysisPathComponent[]>;
+    public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     public /*out*/ readonly startDate!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;

@@ -22,7 +22,7 @@ export class FlowSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaConnect:FlowSource';
+    public static readonly __pulumiType = 'aws-native:mediaconnect:FlowSource';
 
     /**
      * Returns true if the given object is an instance of FlowSource.  This is designed to work even
@@ -38,7 +38,7 @@ export class FlowSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
      */
-    public readonly decryption!: pulumi.Output<outputs.MediaConnect.FlowSourceEncryption | undefined>;
+    public readonly decryption!: pulumi.Output<outputs.mediaconnect.FlowSourceEncryption | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
      */
@@ -147,7 +147,7 @@ export interface FlowSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
      */
-    decryption?: pulumi.Input<inputs.MediaConnect.FlowSourceEncryptionArgs>;
+    decryption?: pulumi.Input<inputs.mediaconnect.FlowSourceEncryptionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
      */

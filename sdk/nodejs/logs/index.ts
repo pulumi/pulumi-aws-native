@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:Logs:LogGroup":
+            case "aws-native:logs:LogGroup":
                 return new LogGroup(name, <any>undefined, { urn })
-            case "aws-native:Logs:QueryDefinition":
+            case "aws-native:logs:QueryDefinition":
                 return new QueryDefinition(name, <any>undefined, { urn })
-            case "aws-native:Logs:ResourcePolicy":
+            case "aws-native:logs:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "Logs", _module)
+pulumi.runtime.registerResourceModule("aws-native", "logs", _module)

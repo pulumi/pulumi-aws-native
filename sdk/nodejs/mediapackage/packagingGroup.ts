@@ -22,7 +22,7 @@ export class PackagingGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:MediaPackage:PackagingGroup';
+    public static readonly __pulumiType = 'aws-native:mediapackage:PackagingGroup';
 
     /**
      * Returns true if the given object is an instance of PackagingGroup.  This is designed to work even
@@ -39,12 +39,12 @@ export class PackagingGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
      */
-    public readonly authorization!: pulumi.Output<outputs.MediaPackage.PackagingGroupAuthorization | undefined>;
+    public readonly authorization!: pulumi.Output<outputs.mediapackage.PackagingGroupAuthorization | undefined>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
      */
-    public readonly egressAccessLogs!: pulumi.Output<outputs.MediaPackage.PackagingGroupLogConfiguration | undefined>;
+    public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.PackagingGroupLogConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
      */
@@ -96,11 +96,11 @@ export interface PackagingGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
      */
-    authorization?: pulumi.Input<inputs.MediaPackage.PackagingGroupAuthorizationArgs>;
+    authorization?: pulumi.Input<inputs.mediapackage.PackagingGroupAuthorizationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
      */
-    egressAccessLogs?: pulumi.Input<inputs.MediaPackage.PackagingGroupLogConfigurationArgs>;
+    egressAccessLogs?: pulumi.Input<inputs.mediapackage.PackagingGroupLogConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
      */

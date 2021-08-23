@@ -174,7 +174,7 @@ class DeviceFleet(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
         super(DeviceFleet, __self__).__init__(
-            'aws-native:SageMaker:DeviceFleet',
+            'aws-native:sagemaker:DeviceFleet',
             resource_name,
             __props__,
             opts)

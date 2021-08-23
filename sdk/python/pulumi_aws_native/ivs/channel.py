@@ -192,7 +192,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["ingest_endpoint"] = None
             __props__.__dict__["playback_url"] = None
         super(Channel, __self__).__init__(
-            'aws-native:IVS:Channel',
+            'aws-native:ivs:Channel',
             resource_name,
             __props__,
             opts)

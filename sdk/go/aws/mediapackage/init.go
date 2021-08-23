@@ -21,15 +21,15 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:MediaPackage:Asset":
+	case "aws-native:mediapackage:Asset":
 		r = &Asset{}
-	case "aws-native:MediaPackage:Channel":
+	case "aws-native:mediapackage:Channel":
 		r = &Channel{}
-	case "aws-native:MediaPackage:OriginEndpoint":
+	case "aws-native:mediapackage:OriginEndpoint":
 		r = &OriginEndpoint{}
-	case "aws-native:MediaPackage:PackagingConfiguration":
+	case "aws-native:mediapackage:PackagingConfiguration":
 		r = &PackagingConfiguration{}
-	case "aws-native:MediaPackage:PackagingGroup":
+	case "aws-native:mediapackage:PackagingGroup":
 		r = &PackagingGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -46,7 +46,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"MediaPackage",
+		"mediapackage",
 		&module{version},
 	)
 }

@@ -21,9 +21,9 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:S3:AccessPoint":
+	case "aws-native:s3:AccessPoint":
 		r = &AccessPoint{}
-	case "aws-native:S3:StorageLens":
+	case "aws-native:s3:StorageLens":
 		r = &StorageLens{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -40,7 +40,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"S3",
+		"s3",
 		&module{version},
 	)
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.DataBrew
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:DataBrew:Schedule")]
+    [AwsNativeResourceType("aws-native:databrew:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Schedule(string name, ScheduleArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:DataBrew:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:databrew:Schedule", name, args ?? new ScheduleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Schedule(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:DataBrew:Schedule", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:databrew:Schedule", name, null, MakeResourceOptions(options, id))
         {
         }
 

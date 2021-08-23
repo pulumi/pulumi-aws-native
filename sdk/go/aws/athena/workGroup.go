@@ -46,7 +46,7 @@ func NewWorkGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource WorkGroup
-	err := ctx.RegisterResource("aws-native:Athena:WorkGroup", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:athena:WorkGroup", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewWorkGroup(ctx *pulumi.Context,
 func GetWorkGroup(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *WorkGroupState, opts ...pulumi.ResourceOption) (*WorkGroup, error) {
 	var resource WorkGroup
-	err := ctx.ReadResource("aws-native:Athena:WorkGroup", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:athena:WorkGroup", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class TypeActivation extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFormation:TypeActivation';
+    public static readonly __pulumiType = 'aws-native:cloudformation:TypeActivation';
 
     /**
      * Returns true if the given object is an instance of TypeActivation.  This is designed to work even
@@ -47,7 +47,7 @@ export class TypeActivation extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
      */
-    public readonly loggingConfig!: pulumi.Output<outputs.CloudFormation.TypeActivationLoggingConfig | undefined>;
+    public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.TypeActivationLoggingConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
      */
@@ -134,7 +134,7 @@ export interface TypeActivationArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
      */
-    loggingConfig?: pulumi.Input<inputs.CloudFormation.TypeActivationLoggingConfigArgs>;
+    loggingConfig?: pulumi.Input<inputs.cloudformation.TypeActivationLoggingConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
      */

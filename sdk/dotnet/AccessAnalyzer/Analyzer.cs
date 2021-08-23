@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:AccessAnalyzer:Analyzer")]
+    [AwsNativeResourceType("aws-native:accessanalyzer:Analyzer")]
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Analyzer(string name, AnalyzerArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:AccessAnalyzer:Analyzer", name, args ?? new AnalyzerArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:accessanalyzer:Analyzer", name, args ?? new AnalyzerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Analyzer(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:AccessAnalyzer:Analyzer", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:accessanalyzer:Analyzer", name, null, MakeResourceOptions(options, id))
         {
         }
 

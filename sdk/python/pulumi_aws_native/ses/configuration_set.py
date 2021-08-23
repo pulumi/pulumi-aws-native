@@ -87,7 +87,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
         super(ConfigurationSet, __self__).__init__(
-            'aws-native:SES:ConfigurationSet',
+            'aws-native:ses:ConfigurationSet',
             resource_name,
             __props__,
             opts)

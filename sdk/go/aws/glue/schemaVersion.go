@@ -36,7 +36,7 @@ func NewSchemaVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
 	var resource SchemaVersion
-	err := ctx.RegisterResource("aws-native:Glue:SchemaVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:glue:SchemaVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewSchemaVersion(ctx *pulumi.Context,
 func GetSchemaVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SchemaVersionState, opts ...pulumi.ResourceOption) (*SchemaVersion, error) {
 	var resource SchemaVersion
-	err := ctx.ReadResource("aws-native:Glue:SchemaVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:glue:SchemaVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

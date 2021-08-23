@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:RDS:DBProxyTargetGroup")]
+    [AwsNativeResourceType("aws-native:rds:DBProxyTargetGroup")]
     public partial class DBProxyTargetGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -57,12 +57,12 @@ namespace Pulumi.AwsNative.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBProxyTargetGroup(string name, DBProxyTargetGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxyTargetGroup", name, args ?? new DBProxyTargetGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:rds:DBProxyTargetGroup", name, args ?? new DBProxyTargetGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBProxyTargetGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxyTargetGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:rds:DBProxyTargetGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -22,7 +22,7 @@ export class CustomMetric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoT:CustomMetric';
+    public static readonly __pulumiType = 'aws-native:iot:CustomMetric';
 
     /**
      * Returns true if the given object is an instance of CustomMetric.  This is designed to work even

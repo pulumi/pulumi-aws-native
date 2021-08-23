@@ -46,7 +46,7 @@ func NewReplicaKey(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
 	var resource ReplicaKey
-	err := ctx.RegisterResource("aws-native:KMS:ReplicaKey", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:kms:ReplicaKey", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func NewReplicaKey(ctx *pulumi.Context,
 func GetReplicaKey(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ReplicaKeyState, opts ...pulumi.ResourceOption) (*ReplicaKey, error) {
 	var resource ReplicaKey
-	err := ctx.ReadResource("aws-native:KMS:ReplicaKey", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:kms:ReplicaKey", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

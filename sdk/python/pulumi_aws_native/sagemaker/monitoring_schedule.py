@@ -216,7 +216,7 @@ class MonitoringSchedule(pulumi.CustomResource):
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["monitoring_schedule_arn"] = None
         super(MonitoringSchedule, __self__).__init__(
-            'aws-native:SageMaker:MonitoringSchedule',
+            'aws-native:sagemaker:MonitoringSchedule',
             resource_name,
             __props__,
             opts)

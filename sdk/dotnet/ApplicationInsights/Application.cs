@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ApplicationInsights
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ApplicationInsights:Application")]
+    [AwsNativeResourceType("aws-native:applicationinsights:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         [Output("applicationARN")]
@@ -81,12 +81,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ApplicationInsights:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:applicationinsights:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ApplicationInsights:Application", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:applicationinsights:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 

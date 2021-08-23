@@ -141,7 +141,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
         super(NetworkInsightsAnalysis, __self__).__init__(
-            'aws-native:EC2:NetworkInsightsAnalysis',
+            'aws-native:ec2:NetworkInsightsAnalysis',
             resource_name,
             __props__,
             opts)

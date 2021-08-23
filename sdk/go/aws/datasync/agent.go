@@ -43,7 +43,7 @@ func NewAgent(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ActivationKey'")
 	}
 	var resource Agent
-	err := ctx.RegisterResource("aws-native:DataSync:Agent", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:datasync:Agent", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewAgent(ctx *pulumi.Context,
 func GetAgent(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AgentState, opts ...pulumi.ResourceOption) (*Agent, error) {
 	var resource Agent
-	err := ctx.ReadResource("aws-native:DataSync:Agent", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:datasync:Agent", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

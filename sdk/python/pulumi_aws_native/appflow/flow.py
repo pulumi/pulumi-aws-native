@@ -237,7 +237,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["trigger_config"] = trigger_config
             __props__.__dict__["flow_arn"] = None
         super(Flow, __self__).__init__(
-            'aws-native:AppFlow:Flow',
+            'aws-native:appflow:Flow',
             resource_name,
             __props__,
             opts)

@@ -151,7 +151,7 @@ class OIDCProvider(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
         super(OIDCProvider, __self__).__init__(
-            'aws-native:IAM:OIDCProvider',
+            'aws-native:iam:OIDCProvider',
             resource_name,
             __props__,
             opts)

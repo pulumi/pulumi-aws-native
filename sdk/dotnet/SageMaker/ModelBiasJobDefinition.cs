@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:ModelBiasJobDefinition")]
+    [AwsNativeResourceType("aws-native:sagemaker:ModelBiasJobDefinition")]
     public partial class ModelBiasJobDefinition : Pulumi.CustomResource
     {
         [Output("creationTime")]
@@ -90,12 +90,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ModelBiasJobDefinition(string name, ModelBiasJobDefinitionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelBiasJobDefinition", name, args ?? new ModelBiasJobDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:ModelBiasJobDefinition", name, args ?? new ModelBiasJobDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ModelBiasJobDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:ModelBiasJobDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:ModelBiasJobDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

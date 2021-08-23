@@ -151,7 +151,7 @@ class CustomMetric(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["metric_arn"] = None
         super(CustomMetric, __self__).__init__(
-            'aws-native:IoT:CustomMetric',
+            'aws-native:iot:CustomMetric',
             resource_name,
             __props__,
             opts)

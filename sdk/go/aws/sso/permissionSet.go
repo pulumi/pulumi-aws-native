@@ -49,7 +49,7 @@ func NewPermissionSet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource PermissionSet
-	err := ctx.RegisterResource("aws-native:SSO:PermissionSet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:sso:PermissionSet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ func NewPermissionSet(ctx *pulumi.Context,
 func GetPermissionSet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *PermissionSetState, opts ...pulumi.ResourceOption) (*PermissionSet, error) {
 	var resource PermissionSet
-	err := ctx.ReadResource("aws-native:SSO:PermissionSet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:sso:PermissionSet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -91,7 +91,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__.__dict__["config"] = config
             __props__.__dict__["id"] = None
         super(NotificationChannel, __self__).__init__(
-            'aws-native:DevOpsGuru:NotificationChannel',
+            'aws-native:devopsguru:NotificationChannel',
             resource_name,
             __props__,
             opts)

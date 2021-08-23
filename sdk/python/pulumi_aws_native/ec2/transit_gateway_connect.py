@@ -137,7 +137,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_attachment_id"] = None
             __props__.__dict__["transit_gateway_id"] = None
         super(TransitGatewayConnect, __self__).__init__(
-            'aws-native:EC2:TransitGatewayConnect',
+            'aws-native:ec2:TransitGatewayConnect',
             resource_name,
             __props__,
             opts)

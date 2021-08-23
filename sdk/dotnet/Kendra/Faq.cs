@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Kendra
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-faq.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Kendra:Faq")]
+    [AwsNativeResourceType("aws-native:kendra:Faq")]
     public partial class Faq : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.Kendra
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Faq(string name, FaqArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:Faq", name, args ?? new FaqArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kendra:Faq", name, args ?? new FaqArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Faq(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Kendra:Faq", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kendra:Faq", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -55,7 +55,7 @@ func NewMissionProfile(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TrackingConfigArn'")
 	}
 	var resource MissionProfile
-	err := ctx.RegisterResource("aws-native:GroundStation:MissionProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:groundstation:MissionProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func NewMissionProfile(ctx *pulumi.Context,
 func GetMissionProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MissionProfileState, opts ...pulumi.ResourceOption) (*MissionProfile, error) {
 	var resource MissionProfile
-	err := ctx.ReadResource("aws-native:GroundStation:MissionProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:groundstation:MissionProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

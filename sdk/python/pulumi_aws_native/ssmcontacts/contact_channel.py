@@ -172,7 +172,7 @@ class ContactChannel(pulumi.CustomResource):
             __props__.__dict__["defer_activation"] = defer_activation
             __props__.__dict__["arn"] = None
         super(ContactChannel, __self__).__init__(
-            'aws-native:SSMContacts:ContactChannel',
+            'aws-native:ssmcontacts:ContactChannel',
             resource_name,
             __props__,
             opts)

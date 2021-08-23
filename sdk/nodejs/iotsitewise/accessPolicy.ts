@@ -22,7 +22,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTSiteWise:AccessPolicy';
+    public static readonly __pulumiType = 'aws-native:iotsitewise:AccessPolicy';
 
     /**
      * Returns true if the given object is an instance of AccessPolicy.  This is designed to work even
@@ -40,7 +40,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    public readonly accessPolicyIdentity!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyIdentity>;
+    public readonly accessPolicyIdentity!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyIdentity>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
@@ -48,7 +48,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    public readonly accessPolicyResource!: pulumi.Output<outputs.IoTSiteWise.AccessPolicyAccessPolicyResource>;
+    public readonly accessPolicyResource!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyResource>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
      */
-    accessPolicyIdentity: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyIdentityArgs>;
+    accessPolicyIdentity: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyIdentityArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
      */
@@ -104,5 +104,5 @@ export interface AccessPolicyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
      */
-    accessPolicyResource: pulumi.Input<inputs.IoTSiteWise.AccessPolicyAccessPolicyResourceArgs>;
+    accessPolicyResource: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyResourceArgs>;
 }

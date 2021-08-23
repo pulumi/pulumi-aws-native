@@ -22,7 +22,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationFSxWindows';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationFSxWindows';
 
     /**
      * Returns true if the given object is an instance of LocationFSxWindows.  This is designed to work even

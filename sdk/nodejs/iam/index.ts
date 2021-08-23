@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:IAM:OIDCProvider":
+            case "aws-native:iam:OIDCProvider":
                 return new OIDCProvider(name, <any>undefined, { urn })
-            case "aws-native:IAM:SAMLProvider":
+            case "aws-native:iam:SAMLProvider":
                 return new SAMLProvider(name, <any>undefined, { urn })
-            case "aws-native:IAM:ServerCertificate":
+            case "aws-native:iam:ServerCertificate":
                 return new ServerCertificate(name, <any>undefined, { urn })
-            case "aws-native:IAM:VirtualMFADevice":
+            case "aws-native:iam:VirtualMFADevice":
                 return new VirtualMFADevice(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "IAM", _module)
+pulumi.runtime.registerResourceModule("aws-native", "iam", _module)

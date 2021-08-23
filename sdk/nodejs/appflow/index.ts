@@ -16,13 +16,13 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:AppFlow:ConnectorProfile":
+            case "aws-native:appflow:ConnectorProfile":
                 return new ConnectorProfile(name, <any>undefined, { urn })
-            case "aws-native:AppFlow:Flow":
+            case "aws-native:appflow:Flow":
                 return new Flow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "AppFlow", _module)
+pulumi.runtime.registerResourceModule("aws-native", "appflow", _module)

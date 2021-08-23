@@ -43,7 +43,7 @@ func NewAccessPoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcConfiguration'")
 	}
 	var resource AccessPoint
-	err := ctx.RegisterResource("aws-native:S3Outposts:AccessPoint", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:s3outposts:AccessPoint", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewAccessPoint(ctx *pulumi.Context,
 func GetAccessPoint(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *AccessPointState, opts ...pulumi.ResourceOption) (*AccessPoint, error) {
 	var resource AccessPoint
-	err := ctx.ReadResource("aws-native:S3Outposts:AccessPoint", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:s3outposts:AccessPoint", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

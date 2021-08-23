@@ -158,7 +158,7 @@ class FirewallDomainList(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
         super(FirewallDomainList, __self__).__init__(
-            'aws-native:Route53Resolver:FirewallDomainList',
+            'aws-native:route53resolver:FirewallDomainList',
             resource_name,
             __props__,
             opts)

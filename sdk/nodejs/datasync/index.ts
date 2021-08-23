@@ -28,25 +28,25 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:DataSync:Agent":
+            case "aws-native:datasync:Agent":
                 return new Agent(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationEFS":
+            case "aws-native:datasync:LocationEFS":
                 return new LocationEFS(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationFSxWindows":
+            case "aws-native:datasync:LocationFSxWindows":
                 return new LocationFSxWindows(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationNFS":
+            case "aws-native:datasync:LocationNFS":
                 return new LocationNFS(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationObjectStorage":
+            case "aws-native:datasync:LocationObjectStorage":
                 return new LocationObjectStorage(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationS3":
+            case "aws-native:datasync:LocationS3":
                 return new LocationS3(name, <any>undefined, { urn })
-            case "aws-native:DataSync:LocationSMB":
+            case "aws-native:datasync:LocationSMB":
                 return new LocationSMB(name, <any>undefined, { urn })
-            case "aws-native:DataSync:Task":
+            case "aws-native:datasync:Task":
                 return new Task(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "DataSync", _module)
+pulumi.runtime.registerResourceModule("aws-native", "datasync", _module)

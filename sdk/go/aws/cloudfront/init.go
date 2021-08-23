@@ -21,21 +21,21 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:CloudFront:CachePolicy":
+	case "aws-native:cloudfront:CachePolicy":
 		r = &CachePolicy{}
-	case "aws-native:CloudFront:CloudFrontOriginAccessIdentity":
+	case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
 		r = &CloudFrontOriginAccessIdentity{}
-	case "aws-native:CloudFront:Distribution":
+	case "aws-native:cloudfront:Distribution":
 		r = &Distribution{}
-	case "aws-native:CloudFront:Function":
+	case "aws-native:cloudfront:Function":
 		r = &Function{}
-	case "aws-native:CloudFront:KeyGroup":
+	case "aws-native:cloudfront:KeyGroup":
 		r = &KeyGroup{}
-	case "aws-native:CloudFront:OriginRequestPolicy":
+	case "aws-native:cloudfront:OriginRequestPolicy":
 		r = &OriginRequestPolicy{}
-	case "aws-native:CloudFront:PublicKey":
+	case "aws-native:cloudfront:PublicKey":
 		r = &PublicKey{}
-	case "aws-native:CloudFront:RealtimeLogConfig":
+	case "aws-native:cloudfront:RealtimeLogConfig":
 		r = &RealtimeLogConfig{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -52,7 +52,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"CloudFront",
+		"cloudfront",
 		&module{version},
 	)
 }

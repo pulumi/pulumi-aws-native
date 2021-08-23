@@ -22,7 +22,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IoTFleetHub:Application';
+    public static readonly __pulumiType = 'aws-native:iotfleethub:Application';
 
     /**
      * Returns true if the given object is an instance of Application.  This is designed to work even

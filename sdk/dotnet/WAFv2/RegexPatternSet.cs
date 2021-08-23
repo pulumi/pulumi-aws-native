@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.WAFv2
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-regexpatternset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:WAFv2:RegexPatternSet")]
+    [AwsNativeResourceType("aws-native:wafv2:RegexPatternSet")]
     public partial class RegexPatternSet : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.WAFv2
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public RegexPatternSet(string name, RegexPatternSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:RegexPatternSet", name, args ?? new RegexPatternSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:wafv2:RegexPatternSet", name, args ?? new RegexPatternSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private RegexPatternSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:WAFv2:RegexPatternSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:wafv2:RegexPatternSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

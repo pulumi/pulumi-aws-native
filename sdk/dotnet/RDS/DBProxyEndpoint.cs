@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.RDS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:RDS:DBProxyEndpoint")]
+    [AwsNativeResourceType("aws-native:rds:DBProxyEndpoint")]
     public partial class DBProxyEndpoint : Pulumi.CustomResource
     {
         [Output("dBProxyEndpointArn")]
@@ -72,12 +72,12 @@ namespace Pulumi.AwsNative.RDS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DBProxyEndpoint(string name, DBProxyEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxyEndpoint", name, args ?? new DBProxyEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:rds:DBProxyEndpoint", name, args ?? new DBProxyEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DBProxyEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:RDS:DBProxyEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:rds:DBProxyEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

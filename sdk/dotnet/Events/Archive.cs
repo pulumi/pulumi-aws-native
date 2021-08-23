@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Events
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Events:Archive")]
+    [AwsNativeResourceType("aws-native:events:Archive")]
     public partial class Archive : Pulumi.CustomResource
     {
         [Output("archiveName")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Events
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Archive(string name, ArchiveArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Events:Archive", name, args ?? new ArchiveArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:events:Archive", name, args ?? new ArchiveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Archive(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Events:Archive", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:events:Archive", name, null, MakeResourceOptions(options, id))
         {
         }
 

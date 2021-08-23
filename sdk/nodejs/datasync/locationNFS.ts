@@ -22,7 +22,7 @@ export class LocationNFS extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataSync:LocationNFS';
+    public static readonly __pulumiType = 'aws-native:datasync:LocationNFS';
 
     /**
      * Returns true if the given object is an instance of LocationNFS.  This is designed to work even
@@ -40,11 +40,11 @@ export class LocationNFS extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
      */
-    public readonly mountOptions!: pulumi.Output<outputs.DataSync.LocationNFSMountOptions | undefined>;
+    public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationNFSMountOptions | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
      */
-    public readonly onPremConfig!: pulumi.Output<outputs.DataSync.LocationNFSOnPremConfig>;
+    public readonly onPremConfig!: pulumi.Output<outputs.datasync.LocationNFSOnPremConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
      */
@@ -108,11 +108,11 @@ export interface LocationNFSArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
      */
-    mountOptions?: pulumi.Input<inputs.DataSync.LocationNFSMountOptionsArgs>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationNFSMountOptionsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
      */
-    onPremConfig: pulumi.Input<inputs.DataSync.LocationNFSOnPremConfigArgs>;
+    onPremConfig: pulumi.Input<inputs.datasync.LocationNFSOnPremConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
      */

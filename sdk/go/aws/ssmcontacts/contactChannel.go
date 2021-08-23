@@ -48,7 +48,7 @@ func NewContactChannel(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ContactId'")
 	}
 	var resource ContactChannel
-	err := ctx.RegisterResource("aws-native:SSMContacts:ContactChannel", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ssmcontacts:ContactChannel", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -60,7 +60,7 @@ func NewContactChannel(ctx *pulumi.Context,
 func GetContactChannel(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ContactChannelState, opts ...pulumi.ResourceOption) (*ContactChannel, error) {
 	var resource ContactChannel
-	err := ctx.ReadResource("aws-native:SSMContacts:ContactChannel", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ssmcontacts:ContactChannel", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

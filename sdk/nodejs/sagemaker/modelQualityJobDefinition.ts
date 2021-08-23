@@ -22,7 +22,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SageMaker:ModelQualityJobDefinition';
+    public static readonly __pulumiType = 'aws-native:sagemaker:ModelQualityJobDefinition';
 
     /**
      * Returns true if the given object is an instance of ModelQualityJobDefinition.  This is designed to work even
@@ -44,27 +44,27 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
      */
-    public readonly jobResources!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringResources>;
+    public readonly jobResources!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringResources>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
      */
-    public readonly modelQualityAppSpecification!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
+    public readonly modelQualityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
      */
-    public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
+    public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
      */
-    public readonly modelQualityJobInput!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInput>;
+    public readonly modelQualityJobInput!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInput>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
      */
-    public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
+    public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
      */
-    public readonly networkConfig!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
+    public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
      */
@@ -72,7 +72,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
      */
-    public readonly stoppingCondition!: pulumi.Output<outputs.SageMaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
+    public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
      */
@@ -148,27 +148,27 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
      */
-    jobResources: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringResourcesArgs>;
+    jobResources: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringResourcesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
      */
-    modelQualityAppSpecification: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityAppSpecificationArgs>;
+    modelQualityAppSpecification: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecificationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
      */
-    modelQualityBaselineConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>;
+    modelQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
      */
-    modelQualityJobInput: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionModelQualityJobInputArgs>;
+    modelQualityJobInput: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInputArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
      */
-    modelQualityJobOutputConfig: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionMonitoringOutputConfigArgs>;
+    modelQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
      */
-    networkConfig?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionNetworkConfigArgs>;
+    networkConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionNetworkConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
      */
@@ -176,7 +176,7 @@ export interface ModelQualityJobDefinitionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
      */
-    stoppingCondition?: pulumi.Input<inputs.SageMaker.ModelQualityJobDefinitionStoppingConditionArgs>;
+    stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionStoppingConditionArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
      */

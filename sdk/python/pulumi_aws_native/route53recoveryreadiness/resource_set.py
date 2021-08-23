@@ -155,7 +155,7 @@ class ResourceSet(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["resource_set_arn"] = None
         super(ResourceSet, __self__).__init__(
-            'aws-native:Route53RecoveryReadiness:ResourceSet',
+            'aws-native:route53recoveryreadiness:ResourceSet',
             resource_name,
             __props__,
             opts)

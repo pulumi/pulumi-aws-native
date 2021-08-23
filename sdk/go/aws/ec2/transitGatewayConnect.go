@@ -42,7 +42,7 @@ func NewTransitGatewayConnect(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TransportTransitGatewayAttachmentId'")
 	}
 	var resource TransitGatewayConnect
-	err := ctx.RegisterResource("aws-native:EC2:TransitGatewayConnect", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:TransitGatewayConnect", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewTransitGatewayConnect(ctx *pulumi.Context,
 func GetTransitGatewayConnect(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *TransitGatewayConnectState, opts ...pulumi.ResourceOption) (*TransitGatewayConnect, error) {
 	var resource TransitGatewayConnect
-	err := ctx.ReadResource("aws-native:EC2:TransitGatewayConnect", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:TransitGatewayConnect", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

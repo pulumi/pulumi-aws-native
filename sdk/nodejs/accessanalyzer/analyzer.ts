@@ -22,7 +22,7 @@ export class Analyzer extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:AccessAnalyzer:Analyzer';
+    public static readonly __pulumiType = 'aws-native:accessanalyzer:Analyzer';
 
     /**
      * Returns true if the given object is an instance of Analyzer.  This is designed to work even
@@ -42,7 +42,7 @@ export class Analyzer extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    public readonly archiveRules!: pulumi.Output<outputs.AccessAnalyzer.AnalyzerArchiveRule[] | undefined>;
+    public readonly archiveRules!: pulumi.Output<outputs.accessanalyzer.AnalyzerArchiveRule[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
@@ -97,7 +97,7 @@ export interface AnalyzerArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
      */
-    archiveRules?: pulumi.Input<pulumi.Input<inputs.AccessAnalyzer.AnalyzerArchiveRuleArgs>[]>;
+    archiveRules?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerArchiveRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
      */

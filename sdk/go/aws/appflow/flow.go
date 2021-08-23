@@ -58,7 +58,7 @@ func NewFlow(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
 	var resource Flow
-	err := ctx.RegisterResource("aws-native:AppFlow:Flow", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:appflow:Flow", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -70,7 +70,7 @@ func NewFlow(ctx *pulumi.Context,
 func GetFlow(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FlowState, opts ...pulumi.ResourceOption) (*Flow, error) {
 	var resource Flow
-	err := ctx.ReadResource("aws-native:AppFlow:Flow", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:appflow:Flow", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

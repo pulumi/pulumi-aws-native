@@ -171,7 +171,7 @@ class DataCatalog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
         super(DataCatalog, __self__).__init__(
-            'aws-native:Athena:DataCatalog',
+            'aws-native:athena:DataCatalog',
             resource_name,
             __props__,
             opts)

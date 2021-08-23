@@ -22,7 +22,7 @@ export class Connection extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CodeStarConnections:Connection';
+    public static readonly __pulumiType = 'aws-native:codestarconnections:Connection';
 
     /**
      * Returns true if the given object is an instance of Connection.  This is designed to work even

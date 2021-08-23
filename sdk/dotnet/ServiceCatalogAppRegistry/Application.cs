@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-application.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ServiceCatalogAppRegistry:Application")]
+    [AwsNativeResourceType("aws-native:servicecatalogappregistry:Application")]
     public partial class Application : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -48,12 +48,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Application(string name, ApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:servicecatalogappregistry:Application", name, args ?? new ApplicationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Application(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalogAppRegistry:Application", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:servicecatalogappregistry:Application", name, null, MakeResourceOptions(options, id))
         {
         }
 

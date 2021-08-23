@@ -22,7 +22,7 @@ export class SafetyRule extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53RecoveryControl:SafetyRule';
+    public static readonly __pulumiType = 'aws-native:route53recoverycontrol:SafetyRule';
 
     /**
      * Returns true if the given object is an instance of SafetyRule.  This is designed to work even
@@ -38,7 +38,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
      */
-    public readonly assertionRule!: pulumi.Output<outputs.Route53RecoveryControl.SafetyRuleAssertionRule | undefined>;
+    public readonly assertionRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleAssertionRule | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
      */
@@ -46,7 +46,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
      */
-    public readonly gatingRule!: pulumi.Output<outputs.Route53RecoveryControl.SafetyRuleGatingRule | undefined>;
+    public readonly gatingRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleGatingRule | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
      */
@@ -54,7 +54,7 @@ export class SafetyRule extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
      */
-    public readonly ruleConfig!: pulumi.Output<outputs.Route53RecoveryControl.SafetyRuleRuleConfig>;
+    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
     public /*out*/ readonly safetyRuleArn!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
 
@@ -108,7 +108,7 @@ export interface SafetyRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
      */
-    assertionRule?: pulumi.Input<inputs.Route53RecoveryControl.SafetyRuleAssertionRuleArgs>;
+    assertionRule?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleAssertionRuleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
      */
@@ -116,7 +116,7 @@ export interface SafetyRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
      */
-    gatingRule?: pulumi.Input<inputs.Route53RecoveryControl.SafetyRuleGatingRuleArgs>;
+    gatingRule?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleGatingRuleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
      */
@@ -124,5 +124,5 @@ export interface SafetyRuleArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
      */
-    ruleConfig: pulumi.Input<inputs.Route53RecoveryControl.SafetyRuleRuleConfigArgs>;
+    ruleConfig: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfigArgs>;
 }

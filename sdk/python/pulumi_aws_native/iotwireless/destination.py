@@ -194,7 +194,7 @@ class Destination(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Destination, __self__).__init__(
-            'aws-native:IoTWireless:Destination',
+            'aws-native:iotwireless:Destination',
             resource_name,
             __props__,
             opts)

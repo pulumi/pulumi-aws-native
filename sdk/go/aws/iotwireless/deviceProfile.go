@@ -33,7 +33,7 @@ func NewDeviceProfile(ctx *pulumi.Context,
 	}
 
 	var resource DeviceProfile
-	err := ctx.RegisterResource("aws-native:IoTWireless:DeviceProfile", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iotwireless:DeviceProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -45,7 +45,7 @@ func NewDeviceProfile(ctx *pulumi.Context,
 func GetDeviceProfile(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *DeviceProfileState, opts ...pulumi.ResourceOption) (*DeviceProfile, error) {
 	var resource DeviceProfile
-	err := ctx.ReadResource("aws-native:IoTWireless:DeviceProfile", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iotwireless:DeviceProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

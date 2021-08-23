@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SSO
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SSO:Assignment")]
+    [AwsNativeResourceType("aws-native:sso:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.SSO
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Assignment(string name, AssignmentArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sso:Assignment", name, args ?? new AssignmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Assignment(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SSO:Assignment", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sso:Assignment", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -36,7 +36,7 @@ func NewRoutingControl(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource RoutingControl
-	err := ctx.RegisterResource("aws-native:Route53RecoveryControl:RoutingControl", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:route53recoverycontrol:RoutingControl", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewRoutingControl(ctx *pulumi.Context,
 func GetRoutingControl(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *RoutingControlState, opts ...pulumi.ResourceOption) (*RoutingControl, error) {
 	var resource RoutingControl
-	err := ctx.ReadResource("aws-native:Route53RecoveryControl:RoutingControl", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:route53recoverycontrol:RoutingControl", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

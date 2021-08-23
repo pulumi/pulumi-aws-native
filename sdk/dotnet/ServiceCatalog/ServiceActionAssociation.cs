@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ServiceCatalog:ServiceActionAssociation")]
+    [AwsNativeResourceType("aws-native:servicecatalog:ServiceActionAssociation")]
     public partial class ServiceActionAssociation : Pulumi.CustomResource
     {
         /// <summary>
@@ -42,12 +42,12 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ServiceActionAssociation(string name, ServiceActionAssociationArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalog:ServiceActionAssociation", name, args ?? new ServiceActionAssociationArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:servicecatalog:ServiceActionAssociation", name, args ?? new ServiceActionAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private ServiceActionAssociation(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ServiceCatalog:ServiceActionAssociation", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:servicecatalog:ServiceActionAssociation", name, null, MakeResourceOptions(options, id))
         {
         }
 

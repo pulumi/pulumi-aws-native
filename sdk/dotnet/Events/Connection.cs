@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Events
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Events:Connection")]
+    [AwsNativeResourceType("aws-native:events:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -54,12 +54,12 @@ namespace Pulumi.AwsNative.Events
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Events:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:events:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Connection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Events:Connection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:events:Connection", name, null, MakeResourceOptions(options, id))
         {
         }
 

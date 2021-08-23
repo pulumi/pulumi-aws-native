@@ -47,7 +47,7 @@ func NewMap(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PricingPlan'")
 	}
 	var resource Map
-	err := ctx.RegisterResource("aws-native:Location:Map", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:location:Map", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewMap(ctx *pulumi.Context,
 func GetMap(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MapState, opts ...pulumi.ResourceOption) (*Map, error) {
 	var resource Map
-	err := ctx.ReadResource("aws-native:Location:Map", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:location:Map", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -194,7 +194,7 @@ class IPSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["id"] = None
         super(IPSet, __self__).__init__(
-            'aws-native:WAFv2:IPSet',
+            'aws-native:wafv2:IPSet',
             resource_name,
             __props__,
             opts)

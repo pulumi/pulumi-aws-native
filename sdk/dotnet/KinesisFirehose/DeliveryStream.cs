@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:KinesisFirehose:DeliveryStream")]
+    [AwsNativeResourceType("aws-native:kinesisfirehose:DeliveryStream")]
     public partial class DeliveryStream : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -93,12 +93,12 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeliveryStream(string name, DeliveryStreamArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:KinesisFirehose:DeliveryStream", name, args ?? new DeliveryStreamArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:kinesisfirehose:DeliveryStream", name, args ?? new DeliveryStreamArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private DeliveryStream(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:KinesisFirehose:DeliveryStream", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:kinesisfirehose:DeliveryStream", name, null, MakeResourceOptions(options, id))
         {
         }
 

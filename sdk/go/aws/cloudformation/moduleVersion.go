@@ -43,7 +43,7 @@ func NewModuleVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ModulePackage'")
 	}
 	var resource ModuleVersion
-	err := ctx.RegisterResource("aws-native:CloudFormation:ModuleVersion", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:cloudformation:ModuleVersion", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func NewModuleVersion(ctx *pulumi.Context,
 func GetModuleVersion(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *ModuleVersionState, opts ...pulumi.ResourceOption) (*ModuleVersion, error) {
 	var resource ModuleVersion
-	err := ctx.ReadResource("aws-native:CloudFormation:ModuleVersion", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:cloudformation:ModuleVersion", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

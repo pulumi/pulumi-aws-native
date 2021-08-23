@@ -63,7 +63,7 @@ func NewFleet(ctx *pulumi.Context,
 	}
 
 	var resource Fleet
-	err := ctx.RegisterResource("aws-native:GameLift:Fleet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:gamelift:Fleet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func NewFleet(ctx *pulumi.Context,
 func GetFleet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *FleetState, opts ...pulumi.ResourceOption) (*Fleet, error) {
 	var resource Fleet
-	err := ctx.ReadResource("aws-native:GameLift:Fleet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:gamelift:Fleet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

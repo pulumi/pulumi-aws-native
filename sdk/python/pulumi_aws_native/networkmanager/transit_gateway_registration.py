@@ -109,7 +109,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'transit_gateway_arn'")
             __props__.__dict__["transit_gateway_arn"] = transit_gateway_arn
         super(TransitGatewayRegistration, __self__).__init__(
-            'aws-native:NetworkManager:TransitGatewayRegistration',
+            'aws-native:networkmanager:TransitGatewayRegistration',
             resource_name,
             __props__,
             opts)

@@ -47,7 +47,7 @@ func NewEventIntegration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource EventIntegration
-	err := ctx.RegisterResource("aws-native:AppIntegrations:EventIntegration", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:appintegrations:EventIntegration", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,7 +59,7 @@ func NewEventIntegration(ctx *pulumi.Context,
 func GetEventIntegration(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *EventIntegrationState, opts ...pulumi.ResourceOption) (*EventIntegration, error) {
 	var resource EventIntegration
-	err := ctx.ReadResource("aws-native:AppIntegrations:EventIntegration", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:appintegrations:EventIntegration", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

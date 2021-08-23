@@ -215,7 +215,7 @@ class LocationFSxWindows(pulumi.CustomResource):
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
         super(LocationFSxWindows, __self__).__init__(
-            'aws-native:DataSync:LocationFSxWindows',
+            'aws-native:datasync:LocationFSxWindows',
             resource_name,
             __props__,
             opts)

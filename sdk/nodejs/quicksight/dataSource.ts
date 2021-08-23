@@ -22,7 +22,7 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:QuickSight:DataSource';
+    public static readonly __pulumiType = 'aws-native:quicksight:DataSource';
 
     /**
      * Returns true if the given object is an instance of DataSource.  This is designed to work even
@@ -38,7 +38,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
      */
-    public readonly alternateDataSourceParameters!: pulumi.Output<outputs.QuickSight.DataSourceDataSourceParameters[] | undefined>;
+    public readonly alternateDataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
@@ -48,7 +48,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
      */
-    public readonly credentials!: pulumi.Output<outputs.QuickSight.DataSourceDataSourceCredentials | undefined>;
+    public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceDataSourceCredentials | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
      */
@@ -56,11 +56,11 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
      */
-    public readonly dataSourceParameters!: pulumi.Output<outputs.QuickSight.DataSourceDataSourceParameters | undefined>;
+    public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
      */
-    public readonly errorInfo!: pulumi.Output<outputs.QuickSight.DataSourceDataSourceErrorInfo | undefined>;
+    public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceDataSourceErrorInfo | undefined>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
@@ -69,11 +69,11 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
      */
-    public readonly permissions!: pulumi.Output<outputs.QuickSight.DataSourceResourcePermission[] | undefined>;
+    public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
      */
-    public readonly sslProperties!: pulumi.Output<outputs.QuickSight.DataSourceSslProperties | undefined>;
+    public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
@@ -86,7 +86,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
      */
-    public readonly vpcConnectionProperties!: pulumi.Output<outputs.QuickSight.DataSourceVpcConnectionProperties | undefined>;
+    public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
      * Create a DataSource resource with the given unique name, arguments, and options.
@@ -147,7 +147,7 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
      */
-    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.QuickSight.DataSourceDataSourceParametersArgs>[]>;
+    alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
      */
@@ -155,7 +155,7 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
      */
-    credentials?: pulumi.Input<inputs.QuickSight.DataSourceDataSourceCredentialsArgs>;
+    credentials?: pulumi.Input<inputs.quicksight.DataSourceDataSourceCredentialsArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
      */
@@ -163,11 +163,11 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
      */
-    dataSourceParameters?: pulumi.Input<inputs.QuickSight.DataSourceDataSourceParametersArgs>;
+    dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
      */
-    errorInfo?: pulumi.Input<inputs.QuickSight.DataSourceDataSourceErrorInfoArgs>;
+    errorInfo?: pulumi.Input<inputs.quicksight.DataSourceDataSourceErrorInfoArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
      */
@@ -175,11 +175,11 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.QuickSight.DataSourceResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
      */
-    sslProperties?: pulumi.Input<inputs.QuickSight.DataSourceSslPropertiesArgs>;
+    sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
      */
@@ -191,5 +191,5 @@ export interface DataSourceArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
      */
-    vpcConnectionProperties?: pulumi.Input<inputs.QuickSight.DataSourceVpcConnectionPropertiesArgs>;
+    vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

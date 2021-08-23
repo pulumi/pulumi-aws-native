@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.CloudFormation
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:CloudFormation:StackSet")]
+    [AwsNativeResourceType("aws-native:cloudformation:StackSet")]
     public partial class StackSet : Pulumi.CustomResource
     {
         /// <summary>
@@ -111,12 +111,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public StackSet(string name, StackSetArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:StackSet", name, args ?? new StackSetArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:cloudformation:StackSet", name, args ?? new StackSetArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private StackSet(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:CloudFormation:StackSet", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:cloudformation:StackSet", name, null, MakeResourceOptions(options, id))
         {
         }
 

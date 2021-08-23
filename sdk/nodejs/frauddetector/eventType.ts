@@ -22,7 +22,7 @@ export class EventType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FraudDetector:EventType';
+    public static readonly __pulumiType = 'aws-native:frauddetector:EventType';
 
     /**
      * Returns true if the given object is an instance of EventType.  This is designed to work even
@@ -44,15 +44,15 @@ export class EventType extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
      */
-    public readonly entityTypes!: pulumi.Output<outputs.FraudDetector.EventTypeEntityType[]>;
+    public readonly entityTypes!: pulumi.Output<outputs.frauddetector.EventTypeEntityType[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
      */
-    public readonly eventVariables!: pulumi.Output<outputs.FraudDetector.EventTypeEventVariable[]>;
+    public readonly eventVariables!: pulumi.Output<outputs.frauddetector.EventTypeEventVariable[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
      */
-    public readonly labels!: pulumi.Output<outputs.FraudDetector.EventTypeLabel[]>;
+    public readonly labels!: pulumi.Output<outputs.frauddetector.EventTypeLabel[]>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
@@ -124,15 +124,15 @@ export interface EventTypeArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
      */
-    entityTypes: pulumi.Input<pulumi.Input<inputs.FraudDetector.EventTypeEntityTypeArgs>[]>;
+    entityTypes: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEntityTypeArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
      */
-    eventVariables: pulumi.Input<pulumi.Input<inputs.FraudDetector.EventTypeEventVariableArgs>[]>;
+    eventVariables: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEventVariableArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
      */
-    labels: pulumi.Input<pulumi.Input<inputs.FraudDetector.EventTypeLabelArgs>[]>;
+    labels: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeLabelArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
      */

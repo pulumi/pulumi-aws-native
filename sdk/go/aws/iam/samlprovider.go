@@ -36,7 +36,7 @@ func NewSAMLProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
 	var resource SAMLProvider
-	err := ctx.RegisterResource("aws-native:IAM:SAMLProvider", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iam:SAMLProvider", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func NewSAMLProvider(ctx *pulumi.Context,
 func GetSAMLProvider(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SAMLProviderState, opts ...pulumi.ResourceOption) (*SAMLProvider, error) {
 	var resource SAMLProvider
-	err := ctx.ReadResource("aws-native:IAM:SAMLProvider", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iam:SAMLProvider", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

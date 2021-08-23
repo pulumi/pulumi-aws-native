@@ -22,7 +22,7 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:RDS:DBProxyTargetGroup';
+    public static readonly __pulumiType = 'aws-native:rds:DBProxyTargetGroup';
 
     /**
      * Returns true if the given object is an instance of DBProxyTargetGroup.  This is designed to work even
@@ -38,7 +38,7 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
+    public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */
@@ -102,7 +102,7 @@ export interface DBProxyTargetGroupArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
      */
-    connectionPoolConfigurationInfo?: pulumi.Input<inputs.RDS.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
+    connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
      */

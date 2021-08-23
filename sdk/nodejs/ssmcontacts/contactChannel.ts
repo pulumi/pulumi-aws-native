@@ -21,7 +21,7 @@ export class ContactChannel extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:SSMContacts:ContactChannel';
+    public static readonly __pulumiType = 'aws-native:ssmcontacts:ContactChannel';
 
     /**
      * Returns true if the given object is an instance of ContactChannel.  This is designed to work even

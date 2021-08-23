@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.ECS
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:ECS:TaskDefinition")]
+    [AwsNativeResourceType("aws-native:ecs:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
         /// <summary>
@@ -123,12 +123,12 @@ namespace Pulumi.AwsNative.ECS
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public TaskDefinition(string name, TaskDefinitionArgs? args = null, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:ecs:TaskDefinition", name, args ?? new TaskDefinitionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private TaskDefinition(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:ECS:TaskDefinition", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:ecs:TaskDefinition", name, null, MakeResourceOptions(options, id))
         {
         }
 

@@ -111,7 +111,7 @@ class ReplicationSet(pulumi.CustomResource):
             __props__.__dict__["regions"] = regions
             __props__.__dict__["arn"] = None
         super(ReplicationSet, __self__).__init__(
-            'aws-native:SSMIncidents:ReplicationSet',
+            'aws-native:ssmincidents:ReplicationSet',
             resource_name,
             __props__,
             opts)

@@ -131,7 +131,7 @@ class RecoveryGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["recovery_group_arn"] = None
         super(RecoveryGroup, __self__).__init__(
-            'aws-native:Route53RecoveryReadiness:RecoveryGroup',
+            'aws-native:route53recoveryreadiness:RecoveryGroup',
             resource_name,
             __props__,
             opts)

@@ -14,11 +14,11 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:LookoutVision:Project":
+            case "aws-native:lookoutvision:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "LookoutVision", _module)
+pulumi.runtime.registerResourceModule("aws-native", "lookoutvision", _module)

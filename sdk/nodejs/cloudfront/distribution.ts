@@ -22,7 +22,7 @@ export class Distribution extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:CloudFront:Distribution';
+    public static readonly __pulumiType = 'aws-native:cloudfront:Distribution';
 
     /**
      * Returns true if the given object is an instance of Distribution.  This is designed to work even
@@ -38,7 +38,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
      */
-    public readonly distributionConfig!: pulumi.Output<outputs.CloudFront.DistributionDistributionConfig>;
+    public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionDistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly id!: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export interface DistributionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
      */
-    distributionConfig: pulumi.Input<inputs.CloudFront.DistributionDistributionConfigArgs>;
+    distributionConfig: pulumi.Input<inputs.cloudfront.DistributionDistributionConfigArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
      */

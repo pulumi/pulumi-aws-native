@@ -22,7 +22,7 @@ export class Job extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:DataBrew:Job';
+    public static readonly __pulumiType = 'aws-native:databrew:Job';
 
     /**
      * Returns true if the given object is an instance of Job.  This is designed to work even
@@ -38,11 +38,11 @@ export class Job extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
      */
-    public readonly dataCatalogOutputs!: pulumi.Output<outputs.DataBrew.JobDataCatalogOutput[] | undefined>;
+    public readonly dataCatalogOutputs!: pulumi.Output<outputs.databrew.JobDataCatalogOutput[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
      */
-    public readonly databaseOutputs!: pulumi.Output<outputs.DataBrew.JobDatabaseOutput[] | undefined>;
+    public readonly databaseOutputs!: pulumi.Output<outputs.databrew.JobDatabaseOutput[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
@@ -58,7 +58,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
      */
-    public readonly jobSample!: pulumi.Output<outputs.DataBrew.JobJobSample | undefined>;
+    public readonly jobSample!: pulumi.Output<outputs.databrew.JobJobSample | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
@@ -78,15 +78,15 @@ export class Job extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    public readonly outputLocation!: pulumi.Output<outputs.DataBrew.JobOutputLocation | undefined>;
+    public readonly outputLocation!: pulumi.Output<outputs.databrew.JobOutputLocation | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
-    public readonly outputs!: pulumi.Output<outputs.DataBrew.JobOutput[] | undefined>;
+    public readonly outputs!: pulumi.Output<outputs.databrew.JobOutput[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
      */
-    public readonly profileConfiguration!: pulumi.Output<outputs.DataBrew.JobProfileConfiguration | undefined>;
+    public readonly profileConfiguration!: pulumi.Output<outputs.databrew.JobProfileConfiguration | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */
@@ -186,11 +186,11 @@ export interface JobArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datacatalogoutputs
      */
-    dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobDataCatalogOutputArgs>[]>;
+    dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDataCatalogOutputArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-databaseoutputs
      */
-    databaseOutputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobDatabaseOutputArgs>[]>;
+    databaseOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDatabaseOutputArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-datasetname
      */
@@ -206,7 +206,7 @@ export interface JobArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-jobsample
      */
-    jobSample?: pulumi.Input<inputs.DataBrew.JobJobSampleArgs>;
+    jobSample?: pulumi.Input<inputs.databrew.JobJobSampleArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-logsubscription
      */
@@ -226,15 +226,15 @@ export interface JobArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputlocation
      */
-    outputLocation?: pulumi.Input<inputs.DataBrew.JobOutputLocationArgs>;
+    outputLocation?: pulumi.Input<inputs.databrew.JobOutputLocationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-outputs
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.DataBrew.JobOutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobOutputArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-profileconfiguration
      */
-    profileConfiguration?: pulumi.Input<inputs.DataBrew.JobProfileConfigurationArgs>;
+    profileConfiguration?: pulumi.Input<inputs.databrew.JobProfileConfigurationArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html#cfn-databrew-job-projectname
      */

@@ -22,7 +22,7 @@ export class SchemaVersion extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Glue:SchemaVersion';
+    public static readonly __pulumiType = 'aws-native:glue:SchemaVersion';
 
     /**
      * Returns true if the given object is an instance of SchemaVersion.  This is designed to work even
@@ -38,7 +38,7 @@ export class SchemaVersion extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    public readonly schema!: pulumi.Output<outputs.Glue.SchemaVersionSchema>;
+    public readonly schema!: pulumi.Output<outputs.glue.SchemaVersionSchema>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */
@@ -84,7 +84,7 @@ export interface SchemaVersionArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
      */
-    schema: pulumi.Input<inputs.Glue.SchemaVersionSchemaArgs>;
+    schema: pulumi.Input<inputs.glue.SchemaVersionSchemaArgs>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
      */

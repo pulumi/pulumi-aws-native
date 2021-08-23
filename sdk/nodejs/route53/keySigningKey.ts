@@ -21,7 +21,7 @@ export class KeySigningKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:Route53:KeySigningKey';
+    public static readonly __pulumiType = 'aws-native:route53:KeySigningKey';
 
     /**
      * Returns true if the given object is an instance of KeySigningKey.  This is designed to work even

@@ -22,7 +22,7 @@ export class OIDCProvider extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:IAM:OIDCProvider';
+    public static readonly __pulumiType = 'aws-native:iam:OIDCProvider';
 
     /**
      * Returns true if the given object is an instance of OIDCProvider.  This is designed to work even

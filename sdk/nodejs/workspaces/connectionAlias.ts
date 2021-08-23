@@ -22,7 +22,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:WorkSpaces:ConnectionAlias';
+    public static readonly __pulumiType = 'aws-native:workspaces:ConnectionAlias';
 
     /**
      * Returns true if the given object is an instance of ConnectionAlias.  This is designed to work even
@@ -36,7 +36,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
-    public /*out*/ readonly associations!: pulumi.Output<outputs.WorkSpaces.ConnectionAliasConnectionAliasAssociation[]>;
+    public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasConnectionAliasAssociation[]>;
     public /*out*/ readonly connectionAliasState!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring

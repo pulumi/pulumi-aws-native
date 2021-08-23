@@ -254,7 +254,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["device_arn"] = None
             __props__.__dict__["device_id"] = None
         super(Device, __self__).__init__(
-            'aws-native:NetworkManager:Device',
+            'aws-native:networkmanager:Device',
             resource_name,
             __props__,
             opts)

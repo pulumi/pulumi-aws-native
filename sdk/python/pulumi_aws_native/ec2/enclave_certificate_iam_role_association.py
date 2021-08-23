@@ -112,7 +112,7 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
             __props__.__dict__["certificate_s3_object_key"] = None
             __props__.__dict__["encryption_kms_key_id"] = None
         super(EnclaveCertificateIamRoleAssociation, __self__).__init__(
-            'aws-native:EC2:EnclaveCertificateIamRoleAssociation',
+            'aws-native:ec2:EnclaveCertificateIamRoleAssociation',
             resource_name,
             __props__,
             opts)

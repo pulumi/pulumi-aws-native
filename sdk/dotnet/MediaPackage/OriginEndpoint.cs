@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.MediaPackage
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:MediaPackage:OriginEndpoint")]
+    [AwsNativeResourceType("aws-native:mediapackage:OriginEndpoint")]
     public partial class OriginEndpoint : Pulumi.CustomResource
     {
         [Output("arn")]
@@ -114,12 +114,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public OriginEndpoint(string name, OriginEndpointArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:OriginEndpoint", name, args ?? new OriginEndpointArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:mediapackage:OriginEndpoint", name, args ?? new OriginEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private OriginEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:MediaPackage:OriginEndpoint", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:mediapackage:OriginEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 

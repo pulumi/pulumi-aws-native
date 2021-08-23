@@ -216,7 +216,7 @@ class Variable(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(Variable, __self__).__init__(
-            'aws-native:FraudDetector:Variable',
+            'aws-native:frauddetector:Variable',
             resource_name,
             __props__,
             opts)

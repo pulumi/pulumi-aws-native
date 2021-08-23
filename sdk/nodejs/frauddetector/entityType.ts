@@ -22,7 +22,7 @@ export class EntityType extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:FraudDetector:EntityType';
+    public static readonly __pulumiType = 'aws-native:frauddetector:EntityType';
 
     /**
      * Returns true if the given object is an instance of EntityType.  This is designed to work even

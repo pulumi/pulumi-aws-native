@@ -18,15 +18,15 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:GameLift:Alias":
+            case "aws-native:gamelift:Alias":
                 return new Alias(name, <any>undefined, { urn })
-            case "aws-native:GameLift:Fleet":
+            case "aws-native:gamelift:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
-            case "aws-native:GameLift:GameServerGroup":
+            case "aws-native:gamelift:GameServerGroup":
                 return new GameServerGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "GameLift", _module)
+pulumi.runtime.registerResourceModule("aws-native", "gamelift", _module)

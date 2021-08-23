@@ -42,7 +42,7 @@ func NewMitigationAction(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	var resource MitigationAction
-	err := ctx.RegisterResource("aws-native:IoT:MitigationAction", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:iot:MitigationAction", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func NewMitigationAction(ctx *pulumi.Context,
 func GetMitigationAction(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MitigationActionState, opts ...pulumi.ResourceOption) (*MitigationAction, error) {
 	var resource MitigationAction
-	err := ctx.ReadResource("aws-native:IoT:MitigationAction", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:iot:MitigationAction", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

@@ -22,7 +22,7 @@ export class ApiKey extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'aws-native:ApiGateway:ApiKey';
+    public static readonly __pulumiType = 'aws-native:apigateway:ApiKey';
 
     /**
      * Returns true if the given object is an instance of ApiKey.  This is designed to work even
@@ -59,7 +59,7 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    public readonly stageKeys!: pulumi.Output<outputs.ApiGateway.ApiKeyStageKey[] | undefined>;
+    public readonly stageKeys!: pulumi.Output<outputs.apigateway.ApiKeyStageKey[] | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */
@@ -134,7 +134,7 @@ export interface ApiKeyArgs {
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
      */
-    stageKeys?: pulumi.Input<pulumi.Input<inputs.ApiGateway.ApiKeyStageKeyArgs>[]>;
+    stageKeys?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyStageKeyArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-tags
      */

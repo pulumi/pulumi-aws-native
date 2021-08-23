@@ -21,11 +21,11 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:GlobalAccelerator:Accelerator":
+	case "aws-native:globalaccelerator:Accelerator":
 		r = &Accelerator{}
-	case "aws-native:GlobalAccelerator:EndpointGroup":
+	case "aws-native:globalaccelerator:EndpointGroup":
 		r = &EndpointGroup{}
-	case "aws-native:GlobalAccelerator:Listener":
+	case "aws-native:globalaccelerator:Listener":
 		r = &Listener{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
@@ -42,7 +42,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws-native",
-		"GlobalAccelerator",
+		"globalaccelerator",
 		&module{version},
 	)
 }

@@ -31,7 +31,7 @@ func NewSpotFleet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SpotFleetRequestConfigData'")
 	}
 	var resource SpotFleet
-	err := ctx.RegisterResource("aws-native:EC2:SpotFleet", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:ec2:SpotFleet", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func NewSpotFleet(ctx *pulumi.Context,
 func GetSpotFleet(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *SpotFleetState, opts ...pulumi.ResourceOption) (*SpotFleet, error) {
 	var resource SpotFleet
-	err := ctx.ReadResource("aws-native:EC2:SpotFleet", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:ec2:SpotFleet", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

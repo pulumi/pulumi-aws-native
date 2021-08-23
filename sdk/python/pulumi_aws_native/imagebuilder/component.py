@@ -273,7 +273,7 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["encrypted"] = None
             __props__.__dict__["type"] = None
         super(Component, __self__).__init__(
-            'aws-native:ImageBuilder:Component',
+            'aws-native:imagebuilder:Component',
             resource_name,
             __props__,
             opts)

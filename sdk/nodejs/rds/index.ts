@@ -20,17 +20,17 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:RDS:DBProxy":
+            case "aws-native:rds:DBProxy":
                 return new DBProxy(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBProxyEndpoint":
+            case "aws-native:rds:DBProxyEndpoint":
                 return new DBProxyEndpoint(name, <any>undefined, { urn })
-            case "aws-native:RDS:DBProxyTargetGroup":
+            case "aws-native:rds:DBProxyTargetGroup":
                 return new DBProxyTargetGroup(name, <any>undefined, { urn })
-            case "aws-native:RDS:GlobalCluster":
+            case "aws-native:rds:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws-native", "RDS", _module)
+pulumi.runtime.registerResourceModule("aws-native", "rds", _module)

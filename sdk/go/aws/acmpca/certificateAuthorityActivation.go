@@ -40,7 +40,7 @@ func NewCertificateAuthorityActivation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityArn'")
 	}
 	var resource CertificateAuthorityActivation
-	err := ctx.RegisterResource("aws-native:ACMPCA:CertificateAuthorityActivation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:acmpca:CertificateAuthorityActivation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -52,7 +52,7 @@ func NewCertificateAuthorityActivation(ctx *pulumi.Context,
 func GetCertificateAuthorityActivation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *CertificateAuthorityActivationState, opts ...pulumi.ResourceOption) (*CertificateAuthorityActivation, error) {
 	var resource CertificateAuthorityActivation
-	err := ctx.ReadResource("aws-native:ACMPCA:CertificateAuthorityActivation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:acmpca:CertificateAuthorityActivation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}

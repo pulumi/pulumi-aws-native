@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.Backup
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:Backup:BackupSelection")]
+    [AwsNativeResourceType("aws-native:backup:BackupSelection")]
     public partial class BackupSelection : Pulumi.CustomResource
     {
         [Output("backupPlanId")]
@@ -39,12 +39,12 @@ namespace Pulumi.AwsNative.Backup
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public BackupSelection(string name, BackupSelectionArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:Backup:BackupSelection", name, args ?? new BackupSelectionArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:backup:BackupSelection", name, args ?? new BackupSelectionArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private BackupSelection(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:Backup:BackupSelection", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:backup:BackupSelection", name, null, MakeResourceOptions(options, id))
         {
         }
 

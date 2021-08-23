@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative.SageMaker
     /// <summary>
     /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
     /// </summary>
-    [AwsNativeResourceType("aws-native:SageMaker:FeatureGroup")]
+    [AwsNativeResourceType("aws-native:sagemaker:FeatureGroup")]
     public partial class FeatureGroup : Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public FeatureGroup(string name, FeatureGroupArgs args, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:FeatureGroup", name, args ?? new FeatureGroupArgs(), MakeResourceOptions(options, ""))
+            : base("aws-native:sagemaker:FeatureGroup", name, args ?? new FeatureGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private FeatureGroup(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("aws-native:SageMaker:FeatureGroup", name, null, MakeResourceOptions(options, id))
+            : base("aws-native:sagemaker:FeatureGroup", name, null, MakeResourceOptions(options, id))
         {
         }
 

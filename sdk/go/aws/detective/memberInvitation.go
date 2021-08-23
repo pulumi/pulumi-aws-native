@@ -44,7 +44,7 @@ func NewMemberInvitation(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'MemberId'")
 	}
 	var resource MemberInvitation
-	err := ctx.RegisterResource("aws-native:Detective:MemberInvitation", name, args, &resource, opts...)
+	err := ctx.RegisterResource("aws-native:detective:MemberInvitation", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func NewMemberInvitation(ctx *pulumi.Context,
 func GetMemberInvitation(ctx *pulumi.Context,
 	name string, id pulumi.IDInput, state *MemberInvitationState, opts ...pulumi.ResourceOption) (*MemberInvitation, error) {
 	var resource MemberInvitation
-	err := ctx.ReadResource("aws-native:Detective:MemberInvitation", name, id, state, &resource, opts...)
+	err := ctx.ReadResource("aws-native:detective:MemberInvitation", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
