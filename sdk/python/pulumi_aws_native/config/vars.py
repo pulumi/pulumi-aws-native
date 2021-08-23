@@ -17,7 +17,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def region(self) -> Optional[str]:
         """
-        the region to use for deployments
+        The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         """
         return __config__.get('region')
 

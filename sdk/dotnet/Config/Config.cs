@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative
 
         private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region"));
         /// <summary>
-        /// the region to use for deployments
+        /// The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.
         /// </summary>
         public static string? Region
         {

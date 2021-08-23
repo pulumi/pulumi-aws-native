@@ -13,7 +13,7 @@
         "variables": {
             "region": {
                 "type": "string",
-                "description": "the region to use for deployments"
+                "description": "The region where AWS operations will take place. Examples are \"us-east-1\", \"us-west-2\", etc."
             }
         },
         "defaults": [
@@ -27025,7 +27025,7 @@
         "properties": {
             "region": {
                 "type": "string",
-                "description": "the region to use for deployments"
+                "description": "The region where AWS operations will take place. Examples are \"us-east-1\", \"us-west-2\", etc."
             }
         },
         "type": "object",
@@ -27035,7 +27035,7 @@
         "inputProperties": {
             "region": {
                 "type": "string",
-                "description": "the region to use for deployments"
+                "description": "The region where AWS operations will take place. Examples are \"us-east-1\", \"us-west-2\", etc."
             }
         },
         "requiredInputs": [

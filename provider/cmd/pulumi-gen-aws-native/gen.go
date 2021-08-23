@@ -257,11 +257,29 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 			Variables: map[string]pschema.PropertySpec{
 				"region": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "the region to use for deployments",
+					Description: `The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.`,
 				},
 			},
 			Required: []string{
 				"region",
+			},
+		},
+		Provider: pschema.ResourceSpec{
+			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				Description: "The provider type for the native AWS package.",
+				Type:        "object",
+			},
+			InputProperties: map[string]pschema.PropertySpec{
+				"region": {
+					DefaultInfo: &pschema.DefaultSpec{
+						Environment: []string{
+							"AWS_REGION",
+							"AWS_DEFAULT_REGION",
+						},
+					},
+					Description: `The region where AWS operations will take place. Examples are "us-east-1", "us-west-2", etc.`,
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
 			},
 		},
 		Types:     map[string]pschema.ComplexTypeSpec{},
@@ -364,7 +382,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 		"namespaces": csharpNamespaces,
 	})
 
-	// Add CFN instrinsics.
+	// Add CFN intrinsics.
 	p.Functions[packageName+":index:getAzs"] = pschema.FunctionSpec{
 		Inputs: &pschema.ObjectTypeSpec{
 			Properties: map[string]pschema.PropertySpec{
@@ -453,6 +471,7 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 
 	return p
 }
+
 var pseudoParameters = map[string]string{
 	"AccountId": "accountId",
 	"Partition": "partition",
