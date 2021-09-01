@@ -300,14 +300,14 @@ func (ctx *renderContext) renderJoin(name string, arg ast.Node) (model.Expressio
 // - `Condition` is rendered as a reference to the equivalent condition variable
 // - `Fn::And` is rendered as the logical and operator
 // - `Fn::Base64` is rendered as a call to the `toBase64` function
-// - `Fn::Cidr` is rendered as an invocation of `cloudformation::cidr`
+// - `Fn::Cidr` is rendered as an invocation of `aws-native::cidr`
 // - `Fn::Equals` is rendered as the equality operator
 // - `Fn::FindInMap` is rendered as a two index expressions
 // - `Fn::GetAtt` is rendered as a scope traversal expression on the referenced resource to fetch the referenced
 //   attribute
-// - `Fn::GetAZs` is rendered as an invocation of `cloudformation::getAzs`
+// - `Fn::GetAZs` is rendered as an invocation of `aws-native::getAzs`
 // - `Fn::If` is rendered as the conditional operator
-// - `Fn::ImportValue` is rendered as an invocation of `cloudformation::importValue`
+// - `Fn::ImportValue` is rendered as an invocation of `aws-native::importValue`
 // - `Fn::Join` is rendered as either a template expression or a call to `join`
 // - `Fn::Not` is rendered as the logical not operator
 // - `Fn::Or` is rendered as the logical or operator
@@ -370,7 +370,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 			objectConsItem("count", args[1]),
 			objectConsItem("cidrBits", args[2]),
 		}
-		return relativeTraversal(invoke("cloudformation::cidr", inputs...), "subnets"), nil
+		return relativeTraversal(invoke("aws-native::cidr", inputs...), "subnets"), nil
 	case "Fn::Equals":
 		args, err := ctx.renderArgsArray(name, arg, 2, 2)
 		if err != nil {
@@ -466,7 +466,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 		if err != nil {
 			return nil, err
 		}
-		return relativeTraversal(invoke("cloudformation::getAzs", objectConsItem("region", region)), "azs"), nil
+		return relativeTraversal(invoke("aws-native::getAzs", objectConsItem("region", region)), "azs"), nil
 	case "Fn::If":
 		args, err := ctx.renderArgsArray(name, arg, 3, 3)
 		if err != nil {
@@ -491,7 +491,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 		if err != nil {
 			return nil, err
 		}
-		return relativeTraversal(invoke("cloudformation::importValue", objectConsItem("name", arg)), "value"), nil
+		return relativeTraversal(invoke("aws-native::importValue", objectConsItem("name", arg)), "value"), nil
 	case "Fn::Join":
 		return ctx.renderJoin(name, arg)
 	case "Fn::Not":
@@ -612,6 +612,8 @@ func (ctx *renderContext) renderValue(node ast.Node) (model.Expression, error) {
 		return &model.LiteralValueExpression{Value: value}, nil
 	case *ast.LiteralNode:
 		return ctx.renderValue(node.Value)
+	case *ast.MappingKeyNode:
+		return ctx.renderValue(node.Value)
 	case *ast.MappingNode, *ast.MappingValueNode:
 		values, ok := mapValues(node)
 		contract.Assert(ok)
@@ -649,7 +651,7 @@ func (ctx *renderContext) renderValue(node ast.Node) (model.Expression, error) {
 // cloudformation provider (or a reference to `null` for `AWS::NoValue`).
 func renderPseudoParameter(name string) model.Expression {
 	getter := func(name string) model.Expression {
-		return relativeTraversal(invoke("cloudformation::get"+name), camel(name))
+		return relativeTraversal(invoke("aws-native::get"+name), camel(name))
 	}
 
 	switch name {
@@ -795,7 +797,7 @@ func (ctx *renderContext) renderParameter(attr *ast.MappingValueNode) ([]model.B
 	}
 
 	var getParamValue model.Expression = relativeTraversal(
-		invoke("cloudformation::"+ssmGetter,
+		invoke("aws-native::"+ssmGetter,
 			objectConsItem("name", model.VariableReference(paramDefVar))),
 		"value")
 	if defaultValue != nil {
@@ -933,6 +935,8 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 				resourceType = fmt.Sprintf("%s::%s::%s", parts[0], strings.ToLower(parts[1]), parts[2])
 			}
 			token = resourceToken(resourceType)
+		case "Version":
+			// Ignore.
 		default:
 			return nil, fmt.Errorf("unsupported property '%v' in resource '%v'", f.Key, name)
 		}
@@ -1138,16 +1142,17 @@ func (ctx *renderContext) detectPseudoParameters(node ast.Node) {
 // RenderTemplate renders a parsed CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
 func RenderTemplate(file *ast.File) (*model.Body, error) {
-	var root *ast.MappingNode
+	var rootValues []*ast.MappingValueNode
 	switch len(file.Docs) {
 	case 0:
 		return &model.Body{}, nil
 	case 1:
 		body := file.Docs[0].Body
-		if body.Type() != ast.MappingType {
+		if values, ok := mapValues(body); ok {
+			rootValues = values
+		} else {
 			return nil, fmt.Errorf("template must be a mapping")
 		}
-		root = body.(*ast.MappingNode)
 	default:
 		return nil, fmt.Errorf("template must contain at most one document")
 	}
@@ -1163,7 +1168,7 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 	}
 
 	// Declare parameters, mappings, conditions, resources, and outputs.
-	for _, f := range root.Values {
+	for _, f := range rootValues {
 		var table map[string]*model.Variable
 		switch keyString(f) {
 		case "Parameters":
@@ -1206,7 +1211,7 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 	}
 
 	var items []model.BodyItem
-	for _, f := range root.Values {
+	for _, f := range rootValues {
 		switch keyString(f) {
 		case "AWSTemplateFormatVersion":
 			// Ignore this
@@ -1265,7 +1270,11 @@ func RenderTemplate(file *ast.File) (*model.Body, error) {
 			}
 			items = append(items, outputs...)
 		default:
-			return nil, fmt.Errorf("unexpected template property %v", f.Key)
+			res, err := ctx.renderResource(f)
+			if err != nil {
+				return nil, err
+			}
+			items = append(items, res)
 		}
 	}
 

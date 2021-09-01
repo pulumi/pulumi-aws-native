@@ -43,11 +43,16 @@ func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
 	}))
 
 	// Render examples to SDK languages.
+	total := 0
 	examplesRenderData := map[string][]exampleRenderData{}
 	for _, yaml := range examples {
 		example, err := generateExample(yaml, languages, hcl2Cache, loaderOption)
 		if err != nil {
 			// Skip all snippets that don't produce valid examples.
+			continue
+		}
+		if example.ResourceType == "aws-native:wafv2:WebACL" {
+			// TODO: This example is non-deterministic - figure out why.
 			continue
 		}
 		var existing []exampleRenderData
@@ -58,7 +63,9 @@ func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
 			ExampleDescription:       "Example",
 			LanguageToExampleProgram: example.LanguageToExampleProgram,
 		})
+		total += 1
 	}
+	fmt.Printf("Number of examples: %v\n", total)
 
 	// Write examples to the schema docs.
 	for resourceType, data := range examplesRenderData {
@@ -124,9 +131,15 @@ func generateExample(yaml string, languages []string, bindOpts ...hcl2.BindOptio
 			files, diags, err = python.GenerateProgram(program)
 		}
 		if err != nil {
+			if target == "go" {
+				continue
+			}
 			return nil, errors.Wrapf(err, "generating program")
 		}
 		if diags.HasErrors() {
+			if target == "go" {
+				continue
+			}
 			buf := new(bytes.Buffer)
 			_ = program.NewDiagnosticWriter(buf, 0, true).WriteDiagnostics(diags)
 			return nil, errors.Errorf("generate diagnostic errors: %s", buf)
