@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly string ScheduleExpression;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+        /// </summary>
+        public readonly double? ScheduleOffset;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
         /// </summary>
         public readonly double? ScheduleStartTime;
@@ -45,6 +49,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             string scheduleExpression,
 
+            double? scheduleOffset,
+
             double? scheduleStartTime,
 
             string? timeZone)
@@ -52,6 +58,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             DataPullMode = dataPullMode;
             ScheduleEndTime = scheduleEndTime;
             ScheduleExpression = scheduleExpression;
+            ScheduleOffset = scheduleOffset;
             ScheduleStartTime = scheduleStartTime;
             TimeZone = timeZone;
         }

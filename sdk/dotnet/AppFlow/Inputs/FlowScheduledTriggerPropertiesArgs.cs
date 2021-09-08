@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string> ScheduleExpression { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+        /// </summary>
+        [Input("scheduleOffset")]
+        public Input<double>? ScheduleOffset { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
         /// </summary>
         [Input("scheduleStartTime")]

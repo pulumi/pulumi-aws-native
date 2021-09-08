@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Location
     [AwsNativeResourceType("aws-native:location:GeofenceCollection")]
     public partial class GeofenceCollection : Pulumi.CustomResource
     {
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         [Output("collectionArn")]
         public Output<string> CollectionArn { get; private set; } = null!;
 

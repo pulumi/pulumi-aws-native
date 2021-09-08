@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
         /// </summary>
-        public readonly Outputs.ModelBiasJobDefinitionEnvironment? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelBiasJobDefinitionModelBiasAppSpecification(
             string configUri,
 
-            Outputs.ModelBiasJobDefinitionEnvironment? environment,
+            ImmutableDictionary<string, string>? environment,
 
             string imageUri)
         {

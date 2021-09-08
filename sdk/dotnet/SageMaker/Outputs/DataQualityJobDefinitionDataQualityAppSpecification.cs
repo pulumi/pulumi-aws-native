@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
         /// </summary>
-        public readonly Outputs.DataQualityJobDefinitionEnvironment? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
         /// </summary>
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<string> containerEntrypoint,
 
-            Outputs.DataQualityJobDefinitionEnvironment? environment,
+            ImmutableDictionary<string, string>? environment,
 
             string imageUri,
 

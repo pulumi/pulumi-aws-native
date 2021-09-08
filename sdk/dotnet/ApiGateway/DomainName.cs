@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Outputs.DomainNameMutualTlsAuthentication?> MutualTlsAuthentication { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+        /// </summary>
+        [Output("ownershipVerificationCertificateArn")]
+        public Output<string?> OwnershipVerificationCertificateArn { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         /// </summary>
         [Output("regionalCertificateArn")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("mutualTlsAuthentication")]
         public Input<Inputs.DomainNameMutualTlsAuthenticationArgs>? MutualTlsAuthentication { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+        /// </summary>
+        [Input("ownershipVerificationCertificateArn")]
+        public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn

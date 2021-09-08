@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         /// </summary>
-        public readonly Outputs.ModelExplainabilityJobDefinitionEnvironment? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(
             string configUri,
 
-            Outputs.ModelExplainabilityJobDefinitionEnvironment? environment,
+            ImmutableDictionary<string, string>? environment,
 
             string imageUri)
         {

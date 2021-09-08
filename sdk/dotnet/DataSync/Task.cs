@@ -43,6 +43,12 @@ namespace Pulumi.AwsNative.DataSync
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+        /// </summary>
+        [Output("includes")]
+        public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
         /// </summary>
         [Output("name")]
@@ -148,6 +154,18 @@ namespace Pulumi.AwsNative.DataSync
         {
             get => _excludes ?? (_excludes = new InputList<Inputs.TaskFilterRuleArgs>());
             set => _excludes = value;
+        }
+
+        [Input("includes")]
+        private InputList<Inputs.TaskFilterRuleArgs>? _includes;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+        /// </summary>
+        public InputList<Inputs.TaskFilterRuleArgs> Includes
+        {
+            get => _includes ?? (_includes = new InputList<Inputs.TaskFilterRuleArgs>());
+            set => _includes = value;
         }
 
         /// <summary>

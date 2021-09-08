@@ -37,6 +37,10 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamDataFormatConversionConfiguration? DataFormatConversionConfiguration;
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+        /// </summary>
+        public readonly Outputs.DeliveryStreamDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
         /// </summary>
         public readonly Outputs.DeliveryStreamEncryptionConfiguration? EncryptionConfiguration;
@@ -77,6 +81,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
+            Outputs.DeliveryStreamDynamicPartitioningConfiguration? dynamicPartitioningConfiguration,
+
             Outputs.DeliveryStreamEncryptionConfiguration? encryptionConfiguration,
 
             string? errorOutputPrefix,
@@ -96,6 +102,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             CompressionFormat = compressionFormat;
             DataFormatConversionConfiguration = dataFormatConversionConfiguration;
+            DynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             EncryptionConfiguration = encryptionConfiguration;
             ErrorOutputPrefix = errorOutputPrefix;
             Prefix = prefix;

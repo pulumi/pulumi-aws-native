@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
         /// </summary>
         public readonly string VendorName;
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private WebACLManagedRuleGroupStatement(
@@ -41,12 +45,15 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLStatement? scopeDownStatement,
 
-            string vendorName)
+            string vendorName,
+
+            string? version)
         {
             ExcludedRules = excludedRules;
             Name = name;
             ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
+            Version = version;
         }
     }
 }

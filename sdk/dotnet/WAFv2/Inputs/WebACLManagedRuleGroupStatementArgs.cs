@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("vendorName", required: true)]
         public Input<string> VendorName { get; set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public WebACLManagedRuleGroupStatementArgs()
         {
         }

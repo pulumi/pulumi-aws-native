@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("baselineConfig")]
         public Input<Inputs.MonitoringScheduleBaselineConfigArgs>? BaselineConfig { get; set; }
 
+        [Input("environment")]
+        private InputMap<string>? _environment;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
         /// </summary>
-        [Input("environment")]
-        public Input<Inputs.MonitoringScheduleEnvironmentArgs>? Environment { get; set; }
+        public InputMap<string> Environment
+        {
+            get => _environment ?? (_environment = new InputMap<string>());
+            set => _environment = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
