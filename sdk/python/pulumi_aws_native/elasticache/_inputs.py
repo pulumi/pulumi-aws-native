@@ -9,10 +9,179 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CacheClusterCloudWatchLogsDestinationDetailsArgs',
+    'CacheClusterDestinationDetailsArgs',
+    'CacheClusterKinesisFirehoseDestinationDetailsArgs',
+    'CacheClusterLogDeliveryConfigurationRequestArgs',
     'GlobalReplicationGroupGlobalReplicationGroupMemberArgs',
     'GlobalReplicationGroupRegionalConfigurationArgs',
     'GlobalReplicationGroupReshardingConfigurationArgs',
+    'ReplicationGroupCloudWatchLogsDestinationDetailsArgs',
+    'ReplicationGroupDestinationDetailsArgs',
+    'ReplicationGroupKinesisFirehoseDestinationDetailsArgs',
+    'ReplicationGroupLogDeliveryConfigurationRequestArgs',
+    'ReplicationGroupNodeGroupConfigurationArgs',
 ]
+
+@pulumi.input_type
+class CacheClusterCloudWatchLogsDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 log_group: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
+        :param pulumi.Input[str] log_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+        """
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group", value)
+
+
+@pulumi.input_type
+class CacheClusterDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html
+        :param pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs'] cloud_watch_logs_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+        :param pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs'] kinesis_firehose_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+        """
+        if cloud_watch_logs_details is not None:
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
+        if kinesis_firehose_details is not None:
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsDetails")
+    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+        """
+        return pulumi.get(self, "cloud_watch_logs_details")
+
+    @cloud_watch_logs_details.setter
+    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]):
+        pulumi.set(self, "cloud_watch_logs_details", value)
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseDetails")
+    def kinesis_firehose_details(self) -> Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+        """
+        return pulumi.get(self, "kinesis_firehose_details")
+
+    @kinesis_firehose_details.setter
+    def kinesis_firehose_details(self, value: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]):
+        pulumi.set(self, "kinesis_firehose_details", value)
+
+
+@pulumi.input_type
+class CacheClusterKinesisFirehoseDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 delivery_stream: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html
+        :param pulumi.Input[str] delivery_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+        """
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+@pulumi.input_type
+class CacheClusterLogDeliveryConfigurationRequestArgs:
+    def __init__(__self__, *,
+                 destination_details: Optional[pulumi.Input['CacheClusterDestinationDetailsArgs']] = None,
+                 destination_type: Optional[pulumi.Input[str]] = None,
+                 log_format: Optional[pulumi.Input[str]] = None,
+                 log_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html
+        :param pulumi.Input['CacheClusterDestinationDetailsArgs'] destination_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails
+        :param pulumi.Input[str] destination_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype
+        :param pulumi.Input[str] log_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat
+        :param pulumi.Input[str] log_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype
+        """
+        if destination_details is not None:
+            pulumi.set(__self__, "destination_details", destination_details)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter(name="destinationDetails")
+    def destination_details(self) -> Optional[pulumi.Input['CacheClusterDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails
+        """
+        return pulumi.get(self, "destination_details")
+
+    @destination_details.setter
+    def destination_details(self, value: Optional[pulumi.Input['CacheClusterDestinationDetailsArgs']]):
+        pulumi.set(self, "destination_details", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_type", value)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_type", value)
+
 
 @pulumi.input_type
 class GlobalReplicationGroupGlobalReplicationGroupMemberArgs:
@@ -164,5 +333,253 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
     @preferred_availability_zones.setter
     def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
+
+
+@pulumi.input_type
+class ReplicationGroupCloudWatchLogsDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 log_group: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html
+        :param pulumi.Input[str] log_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+        """
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group", value)
+
+
+@pulumi.input_type
+class ReplicationGroupDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html
+        :param pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs'] cloud_watch_logs_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+        :param pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs'] kinesis_firehose_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+        """
+        if cloud_watch_logs_details is not None:
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
+        if kinesis_firehose_details is not None:
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsDetails")
+    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+        """
+        return pulumi.get(self, "cloud_watch_logs_details")
+
+    @cloud_watch_logs_details.setter
+    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]):
+        pulumi.set(self, "cloud_watch_logs_details", value)
+
+    @property
+    @pulumi.getter(name="kinesisFirehoseDetails")
+    def kinesis_firehose_details(self) -> Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+        """
+        return pulumi.get(self, "kinesis_firehose_details")
+
+    @kinesis_firehose_details.setter
+    def kinesis_firehose_details(self, value: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]):
+        pulumi.set(self, "kinesis_firehose_details", value)
+
+
+@pulumi.input_type
+class ReplicationGroupKinesisFirehoseDestinationDetailsArgs:
+    def __init__(__self__, *,
+                 delivery_stream: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html
+        :param pulumi.Input[str] delivery_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+        """
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+@pulumi.input_type
+class ReplicationGroupLogDeliveryConfigurationRequestArgs:
+    def __init__(__self__, *,
+                 destination_details: Optional[pulumi.Input['ReplicationGroupDestinationDetailsArgs']] = None,
+                 destination_type: Optional[pulumi.Input[str]] = None,
+                 log_format: Optional[pulumi.Input[str]] = None,
+                 log_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html
+        :param pulumi.Input['ReplicationGroupDestinationDetailsArgs'] destination_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+        :param pulumi.Input[str] destination_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+        :param pulumi.Input[str] log_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+        :param pulumi.Input[str] log_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+        """
+        if destination_details is not None:
+            pulumi.set(__self__, "destination_details", destination_details)
+        if destination_type is not None:
+            pulumi.set(__self__, "destination_type", destination_type)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter(name="destinationDetails")
+    def destination_details(self) -> Optional[pulumi.Input['ReplicationGroupDestinationDetailsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+        """
+        return pulumi.get(self, "destination_details")
+
+    @destination_details.setter
+    def destination_details(self, value: Optional[pulumi.Input['ReplicationGroupDestinationDetailsArgs']]):
+        pulumi.set(self, "destination_details", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_type", value)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_type", value)
+
+
+@pulumi.input_type
+class ReplicationGroupNodeGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 node_group_id: Optional[pulumi.Input[str]] = None,
+                 primary_availability_zone: Optional[pulumi.Input[str]] = None,
+                 replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 replica_count: Optional[pulumi.Input[int]] = None,
+                 slots: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
+        :param pulumi.Input[str] node_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+        :param pulumi.Input[str] primary_availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replica_availability_zones: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
+        :param pulumi.Input[int] replica_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
+        :param pulumi.Input[str] slots: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
+        """
+        if node_group_id is not None:
+            pulumi.set(__self__, "node_group_id", node_group_id)
+        if primary_availability_zone is not None:
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+        if replica_availability_zones is not None:
+            pulumi.set(__self__, "replica_availability_zones", replica_availability_zones)
+        if replica_count is not None:
+            pulumi.set(__self__, "replica_count", replica_count)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @property
+    @pulumi.getter(name="nodeGroupId")
+    def node_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+        """
+        return pulumi.get(self, "node_group_id")
+
+    @node_group_id.setter
+    def node_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_group_id", value)
+
+    @property
+    @pulumi.getter(name="primaryAvailabilityZone")
+    def primary_availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
+        """
+        return pulumi.get(self, "primary_availability_zone")
+
+    @primary_availability_zone.setter
+    def primary_availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_availability_zone", value)
+
+    @property
+    @pulumi.getter(name="replicaAvailabilityZones")
+    def replica_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
+        """
+        return pulumi.get(self, "replica_availability_zones")
+
+    @replica_availability_zones.setter
+    def replica_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "replica_availability_zones", value)
+
+    @property
+    @pulumi.getter(name="replicaCount")
+    def replica_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
+        """
+        return pulumi.get(self, "replica_count")
+
+    @replica_count.setter
+    def replica_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replica_count", value)
+
+    @property
+    @pulumi.getter
+    def slots(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
+        """
+        return pulumi.get(self, "slots")
+
+    @slots.setter
+    def slots(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slots", value)
 
 

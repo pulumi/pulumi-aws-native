@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .addon import *
+from .cluster import *
 from .fargate_profile import *
+from .nodegroup import *
 from ._inputs import *
 from . import outputs

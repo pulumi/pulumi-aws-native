@@ -13,5 +13,6 @@ from .key_group import *
 from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
+from .streaming_distribution import *
 from ._inputs import *
 from . import outputs

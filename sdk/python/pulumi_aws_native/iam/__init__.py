@@ -5,7 +5,18 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_key import *
+from .group import *
+from .instance_profile import *
+from .managed_policy import *
 from .oidc_provider import *
+from .policy import *
+from .role import *
 from .saml_provider import *
 from .server_certificate import *
+from .service_linked_role import *
+from .user import *
+from .user_to_group_addition import *
 from .virtual_mfa_device import *
+from ._inputs import *
+from . import outputs

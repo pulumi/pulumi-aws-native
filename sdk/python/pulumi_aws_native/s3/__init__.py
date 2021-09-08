@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .access_point import *
+from .bucket import *
+from .bucket_policy import *
 from .storage_lens import *
 from ._inputs import *
 from . import outputs

@@ -9,10 +9,86 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CloudFormationProductProvisioningArtifactProperties',
     'CloudFormationProvisionedProductProvisioningParameter',
     'CloudFormationProvisionedProductProvisioningPreferences',
     'ServiceActionDefinitionParameter',
 ]
+
+@pulumi.output_type
+class CloudFormationProductProvisioningArtifactProperties(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableTemplateValidation":
+            suggest = "disable_template_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductProvisioningArtifactProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 info: str,
+                 description: Optional[str] = None,
+                 disable_template_validation: Optional[bool] = None,
+                 name: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
+        :param Union[Any, str] info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
+        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
+        :param bool disable_template_validation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
+        """
+        pulumi.set(__self__, "info", info)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_template_validation is not None:
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def info(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableTemplateValidation")
+    def disable_template_validation(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+        """
+        return pulumi.get(self, "disable_template_validation")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
+        """
+        return pulumi.get(self, "name")
+
 
 @pulumi.output_type
 class CloudFormationProvisionedProductProvisioningParameter(dict):

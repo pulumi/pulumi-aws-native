@@ -7,11 +7,29 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from .. import _inputs as _root_inputs
 
 __all__ = [
     'ApiKeyStageKeyArgs',
+    'DeploymentAccessLogSettingArgs',
+    'DeploymentCanarySettingArgs',
+    'DeploymentDeploymentCanarySettingsArgs',
+    'DeploymentMethodSettingArgs',
+    'DeploymentStageDescriptionArgs',
+    'DocumentationPartLocationArgs',
     'DomainNameEndpointConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'MethodIntegrationResponseArgs',
+    'MethodIntegrationArgs',
+    'MethodMethodResponseArgs',
+    'RestApiEndpointConfigurationArgs',
+    'RestApiS3LocationArgs',
+    'StageAccessLogSettingArgs',
+    'StageCanarySettingArgs',
+    'StageMethodSettingArgs',
+    'UsagePlanApiStageArgs',
+    'UsagePlanQuotaSettingsArgs',
+    'UsagePlanThrottleSettingsArgs',
 ]
 
 @pulumi.input_type
@@ -52,6 +70,726 @@ class ApiKeyStageKeyArgs:
     @stage_name.setter
     def stage_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stage_name", value)
+
+
+@pulumi.input_type
+class DeploymentAccessLogSettingArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html
+        :param pulumi.Input[str] destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class DeploymentCanarySettingArgs:
+    def __init__(__self__, *,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+        :param pulumi.Input[float] percent_traffic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+        :param pulumi.Input[bool] use_stage_cache: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+        """
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+        """
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+        """
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+        """
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class DeploymentDeploymentCanarySettingsArgs:
+    def __init__(__self__, *,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+        :param pulumi.Input[float] percent_traffic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+        :param pulumi.Input[bool] use_stage_cache: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+        """
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+        """
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+        """
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+        """
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class DeploymentMethodSettingArgs:
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_path: Optional[pulumi.Input[str]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html
+        :param pulumi.Input[bool] cache_data_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+        :param pulumi.Input[int] cache_ttl_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+        :param pulumi.Input[bool] caching_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+        :param pulumi.Input[bool] data_trace_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+        :param pulumi.Input[str] http_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+        :param pulumi.Input[str] logging_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+        :param pulumi.Input[bool] metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+        :param pulumi.Input[str] resource_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+        :param pulumi.Input[int] throttling_burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+        :param pulumi.Input[float] throttling_rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+        """
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+        """
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+        """
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+        """
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+        """
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+        """
+        return pulumi.get(self, "resource_path")
+
+    @resource_path.setter
+    def resource_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_path", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+        """
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+
+@pulumi.input_type
+class DeploymentStageDescriptionArgs:
+    def __init__(__self__, *,
+                 access_log_setting: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']] = None,
+                 cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+                 cache_cluster_size: Optional[pulumi.Input[str]] = None,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 canary_setting: Optional[pulumi.Input['DeploymentCanarySettingArgs']] = None,
+                 client_certificate_id: Optional[pulumi.Input[str]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 documentation_version: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None,
+                 tracing_enabled: Optional[pulumi.Input[bool]] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html
+        :param pulumi.Input['DeploymentAccessLogSettingArgs'] access_log_setting: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+        :param pulumi.Input[bool] cache_cluster_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+        :param pulumi.Input[str] cache_cluster_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+        :param pulumi.Input[bool] cache_data_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+        :param pulumi.Input[int] cache_ttl_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+        :param pulumi.Input[bool] caching_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+        :param pulumi.Input['DeploymentCanarySettingArgs'] canary_setting: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+        :param pulumi.Input[str] client_certificate_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+        :param pulumi.Input[bool] data_trace_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+        :param pulumi.Input[str] documentation_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+        :param pulumi.Input[str] logging_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]] method_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+        :param pulumi.Input[bool] metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+        :param pulumi.Input[int] throttling_burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+        :param pulumi.Input[float] throttling_rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+        :param pulumi.Input[bool] tracing_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+        """
+        if access_log_setting is not None:
+            pulumi.set(__self__, "access_log_setting", access_log_setting)
+        if cache_cluster_enabled is not None:
+            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+        if cache_cluster_size is not None:
+            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if canary_setting is not None:
+            pulumi.set(__self__, "canary_setting", canary_setting)
+        if client_certificate_id is not None:
+            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if documentation_version is not None:
+            pulumi.set(__self__, "documentation_version", documentation_version)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if method_settings is not None:
+            pulumi.set(__self__, "method_settings", method_settings)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+        if tracing_enabled is not None:
+            pulumi.set(__self__, "tracing_enabled", tracing_enabled)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="accessLogSetting")
+    def access_log_setting(self) -> Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+        """
+        return pulumi.get(self, "access_log_setting")
+
+    @access_log_setting.setter
+    def access_log_setting(self, value: Optional[pulumi.Input['DeploymentAccessLogSettingArgs']]):
+        pulumi.set(self, "access_log_setting", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterEnabled")
+    def cache_cluster_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+        """
+        return pulumi.get(self, "cache_cluster_enabled")
+
+    @cache_cluster_enabled.setter
+    def cache_cluster_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_cluster_enabled", value)
+
+    @property
+    @pulumi.getter(name="cacheClusterSize")
+    def cache_cluster_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+        """
+        return pulumi.get(self, "cache_cluster_size")
+
+    @cache_cluster_size.setter
+    def cache_cluster_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_cluster_size", value)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+        """
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+        """
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+        """
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="canarySetting")
+    def canary_setting(self) -> Optional[pulumi.Input['DeploymentCanarySettingArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+        """
+        return pulumi.get(self, "canary_setting")
+
+    @canary_setting.setter
+    def canary_setting(self, value: Optional[pulumi.Input['DeploymentCanarySettingArgs']]):
+        pulumi.set(self, "canary_setting", value)
+
+    @property
+    @pulumi.getter(name="clientCertificateId")
+    def client_certificate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+        """
+        return pulumi.get(self, "client_certificate_id")
+
+    @client_certificate_id.setter
+    def client_certificate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+        """
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="documentationVersion")
+    def documentation_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+        """
+        return pulumi.get(self, "documentation_version")
+
+    @documentation_version.setter
+    def documentation_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "documentation_version", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="methodSettings")
+    def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+        """
+        return pulumi.get(self, "method_settings")
+
+    @method_settings.setter
+    def method_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentMethodSettingArgs']]]]):
+        pulumi.set(self, "method_settings", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+        """
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+    @property
+    @pulumi.getter(name="tracingEnabled")
+    def tracing_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+        """
+        return pulumi.get(self, "tracing_enabled")
+
+    @tracing_enabled.setter
+    def tracing_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tracing_enabled", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class DocumentationPartLocationArgs:
+    def __init__(__self__, *,
+                 method: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 status_code: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html
+        :param pulumi.Input[str] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+        :param pulumi.Input[str] status_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+        """
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -116,5 +854,923 @@ class DomainNameMutualTlsAuthenticationArgs:
     @truststore_version.setter
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
+
+
+@pulumi.input_type
+class MethodIntegrationResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[str],
+                 content_handling: Optional[pulumi.Input[str]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 selection_pattern: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
+        :param pulumi.Input[str] status_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
+        :param pulumi.Input[str] content_handling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
+        :param pulumi.Input[str] selection_pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern
+        """
+        pulumi.set(__self__, "status_code", status_code)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+        if response_templates is not None:
+            pulumi.set(__self__, "response_templates", response_templates)
+        if selection_pattern is not None:
+            pulumi.set(__self__, "selection_pattern", selection_pattern)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+        """
+        return pulumi.get(self, "content_handling")
+
+    @content_handling.setter
+    def content_handling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
+        """
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_parameters", value)
+
+    @property
+    @pulumi.getter(name="responseTemplates")
+    def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
+        """
+        return pulumi.get(self, "response_templates")
+
+    @response_templates.setter
+    def response_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_templates", value)
+
+    @property
+    @pulumi.getter(name="selectionPattern")
+    def selection_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern
+        """
+        return pulumi.get(self, "selection_pattern")
+
+    @selection_pattern.setter
+    def selection_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selection_pattern", value)
+
+
+@pulumi.input_type
+class MethodIntegrationArgs:
+    def __init__(__self__, *,
+                 cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cache_namespace: Optional[pulumi.Input[str]] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
+                 connection_type: Optional[pulumi.Input[str]] = None,
+                 content_handling: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input[str]] = None,
+                 integration_http_method: Optional[pulumi.Input[str]] = None,
+                 integration_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]] = None,
+                 passthrough_behavior: Optional[pulumi.Input[str]] = None,
+                 request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timeout_in_millis: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cache_key_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+        :param pulumi.Input[str] cache_namespace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+        :param pulumi.Input[str] connection_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+        :param pulumi.Input[str] connection_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+        :param pulumi.Input[str] content_handling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+        :param pulumi.Input[str] credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+        :param pulumi.Input[str] integration_http_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+        :param pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]] integration_responses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+        :param pulumi.Input[str] passthrough_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+        :param pulumi.Input[int] timeout_in_millis: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+        """
+        if cache_key_parameters is not None:
+            pulumi.set(__self__, "cache_key_parameters", cache_key_parameters)
+        if cache_namespace is not None:
+            pulumi.set(__self__, "cache_namespace", cache_namespace)
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
+        if connection_type is not None:
+            pulumi.set(__self__, "connection_type", connection_type)
+        if content_handling is not None:
+            pulumi.set(__self__, "content_handling", content_handling)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if integration_http_method is not None:
+            pulumi.set(__self__, "integration_http_method", integration_http_method)
+        if integration_responses is not None:
+            pulumi.set(__self__, "integration_responses", integration_responses)
+        if passthrough_behavior is not None:
+            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
+        if request_parameters is not None:
+            pulumi.set(__self__, "request_parameters", request_parameters)
+        if request_templates is not None:
+            pulumi.set(__self__, "request_templates", request_templates)
+        if timeout_in_millis is not None:
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter(name="cacheKeyParameters")
+    def cache_key_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+        """
+        return pulumi.get(self, "cache_key_parameters")
+
+    @cache_key_parameters.setter
+    def cache_key_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cache_key_parameters", value)
+
+    @property
+    @pulumi.getter(name="cacheNamespace")
+    def cache_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+        """
+        return pulumi.get(self, "cache_namespace")
+
+    @cache_namespace.setter
+    def cache_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_namespace", value)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter(name="contentHandling")
+    def content_handling(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+        """
+        return pulumi.get(self, "content_handling")
+
+    @content_handling.setter
+    def content_handling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_handling", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter(name="integrationHttpMethod")
+    def integration_http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+        """
+        return pulumi.get(self, "integration_http_method")
+
+    @integration_http_method.setter
+    def integration_http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_http_method", value)
+
+    @property
+    @pulumi.getter(name="integrationResponses")
+    def integration_responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+        """
+        return pulumi.get(self, "integration_responses")
+
+    @integration_responses.setter
+    def integration_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MethodIntegrationResponseArgs']]]]):
+        pulumi.set(self, "integration_responses", value)
+
+    @property
+    @pulumi.getter(name="passthroughBehavior")
+    def passthrough_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+        """
+        return pulumi.get(self, "passthrough_behavior")
+
+    @passthrough_behavior.setter
+    def passthrough_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passthrough_behavior", value)
+
+    @property
+    @pulumi.getter(name="requestParameters")
+    def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+        """
+        return pulumi.get(self, "request_parameters")
+
+    @request_parameters.setter
+    def request_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "request_parameters", value)
+
+    @property
+    @pulumi.getter(name="requestTemplates")
+    def request_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+        """
+        return pulumi.get(self, "request_templates")
+
+    @request_templates.setter
+    def request_templates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "request_templates", value)
+
+    @property
+    @pulumi.getter(name="timeoutInMillis")
+    def timeout_in_millis(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+        """
+        return pulumi.get(self, "timeout_in_millis")
+
+    @timeout_in_millis.setter
+    def timeout_in_millis(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_millis", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class MethodMethodResponseArgs:
+    def __init__(__self__, *,
+                 status_code: pulumi.Input[str],
+                 response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
+        :param pulumi.Input[str] status_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_models: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] response_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
+        """
+        pulumi.set(__self__, "status_code", status_code)
+        if response_models is not None:
+            pulumi.set(__self__, "response_models", response_models)
+        if response_parameters is not None:
+            pulumi.set(__self__, "response_parameters", response_parameters)
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
+        """
+        return pulumi.get(self, "status_code")
+
+    @status_code.setter
+    def status_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status_code", value)
+
+    @property
+    @pulumi.getter(name="responseModels")
+    def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+        """
+        return pulumi.get(self, "response_models")
+
+    @response_models.setter
+    def response_models(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "response_models", value)
+
+    @property
+    @pulumi.getter(name="responseParameters")
+    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
+        """
+        return pulumi.get(self, "response_parameters")
+
+    @response_parameters.setter
+    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
+        pulumi.set(self, "response_parameters", value)
+
+
+@pulumi.input_type
+class RestApiEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_endpoint_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+        """
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if vpc_endpoint_ids is not None:
+            pulumi.set(__self__, "vpc_endpoint_ids", vpc_endpoint_ids)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+        """
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "types", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointIds")
+    def vpc_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+        """
+        return pulumi.get(self, "vpc_endpoint_ids")
+
+    @vpc_endpoint_ids.setter
+    def vpc_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vpc_endpoint_ids", value)
+
+
+@pulumi.input_type
+class RestApiS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 e_tag: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html
+        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+        :param pulumi.Input[str] e_tag: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if e_tag is not None:
+            pulumi.set(__self__, "e_tag", e_tag)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+        """
+        return pulumi.get(self, "e_tag")
+
+    @e_tag.setter
+    def e_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class StageAccessLogSettingArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html
+        :param pulumi.Input[str] destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class StageCanarySettingArgs:
+    def __init__(__self__, *,
+                 deployment_id: Optional[pulumi.Input[str]] = None,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
+        :param pulumi.Input[str] deployment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+        :param pulumi.Input[float] percent_traffic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variable_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+        :param pulumi.Input[bool] use_stage_cache: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+        """
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+        """
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+        """
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
+
+
+@pulumi.input_type
+class StageMethodSettingArgs:
+    def __init__(__self__, *,
+                 cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 caching_enabled: Optional[pulumi.Input[bool]] = None,
+                 data_trace_enabled: Optional[pulumi.Input[bool]] = None,
+                 http_method: Optional[pulumi.Input[str]] = None,
+                 logging_level: Optional[pulumi.Input[str]] = None,
+                 metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_path: Optional[pulumi.Input[str]] = None,
+                 throttling_burst_limit: Optional[pulumi.Input[int]] = None,
+                 throttling_rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
+        :param pulumi.Input[bool] cache_data_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
+        :param pulumi.Input[int] cache_ttl_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
+        :param pulumi.Input[bool] caching_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
+        :param pulumi.Input[bool] data_trace_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
+        :param pulumi.Input[str] http_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+        :param pulumi.Input[str] logging_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+        :param pulumi.Input[bool] metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
+        :param pulumi.Input[str] resource_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+        :param pulumi.Input[int] throttling_burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
+        :param pulumi.Input[float] throttling_rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+        """
+        if cache_data_encrypted is not None:
+            pulumi.set(__self__, "cache_data_encrypted", cache_data_encrypted)
+        if cache_ttl_in_seconds is not None:
+            pulumi.set(__self__, "cache_ttl_in_seconds", cache_ttl_in_seconds)
+        if caching_enabled is not None:
+            pulumi.set(__self__, "caching_enabled", caching_enabled)
+        if data_trace_enabled is not None:
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+        if logging_level is not None:
+            pulumi.set(__self__, "logging_level", logging_level)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
+        if resource_path is not None:
+            pulumi.set(__self__, "resource_path", resource_path)
+        if throttling_burst_limit is not None:
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
+        if throttling_rate_limit is not None:
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
+
+    @property
+    @pulumi.getter(name="cacheDataEncrypted")
+    def cache_data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
+        """
+        return pulumi.get(self, "cache_data_encrypted")
+
+    @cache_data_encrypted.setter
+    def cache_data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cache_data_encrypted", value)
+
+    @property
+    @pulumi.getter(name="cacheTtlInSeconds")
+    def cache_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
+        """
+        return pulumi.get(self, "cache_ttl_in_seconds")
+
+    @cache_ttl_in_seconds.setter
+    def cache_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="cachingEnabled")
+    def caching_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
+        """
+        return pulumi.get(self, "caching_enabled")
+
+    @caching_enabled.setter
+    def caching_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "caching_enabled", value)
+
+    @property
+    @pulumi.getter(name="dataTraceEnabled")
+    def data_trace_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
+        """
+        return pulumi.get(self, "data_trace_enabled")
+
+    @data_trace_enabled.setter
+    def data_trace_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_trace_enabled", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="loggingLevel")
+    def logging_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+        """
+        return pulumi.get(self, "logging_level")
+
+    @logging_level.setter
+    def logging_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging_level", value)
+
+    @property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourcePath")
+    def resource_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+        """
+        return pulumi.get(self, "resource_path")
+
+    @resource_path.setter
+    def resource_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_path", value)
+
+    @property
+    @pulumi.getter(name="throttlingBurstLimit")
+    def throttling_burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
+        """
+        return pulumi.get(self, "throttling_burst_limit")
+
+    @throttling_burst_limit.setter
+    def throttling_burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throttling_burst_limit", value)
+
+    @property
+    @pulumi.getter(name="throttlingRateLimit")
+    def throttling_rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+        """
+        return pulumi.get(self, "throttling_rate_limit")
+
+    @throttling_rate_limit.setter
+    def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "throttling_rate_limit", value)
+
+
+@pulumi.input_type
+class UsagePlanApiStageArgs:
+    def __init__(__self__, *,
+                 api_id: Optional[pulumi.Input[str]] = None,
+                 stage: Optional[pulumi.Input[str]] = None,
+                 throttle: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+        :param pulumi.Input[str] api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        :param pulumi.Input[str] stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        :param pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]] throttle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if throttle is not None:
+            pulumi.set(__self__, "throttle", throttle)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def throttle(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        """
+        return pulumi.get(self, "throttle")
+
+    @throttle.setter
+    def throttle(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]):
+        pulumi.set(self, "throttle", value)
+
+
+@pulumi.input_type
+class UsagePlanQuotaSettingsArgs:
+    def __init__(__self__, *,
+                 limit: Optional[pulumi.Input[int]] = None,
+                 offset: Optional[pulumi.Input[int]] = None,
+                 period: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+        :param pulumi.Input[int] limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+        :param pulumi.Input[int] offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+        :param pulumi.Input[str] period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        """
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+        """
+        return pulumi.get(self, "limit")
+
+    @limit.setter
+    def limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "limit", value)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+        """
+        return pulumi.get(self, "offset")
+
+    @offset.setter
+    def offset(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "offset", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        """
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "period", value)
+
+
+@pulumi.input_type
+class UsagePlanThrottleSettingsArgs:
+    def __init__(__self__, *,
+                 burst_limit: Optional[pulumi.Input[int]] = None,
+                 rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+        :param pulumi.Input[int] burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+        :param pulumi.Input[float] rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        """
+        if burst_limit is not None:
+            pulumi.set(__self__, "burst_limit", burst_limit)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="burstLimit")
+    def burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+        """
+        return pulumi.get(self, "burst_limit")
+
+    @burst_limit.setter
+    def burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "burst_limit", value)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "rate_limit", value)
 
 

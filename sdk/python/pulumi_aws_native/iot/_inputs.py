@@ -30,6 +30,7 @@ __all__ = [
     'SecurityProfileMetricToRetainArgs',
     'SecurityProfileMetricValueArgs',
     'SecurityProfileStatisticalThresholdArgs',
+    'ThingAttributePayloadArgs',
     'TopicRuleActionArgs',
     'TopicRuleAssetPropertyTimestampArgs',
     'TopicRuleAssetPropertyValueArgs',
@@ -1228,6 +1229,30 @@ class SecurityProfileStatisticalThresholdArgs:
     @statistic.setter
     def statistic(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "statistic", value)
+
+
+@pulumi.input_type
+class ThingAttributePayloadArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attributes", value)
 
 
 @pulumi.input_type

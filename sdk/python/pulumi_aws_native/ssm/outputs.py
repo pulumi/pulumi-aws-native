@@ -15,6 +15,21 @@ __all__ = [
     'AssociationTarget',
     'DocumentAttachmentsSource',
     'DocumentDocumentRequires',
+    'MaintenanceWindowTargetTargets',
+    'MaintenanceWindowTaskLoggingInfo',
+    'MaintenanceWindowTaskMaintenanceWindowAutomationParameters',
+    'MaintenanceWindowTaskMaintenanceWindowLambdaParameters',
+    'MaintenanceWindowTaskMaintenanceWindowRunCommandParameters',
+    'MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters',
+    'MaintenanceWindowTaskNotificationConfig',
+    'MaintenanceWindowTaskTarget',
+    'MaintenanceWindowTaskTaskInvocationParameters',
+    'PatchBaselinePatchFilter',
+    'PatchBaselinePatchFilterGroup',
+    'PatchBaselinePatchSource',
+    'PatchBaselinePatchStringDate',
+    'PatchBaselineRule',
+    'PatchBaselineRuleGroup',
     'ResourceDataSyncAwsOrganizationsSource',
     'ResourceDataSyncS3Destination',
     'ResourceDataSyncSyncSource',
@@ -241,6 +256,848 @@ class DocumentDocumentRequires(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class MaintenanceWindowTargetTargets(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html
+        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskLoggingInfo(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskLoggingInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 s3_bucket: str,
+                 s3_prefix: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
+        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+        :param str s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+        :param str s3_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+        """
+        return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowAutomationParameters(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentVersion":
+            suggest = "document_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowAutomationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_version: Optional[str] = None,
+                 parameters: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+        :param str document_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+        :param Union[Any, str] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+        """
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+        """
+        return pulumi.get(self, "document_version")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowLambdaParameters(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientContext":
+            suggest = "client_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowLambdaParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_context: Optional[str] = None,
+                 payload: Optional[str] = None,
+                 qualifier: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
+        :param str client_context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+        :param str payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+        :param str qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+        """
+        if client_context is not None:
+            pulumi.set(__self__, "client_context", client_context)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @property
+    @pulumi.getter(name="clientContext")
+    def client_context(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+        """
+        return pulumi.get(self, "client_context")
+
+    @property
+    @pulumi.getter
+    def payload(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+        """
+        return pulumi.get(self, "payload")
+
+    @property
+    @pulumi.getter
+    def qualifier(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+        """
+        return pulumi.get(self, "qualifier")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentHash":
+            suggest = "document_hash"
+        elif key == "documentHashType":
+            suggest = "document_hash_type"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+        elif key == "outputS3BucketName":
+            suggest = "output_s3_bucket_name"
+        elif key == "outputS3KeyPrefix":
+            suggest = "output_s3_key_prefix"
+        elif key == "serviceRoleArn":
+            suggest = "service_role_arn"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowRunCommandParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[str] = None,
+                 document_hash: Optional[str] = None,
+                 document_hash_type: Optional[str] = None,
+                 notification_config: Optional['outputs.MaintenanceWindowTaskNotificationConfig'] = None,
+                 output_s3_bucket_name: Optional[str] = None,
+                 output_s3_key_prefix: Optional[str] = None,
+                 parameters: Optional[str] = None,
+                 service_role_arn: Optional[str] = None,
+                 timeout_seconds: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
+        :param str comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+        :param str document_hash: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+        :param str document_hash_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+        :param 'MaintenanceWindowTaskNotificationConfig' notification_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+        :param str output_s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+        :param str output_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+        :param Union[Any, str] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+        :param str service_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+        :param int timeout_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if document_hash is not None:
+            pulumi.set(__self__, "document_hash", document_hash)
+        if document_hash_type is not None:
+            pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+        if output_s3_bucket_name is not None:
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
+        if output_s3_key_prefix is not None:
+            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+        """
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="documentHash")
+    def document_hash(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+        """
+        return pulumi.get(self, "document_hash")
+
+    @property
+    @pulumi.getter(name="documentHashType")
+    def document_hash_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+        """
+        return pulumi.get(self, "document_hash_type")
+
+    @property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.MaintenanceWindowTaskNotificationConfig']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+        """
+        return pulumi.get(self, "notification_config")
+
+    @property
+    @pulumi.getter(name="outputS3BucketName")
+    def output_s3_bucket_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+        """
+        return pulumi.get(self, "output_s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="outputS3KeyPrefix")
+    def output_s3_key_prefix(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+        """
+        return pulumi.get(self, "output_s3_key_prefix")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+    """
+    def __init__(__self__, *,
+                 input: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+        :param str input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+        """
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def input(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+        """
+        return pulumi.get(self, "input")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskNotificationConfig(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationArn":
+            suggest = "notification_arn"
+        elif key == "notificationEvents":
+            suggest = "notification_events"
+        elif key == "notificationType":
+            suggest = "notification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notification_arn: str,
+                 notification_events: Optional[Sequence[str]] = None,
+                 notification_type: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
+        :param str notification_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+        :param Sequence[str] notification_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+        :param str notification_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+        """
+        pulumi.set(__self__, "notification_arn", notification_arn)
+        if notification_events is not None:
+            pulumi.set(__self__, "notification_events", notification_events)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+
+    @property
+    @pulumi.getter(name="notificationArn")
+    def notification_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+        """
+        return pulumi.get(self, "notification_arn")
+
+    @property
+    @pulumi.getter(name="notificationEvents")
+    def notification_events(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+        """
+        return pulumi.get(self, "notification_events")
+
+    @property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+        """
+        return pulumi.get(self, "notification_type")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTarget(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
+        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTaskInvocationParameters(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceWindowAutomationParameters":
+            suggest = "maintenance_window_automation_parameters"
+        elif key == "maintenanceWindowLambdaParameters":
+            suggest = "maintenance_window_lambda_parameters"
+        elif key == "maintenanceWindowRunCommandParameters":
+            suggest = "maintenance_window_run_command_parameters"
+        elif key == "maintenanceWindowStepFunctionsParameters":
+            suggest = "maintenance_window_step_functions_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_window_automation_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters'] = None,
+                 maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
+                 maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
+                 maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
+        :param 'MaintenanceWindowTaskMaintenanceWindowAutomationParameters' maintenance_window_automation_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+        :param 'MaintenanceWindowTaskMaintenanceWindowLambdaParameters' maintenance_window_lambda_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+        :param 'MaintenanceWindowTaskMaintenanceWindowRunCommandParameters' maintenance_window_run_command_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+        :param 'MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters' maintenance_window_step_functions_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+        """
+        if maintenance_window_automation_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_automation_parameters", maintenance_window_automation_parameters)
+        if maintenance_window_lambda_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_lambda_parameters", maintenance_window_lambda_parameters)
+        if maintenance_window_run_command_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_run_command_parameters", maintenance_window_run_command_parameters)
+        if maintenance_window_step_functions_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_step_functions_parameters", maintenance_window_step_functions_parameters)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowAutomationParameters")
+    def maintenance_window_automation_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+        """
+        return pulumi.get(self, "maintenance_window_automation_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowLambdaParameters")
+    def maintenance_window_lambda_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+        """
+        return pulumi.get(self, "maintenance_window_lambda_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowRunCommandParameters")
+    def maintenance_window_run_command_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+        """
+        return pulumi.get(self, "maintenance_window_run_command_parameters")
+
+    @property
+    @pulumi.getter(name="maintenanceWindowStepFunctionsParameters")
+    def maintenance_window_step_functions_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+        """
+        return pulumi.get(self, "maintenance_window_step_functions_parameters")
+
+
+@pulumi.output_type
+class PatchBaselinePatchFilter(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
+        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class PatchBaselinePatchFilterGroup(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchFilters":
+            suggest = "patch_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselinePatchFilterGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselinePatchFilterGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselinePatchFilterGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+        :param Sequence['PatchBaselinePatchFilter'] patch_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+        """
+        if patch_filters is not None:
+            pulumi.set(__self__, "patch_filters", patch_filters)
+
+    @property
+    @pulumi.getter(name="patchFilters")
+    def patch_filters(self) -> Optional[Sequence['outputs.PatchBaselinePatchFilter']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+        """
+        return pulumi.get(self, "patch_filters")
+
+
+@pulumi.output_type
+class PatchBaselinePatchSource(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html
+    """
+    def __init__(__self__, *,
+                 configuration: Optional[str] = None,
+                 name: Optional[str] = None,
+                 products: Optional[Sequence[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html
+        :param str configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+        :param Sequence[str] products: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if products is not None:
+            pulumi.set(__self__, "products", products)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def products(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+        """
+        return pulumi.get(self, "products")
+
+
+@pulumi.output_type
+class PatchBaselinePatchStringDate(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class PatchBaselineRule(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "approveAfterDays":
+            suggest = "approve_after_days"
+        elif key == "approveUntilDate":
+            suggest = "approve_until_date"
+        elif key == "complianceLevel":
+            suggest = "compliance_level"
+        elif key == "enableNonSecurity":
+            suggest = "enable_non_security"
+        elif key == "patchFilterGroup":
+            suggest = "patch_filter_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselineRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselineRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselineRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 approve_after_days: Optional[int] = None,
+                 approve_until_date: Optional['outputs.PatchBaselinePatchStringDate'] = None,
+                 compliance_level: Optional[str] = None,
+                 enable_non_security: Optional[bool] = None,
+                 patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
+        :param int approve_after_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+        :param 'PatchBaselinePatchStringDate' approve_until_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+        :param str compliance_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+        :param bool enable_non_security: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+        :param 'PatchBaselinePatchFilterGroup' patch_filter_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+        """
+        if approve_after_days is not None:
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
+        if approve_until_date is not None:
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
+        if compliance_level is not None:
+            pulumi.set(__self__, "compliance_level", compliance_level)
+        if enable_non_security is not None:
+            pulumi.set(__self__, "enable_non_security", enable_non_security)
+        if patch_filter_group is not None:
+            pulumi.set(__self__, "patch_filter_group", patch_filter_group)
+
+    @property
+    @pulumi.getter(name="approveAfterDays")
+    def approve_after_days(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+        """
+        return pulumi.get(self, "approve_after_days")
+
+    @property
+    @pulumi.getter(name="approveUntilDate")
+    def approve_until_date(self) -> Optional['outputs.PatchBaselinePatchStringDate']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+        """
+        return pulumi.get(self, "approve_until_date")
+
+    @property
+    @pulumi.getter(name="complianceLevel")
+    def compliance_level(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+        """
+        return pulumi.get(self, "compliance_level")
+
+    @property
+    @pulumi.getter(name="enableNonSecurity")
+    def enable_non_security(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+        """
+        return pulumi.get(self, "enable_non_security")
+
+    @property
+    @pulumi.getter(name="patchFilterGroup")
+    def patch_filter_group(self) -> Optional['outputs.PatchBaselinePatchFilterGroup']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+        """
+        return pulumi.get(self, "patch_filter_group")
+
+
+@pulumi.output_type
+class PatchBaselineRuleGroup(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patchRules":
+            suggest = "patch_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchBaselineRuleGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchBaselineRuleGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchBaselineRuleGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+        :param Sequence['PatchBaselineRule'] patch_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+        """
+        if patch_rules is not None:
+            pulumi.set(__self__, "patch_rules", patch_rules)
+
+    @property
+    @pulumi.getter(name="patchRules")
+    def patch_rules(self) -> Optional[Sequence['outputs.PatchBaselineRule']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+        """
+        return pulumi.get(self, "patch_rules")
 
 
 @pulumi.output_type

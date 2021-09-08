@@ -9,10 +9,2172 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ClassifierCsvClassifierArgs',
+    'ClassifierGrokClassifierArgs',
+    'ClassifierJsonClassifierArgs',
+    'ClassifierXMLClassifierArgs',
+    'ConnectionConnectionInputArgs',
+    'ConnectionPhysicalConnectionRequirementsArgs',
+    'CrawlerCatalogTargetArgs',
+    'CrawlerDynamoDBTargetArgs',
+    'CrawlerJdbcTargetArgs',
+    'CrawlerRecrawlPolicyArgs',
+    'CrawlerS3TargetArgs',
+    'CrawlerScheduleArgs',
+    'CrawlerSchemaChangePolicyArgs',
+    'CrawlerTargetsArgs',
+    'DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
+    'DataCatalogEncryptionSettingsEncryptionAtRestArgs',
+    'DatabaseDataLakePrincipalArgs',
+    'DatabaseDatabaseIdentifierArgs',
+    'DatabaseDatabaseInputArgs',
+    'DatabasePrincipalPrivilegesArgs',
+    'JobConnectionsListArgs',
+    'JobExecutionPropertyArgs',
+    'JobJobCommandArgs',
+    'JobNotificationPropertyArgs',
+    'MLTransformFindMatchesParametersArgs',
+    'MLTransformGlueTablesArgs',
+    'MLTransformInputRecordTablesArgs',
+    'MLTransformMLUserDataEncryptionArgs',
+    'MLTransformTransformEncryptionArgs',
+    'MLTransformTransformParametersArgs',
+    'PartitionColumnArgs',
+    'PartitionOrderArgs',
+    'PartitionPartitionInputArgs',
+    'PartitionSchemaIdArgs',
+    'PartitionSchemaReferenceArgs',
+    'PartitionSerdeInfoArgs',
+    'PartitionSkewedInfoArgs',
+    'PartitionStorageDescriptorArgs',
     'SchemaRegistryArgs',
     'SchemaSchemaVersionArgs',
     'SchemaVersionSchemaArgs',
+    'SecurityConfigurationCloudWatchEncryptionArgs',
+    'SecurityConfigurationEncryptionConfigurationArgs',
+    'SecurityConfigurationJobBookmarksEncryptionArgs',
+    'SecurityConfigurationS3EncryptionsArgs',
+    'TableColumnArgs',
+    'TableOrderArgs',
+    'TableSchemaIdArgs',
+    'TableSchemaReferenceArgs',
+    'TableSerdeInfoArgs',
+    'TableSkewedInfoArgs',
+    'TableStorageDescriptorArgs',
+    'TableTableIdentifierArgs',
+    'TableTableInputArgs',
+    'TriggerActionArgs',
+    'TriggerConditionArgs',
+    'TriggerNotificationPropertyArgs',
+    'TriggerPredicateArgs',
 ]
+
+@pulumi.input_type
+class ClassifierCsvClassifierArgs:
+    def __init__(__self__, *,
+                 allow_single_column: Optional[pulumi.Input[bool]] = None,
+                 contains_header: Optional[pulumi.Input[str]] = None,
+                 delimiter: Optional[pulumi.Input[str]] = None,
+                 disable_value_trimming: Optional[pulumi.Input[bool]] = None,
+                 header: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 quote_symbol: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
+        :param pulumi.Input[bool] allow_single_column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+        :param pulumi.Input[str] contains_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+        :param pulumi.Input[str] delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+        :param pulumi.Input[bool] disable_value_trimming: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+        :param pulumi.Input[str] quote_symbol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+        """
+        if allow_single_column is not None:
+            pulumi.set(__self__, "allow_single_column", allow_single_column)
+        if contains_header is not None:
+            pulumi.set(__self__, "contains_header", contains_header)
+        if delimiter is not None:
+            pulumi.set(__self__, "delimiter", delimiter)
+        if disable_value_trimming is not None:
+            pulumi.set(__self__, "disable_value_trimming", disable_value_trimming)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if quote_symbol is not None:
+            pulumi.set(__self__, "quote_symbol", quote_symbol)
+
+    @property
+    @pulumi.getter(name="allowSingleColumn")
+    def allow_single_column(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+        """
+        return pulumi.get(self, "allow_single_column")
+
+    @allow_single_column.setter
+    def allow_single_column(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_single_column", value)
+
+    @property
+    @pulumi.getter(name="containsHeader")
+    def contains_header(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+        """
+        return pulumi.get(self, "contains_header")
+
+    @contains_header.setter
+    def contains_header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "contains_header", value)
+
+    @property
+    @pulumi.getter
+    def delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+        """
+        return pulumi.get(self, "delimiter")
+
+    @delimiter.setter
+    def delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delimiter", value)
+
+    @property
+    @pulumi.getter(name="disableValueTrimming")
+    def disable_value_trimming(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+        """
+        return pulumi.get(self, "disable_value_trimming")
+
+    @disable_value_trimming.setter
+    def disable_value_trimming(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_value_trimming", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="quoteSymbol")
+    def quote_symbol(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+        """
+        return pulumi.get(self, "quote_symbol")
+
+    @quote_symbol.setter
+    def quote_symbol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "quote_symbol", value)
+
+
+@pulumi.input_type
+class ClassifierGrokClassifierArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[str],
+                 grok_pattern: pulumi.Input[str],
+                 custom_patterns: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html
+        :param pulumi.Input[str] classification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+        :param pulumi.Input[str] grok_pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+        :param pulumi.Input[str] custom_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "grok_pattern", grok_pattern)
+        if custom_patterns is not None:
+            pulumi.set(__self__, "custom_patterns", custom_patterns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[str]):
+        pulumi.set(self, "classification", value)
+
+    @property
+    @pulumi.getter(name="grokPattern")
+    def grok_pattern(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+        """
+        return pulumi.get(self, "grok_pattern")
+
+    @grok_pattern.setter
+    def grok_pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "grok_pattern", value)
+
+    @property
+    @pulumi.getter(name="customPatterns")
+    def custom_patterns(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+        """
+        return pulumi.get(self, "custom_patterns")
+
+    @custom_patterns.setter
+    def custom_patterns(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_patterns", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ClassifierJsonClassifierArgs:
+    def __init__(__self__, *,
+                 json_path: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html
+        :param pulumi.Input[str] json_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+        """
+        pulumi.set(__self__, "json_path", json_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="jsonPath")
+    def json_path(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+        """
+        return pulumi.get(self, "json_path")
+
+    @json_path.setter
+    def json_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "json_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ClassifierXMLClassifierArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[str],
+                 row_tag: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html
+        :param pulumi.Input[str] classification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+        :param pulumi.Input[str] row_tag: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+        """
+        pulumi.set(__self__, "classification", classification)
+        pulumi.set(__self__, "row_tag", row_tag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[str]):
+        pulumi.set(self, "classification", value)
+
+    @property
+    @pulumi.getter(name="rowTag")
+    def row_tag(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+        """
+        return pulumi.get(self, "row_tag")
+
+    @row_tag.setter
+    def row_tag(self, value: pulumi.Input[str]):
+        pulumi.set(self, "row_tag", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ConnectionConnectionInputArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input[str],
+                 connection_properties: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 match_criteria: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
+        :param pulumi.Input[str] connection_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+        :param pulumi.Input[Union[Any, str]] connection_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+        """
+        pulumi.set(__self__, "connection_type", connection_type)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if match_criteria is not None:
+            pulumi.set(__self__, "match_criteria", match_criteria)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if physical_connection_requirements is not None:
+            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+
+    @property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_type", value)
+
+    @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @connection_properties.setter
+    def connection_properties(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "connection_properties", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="matchCriteria")
+    def match_criteria(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+        """
+        return pulumi.get(self, "match_criteria")
+
+    @match_criteria.setter
+    def match_criteria(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_criteria", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="physicalConnectionRequirements")
+    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+        """
+        return pulumi.get(self, "physical_connection_requirements")
+
+    @physical_connection_requirements.setter
+    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
+        pulumi.set(self, "physical_connection_requirements", value)
+
+
+@pulumi.input_type
+class ConnectionPhysicalConnectionRequirementsArgs:
+    def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 security_group_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html
+        :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if security_group_id_list is not None:
+            pulumi.set(__self__, "security_group_id_list", security_group_id_list)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIdList")
+    def security_group_id_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+        """
+        return pulumi.get(self, "security_group_id_list")
+
+    @security_group_id_list.setter
+    def security_group_id_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_id_list", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class CrawlerCatalogTargetArgs:
+    def __init__(__self__, *,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
+        """
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tables", value)
+
+
+@pulumi.input_type
+class CrawlerDynamoDBTargetArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html
+        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerJdbcTargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html
+        :param pulumi.Input[str] connection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-connectionname
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
+        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-connectionname
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerRecrawlPolicyArgs:
+    def __init__(__self__, *,
+                 recrawl_behavior: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html
+        :param pulumi.Input[str] recrawl_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+        """
+        if recrawl_behavior is not None:
+            pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
+
+    @property
+    @pulumi.getter(name="recrawlBehavior")
+    def recrawl_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+        """
+        return pulumi.get(self, "recrawl_behavior")
+
+    @recrawl_behavior.setter
+    def recrawl_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recrawl_behavior", value)
+
+
+@pulumi.input_type
+class CrawlerS3TargetArgs:
+    def __init__(__self__, *,
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
+        :param pulumi.Input[str] connection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
+        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class CrawlerScheduleArgs:
+    def __init__(__self__, *,
+                 schedule_expression: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html
+        :param pulumi.Input[str] schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+        """
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
+
+
+@pulumi.input_type
+class CrawlerSchemaChangePolicyArgs:
+    def __init__(__self__, *,
+                 delete_behavior: Optional[pulumi.Input[str]] = None,
+                 update_behavior: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html
+        :param pulumi.Input[str] delete_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+        :param pulumi.Input[str] update_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+        """
+        if delete_behavior is not None:
+            pulumi.set(__self__, "delete_behavior", delete_behavior)
+        if update_behavior is not None:
+            pulumi.set(__self__, "update_behavior", update_behavior)
+
+    @property
+    @pulumi.getter(name="deleteBehavior")
+    def delete_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+        """
+        return pulumi.get(self, "delete_behavior")
+
+    @delete_behavior.setter
+    def delete_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete_behavior", value)
+
+    @property
+    @pulumi.getter(name="updateBehavior")
+    def update_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+        """
+        return pulumi.get(self, "update_behavior")
+
+    @update_behavior.setter
+    def update_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update_behavior", value)
+
+
+@pulumi.input_type
+class CrawlerTargetsArgs:
+    def __init__(__self__, *,
+                 catalog_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]] = None,
+                 dynamo_db_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]] = None,
+                 jdbc_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]] = None,
+                 s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]] dynamo_db_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+        """
+        if catalog_targets is not None:
+            pulumi.set(__self__, "catalog_targets", catalog_targets)
+        if dynamo_db_targets is not None:
+            pulumi.set(__self__, "dynamo_db_targets", dynamo_db_targets)
+        if jdbc_targets is not None:
+            pulumi.set(__self__, "jdbc_targets", jdbc_targets)
+        if s3_targets is not None:
+            pulumi.set(__self__, "s3_targets", s3_targets)
+
+    @property
+    @pulumi.getter(name="catalogTargets")
+    def catalog_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+        """
+        return pulumi.get(self, "catalog_targets")
+
+    @catalog_targets.setter
+    def catalog_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]):
+        pulumi.set(self, "catalog_targets", value)
+
+    @property
+    @pulumi.getter(name="dynamoDBTargets")
+    def dynamo_db_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+        """
+        return pulumi.get(self, "dynamo_db_targets")
+
+    @dynamo_db_targets.setter
+    def dynamo_db_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerDynamoDBTargetArgs']]]]):
+        pulumi.set(self, "dynamo_db_targets", value)
+
+    @property
+    @pulumi.getter(name="jdbcTargets")
+    def jdbc_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+        """
+        return pulumi.get(self, "jdbc_targets")
+
+    @jdbc_targets.setter
+    def jdbc_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]]]):
+        pulumi.set(self, "jdbc_targets", value)
+
+    @property
+    @pulumi.getter(name="s3Targets")
+    def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+        """
+        return pulumi.get(self, "s3_targets")
+
+    @s3_targets.setter
+    def s3_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]):
+        pulumi.set(self, "s3_targets", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 return_connection_password_encrypted: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html
+        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+        :param pulumi.Input[bool] return_connection_password_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if return_connection_password_encrypted is not None:
+            pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="returnConnectionPasswordEncrypted")
+    def return_connection_password_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+        """
+        return pulumi.get(self, "return_connection_password_encrypted")
+
+    @return_connection_password_encrypted.setter
+    def return_connection_password_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "return_connection_password_encrypted", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 connection_password_encryption: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']] = None,
+                 encryption_at_rest: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html
+        :param pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs'] connection_password_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+        :param pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs'] encryption_at_rest: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+        """
+        if connection_password_encryption is not None:
+            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+        if encryption_at_rest is not None:
+            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+
+    @property
+    @pulumi.getter(name="connectionPasswordEncryption")
+    def connection_password_encryption(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+        """
+        return pulumi.get(self, "connection_password_encryption")
+
+    @connection_password_encryption.setter
+    def connection_password_encryption(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']]):
+        pulumi.set(self, "connection_password_encryption", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtRest")
+    def encryption_at_rest(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+        """
+        return pulumi.get(self, "encryption_at_rest")
+
+    @encryption_at_rest.setter
+    def encryption_at_rest(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsEncryptionAtRestArgs']]):
+        pulumi.set(self, "encryption_at_rest", value)
+
+
+@pulumi.input_type
+class DataCatalogEncryptionSettingsEncryptionAtRestArgs:
+    def __init__(__self__, *,
+                 catalog_encryption_mode: Optional[pulumi.Input[str]] = None,
+                 sse_aws_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html
+        :param pulumi.Input[str] catalog_encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+        :param pulumi.Input[str] sse_aws_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+        """
+        if catalog_encryption_mode is not None:
+            pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if sse_aws_kms_key_id is not None:
+            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+
+    @property
+    @pulumi.getter(name="catalogEncryptionMode")
+    def catalog_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+        """
+        return pulumi.get(self, "catalog_encryption_mode")
+
+    @catalog_encryption_mode.setter
+    def catalog_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="sseAwsKmsKeyId")
+    def sse_aws_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+        """
+        return pulumi.get(self, "sse_aws_kms_key_id")
+
+    @sse_aws_kms_key_id.setter
+    def sse_aws_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sse_aws_kms_key_id", value)
+
+
+@pulumi.input_type
+class DatabaseDataLakePrincipalArgs:
+    def __init__(__self__, *,
+                 data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html
+        :param pulumi.Input[str] data_lake_principal_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+        """
+        if data_lake_principal_identifier is not None:
+            pulumi.set(__self__, "data_lake_principal_identifier", data_lake_principal_identifier)
+
+    @property
+    @pulumi.getter(name="dataLakePrincipalIdentifier")
+    def data_lake_principal_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+        """
+        return pulumi.get(self, "data_lake_principal_identifier")
+
+    @data_lake_principal_identifier.setter
+    def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_principal_identifier", value)
+
+
+@pulumi.input_type
+class DatabaseDatabaseIdentifierArgs:
+    def __init__(__self__, *,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+        :param pulumi.Input[str] catalog_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+
+@pulumi.input_type
+class DatabaseDatabaseInputArgs:
+    def __init__(__self__, *,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location_uri: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 target_database: Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
+        :param pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]] create_table_default_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+        :param pulumi.Input[str] location_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+        :param pulumi.Input['DatabaseDatabaseIdentifierArgs'] target_database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+        """
+        if create_table_default_permissions is not None:
+            pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location_uri is not None:
+            pulumi.set(__self__, "location_uri", location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if target_database is not None:
+            pulumi.set(__self__, "target_database", target_database)
+
+    @property
+    @pulumi.getter(name="createTableDefaultPermissions")
+    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+        """
+        return pulumi.get(self, "create_table_default_permissions")
+
+    @create_table_default_permissions.setter
+    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabasePrincipalPrivilegesArgs']]]]):
+        pulumi.set(self, "create_table_default_permissions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="locationUri")
+    def location_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+        """
+        return pulumi.get(self, "location_uri")
+
+    @location_uri.setter
+    def location_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location_uri", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="targetDatabase")
+    def target_database(self) -> Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+        """
+        return pulumi.get(self, "target_database")
+
+    @target_database.setter
+    def target_database(self, value: Optional[pulumi.Input['DatabaseDatabaseIdentifierArgs']]):
+        pulumi.set(self, "target_database", value)
+
+
+@pulumi.input_type
+class DatabasePrincipalPrivilegesArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input['DatabaseDataLakePrincipalArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+        :param pulumi.Input['DatabaseDataLakePrincipalArgs'] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+        """
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input['DatabaseDataLakePrincipalArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input['DatabaseDataLakePrincipalArgs']]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class JobConnectionsListArgs:
+    def __init__(__self__, *,
+                 connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+        """
+        if connections is not None:
+            pulumi.set(__self__, "connections", connections)
+
+    @property
+    @pulumi.getter
+    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+        """
+        return pulumi.get(self, "connections")
+
+    @connections.setter
+    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connections", value)
+
+
+@pulumi.input_type
+class JobExecutionPropertyArgs:
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html
+        :param pulumi.Input[float] max_concurrent_runs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_concurrent_runs", value)
+
+
+@pulumi.input_type
+class JobJobCommandArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 script_location: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+        :param pulumi.Input[str] python_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+        :param pulumi.Input[str] script_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if python_version is not None:
+            pulumi.set(__self__, "python_version", python_version)
+        if script_location is not None:
+            pulumi.set(__self__, "script_location", script_location)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pythonVersion")
+    def python_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+        """
+        return pulumi.get(self, "python_version")
+
+    @python_version.setter
+    def python_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter(name="scriptLocation")
+    def script_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+        """
+        return pulumi.get(self, "script_location")
+
+    @script_location.setter
+    def script_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_location", value)
+
+
+@pulumi.input_type
+class JobNotificationPropertyArgs:
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html
+        :param pulumi.Input[int] notify_delay_after: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+    @notify_delay_after.setter
+    def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "notify_delay_after", value)
+
+
+@pulumi.input_type
+class MLTransformFindMatchesParametersArgs:
+    def __init__(__self__, *,
+                 primary_key_column_name: pulumi.Input[str],
+                 accuracy_cost_tradeoff: Optional[pulumi.Input[float]] = None,
+                 enforce_provided_labels: Optional[pulumi.Input[bool]] = None,
+                 precision_recall_tradeoff: Optional[pulumi.Input[float]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html
+        :param pulumi.Input[str] primary_key_column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+        :param pulumi.Input[float] accuracy_cost_tradeoff: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+        :param pulumi.Input[bool] enforce_provided_labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+        :param pulumi.Input[float] precision_recall_tradeoff: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+        """
+        pulumi.set(__self__, "primary_key_column_name", primary_key_column_name)
+        if accuracy_cost_tradeoff is not None:
+            pulumi.set(__self__, "accuracy_cost_tradeoff", accuracy_cost_tradeoff)
+        if enforce_provided_labels is not None:
+            pulumi.set(__self__, "enforce_provided_labels", enforce_provided_labels)
+        if precision_recall_tradeoff is not None:
+            pulumi.set(__self__, "precision_recall_tradeoff", precision_recall_tradeoff)
+
+    @property
+    @pulumi.getter(name="primaryKeyColumnName")
+    def primary_key_column_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+        """
+        return pulumi.get(self, "primary_key_column_name")
+
+    @primary_key_column_name.setter
+    def primary_key_column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key_column_name", value)
+
+    @property
+    @pulumi.getter(name="accuracyCostTradeoff")
+    def accuracy_cost_tradeoff(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+        """
+        return pulumi.get(self, "accuracy_cost_tradeoff")
+
+    @accuracy_cost_tradeoff.setter
+    def accuracy_cost_tradeoff(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "accuracy_cost_tradeoff", value)
+
+    @property
+    @pulumi.getter(name="enforceProvidedLabels")
+    def enforce_provided_labels(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+        """
+        return pulumi.get(self, "enforce_provided_labels")
+
+    @enforce_provided_labels.setter
+    def enforce_provided_labels(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_provided_labels", value)
+
+    @property
+    @pulumi.getter(name="precisionRecallTradeoff")
+    def precision_recall_tradeoff(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+        """
+        return pulumi.get(self, "precision_recall_tradeoff")
+
+    @precision_recall_tradeoff.setter
+    def precision_recall_tradeoff(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "precision_recall_tradeoff", value)
+
+
+@pulumi.input_type
+class MLTransformGlueTablesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 connection_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
+        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
+        :param pulumi.Input[str] catalog_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
+        :param pulumi.Input[str] connection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+
+@pulumi.input_type
+class MLTransformInputRecordTablesArgs:
+    def __init__(__self__, *,
+                 glue_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html
+        :param pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]] glue_tables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+        """
+        if glue_tables is not None:
+            pulumi.set(__self__, "glue_tables", glue_tables)
+
+    @property
+    @pulumi.getter(name="glueTables")
+    def glue_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+        """
+        return pulumi.get(self, "glue_tables")
+
+    @glue_tables.setter
+    def glue_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformGlueTablesArgs']]]]):
+        pulumi.set(self, "glue_tables", value)
+
+
+@pulumi.input_type
+class MLTransformMLUserDataEncryptionArgs:
+    def __init__(__self__, *,
+                 m_luser_data_encryption_mode: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+        :param pulumi.Input[str] m_luser_data_encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+        """
+        pulumi.set(__self__, "m_luser_data_encryption_mode", m_luser_data_encryption_mode)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="mLUserDataEncryptionMode")
+    def m_luser_data_encryption_mode(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+        """
+        return pulumi.get(self, "m_luser_data_encryption_mode")
+
+    @m_luser_data_encryption_mode.setter
+    def m_luser_data_encryption_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "m_luser_data_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class MLTransformTransformEncryptionArgs:
+    def __init__(__self__, *,
+                 m_luser_data_encryption: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']] = None,
+                 task_run_security_configuration_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+        :param pulumi.Input['MLTransformMLUserDataEncryptionArgs'] m_luser_data_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+        :param pulumi.Input[str] task_run_security_configuration_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+        """
+        if m_luser_data_encryption is not None:
+            pulumi.set(__self__, "m_luser_data_encryption", m_luser_data_encryption)
+        if task_run_security_configuration_name is not None:
+            pulumi.set(__self__, "task_run_security_configuration_name", task_run_security_configuration_name)
+
+    @property
+    @pulumi.getter(name="mLUserDataEncryption")
+    def m_luser_data_encryption(self) -> Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+        """
+        return pulumi.get(self, "m_luser_data_encryption")
+
+    @m_luser_data_encryption.setter
+    def m_luser_data_encryption(self, value: Optional[pulumi.Input['MLTransformMLUserDataEncryptionArgs']]):
+        pulumi.set(self, "m_luser_data_encryption", value)
+
+    @property
+    @pulumi.getter(name="taskRunSecurityConfigurationName")
+    def task_run_security_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+        """
+        return pulumi.get(self, "task_run_security_configuration_name")
+
+    @task_run_security_configuration_name.setter
+    def task_run_security_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_run_security_configuration_name", value)
+
+
+@pulumi.input_type
+class MLTransformTransformParametersArgs:
+    def __init__(__self__, *,
+                 transform_type: pulumi.Input[str],
+                 find_matches_parameters: Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html
+        :param pulumi.Input[str] transform_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+        :param pulumi.Input['MLTransformFindMatchesParametersArgs'] find_matches_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+        """
+        pulumi.set(__self__, "transform_type", transform_type)
+        if find_matches_parameters is not None:
+            pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
+
+    @property
+    @pulumi.getter(name="transformType")
+    def transform_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+        """
+        return pulumi.get(self, "transform_type")
+
+    @transform_type.setter
+    def transform_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transform_type", value)
+
+    @property
+    @pulumi.getter(name="findMatchesParameters")
+    def find_matches_parameters(self) -> Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+        """
+        return pulumi.get(self, "find_matches_parameters")
+
+    @find_matches_parameters.setter
+    def find_matches_parameters(self, value: Optional[pulumi.Input['MLTransformFindMatchesParametersArgs']]):
+        pulumi.set(self, "find_matches_parameters", value)
+
+
+@pulumi.input_type
+class PartitionColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 comment: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-name
+        :param pulumi.Input[str] comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-comment
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-type
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-comment
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PartitionOrderArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 sort_order: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html
+        :param pulumi.Input[str] column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
+        :param pulumi.Input[int] sort_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
+        """
+        pulumi.set(__self__, "column", column)
+        if sort_order is not None:
+            pulumi.set(__self__, "sort_order", sort_order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
+        """
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
+        """
+        return pulumi.get(self, "sort_order")
+
+    @sort_order.setter
+    def sort_order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sort_order", value)
+
+
+@pulumi.input_type
+class PartitionPartitionInputArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+        :param pulumi.Input['PartitionStorageDescriptorArgs'] storage_descriptor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+        """
+        pulumi.set(__self__, "values", values)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional[pulumi.Input['PartitionStorageDescriptorArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+    @storage_descriptor.setter
+    def storage_descriptor(self, value: Optional[pulumi.Input['PartitionStorageDescriptorArgs']]):
+        pulumi.set(self, "storage_descriptor", value)
+
+
+@pulumi.input_type
+class PartitionSchemaIdArgs:
+    def __init__(__self__, *,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 schema_arn: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+        :param pulumi.Input[str] registry_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+        :param pulumi.Input[str] schema_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+        :param pulumi.Input[str] schema_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @schema_arn.setter
+    def schema_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_arn", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+@pulumi.input_type
+class PartitionSchemaReferenceArgs:
+    def __init__(__self__, *,
+                 schema_id: Optional[pulumi.Input['PartitionSchemaIdArgs']] = None,
+                 schema_version_id: Optional[pulumi.Input[str]] = None,
+                 schema_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+        :param pulumi.Input['PartitionSchemaIdArgs'] schema_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+        :param pulumi.Input[str] schema_version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+        :param pulumi.Input[int] schema_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+        """
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[pulumi.Input['PartitionSchemaIdArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: Optional[pulumi.Input['PartitionSchemaIdArgs']]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @schema_version_id.setter
+    def schema_version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version_id", value)
+
+    @property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+        """
+        return pulumi.get(self, "schema_version_number")
+
+    @schema_version_number.setter
+    def schema_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schema_version_number", value)
+
+
+@pulumi.input_type
+class PartitionSerdeInfoArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 serialization_library: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+        :param pulumi.Input[str] serialization_library: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+        """
+        return pulumi.get(self, "serialization_library")
+
+    @serialization_library.setter
+    def serialization_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serialization_library", value)
+
+
+@pulumi.input_type
+class PartitionSkewedInfoArgs:
+    def __init__(__self__, *,
+                 skewed_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skewed_column_value_location_maps: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 skewed_column_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+        :param pulumi.Input[Union[Any, str]] skewed_column_value_location_maps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @skewed_column_names.setter
+    def skewed_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_names", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @skewed_column_value_location_maps.setter
+    def skewed_column_value_location_maps(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "skewed_column_value_location_maps", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+    @skewed_column_values.setter
+    def skewed_column_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_values", value)
+
+
+@pulumi.input_type
+class PartitionStorageDescriptorArgs:
+    def __init__(__self__, *,
+                 bucket_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionColumnArgs']]]] = None,
+                 compressed: Optional[pulumi.Input[bool]] = None,
+                 input_format: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 number_of_buckets: Optional[pulumi.Input[int]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 schema_reference: Optional[pulumi.Input['PartitionSchemaReferenceArgs']] = None,
+                 serde_info: Optional[pulumi.Input['PartitionSerdeInfoArgs']] = None,
+                 skewed_info: Optional[pulumi.Input['PartitionSkewedInfoArgs']] = None,
+                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionOrderArgs']]]] = None,
+                 stored_as_sub_directories: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bucket_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionColumnArgs']]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+        :param pulumi.Input[bool] compressed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+        :param pulumi.Input[str] input_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+        :param pulumi.Input[str] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+        :param pulumi.Input[int] number_of_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+        :param pulumi.Input[str] output_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+        :param pulumi.Input['PartitionSchemaReferenceArgs'] schema_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+        :param pulumi.Input['PartitionSerdeInfoArgs'] serde_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+        :param pulumi.Input['PartitionSkewedInfoArgs'] skewed_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionOrderArgs']]] sort_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+        :param pulumi.Input[bool] stored_as_sub_directories: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
+        if serde_info is not None:
+            pulumi.set(__self__, "serde_info", serde_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @bucket_columns.setter
+    def bucket_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bucket_columns", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionColumnArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def compressed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+        """
+        return pulumi.get(self, "compressed")
+
+    @compressed.setter
+    def compressed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compressed", value)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_format", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @number_of_buckets.setter
+    def number_of_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_buckets", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> Optional[pulumi.Input['PartitionSchemaReferenceArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @schema_reference.setter
+    def schema_reference(self, value: Optional[pulumi.Input['PartitionSchemaReferenceArgs']]):
+        pulumi.set(self, "schema_reference", value)
+
+    @property
+    @pulumi.getter(name="serdeInfo")
+    def serde_info(self) -> Optional[pulumi.Input['PartitionSerdeInfoArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+        """
+        return pulumi.get(self, "serde_info")
+
+    @serde_info.setter
+    def serde_info(self, value: Optional[pulumi.Input['PartitionSerdeInfoArgs']]):
+        pulumi.set(self, "serde_info", value)
+
+    @property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> Optional[pulumi.Input['PartitionSkewedInfoArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @skewed_info.setter
+    def skewed_info(self, value: Optional[pulumi.Input['PartitionSkewedInfoArgs']]):
+        pulumi.set(self, "skewed_info", value)
+
+    @property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionOrderArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @sort_columns.setter
+    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionOrderArgs']]]]):
+        pulumi.set(self, "sort_columns", value)
+
+    @property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+    @stored_as_sub_directories.setter
+    def stored_as_sub_directories(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stored_as_sub_directories", value)
+
 
 @pulumi.input_type
 class SchemaRegistryArgs:
@@ -148,5 +2310,1179 @@ class SchemaVersionSchemaArgs:
     @schema_name.setter
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
+
+
+@pulumi.input_type
+class SecurityConfigurationCloudWatchEncryptionArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption_mode: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html
+        :param pulumi.Input[str] cloud_watch_encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+        """
+        if cloud_watch_encryption_mode is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_mode", cloud_watch_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="cloudWatchEncryptionMode")
+    def cloud_watch_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+        """
+        return pulumi.get(self, "cloud_watch_encryption_mode")
+
+    @cloud_watch_encryption_mode.setter
+    def cloud_watch_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
+class SecurityConfigurationEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption: Optional[pulumi.Input['SecurityConfigurationCloudWatchEncryptionArgs']] = None,
+                 job_bookmarks_encryption: Optional[pulumi.Input['SecurityConfigurationJobBookmarksEncryptionArgs']] = None,
+                 s3_encryptions: Optional[pulumi.Input['SecurityConfigurationS3EncryptionsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html
+        :param pulumi.Input['SecurityConfigurationCloudWatchEncryptionArgs'] cloud_watch_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+        :param pulumi.Input['SecurityConfigurationJobBookmarksEncryptionArgs'] job_bookmarks_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+        :param pulumi.Input['SecurityConfigurationS3EncryptionsArgs'] s3_encryptions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+        """
+        if cloud_watch_encryption is not None:
+            pulumi.set(__self__, "cloud_watch_encryption", cloud_watch_encryption)
+        if job_bookmarks_encryption is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
+        if s3_encryptions is not None:
+            pulumi.set(__self__, "s3_encryptions", s3_encryptions)
+
+    @property
+    @pulumi.getter(name="cloudWatchEncryption")
+    def cloud_watch_encryption(self) -> Optional[pulumi.Input['SecurityConfigurationCloudWatchEncryptionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+        """
+        return pulumi.get(self, "cloud_watch_encryption")
+
+    @cloud_watch_encryption.setter
+    def cloud_watch_encryption(self, value: Optional[pulumi.Input['SecurityConfigurationCloudWatchEncryptionArgs']]):
+        pulumi.set(self, "cloud_watch_encryption", value)
+
+    @property
+    @pulumi.getter(name="jobBookmarksEncryption")
+    def job_bookmarks_encryption(self) -> Optional[pulumi.Input['SecurityConfigurationJobBookmarksEncryptionArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+        """
+        return pulumi.get(self, "job_bookmarks_encryption")
+
+    @job_bookmarks_encryption.setter
+    def job_bookmarks_encryption(self, value: Optional[pulumi.Input['SecurityConfigurationJobBookmarksEncryptionArgs']]):
+        pulumi.set(self, "job_bookmarks_encryption", value)
+
+    @property
+    @pulumi.getter(name="s3Encryptions")
+    def s3_encryptions(self) -> Optional[pulumi.Input['SecurityConfigurationS3EncryptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+        """
+        return pulumi.get(self, "s3_encryptions")
+
+    @s3_encryptions.setter
+    def s3_encryptions(self, value: Optional[pulumi.Input['SecurityConfigurationS3EncryptionsArgs']]):
+        pulumi.set(self, "s3_encryptions", value)
+
+
+@pulumi.input_type
+class SecurityConfigurationJobBookmarksEncryptionArgs:
+    def __init__(__self__, *,
+                 job_bookmarks_encryption_mode: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html
+        :param pulumi.Input[str] job_bookmarks_encryption_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+        """
+        if job_bookmarks_encryption_mode is not None:
+            pulumi.set(__self__, "job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="jobBookmarksEncryptionMode")
+    def job_bookmarks_encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+        """
+        return pulumi.get(self, "job_bookmarks_encryption_mode")
+
+    @job_bookmarks_encryption_mode.setter
+    def job_bookmarks_encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_bookmarks_encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+@pulumi.input_type
+class SecurityConfigurationS3EncryptionsArgs:
+    def __init__(__self__):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryptions.html
+        """
+        pass
+
+
+@pulumi.input_type
+class TableColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 comment: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+        :param pulumi.Input[str] comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+        """
+        pulumi.set(__self__, "name", name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TableOrderArgs:
+    def __init__(__self__, *,
+                 column: pulumi.Input[str],
+                 sort_order: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html
+        :param pulumi.Input[str] column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-column
+        :param pulumi.Input[int] sort_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-sortorder
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "sort_order", sort_order)
+
+    @property
+    @pulumi.getter
+    def column(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-column
+        """
+        return pulumi.get(self, "column")
+
+    @column.setter
+    def column(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column", value)
+
+    @property
+    @pulumi.getter(name="sortOrder")
+    def sort_order(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-sortorder
+        """
+        return pulumi.get(self, "sort_order")
+
+    @sort_order.setter
+    def sort_order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sort_order", value)
+
+
+@pulumi.input_type
+class TableSchemaIdArgs:
+    def __init__(__self__, *,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 schema_arn: Optional[pulumi.Input[str]] = None,
+                 schema_name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+        :param pulumi.Input[str] registry_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+        :param pulumi.Input[str] schema_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+        :param pulumi.Input[str] schema_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+        """
+        if registry_name is not None:
+            pulumi.set(__self__, "registry_name", registry_name)
+        if schema_arn is not None:
+            pulumi.set(__self__, "schema_arn", schema_arn)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="schemaArn")
+    def schema_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+        """
+        return pulumi.get(self, "schema_arn")
+
+    @schema_arn.setter
+    def schema_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_arn", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+@pulumi.input_type
+class TableSchemaReferenceArgs:
+    def __init__(__self__, *,
+                 schema_id: Optional[pulumi.Input['TableSchemaIdArgs']] = None,
+                 schema_version_id: Optional[pulumi.Input[str]] = None,
+                 schema_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+        :param pulumi.Input['TableSchemaIdArgs'] schema_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+        :param pulumi.Input[str] schema_version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+        :param pulumi.Input[int] schema_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+        """
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if schema_version_id is not None:
+            pulumi.set(__self__, "schema_version_id", schema_version_id)
+        if schema_version_number is not None:
+            pulumi.set(__self__, "schema_version_number", schema_version_number)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[pulumi.Input['TableSchemaIdArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: Optional[pulumi.Input['TableSchemaIdArgs']]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter(name="schemaVersionId")
+    def schema_version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+        """
+        return pulumi.get(self, "schema_version_id")
+
+    @schema_version_id.setter
+    def schema_version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_version_id", value)
+
+    @property
+    @pulumi.getter(name="schemaVersionNumber")
+    def schema_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+        """
+        return pulumi.get(self, "schema_version_number")
+
+    @schema_version_number.setter
+    def schema_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schema_version_number", value)
+
+
+@pulumi.input_type
+class TableSerdeInfoArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 serialization_library: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+        :param pulumi.Input[str] serialization_library: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if serialization_library is not None:
+            pulumi.set(__self__, "serialization_library", serialization_library)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="serializationLibrary")
+    def serialization_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+        """
+        return pulumi.get(self, "serialization_library")
+
+    @serialization_library.setter
+    def serialization_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serialization_library", value)
+
+
+@pulumi.input_type
+class TableSkewedInfoArgs:
+    def __init__(__self__, *,
+                 skewed_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skewed_column_value_location_maps: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 skewed_column_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+        :param pulumi.Input[Union[Any, str]] skewed_column_value_location_maps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skewed_column_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+        """
+        if skewed_column_names is not None:
+            pulumi.set(__self__, "skewed_column_names", skewed_column_names)
+        if skewed_column_value_location_maps is not None:
+            pulumi.set(__self__, "skewed_column_value_location_maps", skewed_column_value_location_maps)
+        if skewed_column_values is not None:
+            pulumi.set(__self__, "skewed_column_values", skewed_column_values)
+
+    @property
+    @pulumi.getter(name="skewedColumnNames")
+    def skewed_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+        """
+        return pulumi.get(self, "skewed_column_names")
+
+    @skewed_column_names.setter
+    def skewed_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_names", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValueLocationMaps")
+    def skewed_column_value_location_maps(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+        """
+        return pulumi.get(self, "skewed_column_value_location_maps")
+
+    @skewed_column_value_location_maps.setter
+    def skewed_column_value_location_maps(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "skewed_column_value_location_maps", value)
+
+    @property
+    @pulumi.getter(name="skewedColumnValues")
+    def skewed_column_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+        """
+        return pulumi.get(self, "skewed_column_values")
+
+    @skewed_column_values.setter
+    def skewed_column_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skewed_column_values", value)
+
+
+@pulumi.input_type
+class TableStorageDescriptorArgs:
+    def __init__(__self__, *,
+                 bucket_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 compressed: Optional[pulumi.Input[bool]] = None,
+                 input_format: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 number_of_buckets: Optional[pulumi.Input[int]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 schema_reference: Optional[pulumi.Input['TableSchemaReferenceArgs']] = None,
+                 serde_info: Optional[pulumi.Input['TableSerdeInfoArgs']] = None,
+                 skewed_info: Optional[pulumi.Input['TableSkewedInfoArgs']] = None,
+                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableOrderArgs']]]] = None,
+                 stored_as_sub_directories: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bucket_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+        :param pulumi.Input[bool] compressed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+        :param pulumi.Input[str] input_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+        :param pulumi.Input[str] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+        :param pulumi.Input[int] number_of_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+        :param pulumi.Input[str] output_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+        :param pulumi.Input['TableSchemaReferenceArgs'] schema_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+        :param pulumi.Input['TableSerdeInfoArgs'] serde_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+        :param pulumi.Input['TableSkewedInfoArgs'] skewed_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+        :param pulumi.Input[Sequence[pulumi.Input['TableOrderArgs']]] sort_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+        :param pulumi.Input[bool] stored_as_sub_directories: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+        """
+        if bucket_columns is not None:
+            pulumi.set(__self__, "bucket_columns", bucket_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if compressed is not None:
+            pulumi.set(__self__, "compressed", compressed)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if number_of_buckets is not None:
+            pulumi.set(__self__, "number_of_buckets", number_of_buckets)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema_reference is not None:
+            pulumi.set(__self__, "schema_reference", schema_reference)
+        if serde_info is not None:
+            pulumi.set(__self__, "serde_info", serde_info)
+        if skewed_info is not None:
+            pulumi.set(__self__, "skewed_info", skewed_info)
+        if sort_columns is not None:
+            pulumi.set(__self__, "sort_columns", sort_columns)
+        if stored_as_sub_directories is not None:
+            pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="bucketColumns")
+    def bucket_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+        """
+        return pulumi.get(self, "bucket_columns")
+
+    @bucket_columns.setter
+    def bucket_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bucket_columns", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def compressed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+        """
+        return pulumi.get(self, "compressed")
+
+    @compressed.setter
+    def compressed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compressed", value)
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+        """
+        return pulumi.get(self, "input_format")
+
+    @input_format.setter
+    def input_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_format", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="numberOfBuckets")
+    def number_of_buckets(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+        """
+        return pulumi.get(self, "number_of_buckets")
+
+    @number_of_buckets.setter
+    def number_of_buckets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_buckets", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="schemaReference")
+    def schema_reference(self) -> Optional[pulumi.Input['TableSchemaReferenceArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+        """
+        return pulumi.get(self, "schema_reference")
+
+    @schema_reference.setter
+    def schema_reference(self, value: Optional[pulumi.Input['TableSchemaReferenceArgs']]):
+        pulumi.set(self, "schema_reference", value)
+
+    @property
+    @pulumi.getter(name="serdeInfo")
+    def serde_info(self) -> Optional[pulumi.Input['TableSerdeInfoArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+        """
+        return pulumi.get(self, "serde_info")
+
+    @serde_info.setter
+    def serde_info(self, value: Optional[pulumi.Input['TableSerdeInfoArgs']]):
+        pulumi.set(self, "serde_info", value)
+
+    @property
+    @pulumi.getter(name="skewedInfo")
+    def skewed_info(self) -> Optional[pulumi.Input['TableSkewedInfoArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+        """
+        return pulumi.get(self, "skewed_info")
+
+    @skewed_info.setter
+    def skewed_info(self, value: Optional[pulumi.Input['TableSkewedInfoArgs']]):
+        pulumi.set(self, "skewed_info", value)
+
+    @property
+    @pulumi.getter(name="sortColumns")
+    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableOrderArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+        """
+        return pulumi.get(self, "sort_columns")
+
+    @sort_columns.setter
+    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableOrderArgs']]]]):
+        pulumi.set(self, "sort_columns", value)
+
+    @property
+    @pulumi.getter(name="storedAsSubDirectories")
+    def stored_as_sub_directories(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+        """
+        return pulumi.get(self, "stored_as_sub_directories")
+
+    @stored_as_sub_directories.setter
+    def stored_as_sub_directories(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stored_as_sub_directories", value)
+
+
+@pulumi.input_type
+class TableTableIdentifierArgs:
+    def __init__(__self__, *,
+                 catalog_id: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+        :param pulumi.Input[str] catalog_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+        """
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class TableTableInputArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
+                 retention: Optional[pulumi.Input[int]] = None,
+                 storage_descriptor: Optional[pulumi.Input['TableStorageDescriptorArgs']] = None,
+                 table_type: Optional[pulumi.Input[str]] = None,
+                 target_table: Optional[pulumi.Input['TableTableIdentifierArgs']] = None,
+                 view_expanded_text: Optional[pulumi.Input[str]] = None,
+                 view_original_text: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
+        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+        :param pulumi.Input[str] owner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+        :param pulumi.Input[Union[Any, str]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+        :param pulumi.Input[int] retention: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+        :param pulumi.Input['TableStorageDescriptorArgs'] storage_descriptor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+        :param pulumi.Input[str] table_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+        :param pulumi.Input['TableTableIdentifierArgs'] target_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+        :param pulumi.Input[str] view_expanded_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+        :param pulumi.Input[str] view_original_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if partition_keys is not None:
+            pulumi.set(__self__, "partition_keys", partition_keys)
+        if retention is not None:
+            pulumi.set(__self__, "retention", retention)
+        if storage_descriptor is not None:
+            pulumi.set(__self__, "storage_descriptor", storage_descriptor)
+        if table_type is not None:
+            pulumi.set(__self__, "table_type", table_type)
+        if target_table is not None:
+            pulumi.set(__self__, "target_table", target_table)
+        if view_expanded_text is not None:
+            pulumi.set(__self__, "view_expanded_text", view_expanded_text)
+        if view_original_text is not None:
+            pulumi.set(__self__, "view_original_text", view_original_text)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="partitionKeys")
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+        """
+        return pulumi.get(self, "partition_keys")
+
+    @partition_keys.setter
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]):
+        pulumi.set(self, "partition_keys", value)
+
+    @property
+    @pulumi.getter
+    def retention(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+        """
+        return pulumi.get(self, "retention")
+
+    @retention.setter
+    def retention(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention", value)
+
+    @property
+    @pulumi.getter(name="storageDescriptor")
+    def storage_descriptor(self) -> Optional[pulumi.Input['TableStorageDescriptorArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+        """
+        return pulumi.get(self, "storage_descriptor")
+
+    @storage_descriptor.setter
+    def storage_descriptor(self, value: Optional[pulumi.Input['TableStorageDescriptorArgs']]):
+        pulumi.set(self, "storage_descriptor", value)
+
+    @property
+    @pulumi.getter(name="tableType")
+    def table_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+        """
+        return pulumi.get(self, "table_type")
+
+    @table_type.setter
+    def table_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_type", value)
+
+    @property
+    @pulumi.getter(name="targetTable")
+    def target_table(self) -> Optional[pulumi.Input['TableTableIdentifierArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+        """
+        return pulumi.get(self, "target_table")
+
+    @target_table.setter
+    def target_table(self, value: Optional[pulumi.Input['TableTableIdentifierArgs']]):
+        pulumi.set(self, "target_table", value)
+
+    @property
+    @pulumi.getter(name="viewExpandedText")
+    def view_expanded_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+        """
+        return pulumi.get(self, "view_expanded_text")
+
+    @view_expanded_text.setter
+    def view_expanded_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_expanded_text", value)
+
+    @property
+    @pulumi.getter(name="viewOriginalText")
+    def view_original_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+        """
+        return pulumi.get(self, "view_original_text")
+
+    @view_original_text.setter
+    def view_original_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "view_original_text", value)
+
+
+@pulumi.input_type
+class TriggerActionArgs:
+    def __init__(__self__, *,
+                 arguments: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 crawler_name: Optional[pulumi.Input[str]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
+                 notification_property: Optional[pulumi.Input['TriggerNotificationPropertyArgs']] = None,
+                 security_configuration: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html
+        :param pulumi.Input[Union[Any, str]] arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+        :param pulumi.Input[str] crawler_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+        :param pulumi.Input[str] job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+        :param pulumi.Input['TriggerNotificationPropertyArgs'] notification_property: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+        :param pulumi.Input[str] security_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+        :param pulumi.Input[int] timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+        """
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+        if crawler_name is not None:
+            pulumi.set(__self__, "crawler_name", crawler_name)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
+        if notification_property is not None:
+            pulumi.set(__self__, "notification_property", notification_property)
+        if security_configuration is not None:
+            pulumi.set(__self__, "security_configuration", security_configuration)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "arguments", value)
+
+    @property
+    @pulumi.getter(name="crawlerName")
+    def crawler_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+        """
+        return pulumi.get(self, "crawler_name")
+
+    @crawler_name.setter
+    def crawler_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "crawler_name", value)
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_name", value)
+
+    @property
+    @pulumi.getter(name="notificationProperty")
+    def notification_property(self) -> Optional[pulumi.Input['TriggerNotificationPropertyArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+        """
+        return pulumi.get(self, "notification_property")
+
+    @notification_property.setter
+    def notification_property(self, value: Optional[pulumi.Input['TriggerNotificationPropertyArgs']]):
+        pulumi.set(self, "notification_property", value)
+
+    @property
+    @pulumi.getter(name="securityConfiguration")
+    def security_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+        """
+        return pulumi.get(self, "security_configuration")
+
+    @security_configuration.setter
+    def security_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_configuration", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class TriggerConditionArgs:
+    def __init__(__self__, *,
+                 crawl_state: Optional[pulumi.Input[str]] = None,
+                 crawler_name: Optional[pulumi.Input[str]] = None,
+                 job_name: Optional[pulumi.Input[str]] = None,
+                 logical_operator: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html
+        :param pulumi.Input[str] crawl_state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+        :param pulumi.Input[str] crawler_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+        :param pulumi.Input[str] job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+        :param pulumi.Input[str] logical_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+        :param pulumi.Input[str] state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+        """
+        if crawl_state is not None:
+            pulumi.set(__self__, "crawl_state", crawl_state)
+        if crawler_name is not None:
+            pulumi.set(__self__, "crawler_name", crawler_name)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
+        if logical_operator is not None:
+            pulumi.set(__self__, "logical_operator", logical_operator)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="crawlState")
+    def crawl_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+        """
+        return pulumi.get(self, "crawl_state")
+
+    @crawl_state.setter
+    def crawl_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "crawl_state", value)
+
+    @property
+    @pulumi.getter(name="crawlerName")
+    def crawler_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+        """
+        return pulumi.get(self, "crawler_name")
+
+    @crawler_name.setter
+    def crawler_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "crawler_name", value)
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_name", value)
+
+    @property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+        """
+        return pulumi.get(self, "logical_operator")
+
+    @logical_operator.setter
+    def logical_operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical_operator", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class TriggerNotificationPropertyArgs:
+    def __init__(__self__, *,
+                 notify_delay_after: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
+        :param pulumi.Input[int] notify_delay_after: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+        """
+        if notify_delay_after is not None:
+            pulumi.set(__self__, "notify_delay_after", notify_delay_after)
+
+    @property
+    @pulumi.getter(name="notifyDelayAfter")
+    def notify_delay_after(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+        """
+        return pulumi.get(self, "notify_delay_after")
+
+    @notify_delay_after.setter
+    def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "notify_delay_after", value)
+
+
+@pulumi.input_type
+class TriggerPredicateArgs:
+    def __init__(__self__, *,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]]] = None,
+                 logical: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]] conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+        :param pulumi.Input[str] logical: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+        """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if logical is not None:
+            pulumi.set(__self__, "logical", logical)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def logical(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+        """
+        return pulumi.get(self, "logical")
+
+    @logical.setter
+    def logical(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logical", value)
 
 

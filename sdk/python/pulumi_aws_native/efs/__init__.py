@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .access_point import *
 from .file_system import *
+from .mount_target import *
 from ._inputs import *
 from . import outputs

@@ -5,13 +5,24 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .account import *
 from .api_key import *
+from .authorizer import *
+from .base_path_mapping import *
 from .client_certificate import *
+from .deployment import *
+from .documentation_part import *
 from .documentation_version import *
 from .domain_name import *
+from .gateway_response import *
+from .method import *
 from .model import *
 from .request_validator import *
 from .resource import *
+from .rest_api import *
+from .stage import *
+from .usage_plan import *
 from .usage_plan_key import *
+from .vpc_link import *
 from ._inputs import *
 from . import outputs

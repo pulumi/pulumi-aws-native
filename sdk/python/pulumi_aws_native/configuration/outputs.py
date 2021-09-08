@@ -7,13 +7,235 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'ConfigRuleScope',
+    'ConfigRuleSource',
+    'ConfigRuleSourceDetail',
     'ConfigurationAggregatorAccountAggregationSource',
     'ConfigurationAggregatorOrganizationAggregationSource',
+    'ConfigurationRecorderRecordingGroup',
     'ConformancePackConformancePackInputParameter',
+    'DeliveryChannelConfigSnapshotDeliveryProperties',
+    'OrganizationConfigRuleOrganizationCustomRuleMetadata',
+    'OrganizationConfigRuleOrganizationManagedRuleMetadata',
     'OrganizationConformancePackConformancePackInputParameter',
+    'RemediationConfigurationExecutionControls',
+    'RemediationConfigurationSsmControls',
 ]
+
+@pulumi.output_type
+class ConfigRuleScope(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "complianceResourceId":
+            suggest = "compliance_resource_id"
+        elif key == "complianceResourceTypes":
+            suggest = "compliance_resource_types"
+        elif key == "tagKey":
+            suggest = "tag_key"
+        elif key == "tagValue":
+            suggest = "tag_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigRuleScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigRuleScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigRuleScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compliance_resource_id: Optional[str] = None,
+                 compliance_resource_types: Optional[Sequence[str]] = None,
+                 tag_key: Optional[str] = None,
+                 tag_value: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+        :param str compliance_resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+        :param Sequence[str] compliance_resource_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+        :param str tag_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+        :param str tag_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+        """
+        if compliance_resource_id is not None:
+            pulumi.set(__self__, "compliance_resource_id", compliance_resource_id)
+        if compliance_resource_types is not None:
+            pulumi.set(__self__, "compliance_resource_types", compliance_resource_types)
+        if tag_key is not None:
+            pulumi.set(__self__, "tag_key", tag_key)
+        if tag_value is not None:
+            pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="complianceResourceId")
+    def compliance_resource_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+        """
+        return pulumi.get(self, "compliance_resource_id")
+
+    @property
+    @pulumi.getter(name="complianceResourceTypes")
+    def compliance_resource_types(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+        """
+        return pulumi.get(self, "compliance_resource_types")
+
+    @property
+    @pulumi.getter(name="tagKey")
+    def tag_key(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+        """
+        return pulumi.get(self, "tag_key")
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+        """
+        return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class ConfigRuleSource(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIdentifier":
+            suggest = "source_identifier"
+        elif key == "sourceDetails":
+            suggest = "source_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigRuleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigRuleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigRuleSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 owner: str,
+                 source_identifier: str,
+                 source_details: Optional[Sequence['outputs.ConfigRuleSourceDetail']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
+        :param str owner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+        :param str source_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+        :param Sequence['ConfigRuleSourceDetail'] source_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+        """
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "source_identifier", source_identifier)
+        if source_details is not None:
+            pulumi.set(__self__, "source_details", source_details)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+        """
+        return pulumi.get(self, "source_identifier")
+
+    @property
+    @pulumi.getter(name="sourceDetails")
+    def source_details(self) -> Optional[Sequence['outputs.ConfigRuleSourceDetail']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+        """
+        return pulumi.get(self, "source_details")
+
+
+@pulumi.output_type
+class ConfigRuleSourceDetail(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSource":
+            suggest = "event_source"
+        elif key == "messageType":
+            suggest = "message_type"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigRuleSourceDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigRuleSourceDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigRuleSourceDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_source: str,
+                 message_type: str,
+                 maximum_execution_frequency: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
+        :param str event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
+        :param str message_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
+        :param str maximum_execution_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+        """
+        pulumi.set(__self__, "event_source", event_source)
+        pulumi.set(__self__, "message_type", message_type)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
+        """
+        return pulumi.get(self, "event_source")
+
+    @property
+    @pulumi.getter(name="messageType")
+    def message_type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
+        """
+        return pulumi.get(self, "message_type")
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
 
 @pulumi.output_type
 class ConfigurationAggregatorAccountAggregationSource(dict):
@@ -150,6 +372,74 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
 
 
 @pulumi.output_type
+class ConfigurationRecorderRecordingGroup(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allSupported":
+            suggest = "all_supported"
+        elif key == "includeGlobalResourceTypes":
+            suggest = "include_global_resource_types"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 all_supported: Optional[bool] = None,
+                 include_global_resource_types: Optional[bool] = None,
+                 resource_types: Optional[Sequence[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
+        :param bool all_supported: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+        :param bool include_global_resource_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+        :param Sequence[str] resource_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+        """
+        if all_supported is not None:
+            pulumi.set(__self__, "all_supported", all_supported)
+        if include_global_resource_types is not None:
+            pulumi.set(__self__, "include_global_resource_types", include_global_resource_types)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="allSupported")
+    def all_supported(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+        """
+        return pulumi.get(self, "all_supported")
+
+    @property
+    @pulumi.getter(name="includeGlobalResourceTypes")
+    def include_global_resource_types(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+        """
+        return pulumi.get(self, "include_global_resource_types")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+        """
+        return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
 class ConformancePackConformancePackInputParameter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
@@ -202,6 +492,329 @@ class ConformancePackConformancePackInputParameter(dict):
 
 
 @pulumi.output_type
+class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryFrequency":
+            suggest = "delivery_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryChannelConfigSnapshotDeliveryProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryChannelConfigSnapshotDeliveryProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryChannelConfigSnapshotDeliveryProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_frequency: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+        :param str delivery_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+        """
+        if delivery_frequency is not None:
+            pulumi.set(__self__, "delivery_frequency", delivery_frequency)
+
+    @property
+    @pulumi.getter(name="deliveryFrequency")
+    def delivery_frequency(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+        """
+        return pulumi.get(self, "delivery_frequency")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationCustomRuleMetadata(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+        elif key == "organizationConfigRuleTriggerTypes":
+            suggest = "organization_config_rule_trigger_types"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationCustomRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationCustomRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_function_arn: str,
+                 organization_config_rule_trigger_types: Sequence[str],
+                 description: Optional[str] = None,
+                 input_parameters: Optional[str] = None,
+                 maximum_execution_frequency: Optional[str] = None,
+                 resource_id_scope: Optional[str] = None,
+                 resource_types_scope: Optional[Sequence[str]] = None,
+                 tag_key_scope: Optional[str] = None,
+                 tag_value_scope: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
+        :param str lambda_function_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+        :param Sequence[str] organization_config_rule_trigger_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+        :param str input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+        :param str maximum_execution_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+        :param str resource_id_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+        :param Sequence[str] resource_types_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+        :param str tag_key_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+        :param str tag_value_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+        """
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+        pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @property
+    @pulumi.getter(name="organizationConfigRuleTriggerTypes")
+    def organization_config_rule_trigger_types(self) -> Sequence[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+        """
+        return pulumi.get(self, "organization_config_rule_trigger_types")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+        """
+        return pulumi.get(self, "resource_types_scope")
+
+    @property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+        """
+        return pulumi.get(self, "tag_value_scope")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationManagedRuleMetadata(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleIdentifier":
+            suggest = "rule_identifier"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationManagedRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationManagedRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationManagedRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_identifier: str,
+                 description: Optional[str] = None,
+                 input_parameters: Optional[str] = None,
+                 maximum_execution_frequency: Optional[str] = None,
+                 resource_id_scope: Optional[str] = None,
+                 resource_types_scope: Optional[Sequence[str]] = None,
+                 tag_key_scope: Optional[str] = None,
+                 tag_value_scope: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html
+        :param str rule_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+        :param str input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+        :param str maximum_execution_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+        :param str resource_id_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+        :param Sequence[str] resource_types_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+        :param str tag_key_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+        :param str tag_value_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+        """
+        pulumi.set(__self__, "rule_identifier", rule_identifier)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @property
+    @pulumi.getter(name="ruleIdentifier")
+    def rule_identifier(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+        """
+        return pulumi.get(self, "rule_identifier")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+        """
+        return pulumi.get(self, "input_parameters")
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+        """
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+        """
+        return pulumi.get(self, "resource_id_scope")
+
+    @property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+        """
+        return pulumi.get(self, "resource_types_scope")
+
+    @property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+        """
+        return pulumi.get(self, "tag_key_scope")
+
+    @property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+        """
+        return pulumi.get(self, "tag_value_scope")
+
+
+@pulumi.output_type
 class OrganizationConformancePackConformancePackInputParameter(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
@@ -251,5 +864,99 @@ class OrganizationConformancePackConformancePackInputParameter(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class RemediationConfigurationExecutionControls(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ssmControls":
+            suggest = "ssm_controls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationExecutionControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ssm_controls: Optional['outputs.RemediationConfigurationSsmControls'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+        :param 'RemediationConfigurationSsmControls' ssm_controls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+        """
+        if ssm_controls is not None:
+            pulumi.set(__self__, "ssm_controls", ssm_controls)
+
+    @property
+    @pulumi.getter(name="ssmControls")
+    def ssm_controls(self) -> Optional['outputs.RemediationConfigurationSsmControls']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+        """
+        return pulumi.get(self, "ssm_controls")
+
+
+@pulumi.output_type
+class RemediationConfigurationSsmControls(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentExecutionRatePercentage":
+            suggest = "concurrent_execution_rate_percentage"
+        elif key == "errorPercentage":
+            suggest = "error_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationSsmControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationSsmControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationSsmControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_execution_rate_percentage: Optional[int] = None,
+                 error_percentage: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html
+        :param int concurrent_execution_rate_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+        :param int error_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+        """
+        if concurrent_execution_rate_percentage is not None:
+            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+        if error_percentage is not None:
+            pulumi.set(__self__, "error_percentage", error_percentage)
+
+    @property
+    @pulumi.getter(name="concurrentExecutionRatePercentage")
+    def concurrent_execution_rate_percentage(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+        """
+        return pulumi.get(self, "concurrent_execution_rate_percentage")
+
+    @property
+    @pulumi.getter(name="errorPercentage")
+    def error_percentage(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+        """
+        return pulumi.get(self, "error_percentage")
 
 

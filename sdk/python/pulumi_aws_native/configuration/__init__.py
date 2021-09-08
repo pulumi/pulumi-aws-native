@@ -5,9 +5,15 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .aggregation_authorization import *
+from .config_rule import *
 from .configuration_aggregator import *
+from .configuration_recorder import *
 from .conformance_pack import *
+from .delivery_channel import *
+from .organization_config_rule import *
 from .organization_conformance_pack import *
+from .remediation_configuration import *
 from .stored_query import *
 from ._inputs import *
 from . import outputs

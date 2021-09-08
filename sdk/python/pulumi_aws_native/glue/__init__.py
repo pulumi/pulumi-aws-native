@@ -5,9 +5,22 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .classifier import *
+from .connection import *
+from .crawler import *
+from .data_catalog_encryption_settings import *
+from .database import *
+from .dev_endpoint import *
+from .job import *
+from .ml_transform import *
+from .partition import *
 from .registry import *
 from .schema import *
 from .schema_version import *
 from .schema_version_metadata import *
+from .security_configuration import *
+from .table import *
+from .trigger import *
+from .workflow import *
 from ._inputs import *
 from . import outputs

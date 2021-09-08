@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ConnectionAliasConnectionAliasAssociation',
+    'WorkspaceWorkspaceProperties',
 ]
 
 @pulumi.output_type
@@ -92,5 +93,101 @@ class ConnectionAliasConnectionAliasAssociation(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
         """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class WorkspaceWorkspaceProperties(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTypeName":
+            suggest = "compute_type_name"
+        elif key == "rootVolumeSizeGib":
+            suggest = "root_volume_size_gib"
+        elif key == "runningMode":
+            suggest = "running_mode"
+        elif key == "runningModeAutoStopTimeoutInMinutes":
+            suggest = "running_mode_auto_stop_timeout_in_minutes"
+        elif key == "userVolumeSizeGib":
+            suggest = "user_volume_size_gib"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceWorkspaceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceWorkspaceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_type_name: Optional[str] = None,
+                 root_volume_size_gib: Optional[int] = None,
+                 running_mode: Optional[str] = None,
+                 running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
+                 user_volume_size_gib: Optional[int] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html
+        :param str compute_type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+        :param int root_volume_size_gib: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+        :param str running_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+        :param int running_mode_auto_stop_timeout_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+        :param int user_volume_size_gib: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+        """
+        if compute_type_name is not None:
+            pulumi.set(__self__, "compute_type_name", compute_type_name)
+        if root_volume_size_gib is not None:
+            pulumi.set(__self__, "root_volume_size_gib", root_volume_size_gib)
+        if running_mode is not None:
+            pulumi.set(__self__, "running_mode", running_mode)
+        if running_mode_auto_stop_timeout_in_minutes is not None:
+            pulumi.set(__self__, "running_mode_auto_stop_timeout_in_minutes", running_mode_auto_stop_timeout_in_minutes)
+        if user_volume_size_gib is not None:
+            pulumi.set(__self__, "user_volume_size_gib", user_volume_size_gib)
+
+    @property
+    @pulumi.getter(name="computeTypeName")
+    def compute_type_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+        """
+        return pulumi.get(self, "compute_type_name")
+
+    @property
+    @pulumi.getter(name="rootVolumeSizeGib")
+    def root_volume_size_gib(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+        """
+        return pulumi.get(self, "root_volume_size_gib")
+
+    @property
+    @pulumi.getter(name="runningMode")
+    def running_mode(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+        """
+        return pulumi.get(self, "running_mode")
+
+    @property
+    @pulumi.getter(name="runningModeAutoStopTimeoutInMinutes")
+    def running_mode_auto_stop_timeout_in_minutes(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+        """
+        return pulumi.get(self, "running_mode_auto_stop_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="userVolumeSizeGib")
+    def user_volume_size_gib(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+        """
+        return pulumi.get(self, "user_volume_size_gib")
 
 

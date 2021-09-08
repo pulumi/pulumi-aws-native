@@ -27,6 +27,18 @@ __all__ = [
     'GlobalTableTargetTrackingScalingPolicyConfigurationArgs',
     'GlobalTableTimeToLiveSpecificationArgs',
     'GlobalTableWriteProvisionedThroughputSettingsArgs',
+    'TableAttributeDefinitionArgs',
+    'TableContributorInsightsSpecificationArgs',
+    'TableGlobalSecondaryIndexArgs',
+    'TableKeySchemaArgs',
+    'TableKinesisStreamSpecificationArgs',
+    'TableLocalSecondaryIndexArgs',
+    'TablePointInTimeRecoverySpecificationArgs',
+    'TableProjectionArgs',
+    'TableProvisionedThroughputArgs',
+    'TableSSESpecificationArgs',
+    'TableStreamSpecificationArgs',
+    'TableTimeToLiveSpecificationArgs',
 ]
 
 @pulumi.input_type
@@ -814,5 +826,483 @@ class GlobalTableWriteProvisionedThroughputSettingsArgs:
     @write_capacity_auto_scaling_settings.setter
     def write_capacity_auto_scaling_settings(self, value: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]):
         pulumi.set(self, "write_capacity_auto_scaling_settings", value)
+
+
+@pulumi.input_type
+class TableAttributeDefinitionArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[str],
+                 attribute_type: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+        :param pulumi.Input[str] attribute_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_type", attribute_type)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+        """
+        return pulumi.get(self, "attribute_type")
+
+    @attribute_type.setter
+    def attribute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_type", value)
+
+
+@pulumi.input_type
+class TableContributorInsightsSpecificationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class TableGlobalSecondaryIndexArgs:
+    def __init__(__self__, *,
+                 index_name: pulumi.Input[str],
+                 key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
+                 projection: pulumi.Input['TableProjectionArgs'],
+                 contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
+                 provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
+        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+        :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+        :param pulumi.Input['TableProjectionArgs'] projection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+        :param pulumi.Input['TableContributorInsightsSpecificationArgs'] contributor_insights_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-contributorinsightsspecification-enabled
+        :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+        """
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "key_schema", key_schema)
+        pulumi.set(__self__, "projection", projection)
+        if contributor_insights_specification is not None:
+            pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
+        if provisioned_throughput is not None:
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+        """
+        return pulumi.get(self, "key_schema")
+
+    @key_schema.setter
+    def key_schema(self, value: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]):
+        pulumi.set(self, "key_schema", value)
+
+    @property
+    @pulumi.getter
+    def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+        """
+        return pulumi.get(self, "projection")
+
+    @projection.setter
+    def projection(self, value: pulumi.Input['TableProjectionArgs']):
+        pulumi.set(self, "projection", value)
+
+    @property
+    @pulumi.getter(name="contributorInsightsSpecification")
+    def contributor_insights_specification(self) -> Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-contributorinsightsspecification-enabled
+        """
+        return pulumi.get(self, "contributor_insights_specification")
+
+    @contributor_insights_specification.setter
+    def contributor_insights_specification(self, value: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']]):
+        pulumi.set(self, "contributor_insights_specification", value)
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+        """
+        return pulumi.get(self, "provisioned_throughput")
+
+    @provisioned_throughput.setter
+    def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
+        pulumi.set(self, "provisioned_throughput", value)
+
+
+@pulumi.input_type
+class TableKeySchemaArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[str],
+                 key_type: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
+        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+        :param pulumi.Input[str] key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_type", value)
+
+
+@pulumi.input_type
+class TableKinesisStreamSpecificationArgs:
+    def __init__(__self__, *,
+                 stream_arn: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html
+        :param pulumi.Input[str] stream_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+        """
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+        """
+        return pulumi.get(self, "stream_arn")
+
+    @stream_arn.setter
+    def stream_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
+class TableLocalSecondaryIndexArgs:
+    def __init__(__self__, *,
+                 index_name: pulumi.Input[str],
+                 key_schema: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]],
+                 projection: pulumi.Input['TableProjectionArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
+        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+        :param pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+        :param pulumi.Input['TableProjectionArgs'] projection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+        """
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "key_schema", key_schema)
+        pulumi.set(__self__, "projection", projection)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="keySchema")
+    def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+        """
+        return pulumi.get(self, "key_schema")
+
+    @key_schema.setter
+    def key_schema(self, value: pulumi.Input[Sequence[pulumi.Input['TableKeySchemaArgs']]]):
+        pulumi.set(self, "key_schema", value)
+
+    @property
+    @pulumi.getter
+    def projection(self) -> pulumi.Input['TableProjectionArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+        """
+        return pulumi.get(self, "projection")
+
+    @projection.setter
+    def projection(self, value: pulumi.Input['TableProjectionArgs']):
+        pulumi.set(self, "projection", value)
+
+
+@pulumi.input_type
+class TablePointInTimeRecoverySpecificationArgs:
+    def __init__(__self__, *,
+                 point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html
+        :param pulumi.Input[bool] point_in_time_recovery_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+        """
+        if point_in_time_recovery_enabled is not None:
+            pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+
+    @property
+    @pulumi.getter(name="pointInTimeRecoveryEnabled")
+    def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+        """
+        return pulumi.get(self, "point_in_time_recovery_enabled")
+
+    @point_in_time_recovery_enabled.setter
+    def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "point_in_time_recovery_enabled", value)
+
+
+@pulumi.input_type
+class TableProjectionArgs:
+    def __init__(__self__, *,
+                 non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 projection_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+        :param pulumi.Input[str] projection_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+        """
+        if non_key_attributes is not None:
+            pulumi.set(__self__, "non_key_attributes", non_key_attributes)
+        if projection_type is not None:
+            pulumi.set(__self__, "projection_type", projection_type)
+
+    @property
+    @pulumi.getter(name="nonKeyAttributes")
+    def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+        """
+        return pulumi.get(self, "non_key_attributes")
+
+    @non_key_attributes.setter
+    def non_key_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "non_key_attributes", value)
+
+    @property
+    @pulumi.getter(name="projectionType")
+    def projection_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+        """
+        return pulumi.get(self, "projection_type")
+
+    @projection_type.setter
+    def projection_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "projection_type", value)
+
+
+@pulumi.input_type
+class TableProvisionedThroughputArgs:
+    def __init__(__self__, *,
+                 read_capacity_units: pulumi.Input[int],
+                 write_capacity_units: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+        :param pulumi.Input[int] read_capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+        :param pulumi.Input[int] write_capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+        """
+        pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+        pulumi.set(__self__, "write_capacity_units", write_capacity_units)
+
+    @property
+    @pulumi.getter(name="readCapacityUnits")
+    def read_capacity_units(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+        """
+        return pulumi.get(self, "read_capacity_units")
+
+    @read_capacity_units.setter
+    def read_capacity_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "read_capacity_units", value)
+
+    @property
+    @pulumi.getter(name="writeCapacityUnits")
+    def write_capacity_units(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+        """
+        return pulumi.get(self, "write_capacity_units")
+
+    @write_capacity_units.setter
+    def write_capacity_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "write_capacity_units", value)
+
+
+@pulumi.input_type
+class TableSSESpecificationArgs:
+    def __init__(__self__, *,
+                 s_se_enabled: pulumi.Input[bool],
+                 k_ms_master_key_id: Optional[pulumi.Input[str]] = None,
+                 s_se_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html
+        :param pulumi.Input[bool] s_se_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+        :param pulumi.Input[str] k_ms_master_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+        :param pulumi.Input[str] s_se_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+        """
+        pulumi.set(__self__, "s_se_enabled", s_se_enabled)
+        if k_ms_master_key_id is not None:
+            pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
+        if s_se_type is not None:
+            pulumi.set(__self__, "s_se_type", s_se_type)
+
+    @property
+    @pulumi.getter(name="sSEEnabled")
+    def s_se_enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+        """
+        return pulumi.get(self, "s_se_enabled")
+
+    @s_se_enabled.setter
+    def s_se_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "s_se_enabled", value)
+
+    @property
+    @pulumi.getter(name="kMSMasterKeyId")
+    def k_ms_master_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+        """
+        return pulumi.get(self, "k_ms_master_key_id")
+
+    @k_ms_master_key_id.setter
+    def k_ms_master_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "k_ms_master_key_id", value)
+
+    @property
+    @pulumi.getter(name="sSEType")
+    def s_se_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+        """
+        return pulumi.get(self, "s_se_type")
+
+    @s_se_type.setter
+    def s_se_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s_se_type", value)
+
+
+@pulumi.input_type
+class TableStreamSpecificationArgs:
+    def __init__(__self__, *,
+                 stream_view_type: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
+        :param pulumi.Input[str] stream_view_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+        """
+        pulumi.set(__self__, "stream_view_type", stream_view_type)
+
+    @property
+    @pulumi.getter(name="streamViewType")
+    def stream_view_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+        """
+        return pulumi.get(self, "stream_view_type")
+
+    @stream_view_type.setter
+    def stream_view_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_view_type", value)
+
+
+@pulumi.input_type
+class TableTimeToLiveSpecificationArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[str],
+                 enabled: pulumi.Input[bool]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html
+        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
 

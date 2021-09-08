@@ -5,13 +5,18 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .custom_resource import *
+from .macro import *
 from .module_default_version import *
 from .module_version import *
 from .public_type_version import *
 from .publisher import *
 from .resource_default_version import *
 from .resource_version import *
+from .stack import *
 from .stack_set import *
 from .type_activation import *
+from .wait_condition import *
+from .wait_condition_handle import *
 from ._inputs import *
 from . import outputs

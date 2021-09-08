@@ -10,6 +10,13 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'BudgetBudgetData',
+    'BudgetCostTypes',
+    'BudgetNotification',
+    'BudgetNotificationWithSubscribers',
+    'BudgetSpend',
+    'BudgetSubscriber',
+    'BudgetTimePeriod',
     'BudgetsActionActionThreshold',
     'BudgetsActionDefinition',
     'BudgetsActionIamActionDefinition',
@@ -17,6 +24,550 @@ __all__ = [
     'BudgetsActionSsmActionDefinition',
     'BudgetsActionSubscriber',
 ]
+
+@pulumi.output_type
+class BudgetBudgetData(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "budgetType":
+            suggest = "budget_type"
+        elif key == "timeUnit":
+            suggest = "time_unit"
+        elif key == "budgetLimit":
+            suggest = "budget_limit"
+        elif key == "budgetName":
+            suggest = "budget_name"
+        elif key == "costFilters":
+            suggest = "cost_filters"
+        elif key == "costTypes":
+            suggest = "cost_types"
+        elif key == "plannedBudgetLimits":
+            suggest = "planned_budget_limits"
+        elif key == "timePeriod":
+            suggest = "time_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetBudgetData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetBudgetData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetBudgetData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 budget_type: str,
+                 time_unit: str,
+                 budget_limit: Optional['outputs.BudgetSpend'] = None,
+                 budget_name: Optional[str] = None,
+                 cost_filters: Optional[str] = None,
+                 cost_types: Optional['outputs.BudgetCostTypes'] = None,
+                 planned_budget_limits: Optional[str] = None,
+                 time_period: Optional['outputs.BudgetTimePeriod'] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+        :param str budget_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+        :param str time_unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+        :param 'BudgetSpend' budget_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+        :param str budget_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+        :param Union[Any, str] cost_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+        :param 'BudgetCostTypes' cost_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+        :param Union[Any, str] planned_budget_limits: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+        :param 'BudgetTimePeriod' time_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+        """
+        pulumi.set(__self__, "budget_type", budget_type)
+        pulumi.set(__self__, "time_unit", time_unit)
+        if budget_limit is not None:
+            pulumi.set(__self__, "budget_limit", budget_limit)
+        if budget_name is not None:
+            pulumi.set(__self__, "budget_name", budget_name)
+        if cost_filters is not None:
+            pulumi.set(__self__, "cost_filters", cost_filters)
+        if cost_types is not None:
+            pulumi.set(__self__, "cost_types", cost_types)
+        if planned_budget_limits is not None:
+            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
+        if time_period is not None:
+            pulumi.set(__self__, "time_period", time_period)
+
+    @property
+    @pulumi.getter(name="budgetType")
+    def budget_type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+        """
+        return pulumi.get(self, "budget_type")
+
+    @property
+    @pulumi.getter(name="timeUnit")
+    def time_unit(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+        """
+        return pulumi.get(self, "time_unit")
+
+    @property
+    @pulumi.getter(name="budgetLimit")
+    def budget_limit(self) -> Optional['outputs.BudgetSpend']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+        """
+        return pulumi.get(self, "budget_limit")
+
+    @property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+        """
+        return pulumi.get(self, "budget_name")
+
+    @property
+    @pulumi.getter(name="costFilters")
+    def cost_filters(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+        """
+        return pulumi.get(self, "cost_filters")
+
+    @property
+    @pulumi.getter(name="costTypes")
+    def cost_types(self) -> Optional['outputs.BudgetCostTypes']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+        """
+        return pulumi.get(self, "cost_types")
+
+    @property
+    @pulumi.getter(name="plannedBudgetLimits")
+    def planned_budget_limits(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+        """
+        return pulumi.get(self, "planned_budget_limits")
+
+    @property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> Optional['outputs.BudgetTimePeriod']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+        """
+        return pulumi.get(self, "time_period")
+
+
+@pulumi.output_type
+class BudgetCostTypes(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeCredit":
+            suggest = "include_credit"
+        elif key == "includeDiscount":
+            suggest = "include_discount"
+        elif key == "includeOtherSubscription":
+            suggest = "include_other_subscription"
+        elif key == "includeRecurring":
+            suggest = "include_recurring"
+        elif key == "includeRefund":
+            suggest = "include_refund"
+        elif key == "includeSubscription":
+            suggest = "include_subscription"
+        elif key == "includeSupport":
+            suggest = "include_support"
+        elif key == "includeTax":
+            suggest = "include_tax"
+        elif key == "includeUpfront":
+            suggest = "include_upfront"
+        elif key == "useAmortized":
+            suggest = "use_amortized"
+        elif key == "useBlended":
+            suggest = "use_blended"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetCostTypes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetCostTypes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetCostTypes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 include_credit: Optional[bool] = None,
+                 include_discount: Optional[bool] = None,
+                 include_other_subscription: Optional[bool] = None,
+                 include_recurring: Optional[bool] = None,
+                 include_refund: Optional[bool] = None,
+                 include_subscription: Optional[bool] = None,
+                 include_support: Optional[bool] = None,
+                 include_tax: Optional[bool] = None,
+                 include_upfront: Optional[bool] = None,
+                 use_amortized: Optional[bool] = None,
+                 use_blended: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
+        :param bool include_credit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+        :param bool include_discount: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+        :param bool include_other_subscription: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+        :param bool include_recurring: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+        :param bool include_refund: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+        :param bool include_subscription: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+        :param bool include_support: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+        :param bool include_tax: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+        :param bool include_upfront: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+        :param bool use_amortized: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+        :param bool use_blended: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+        """
+        if include_credit is not None:
+            pulumi.set(__self__, "include_credit", include_credit)
+        if include_discount is not None:
+            pulumi.set(__self__, "include_discount", include_discount)
+        if include_other_subscription is not None:
+            pulumi.set(__self__, "include_other_subscription", include_other_subscription)
+        if include_recurring is not None:
+            pulumi.set(__self__, "include_recurring", include_recurring)
+        if include_refund is not None:
+            pulumi.set(__self__, "include_refund", include_refund)
+        if include_subscription is not None:
+            pulumi.set(__self__, "include_subscription", include_subscription)
+        if include_support is not None:
+            pulumi.set(__self__, "include_support", include_support)
+        if include_tax is not None:
+            pulumi.set(__self__, "include_tax", include_tax)
+        if include_upfront is not None:
+            pulumi.set(__self__, "include_upfront", include_upfront)
+        if use_amortized is not None:
+            pulumi.set(__self__, "use_amortized", use_amortized)
+        if use_blended is not None:
+            pulumi.set(__self__, "use_blended", use_blended)
+
+    @property
+    @pulumi.getter(name="includeCredit")
+    def include_credit(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+        """
+        return pulumi.get(self, "include_credit")
+
+    @property
+    @pulumi.getter(name="includeDiscount")
+    def include_discount(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+        """
+        return pulumi.get(self, "include_discount")
+
+    @property
+    @pulumi.getter(name="includeOtherSubscription")
+    def include_other_subscription(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+        """
+        return pulumi.get(self, "include_other_subscription")
+
+    @property
+    @pulumi.getter(name="includeRecurring")
+    def include_recurring(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+        """
+        return pulumi.get(self, "include_recurring")
+
+    @property
+    @pulumi.getter(name="includeRefund")
+    def include_refund(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+        """
+        return pulumi.get(self, "include_refund")
+
+    @property
+    @pulumi.getter(name="includeSubscription")
+    def include_subscription(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+        """
+        return pulumi.get(self, "include_subscription")
+
+    @property
+    @pulumi.getter(name="includeSupport")
+    def include_support(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+        """
+        return pulumi.get(self, "include_support")
+
+    @property
+    @pulumi.getter(name="includeTax")
+    def include_tax(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+        """
+        return pulumi.get(self, "include_tax")
+
+    @property
+    @pulumi.getter(name="includeUpfront")
+    def include_upfront(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+        """
+        return pulumi.get(self, "include_upfront")
+
+    @property
+    @pulumi.getter(name="useAmortized")
+    def use_amortized(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+        """
+        return pulumi.get(self, "use_amortized")
+
+    @property
+    @pulumi.getter(name="useBlended")
+    def use_blended(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+        """
+        return pulumi.get(self, "use_blended")
+
+
+@pulumi.output_type
+class BudgetNotification(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "notificationType":
+            suggest = "notification_type"
+        elif key == "thresholdType":
+            suggest = "threshold_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetNotification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetNotification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetNotification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: str,
+                 notification_type: str,
+                 threshold: float,
+                 threshold_type: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
+        :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+        :param str notification_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+        :param float threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+        :param str threshold_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "threshold", threshold)
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+        """
+        return pulumi.get(self, "notification_type")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+        """
+        return pulumi.get(self, "threshold_type")
+
+
+@pulumi.output_type
+class BudgetNotificationWithSubscribers(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+    """
+    def __init__(__self__, *,
+                 notification: 'outputs.BudgetNotification',
+                 subscribers: Sequence['outputs.BudgetSubscriber']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+        :param 'BudgetNotification' notification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+        :param Sequence['BudgetSubscriber'] subscribers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+        """
+        pulumi.set(__self__, "notification", notification)
+        pulumi.set(__self__, "subscribers", subscribers)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> 'outputs.BudgetNotification':
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+        """
+        return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter
+    def subscribers(self) -> Sequence['outputs.BudgetSubscriber']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+        """
+        return pulumi.get(self, "subscribers")
+
+
+@pulumi.output_type
+class BudgetSpend(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
+    """
+    def __init__(__self__, *,
+                 amount: float,
+                 unit: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
+        :param float amount: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+        :param str unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+        """
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def amount(self) -> float:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+        """
+        return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class BudgetSubscriber(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionType":
+            suggest = "subscription_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetSubscriber. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetSubscriber.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetSubscriber.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: str,
+                 subscription_type: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html
+        :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+        :param str subscription_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "subscription_type", subscription_type)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="subscriptionType")
+    def subscription_type(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+        """
+        return pulumi.get(self, "subscription_type")
+
+
+@pulumi.output_type
+class BudgetTimePeriod(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+    """
+    def __init__(__self__, *,
+                 end: Optional[str] = None,
+                 start: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+        :param str end: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+        :param str start: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+        """
+        return pulumi.get(self, "start")
+
 
 @pulumi.output_type
 class BudgetsActionActionThreshold(dict):

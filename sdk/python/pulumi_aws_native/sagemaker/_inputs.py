@@ -13,6 +13,7 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigArgs',
     'AppImageConfigKernelSpecArgs',
     'AppResourceSpecArgs',
+    'CodeRepositoryGitConfigArgs',
     'DataQualityJobDefinitionClusterConfigArgs',
     'DataQualityJobDefinitionConstraintsResourceArgs',
     'DataQualityJobDefinitionDataQualityAppSpecificationArgs',
@@ -35,6 +36,17 @@ __all__ = [
     'DomainResourceSpecArgs',
     'DomainSharingSettingsArgs',
     'DomainUserSettingsArgs',
+    'EndpointAlarmArgs',
+    'EndpointAutoRollbackConfigArgs',
+    'EndpointBlueGreenUpdatePolicyArgs',
+    'EndpointCapacitySizeArgs',
+    'EndpointConfigCaptureContentTypeHeaderArgs',
+    'EndpointConfigCaptureOptionArgs',
+    'EndpointConfigDataCaptureConfigArgs',
+    'EndpointConfigProductionVariantArgs',
+    'EndpointDeploymentConfigArgs',
+    'EndpointTrafficRoutingConfigArgs',
+    'EndpointVariantPropertyArgs',
     'FeatureGroupFeatureDefinitionArgs',
     'ModelBiasJobDefinitionClusterConfigArgs',
     'ModelBiasJobDefinitionConstraintsResourceArgs',
@@ -51,6 +63,7 @@ __all__ = [
     'ModelBiasJobDefinitionS3OutputArgs',
     'ModelBiasJobDefinitionStoppingConditionArgs',
     'ModelBiasJobDefinitionVpcConfigArgs',
+    'ModelContainerDefinitionArgs',
     'ModelExplainabilityJobDefinitionClusterConfigArgs',
     'ModelExplainabilityJobDefinitionConstraintsResourceArgs',
     'ModelExplainabilityJobDefinitionEndpointInputArgs',
@@ -65,6 +78,9 @@ __all__ = [
     'ModelExplainabilityJobDefinitionS3OutputArgs',
     'ModelExplainabilityJobDefinitionStoppingConditionArgs',
     'ModelExplainabilityJobDefinitionVpcConfigArgs',
+    'ModelImageConfigArgs',
+    'ModelInferenceExecutionConfigArgs',
+    'ModelMultiModelConfigArgs',
     'ModelQualityJobDefinitionClusterConfigArgs',
     'ModelQualityJobDefinitionConstraintsResourceArgs',
     'ModelQualityJobDefinitionEndpointInputArgs',
@@ -80,6 +96,8 @@ __all__ = [
     'ModelQualityJobDefinitionS3OutputArgs',
     'ModelQualityJobDefinitionStoppingConditionArgs',
     'ModelQualityJobDefinitionVpcConfigArgs',
+    'ModelRepositoryAuthConfigArgs',
+    'ModelVpcConfigArgs',
     'MonitoringScheduleBaselineConfigArgs',
     'MonitoringScheduleClusterConfigArgs',
     'MonitoringScheduleConstraintsResourceArgs',
@@ -99,12 +117,16 @@ __all__ = [
     'MonitoringScheduleStatisticsResourceArgs',
     'MonitoringScheduleStoppingConditionArgs',
     'MonitoringScheduleVpcConfigArgs',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
     'UserProfileCustomImageArgs',
     'UserProfileJupyterServerAppSettingsArgs',
     'UserProfileKernelGatewayAppSettingsArgs',
     'UserProfileResourceSpecArgs',
     'UserProfileSharingSettingsArgs',
     'UserProfileUserSettingsArgs',
+    'WorkteamCognitoMemberDefinitionArgs',
+    'WorkteamMemberDefinitionArgs',
+    'WorkteamNotificationConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -295,6 +317,61 @@ class AppResourceSpecArgs:
     @sage_maker_image_version_arn.setter
     def sage_maker_image_version_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sage_maker_image_version_arn", value)
+
+
+@pulumi.input_type
+class CodeRepositoryGitConfigArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str],
+                 branch: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html
+        :param pulumi.Input[str] repository_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-repositoryurl
+        :param pulumi.Input[str] branch: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-branch
+        :param pulumi.Input[str] secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-secretarn
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-repositoryurl
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-branch
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html#cfn-sagemaker-coderepository-gitconfig-secretarn
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 @pulumi.input_type
@@ -1289,6 +1366,526 @@ class DomainUserSettingsArgs:
 
 
 @pulumi.input_type
+class EndpointAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html
+        :param pulumi.Input[str] alarm_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html#cfn-sagemaker-endpoint-alarm-alarmname
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+@pulumi.input_type
+class EndpointAutoRollbackConfigArgs:
+    def __init__(__self__, *,
+                 alarms: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms
+        """
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html#cfn-sagemaker-endpoint-autorollbackconfig-alarms
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        pulumi.set(self, "alarms", value)
+
+
+@pulumi.input_type
+class EndpointBlueGreenUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 traffic_routing_configuration: pulumi.Input['EndpointTrafficRoutingConfigArgs'],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 termination_wait_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html
+        :param pulumi.Input['EndpointTrafficRoutingConfigArgs'] traffic_routing_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-trafficroutingconfiguration
+        :param pulumi.Input[int] maximum_execution_timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-maximumexecutiontimeoutinseconds
+        :param pulumi.Input[int] termination_wait_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-terminationwaitinseconds
+        """
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> pulumi.Input['EndpointTrafficRoutingConfigArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-trafficroutingconfiguration
+        """
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @traffic_routing_configuration.setter
+    def traffic_routing_configuration(self, value: pulumi.Input['EndpointTrafficRoutingConfigArgs']):
+        pulumi.set(self, "traffic_routing_configuration", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-maximumexecutiontimeoutinseconds
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html#cfn-sagemaker-endpoint-bluegreenupdatepolicy-terminationwaitinseconds
+        """
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+    @termination_wait_in_seconds.setter
+    def termination_wait_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_wait_in_seconds", value)
+
+
+@pulumi.input_type
+class EndpointCapacitySizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-type
+        :param pulumi.Input[int] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-value
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html#cfn-sagemaker-endpoint-capacitysize-value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointConfigCaptureContentTypeHeaderArgs:
+    def __init__(__self__, *,
+                 csv_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 json_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] csv_content_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader-csvcontenttypes
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] json_content_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader-jsoncontenttypes
+        """
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader-csvcontenttypes
+        """
+        return pulumi.get(self, "csv_content_types")
+
+    @csv_content_types.setter
+    def csv_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "csv_content_types", value)
+
+    @property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader-jsoncontenttypes
+        """
+        return pulumi.get(self, "json_content_types")
+
+    @json_content_types.setter
+    def json_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "json_content_types", value)
+
+
+@pulumi.input_type
+class EndpointConfigCaptureOptionArgs:
+    def __init__(__self__, *,
+                 capture_mode: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html
+        :param pulumi.Input[str] capture_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html#cfn-sagemaker-endpointconfig-captureoption-capturemode
+        """
+        pulumi.set(__self__, "capture_mode", capture_mode)
+
+    @property
+    @pulumi.getter(name="captureMode")
+    def capture_mode(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html#cfn-sagemaker-endpointconfig-captureoption-capturemode
+        """
+        return pulumi.get(self, "capture_mode")
+
+    @capture_mode.setter
+    def capture_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capture_mode", value)
+
+
+@pulumi.input_type
+class EndpointConfigDataCaptureConfigArgs:
+    def __init__(__self__, *,
+                 capture_options: pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]],
+                 destination_s3_uri: pulumi.Input[str],
+                 initial_sampling_percentage: pulumi.Input[int],
+                 capture_content_type_header: Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']] = None,
+                 enable_capture: Optional[pulumi.Input[bool]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]] capture_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-captureoptions
+        :param pulumi.Input[str] destination_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-destinations3uri
+        :param pulumi.Input[int] initial_sampling_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-initialsamplingpercentage
+        :param pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs'] capture_content_type_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader
+        :param pulumi.Input[bool] enable_capture: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-enablecapture
+        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-kmskeyid
+        """
+        pulumi.set(__self__, "capture_options", capture_options)
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        if capture_content_type_header is not None:
+            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+        if enable_capture is not None:
+            pulumi.set(__self__, "enable_capture", enable_capture)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="captureOptions")
+    def capture_options(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-captureoptions
+        """
+        return pulumi.get(self, "capture_options")
+
+    @capture_options.setter
+    def capture_options(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]]):
+        pulumi.set(self, "capture_options", value)
+
+    @property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-destinations3uri
+        """
+        return pulumi.get(self, "destination_s3_uri")
+
+    @destination_s3_uri.setter
+    def destination_s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_s3_uri", value)
+
+    @property
+    @pulumi.getter(name="initialSamplingPercentage")
+    def initial_sampling_percentage(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-initialsamplingpercentage
+        """
+        return pulumi.get(self, "initial_sampling_percentage")
+
+    @initial_sampling_percentage.setter
+    def initial_sampling_percentage(self, value: pulumi.Input[int]):
+        pulumi.set(self, "initial_sampling_percentage", value)
+
+    @property
+    @pulumi.getter(name="captureContentTypeHeader")
+    def capture_content_type_header(self) -> Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader
+        """
+        return pulumi.get(self, "capture_content_type_header")
+
+    @capture_content_type_header.setter
+    def capture_content_type_header(self, value: Optional[pulumi.Input['EndpointConfigCaptureContentTypeHeaderArgs']]):
+        pulumi.set(self, "capture_content_type_header", value)
+
+    @property
+    @pulumi.getter(name="enableCapture")
+    def enable_capture(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-enablecapture
+        """
+        return pulumi.get(self, "enable_capture")
+
+    @enable_capture.setter
+    def enable_capture(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_capture", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig-kmskeyid
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class EndpointConfigProductionVariantArgs:
+    def __init__(__self__, *,
+                 initial_instance_count: pulumi.Input[int],
+                 initial_variant_weight: pulumi.Input[float],
+                 instance_type: pulumi.Input[str],
+                 model_name: pulumi.Input[str],
+                 variant_name: pulumi.Input[str],
+                 accelerator_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html
+        :param pulumi.Input[int] initial_instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
+        :param pulumi.Input[float] initial_variant_weight: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
+        :param pulumi.Input[str] instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
+        :param pulumi.Input[str] model_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
+        :param pulumi.Input[str] variant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
+        :param pulumi.Input[str] accelerator_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
+        """
+        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "variant_name", variant_name)
+        if accelerator_type is not None:
+            pulumi.set(__self__, "accelerator_type", accelerator_type)
+
+    @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> pulumi.Input[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
+        """
+        return pulumi.get(self, "initial_instance_count")
+
+    @initial_instance_count.setter
+    def initial_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "initial_instance_count", value)
+
+    @property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> pulumi.Input[float]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight
+        """
+        return pulumi.get(self, "initial_variant_weight")
+
+    @initial_variant_weight.setter
+    def initial_variant_weight(self, value: pulumi.Input[float]):
+        pulumi.set(self, "initial_variant_weight", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname
+        """
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname
+        """
+        return pulumi.get(self, "variant_name")
+
+    @variant_name.setter
+    def variant_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "variant_name", value)
+
+    @property
+    @pulumi.getter(name="acceleratorType")
+    def accelerator_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
+        """
+        return pulumi.get(self, "accelerator_type")
+
+    @accelerator_type.setter
+    def accelerator_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accelerator_type", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 blue_green_update_policy: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs'],
+                 auto_rollback_configuration: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html
+        :param pulumi.Input['EndpointBlueGreenUpdatePolicyArgs'] blue_green_update_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-bluegreenupdatepolicy
+        :param pulumi.Input['EndpointAutoRollbackConfigArgs'] auto_rollback_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-autorollbackconfiguration
+        """
+        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-bluegreenupdatepolicy
+        """
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @blue_green_update_policy.setter
+    def blue_green_update_policy(self, value: pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']):
+        pulumi.set(self, "blue_green_update_policy", value)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html#cfn-sagemaker-endpoint-deploymentconfig-autorollbackconfiguration
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+
+@pulumi.input_type
+class EndpointTrafficRoutingConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 canary_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
+                 wait_interval_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html
+        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-type
+        :param pulumi.Input['EndpointCapacitySizeArgs'] canary_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-canarysize
+        :param pulumi.Input[int] wait_interval_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-waitintervalinseconds
+        """
+        pulumi.set(__self__, "type", type)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-canarysize
+        """
+        return pulumi.get(self, "canary_size")
+
+    @canary_size.setter
+    def canary_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "canary_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html#cfn-sagemaker-endpoint-trafficroutingconfig-waitintervalinseconds
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+
+@pulumi.input_type
+class EndpointVariantPropertyArgs:
+    def __init__(__self__, *,
+                 variant_property_type: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html
+        :param pulumi.Input[str] variant_property_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html#cfn-sagemaker-endpoint-variantproperty-variantpropertytype
+        """
+        if variant_property_type is not None:
+            pulumi.set(__self__, "variant_property_type", variant_property_type)
+
+    @property
+    @pulumi.getter(name="variantPropertyType")
+    def variant_property_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html#cfn-sagemaker-endpoint-variantproperty-variantpropertytype
+        """
+        return pulumi.get(self, "variant_property_type")
+
+    @variant_property_type.setter
+    def variant_property_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "variant_property_type", value)
+
+
+@pulumi.input_type
 class FeatureGroupFeatureDefinitionArgs:
     def __init__(__self__, *,
                  feature_name: pulumi.Input[str],
@@ -2006,6 +2603,142 @@ class ModelBiasJobDefinitionVpcConfigArgs:
 
 
 @pulumi.input_type
+class ModelContainerDefinitionArgs:
+    def __init__(__self__, *,
+                 container_hostname: Optional[pulumi.Input[str]] = None,
+                 environment: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
+                 image_config: Optional[pulumi.Input['ModelImageConfigArgs']] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None,
+                 multi_model_config: Optional[pulumi.Input['ModelMultiModelConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html
+        :param pulumi.Input[str] container_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
+        :param pulumi.Input[Union[Any, str]] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment
+        :param pulumi.Input[str] image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
+        :param pulumi.Input['ModelImageConfigArgs'] image_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-imageconfig
+        :param pulumi.Input[str] mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
+        :param pulumi.Input[str] model_data_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
+        :param pulumi.Input[str] model_package_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
+        :param pulumi.Input['ModelMultiModelConfigArgs'] multi_model_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
+        """
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if image_config is not None:
+            pulumi.set(__self__, "image_config", image_config)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if model_data_url is not None:
+            pulumi.set(__self__, "model_data_url", model_data_url)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
+        if multi_model_config is not None:
+            pulumi.set(__self__, "multi_model_config", multi_model_config)
+
+    @property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
+        """
+        return pulumi.get(self, "container_hostname")
+
+    @container_hostname.setter
+    def container_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_hostname", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="imageConfig")
+    def image_config(self) -> Optional[pulumi.Input['ModelImageConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-imageconfig
+        """
+        return pulumi.get(self, "image_config")
+
+    @image_config.setter
+    def image_config(self, value: Optional[pulumi.Input['ModelImageConfigArgs']]):
+        pulumi.set(self, "image_config", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="modelDataUrl")
+    def model_data_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
+        """
+        return pulumi.get(self, "model_data_url")
+
+    @model_data_url.setter
+    def model_data_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
+
+    @property
+    @pulumi.getter(name="multiModelConfig")
+    def multi_model_config(self) -> Optional[pulumi.Input['ModelMultiModelConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-multimodelconfig
+        """
+        return pulumi.get(self, "multi_model_config")
+
+    @multi_model_config.setter
+    def multi_model_config(self, value: Optional[pulumi.Input['ModelMultiModelConfigArgs']]):
+        pulumi.set(self, "multi_model_config", value)
+
+
+@pulumi.input_type
 class ModelExplainabilityJobDefinitionClusterConfigArgs:
     def __init__(__self__, *,
                  instance_count: pulumi.Input[int],
@@ -2596,6 +3329,92 @@ class ModelExplainabilityJobDefinitionVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ModelImageConfigArgs:
+    def __init__(__self__, *,
+                 repository_access_mode: pulumi.Input[str],
+                 repository_auth_config: Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html
+        :param pulumi.Input[str] repository_access_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryaccessmode
+        :param pulumi.Input['ModelRepositoryAuthConfigArgs'] repository_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig
+        """
+        pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
+
+    @property
+    @pulumi.getter(name="repositoryAccessMode")
+    def repository_access_mode(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryaccessmode
+        """
+        return pulumi.get(self, "repository_access_mode")
+
+    @repository_access_mode.setter
+    def repository_access_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_access_mode", value)
+
+    @property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig
+        """
+        return pulumi.get(self, "repository_auth_config")
+
+    @repository_auth_config.setter
+    def repository_auth_config(self, value: Optional[pulumi.Input['ModelRepositoryAuthConfigArgs']]):
+        pulumi.set(self, "repository_auth_config", value)
+
+
+@pulumi.input_type
+class ModelInferenceExecutionConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html
+        :param pulumi.Input[str] mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html#cfn-sagemaker-model-inferenceexecutionconfig-mode
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html#cfn-sagemaker-model-inferenceexecutionconfig-mode
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class ModelMultiModelConfigArgs:
+    def __init__(__self__, *,
+                 model_cache_setting: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html
+        :param pulumi.Input[str] model_cache_setting: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html#cfn-sagemaker-model-containerdefinition-multimodelconfig-modelcachesetting
+        """
+        if model_cache_setting is not None:
+            pulumi.set(__self__, "model_cache_setting", model_cache_setting)
+
+    @property
+    @pulumi.getter(name="modelCacheSetting")
+    def model_cache_setting(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html#cfn-sagemaker-model-containerdefinition-multimodelconfig-modelcachesetting
+        """
+        return pulumi.get(self, "model_cache_setting")
+
+    @model_cache_setting.setter
+    def model_cache_setting(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_cache_setting", value)
 
 
 @pulumi.input_type
@@ -3317,6 +4136,67 @@ class ModelQualityJobDefinitionVpcConfigArgs:
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class ModelRepositoryAuthConfigArgs:
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html
+        :param pulumi.Input[str] repository_credentials_provider_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig-repositorycredentialsproviderarn
+        """
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html#cfn-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig-repositorycredentialsproviderarn
+        """
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+    @repository_credentials_provider_arn.setter
+    def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_credentials_provider_arn", value)
+
+
+@pulumi.input_type
+class ModelVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-securitygroupids
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-subnets
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-securitygroupids
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-subnets
         """
         return pulumi.get(self, "subnets")
 
@@ -4301,6 +5181,30 @@ class MonitoringScheduleVpcConfigArgs:
 
 
 @pulumi.input_type
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html
+        :param pulumi.Input[str] content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+
+@pulumi.input_type
 class UserProfileCustomImageArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
@@ -4616,5 +5520,104 @@ class UserProfileUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['UserProfileSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+
+@pulumi.input_type
+class WorkteamCognitoMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_client_id: pulumi.Input[str],
+                 cognito_user_group: pulumi.Input[str],
+                 cognito_user_pool: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html
+        :param pulumi.Input[str] cognito_client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid
+        :param pulumi.Input[str] cognito_user_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitousergroup
+        :param pulumi.Input[str] cognito_user_pool: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitouserpool
+        """
+        pulumi.set(__self__, "cognito_client_id", cognito_client_id)
+        pulumi.set(__self__, "cognito_user_group", cognito_user_group)
+        pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+
+    @property
+    @pulumi.getter(name="cognitoClientId")
+    def cognito_client_id(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitoclientid
+        """
+        return pulumi.get(self, "cognito_client_id")
+
+    @cognito_client_id.setter
+    def cognito_client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_client_id", value)
+
+    @property
+    @pulumi.getter(name="cognitoUserGroup")
+    def cognito_user_group(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitousergroup
+        """
+        return pulumi.get(self, "cognito_user_group")
+
+    @cognito_user_group.setter
+    def cognito_user_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_user_group", value)
+
+    @property
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html#cfn-sagemaker-workteam-cognitomemberdefinition-cognitouserpool
+        """
+        return pulumi.get(self, "cognito_user_pool")
+
+    @cognito_user_pool.setter
+    def cognito_user_pool(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cognito_user_pool", value)
+
+
+@pulumi.input_type
+class WorkteamMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_member_definition: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html
+        :param pulumi.Input['WorkteamCognitoMemberDefinitionArgs'] cognito_member_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition
+        """
+        pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+
+    @property
+    @pulumi.getter(name="cognitoMemberDefinition")
+    def cognito_member_definition(self) -> pulumi.Input['WorkteamCognitoMemberDefinitionArgs']:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html#cfn-sagemaker-workteam-memberdefinition-cognitomemberdefinition
+        """
+        return pulumi.get(self, "cognito_member_definition")
+
+    @cognito_member_definition.setter
+    def cognito_member_definition(self, value: pulumi.Input['WorkteamCognitoMemberDefinitionArgs']):
+        pulumi.set(self, "cognito_member_definition", value)
+
+
+@pulumi.input_type
+class WorkteamNotificationConfigurationArgs:
+    def __init__(__self__, *,
+                 notification_topic_arn: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html
+        :param pulumi.Input[str] notification_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html#cfn-sagemaker-workteam-notificationconfiguration-notificationtopicarn
+        """
+        pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+
+    @property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html#cfn-sagemaker-workteam-notificationconfiguration-notificationtopicarn
+        """
+        return pulumi.get(self, "notification_topic_arn")
+
+    @notification_topic_arn.setter
+    def notification_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_topic_arn", value)
 
 

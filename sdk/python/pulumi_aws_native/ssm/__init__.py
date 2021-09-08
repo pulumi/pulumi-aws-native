@@ -7,6 +7,11 @@ import typing
 # Export this package's modules as members:
 from .association import *
 from .document import *
+from .maintenance_window import *
+from .maintenance_window_target import *
+from .maintenance_window_task import *
+from .parameter import *
+from .patch_baseline import *
 from .resource_data_sync import *
 from ._inputs import *
 from . import outputs

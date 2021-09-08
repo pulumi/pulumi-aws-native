@@ -5,7 +5,13 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .cache_cluster import *
 from .global_replication_group import *
+from .parameter_group import *
+from .replication_group import *
+from .security_group import *
+from .security_group_ingress import *
+from .subnet_group import *
 from .user import *
 from .user_group import *
 from ._inputs import *

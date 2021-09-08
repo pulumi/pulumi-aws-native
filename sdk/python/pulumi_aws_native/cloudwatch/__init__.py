@@ -5,7 +5,11 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .alarm import *
+from .anomaly_detector import *
 from .composite_alarm import *
+from .dashboard import *
+from .insight_rule import *
 from .metric_stream import *
 from ._inputs import *
 from . import outputs

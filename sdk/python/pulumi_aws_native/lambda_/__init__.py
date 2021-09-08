@@ -5,8 +5,14 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .alias import *
 from .code_signing_config import *
+from .event_invoke_config import *
 from .event_source_mapping import *
 from .function import *
+from .layer_version import *
+from .layer_version_permission import *
+from .permission import *
+from .version import *
 from ._inputs import *
 from . import outputs
