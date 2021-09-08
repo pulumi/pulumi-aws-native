@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .ip_set import *
+from .logging_configuration import *
 from .regex_pattern_set import *
 from .rule_group import *
 from .web_acl import *

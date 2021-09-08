@@ -10,6 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'LoggingConfigurationFieldToMatch',
     'RuleGroupAndStatement',
     'RuleGroupByteMatchStatement',
     'RuleGroupCustomResponseBody',
@@ -71,6 +72,100 @@ __all__ = [
     'WebACLVisibilityConfig',
     'WebACLXssMatchStatement',
 ]
+
+@pulumi.output_type
+class LoggingConfigurationFieldToMatch(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonBody":
+            suggest = "json_body"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "singleHeader":
+            suggest = "single_header"
+        elif key == "uriPath":
+            suggest = "uri_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoggingConfigurationFieldToMatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoggingConfigurationFieldToMatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoggingConfigurationFieldToMatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_body: Optional[str] = None,
+                 method: Optional[str] = None,
+                 query_string: Optional[str] = None,
+                 single_header: Optional[str] = None,
+                 uri_path: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+        :param Union[Any, str] json_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        :param Union[Any, str] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        :param Union[Any, str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        :param Union[Any, str] single_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        :param Union[Any, str] uri_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        """
+        if json_body is not None:
+            pulumi.set(__self__, "json_body", json_body)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if single_header is not None:
+            pulumi.set(__self__, "single_header", single_header)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter(name="jsonBody")
+    def json_body(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        """
+        return pulumi.get(self, "json_body")
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        """
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="singleHeader")
+    def single_header(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        """
+        return pulumi.get(self, "single_header")
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        """
+        return pulumi.get(self, "uri_path")
+
 
 @pulumi.output_type
 class RuleGroupAndStatement(dict):
@@ -2627,13 +2722,15 @@ class WebACLManagedRuleGroupStatement(dict):
                  name: str,
                  vendor_name: str,
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
-                 scope_down_statement: Optional['outputs.WebACLStatement'] = None):
+                 scope_down_statement: Optional['outputs.WebACLStatement'] = None,
+                 version: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
         :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
         :param str vendor_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
         :param Sequence['WebACLExcludedRule'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
         :param 'WebACLStatement' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -2641,6 +2738,8 @@ class WebACLManagedRuleGroupStatement(dict):
             pulumi.set(__self__, "excluded_rules", excluded_rules)
         if scope_down_statement is not None:
             pulumi.set(__self__, "scope_down_statement", scope_down_statement)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -2673,6 +2772,14 @@ class WebACLManagedRuleGroupStatement(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
         """
         return pulumi.get(self, "scope_down_statement")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

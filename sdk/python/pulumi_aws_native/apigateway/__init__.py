@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .account import *
 from .api_key import *
 from .client_certificate import *
 from .documentation_version import *
@@ -12,6 +13,7 @@ from .domain_name import *
 from .model import *
 from .request_validator import *
 from .resource import *
+from .usage_plan import *
 from .usage_plan_key import *
 from ._inputs import *
 from . import outputs

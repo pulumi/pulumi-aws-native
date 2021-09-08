@@ -168,6 +168,7 @@ class GeofenceCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'pricing_plan'")
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["pricing_plan_data_source"] = pricing_plan_data_source
+            __props__.__dict__["arn"] = None
             __props__.__dict__["collection_arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
@@ -193,6 +194,7 @@ class GeofenceCollection(pulumi.CustomResource):
 
         __props__ = GeofenceCollectionArgs.__new__(GeofenceCollectionArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["collection_arn"] = None
         __props__.__dict__["collection_name"] = None
         __props__.__dict__["create_time"] = None
@@ -202,6 +204,11 @@ class GeofenceCollection(pulumi.CustomResource):
         __props__.__dict__["pricing_plan_data_source"] = None
         __props__.__dict__["update_time"] = None
         return GeofenceCollection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="collectionArn")

@@ -23,27 +23,45 @@ class ClusterArgs:
                  master_username: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone_relocation_status: Optional[pulumi.Input[str]] = None,
+                 classic: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance: Optional[pulumi.Input[bool]] = None,
+                 defer_maintenance_duration: Optional[pulumi.Input[int]] = None,
+                 defer_maintenance_end_time: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+                 destination_region: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
+                 enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input['ClusterLoggingPropertiesArgs']] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 resource_action: Optional[pulumi.Input[str]] = None,
+                 revision_target: Optional[pulumi.Input[str]] = None,
+                 rotate_encryption_key: Optional[pulumi.Input[bool]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_grant_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
+                 snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -55,27 +73,45 @@ class ClusterArgs:
         :param pulumi.Input[str] master_username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
         :param pulumi.Input[str] node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
         :param pulumi.Input[bool] allow_version_upgrade: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
+        :param pulumi.Input[str] aqua_configuration_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
         :param pulumi.Input[int] automated_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
         :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
+        :param pulumi.Input[bool] availability_zone_relocation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        :param pulumi.Input[str] availability_zone_relocation_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        :param pulumi.Input[bool] classic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
         :param pulumi.Input[str] cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
         :param pulumi.Input[str] cluster_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
         :param pulumi.Input[str] cluster_subnet_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
         :param pulumi.Input[str] cluster_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
+        :param pulumi.Input[bool] defer_maintenance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        :param pulumi.Input[int] defer_maintenance_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        :param pulumi.Input[str] defer_maintenance_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        :param pulumi.Input[str] defer_maintenance_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        :param pulumi.Input[str] destination_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
         :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
         :param pulumi.Input['ClusterEndpointArgs'] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        :param pulumi.Input[bool] enhanced_vpc_routing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
         :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
         :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
         :param pulumi.Input['ClusterLoggingPropertiesArgs'] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
+        :param pulumi.Input[str] maintenance_track_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        :param pulumi.Input[int] manual_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
         :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
         :param pulumi.Input[str] owner_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
         :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
         :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
         :param pulumi.Input[bool] publicly_accessible: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
+        :param pulumi.Input[str] resource_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        :param pulumi.Input[str] revision_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        :param pulumi.Input[bool] rotate_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
         :param pulumi.Input[str] snapshot_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
+        :param pulumi.Input[str] snapshot_copy_grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        :param pulumi.Input[bool] snapshot_copy_manual: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        :param pulumi.Input[int] snapshot_copy_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
         :param pulumi.Input[str] snapshot_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
@@ -87,10 +123,18 @@ class ClusterArgs:
         pulumi.set(__self__, "node_type", node_type)
         if allow_version_upgrade is not None:
             pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
+        if aqua_configuration_status is not None:
+            pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if automated_snapshot_retention_period is not None:
             pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_relocation is not None:
+            pulumi.set(__self__, "availability_zone_relocation", availability_zone_relocation)
+        if availability_zone_relocation_status is not None:
+            pulumi.set(__self__, "availability_zone_relocation_status", availability_zone_relocation_status)
+        if classic is not None:
+            pulumi.set(__self__, "classic", classic)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_parameter_group_name is not None:
@@ -101,12 +145,24 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
+        if defer_maintenance is not None:
+            pulumi.set(__self__, "defer_maintenance", defer_maintenance)
+        if defer_maintenance_duration is not None:
+            pulumi.set(__self__, "defer_maintenance_duration", defer_maintenance_duration)
+        if defer_maintenance_end_time is not None:
+            pulumi.set(__self__, "defer_maintenance_end_time", defer_maintenance_end_time)
+        if defer_maintenance_start_time is not None:
+            pulumi.set(__self__, "defer_maintenance_start_time", defer_maintenance_start_time)
+        if destination_region is not None:
+            pulumi.set(__self__, "destination_region", destination_region)
         if elastic_ip is not None:
             pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if enhanced_vpc_routing is not None:
+            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if hsm_client_certificate_identifier is not None:
             pulumi.set(__self__, "hsm_client_certificate_identifier", hsm_client_certificate_identifier)
         if hsm_configuration_identifier is not None:
@@ -117,6 +173,10 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging_properties is not None:
             pulumi.set(__self__, "logging_properties", logging_properties)
+        if maintenance_track_name is not None:
+            pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manual_snapshot_retention_period is not None:
+            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
@@ -127,8 +187,20 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if resource_action is not None:
+            pulumi.set(__self__, "resource_action", resource_action)
+        if revision_target is not None:
+            pulumi.set(__self__, "revision_target", revision_target)
+        if rotate_encryption_key is not None:
+            pulumi.set(__self__, "rotate_encryption_key", rotate_encryption_key)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
+        if snapshot_copy_grant_name is not None:
+            pulumi.set(__self__, "snapshot_copy_grant_name", snapshot_copy_grant_name)
+        if snapshot_copy_manual is not None:
+            pulumi.set(__self__, "snapshot_copy_manual", snapshot_copy_manual)
+        if snapshot_copy_retention_period is not None:
+            pulumi.set(__self__, "snapshot_copy_retention_period", snapshot_copy_retention_period)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
@@ -209,6 +281,18 @@ class ClusterArgs:
         pulumi.set(self, "allow_version_upgrade", value)
 
     @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        """
+        return pulumi.get(self, "aqua_configuration_status")
+
+    @aqua_configuration_status.setter
+    def aqua_configuration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aqua_configuration_status", value)
+
+    @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -231,6 +315,42 @@ class ClusterArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocation")
+    def availability_zone_relocation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        """
+        return pulumi.get(self, "availability_zone_relocation")
+
+    @availability_zone_relocation.setter
+    def availability_zone_relocation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "availability_zone_relocation", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocationStatus")
+    def availability_zone_relocation_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        """
+        return pulumi.get(self, "availability_zone_relocation_status")
+
+    @availability_zone_relocation_status.setter
+    def availability_zone_relocation_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_relocation_status", value)
+
+    @property
+    @pulumi.getter
+    def classic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        """
+        return pulumi.get(self, "classic")
+
+    @classic.setter
+    def classic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "classic", value)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -293,6 +413,66 @@ class ClusterArgs:
         pulumi.set(self, "cluster_version", value)
 
     @property
+    @pulumi.getter(name="deferMaintenance")
+    def defer_maintenance(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        """
+        return pulumi.get(self, "defer_maintenance")
+
+    @defer_maintenance.setter
+    def defer_maintenance(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "defer_maintenance", value)
+
+    @property
+    @pulumi.getter(name="deferMaintenanceDuration")
+    def defer_maintenance_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        """
+        return pulumi.get(self, "defer_maintenance_duration")
+
+    @defer_maintenance_duration.setter
+    def defer_maintenance_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "defer_maintenance_duration", value)
+
+    @property
+    @pulumi.getter(name="deferMaintenanceEndTime")
+    def defer_maintenance_end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        """
+        return pulumi.get(self, "defer_maintenance_end_time")
+
+    @defer_maintenance_end_time.setter
+    def defer_maintenance_end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defer_maintenance_end_time", value)
+
+    @property
+    @pulumi.getter(name="deferMaintenanceStartTime")
+    def defer_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        """
+        return pulumi.get(self, "defer_maintenance_start_time")
+
+    @defer_maintenance_start_time.setter
+    def defer_maintenance_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defer_maintenance_start_time", value)
+
+    @property
+    @pulumi.getter(name="destinationRegion")
+    def destination_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        """
+        return pulumi.get(self, "destination_region")
+
+    @destination_region.setter
+    def destination_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_region", value)
+
+    @property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -327,6 +507,18 @@ class ClusterArgs:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input['ClusterEndpointArgs']]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="enhancedVpcRouting")
+    def enhanced_vpc_routing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        """
+        return pulumi.get(self, "enhanced_vpc_routing")
+
+    @enhanced_vpc_routing.setter
+    def enhanced_vpc_routing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enhanced_vpc_routing", value)
 
     @property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
@@ -389,6 +581,30 @@ class ClusterArgs:
         pulumi.set(self, "logging_properties", value)
 
     @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @maintenance_track_name.setter
+    def maintenance_track_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_track_name", value)
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
+
+    @manual_snapshot_retention_period.setter
+    def manual_snapshot_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "manual_snapshot_retention_period", value)
+
+    @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -449,6 +665,42 @@ class ClusterArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="resourceAction")
+    def resource_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        """
+        return pulumi.get(self, "resource_action")
+
+    @resource_action.setter
+    def resource_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_action", value)
+
+    @property
+    @pulumi.getter(name="revisionTarget")
+    def revision_target(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        """
+        return pulumi.get(self, "revision_target")
+
+    @revision_target.setter
+    def revision_target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_target", value)
+
+    @property
+    @pulumi.getter(name="rotateEncryptionKey")
+    def rotate_encryption_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        """
+        return pulumi.get(self, "rotate_encryption_key")
+
+    @rotate_encryption_key.setter
+    def rotate_encryption_key(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotate_encryption_key", value)
+
+    @property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -459,6 +711,42 @@ class ClusterArgs:
     @snapshot_cluster_identifier.setter
     def snapshot_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="snapshotCopyGrantName")
+    def snapshot_copy_grant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        """
+        return pulumi.get(self, "snapshot_copy_grant_name")
+
+    @snapshot_copy_grant_name.setter
+    def snapshot_copy_grant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_copy_grant_name", value)
+
+    @property
+    @pulumi.getter(name="snapshotCopyManual")
+    def snapshot_copy_manual(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        """
+        return pulumi.get(self, "snapshot_copy_manual")
+
+    @snapshot_copy_manual.setter
+    def snapshot_copy_manual(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshot_copy_manual", value)
+
+    @property
+    @pulumi.getter(name="snapshotCopyRetentionPeriod")
+    def snapshot_copy_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        """
+        return pulumi.get(self, "snapshot_copy_retention_period")
+
+    @snapshot_copy_retention_period.setter
+    def snapshot_copy_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "snapshot_copy_retention_period", value)
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
@@ -503,8 +791,12 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone_relocation_status: Optional[pulumi.Input[str]] = None,
+                 classic: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -512,14 +804,22 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance: Optional[pulumi.Input[bool]] = None,
+                 defer_maintenance_duration: Optional[pulumi.Input[int]] = None,
+                 defer_maintenance_end_time: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+                 destination_region: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
+                 enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -528,7 +828,13 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 resource_action: Optional[pulumi.Input[str]] = None,
+                 revision_target: Optional[pulumi.Input[str]] = None,
+                 rotate_encryption_key: Optional[pulumi.Input[bool]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_grant_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
+                 snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -539,8 +845,12 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_version_upgrade: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
+        :param pulumi.Input[str] aqua_configuration_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
         :param pulumi.Input[int] automated_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
         :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
+        :param pulumi.Input[bool] availability_zone_relocation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        :param pulumi.Input[str] availability_zone_relocation_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        :param pulumi.Input[bool] classic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
         :param pulumi.Input[str] cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
         :param pulumi.Input[str] cluster_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
@@ -548,14 +858,22 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
         :param pulumi.Input[str] cluster_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
         :param pulumi.Input[str] d_b_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
+        :param pulumi.Input[bool] defer_maintenance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        :param pulumi.Input[int] defer_maintenance_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        :param pulumi.Input[str] defer_maintenance_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        :param pulumi.Input[str] defer_maintenance_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        :param pulumi.Input[str] destination_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
         :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
         :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
+        :param pulumi.Input[bool] enhanced_vpc_routing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
         :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
         :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
         :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
         :param pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
+        :param pulumi.Input[str] maintenance_track_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        :param pulumi.Input[int] manual_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
         :param pulumi.Input[str] master_user_password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
         :param pulumi.Input[str] master_username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
         :param pulumi.Input[str] node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
@@ -564,7 +882,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
         :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
         :param pulumi.Input[bool] publicly_accessible: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
+        :param pulumi.Input[str] resource_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        :param pulumi.Input[str] revision_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        :param pulumi.Input[bool] rotate_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
         :param pulumi.Input[str] snapshot_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
+        :param pulumi.Input[str] snapshot_copy_grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        :param pulumi.Input[bool] snapshot_copy_manual: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        :param pulumi.Input[int] snapshot_copy_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
         :param pulumi.Input[str] snapshot_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
@@ -594,8 +918,12 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 availability_zone_relocation: Optional[pulumi.Input[bool]] = None,
+                 availability_zone_relocation_status: Optional[pulumi.Input[str]] = None,
+                 classic: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -603,14 +931,22 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance: Optional[pulumi.Input[bool]] = None,
+                 defer_maintenance_duration: Optional[pulumi.Input[int]] = None,
+                 defer_maintenance_end_time: Optional[pulumi.Input[str]] = None,
+                 defer_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+                 destination_region: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
+                 enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  hsm_configuration_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -619,7 +955,13 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 resource_action: Optional[pulumi.Input[str]] = None,
+                 revision_target: Optional[pulumi.Input[str]] = None,
+                 rotate_encryption_key: Optional[pulumi.Input[bool]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_grant_name: Optional[pulumi.Input[str]] = None,
+                 snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
+                 snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -636,8 +978,12 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["allow_version_upgrade"] = allow_version_upgrade
+            __props__.__dict__["aqua_configuration_status"] = aqua_configuration_status
             __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["availability_zone_relocation"] = availability_zone_relocation
+            __props__.__dict__["availability_zone_relocation_status"] = availability_zone_relocation_status
+            __props__.__dict__["classic"] = classic
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
             __props__.__dict__["cluster_security_groups"] = cluster_security_groups
@@ -649,14 +995,22 @@ class Cluster(pulumi.CustomResource):
             if d_b_name is None and not opts.urn:
                 raise TypeError("Missing required property 'd_b_name'")
             __props__.__dict__["d_b_name"] = d_b_name
+            __props__.__dict__["defer_maintenance"] = defer_maintenance
+            __props__.__dict__["defer_maintenance_duration"] = defer_maintenance_duration
+            __props__.__dict__["defer_maintenance_end_time"] = defer_maintenance_end_time
+            __props__.__dict__["defer_maintenance_start_time"] = defer_maintenance_start_time
+            __props__.__dict__["destination_region"] = destination_region
             __props__.__dict__["elastic_ip"] = elastic_ip
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["endpoint"] = endpoint
+            __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
             __props__.__dict__["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
             __props__.__dict__["hsm_configuration_identifier"] = hsm_configuration_identifier
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["logging_properties"] = logging_properties
+            __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+            __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
             if master_user_password is None and not opts.urn:
                 raise TypeError("Missing required property 'master_user_password'")
             __props__.__dict__["master_user_password"] = master_user_password
@@ -671,10 +1025,17 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["resource_action"] = resource_action
+            __props__.__dict__["revision_target"] = revision_target
+            __props__.__dict__["rotate_encryption_key"] = rotate_encryption_key
             __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
+            __props__.__dict__["snapshot_copy_grant_name"] = snapshot_copy_grant_name
+            __props__.__dict__["snapshot_copy_manual"] = snapshot_copy_manual
+            __props__.__dict__["snapshot_copy_retention_period"] = snapshot_copy_retention_period
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["defer_maintenance_identifier"] = None
             __props__.__dict__["endpoint_address"] = None
             __props__.__dict__["endpoint_port"] = None
             __props__.__dict__["id"] = None
@@ -701,8 +1062,12 @@ class Cluster(pulumi.CustomResource):
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
         __props__.__dict__["allow_version_upgrade"] = None
+        __props__.__dict__["aqua_configuration_status"] = None
         __props__.__dict__["automated_snapshot_retention_period"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["availability_zone_relocation"] = None
+        __props__.__dict__["availability_zone_relocation_status"] = None
+        __props__.__dict__["classic"] = None
         __props__.__dict__["cluster_identifier"] = None
         __props__.__dict__["cluster_parameter_group_name"] = None
         __props__.__dict__["cluster_security_groups"] = None
@@ -710,17 +1075,26 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_type"] = None
         __props__.__dict__["cluster_version"] = None
         __props__.__dict__["d_b_name"] = None
+        __props__.__dict__["defer_maintenance"] = None
+        __props__.__dict__["defer_maintenance_duration"] = None
+        __props__.__dict__["defer_maintenance_end_time"] = None
+        __props__.__dict__["defer_maintenance_identifier"] = None
+        __props__.__dict__["defer_maintenance_start_time"] = None
+        __props__.__dict__["destination_region"] = None
         __props__.__dict__["elastic_ip"] = None
         __props__.__dict__["encrypted"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["endpoint_address"] = None
         __props__.__dict__["endpoint_port"] = None
+        __props__.__dict__["enhanced_vpc_routing"] = None
         __props__.__dict__["hsm_client_certificate_identifier"] = None
         __props__.__dict__["hsm_configuration_identifier"] = None
         __props__.__dict__["iam_roles"] = None
         __props__.__dict__["id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["logging_properties"] = None
+        __props__.__dict__["maintenance_track_name"] = None
+        __props__.__dict__["manual_snapshot_retention_period"] = None
         __props__.__dict__["master_user_password"] = None
         __props__.__dict__["master_username"] = None
         __props__.__dict__["node_type"] = None
@@ -729,7 +1103,13 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["publicly_accessible"] = None
+        __props__.__dict__["resource_action"] = None
+        __props__.__dict__["revision_target"] = None
+        __props__.__dict__["rotate_encryption_key"] = None
         __props__.__dict__["snapshot_cluster_identifier"] = None
+        __props__.__dict__["snapshot_copy_grant_name"] = None
+        __props__.__dict__["snapshot_copy_manual"] = None
+        __props__.__dict__["snapshot_copy_retention_period"] = None
         __props__.__dict__["snapshot_identifier"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
@@ -742,6 +1122,14 @@ class Cluster(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
         """
         return pulumi.get(self, "allow_version_upgrade")
+
+    @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        """
+        return pulumi.get(self, "aqua_configuration_status")
 
     @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
@@ -758,6 +1146,30 @@ class Cluster(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocation")
+    def availability_zone_relocation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        """
+        return pulumi.get(self, "availability_zone_relocation")
+
+    @property
+    @pulumi.getter(name="availabilityZoneRelocationStatus")
+    def availability_zone_relocation_status(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        """
+        return pulumi.get(self, "availability_zone_relocation_status")
+
+    @property
+    @pulumi.getter
+    def classic(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        """
+        return pulumi.get(self, "classic")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -816,6 +1228,51 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "d_b_name")
 
     @property
+    @pulumi.getter(name="deferMaintenance")
+    def defer_maintenance(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        """
+        return pulumi.get(self, "defer_maintenance")
+
+    @property
+    @pulumi.getter(name="deferMaintenanceDuration")
+    def defer_maintenance_duration(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        """
+        return pulumi.get(self, "defer_maintenance_duration")
+
+    @property
+    @pulumi.getter(name="deferMaintenanceEndTime")
+    def defer_maintenance_end_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        """
+        return pulumi.get(self, "defer_maintenance_end_time")
+
+    @property
+    @pulumi.getter(name="deferMaintenanceIdentifier")
+    def defer_maintenance_identifier(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "defer_maintenance_identifier")
+
+    @property
+    @pulumi.getter(name="deferMaintenanceStartTime")
+    def defer_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        """
+        return pulumi.get(self, "defer_maintenance_start_time")
+
+    @property
+    @pulumi.getter(name="destinationRegion")
+    def destination_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        """
+        return pulumi.get(self, "destination_region")
+
+    @property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> pulumi.Output[Optional[str]]:
         """
@@ -848,6 +1305,14 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> pulumi.Output[str]:
         return pulumi.get(self, "endpoint_port")
+
+    @property
+    @pulumi.getter(name="enhancedVpcRouting")
+    def enhanced_vpc_routing(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        """
+        return pulumi.get(self, "enhanced_vpc_routing")
 
     @property
     @pulumi.getter(name="hsmClientCertificateIdentifier")
@@ -893,6 +1358,22 @@ class Cluster(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
         """
         return pulumi.get(self, "logging_properties")
+
+    @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
 
     @property
     @pulumi.getter(name="masterUserPassword")
@@ -959,12 +1440,60 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter(name="resourceAction")
+    def resource_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        """
+        return pulumi.get(self, "resource_action")
+
+    @property
+    @pulumi.getter(name="revisionTarget")
+    def revision_target(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        """
+        return pulumi.get(self, "revision_target")
+
+    @property
+    @pulumi.getter(name="rotateEncryptionKey")
+    def rotate_encryption_key(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        """
+        return pulumi.get(self, "rotate_encryption_key")
+
+    @property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
         """
         return pulumi.get(self, "snapshot_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="snapshotCopyGrantName")
+    def snapshot_copy_grant_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        """
+        return pulumi.get(self, "snapshot_copy_grant_name")
+
+    @property
+    @pulumi.getter(name="snapshotCopyManual")
+    def snapshot_copy_manual(self) -> pulumi.Output[Optional[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        """
+        return pulumi.get(self, "snapshot_copy_manual")
+
+    @property
+    @pulumi.getter(name="snapshotCopyRetentionPeriod")
+    def snapshot_copy_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        """
+        return pulumi.get(self, "snapshot_copy_retention_period")
 
     @property
     @pulumi.getter(name="snapshotIdentifier")

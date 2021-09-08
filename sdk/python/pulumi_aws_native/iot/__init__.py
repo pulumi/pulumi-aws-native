@@ -11,6 +11,7 @@ from .certificate import *
 from .custom_metric import *
 from .dimension import *
 from .domain_configuration import *
+from .fleet_metric import *
 from .mitigation_action import *
 from .provisioning_template import *
 from .scheduled_audit import *

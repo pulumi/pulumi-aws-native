@@ -58,6 +58,8 @@ if typing.TYPE_CHECKING:
     cloudformation = __cloudformation
     import pulumi_aws_native.cloudfront as __cloudfront
     cloudfront = __cloudfront
+    import pulumi_aws_native.cloudtrail as __cloudtrail
+    cloudtrail = __cloudtrail
     import pulumi_aws_native.cloudwatch as __cloudwatch
     cloudwatch = __cloudwatch
     import pulumi_aws_native.codeartifact as __codeartifact
@@ -68,6 +70,8 @@ if typing.TYPE_CHECKING:
     codegurureviewer = __codegurureviewer
     import pulumi_aws_native.codestarconnections as __codestarconnections
     codestarconnections = __codestarconnections
+    import pulumi_aws_native.codestarnotifications as __codestarnotifications
+    codestarnotifications = __codestarnotifications
     import pulumi_aws_native.config as __config
     config = __config
     import pulumi_aws_native.configuration as __configuration
@@ -190,6 +194,8 @@ if typing.TYPE_CHECKING:
     redshift = __redshift
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
+    import pulumi_aws_native.robomaker as __robomaker
+    robomaker = __robomaker
     import pulumi_aws_native.route53 as __route53
     route53 = __route53
     import pulumi_aws_native.route53recoverycontrol as __route53recoverycontrol
@@ -254,11 +260,13 @@ else:
     chatbot = _utilities.lazy_import('pulumi_aws_native.chatbot')
     cloudformation = _utilities.lazy_import('pulumi_aws_native.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws_native.cloudfront')
+    cloudtrail = _utilities.lazy_import('pulumi_aws_native.cloudtrail')
     cloudwatch = _utilities.lazy_import('pulumi_aws_native.cloudwatch')
     codeartifact = _utilities.lazy_import('pulumi_aws_native.codeartifact')
     codeguruprofiler = _utilities.lazy_import('pulumi_aws_native.codeguruprofiler')
     codegurureviewer = _utilities.lazy_import('pulumi_aws_native.codegurureviewer')
     codestarconnections = _utilities.lazy_import('pulumi_aws_native.codestarconnections')
+    codestarnotifications = _utilities.lazy_import('pulumi_aws_native.codestarnotifications')
     config = _utilities.lazy_import('pulumi_aws_native.config')
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
@@ -320,6 +328,7 @@ else:
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
+    robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws_native.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws_native.route53recoveryreadiness')
@@ -379,6 +388,7 @@ _utilities.register(
   "mod": "apigateway",
   "fqn": "pulumi_aws_native.apigateway",
   "classes": {
+   "aws-native:apigateway:Account": "Account",
    "aws-native:apigateway:ApiKey": "ApiKey",
    "aws-native:apigateway:ClientCertificate": "ClientCertificate",
    "aws-native:apigateway:DocumentationVersion": "DocumentationVersion",
@@ -386,6 +396,7 @@ _utilities.register(
    "aws-native:apigateway:Model": "Model",
    "aws-native:apigateway:RequestValidator": "RequestValidator",
    "aws-native:apigateway:Resource": "Resource",
+   "aws-native:apigateway:UsagePlan": "UsagePlan",
    "aws-native:apigateway:UsagePlanKey": "UsagePlanKey"
   }
  },
@@ -532,6 +543,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "cloudtrail",
+  "fqn": "pulumi_aws_native.cloudtrail",
+  "classes": {
+   "aws-native:cloudtrail:Trail": "Trail"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "cloudwatch",
   "fqn": "pulumi_aws_native.cloudwatch",
   "classes": {
@@ -570,6 +589,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codestarconnections",
   "classes": {
    "aws-native:codestarconnections:Connection": "Connection"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "codestarnotifications",
+  "fqn": "pulumi_aws_native.codestarnotifications",
+  "classes": {
+   "aws-native:codestarnotifications:NotificationRule": "NotificationRule"
   }
  },
  {
@@ -660,11 +687,13 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
    "aws-native:ec2:CarrierGateway": "CarrierGateway",
+   "aws-native:ec2:DHCPOptions": "DHCPOptions",
    "aws-native:ec2:EC2Fleet": "EC2Fleet",
    "aws-native:ec2:EgressOnlyInternetGateway": "EgressOnlyInternetGateway",
    "aws-native:ec2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
    "aws-native:ec2:FlowLog": "FlowLog",
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
+   "aws-native:ec2:InternetGateway": "InternetGateway",
    "aws-native:ec2:LocalGatewayRoute": "LocalGatewayRoute",
    "aws-native:ec2:LocalGatewayRouteTableVPCAssociation": "LocalGatewayRouteTableVPCAssociation",
    "aws-native:ec2:NetworkInsightsAnalysis": "NetworkInsightsAnalysis",
@@ -710,7 +739,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.efs",
   "classes": {
    "aws-native:efs:AccessPoint": "AccessPoint",
-   "aws-native:efs:FileSystem": "FileSystem"
+   "aws-native:efs:FileSystem": "FileSystem",
+   "aws-native:efs:MountTarget": "MountTarget"
   }
  },
  {
@@ -899,6 +929,7 @@ _utilities.register(
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
+   "aws-native:iot:FleetMetric": "FleetMetric",
    "aws-native:iot:MitigationAction": "MitigationAction",
    "aws-native:iot:ProvisioningTemplate": "ProvisioningTemplate",
    "aws-native:iot:ScheduledAudit": "ScheduledAudit",
@@ -1201,6 +1232,18 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "robomaker",
+  "fqn": "pulumi_aws_native.robomaker",
+  "classes": {
+   "aws-native:robomaker:Fleet": "Fleet",
+   "aws-native:robomaker:Robot": "Robot",
+   "aws-native:robomaker:RobotApplicationVersion": "RobotApplicationVersion",
+   "aws-native:robomaker:SimulationApplication": "SimulationApplication",
+   "aws-native:robomaker:SimulationApplicationVersion": "SimulationApplicationVersion"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "route53",
   "fqn": "pulumi_aws_native.route53",
   "classes": {
@@ -1251,6 +1294,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.s3",
   "classes": {
    "aws-native:s3:AccessPoint": "AccessPoint",
+   "aws-native:s3:MultiRegionAccessPoint": "MultiRegionAccessPoint",
+   "aws-native:s3:MultiRegionAccessPointPolicy": "MultiRegionAccessPointPolicy",
    "aws-native:s3:StorageLens": "StorageLens"
   }
  },
@@ -1406,6 +1451,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.wafv2",
   "classes": {
    "aws-native:wafv2:IPSet": "IPSet",
+   "aws-native:wafv2:LoggingConfiguration": "LoggingConfiguration",
    "aws-native:wafv2:RegexPatternSet": "RegexPatternSet",
    "aws-native:wafv2:RuleGroup": "RuleGroup",
    "aws-native:wafv2:WebACL": "WebACL",

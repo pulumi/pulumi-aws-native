@@ -21,6 +21,7 @@ class DomainNameArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -30,6 +31,7 @@ class DomainNameArgs:
         :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        :param pulumi.Input[str] ownership_verification_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
         :param pulumi.Input[str] regional_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         :param pulumi.Input[str] security_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
@@ -42,6 +44,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
+        if ownership_verification_certificate_arn is not None:
+            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if regional_certificate_arn is not None:
             pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
         if security_policy is not None:
@@ -98,6 +102,18 @@ class DomainNameArgs:
         pulumi.set(self, "mutual_tls_authentication", value)
 
     @property
+    @pulumi.getter(name="ownershipVerificationCertificateArn")
+    def ownership_verification_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+        """
+        return pulumi.get(self, "ownership_verification_certificate_arn")
+
+    @ownership_verification_certificate_arn.setter
+    def ownership_verification_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ownership_verification_certificate_arn", value)
+
+    @property
     @pulumi.getter(name="regionalCertificateArn")
     def regional_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -143,6 +159,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -156,6 +173,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
         :param pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']] endpoint_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
         :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+        :param pulumi.Input[str] ownership_verification_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
         :param pulumi.Input[str] regional_certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
         :param pulumi.Input[str] security_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
@@ -188,6 +206,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameEndpointConfigurationArgs']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 ownership_verification_certificate_arn: Optional[pulumi.Input[str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[str]] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
@@ -207,6 +226,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
+            __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn
             __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
@@ -242,6 +262,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["endpoint_configuration"] = None
         __props__.__dict__["mutual_tls_authentication"] = None
+        __props__.__dict__["ownership_verification_certificate_arn"] = None
         __props__.__dict__["regional_certificate_arn"] = None
         __props__.__dict__["regional_domain_name"] = None
         __props__.__dict__["regional_hosted_zone_id"] = None
@@ -290,6 +311,14 @@ class DomainName(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
         """
         return pulumi.get(self, "mutual_tls_authentication")
+
+    @property
+    @pulumi.getter(name="ownershipVerificationCertificateArn")
+    def ownership_verification_certificate_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+        """
+        return pulumi.get(self, "ownership_verification_certificate_arn")
 
     @property
     @pulumi.getter(name="regionalCertificateArn")

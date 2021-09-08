@@ -5,9 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from .access_point import *
-from .multi_region_access_point import *
-from .multi_region_access_point_policy import *
-from .storage_lens import *
+from .fleet import *
+from .robot import *
+from .robot_application_version import *
+from .simulation_application import *
+from .simulation_application_version import *
 from ._inputs import *
 from . import outputs

@@ -189,8 +189,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'regex'")
             __props__.__dict__["regex"] = regex
             __props__.__dict__["arn"] = None
-            __props__.__dict__["created_at"] = None
-            __props__.__dict__["deleted"] = None
             __props__.__dict__["id"] = None
         super(CustomDataIdentifier, __self__).__init__(
             'aws-native:macie:CustomDataIdentifier',
@@ -215,8 +213,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         __props__ = CustomDataIdentifierArgs.__new__(CustomDataIdentifierArgs)
 
         __props__.__dict__["arn"] = None
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["deleted"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["id"] = None
         __props__.__dict__["ignore_words"] = None
@@ -230,16 +226,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter
-    def deleted(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "deleted")
 
     @property
     @pulumi.getter

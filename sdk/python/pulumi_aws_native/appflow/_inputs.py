@@ -2850,6 +2850,7 @@ class FlowScheduledTriggerPropertiesArgs:
                  schedule_expression: pulumi.Input[str],
                  data_pull_mode: Optional[pulumi.Input[str]] = None,
                  schedule_end_time: Optional[pulumi.Input[float]] = None,
+                 schedule_offset: Optional[pulumi.Input[float]] = None,
                  schedule_start_time: Optional[pulumi.Input[float]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
@@ -2857,6 +2858,7 @@ class FlowScheduledTriggerPropertiesArgs:
         :param pulumi.Input[str] schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
         :param pulumi.Input[str] data_pull_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
         :param pulumi.Input[float] schedule_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
+        :param pulumi.Input[float] schedule_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
         :param pulumi.Input[float] schedule_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
         :param pulumi.Input[str] time_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
         """
@@ -2865,6 +2867,8 @@ class FlowScheduledTriggerPropertiesArgs:
             pulumi.set(__self__, "data_pull_mode", data_pull_mode)
         if schedule_end_time is not None:
             pulumi.set(__self__, "schedule_end_time", schedule_end_time)
+        if schedule_offset is not None:
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
         if schedule_start_time is not None:
             pulumi.set(__self__, "schedule_start_time", schedule_start_time)
         if time_zone is not None:
@@ -2905,6 +2909,18 @@ class FlowScheduledTriggerPropertiesArgs:
     @schedule_end_time.setter
     def schedule_end_time(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "schedule_end_time", value)
+
+    @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> Optional[pulumi.Input[float]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+        """
+        return pulumi.get(self, "schedule_offset")
+
+    @schedule_offset.setter
+    def schedule_offset(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "schedule_offset", value)
 
     @property
     @pulumi.getter(name="scheduleStartTime")
@@ -3670,12 +3686,28 @@ class FlowUpsolverS3OutputFormatConfigArgs:
 @pulumi.input_type
 class FlowVeevaSourcePropertiesArgs:
     def __init__(__self__, *,
-                 object: pulumi.Input[str]):
+                 object: pulumi.Input[str],
+                 document_type: Optional[pulumi.Input[str]] = None,
+                 include_all_versions: Optional[pulumi.Input[bool]] = None,
+                 include_renditions: Optional[pulumi.Input[bool]] = None,
+                 include_source_files: Optional[pulumi.Input[bool]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
         :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
+        :param pulumi.Input[str] document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+        :param pulumi.Input[bool] include_all_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+        :param pulumi.Input[bool] include_renditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+        :param pulumi.Input[bool] include_source_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
         """
         pulumi.set(__self__, "object", object)
+        if document_type is not None:
+            pulumi.set(__self__, "document_type", document_type)
+        if include_all_versions is not None:
+            pulumi.set(__self__, "include_all_versions", include_all_versions)
+        if include_renditions is not None:
+            pulumi.set(__self__, "include_renditions", include_renditions)
+        if include_source_files is not None:
+            pulumi.set(__self__, "include_source_files", include_source_files)
 
     @property
     @pulumi.getter
@@ -3688,6 +3720,54 @@ class FlowVeevaSourcePropertiesArgs:
     @object.setter
     def object(self, value: pulumi.Input[str]):
         pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+        """
+        return pulumi.get(self, "document_type")
+
+    @document_type.setter
+    def document_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "document_type", value)
+
+    @property
+    @pulumi.getter(name="includeAllVersions")
+    def include_all_versions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+        """
+        return pulumi.get(self, "include_all_versions")
+
+    @include_all_versions.setter
+    def include_all_versions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_all_versions", value)
+
+    @property
+    @pulumi.getter(name="includeRenditions")
+    def include_renditions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+        """
+        return pulumi.get(self, "include_renditions")
+
+    @include_renditions.setter
+    def include_renditions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_renditions", value)
+
+    @property
+    @pulumi.getter(name="includeSourceFiles")
+    def include_source_files(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+        """
+        return pulumi.get(self, "include_source_files")
+
+    @include_source_files.setter
+    def include_source_files(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_source_files", value)
 
 
 @pulumi.input_type

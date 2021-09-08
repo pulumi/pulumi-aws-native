@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'LoggingConfigurationFieldToMatchArgs',
     'RuleGroupAndStatementArgs',
     'RuleGroupByteMatchStatementArgs',
     'RuleGroupCustomResponseBodyArgs',
@@ -69,6 +70,94 @@ __all__ = [
     'WebACLVisibilityConfigArgs',
     'WebACLXssMatchStatementArgs',
 ]
+
+@pulumi.input_type
+class LoggingConfigurationFieldToMatchArgs:
+    def __init__(__self__, *,
+                 json_body: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 method: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 query_string: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 single_header: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 uri_path: Optional[pulumi.Input[Union[Any, str]]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+        :param pulumi.Input[Union[Any, str]] json_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        :param pulumi.Input[Union[Any, str]] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        :param pulumi.Input[Union[Any, str]] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        :param pulumi.Input[Union[Any, str]] single_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        :param pulumi.Input[Union[Any, str]] uri_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        """
+        if json_body is not None:
+            pulumi.set(__self__, "json_body", json_body)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if single_header is not None:
+            pulumi.set(__self__, "single_header", single_header)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @property
+    @pulumi.getter(name="jsonBody")
+    def json_body(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        """
+        return pulumi.get(self, "json_body")
+
+    @json_body.setter
+    def json_body(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "json_body", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="singleHeader")
+    def single_header(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        """
+        return pulumi.get(self, "single_header")
+
+    @single_header.setter
+    def single_header(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "single_header", value)
+
+    @property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        """
+        return pulumi.get(self, "uri_path")
+
+    @uri_path.setter
+    def uri_path(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+        pulumi.set(self, "uri_path", value)
+
 
 @pulumi.input_type
 class RuleGroupAndStatementArgs:
@@ -2301,13 +2390,15 @@ class WebACLManagedRuleGroupStatementArgs:
                  name: pulumi.Input[str],
                  vendor_name: pulumi.Input[str],
                  excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]]] = None,
-                 scope_down_statement: Optional[pulumi.Input['WebACLStatementArgs']] = None):
+                 scope_down_statement: Optional[pulumi.Input['WebACLStatementArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
         :param pulumi.Input[str] vendor_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
         :param pulumi.Input[Sequence[pulumi.Input['WebACLExcludedRuleArgs']]] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
         :param pulumi.Input['WebACLStatementArgs'] scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
+        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -2315,6 +2406,8 @@ class WebACLManagedRuleGroupStatementArgs:
             pulumi.set(__self__, "excluded_rules", excluded_rules)
         if scope_down_statement is not None:
             pulumi.set(__self__, "scope_down_statement", scope_down_statement)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -2363,6 +2456,18 @@ class WebACLManagedRuleGroupStatementArgs:
     @scope_down_statement.setter
     def scope_down_statement(self, value: Optional[pulumi.Input['WebACLStatementArgs']]):
         pulumi.set(self, "scope_down_statement", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
