@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:wafv2:IPSet":
 		r = &IPSet{}
+	case "aws-native:wafv2:LoggingConfiguration":
+		r = &LoggingConfiguration{}
 	case "aws-native:wafv2:RegexPatternSet":
 		r = &RegexPatternSet{}
 	case "aws-native:wafv2:RuleGroup":

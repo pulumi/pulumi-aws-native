@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dimension{}
 	case "aws-native:iot:DomainConfiguration":
 		r = &DomainConfiguration{}
+	case "aws-native:iot:FleetMetric":
+		r = &FleetMetric{}
 	case "aws-native:iot:MitigationAction":
 		r = &MitigationAction{}
 	case "aws-native:iot:ProvisioningTemplate":

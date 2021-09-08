@@ -886,7 +886,9 @@ func (o FileSystemElasticFileSystemTagArrayOutput) Index(i pulumi.IntInput) File
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 type FileSystemLifecyclePolicy struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-	TransitionToIA string `pulumi:"transitionToIA"`
+	TransitionToIA *string `pulumi:"transitionToIA"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 // FileSystemLifecyclePolicyInput is an input type that accepts FileSystemLifecyclePolicyArgs and FileSystemLifecyclePolicyOutput values.
@@ -903,7 +905,9 @@ type FileSystemLifecyclePolicyInput interface {
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 type FileSystemLifecyclePolicyArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-	TransitionToIA pulumi.StringInput `pulumi:"transitionToIA"`
+	TransitionToIA pulumi.StringPtrInput `pulumi:"transitionToIA"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 func (FileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -959,8 +963,13 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-func (o FileSystemLifecyclePolicyOutput) TransitionToIA() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemLifecyclePolicy) string { return v.TransitionToIA }).(pulumi.StringOutput)
+func (o FileSystemLifecyclePolicyOutput) TransitionToIA() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIA }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
 }
 
 type FileSystemLifecyclePolicyArrayOutput struct{ *pulumi.OutputState }

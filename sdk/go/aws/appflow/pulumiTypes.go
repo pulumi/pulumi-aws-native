@@ -8913,6 +8913,8 @@ type FlowScheduledTriggerProperties struct {
 	ScheduleEndTime *float64 `pulumi:"scheduleEndTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
 	ScheduleExpression string `pulumi:"scheduleExpression"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+	ScheduleOffset *float64 `pulumi:"scheduleOffset"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
 	ScheduleStartTime *float64 `pulumi:"scheduleStartTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
@@ -8938,6 +8940,8 @@ type FlowScheduledTriggerPropertiesArgs struct {
 	ScheduleEndTime pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+	ScheduleOffset pulumi.Float64PtrInput `pulumi:"scheduleOffset"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
 	ScheduleStartTime pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
@@ -9037,6 +9041,11 @@ func (o FlowScheduledTriggerPropertiesOutput) ScheduleExpression() pulumi.String
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+func (o FlowScheduledTriggerPropertiesOutput) ScheduleOffset() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FlowScheduledTriggerProperties) *float64 { return v.ScheduleOffset }).(pulumi.Float64PtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *float64 { return v.ScheduleStartTime }).(pulumi.Float64PtrOutput)
@@ -9099,6 +9108,16 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pulumi.Str
 		}
 		return &v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleOffset
+	}).(pulumi.Float64PtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
@@ -11226,6 +11245,14 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConf
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
 type FlowVeevaSourceProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+	DocumentType *string `pulumi:"documentType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+	IncludeAllVersions *bool `pulumi:"includeAllVersions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+	IncludeRenditions *bool `pulumi:"includeRenditions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+	IncludeSourceFiles *bool `pulumi:"includeSourceFiles"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
 	Object string `pulumi:"object"`
 }
@@ -11243,6 +11270,14 @@ type FlowVeevaSourcePropertiesInput interface {
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
 type FlowVeevaSourcePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+	IncludeAllVersions pulumi.BoolPtrInput `pulumi:"includeAllVersions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+	IncludeRenditions pulumi.BoolPtrInput `pulumi:"includeRenditions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+	IncludeSourceFiles pulumi.BoolPtrInput `pulumi:"includeSourceFiles"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
@@ -11325,6 +11360,26 @@ func (o FlowVeevaSourcePropertiesOutput) ToFlowVeevaSourcePropertiesPtrOutputWit
 	}).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+func (o FlowVeevaSourcePropertiesOutput) DocumentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowVeevaSourceProperties) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+func (o FlowVeevaSourcePropertiesOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeAllVersions }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+func (o FlowVeevaSourcePropertiesOutput) IncludeRenditions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeRenditions }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+func (o FlowVeevaSourcePropertiesOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeSourceFiles }).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
 func (o FlowVeevaSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) string { return v.Object }).(pulumi.StringOutput)
@@ -11352,6 +11407,46 @@ func (o FlowVeevaSourcePropertiesPtrOutput) Elem() FlowVeevaSourcePropertiesOutp
 		var ret FlowVeevaSourceProperties
 		return ret
 	}).(FlowVeevaSourcePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+func (o FlowVeevaSourcePropertiesPtrOutput) DocumentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVeevaSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+func (o FlowVeevaSourcePropertiesPtrOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeAllVersions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+func (o FlowVeevaSourcePropertiesPtrOutput) IncludeRenditions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRenditions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+func (o FlowVeevaSourcePropertiesPtrOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSourceFiles
+	}).(pulumi.BoolPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object

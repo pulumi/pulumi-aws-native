@@ -25,6 +25,8 @@ type CostCategory struct {
 	RuleVersion pulumi.StringOutput `pulumi:"ruleVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
 	Rules pulumi.StringOutput `pulumi:"rules"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	SplitChargeRules pulumi.StringPtrOutput `pulumi:"splitChargeRules"`
 }
 
 // NewCostCategory registers a new resource with the given unique name, arguments, and options.
@@ -83,6 +85,8 @@ type costCategoryArgs struct {
 	RuleVersion string `pulumi:"ruleVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
 	Rules string `pulumi:"rules"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	SplitChargeRules *string `pulumi:"splitChargeRules"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
@@ -95,6 +99,8 @@ type CostCategoryArgs struct {
 	RuleVersion pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
 	Rules pulumi.StringInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	SplitChargeRules pulumi.StringPtrInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {

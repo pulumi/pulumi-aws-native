@@ -15,6 +15,7 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
+	Arn           pulumi.StringOutput `pulumi:"arn"`
 	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
 	CollectionName pulumi.StringOutput `pulumi:"collectionName"`

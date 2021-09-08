@@ -980,7 +980,7 @@ type DataQualityJobDefinitionDataQualityAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
 	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-	Environment *DataQualityJobDefinitionEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
 	ImageUri string `pulumi:"imageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
@@ -1007,7 +1007,7 @@ type DataQualityJobDefinitionDataQualityAppSpecificationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
 	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-	Environment DataQualityJobDefinitionEnvironmentPtrInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
@@ -1105,10 +1105,8 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ContainerEntr
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) Environment() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) *DataQualityJobDefinitionEnvironment {
-		return v.Environment
-	}).(DataQualityJobDefinitionEnvironmentPtrOutput)
+func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
@@ -1175,13 +1173,13 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerE
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Environment() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *DataQualityJobDefinitionEnvironment {
+func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(DataQualityJobDefinitionEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
@@ -1733,127 +1731,6 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.Str
 		}
 		return v.S3InputMode
 	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
-type DataQualityJobDefinitionEnvironment struct {
-}
-
-// DataQualityJobDefinitionEnvironmentInput is an input type that accepts DataQualityJobDefinitionEnvironmentArgs and DataQualityJobDefinitionEnvironmentOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionEnvironmentInput` via:
-//
-//          DataQualityJobDefinitionEnvironmentArgs{...}
-type DataQualityJobDefinitionEnvironmentInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionEnvironmentOutput() DataQualityJobDefinitionEnvironmentOutput
-	ToDataQualityJobDefinitionEnvironmentOutputWithContext(context.Context) DataQualityJobDefinitionEnvironmentOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
-type DataQualityJobDefinitionEnvironmentArgs struct {
-}
-
-func (DataQualityJobDefinitionEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i DataQualityJobDefinitionEnvironmentArgs) ToDataQualityJobDefinitionEnvironmentOutput() DataQualityJobDefinitionEnvironmentOutput {
-	return i.ToDataQualityJobDefinitionEnvironmentOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionEnvironmentArgs) ToDataQualityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEnvironmentOutput)
-}
-
-func (i DataQualityJobDefinitionEnvironmentArgs) ToDataQualityJobDefinitionEnvironmentPtrOutput() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return i.ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i DataQualityJobDefinitionEnvironmentArgs) ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEnvironmentOutput).ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx)
-}
-
-// DataQualityJobDefinitionEnvironmentPtrInput is an input type that accepts DataQualityJobDefinitionEnvironmentArgs, DataQualityJobDefinitionEnvironmentPtr and DataQualityJobDefinitionEnvironmentPtrOutput values.
-// You can construct a concrete instance of `DataQualityJobDefinitionEnvironmentPtrInput` via:
-//
-//          DataQualityJobDefinitionEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type DataQualityJobDefinitionEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToDataQualityJobDefinitionEnvironmentPtrOutput() DataQualityJobDefinitionEnvironmentPtrOutput
-	ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Context) DataQualityJobDefinitionEnvironmentPtrOutput
-}
-
-type dataQualityJobDefinitionEnvironmentPtrType DataQualityJobDefinitionEnvironmentArgs
-
-func DataQualityJobDefinitionEnvironmentPtr(v *DataQualityJobDefinitionEnvironmentArgs) DataQualityJobDefinitionEnvironmentPtrInput {
-	return (*dataQualityJobDefinitionEnvironmentPtrType)(v)
-}
-
-func (*dataQualityJobDefinitionEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i *dataQualityJobDefinitionEnvironmentPtrType) ToDataQualityJobDefinitionEnvironmentPtrOutput() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return i.ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *dataQualityJobDefinitionEnvironmentPtrType) ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEnvironmentPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
-type DataQualityJobDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionEnvironmentOutput) ToDataQualityJobDefinitionEnvironmentOutput() DataQualityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEnvironmentOutput) ToDataQualityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEnvironmentOutput) ToDataQualityJobDefinitionEnvironmentPtrOutput() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o DataQualityJobDefinitionEnvironmentOutput) ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionEnvironment) *DataQualityJobDefinitionEnvironment {
-		return &v
-	}).(DataQualityJobDefinitionEnvironmentPtrOutput)
-}
-
-type DataQualityJobDefinitionEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (DataQualityJobDefinitionEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o DataQualityJobDefinitionEnvironmentPtrOutput) ToDataQualityJobDefinitionEnvironmentPtrOutput() DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEnvironmentPtrOutput) ToDataQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o DataQualityJobDefinitionEnvironmentPtrOutput) Elem() DataQualityJobDefinitionEnvironmentOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionEnvironment) DataQualityJobDefinitionEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret DataQualityJobDefinitionEnvironment
-		return ret
-	}).(DataQualityJobDefinitionEnvironmentOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
@@ -4927,133 +4804,12 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
-type ModelBiasJobDefinitionEnvironment struct {
-}
-
-// ModelBiasJobDefinitionEnvironmentInput is an input type that accepts ModelBiasJobDefinitionEnvironmentArgs and ModelBiasJobDefinitionEnvironmentOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionEnvironmentInput` via:
-//
-//          ModelBiasJobDefinitionEnvironmentArgs{...}
-type ModelBiasJobDefinitionEnvironmentInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionEnvironmentOutput() ModelBiasJobDefinitionEnvironmentOutput
-	ToModelBiasJobDefinitionEnvironmentOutputWithContext(context.Context) ModelBiasJobDefinitionEnvironmentOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
-type ModelBiasJobDefinitionEnvironmentArgs struct {
-}
-
-func (ModelBiasJobDefinitionEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i ModelBiasJobDefinitionEnvironmentArgs) ToModelBiasJobDefinitionEnvironmentOutput() ModelBiasJobDefinitionEnvironmentOutput {
-	return i.ToModelBiasJobDefinitionEnvironmentOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionEnvironmentArgs) ToModelBiasJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEnvironmentOutput)
-}
-
-func (i ModelBiasJobDefinitionEnvironmentArgs) ToModelBiasJobDefinitionEnvironmentPtrOutput() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i ModelBiasJobDefinitionEnvironmentArgs) ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEnvironmentOutput).ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(ctx)
-}
-
-// ModelBiasJobDefinitionEnvironmentPtrInput is an input type that accepts ModelBiasJobDefinitionEnvironmentArgs, ModelBiasJobDefinitionEnvironmentPtr and ModelBiasJobDefinitionEnvironmentPtrOutput values.
-// You can construct a concrete instance of `ModelBiasJobDefinitionEnvironmentPtrInput` via:
-//
-//          ModelBiasJobDefinitionEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelBiasJobDefinitionEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToModelBiasJobDefinitionEnvironmentPtrOutput() ModelBiasJobDefinitionEnvironmentPtrOutput
-	ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(context.Context) ModelBiasJobDefinitionEnvironmentPtrOutput
-}
-
-type modelBiasJobDefinitionEnvironmentPtrType ModelBiasJobDefinitionEnvironmentArgs
-
-func ModelBiasJobDefinitionEnvironmentPtr(v *ModelBiasJobDefinitionEnvironmentArgs) ModelBiasJobDefinitionEnvironmentPtrInput {
-	return (*modelBiasJobDefinitionEnvironmentPtrType)(v)
-}
-
-func (*modelBiasJobDefinitionEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i *modelBiasJobDefinitionEnvironmentPtrType) ToModelBiasJobDefinitionEnvironmentPtrOutput() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *modelBiasJobDefinitionEnvironmentPtrType) ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEnvironmentPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
-type ModelBiasJobDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelBiasJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionEnvironmentOutput) ToModelBiasJobDefinitionEnvironmentOutput() ModelBiasJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEnvironmentOutput) ToModelBiasJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEnvironmentOutput) ToModelBiasJobDefinitionEnvironmentPtrOutput() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o.ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ModelBiasJobDefinitionEnvironmentOutput) ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionEnvironment) *ModelBiasJobDefinitionEnvironment {
-		return &v
-	}).(ModelBiasJobDefinitionEnvironmentPtrOutput)
-}
-
-type ModelBiasJobDefinitionEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelBiasJobDefinitionEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelBiasJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelBiasJobDefinitionEnvironmentPtrOutput) ToModelBiasJobDefinitionEnvironmentPtrOutput() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEnvironmentPtrOutput) ToModelBiasJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelBiasJobDefinitionEnvironmentPtrOutput) Elem() ModelBiasJobDefinitionEnvironmentOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionEnvironment) ModelBiasJobDefinitionEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ModelBiasJobDefinitionEnvironment
-		return ret
-	}).(ModelBiasJobDefinitionEnvironmentOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
 type ModelBiasJobDefinitionModelBiasAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
 	ConfigUri string `pulumi:"configUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-	Environment *ModelBiasJobDefinitionEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
 	ImageUri string `pulumi:"imageUri"`
 }
@@ -5074,7 +4830,7 @@ type ModelBiasJobDefinitionModelBiasAppSpecificationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
 	ConfigUri pulumi.StringInput `pulumi:"configUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-	Environment ModelBiasJobDefinitionEnvironmentPtrInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 }
@@ -5163,10 +4919,8 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ConfigUri() pulum
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) Environment() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) *ModelBiasJobDefinitionEnvironment {
-		return v.Environment
-	}).(ModelBiasJobDefinitionEnvironmentPtrOutput)
+func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
@@ -5209,13 +4963,13 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ConfigUri() pu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Environment() ModelBiasJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) *ModelBiasJobDefinitionEnvironment {
+func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(ModelBiasJobDefinitionEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
@@ -7236,133 +6990,12 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
-type ModelExplainabilityJobDefinitionEnvironment struct {
-}
-
-// ModelExplainabilityJobDefinitionEnvironmentInput is an input type that accepts ModelExplainabilityJobDefinitionEnvironmentArgs and ModelExplainabilityJobDefinitionEnvironmentOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionEnvironmentInput` via:
-//
-//          ModelExplainabilityJobDefinitionEnvironmentArgs{...}
-type ModelExplainabilityJobDefinitionEnvironmentInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionEnvironmentOutput() ModelExplainabilityJobDefinitionEnvironmentOutput
-	ToModelExplainabilityJobDefinitionEnvironmentOutputWithContext(context.Context) ModelExplainabilityJobDefinitionEnvironmentOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
-type ModelExplainabilityJobDefinitionEnvironmentArgs struct {
-}
-
-func (ModelExplainabilityJobDefinitionEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i ModelExplainabilityJobDefinitionEnvironmentArgs) ToModelExplainabilityJobDefinitionEnvironmentOutput() ModelExplainabilityJobDefinitionEnvironmentOutput {
-	return i.ToModelExplainabilityJobDefinitionEnvironmentOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionEnvironmentArgs) ToModelExplainabilityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEnvironmentOutput)
-}
-
-func (i ModelExplainabilityJobDefinitionEnvironmentArgs) ToModelExplainabilityJobDefinitionEnvironmentPtrOutput() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i ModelExplainabilityJobDefinitionEnvironmentArgs) ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEnvironmentOutput).ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(ctx)
-}
-
-// ModelExplainabilityJobDefinitionEnvironmentPtrInput is an input type that accepts ModelExplainabilityJobDefinitionEnvironmentArgs, ModelExplainabilityJobDefinitionEnvironmentPtr and ModelExplainabilityJobDefinitionEnvironmentPtrOutput values.
-// You can construct a concrete instance of `ModelExplainabilityJobDefinitionEnvironmentPtrInput` via:
-//
-//          ModelExplainabilityJobDefinitionEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelExplainabilityJobDefinitionEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToModelExplainabilityJobDefinitionEnvironmentPtrOutput() ModelExplainabilityJobDefinitionEnvironmentPtrOutput
-	ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionEnvironmentPtrOutput
-}
-
-type modelExplainabilityJobDefinitionEnvironmentPtrType ModelExplainabilityJobDefinitionEnvironmentArgs
-
-func ModelExplainabilityJobDefinitionEnvironmentPtr(v *ModelExplainabilityJobDefinitionEnvironmentArgs) ModelExplainabilityJobDefinitionEnvironmentPtrInput {
-	return (*modelExplainabilityJobDefinitionEnvironmentPtrType)(v)
-}
-
-func (*modelExplainabilityJobDefinitionEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i *modelExplainabilityJobDefinitionEnvironmentPtrType) ToModelExplainabilityJobDefinitionEnvironmentPtrOutput() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *modelExplainabilityJobDefinitionEnvironmentPtrType) ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEnvironmentPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
-type ModelExplainabilityJobDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelExplainabilityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentOutput) ToModelExplainabilityJobDefinitionEnvironmentOutput() ModelExplainabilityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentOutput) ToModelExplainabilityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentOutput) ToModelExplainabilityJobDefinitionEnvironmentPtrOutput() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o.ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentOutput) ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionEnvironment) *ModelExplainabilityJobDefinitionEnvironment {
-		return &v
-	}).(ModelExplainabilityJobDefinitionEnvironmentPtrOutput)
-}
-
-type ModelExplainabilityJobDefinitionEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelExplainabilityJobDefinitionEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentPtrOutput) ToModelExplainabilityJobDefinitionEnvironmentPtrOutput() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentPtrOutput) ToModelExplainabilityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEnvironmentPtrOutput) Elem() ModelExplainabilityJobDefinitionEnvironmentOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEnvironment) ModelExplainabilityJobDefinitionEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ModelExplainabilityJobDefinitionEnvironment
-		return ret
-	}).(ModelExplainabilityJobDefinitionEnvironmentOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
 type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
 	ConfigUri string `pulumi:"configUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-	Environment *ModelExplainabilityJobDefinitionEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
 	ImageUri string `pulumi:"imageUri"`
 }
@@ -7383,7 +7016,7 @@ type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs str
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
 	ConfigUri pulumi.StringInput `pulumi:"configUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-	Environment ModelExplainabilityJobDefinitionEnvironmentPtrInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 }
@@ -7472,10 +7105,10 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutpu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) Environment() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *ModelExplainabilityJobDefinitionEnvironment {
+func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) map[string]string {
 		return v.Environment
-	}).(ModelExplainabilityJobDefinitionEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
@@ -7518,13 +7151,13 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOu
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Environment() ModelExplainabilityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *ModelExplainabilityJobDefinitionEnvironment {
+func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(ModelExplainabilityJobDefinitionEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
@@ -9430,127 +9063,6 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
-type ModelQualityJobDefinitionEnvironment struct {
-}
-
-// ModelQualityJobDefinitionEnvironmentInput is an input type that accepts ModelQualityJobDefinitionEnvironmentArgs and ModelQualityJobDefinitionEnvironmentOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionEnvironmentInput` via:
-//
-//          ModelQualityJobDefinitionEnvironmentArgs{...}
-type ModelQualityJobDefinitionEnvironmentInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionEnvironmentOutput() ModelQualityJobDefinitionEnvironmentOutput
-	ToModelQualityJobDefinitionEnvironmentOutputWithContext(context.Context) ModelQualityJobDefinitionEnvironmentOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
-type ModelQualityJobDefinitionEnvironmentArgs struct {
-}
-
-func (ModelQualityJobDefinitionEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i ModelQualityJobDefinitionEnvironmentArgs) ToModelQualityJobDefinitionEnvironmentOutput() ModelQualityJobDefinitionEnvironmentOutput {
-	return i.ToModelQualityJobDefinitionEnvironmentOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionEnvironmentArgs) ToModelQualityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEnvironmentOutput)
-}
-
-func (i ModelQualityJobDefinitionEnvironmentArgs) ToModelQualityJobDefinitionEnvironmentPtrOutput() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i ModelQualityJobDefinitionEnvironmentArgs) ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEnvironmentOutput).ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx)
-}
-
-// ModelQualityJobDefinitionEnvironmentPtrInput is an input type that accepts ModelQualityJobDefinitionEnvironmentArgs, ModelQualityJobDefinitionEnvironmentPtr and ModelQualityJobDefinitionEnvironmentPtrOutput values.
-// You can construct a concrete instance of `ModelQualityJobDefinitionEnvironmentPtrInput` via:
-//
-//          ModelQualityJobDefinitionEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type ModelQualityJobDefinitionEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToModelQualityJobDefinitionEnvironmentPtrOutput() ModelQualityJobDefinitionEnvironmentPtrOutput
-	ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Context) ModelQualityJobDefinitionEnvironmentPtrOutput
-}
-
-type modelQualityJobDefinitionEnvironmentPtrType ModelQualityJobDefinitionEnvironmentArgs
-
-func ModelQualityJobDefinitionEnvironmentPtr(v *ModelQualityJobDefinitionEnvironmentArgs) ModelQualityJobDefinitionEnvironmentPtrInput {
-	return (*modelQualityJobDefinitionEnvironmentPtrType)(v)
-}
-
-func (*modelQualityJobDefinitionEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (i *modelQualityJobDefinitionEnvironmentPtrType) ToModelQualityJobDefinitionEnvironmentPtrOutput() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return i.ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *modelQualityJobDefinitionEnvironmentPtrType) ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEnvironmentPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
-type ModelQualityJobDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionEnvironmentOutput) ToModelQualityJobDefinitionEnvironmentOutput() ModelQualityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEnvironmentOutput) ToModelQualityJobDefinitionEnvironmentOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEnvironmentOutput) ToModelQualityJobDefinitionEnvironmentPtrOutput() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o ModelQualityJobDefinitionEnvironmentOutput) ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionEnvironment) *ModelQualityJobDefinitionEnvironment {
-		return &v
-	}).(ModelQualityJobDefinitionEnvironmentPtrOutput)
-}
-
-type ModelQualityJobDefinitionEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelQualityJobDefinitionEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelQualityJobDefinitionEnvironment)(nil)).Elem()
-}
-
-func (o ModelQualityJobDefinitionEnvironmentPtrOutput) ToModelQualityJobDefinitionEnvironmentPtrOutput() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEnvironmentPtrOutput) ToModelQualityJobDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o
-}
-
-func (o ModelQualityJobDefinitionEnvironmentPtrOutput) Elem() ModelQualityJobDefinitionEnvironmentOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionEnvironment) ModelQualityJobDefinitionEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret ModelQualityJobDefinitionEnvironment
-		return ret
-	}).(ModelQualityJobDefinitionEnvironmentOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
 type ModelQualityJobDefinitionModelQualityAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
@@ -9558,7 +9070,7 @@ type ModelQualityJobDefinitionModelQualityAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
 	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-	Environment *ModelQualityJobDefinitionEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
 	ImageUri string `pulumi:"imageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
@@ -9587,7 +9099,7 @@ type ModelQualityJobDefinitionModelQualityAppSpecificationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
 	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-	Environment ModelQualityJobDefinitionEnvironmentPtrInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
@@ -9687,10 +9199,8 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ContainerEn
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) Environment() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) *ModelQualityJobDefinitionEnvironment {
-		return v.Environment
-	}).(ModelQualityJobDefinitionEnvironmentPtrOutput)
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
@@ -9762,13 +9272,13 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Containe
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Environment() ModelQualityJobDefinitionEnvironmentPtrOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *ModelQualityJobDefinitionEnvironment {
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(ModelQualityJobDefinitionEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
@@ -11810,127 +11320,6 @@ func (o MonitoringScheduleEndpointInputOutput) S3InputMode() pulumi.StringPtrOut
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
-type MonitoringScheduleEnvironment struct {
-}
-
-// MonitoringScheduleEnvironmentInput is an input type that accepts MonitoringScheduleEnvironmentArgs and MonitoringScheduleEnvironmentOutput values.
-// You can construct a concrete instance of `MonitoringScheduleEnvironmentInput` via:
-//
-//          MonitoringScheduleEnvironmentArgs{...}
-type MonitoringScheduleEnvironmentInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleEnvironmentOutput() MonitoringScheduleEnvironmentOutput
-	ToMonitoringScheduleEnvironmentOutputWithContext(context.Context) MonitoringScheduleEnvironmentOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
-type MonitoringScheduleEnvironmentArgs struct {
-}
-
-func (MonitoringScheduleEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleEnvironment)(nil)).Elem()
-}
-
-func (i MonitoringScheduleEnvironmentArgs) ToMonitoringScheduleEnvironmentOutput() MonitoringScheduleEnvironmentOutput {
-	return i.ToMonitoringScheduleEnvironmentOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleEnvironmentArgs) ToMonitoringScheduleEnvironmentOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEnvironmentOutput)
-}
-
-func (i MonitoringScheduleEnvironmentArgs) ToMonitoringScheduleEnvironmentPtrOutput() MonitoringScheduleEnvironmentPtrOutput {
-	return i.ToMonitoringScheduleEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringScheduleEnvironmentArgs) ToMonitoringScheduleEnvironmentPtrOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEnvironmentOutput).ToMonitoringScheduleEnvironmentPtrOutputWithContext(ctx)
-}
-
-// MonitoringScheduleEnvironmentPtrInput is an input type that accepts MonitoringScheduleEnvironmentArgs, MonitoringScheduleEnvironmentPtr and MonitoringScheduleEnvironmentPtrOutput values.
-// You can construct a concrete instance of `MonitoringScheduleEnvironmentPtrInput` via:
-//
-//          MonitoringScheduleEnvironmentArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringScheduleEnvironmentPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringScheduleEnvironmentPtrOutput() MonitoringScheduleEnvironmentPtrOutput
-	ToMonitoringScheduleEnvironmentPtrOutputWithContext(context.Context) MonitoringScheduleEnvironmentPtrOutput
-}
-
-type monitoringScheduleEnvironmentPtrType MonitoringScheduleEnvironmentArgs
-
-func MonitoringScheduleEnvironmentPtr(v *MonitoringScheduleEnvironmentArgs) MonitoringScheduleEnvironmentPtrInput {
-	return (*monitoringScheduleEnvironmentPtrType)(v)
-}
-
-func (*monitoringScheduleEnvironmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleEnvironment)(nil)).Elem()
-}
-
-func (i *monitoringScheduleEnvironmentPtrType) ToMonitoringScheduleEnvironmentPtrOutput() MonitoringScheduleEnvironmentPtrOutput {
-	return i.ToMonitoringScheduleEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringScheduleEnvironmentPtrType) ToMonitoringScheduleEnvironmentPtrOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEnvironmentPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
-type MonitoringScheduleEnvironmentOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringScheduleEnvironment)(nil)).Elem()
-}
-
-func (o MonitoringScheduleEnvironmentOutput) ToMonitoringScheduleEnvironmentOutput() MonitoringScheduleEnvironmentOutput {
-	return o
-}
-
-func (o MonitoringScheduleEnvironmentOutput) ToMonitoringScheduleEnvironmentOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentOutput {
-	return o
-}
-
-func (o MonitoringScheduleEnvironmentOutput) ToMonitoringScheduleEnvironmentPtrOutput() MonitoringScheduleEnvironmentPtrOutput {
-	return o.ToMonitoringScheduleEnvironmentPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringScheduleEnvironmentOutput) ToMonitoringScheduleEnvironmentPtrOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleEnvironment) *MonitoringScheduleEnvironment {
-		return &v
-	}).(MonitoringScheduleEnvironmentPtrOutput)
-}
-
-type MonitoringScheduleEnvironmentPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringScheduleEnvironmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringScheduleEnvironment)(nil)).Elem()
-}
-
-func (o MonitoringScheduleEnvironmentPtrOutput) ToMonitoringScheduleEnvironmentPtrOutput() MonitoringScheduleEnvironmentPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleEnvironmentPtrOutput) ToMonitoringScheduleEnvironmentPtrOutputWithContext(ctx context.Context) MonitoringScheduleEnvironmentPtrOutput {
-	return o
-}
-
-func (o MonitoringScheduleEnvironmentPtrOutput) Elem() MonitoringScheduleEnvironmentOutput {
-	return o.ApplyT(func(v *MonitoringScheduleEnvironment) MonitoringScheduleEnvironment {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringScheduleEnvironment
-		return ret
-	}).(MonitoringScheduleEnvironmentOutput)
-}
-
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
 type MonitoringScheduleMonitoringAppSpecification struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
@@ -12525,7 +11914,7 @@ type MonitoringScheduleMonitoringJobDefinition struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 	BaselineConfig *MonitoringScheduleBaselineConfig `pulumi:"baselineConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-	Environment *MonitoringScheduleEnvironment `pulumi:"environment"`
+	Environment map[string]string `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
@@ -12558,7 +11947,7 @@ type MonitoringScheduleMonitoringJobDefinitionArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 	BaselineConfig MonitoringScheduleBaselineConfigPtrInput `pulumi:"baselineConfig"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-	Environment MonitoringScheduleEnvironmentPtrInput `pulumi:"environment"`
+	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
@@ -12661,8 +12050,8 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) BaselineConfig() Monito
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-func (o MonitoringScheduleMonitoringJobDefinitionOutput) Environment() MonitoringScheduleEnvironmentPtrOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleEnvironment { return v.Environment }).(MonitoringScheduleEnvironmentPtrOutput)
+func (o MonitoringScheduleMonitoringJobDefinitionOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
@@ -12747,13 +12136,13 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) BaselineConfig() Mon
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Environment() MonitoringScheduleEnvironmentPtrOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleEnvironment {
+func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(MonitoringScheduleEnvironmentPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
@@ -15272,8 +14661,6 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityJobInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputPtrOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionEnvironmentOutput{})
-	pulumi.RegisterOutputType(DataQualityJobDefinitionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputConfigOutput{})
@@ -15312,8 +14699,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputPtrOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionEnvironmentOutput{})
-	pulumi.RegisterOutputType(ModelBiasJobDefinitionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasBaselineConfigOutput{})
@@ -15341,8 +14726,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputPtrOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEnvironmentOutput{})
-	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput{})
@@ -15368,8 +14751,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputPtrOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionEnvironmentOutput{})
-	pulumi.RegisterOutputType(ModelQualityJobDefinitionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityBaselineConfigOutput{})
@@ -15398,8 +14779,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleEnvironmentOutput{})
-	pulumi.RegisterOutputType(MonitoringScheduleEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringAppSpecificationOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringExecutionSummaryOutput{})

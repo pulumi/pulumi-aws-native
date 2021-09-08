@@ -15,9 +15,7 @@ import (
 type CustomDataIdentifier struct {
 	pulumi.CustomResourceState
 
-	Arn       pulumi.StringOutput `pulumi:"arn"`
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	Deleted   pulumi.BoolOutput   `pulumi:"deleted"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Id          pulumi.StringOutput    `pulumi:"id"`
