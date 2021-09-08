@@ -9,7 +9,7 @@ const name = new random.RandomString("name", {
     upper: false,
 });
 
-const logGroup = new aws.logs.LogGroup("log-test", {
+const logGroup = new aws.logs.LogGroup("logtest", {
     logGroupName: name.result,
     retentionInDays: 90,
 });

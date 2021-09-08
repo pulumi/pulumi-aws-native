@@ -1,23 +1,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+import * as aws_native from "@pulumipreview/aws-native";
 
 const defaultVpc = pulumi.output(aws.ec2.getVpc({ default: true }));
 const defaultVpcSubnets = defaultVpc.id.apply(id => aws.ec2.getSubnetIds({vpcId: id}));
 
-const group = new aws.ec2.SecurityGroup("web-secgrp", {
+const group = new aws_native.ec2.SecurityGroup("websecgrp", {
 	vpcId: defaultVpc.id,
-	description: "Enable HTTP access",
-	ingress: [{
-		protocol: "tcp",
+	groupDescription: "Enable HTTP access",
+	securityGroupIngress: [{
+		ipProtocol: "tcp",
 		fromPort: 80,
 		toPort: 80,
-		cidrBlocks: ["0.0.0.0/0"],
+		cidrIp: "0.0.0.0/0",
     }],
-  	egress: [{
-		protocol:"-1",
+	securityGroupEgress: [{
+		ipProtocol:"-1",
 		fromPort: 0,
 		toPort: 0,
-		cidrBlocks: ["0.0.0.0/0"],
+		cidrIp: "0.0.0.0/0",
     }],
 });
 
@@ -33,8 +34,9 @@ const atg = new aws.lb.TargetGroup("app-tg", {
 	vpcId: defaultVpc.id,
 });
 
-const role = new aws.iam.Role("task-exec-role", {
-	assumeRolePolicy: {
+const role = new aws_native.iam.Role("taskexecrole", {
+	roleName: "task-exec-role-37273",
+	assumeRolePolicyDocument: JSON.stringify({
 		Version: "2008-10-17",
 		Statement: [{
 			Sid: "",
@@ -44,11 +46,11 @@ const role = new aws.iam.Role("task-exec-role", {
 			},
 			Action: "sts:AssumeRole",
 		}],
-	},
+	}),
 });
 
 const rpa = new aws.iam.RolePolicyAttachment("task-exec-policy", {
-	role: role.name,
+	role: role.roleName.apply(v => v!),
 	policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
 });
 

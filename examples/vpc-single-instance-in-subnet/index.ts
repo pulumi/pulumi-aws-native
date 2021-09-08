@@ -1,5 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
-import * as aws_native from "@pulumi/aws-native";
+import * as aws_native from "@pulumipreview/aws-native";
 
 const config = new pulumi.Config("aws-native");
 const region = config.require("region");
