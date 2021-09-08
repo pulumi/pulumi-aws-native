@@ -3732,6 +3732,146 @@ func (o SecurityProfileStatisticalThresholdPtrOutput) Statistic() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
+type ThingAttributePayload struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+	Attributes map[string]string `pulumi:"attributes"`
+}
+
+// ThingAttributePayloadInput is an input type that accepts ThingAttributePayloadArgs and ThingAttributePayloadOutput values.
+// You can construct a concrete instance of `ThingAttributePayloadInput` via:
+//
+//          ThingAttributePayloadArgs{...}
+type ThingAttributePayloadInput interface {
+	pulumi.Input
+
+	ToThingAttributePayloadOutput() ThingAttributePayloadOutput
+	ToThingAttributePayloadOutputWithContext(context.Context) ThingAttributePayloadOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
+type ThingAttributePayloadArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+}
+
+func (ThingAttributePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingAttributePayload)(nil)).Elem()
+}
+
+func (i ThingAttributePayloadArgs) ToThingAttributePayloadOutput() ThingAttributePayloadOutput {
+	return i.ToThingAttributePayloadOutputWithContext(context.Background())
+}
+
+func (i ThingAttributePayloadArgs) ToThingAttributePayloadOutputWithContext(ctx context.Context) ThingAttributePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingAttributePayloadOutput)
+}
+
+func (i ThingAttributePayloadArgs) ToThingAttributePayloadPtrOutput() ThingAttributePayloadPtrOutput {
+	return i.ToThingAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i ThingAttributePayloadArgs) ToThingAttributePayloadPtrOutputWithContext(ctx context.Context) ThingAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingAttributePayloadOutput).ToThingAttributePayloadPtrOutputWithContext(ctx)
+}
+
+// ThingAttributePayloadPtrInput is an input type that accepts ThingAttributePayloadArgs, ThingAttributePayloadPtr and ThingAttributePayloadPtrOutput values.
+// You can construct a concrete instance of `ThingAttributePayloadPtrInput` via:
+//
+//          ThingAttributePayloadArgs{...}
+//
+//  or:
+//
+//          nil
+type ThingAttributePayloadPtrInput interface {
+	pulumi.Input
+
+	ToThingAttributePayloadPtrOutput() ThingAttributePayloadPtrOutput
+	ToThingAttributePayloadPtrOutputWithContext(context.Context) ThingAttributePayloadPtrOutput
+}
+
+type thingAttributePayloadPtrType ThingAttributePayloadArgs
+
+func ThingAttributePayloadPtr(v *ThingAttributePayloadArgs) ThingAttributePayloadPtrInput {
+	return (*thingAttributePayloadPtrType)(v)
+}
+
+func (*thingAttributePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingAttributePayload)(nil)).Elem()
+}
+
+func (i *thingAttributePayloadPtrType) ToThingAttributePayloadPtrOutput() ThingAttributePayloadPtrOutput {
+	return i.ToThingAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *thingAttributePayloadPtrType) ToThingAttributePayloadPtrOutputWithContext(ctx context.Context) ThingAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingAttributePayloadPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
+type ThingAttributePayloadOutput struct{ *pulumi.OutputState }
+
+func (ThingAttributePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingAttributePayload)(nil)).Elem()
+}
+
+func (o ThingAttributePayloadOutput) ToThingAttributePayloadOutput() ThingAttributePayloadOutput {
+	return o
+}
+
+func (o ThingAttributePayloadOutput) ToThingAttributePayloadOutputWithContext(ctx context.Context) ThingAttributePayloadOutput {
+	return o
+}
+
+func (o ThingAttributePayloadOutput) ToThingAttributePayloadPtrOutput() ThingAttributePayloadPtrOutput {
+	return o.ToThingAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o ThingAttributePayloadOutput) ToThingAttributePayloadPtrOutputWithContext(ctx context.Context) ThingAttributePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingAttributePayload) *ThingAttributePayload {
+		return &v
+	}).(ThingAttributePayloadPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+func (o ThingAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThingAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+}
+
+type ThingAttributePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingAttributePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingAttributePayload)(nil)).Elem()
+}
+
+func (o ThingAttributePayloadPtrOutput) ToThingAttributePayloadPtrOutput() ThingAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingAttributePayloadPtrOutput) ToThingAttributePayloadPtrOutputWithContext(ctx context.Context) ThingAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingAttributePayloadPtrOutput) Elem() ThingAttributePayloadOutput {
+	return o.ApplyT(func(v *ThingAttributePayload) ThingAttributePayload {
+		if v != nil {
+			return *v
+		}
+		var ret ThingAttributePayload
+		return ret
+	}).(ThingAttributePayloadOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html#cfn-iot-thing-attributepayload-attributes
+func (o ThingAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ThingAttributePayload) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(pulumi.StringMapOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
 type TopicRuleAction struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
@@ -9996,6 +10136,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileMetricValuePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdPtrOutput{})
+	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
+	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionArrayOutput{})

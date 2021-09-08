@@ -137,7 +137,225 @@ func (o ConnectionAliasConnectionAliasAssociationArrayOutput) Index(i pulumi.Int
 	}).(ConnectionAliasConnectionAliasAssociationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html
+type WorkspaceWorkspaceProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+	ComputeTypeName *string `pulumi:"computeTypeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+	RunningMode *string `pulumi:"runningMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+	RunningModeAutoStopTimeoutInMinutes *int `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+	UserVolumeSizeGib *int `pulumi:"userVolumeSizeGib"`
+}
+
+// WorkspaceWorkspacePropertiesInput is an input type that accepts WorkspaceWorkspacePropertiesArgs and WorkspaceWorkspacePropertiesOutput values.
+// You can construct a concrete instance of `WorkspaceWorkspacePropertiesInput` via:
+//
+//          WorkspaceWorkspacePropertiesArgs{...}
+type WorkspaceWorkspacePropertiesInput interface {
+	pulumi.Input
+
+	ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput
+	ToWorkspaceWorkspacePropertiesOutputWithContext(context.Context) WorkspaceWorkspacePropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html
+type WorkspaceWorkspacePropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+	RunningMode pulumi.StringPtrInput `pulumi:"runningMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+	RunningModeAutoStopTimeoutInMinutes pulumi.IntPtrInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+	UserVolumeSizeGib pulumi.IntPtrInput `pulumi:"userVolumeSizeGib"`
+}
+
+func (WorkspaceWorkspacePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
+	return i.ToWorkspaceWorkspacePropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput)
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceWorkspacePropertiesArgs) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesOutput).ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkspaceWorkspacePropertiesPtrInput is an input type that accepts WorkspaceWorkspacePropertiesArgs, WorkspaceWorkspacePropertiesPtr and WorkspaceWorkspacePropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkspaceWorkspacePropertiesPtrInput` via:
+//
+//          WorkspaceWorkspacePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceWorkspacePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput
+	ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspaceWorkspacePropertiesPtrOutput
+}
+
+type workspaceWorkspacePropertiesPtrType WorkspaceWorkspacePropertiesArgs
+
+func WorkspaceWorkspacePropertiesPtr(v *WorkspaceWorkspacePropertiesArgs) WorkspaceWorkspacePropertiesPtrInput {
+	return (*workspaceWorkspacePropertiesPtrType)(v)
+}
+
+func (*workspaceWorkspacePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return i.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceWorkspacePropertiesPtrType) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceWorkspacePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html
+type WorkspaceWorkspacePropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceWorkspacePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutput() WorkspaceWorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return o.ToWorkspaceWorkspacePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
+		return &v
+	}).(WorkspaceWorkspacePropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+func (o WorkspaceWorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+func (o WorkspaceWorkspacePropertiesOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RootVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+func (o WorkspaceWorkspacePropertiesOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.RunningMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+func (o WorkspaceWorkspacePropertiesOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.RunningModeAutoStopTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+func (o WorkspaceWorkspacePropertiesOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *int { return v.UserVolumeSizeGib }).(pulumi.IntPtrOutput)
+}
+
+type WorkspaceWorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceWorkspacePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceWorkspaceProperties)(nil)).Elem()
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutput() WorkspaceWorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspacePropertiesOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) WorkspaceWorkspaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceWorkspaceProperties
+		return ret
+	}).(WorkspaceWorkspacePropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+func (o WorkspaceWorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeTypeName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+func (o WorkspaceWorkspacePropertiesPtrOutput) RootVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RootVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+func (o WorkspaceWorkspacePropertiesPtrOutput) RunningMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunningMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+func (o WorkspaceWorkspacePropertiesPtrOutput) RunningModeAutoStopTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RunningModeAutoStopTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+func (o WorkspaceWorkspacePropertiesPtrOutput) UserVolumeSizeGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UserVolumeSizeGib
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAliasConnectionAliasAssociationArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
+	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesPtrOutput{})
 }

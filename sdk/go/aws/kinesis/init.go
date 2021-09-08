@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:kinesis:Stream":
 		r = &Stream{}
+	case "aws-native:kinesis:StreamConsumer":
+		r = &StreamConsumer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

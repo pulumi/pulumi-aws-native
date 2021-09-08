@@ -21,12 +21,38 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:servicecatalog:AcceptedPortfolioShare":
+		r = &AcceptedPortfolioShare{}
+	case "aws-native:servicecatalog:CloudFormationProduct":
+		r = &CloudFormationProduct{}
 	case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
 		r = &CloudFormationProvisionedProduct{}
+	case "aws-native:servicecatalog:LaunchNotificationConstraint":
+		r = &LaunchNotificationConstraint{}
+	case "aws-native:servicecatalog:LaunchRoleConstraint":
+		r = &LaunchRoleConstraint{}
+	case "aws-native:servicecatalog:LaunchTemplateConstraint":
+		r = &LaunchTemplateConstraint{}
+	case "aws-native:servicecatalog:Portfolio":
+		r = &Portfolio{}
+	case "aws-native:servicecatalog:PortfolioPrincipalAssociation":
+		r = &PortfolioPrincipalAssociation{}
+	case "aws-native:servicecatalog:PortfolioProductAssociation":
+		r = &PortfolioProductAssociation{}
+	case "aws-native:servicecatalog:PortfolioShare":
+		r = &PortfolioShare{}
+	case "aws-native:servicecatalog:ResourceUpdateConstraint":
+		r = &ResourceUpdateConstraint{}
 	case "aws-native:servicecatalog:ServiceAction":
 		r = &ServiceAction{}
 	case "aws-native:servicecatalog:ServiceActionAssociation":
 		r = &ServiceActionAssociation{}
+	case "aws-native:servicecatalog:StackSetConstraint":
+		r = &StackSetConstraint{}
+	case "aws-native:servicecatalog:TagOption":
+		r = &TagOption{}
+	case "aws-native:servicecatalog:TagOptionAssociation":
+		r = &TagOptionAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

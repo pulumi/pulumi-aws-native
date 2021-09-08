@@ -10,6 +10,499 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+type ConfigRuleScope struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+	ComplianceResourceId *string `pulumi:"complianceResourceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+	TagKey *string `pulumi:"tagKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+	TagValue *string `pulumi:"tagValue"`
+}
+
+// ConfigRuleScopeInput is an input type that accepts ConfigRuleScopeArgs and ConfigRuleScopeOutput values.
+// You can construct a concrete instance of `ConfigRuleScopeInput` via:
+//
+//          ConfigRuleScopeArgs{...}
+type ConfigRuleScopeInput interface {
+	pulumi.Input
+
+	ToConfigRuleScopeOutput() ConfigRuleScopeOutput
+	ToConfigRuleScopeOutputWithContext(context.Context) ConfigRuleScopeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+type ConfigRuleScopeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+	TagValue pulumi.StringPtrInput `pulumi:"tagValue"`
+}
+
+func (ConfigRuleScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleScope)(nil)).Elem()
+}
+
+func (i ConfigRuleScopeArgs) ToConfigRuleScopeOutput() ConfigRuleScopeOutput {
+	return i.ToConfigRuleScopeOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleScopeArgs) ToConfigRuleScopeOutputWithContext(ctx context.Context) ConfigRuleScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopeOutput)
+}
+
+func (i ConfigRuleScopeArgs) ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput {
+	return i.ToConfigRuleScopePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleScopeArgs) ToConfigRuleScopePtrOutputWithContext(ctx context.Context) ConfigRuleScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopeOutput).ToConfigRuleScopePtrOutputWithContext(ctx)
+}
+
+// ConfigRuleScopePtrInput is an input type that accepts ConfigRuleScopeArgs, ConfigRuleScopePtr and ConfigRuleScopePtrOutput values.
+// You can construct a concrete instance of `ConfigRuleScopePtrInput` via:
+//
+//          ConfigRuleScopeArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigRuleScopePtrInput interface {
+	pulumi.Input
+
+	ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput
+	ToConfigRuleScopePtrOutputWithContext(context.Context) ConfigRuleScopePtrOutput
+}
+
+type configRuleScopePtrType ConfigRuleScopeArgs
+
+func ConfigRuleScopePtr(v *ConfigRuleScopeArgs) ConfigRuleScopePtrInput {
+	return (*configRuleScopePtrType)(v)
+}
+
+func (*configRuleScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleScope)(nil)).Elem()
+}
+
+func (i *configRuleScopePtrType) ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput {
+	return i.ToConfigRuleScopePtrOutputWithContext(context.Background())
+}
+
+func (i *configRuleScopePtrType) ToConfigRuleScopePtrOutputWithContext(ctx context.Context) ConfigRuleScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleScopePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
+type ConfigRuleScopeOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleScope)(nil)).Elem()
+}
+
+func (o ConfigRuleScopeOutput) ToConfigRuleScopeOutput() ConfigRuleScopeOutput {
+	return o
+}
+
+func (o ConfigRuleScopeOutput) ToConfigRuleScopeOutputWithContext(ctx context.Context) ConfigRuleScopeOutput {
+	return o
+}
+
+func (o ConfigRuleScopeOutput) ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput {
+	return o.ToConfigRuleScopePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigRuleScopeOutput) ToConfigRuleScopePtrOutputWithContext(ctx context.Context) ConfigRuleScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleScope) *ConfigRuleScope {
+		return &v
+	}).(ConfigRuleScopePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+func (o ConfigRuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+func (o ConfigRuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigRuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+func (o ConfigRuleScopeOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagKey }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+func (o ConfigRuleScopeOutput) TagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleScope) *string { return v.TagValue }).(pulumi.StringPtrOutput)
+}
+
+type ConfigRuleScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleScope)(nil)).Elem()
+}
+
+func (o ConfigRuleScopePtrOutput) ToConfigRuleScopePtrOutput() ConfigRuleScopePtrOutput {
+	return o
+}
+
+func (o ConfigRuleScopePtrOutput) ToConfigRuleScopePtrOutputWithContext(ctx context.Context) ConfigRuleScopePtrOutput {
+	return o
+}
+
+func (o ConfigRuleScopePtrOutput) Elem() ConfigRuleScopeOutput {
+	return o.ApplyT(func(v *ConfigRuleScope) ConfigRuleScope {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigRuleScope
+		return ret
+	}).(ConfigRuleScopeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourceid
+func (o ConfigRuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
+func (o ConfigRuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigRuleScope) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ComplianceResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey
+func (o ConfigRuleScopePtrOutput) TagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagvalue
+func (o ConfigRuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
+type ConfigRuleSource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+	Owner string `pulumi:"owner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+	SourceDetails []ConfigRuleSourceDetail `pulumi:"sourceDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+}
+
+// ConfigRuleSourceInput is an input type that accepts ConfigRuleSourceArgs and ConfigRuleSourceOutput values.
+// You can construct a concrete instance of `ConfigRuleSourceInput` via:
+//
+//          ConfigRuleSourceArgs{...}
+type ConfigRuleSourceInput interface {
+	pulumi.Input
+
+	ToConfigRuleSourceOutput() ConfigRuleSourceOutput
+	ToConfigRuleSourceOutputWithContext(context.Context) ConfigRuleSourceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
+type ConfigRuleSourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+	SourceDetails ConfigRuleSourceDetailArrayInput `pulumi:"sourceDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+}
+
+func (ConfigRuleSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleSource)(nil)).Elem()
+}
+
+func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutput() ConfigRuleSourceOutput {
+	return i.ToConfigRuleSourceOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleSourceArgs) ToConfigRuleSourceOutputWithContext(ctx context.Context) ConfigRuleSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput)
+}
+
+func (i ConfigRuleSourceArgs) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
+	return i.ToConfigRuleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleSourceArgs) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceOutput).ToConfigRuleSourcePtrOutputWithContext(ctx)
+}
+
+// ConfigRuleSourcePtrInput is an input type that accepts ConfigRuleSourceArgs, ConfigRuleSourcePtr and ConfigRuleSourcePtrOutput values.
+// You can construct a concrete instance of `ConfigRuleSourcePtrInput` via:
+//
+//          ConfigRuleSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigRuleSourcePtrInput interface {
+	pulumi.Input
+
+	ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput
+	ToConfigRuleSourcePtrOutputWithContext(context.Context) ConfigRuleSourcePtrOutput
+}
+
+type configRuleSourcePtrType ConfigRuleSourceArgs
+
+func ConfigRuleSourcePtr(v *ConfigRuleSourceArgs) ConfigRuleSourcePtrInput {
+	return (*configRuleSourcePtrType)(v)
+}
+
+func (*configRuleSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleSource)(nil)).Elem()
+}
+
+func (i *configRuleSourcePtrType) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
+	return i.ToConfigRuleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *configRuleSourcePtrType) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
+type ConfigRuleSourceOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleSource)(nil)).Elem()
+}
+
+func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutput() ConfigRuleSourceOutput {
+	return o
+}
+
+func (o ConfigRuleSourceOutput) ToConfigRuleSourceOutputWithContext(ctx context.Context) ConfigRuleSourceOutput {
+	return o
+}
+
+func (o ConfigRuleSourceOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
+	return o.ToConfigRuleSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigRuleSourceOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigRuleSource) *ConfigRuleSource {
+		return &v
+	}).(ConfigRuleSourcePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+func (o ConfigRuleSourceOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigRuleSource) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+func (o ConfigRuleSourceOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
+	return o.ApplyT(func(v ConfigRuleSource) []ConfigRuleSourceDetail { return v.SourceDetails }).(ConfigRuleSourceDetailArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+func (o ConfigRuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigRuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+type ConfigRuleSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigRuleSource)(nil)).Elem()
+}
+
+func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutput() ConfigRuleSourcePtrOutput {
+	return o
+}
+
+func (o ConfigRuleSourcePtrOutput) ToConfigRuleSourcePtrOutputWithContext(ctx context.Context) ConfigRuleSourcePtrOutput {
+	return o
+}
+
+func (o ConfigRuleSourcePtrOutput) Elem() ConfigRuleSourceOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) ConfigRuleSource {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigRuleSource
+		return ret
+	}).(ConfigRuleSourceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-owner
+func (o ConfigRuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourcedetails
+func (o ConfigRuleSourcePtrOutput) SourceDetails() ConfigRuleSourceDetailArrayOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) []ConfigRuleSourceDetail {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDetails
+	}).(ConfigRuleSourceDetailArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html#cfn-config-configrule-source-sourceidentifier
+func (o ConfigRuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigRuleSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
+type ConfigRuleSourceDetail struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
+	EventSource string `pulumi:"eventSource"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
+	MessageType string `pulumi:"messageType"`
+}
+
+// ConfigRuleSourceDetailInput is an input type that accepts ConfigRuleSourceDetailArgs and ConfigRuleSourceDetailOutput values.
+// You can construct a concrete instance of `ConfigRuleSourceDetailInput` via:
+//
+//          ConfigRuleSourceDetailArgs{...}
+type ConfigRuleSourceDetailInput interface {
+	pulumi.Input
+
+	ToConfigRuleSourceDetailOutput() ConfigRuleSourceDetailOutput
+	ToConfigRuleSourceDetailOutputWithContext(context.Context) ConfigRuleSourceDetailOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
+type ConfigRuleSourceDetailArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
+	EventSource pulumi.StringInput `pulumi:"eventSource"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
+	MessageType pulumi.StringInput `pulumi:"messageType"`
+}
+
+func (ConfigRuleSourceDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleSourceDetail)(nil)).Elem()
+}
+
+func (i ConfigRuleSourceDetailArgs) ToConfigRuleSourceDetailOutput() ConfigRuleSourceDetailOutput {
+	return i.ToConfigRuleSourceDetailOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleSourceDetailArgs) ToConfigRuleSourceDetailOutputWithContext(ctx context.Context) ConfigRuleSourceDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailOutput)
+}
+
+// ConfigRuleSourceDetailArrayInput is an input type that accepts ConfigRuleSourceDetailArray and ConfigRuleSourceDetailArrayOutput values.
+// You can construct a concrete instance of `ConfigRuleSourceDetailArrayInput` via:
+//
+//          ConfigRuleSourceDetailArray{ ConfigRuleSourceDetailArgs{...} }
+type ConfigRuleSourceDetailArrayInput interface {
+	pulumi.Input
+
+	ToConfigRuleSourceDetailArrayOutput() ConfigRuleSourceDetailArrayOutput
+	ToConfigRuleSourceDetailArrayOutputWithContext(context.Context) ConfigRuleSourceDetailArrayOutput
+}
+
+type ConfigRuleSourceDetailArray []ConfigRuleSourceDetailInput
+
+func (ConfigRuleSourceDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigRuleSourceDetail)(nil)).Elem()
+}
+
+func (i ConfigRuleSourceDetailArray) ToConfigRuleSourceDetailArrayOutput() ConfigRuleSourceDetailArrayOutput {
+	return i.ToConfigRuleSourceDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigRuleSourceDetailArray) ToConfigRuleSourceDetailArrayOutputWithContext(ctx context.Context) ConfigRuleSourceDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigRuleSourceDetailArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
+type ConfigRuleSourceDetailOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleSourceDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigRuleSourceDetail)(nil)).Elem()
+}
+
+func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutput() ConfigRuleSourceDetailOutput {
+	return o
+}
+
+func (o ConfigRuleSourceDetailOutput) ToConfigRuleSourceDetailOutputWithContext(ctx context.Context) ConfigRuleSourceDetailOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
+func (o ConfigRuleSourceDetailOutput) EventSource() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.EventSource }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+func (o ConfigRuleSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigRuleSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
+func (o ConfigRuleSourceDetailOutput) MessageType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigRuleSourceDetail) string { return v.MessageType }).(pulumi.StringOutput)
+}
+
+type ConfigRuleSourceDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigRuleSourceDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigRuleSourceDetail)(nil)).Elem()
+}
+
+func (o ConfigRuleSourceDetailArrayOutput) ToConfigRuleSourceDetailArrayOutput() ConfigRuleSourceDetailArrayOutput {
+	return o
+}
+
+func (o ConfigRuleSourceDetailArrayOutput) ToConfigRuleSourceDetailArrayOutputWithContext(ctx context.Context) ConfigRuleSourceDetailArrayOutput {
+	return o
+}
+
+func (o ConfigRuleSourceDetailArrayOutput) Index(i pulumi.IntInput) ConfigRuleSourceDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigRuleSourceDetail {
+		return vs[0].([]ConfigRuleSourceDetail)[vs[1].(int)]
+	}).(ConfigRuleSourceDetailOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 type ConfigurationAggregatorAccountAggregationSource struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
@@ -306,6 +799,184 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
+type ConfigurationRecorderRecordingGroup struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+	AllSupported *bool `pulumi:"allSupported"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderRecordingGroupInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs and ConfigurationRecorderRecordingGroupOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingGroupInput` via:
+//
+//          ConfigurationRecorderRecordingGroupArgs{...}
+type ConfigurationRecorderRecordingGroupInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput
+	ToConfigurationRecorderRecordingGroupOutputWithContext(context.Context) ConfigurationRecorderRecordingGroupOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
+type ConfigurationRecorderRecordingGroupArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderRecordingGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput {
+	return i.ToConfigurationRecorderRecordingGroupOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupOutput)
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingGroupArgs) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupOutput).ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingGroupPtrInput is an input type that accepts ConfigurationRecorderRecordingGroupArgs, ConfigurationRecorderRecordingGroupPtr and ConfigurationRecorderRecordingGroupPtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingGroupPtrInput` via:
+//
+//          ConfigurationRecorderRecordingGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationRecorderRecordingGroupPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput
+	ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Context) ConfigurationRecorderRecordingGroupPtrOutput
+}
+
+type configurationRecorderRecordingGroupPtrType ConfigurationRecorderRecordingGroupArgs
+
+func ConfigurationRecorderRecordingGroupPtr(v *ConfigurationRecorderRecordingGroupArgs) ConfigurationRecorderRecordingGroupPtrInput {
+	return (*configurationRecorderRecordingGroupPtrType)(v)
+}
+
+func (*configurationRecorderRecordingGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingGroupPtrType) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return i.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingGroupPtrType) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
+type ConfigurationRecorderRecordingGroupOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupOutput() ConfigurationRecorderRecordingGroupOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return o.ToConfigurationRecorderRecordingGroupPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingGroupOutput) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingGroup) *ConfigurationRecorderRecordingGroup {
+		return &v
+	}).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+func (o ConfigurationRecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+func (o ConfigurationRecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+func (o ConfigurationRecorderRecordingGroupOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingGroup) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderRecordingGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingGroup)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRecordingGroupPtrOutput() ConfigurationRecorderRecordingGroupPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ToConfigurationRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingGroupPtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingGroupPtrOutput) Elem() ConfigurationRecorderRecordingGroupOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) ConfigurationRecorderRecordingGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingGroup
+		return ret
+	}).(ConfigurationRecorderRecordingGroupOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
+func (o ConfigurationRecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllSupported
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
+func (o ConfigurationRecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeGlobalResourceTypes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
+func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
 type ConformancePackConformancePackInputParameter struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
@@ -413,6 +1084,717 @@ func (o ConformancePackConformancePackInputParameterArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConformancePackConformancePackInputParameter {
 		return vs[0].([]ConformancePackConformancePackInputParameter)[vs[1].(int)]
 	}).(ConformancePackConformancePackInputParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+type DeliveryChannelConfigSnapshotDeliveryProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
+}
+
+// DeliveryChannelConfigSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs and DeliveryChannelConfigSnapshotDeliveryPropertiesOutput values.
+// You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesInput` via:
+//
+//          DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+type DeliveryChannelConfigSnapshotDeliveryPropertiesInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+type DeliveryChannelConfigSnapshotDeliveryPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
+}
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput)
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput).ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx)
+}
+
+// DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs, DeliveryChannelConfigSnapshotDeliveryPropertiesPtr and DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput values.
+// You can construct a concrete instance of `DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput` via:
+//
+//          DeliveryChannelConfigSnapshotDeliveryPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput
+	ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput
+}
+
+type deliveryChannelConfigSnapshotDeliveryPropertiesPtrType DeliveryChannelConfigSnapshotDeliveryPropertiesArgs
+
+func DeliveryChannelConfigSnapshotDeliveryPropertiesPtr(v *DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput {
+	return (*deliveryChannelConfigSnapshotDeliveryPropertiesPtrType)(v)
+}
+
+func (*deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return i.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryChannelConfigSnapshotDeliveryPropertiesPtrType) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
+type DeliveryChannelConfigSnapshotDeliveryPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o.ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryProperties {
+		return &v
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryChannelConfigSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
+}
+
+type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryChannelConfigSnapshotDeliveryProperties)(nil)).Elem()
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
+	return o
+}
+
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChannelConfigSnapshotDeliveryPropertiesOutput {
+	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) DeliveryChannelConfigSnapshotDeliveryProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryChannelConfigSnapshotDeliveryProperties
+		return ret
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
+type OrganizationConfigRuleOrganizationCustomRuleMetadata struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+	InputParameters *string `pulumi:"inputParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+	OrganizationConfigRuleTriggerTypes []string `pulumi:"organizationConfigRuleTriggerTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+	ResourceIdScope *string `pulumi:"resourceIdScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+	ResourceTypesScope []string `pulumi:"resourceTypesScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+	TagKeyScope *string `pulumi:"tagKeyScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+	TagValueScope *string `pulumi:"tagValueScope"`
+}
+
+// OrganizationConfigRuleOrganizationCustomRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs and OrganizationConfigRuleOrganizationCustomRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataInput` via:
+//
+//          OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationCustomRuleMetadataInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
+type OrganizationConfigRuleOrganizationCustomRuleMetadataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+	InputParameters pulumi.StringPtrInput `pulumi:"inputParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+	OrganizationConfigRuleTriggerTypes pulumi.StringArrayInput `pulumi:"organizationConfigRuleTriggerTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+	ResourceIdScope pulumi.StringPtrInput `pulumi:"resourceIdScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+	ResourceTypesScope pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+	TagKeyScope pulumi.StringPtrInput `pulumi:"tagKeyScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+	TagValueScope pulumi.StringPtrInput `pulumi:"tagValueScope"`
+}
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput)
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput).ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationCustomRuleMetadataArgs, OrganizationConfigRuleOrganizationCustomRuleMetadataPtr and OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput` via:
+//
+//          OrganizationConfigRuleOrganizationCustomRuleMetadataArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput
+}
+
+type organizationConfigRuleOrganizationCustomRuleMetadataPtrType OrganizationConfigRuleOrganizationCustomRuleMetadataArgs
+
+func OrganizationConfigRuleOrganizationCustomRuleMetadataPtr(v *OrganizationConfigRuleOrganizationCustomRuleMetadataArgs) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationCustomRuleMetadataPtrType)(v)
+}
+
+func (*organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigRuleOrganizationCustomRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html
+type OrganizationConfigRuleOrganizationCustomRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationCustomRuleMetadata) *OrganizationConfigRuleOrganizationCustomRuleMetadata {
+		return &v
+	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) []string { return v.ResourceTypesScope }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationCustomRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationCustomRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationCustomRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) OrganizationConfigRuleOrganizationCustomRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigRuleOrganizationCustomRuleMetadata
+		return ret
+	}).(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-description
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-inputparameters
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-lambdafunctionarn
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-maximumexecutionfrequency
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-organizationconfigruletriggertypes
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) OrganizationConfigRuleTriggerTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationConfigRuleTriggerTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourceidscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIdScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-resourcetypesscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagkeyscope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKeyScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomrulemetadata.html#cfn-config-organizationconfigrule-organizationcustomrulemetadata-tagvaluescope
+func (o OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationCustomRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValueScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html
+type OrganizationConfigRuleOrganizationManagedRuleMetadata struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+	InputParameters *string `pulumi:"inputParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+	ResourceIdScope *string `pulumi:"resourceIdScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+	ResourceTypesScope []string `pulumi:"resourceTypesScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+	RuleIdentifier string `pulumi:"ruleIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+	TagKeyScope *string `pulumi:"tagKeyScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+	TagValueScope *string `pulumi:"tagValueScope"`
+}
+
+// OrganizationConfigRuleOrganizationManagedRuleMetadataInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs and OrganizationConfigRuleOrganizationManagedRuleMetadataOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataInput` via:
+//
+//          OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+type OrganizationConfigRuleOrganizationManagedRuleMetadataInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html
+type OrganizationConfigRuleOrganizationManagedRuleMetadataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+	InputParameters pulumi.StringPtrInput `pulumi:"inputParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+	ResourceIdScope pulumi.StringPtrInput `pulumi:"resourceIdScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+	ResourceTypesScope pulumi.StringArrayInput `pulumi:"resourceTypesScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+	RuleIdentifier pulumi.StringInput `pulumi:"ruleIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+	TagKeyScope pulumi.StringPtrInput `pulumi:"tagKeyScope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+	TagValueScope pulumi.StringPtrInput `pulumi:"tagValueScope"`
+}
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput)
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput).ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput is an input type that accepts OrganizationConfigRuleOrganizationManagedRuleMetadataArgs, OrganizationConfigRuleOrganizationManagedRuleMetadataPtr and OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput` via:
+//
+//          OrganizationConfigRuleOrganizationManagedRuleMetadataArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput
+	ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput
+}
+
+type organizationConfigRuleOrganizationManagedRuleMetadataPtrType OrganizationConfigRuleOrganizationManagedRuleMetadataArgs
+
+func OrganizationConfigRuleOrganizationManagedRuleMetadataPtr(v *OrganizationConfigRuleOrganizationManagedRuleMetadataArgs) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput {
+	return (*organizationConfigRuleOrganizationManagedRuleMetadataPtrType)(v)
+}
+
+func (*organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return i.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigRuleOrganizationManagedRuleMetadataPtrType) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html
+type OrganizationConfigRuleOrganizationManagedRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o.ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigRuleOrganizationManagedRuleMetadata) *OrganizationConfigRuleOrganizationManagedRuleMetadata {
+		return &v
+	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.InputParameters }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.ResourceIdScope }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) []string { return v.ResourceTypesScope }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) RuleIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) string { return v.RuleIdentifier }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.TagKeyScope }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigRuleOrganizationManagedRuleMetadata) *string { return v.TagValueScope }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigRuleOrganizationManagedRuleMetadata)(nil)).Elem()
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput() OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ToOrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutputWithContext(ctx context.Context) OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) Elem() OrganizationConfigRuleOrganizationManagedRuleMetadataOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) OrganizationConfigRuleOrganizationManagedRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigRuleOrganizationManagedRuleMetadata
+		return ret
+	}).(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-description
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-inputparameters
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) InputParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-maximumexecutionfrequency
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourceidscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ResourceIdScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceIdScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-resourcetypesscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) ResourceTypesScope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypesScope
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-ruleidentifier
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) RuleIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagkeyscope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) TagKeyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagKeyScope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationmanagedrulemetadata.html#cfn-config-organizationconfigrule-organizationmanagedrulemetadata-tagvaluescope
+func (o OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput) TagValueScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRuleOrganizationManagedRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TagValueScope
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
@@ -524,13 +1906,685 @@ func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) Ind
 	}).(OrganizationConformancePackConformancePackInputParameterOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+type RemediationConfigurationExecutionControls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+	SsmControls *RemediationConfigurationSsmControls `pulumi:"ssmControls"`
+}
+
+// RemediationConfigurationExecutionControlsInput is an input type that accepts RemediationConfigurationExecutionControlsArgs and RemediationConfigurationExecutionControlsOutput values.
+// You can construct a concrete instance of `RemediationConfigurationExecutionControlsInput` via:
+//
+//          RemediationConfigurationExecutionControlsArgs{...}
+type RemediationConfigurationExecutionControlsInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput
+	ToRemediationConfigurationExecutionControlsOutputWithContext(context.Context) RemediationConfigurationExecutionControlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+type RemediationConfigurationExecutionControlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+	SsmControls RemediationConfigurationSsmControlsPtrInput `pulumi:"ssmControls"`
+}
+
+func (RemediationConfigurationExecutionControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput {
+	return i.ToRemediationConfigurationExecutionControlsOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsOutput)
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return i.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationExecutionControlsArgs) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsOutput).ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationExecutionControlsPtrInput is an input type that accepts RemediationConfigurationExecutionControlsArgs, RemediationConfigurationExecutionControlsPtr and RemediationConfigurationExecutionControlsPtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationExecutionControlsPtrInput` via:
+//
+//          RemediationConfigurationExecutionControlsArgs{...}
+//
+//  or:
+//
+//          nil
+type RemediationConfigurationExecutionControlsPtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput
+	ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Context) RemediationConfigurationExecutionControlsPtrOutput
+}
+
+type remediationConfigurationExecutionControlsPtrType RemediationConfigurationExecutionControlsArgs
+
+func RemediationConfigurationExecutionControlsPtr(v *RemediationConfigurationExecutionControlsArgs) RemediationConfigurationExecutionControlsPtrInput {
+	return (*remediationConfigurationExecutionControlsPtrType)(v)
+}
+
+func (*remediationConfigurationExecutionControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (i *remediationConfigurationExecutionControlsPtrType) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return i.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationExecutionControlsPtrType) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationExecutionControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html
+type RemediationConfigurationExecutionControlsOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationExecutionControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsOutput() RemediationConfigurationExecutionControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return o.ToRemediationConfigurationExecutionControlsPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationExecutionControlsOutput) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationExecutionControls) *RemediationConfigurationExecutionControls {
+		return &v
+	}).(RemediationConfigurationExecutionControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+func (o RemediationConfigurationExecutionControlsOutput) SsmControls() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationExecutionControls) *RemediationConfigurationSsmControls {
+		return v.SsmControls
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+type RemediationConfigurationExecutionControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationExecutionControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationExecutionControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigurationExecutionControlsPtrOutput() RemediationConfigurationExecutionControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) ToRemediationConfigurationExecutionControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationExecutionControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationExecutionControlsPtrOutput) Elem() RemediationConfigurationExecutionControlsOutput {
+	return o.ApplyT(func(v *RemediationConfigurationExecutionControls) RemediationConfigurationExecutionControls {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationExecutionControls
+		return ret
+	}).(RemediationConfigurationExecutionControlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-executioncontrols.html#cfn-config-remediationconfiguration-executioncontrols-ssmcontrols
+func (o RemediationConfigurationExecutionControlsPtrOutput) SsmControls() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationExecutionControls) *RemediationConfigurationSsmControls {
+		if v == nil {
+			return nil
+		}
+		return v.SsmControls
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html
+type RemediationConfigurationRemediationParameterValue struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue
+	ResourceValue *RemediationConfigurationResourceValue `pulumi:"resourceValue"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue
+	StaticValue *RemediationConfigurationStaticValue `pulumi:"staticValue"`
+}
+
+// RemediationConfigurationRemediationParameterValueInput is an input type that accepts RemediationConfigurationRemediationParameterValueArgs and RemediationConfigurationRemediationParameterValueOutput values.
+// You can construct a concrete instance of `RemediationConfigurationRemediationParameterValueInput` via:
+//
+//          RemediationConfigurationRemediationParameterValueArgs{...}
+type RemediationConfigurationRemediationParameterValueInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationRemediationParameterValueOutput() RemediationConfigurationRemediationParameterValueOutput
+	ToRemediationConfigurationRemediationParameterValueOutputWithContext(context.Context) RemediationConfigurationRemediationParameterValueOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html
+type RemediationConfigurationRemediationParameterValueArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue
+	ResourceValue RemediationConfigurationResourceValuePtrInput `pulumi:"resourceValue"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue
+	StaticValue RemediationConfigurationStaticValuePtrInput `pulumi:"staticValue"`
+}
+
+func (RemediationConfigurationRemediationParameterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationRemediationParameterValue)(nil)).Elem()
+}
+
+func (i RemediationConfigurationRemediationParameterValueArgs) ToRemediationConfigurationRemediationParameterValueOutput() RemediationConfigurationRemediationParameterValueOutput {
+	return i.ToRemediationConfigurationRemediationParameterValueOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationRemediationParameterValueArgs) ToRemediationConfigurationRemediationParameterValueOutputWithContext(ctx context.Context) RemediationConfigurationRemediationParameterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationRemediationParameterValueOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html
+type RemediationConfigurationRemediationParameterValueOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationRemediationParameterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationRemediationParameterValue)(nil)).Elem()
+}
+
+func (o RemediationConfigurationRemediationParameterValueOutput) ToRemediationConfigurationRemediationParameterValueOutput() RemediationConfigurationRemediationParameterValueOutput {
+	return o
+}
+
+func (o RemediationConfigurationRemediationParameterValueOutput) ToRemediationConfigurationRemediationParameterValueOutputWithContext(ctx context.Context) RemediationConfigurationRemediationParameterValueOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-resourcevalue
+func (o RemediationConfigurationRemediationParameterValueOutput) ResourceValue() RemediationConfigurationResourceValuePtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationRemediationParameterValue) *RemediationConfigurationResourceValue {
+		return v.ResourceValue
+	}).(RemediationConfigurationResourceValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-remediationparametervalue.html#cfn-config-remediationconfiguration-remediationparametervalue-staticvalue
+func (o RemediationConfigurationRemediationParameterValueOutput) StaticValue() RemediationConfigurationStaticValuePtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationRemediationParameterValue) *RemediationConfigurationStaticValue {
+		return v.StaticValue
+	}).(RemediationConfigurationStaticValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html
+type RemediationConfigurationResourceValue struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value
+	Value *string `pulumi:"value"`
+}
+
+// RemediationConfigurationResourceValueInput is an input type that accepts RemediationConfigurationResourceValueArgs and RemediationConfigurationResourceValueOutput values.
+// You can construct a concrete instance of `RemediationConfigurationResourceValueInput` via:
+//
+//          RemediationConfigurationResourceValueArgs{...}
+type RemediationConfigurationResourceValueInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationResourceValueOutput() RemediationConfigurationResourceValueOutput
+	ToRemediationConfigurationResourceValueOutputWithContext(context.Context) RemediationConfigurationResourceValueOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html
+type RemediationConfigurationResourceValueArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RemediationConfigurationResourceValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationResourceValue)(nil)).Elem()
+}
+
+func (i RemediationConfigurationResourceValueArgs) ToRemediationConfigurationResourceValueOutput() RemediationConfigurationResourceValueOutput {
+	return i.ToRemediationConfigurationResourceValueOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationResourceValueArgs) ToRemediationConfigurationResourceValueOutputWithContext(ctx context.Context) RemediationConfigurationResourceValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationResourceValueOutput)
+}
+
+func (i RemediationConfigurationResourceValueArgs) ToRemediationConfigurationResourceValuePtrOutput() RemediationConfigurationResourceValuePtrOutput {
+	return i.ToRemediationConfigurationResourceValuePtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationResourceValueArgs) ToRemediationConfigurationResourceValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationResourceValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationResourceValueOutput).ToRemediationConfigurationResourceValuePtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationResourceValuePtrInput is an input type that accepts RemediationConfigurationResourceValueArgs, RemediationConfigurationResourceValuePtr and RemediationConfigurationResourceValuePtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationResourceValuePtrInput` via:
+//
+//          RemediationConfigurationResourceValueArgs{...}
+//
+//  or:
+//
+//          nil
+type RemediationConfigurationResourceValuePtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationResourceValuePtrOutput() RemediationConfigurationResourceValuePtrOutput
+	ToRemediationConfigurationResourceValuePtrOutputWithContext(context.Context) RemediationConfigurationResourceValuePtrOutput
+}
+
+type remediationConfigurationResourceValuePtrType RemediationConfigurationResourceValueArgs
+
+func RemediationConfigurationResourceValuePtr(v *RemediationConfigurationResourceValueArgs) RemediationConfigurationResourceValuePtrInput {
+	return (*remediationConfigurationResourceValuePtrType)(v)
+}
+
+func (*remediationConfigurationResourceValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationResourceValue)(nil)).Elem()
+}
+
+func (i *remediationConfigurationResourceValuePtrType) ToRemediationConfigurationResourceValuePtrOutput() RemediationConfigurationResourceValuePtrOutput {
+	return i.ToRemediationConfigurationResourceValuePtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationResourceValuePtrType) ToRemediationConfigurationResourceValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationResourceValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationResourceValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html
+type RemediationConfigurationResourceValueOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationResourceValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationResourceValue)(nil)).Elem()
+}
+
+func (o RemediationConfigurationResourceValueOutput) ToRemediationConfigurationResourceValueOutput() RemediationConfigurationResourceValueOutput {
+	return o
+}
+
+func (o RemediationConfigurationResourceValueOutput) ToRemediationConfigurationResourceValueOutputWithContext(ctx context.Context) RemediationConfigurationResourceValueOutput {
+	return o
+}
+
+func (o RemediationConfigurationResourceValueOutput) ToRemediationConfigurationResourceValuePtrOutput() RemediationConfigurationResourceValuePtrOutput {
+	return o.ToRemediationConfigurationResourceValuePtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationResourceValueOutput) ToRemediationConfigurationResourceValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationResourceValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationResourceValue) *RemediationConfigurationResourceValue {
+		return &v
+	}).(RemediationConfigurationResourceValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value
+func (o RemediationConfigurationResourceValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationResourceValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RemediationConfigurationResourceValuePtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationResourceValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationResourceValue)(nil)).Elem()
+}
+
+func (o RemediationConfigurationResourceValuePtrOutput) ToRemediationConfigurationResourceValuePtrOutput() RemediationConfigurationResourceValuePtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationResourceValuePtrOutput) ToRemediationConfigurationResourceValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationResourceValuePtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationResourceValuePtrOutput) Elem() RemediationConfigurationResourceValueOutput {
+	return o.ApplyT(func(v *RemediationConfigurationResourceValue) RemediationConfigurationResourceValue {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationResourceValue
+		return ret
+	}).(RemediationConfigurationResourceValueOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-resourcevalue.html#cfn-config-remediationconfiguration-resourcevalue-value
+func (o RemediationConfigurationResourceValuePtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationResourceValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html
+type RemediationConfigurationSsmControls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+	ConcurrentExecutionRatePercentage *int `pulumi:"concurrentExecutionRatePercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+	ErrorPercentage *int `pulumi:"errorPercentage"`
+}
+
+// RemediationConfigurationSsmControlsInput is an input type that accepts RemediationConfigurationSsmControlsArgs and RemediationConfigurationSsmControlsOutput values.
+// You can construct a concrete instance of `RemediationConfigurationSsmControlsInput` via:
+//
+//          RemediationConfigurationSsmControlsArgs{...}
+type RemediationConfigurationSsmControlsInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput
+	ToRemediationConfigurationSsmControlsOutputWithContext(context.Context) RemediationConfigurationSsmControlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html
+type RemediationConfigurationSsmControlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+	ConcurrentExecutionRatePercentage pulumi.IntPtrInput `pulumi:"concurrentExecutionRatePercentage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+	ErrorPercentage pulumi.IntPtrInput `pulumi:"errorPercentage"`
+}
+
+func (RemediationConfigurationSsmControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput {
+	return i.ToRemediationConfigurationSsmControlsOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsOutput)
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationSsmControlsArgs) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsOutput).ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationSsmControlsPtrInput is an input type that accepts RemediationConfigurationSsmControlsArgs, RemediationConfigurationSsmControlsPtr and RemediationConfigurationSsmControlsPtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationSsmControlsPtrInput` via:
+//
+//          RemediationConfigurationSsmControlsArgs{...}
+//
+//  or:
+//
+//          nil
+type RemediationConfigurationSsmControlsPtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput
+	ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Context) RemediationConfigurationSsmControlsPtrOutput
+}
+
+type remediationConfigurationSsmControlsPtrType RemediationConfigurationSsmControlsArgs
+
+func RemediationConfigurationSsmControlsPtr(v *RemediationConfigurationSsmControlsArgs) RemediationConfigurationSsmControlsPtrInput {
+	return (*remediationConfigurationSsmControlsPtrType)(v)
+}
+
+func (*remediationConfigurationSsmControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (i *remediationConfigurationSsmControlsPtrType) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return i.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationSsmControlsPtrType) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html
+type RemediationConfigurationSsmControlsOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationSsmControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsOutput() RemediationConfigurationSsmControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return o.ToRemediationConfigurationSsmControlsPtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationSsmControlsOutput) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationSsmControls) *RemediationConfigurationSsmControls {
+		return &v
+	}).(RemediationConfigurationSsmControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+func (o RemediationConfigurationSsmControlsOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationSsmControls) *int { return v.ConcurrentExecutionRatePercentage }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+func (o RemediationConfigurationSsmControlsOutput) ErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RemediationConfigurationSsmControls) *int { return v.ErrorPercentage }).(pulumi.IntPtrOutput)
+}
+
+type RemediationConfigurationSsmControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationSsmControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationSsmControls)(nil)).Elem()
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfigurationSsmControlsPtrOutput() RemediationConfigurationSsmControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) ToRemediationConfigurationSsmControlsPtrOutputWithContext(ctx context.Context) RemediationConfigurationSsmControlsPtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationSsmControlsPtrOutput) Elem() RemediationConfigurationSsmControlsOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) RemediationConfigurationSsmControls {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationSsmControls
+		return ret
+	}).(RemediationConfigurationSsmControlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-concurrentexecutionratepercentage
+func (o RemediationConfigurationSsmControlsPtrOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrentExecutionRatePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-ssmcontrols.html#cfn-config-remediationconfiguration-ssmcontrols-errorpercentage
+func (o RemediationConfigurationSsmControlsPtrOutput) ErrorPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RemediationConfigurationSsmControls) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html
+type RemediationConfigurationStaticValue struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values
+	Values []string `pulumi:"values"`
+}
+
+// RemediationConfigurationStaticValueInput is an input type that accepts RemediationConfigurationStaticValueArgs and RemediationConfigurationStaticValueOutput values.
+// You can construct a concrete instance of `RemediationConfigurationStaticValueInput` via:
+//
+//          RemediationConfigurationStaticValueArgs{...}
+type RemediationConfigurationStaticValueInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationStaticValueOutput() RemediationConfigurationStaticValueOutput
+	ToRemediationConfigurationStaticValueOutputWithContext(context.Context) RemediationConfigurationStaticValueOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html
+type RemediationConfigurationStaticValueArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RemediationConfigurationStaticValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationStaticValue)(nil)).Elem()
+}
+
+func (i RemediationConfigurationStaticValueArgs) ToRemediationConfigurationStaticValueOutput() RemediationConfigurationStaticValueOutput {
+	return i.ToRemediationConfigurationStaticValueOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationStaticValueArgs) ToRemediationConfigurationStaticValueOutputWithContext(ctx context.Context) RemediationConfigurationStaticValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationStaticValueOutput)
+}
+
+func (i RemediationConfigurationStaticValueArgs) ToRemediationConfigurationStaticValuePtrOutput() RemediationConfigurationStaticValuePtrOutput {
+	return i.ToRemediationConfigurationStaticValuePtrOutputWithContext(context.Background())
+}
+
+func (i RemediationConfigurationStaticValueArgs) ToRemediationConfigurationStaticValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationStaticValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationStaticValueOutput).ToRemediationConfigurationStaticValuePtrOutputWithContext(ctx)
+}
+
+// RemediationConfigurationStaticValuePtrInput is an input type that accepts RemediationConfigurationStaticValueArgs, RemediationConfigurationStaticValuePtr and RemediationConfigurationStaticValuePtrOutput values.
+// You can construct a concrete instance of `RemediationConfigurationStaticValuePtrInput` via:
+//
+//          RemediationConfigurationStaticValueArgs{...}
+//
+//  or:
+//
+//          nil
+type RemediationConfigurationStaticValuePtrInput interface {
+	pulumi.Input
+
+	ToRemediationConfigurationStaticValuePtrOutput() RemediationConfigurationStaticValuePtrOutput
+	ToRemediationConfigurationStaticValuePtrOutputWithContext(context.Context) RemediationConfigurationStaticValuePtrOutput
+}
+
+type remediationConfigurationStaticValuePtrType RemediationConfigurationStaticValueArgs
+
+func RemediationConfigurationStaticValuePtr(v *RemediationConfigurationStaticValueArgs) RemediationConfigurationStaticValuePtrInput {
+	return (*remediationConfigurationStaticValuePtrType)(v)
+}
+
+func (*remediationConfigurationStaticValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationStaticValue)(nil)).Elem()
+}
+
+func (i *remediationConfigurationStaticValuePtrType) ToRemediationConfigurationStaticValuePtrOutput() RemediationConfigurationStaticValuePtrOutput {
+	return i.ToRemediationConfigurationStaticValuePtrOutputWithContext(context.Background())
+}
+
+func (i *remediationConfigurationStaticValuePtrType) ToRemediationConfigurationStaticValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationStaticValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationStaticValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html
+type RemediationConfigurationStaticValueOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationStaticValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemediationConfigurationStaticValue)(nil)).Elem()
+}
+
+func (o RemediationConfigurationStaticValueOutput) ToRemediationConfigurationStaticValueOutput() RemediationConfigurationStaticValueOutput {
+	return o
+}
+
+func (o RemediationConfigurationStaticValueOutput) ToRemediationConfigurationStaticValueOutputWithContext(ctx context.Context) RemediationConfigurationStaticValueOutput {
+	return o
+}
+
+func (o RemediationConfigurationStaticValueOutput) ToRemediationConfigurationStaticValuePtrOutput() RemediationConfigurationStaticValuePtrOutput {
+	return o.ToRemediationConfigurationStaticValuePtrOutputWithContext(context.Background())
+}
+
+func (o RemediationConfigurationStaticValueOutput) ToRemediationConfigurationStaticValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationStaticValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfigurationStaticValue) *RemediationConfigurationStaticValue {
+		return &v
+	}).(RemediationConfigurationStaticValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values
+func (o RemediationConfigurationStaticValueOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemediationConfigurationStaticValue) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RemediationConfigurationStaticValuePtrOutput struct{ *pulumi.OutputState }
+
+func (RemediationConfigurationStaticValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemediationConfigurationStaticValue)(nil)).Elem()
+}
+
+func (o RemediationConfigurationStaticValuePtrOutput) ToRemediationConfigurationStaticValuePtrOutput() RemediationConfigurationStaticValuePtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationStaticValuePtrOutput) ToRemediationConfigurationStaticValuePtrOutputWithContext(ctx context.Context) RemediationConfigurationStaticValuePtrOutput {
+	return o
+}
+
+func (o RemediationConfigurationStaticValuePtrOutput) Elem() RemediationConfigurationStaticValueOutput {
+	return o.ApplyT(func(v *RemediationConfigurationStaticValue) RemediationConfigurationStaticValue {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfigurationStaticValue
+		return ret
+	}).(RemediationConfigurationStaticValueOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-remediationconfiguration-staticvalue.html#cfn-config-remediationconfiguration-staticvalue-values
+func (o RemediationConfigurationStaticValuePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RemediationConfigurationStaticValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ConfigRuleScopeOutput{})
+	pulumi.RegisterOutputType(ConfigRuleScopePtrOutput{})
+	pulumi.RegisterOutputType(ConfigRuleSourceOutput{})
+	pulumi.RegisterOutputType(ConfigRuleSourcePtrOutput{})
+	pulumi.RegisterOutputType(ConfigRuleSourceDetailOutput{})
+	pulumi.RegisterOutputType(ConfigRuleSourceDetailArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesOutput{})
+	pulumi.RegisterOutputType(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationManagedRuleMetadataOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationRemediationParameterValueOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationResourceValueOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationResourceValuePtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationSsmControlsPtrOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationStaticValueOutput{})
+	pulumi.RegisterOutputType(RemediationConfigurationStaticValuePtrOutput{})
 }

@@ -10,6 +10,133 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
+type CloudFormationProductProvisioningArtifactProperties struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+	DisableTemplateValidation *bool `pulumi:"disableTemplateValidation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
+	Info interface{} `pulumi:"info"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
+	Name *string `pulumi:"name"`
+}
+
+// CloudFormationProductProvisioningArtifactPropertiesInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArgs and CloudFormationProductProvisioningArtifactPropertiesOutput values.
+// You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesInput` via:
+//
+//          CloudFormationProductProvisioningArtifactPropertiesArgs{...}
+type CloudFormationProductProvisioningArtifactPropertiesInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProvisioningArtifactPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesOutput
+	ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(context.Context) CloudFormationProductProvisioningArtifactPropertiesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
+type CloudFormationProductProvisioningArtifactPropertiesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+	DisableTemplateValidation pulumi.BoolPtrInput `pulumi:"disableTemplateValidation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
+	Info pulumi.Input `pulumi:"info"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CloudFormationProductProvisioningArtifactPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactProperties)(nil)).Elem()
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesArgs) ToCloudFormationProductProvisioningArtifactPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesOutput {
+	return i.ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesArgs) ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductProvisioningArtifactPropertiesOutput)
+}
+
+// CloudFormationProductProvisioningArtifactPropertiesArrayInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArray and CloudFormationProductProvisioningArtifactPropertiesArrayOutput values.
+// You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesArrayInput` via:
+//
+//          CloudFormationProductProvisioningArtifactPropertiesArray{ CloudFormationProductProvisioningArtifactPropertiesArgs{...} }
+type CloudFormationProductProvisioningArtifactPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProvisioningArtifactPropertiesArrayOutput() CloudFormationProductProvisioningArtifactPropertiesArrayOutput
+	ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(context.Context) CloudFormationProductProvisioningArtifactPropertiesArrayOutput
+}
+
+type CloudFormationProductProvisioningArtifactPropertiesArray []CloudFormationProductProvisioningArtifactPropertiesInput
+
+func (CloudFormationProductProvisioningArtifactPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudFormationProductProvisioningArtifactProperties)(nil)).Elem()
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesArray) ToCloudFormationProductProvisioningArtifactPropertiesArrayOutput() CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+	return i.ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesArray) ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductProvisioningArtifactPropertiesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html
+type CloudFormationProductProvisioningArtifactPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProvisioningArtifactPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactProperties)(nil)).Elem()
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) ToCloudFormationProductProvisioningArtifactPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) ToCloudFormationProductProvisioningArtifactPropertiesOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) DisableTemplateValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *bool { return v.DisableTemplateValidation }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) interface{} { return v.Info }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-name
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CloudFormationProductProvisioningArtifactPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudFormationProductProvisioningArtifactProperties)(nil)).Elem()
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ToCloudFormationProductProvisioningArtifactPropertiesArrayOutput() CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) ToCloudFormationProductProvisioningArtifactPropertiesArrayOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesArrayOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) Index(i pulumi.IntInput) CloudFormationProductProvisioningArtifactPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationProductProvisioningArtifactProperties {
+		return vs[0].([]CloudFormationProductProvisioningArtifactProperties)[vs[1].(int)]
+	}).(CloudFormationProductProvisioningArtifactPropertiesOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
 type CloudFormationProvisionedProductProvisioningParameter struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
@@ -493,6 +620,8 @@ func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) Se
 }
 
 func init() {
+	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesOutput{})

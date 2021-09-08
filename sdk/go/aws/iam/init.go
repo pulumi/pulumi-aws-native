@@ -21,12 +21,30 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:iam:AccessKey":
+		r = &AccessKey{}
+	case "aws-native:iam:Group":
+		r = &Group{}
+	case "aws-native:iam:InstanceProfile":
+		r = &InstanceProfile{}
+	case "aws-native:iam:ManagedPolicy":
+		r = &ManagedPolicy{}
 	case "aws-native:iam:OIDCProvider":
 		r = &OIDCProvider{}
+	case "aws-native:iam:Policy":
+		r = &Policy{}
+	case "aws-native:iam:Role":
+		r = &Role{}
 	case "aws-native:iam:SAMLProvider":
 		r = &SAMLProvider{}
 	case "aws-native:iam:ServerCertificate":
 		r = &ServerCertificate{}
+	case "aws-native:iam:ServiceLinkedRole":
+		r = &ServiceLinkedRole{}
+	case "aws-native:iam:User":
+		r = &User{}
+	case "aws-native:iam:UserToGroupAddition":
+		r = &UserToGroupAddition{}
 	case "aws-native:iam:VirtualMFADevice":
 		r = &VirtualMFADevice{}
 	default:

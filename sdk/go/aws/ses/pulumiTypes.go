@@ -10,6 +10,645 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html
+type ConfigurationSetEventDestinationCloudWatchDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
+	DimensionConfigurations []ConfigurationSetEventDestinationDimensionConfiguration `pulumi:"dimensionConfigurations"`
+}
+
+// ConfigurationSetEventDestinationCloudWatchDestinationInput is an input type that accepts ConfigurationSetEventDestinationCloudWatchDestinationArgs and ConfigurationSetEventDestinationCloudWatchDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationCloudWatchDestinationInput` via:
+//
+//          ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
+type ConfigurationSetEventDestinationCloudWatchDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationCloudWatchDestinationOutput
+	ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationCloudWatchDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html
+type ConfigurationSetEventDestinationCloudWatchDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
+	DimensionConfigurations ConfigurationSetEventDestinationDimensionConfigurationArrayInput `pulumi:"dimensionConfigurations"`
+}
+
+func (ConfigurationSetEventDestinationCloudWatchDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationCloudWatchDestinationOutput {
+	return i.ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationOutput).ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationCloudWatchDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationCloudWatchDestinationArgs, ConfigurationSetEventDestinationCloudWatchDestinationPtr and ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationCloudWatchDestinationPtrInput` via:
+//
+//          ConfigurationSetEventDestinationCloudWatchDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetEventDestinationCloudWatchDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput
+	ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput
+}
+
+type configurationSetEventDestinationCloudWatchDestinationPtrType ConfigurationSetEventDestinationCloudWatchDestinationArgs
+
+func ConfigurationSetEventDestinationCloudWatchDestinationPtr(v *ConfigurationSetEventDestinationCloudWatchDestinationArgs) ConfigurationSetEventDestinationCloudWatchDestinationPtrInput {
+	return (*configurationSetEventDestinationCloudWatchDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationCloudWatchDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationCloudWatchDestinationPtrType) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationCloudWatchDestinationPtrType) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html
+type ConfigurationSetEventDestinationCloudWatchDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationCloudWatchDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationCloudWatchDestinationOutput() ConfigurationSetEventDestinationCloudWatchDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationCloudWatchDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationCloudWatchDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
+func (o ConfigurationSetEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationDimensionConfiguration {
+		return v.DimensionConfigurations
+	}).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
+}
+
+type ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationCloudWatchDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) Elem() ConfigurationSetEventDestinationCloudWatchDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationCloudWatchDestination) ConfigurationSetEventDestinationCloudWatchDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationCloudWatchDestination
+		return ret
+	}).(ConfigurationSetEventDestinationCloudWatchDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-cloudwatchdestination.html#cfn-ses-configurationseteventdestination-cloudwatchdestination-dimensionconfigurations
+func (o ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput) DimensionConfigurations() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationDimensionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionConfigurations
+	}).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html
+type ConfigurationSetEventDestinationDimensionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-defaultdimensionvalue
+	DefaultDimensionValue string `pulumi:"defaultDimensionValue"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionname
+	DimensionName string `pulumi:"dimensionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionvaluesource
+	DimensionValueSource string `pulumi:"dimensionValueSource"`
+}
+
+// ConfigurationSetEventDestinationDimensionConfigurationInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArgs and ConfigurationSetEventDestinationDimensionConfigurationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationDimensionConfigurationInput` via:
+//
+//          ConfigurationSetEventDestinationDimensionConfigurationArgs{...}
+type ConfigurationSetEventDestinationDimensionConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationDimensionConfigurationOutput
+	ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(context.Context) ConfigurationSetEventDestinationDimensionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html
+type ConfigurationSetEventDestinationDimensionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-defaultdimensionvalue
+	DefaultDimensionValue pulumi.StringInput `pulumi:"defaultDimensionValue"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionname
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionvaluesource
+	DimensionValueSource pulumi.StringInput `pulumi:"dimensionValueSource"`
+}
+
+func (ConfigurationSetEventDestinationDimensionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationDimensionConfigurationArgs) ToConfigurationSetEventDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationDimensionConfigurationOutput {
+	return i.ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationDimensionConfigurationArgs) ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationDimensionConfigurationOutput)
+}
+
+// ConfigurationSetEventDestinationDimensionConfigurationArrayInput is an input type that accepts ConfigurationSetEventDestinationDimensionConfigurationArray and ConfigurationSetEventDestinationDimensionConfigurationArrayOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationDimensionConfigurationArrayInput` via:
+//
+//          ConfigurationSetEventDestinationDimensionConfigurationArray{ ConfigurationSetEventDestinationDimensionConfigurationArgs{...} }
+type ConfigurationSetEventDestinationDimensionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput
+	ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(context.Context) ConfigurationSetEventDestinationDimensionConfigurationArrayOutput
+}
+
+type ConfigurationSetEventDestinationDimensionConfigurationArray []ConfigurationSetEventDestinationDimensionConfigurationInput
+
+func (ConfigurationSetEventDestinationDimensionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationSetEventDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationDimensionConfigurationArray) ToConfigurationSetEventDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return i.ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationDimensionConfigurationArray) ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html
+type ConfigurationSetEventDestinationDimensionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationDimensionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationDimensionConfigurationOutput() ConfigurationSetEventDestinationDimensionConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-defaultdimensionvalue
+func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DefaultDimensionValue }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionname
+func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DimensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DimensionName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-dimensionconfiguration.html#cfn-ses-configurationseteventdestination-dimensionconfiguration-dimensionvaluesource
+func (o ConfigurationSetEventDestinationDimensionConfigurationOutput) DimensionValueSource() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationDimensionConfiguration) string { return v.DimensionValueSource }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationDimensionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationSetEventDestinationDimensionConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationDimensionConfigurationArrayOutput() ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationDimensionConfigurationArrayOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationDimensionConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationSetEventDestinationDimensionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationSetEventDestinationDimensionConfiguration {
+		return vs[0].([]ConfigurationSetEventDestinationDimensionConfiguration)[vs[1].(int)]
+	}).(ConfigurationSetEventDestinationDimensionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html
+type ConfigurationSetEventDestinationEventDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-cloudwatchdestination
+	CloudWatchDestination *ConfigurationSetEventDestinationCloudWatchDestination `pulumi:"cloudWatchDestination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
+	Enabled *bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination
+	KinesisFirehoseDestination *ConfigurationSetEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-matchingeventtypes
+	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name
+	Name *string `pulumi:"name"`
+}
+
+// ConfigurationSetEventDestinationEventDestinationInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs and ConfigurationSetEventDestinationEventDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationInput` via:
+//
+//          ConfigurationSetEventDestinationEventDestinationArgs{...}
+type ConfigurationSetEventDestinationEventDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput
+	ToConfigurationSetEventDestinationEventDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html
+type ConfigurationSetEventDestinationEventDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-cloudwatchdestination
+	CloudWatchDestination ConfigurationSetEventDestinationCloudWatchDestinationPtrInput `pulumi:"cloudWatchDestination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination
+	KinesisFirehoseDestination ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-matchingeventtypes
+	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ConfigurationSetEventDestinationEventDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput).ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationEventDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationArgs, ConfigurationSetEventDestinationEventDestinationPtr and ConfigurationSetEventDestinationEventDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationPtrInput` via:
+//
+//          ConfigurationSetEventDestinationEventDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetEventDestinationEventDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput
+	ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput
+}
+
+type configurationSetEventDestinationEventDestinationPtrType ConfigurationSetEventDestinationEventDestinationArgs
+
+func ConfigurationSetEventDestinationEventDestinationPtr(v *ConfigurationSetEventDestinationEventDestinationArgs) ConfigurationSetEventDestinationEventDestinationPtrInput {
+	return (*configurationSetEventDestinationEventDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationEventDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html
+type ConfigurationSetEventDestinationEventDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationOutput() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-cloudwatchdestination
+func (o ConfigurationSetEventDestinationEventDestinationOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
+		return v.CloudWatchDestination
+	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
+func (o ConfigurationSetEventDestinationEventDestinationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination
+func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
+		return v.KinesisFirehoseDestination
+	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-matchingeventtypes
+func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name
+func (o ConfigurationSetEventDestinationEventDestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationSetEventDestinationEventDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationEventDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationEventDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) ConfigurationSetEventDestinationEventDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationEventDestination
+		return ret
+	}).(ConfigurationSetEventDestinationEventDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-cloudwatchdestination
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) CloudWatchDestination() ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationCloudWatchDestination {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchDestination
+	}).(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-enabled
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-kinesisfirehosedestination
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFirehoseDestination() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseDestination
+	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-matchingeventtypes
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchingEventTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html#cfn-ses-configurationseteventdestination-eventdestination-name
+func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html
+type ConfigurationSetEventDestinationKinesisFirehoseDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
+	DeliveryStreamARN string `pulumi:"deliveryStreamARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
+	IAMRoleARN string `pulumi:"iAMRoleARN"`
+}
+
+// ConfigurationSetEventDestinationKinesisFirehoseDestinationInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs and ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationKinesisFirehoseDestinationInput` via:
+//
+//          ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
+type ConfigurationSetEventDestinationKinesisFirehoseDestinationInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput
+	ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html
+type ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
+	DeliveryStreamARN pulumi.StringInput `pulumi:"deliveryStreamARN"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
+	IAMRoleARN pulumi.StringInput `pulumi:"iAMRoleARN"`
+}
+
+func (ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
+	return i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput)
+}
+
+func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput).ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput is an input type that accepts ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs, ConfigurationSetEventDestinationKinesisFirehoseDestinationPtr and ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput` via:
+//
+//          ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput
+	ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput
+}
+
+type configurationSetEventDestinationKinesisFirehoseDestinationPtrType ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs
+
+func ConfigurationSetEventDestinationKinesisFirehoseDestinationPtr(v *ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput {
+	return (*configurationSetEventDestinationKinesisFirehoseDestinationPtrType)(v)
+}
+
+func (*configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i *configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetEventDestinationKinesisFirehoseDestinationPtrType) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html
+type ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationKinesisFirehoseDestination) *ConfigurationSetEventDestinationKinesisFirehoseDestination {
+		return &v
+	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamARN }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput) IAMRoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetEventDestinationKinesisFirehoseDestination) string { return v.IAMRoleARN }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetEventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) Elem() ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) ConfigurationSetEventDestinationKinesisFirehoseDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetEventDestinationKinesisFirehoseDestination
+		return ret
+	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-deliverystreamarn
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStreamARN
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html#cfn-ses-configurationseteventdestination-kinesisfirehosedestination-iamrolearn
+func (o ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput) IAMRoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IAMRoleARN
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html
 type ContactListTopic struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-defaultsubscriptionstatus
@@ -137,7 +776,2170 @@ func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOu
 	}).(ContactListTopicOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html
+type ReceiptFilterFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter
+	IpFilter ReceiptFilterIpFilter `pulumi:"ipFilter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name
+	Name *string `pulumi:"name"`
+}
+
+// ReceiptFilterFilterInput is an input type that accepts ReceiptFilterFilterArgs and ReceiptFilterFilterOutput values.
+// You can construct a concrete instance of `ReceiptFilterFilterInput` via:
+//
+//          ReceiptFilterFilterArgs{...}
+type ReceiptFilterFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput
+	ToReceiptFilterFilterOutputWithContext(context.Context) ReceiptFilterFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html
+type ReceiptFilterFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter
+	IpFilter ReceiptFilterIpFilterInput `pulumi:"ipFilter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ReceiptFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput {
+	return i.ToReceiptFilterFilterOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterOutputWithContext(ctx context.Context) ReceiptFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterOutput)
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
+	return i.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterFilterArgs) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterOutput).ToReceiptFilterFilterPtrOutputWithContext(ctx)
+}
+
+// ReceiptFilterFilterPtrInput is an input type that accepts ReceiptFilterFilterArgs, ReceiptFilterFilterPtr and ReceiptFilterFilterPtrOutput values.
+// You can construct a concrete instance of `ReceiptFilterFilterPtrInput` via:
+//
+//          ReceiptFilterFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptFilterFilterPtrInput interface {
+	pulumi.Input
+
+	ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput
+	ToReceiptFilterFilterPtrOutputWithContext(context.Context) ReceiptFilterFilterPtrOutput
+}
+
+type receiptFilterFilterPtrType ReceiptFilterFilterArgs
+
+func ReceiptFilterFilterPtr(v *ReceiptFilterFilterArgs) ReceiptFilterFilterPtrInput {
+	return (*receiptFilterFilterPtrType)(v)
+}
+
+func (*receiptFilterFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (i *receiptFilterFilterPtrType) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
+	return i.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptFilterFilterPtrType) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html
+type ReceiptFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterOutput() ReceiptFilterFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterOutputWithContext(ctx context.Context) ReceiptFilterFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
+	return o.ToReceiptFilterFilterPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptFilterFilterOutput) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptFilterFilter) *ReceiptFilterFilter {
+		return &v
+	}).(ReceiptFilterFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter
+func (o ReceiptFilterFilterOutput) IpFilter() ReceiptFilterIpFilterOutput {
+	return o.ApplyT(func(v ReceiptFilterFilter) ReceiptFilterIpFilter { return v.IpFilter }).(ReceiptFilterIpFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name
+func (o ReceiptFilterFilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptFilterFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptFilterFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptFilterFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterFilterPtrOutput) ToReceiptFilterFilterPtrOutput() ReceiptFilterFilterPtrOutput {
+	return o
+}
+
+func (o ReceiptFilterFilterPtrOutput) ToReceiptFilterFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterFilterPtrOutput {
+	return o
+}
+
+func (o ReceiptFilterFilterPtrOutput) Elem() ReceiptFilterFilterOutput {
+	return o.ApplyT(func(v *ReceiptFilterFilter) ReceiptFilterFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptFilterFilter
+		return ret
+	}).(ReceiptFilterFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-ipfilter
+func (o ReceiptFilterFilterPtrOutput) IpFilter() ReceiptFilterIpFilterPtrOutput {
+	return o.ApplyT(func(v *ReceiptFilterFilter) *ReceiptFilterIpFilter {
+		if v == nil {
+			return nil
+		}
+		return &v.IpFilter
+	}).(ReceiptFilterIpFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-filter.html#cfn-ses-receiptfilter-filter-name
+func (o ReceiptFilterFilterPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptFilterFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
+type ReceiptFilterIpFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
+	Cidr string `pulumi:"cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
+	Policy string `pulumi:"policy"`
+}
+
+// ReceiptFilterIpFilterInput is an input type that accepts ReceiptFilterIpFilterArgs and ReceiptFilterIpFilterOutput values.
+// You can construct a concrete instance of `ReceiptFilterIpFilterInput` via:
+//
+//          ReceiptFilterIpFilterArgs{...}
+type ReceiptFilterIpFilterInput interface {
+	pulumi.Input
+
+	ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput
+	ToReceiptFilterIpFilterOutputWithContext(context.Context) ReceiptFilterIpFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
+type ReceiptFilterIpFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
+	Cidr pulumi.StringInput `pulumi:"cidr"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
+	Policy pulumi.StringInput `pulumi:"policy"`
+}
+
+func (ReceiptFilterIpFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput {
+	return i.ToReceiptFilterIpFilterOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterOutputWithContext(ctx context.Context) ReceiptFilterIpFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterOutput)
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
+	return i.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptFilterIpFilterArgs) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterOutput).ToReceiptFilterIpFilterPtrOutputWithContext(ctx)
+}
+
+// ReceiptFilterIpFilterPtrInput is an input type that accepts ReceiptFilterIpFilterArgs, ReceiptFilterIpFilterPtr and ReceiptFilterIpFilterPtrOutput values.
+// You can construct a concrete instance of `ReceiptFilterIpFilterPtrInput` via:
+//
+//          ReceiptFilterIpFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptFilterIpFilterPtrInput interface {
+	pulumi.Input
+
+	ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput
+	ToReceiptFilterIpFilterPtrOutputWithContext(context.Context) ReceiptFilterIpFilterPtrOutput
+}
+
+type receiptFilterIpFilterPtrType ReceiptFilterIpFilterArgs
+
+func ReceiptFilterIpFilterPtr(v *ReceiptFilterIpFilterArgs) ReceiptFilterIpFilterPtrInput {
+	return (*receiptFilterIpFilterPtrType)(v)
+}
+
+func (*receiptFilterIpFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (i *receiptFilterIpFilterPtrType) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
+	return i.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptFilterIpFilterPtrType) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterIpFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html
+type ReceiptFilterIpFilterOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterIpFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterOutput() ReceiptFilterIpFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterOutputWithContext(ctx context.Context) ReceiptFilterIpFilterOutput {
+	return o
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
+	return o.ToReceiptFilterIpFilterPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptFilterIpFilterOutput) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptFilterIpFilter) *ReceiptFilterIpFilter {
+		return &v
+	}).(ReceiptFilterIpFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
+func (o ReceiptFilterIpFilterOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Cidr }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
+func (o ReceiptFilterIpFilterOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptFilterIpFilter) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+type ReceiptFilterIpFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptFilterIpFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptFilterIpFilter)(nil)).Elem()
+}
+
+func (o ReceiptFilterIpFilterPtrOutput) ToReceiptFilterIpFilterPtrOutput() ReceiptFilterIpFilterPtrOutput {
+	return o
+}
+
+func (o ReceiptFilterIpFilterPtrOutput) ToReceiptFilterIpFilterPtrOutputWithContext(ctx context.Context) ReceiptFilterIpFilterPtrOutput {
+	return o
+}
+
+func (o ReceiptFilterIpFilterPtrOutput) Elem() ReceiptFilterIpFilterOutput {
+	return o.ApplyT(func(v *ReceiptFilterIpFilter) ReceiptFilterIpFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptFilterIpFilter
+		return ret
+	}).(ReceiptFilterIpFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
+func (o ReceiptFilterIpFilterPtrOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptFilterIpFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Cidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
+func (o ReceiptFilterIpFilterPtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptFilterIpFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Policy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
+type ReceiptRuleAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-addheaderaction
+	AddHeaderAction *ReceiptRuleAddHeaderAction `pulumi:"addHeaderAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
+	BounceAction *ReceiptRuleBounceAction `pulumi:"bounceAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-lambdaaction
+	LambdaAction *ReceiptRuleLambdaAction `pulumi:"lambdaAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-s3action
+	S3Action *ReceiptRuleS3Action `pulumi:"s3Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-snsaction
+	SNSAction *ReceiptRuleSNSAction `pulumi:"sNSAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-stopaction
+	StopAction *ReceiptRuleStopAction `pulumi:"stopAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction
+	WorkmailAction *ReceiptRuleWorkmailAction `pulumi:"workmailAction"`
+}
+
+// ReceiptRuleActionInput is an input type that accepts ReceiptRuleActionArgs and ReceiptRuleActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleActionInput` via:
+//
+//          ReceiptRuleActionArgs{...}
+type ReceiptRuleActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleActionOutput() ReceiptRuleActionOutput
+	ToReceiptRuleActionOutputWithContext(context.Context) ReceiptRuleActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
+type ReceiptRuleActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-addheaderaction
+	AddHeaderAction ReceiptRuleAddHeaderActionPtrInput `pulumi:"addHeaderAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
+	BounceAction ReceiptRuleBounceActionPtrInput `pulumi:"bounceAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-lambdaaction
+	LambdaAction ReceiptRuleLambdaActionPtrInput `pulumi:"lambdaAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-s3action
+	S3Action ReceiptRuleS3ActionPtrInput `pulumi:"s3Action"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-snsaction
+	SNSAction ReceiptRuleSNSActionPtrInput `pulumi:"sNSAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-stopaction
+	StopAction ReceiptRuleStopActionPtrInput `pulumi:"stopAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction
+	WorkmailAction ReceiptRuleWorkmailActionPtrInput `pulumi:"workmailAction"`
+}
+
+func (ReceiptRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleActionArgs) ToReceiptRuleActionOutput() ReceiptRuleActionOutput {
+	return i.ToReceiptRuleActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleActionArgs) ToReceiptRuleActionOutputWithContext(ctx context.Context) ReceiptRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleActionOutput)
+}
+
+// ReceiptRuleActionArrayInput is an input type that accepts ReceiptRuleActionArray and ReceiptRuleActionArrayOutput values.
+// You can construct a concrete instance of `ReceiptRuleActionArrayInput` via:
+//
+//          ReceiptRuleActionArray{ ReceiptRuleActionArgs{...} }
+type ReceiptRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput
+	ToReceiptRuleActionArrayOutputWithContext(context.Context) ReceiptRuleActionArrayOutput
+}
+
+type ReceiptRuleActionArray []ReceiptRuleActionInput
+
+func (ReceiptRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReceiptRuleAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleActionArray) ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput {
+	return i.ToReceiptRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleActionArray) ToReceiptRuleActionArrayOutputWithContext(ctx context.Context) ReceiptRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html
+type ReceiptRuleActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleActionOutput) ToReceiptRuleActionOutput() ReceiptRuleActionOutput {
+	return o
+}
+
+func (o ReceiptRuleActionOutput) ToReceiptRuleActionOutputWithContext(ctx context.Context) ReceiptRuleActionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-addheaderaction
+func (o ReceiptRuleActionOutput) AddHeaderAction() ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleAddHeaderAction { return v.AddHeaderAction }).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-bounceaction
+func (o ReceiptRuleActionOutput) BounceAction() ReceiptRuleBounceActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleBounceAction { return v.BounceAction }).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-lambdaaction
+func (o ReceiptRuleActionOutput) LambdaAction() ReceiptRuleLambdaActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleLambdaAction { return v.LambdaAction }).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-s3action
+func (o ReceiptRuleActionOutput) S3Action() ReceiptRuleS3ActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleS3Action { return v.S3Action }).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-snsaction
+func (o ReceiptRuleActionOutput) SNSAction() ReceiptRuleSNSActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleSNSAction { return v.SNSAction }).(ReceiptRuleSNSActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-stopaction
+func (o ReceiptRuleActionOutput) StopAction() ReceiptRuleStopActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleStopAction { return v.StopAction }).(ReceiptRuleStopActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-action.html#cfn-ses-receiptrule-action-workmailaction
+func (o ReceiptRuleActionOutput) WorkmailAction() ReceiptRuleWorkmailActionPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleAction) *ReceiptRuleWorkmailAction { return v.WorkmailAction }).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+type ReceiptRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReceiptRuleAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleActionArrayOutput) ToReceiptRuleActionArrayOutput() ReceiptRuleActionArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleActionArrayOutput) ToReceiptRuleActionArrayOutputWithContext(ctx context.Context) ReceiptRuleActionArrayOutput {
+	return o
+}
+
+func (o ReceiptRuleActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReceiptRuleAction {
+		return vs[0].([]ReceiptRuleAction)[vs[1].(int)]
+	}).(ReceiptRuleActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html
+type ReceiptRuleAddHeaderAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
+	HeaderName string `pulumi:"headerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// ReceiptRuleAddHeaderActionInput is an input type that accepts ReceiptRuleAddHeaderActionArgs and ReceiptRuleAddHeaderActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionInput` via:
+//
+//          ReceiptRuleAddHeaderActionArgs{...}
+type ReceiptRuleAddHeaderActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput
+	ToReceiptRuleAddHeaderActionOutputWithContext(context.Context) ReceiptRuleAddHeaderActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html
+type ReceiptRuleAddHeaderActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (ReceiptRuleAddHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput {
+	return i.ToReceiptRuleAddHeaderActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput)
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return i.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleAddHeaderActionArgs) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionOutput).ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleAddHeaderActionPtrInput is an input type that accepts ReceiptRuleAddHeaderActionArgs, ReceiptRuleAddHeaderActionPtr and ReceiptRuleAddHeaderActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleAddHeaderActionPtrInput` via:
+//
+//          ReceiptRuleAddHeaderActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleAddHeaderActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput
+	ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Context) ReceiptRuleAddHeaderActionPtrOutput
+}
+
+type receiptRuleAddHeaderActionPtrType ReceiptRuleAddHeaderActionArgs
+
+func ReceiptRuleAddHeaderActionPtr(v *ReceiptRuleAddHeaderActionArgs) ReceiptRuleAddHeaderActionPtrInput {
+	return (*receiptRuleAddHeaderActionPtrType)(v)
+}
+
+func (*receiptRuleAddHeaderActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (i *receiptRuleAddHeaderActionPtrType) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return i.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleAddHeaderActionPtrType) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html
+type ReceiptRuleAddHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleAddHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutput() ReceiptRuleAddHeaderActionOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ToReceiptRuleAddHeaderActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleAddHeaderActionOutput) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleAddHeaderAction) *ReceiptRuleAddHeaderAction {
+		return &v
+	}).(ReceiptRuleAddHeaderActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
+func (o ReceiptRuleAddHeaderActionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
+func (o ReceiptRuleAddHeaderActionOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleAddHeaderAction) string { return v.HeaderValue }).(pulumi.StringOutput)
+}
+
+type ReceiptRuleAddHeaderActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleAddHeaderActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleAddHeaderAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) ToReceiptRuleAddHeaderActionPtrOutput() ReceiptRuleAddHeaderActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) ToReceiptRuleAddHeaderActionPtrOutputWithContext(ctx context.Context) ReceiptRuleAddHeaderActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleAddHeaderActionPtrOutput) Elem() ReceiptRuleAddHeaderActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) ReceiptRuleAddHeaderAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleAddHeaderAction
+		return ret
+	}).(ReceiptRuleAddHeaderActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headername
+func (o ReceiptRuleAddHeaderActionPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html#cfn-ses-receiptrule-addheaderaction-headervalue
+func (o ReceiptRuleAddHeaderActionPtrOutput) HeaderValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleAddHeaderAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderValue
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html
+type ReceiptRuleBounceAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-message
+	Message string `pulumi:"message"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender
+	Sender string `pulumi:"sender"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-smtpreplycode
+	SmtpReplyCode string `pulumi:"smtpReplyCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-statuscode
+	StatusCode *string `pulumi:"statusCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleBounceActionInput is an input type that accepts ReceiptRuleBounceActionArgs and ReceiptRuleBounceActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionInput` via:
+//
+//          ReceiptRuleBounceActionArgs{...}
+type ReceiptRuleBounceActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput
+	ToReceiptRuleBounceActionOutputWithContext(context.Context) ReceiptRuleBounceActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html
+type ReceiptRuleBounceActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-message
+	Message pulumi.StringInput `pulumi:"message"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender
+	Sender pulumi.StringInput `pulumi:"sender"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-smtpreplycode
+	SmtpReplyCode pulumi.StringInput `pulumi:"smtpReplyCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-statuscode
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleBounceActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput {
+	return i.ToReceiptRuleBounceActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionOutputWithContext(ctx context.Context) ReceiptRuleBounceActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput)
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return i.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleBounceActionArgs) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionOutput).ToReceiptRuleBounceActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleBounceActionPtrInput is an input type that accepts ReceiptRuleBounceActionArgs, ReceiptRuleBounceActionPtr and ReceiptRuleBounceActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleBounceActionPtrInput` via:
+//
+//          ReceiptRuleBounceActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleBounceActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput
+	ToReceiptRuleBounceActionPtrOutputWithContext(context.Context) ReceiptRuleBounceActionPtrOutput
+}
+
+type receiptRuleBounceActionPtrType ReceiptRuleBounceActionArgs
+
+func ReceiptRuleBounceActionPtr(v *ReceiptRuleBounceActionArgs) ReceiptRuleBounceActionPtrInput {
+	return (*receiptRuleBounceActionPtrType)(v)
+}
+
+func (*receiptRuleBounceActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (i *receiptRuleBounceActionPtrType) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return i.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleBounceActionPtrType) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html
+type ReceiptRuleBounceActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleBounceActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutput() ReceiptRuleBounceActionOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionOutputWithContext(ctx context.Context) ReceiptRuleBounceActionOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return o.ToReceiptRuleBounceActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleBounceActionOutput) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleBounceAction) *ReceiptRuleBounceAction {
+		return &v
+	}).(ReceiptRuleBounceActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-message
+func (o ReceiptRuleBounceActionOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender
+func (o ReceiptRuleBounceActionOutput) Sender() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.Sender }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-smtpreplycode
+func (o ReceiptRuleBounceActionOutput) SmtpReplyCode() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) string { return v.SmtpReplyCode }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-statuscode
+func (o ReceiptRuleBounceActionOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn
+func (o ReceiptRuleBounceActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleBounceAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleBounceActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleBounceActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleBounceAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) ToReceiptRuleBounceActionPtrOutput() ReceiptRuleBounceActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) ToReceiptRuleBounceActionPtrOutputWithContext(ctx context.Context) ReceiptRuleBounceActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleBounceActionPtrOutput) Elem() ReceiptRuleBounceActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) ReceiptRuleBounceAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleBounceAction
+		return ret
+	}).(ReceiptRuleBounceActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-message
+func (o ReceiptRuleBounceActionPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-sender
+func (o ReceiptRuleBounceActionPtrOutput) Sender() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sender
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-smtpreplycode
+func (o ReceiptRuleBounceActionPtrOutput) SmtpReplyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SmtpReplyCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-statuscode
+func (o ReceiptRuleBounceActionPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-bounceaction.html#cfn-ses-receiptrule-bounceaction-topicarn
+func (o ReceiptRuleBounceActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleBounceAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html
+type ReceiptRuleLambdaAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-functionarn
+	FunctionArn string `pulumi:"functionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-invocationtype
+	InvocationType *string `pulumi:"invocationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleLambdaActionInput is an input type that accepts ReceiptRuleLambdaActionArgs and ReceiptRuleLambdaActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionInput` via:
+//
+//          ReceiptRuleLambdaActionArgs{...}
+type ReceiptRuleLambdaActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput
+	ToReceiptRuleLambdaActionOutputWithContext(context.Context) ReceiptRuleLambdaActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html
+type ReceiptRuleLambdaActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-functionarn
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-invocationtype
+	InvocationType pulumi.StringPtrInput `pulumi:"invocationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleLambdaActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput {
+	return i.ToReceiptRuleLambdaActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput)
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return i.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleLambdaActionArgs) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionOutput).ToReceiptRuleLambdaActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleLambdaActionPtrInput is an input type that accepts ReceiptRuleLambdaActionArgs, ReceiptRuleLambdaActionPtr and ReceiptRuleLambdaActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleLambdaActionPtrInput` via:
+//
+//          ReceiptRuleLambdaActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleLambdaActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput
+	ToReceiptRuleLambdaActionPtrOutputWithContext(context.Context) ReceiptRuleLambdaActionPtrOutput
+}
+
+type receiptRuleLambdaActionPtrType ReceiptRuleLambdaActionArgs
+
+func ReceiptRuleLambdaActionPtr(v *ReceiptRuleLambdaActionArgs) ReceiptRuleLambdaActionPtrInput {
+	return (*receiptRuleLambdaActionPtrType)(v)
+}
+
+func (*receiptRuleLambdaActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (i *receiptRuleLambdaActionPtrType) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return i.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleLambdaActionPtrType) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html
+type ReceiptRuleLambdaActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleLambdaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutput() ReceiptRuleLambdaActionOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return o.ToReceiptRuleLambdaActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleLambdaActionOutput) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleLambdaAction) *ReceiptRuleLambdaAction {
+		return &v
+	}).(ReceiptRuleLambdaActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-functionarn
+func (o ReceiptRuleLambdaActionOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-invocationtype
+func (o ReceiptRuleLambdaActionOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.InvocationType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-topicarn
+func (o ReceiptRuleLambdaActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleLambdaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleLambdaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleLambdaAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) ToReceiptRuleLambdaActionPtrOutput() ReceiptRuleLambdaActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) ToReceiptRuleLambdaActionPtrOutputWithContext(ctx context.Context) ReceiptRuleLambdaActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleLambdaActionPtrOutput) Elem() ReceiptRuleLambdaActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) ReceiptRuleLambdaAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleLambdaAction
+		return ret
+	}).(ReceiptRuleLambdaActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-functionarn
+func (o ReceiptRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-invocationtype
+func (o ReceiptRuleLambdaActionPtrOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html#cfn-ses-receiptrule-lambdaaction-topicarn
+func (o ReceiptRuleLambdaActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleLambdaAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
+type ReceiptRuleRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
+	Actions []ReceiptRuleAction `pulumi:"actions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
+	Enabled *bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
+	Recipients []string `pulumi:"recipients"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
+	ScanEnabled *bool `pulumi:"scanEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
+	TlsPolicy *string `pulumi:"tlsPolicy"`
+}
+
+// ReceiptRuleRuleInput is an input type that accepts ReceiptRuleRuleArgs and ReceiptRuleRuleOutput values.
+// You can construct a concrete instance of `ReceiptRuleRuleInput` via:
+//
+//          ReceiptRuleRuleArgs{...}
+type ReceiptRuleRuleInput interface {
+	pulumi.Input
+
+	ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput
+	ToReceiptRuleRuleOutputWithContext(context.Context) ReceiptRuleRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
+type ReceiptRuleRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
+	Actions ReceiptRuleActionArrayInput `pulumi:"actions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
+	Recipients pulumi.StringArrayInput `pulumi:"recipients"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
+	ScanEnabled pulumi.BoolPtrInput `pulumi:"scanEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
+	TlsPolicy pulumi.StringPtrInput `pulumi:"tlsPolicy"`
+}
+
+func (ReceiptRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleRule)(nil)).Elem()
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput {
+	return i.ToReceiptRuleRuleOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRuleOutputWithContext(ctx context.Context) ReceiptRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRuleOutput)
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return i.ToReceiptRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleRuleArgs) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRuleOutput).ToReceiptRuleRulePtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleRulePtrInput is an input type that accepts ReceiptRuleRuleArgs, ReceiptRuleRulePtr and ReceiptRuleRulePtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleRulePtrInput` via:
+//
+//          ReceiptRuleRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput
+	ToReceiptRuleRulePtrOutputWithContext(context.Context) ReceiptRuleRulePtrOutput
+}
+
+type receiptRuleRulePtrType ReceiptRuleRuleArgs
+
+func ReceiptRuleRulePtr(v *ReceiptRuleRuleArgs) ReceiptRuleRulePtrInput {
+	return (*receiptRuleRulePtrType)(v)
+}
+
+func (*receiptRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
+}
+
+func (i *receiptRuleRulePtrType) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return i.ToReceiptRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleRulePtrType) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html
+type ReceiptRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleRule)(nil)).Elem()
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutput() ReceiptRuleRuleOutput {
+	return o
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRuleOutputWithContext(ctx context.Context) ReceiptRuleRuleOutput {
+	return o
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return o.ToReceiptRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleRuleOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleRule) *ReceiptRuleRule {
+		return &v
+	}).(ReceiptRuleRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
+func (o ReceiptRuleRuleOutput) Actions() ReceiptRuleActionArrayOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) []ReceiptRuleAction { return v.Actions }).(ReceiptRuleActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
+func (o ReceiptRuleRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
+func (o ReceiptRuleRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
+func (o ReceiptRuleRuleOutput) Recipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) []string { return v.Recipients }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
+func (o ReceiptRuleRuleOutput) ScanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *bool { return v.ScanEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
+func (o ReceiptRuleRuleOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleRule) *string { return v.TlsPolicy }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleRule)(nil)).Elem()
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutput() ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) ToReceiptRuleRulePtrOutputWithContext(ctx context.Context) ReceiptRuleRulePtrOutput {
+	return o
+}
+
+func (o ReceiptRuleRulePtrOutput) Elem() ReceiptRuleRuleOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) ReceiptRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleRule
+		return ret
+	}).(ReceiptRuleRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-actions
+func (o ReceiptRuleRulePtrOutput) Actions() ReceiptRuleActionArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []ReceiptRuleAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(ReceiptRuleActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-enabled
+func (o ReceiptRuleRulePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-name
+func (o ReceiptRuleRulePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-recipients
+func (o ReceiptRuleRulePtrOutput) Recipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Recipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-scanenabled
+func (o ReceiptRuleRulePtrOutput) ScanEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScanEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-rule.html#cfn-ses-receiptrule-rule-tlspolicy
+func (o ReceiptRuleRulePtrOutput) TlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html
+type ReceiptRuleS3Action struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname
+	BucketName string `pulumi:"bucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-kmskeyarn
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-objectkeyprefix
+	ObjectKeyPrefix *string `pulumi:"objectKeyPrefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleS3ActionInput is an input type that accepts ReceiptRuleS3ActionArgs and ReceiptRuleS3ActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionInput` via:
+//
+//          ReceiptRuleS3ActionArgs{...}
+type ReceiptRuleS3ActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput
+	ToReceiptRuleS3ActionOutputWithContext(context.Context) ReceiptRuleS3ActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html
+type ReceiptRuleS3ActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-kmskeyarn
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-objectkeyprefix
+	ObjectKeyPrefix pulumi.StringPtrInput `pulumi:"objectKeyPrefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleS3ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput {
+	return i.ToReceiptRuleS3ActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionOutputWithContext(ctx context.Context) ReceiptRuleS3ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput)
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return i.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleS3ActionArgs) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionOutput).ToReceiptRuleS3ActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleS3ActionPtrInput is an input type that accepts ReceiptRuleS3ActionArgs, ReceiptRuleS3ActionPtr and ReceiptRuleS3ActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleS3ActionPtrInput` via:
+//
+//          ReceiptRuleS3ActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleS3ActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput
+	ToReceiptRuleS3ActionPtrOutputWithContext(context.Context) ReceiptRuleS3ActionPtrOutput
+}
+
+type receiptRuleS3ActionPtrType ReceiptRuleS3ActionArgs
+
+func ReceiptRuleS3ActionPtr(v *ReceiptRuleS3ActionArgs) ReceiptRuleS3ActionPtrInput {
+	return (*receiptRuleS3ActionPtrType)(v)
+}
+
+func (*receiptRuleS3ActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (i *receiptRuleS3ActionPtrType) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return i.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleS3ActionPtrType) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html
+type ReceiptRuleS3ActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleS3ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutput() ReceiptRuleS3ActionOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionOutputWithContext(ctx context.Context) ReceiptRuleS3ActionOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return o.ToReceiptRuleS3ActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleS3ActionOutput) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleS3Action) *ReceiptRuleS3Action {
+		return &v
+	}).(ReceiptRuleS3ActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname
+func (o ReceiptRuleS3ActionOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-kmskeyarn
+func (o ReceiptRuleS3ActionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-objectkeyprefix
+func (o ReceiptRuleS3ActionOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.ObjectKeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-topicarn
+func (o ReceiptRuleS3ActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleS3Action) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleS3ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleS3ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleS3Action)(nil)).Elem()
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) ToReceiptRuleS3ActionPtrOutput() ReceiptRuleS3ActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) ToReceiptRuleS3ActionPtrOutputWithContext(ctx context.Context) ReceiptRuleS3ActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleS3ActionPtrOutput) Elem() ReceiptRuleS3ActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) ReceiptRuleS3Action {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleS3Action
+		return ret
+	}).(ReceiptRuleS3ActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-bucketname
+func (o ReceiptRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-kmskeyarn
+func (o ReceiptRuleS3ActionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-objectkeyprefix
+func (o ReceiptRuleS3ActionPtrOutput) ObjectKeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectKeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-s3action.html#cfn-ses-receiptrule-s3action-topicarn
+func (o ReceiptRuleS3ActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleS3Action) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html
+type ReceiptRuleSNSAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
+	Encoding *string `pulumi:"encoding"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleSNSActionInput is an input type that accepts ReceiptRuleSNSActionArgs and ReceiptRuleSNSActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleSNSActionInput` via:
+//
+//          ReceiptRuleSNSActionArgs{...}
+type ReceiptRuleSNSActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput
+	ToReceiptRuleSNSActionOutputWithContext(context.Context) ReceiptRuleSNSActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html
+type ReceiptRuleSNSActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleSNSActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSNSAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput {
+	return i.ToReceiptRuleSNSActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionOutputWithContext(ctx context.Context) ReceiptRuleSNSActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionOutput)
+}
+
+func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
+	return i.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleSNSActionArgs) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionOutput).ToReceiptRuleSNSActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleSNSActionPtrInput is an input type that accepts ReceiptRuleSNSActionArgs, ReceiptRuleSNSActionPtr and ReceiptRuleSNSActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleSNSActionPtrInput` via:
+//
+//          ReceiptRuleSNSActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleSNSActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput
+	ToReceiptRuleSNSActionPtrOutputWithContext(context.Context) ReceiptRuleSNSActionPtrOutput
+}
+
+type receiptRuleSNSActionPtrType ReceiptRuleSNSActionArgs
+
+func ReceiptRuleSNSActionPtr(v *ReceiptRuleSNSActionArgs) ReceiptRuleSNSActionPtrInput {
+	return (*receiptRuleSNSActionPtrType)(v)
+}
+
+func (*receiptRuleSNSActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSNSAction)(nil)).Elem()
+}
+
+func (i *receiptRuleSNSActionPtrType) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
+	return i.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleSNSActionPtrType) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSNSActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html
+type ReceiptRuleSNSActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSNSActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleSNSAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionOutput() ReceiptRuleSNSActionOutput {
+	return o
+}
+
+func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionOutputWithContext(ctx context.Context) ReceiptRuleSNSActionOutput {
+	return o
+}
+
+func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
+	return o.ToReceiptRuleSNSActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleSNSActionOutput) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleSNSAction) *ReceiptRuleSNSAction {
+		return &v
+	}).(ReceiptRuleSNSActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
+func (o ReceiptRuleSNSActionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSNSAction) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
+func (o ReceiptRuleSNSActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleSNSAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleSNSActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleSNSActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleSNSAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleSNSActionPtrOutput) ToReceiptRuleSNSActionPtrOutput() ReceiptRuleSNSActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleSNSActionPtrOutput) ToReceiptRuleSNSActionPtrOutputWithContext(ctx context.Context) ReceiptRuleSNSActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleSNSActionPtrOutput) Elem() ReceiptRuleSNSActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleSNSAction) ReceiptRuleSNSAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleSNSAction
+		return ret
+	}).(ReceiptRuleSNSActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-encoding
+func (o ReceiptRuleSNSActionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSNSAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-snsaction.html#cfn-ses-receiptrule-snsaction-topicarn
+func (o ReceiptRuleSNSActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleSNSAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html
+type ReceiptRuleStopAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-scope
+	Scope string `pulumi:"scope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleStopActionInput is an input type that accepts ReceiptRuleStopActionArgs and ReceiptRuleStopActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionInput` via:
+//
+//          ReceiptRuleStopActionArgs{...}
+type ReceiptRuleStopActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput
+	ToReceiptRuleStopActionOutputWithContext(context.Context) ReceiptRuleStopActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html
+type ReceiptRuleStopActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-scope
+	Scope pulumi.StringInput `pulumi:"scope"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleStopActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput {
+	return i.ToReceiptRuleStopActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionOutputWithContext(ctx context.Context) ReceiptRuleStopActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput)
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return i.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleStopActionArgs) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionOutput).ToReceiptRuleStopActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleStopActionPtrInput is an input type that accepts ReceiptRuleStopActionArgs, ReceiptRuleStopActionPtr and ReceiptRuleStopActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleStopActionPtrInput` via:
+//
+//          ReceiptRuleStopActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleStopActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput
+	ToReceiptRuleStopActionPtrOutputWithContext(context.Context) ReceiptRuleStopActionPtrOutput
+}
+
+type receiptRuleStopActionPtrType ReceiptRuleStopActionArgs
+
+func ReceiptRuleStopActionPtr(v *ReceiptRuleStopActionArgs) ReceiptRuleStopActionPtrInput {
+	return (*receiptRuleStopActionPtrType)(v)
+}
+
+func (*receiptRuleStopActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (i *receiptRuleStopActionPtrType) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return i.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleStopActionPtrType) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleStopActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html
+type ReceiptRuleStopActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleStopActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutput() ReceiptRuleStopActionOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionOutputWithContext(ctx context.Context) ReceiptRuleStopActionOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return o.ToReceiptRuleStopActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleStopActionOutput) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleStopAction) *ReceiptRuleStopAction {
+		return &v
+	}).(ReceiptRuleStopActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-scope
+func (o ReceiptRuleStopActionOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleStopAction) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn
+func (o ReceiptRuleStopActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleStopAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleStopActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleStopActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleStopAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleStopActionPtrOutput) ToReceiptRuleStopActionPtrOutput() ReceiptRuleStopActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionPtrOutput) ToReceiptRuleStopActionPtrOutputWithContext(ctx context.Context) ReceiptRuleStopActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleStopActionPtrOutput) Elem() ReceiptRuleStopActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) ReceiptRuleStopAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleStopAction
+		return ret
+	}).(ReceiptRuleStopActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-scope
+func (o ReceiptRuleStopActionPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-stopaction.html#cfn-ses-receiptrule-stopaction-topicarn
+func (o ReceiptRuleStopActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleStopAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html
+type ReceiptRuleWorkmailAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-organizationarn
+	OrganizationArn string `pulumi:"organizationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-topicarn
+	TopicArn *string `pulumi:"topicArn"`
+}
+
+// ReceiptRuleWorkmailActionInput is an input type that accepts ReceiptRuleWorkmailActionArgs and ReceiptRuleWorkmailActionOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionInput` via:
+//
+//          ReceiptRuleWorkmailActionArgs{...}
+type ReceiptRuleWorkmailActionInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput
+	ToReceiptRuleWorkmailActionOutputWithContext(context.Context) ReceiptRuleWorkmailActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html
+type ReceiptRuleWorkmailActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-organizationarn
+	OrganizationArn pulumi.StringInput `pulumi:"organizationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-topicarn
+	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
+}
+
+func (ReceiptRuleWorkmailActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput {
+	return i.ToReceiptRuleWorkmailActionOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput)
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return i.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (i ReceiptRuleWorkmailActionArgs) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionOutput).ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx)
+}
+
+// ReceiptRuleWorkmailActionPtrInput is an input type that accepts ReceiptRuleWorkmailActionArgs, ReceiptRuleWorkmailActionPtr and ReceiptRuleWorkmailActionPtrOutput values.
+// You can construct a concrete instance of `ReceiptRuleWorkmailActionPtrInput` via:
+//
+//          ReceiptRuleWorkmailActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ReceiptRuleWorkmailActionPtrInput interface {
+	pulumi.Input
+
+	ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput
+	ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Context) ReceiptRuleWorkmailActionPtrOutput
+}
+
+type receiptRuleWorkmailActionPtrType ReceiptRuleWorkmailActionArgs
+
+func ReceiptRuleWorkmailActionPtr(v *ReceiptRuleWorkmailActionArgs) ReceiptRuleWorkmailActionPtrInput {
+	return (*receiptRuleWorkmailActionPtrType)(v)
+}
+
+func (*receiptRuleWorkmailActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (i *receiptRuleWorkmailActionPtrType) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return i.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (i *receiptRuleWorkmailActionPtrType) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html
+type ReceiptRuleWorkmailActionOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleWorkmailActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutput() ReceiptRuleWorkmailActionOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return o.ToReceiptRuleWorkmailActionPtrOutputWithContext(context.Background())
+}
+
+func (o ReceiptRuleWorkmailActionOutput) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleWorkmailAction) *ReceiptRuleWorkmailAction {
+		return &v
+	}).(ReceiptRuleWorkmailActionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-organizationarn
+func (o ReceiptRuleWorkmailActionOutput) OrganizationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ReceiptRuleWorkmailAction) string { return v.OrganizationArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-topicarn
+func (o ReceiptRuleWorkmailActionOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReceiptRuleWorkmailAction) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
+}
+
+type ReceiptRuleWorkmailActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReceiptRuleWorkmailActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReceiptRuleWorkmailAction)(nil)).Elem()
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) ToReceiptRuleWorkmailActionPtrOutput() ReceiptRuleWorkmailActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) ToReceiptRuleWorkmailActionPtrOutputWithContext(ctx context.Context) ReceiptRuleWorkmailActionPtrOutput {
+	return o
+}
+
+func (o ReceiptRuleWorkmailActionPtrOutput) Elem() ReceiptRuleWorkmailActionOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) ReceiptRuleWorkmailAction {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRuleWorkmailAction
+		return ret
+	}).(ReceiptRuleWorkmailActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-organizationarn
+func (o ReceiptRuleWorkmailActionPtrOutput) OrganizationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OrganizationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-workmailaction.html#cfn-ses-receiptrule-workmailaction-topicarn
+func (o ReceiptRuleWorkmailActionPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReceiptRuleWorkmailAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html
+type TemplateTemplate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart
+	HtmlPart *string `pulumi:"htmlPart"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
+	SubjectPart *string `pulumi:"subjectPart"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
+	TemplateName *string `pulumi:"templateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart
+	TextPart *string `pulumi:"textPart"`
+}
+
+// TemplateTemplateInput is an input type that accepts TemplateTemplateArgs and TemplateTemplateOutput values.
+// You can construct a concrete instance of `TemplateTemplateInput` via:
+//
+//          TemplateTemplateArgs{...}
+type TemplateTemplateInput interface {
+	pulumi.Input
+
+	ToTemplateTemplateOutput() TemplateTemplateOutput
+	ToTemplateTemplateOutputWithContext(context.Context) TemplateTemplateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html
+type TemplateTemplateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart
+	HtmlPart pulumi.StringPtrInput `pulumi:"htmlPart"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
+	SubjectPart pulumi.StringPtrInput `pulumi:"subjectPart"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
+	TemplateName pulumi.StringPtrInput `pulumi:"templateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart
+	TextPart pulumi.StringPtrInput `pulumi:"textPart"`
+}
+
+func (TemplateTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplate)(nil)).Elem()
+}
+
+func (i TemplateTemplateArgs) ToTemplateTemplateOutput() TemplateTemplateOutput {
+	return i.ToTemplateTemplateOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateArgs) ToTemplateTemplateOutputWithContext(ctx context.Context) TemplateTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateOutput)
+}
+
+func (i TemplateTemplateArgs) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
+	return i.ToTemplateTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateArgs) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateOutput).ToTemplateTemplatePtrOutputWithContext(ctx)
+}
+
+// TemplateTemplatePtrInput is an input type that accepts TemplateTemplateArgs, TemplateTemplatePtr and TemplateTemplatePtrOutput values.
+// You can construct a concrete instance of `TemplateTemplatePtrInput` via:
+//
+//          TemplateTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateTemplatePtrInput interface {
+	pulumi.Input
+
+	ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput
+	ToTemplateTemplatePtrOutputWithContext(context.Context) TemplateTemplatePtrOutput
+}
+
+type templateTemplatePtrType TemplateTemplateArgs
+
+func TemplateTemplatePtr(v *TemplateTemplateArgs) TemplateTemplatePtrInput {
+	return (*templateTemplatePtrType)(v)
+}
+
+func (*templateTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTemplate)(nil)).Elem()
+}
+
+func (i *templateTemplatePtrType) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
+	return i.ToTemplateTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *templateTemplatePtrType) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html
+type TemplateTemplateOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplate)(nil)).Elem()
+}
+
+func (o TemplateTemplateOutput) ToTemplateTemplateOutput() TemplateTemplateOutput {
+	return o
+}
+
+func (o TemplateTemplateOutput) ToTemplateTemplateOutputWithContext(ctx context.Context) TemplateTemplateOutput {
+	return o
+}
+
+func (o TemplateTemplateOutput) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
+	return o.ToTemplateTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTemplateOutput) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplate) *TemplateTemplate {
+		return &v
+	}).(TemplateTemplatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart
+func (o TemplateTemplateOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplate) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
+func (o TemplateTemplateOutput) SubjectPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplate) *string { return v.SubjectPart }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
+func (o TemplateTemplateOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplate) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart
+func (o TemplateTemplateOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplate) *string { return v.TextPart }).(pulumi.StringPtrOutput)
+}
+
+type TemplateTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTemplate)(nil)).Elem()
+}
+
+func (o TemplateTemplatePtrOutput) ToTemplateTemplatePtrOutput() TemplateTemplatePtrOutput {
+	return o
+}
+
+func (o TemplateTemplatePtrOutput) ToTemplateTemplatePtrOutputWithContext(ctx context.Context) TemplateTemplatePtrOutput {
+	return o
+}
+
+func (o TemplateTemplatePtrOutput) Elem() TemplateTemplateOutput {
+	return o.ApplyT(func(v *TemplateTemplate) TemplateTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTemplate
+		return ret
+	}).(TemplateTemplateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-htmlpart
+func (o TemplateTemplatePtrOutput) HtmlPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HtmlPart
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-subjectpart
+func (o TemplateTemplatePtrOutput) SubjectPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectPart
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-templatename
+func (o TemplateTemplatePtrOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-template.html#cfn-ses-template-template-textpart
+func (o TemplateTemplatePtrOutput) TextPart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextPart
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationDimensionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})
 	pulumi.RegisterOutputType(ContactListTopicArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterFilterOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterFilterPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterIpFilterOutput{})
+	pulumi.RegisterOutputType(ReceiptFilterIpFilterPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleAddHeaderActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleBounceActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleBounceActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleLambdaActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleLambdaActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleRuleOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleS3ActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleS3ActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSNSActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleSNSActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleStopActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleStopActionPtrOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionOutput{})
+	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateTemplateOutput{})
+	pulumi.RegisterOutputType(TemplateTemplatePtrOutput{})
 }

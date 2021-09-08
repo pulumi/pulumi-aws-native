@@ -35,12 +35,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainConfiguration{}
 	case "aws-native:iot:MitigationAction":
 		r = &MitigationAction{}
+	case "aws-native:iot:Policy":
+		r = &Policy{}
+	case "aws-native:iot:PolicyPrincipalAttachment":
+		r = &PolicyPrincipalAttachment{}
 	case "aws-native:iot:ProvisioningTemplate":
 		r = &ProvisioningTemplate{}
 	case "aws-native:iot:ScheduledAudit":
 		r = &ScheduledAudit{}
 	case "aws-native:iot:SecurityProfile":
 		r = &SecurityProfile{}
+	case "aws-native:iot:Thing":
+		r = &Thing{}
+	case "aws-native:iot:ThingPrincipalAttachment":
+		r = &ThingPrincipalAttachment{}
 	case "aws-native:iot:TopicRule":
 		r = &TopicRule{}
 	case "aws-native:iot:TopicRuleDestination":

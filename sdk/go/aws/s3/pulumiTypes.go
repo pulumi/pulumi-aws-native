@@ -347,6 +347,7953 @@ func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html
+type BucketAbortIncompleteMultipartUpload struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
+}
+
+// BucketAbortIncompleteMultipartUploadInput is an input type that accepts BucketAbortIncompleteMultipartUploadArgs and BucketAbortIncompleteMultipartUploadOutput values.
+// You can construct a concrete instance of `BucketAbortIncompleteMultipartUploadInput` via:
+//
+//          BucketAbortIncompleteMultipartUploadArgs{...}
+type BucketAbortIncompleteMultipartUploadInput interface {
+	pulumi.Input
+
+	ToBucketAbortIncompleteMultipartUploadOutput() BucketAbortIncompleteMultipartUploadOutput
+	ToBucketAbortIncompleteMultipartUploadOutputWithContext(context.Context) BucketAbortIncompleteMultipartUploadOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html
+type BucketAbortIncompleteMultipartUploadArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
+}
+
+func (BucketAbortIncompleteMultipartUploadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadOutput() BucketAbortIncompleteMultipartUploadOutput {
+	return i.ToBucketAbortIncompleteMultipartUploadOutputWithContext(context.Background())
+}
+
+func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadOutput)
+}
+
+func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadOutput).ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx)
+}
+
+// BucketAbortIncompleteMultipartUploadPtrInput is an input type that accepts BucketAbortIncompleteMultipartUploadArgs, BucketAbortIncompleteMultipartUploadPtr and BucketAbortIncompleteMultipartUploadPtrOutput values.
+// You can construct a concrete instance of `BucketAbortIncompleteMultipartUploadPtrInput` via:
+//
+//          BucketAbortIncompleteMultipartUploadArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketAbortIncompleteMultipartUploadPtrInput interface {
+	pulumi.Input
+
+	ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput
+	ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Context) BucketAbortIncompleteMultipartUploadPtrOutput
+}
+
+type bucketAbortIncompleteMultipartUploadPtrType BucketAbortIncompleteMultipartUploadArgs
+
+func BucketAbortIncompleteMultipartUploadPtr(v *BucketAbortIncompleteMultipartUploadArgs) BucketAbortIncompleteMultipartUploadPtrInput {
+	return (*bucketAbortIncompleteMultipartUploadPtrType)(v)
+}
+
+func (*bucketAbortIncompleteMultipartUploadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (i *bucketAbortIncompleteMultipartUploadPtrType) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAbortIncompleteMultipartUploadPtrType) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html
+type BucketAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
+
+func (BucketAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMultipartUploadOutput() BucketAbortIncompleteMultipartUploadOutput {
+	return o
+}
+
+func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadOutput {
+	return o
+}
+
+func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAbortIncompleteMultipartUpload) *BucketAbortIncompleteMultipartUpload {
+		return &v
+	}).(BucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+func (o BucketAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketAbortIncompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
+}
+
+type BucketAbortIncompleteMultipartUploadPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAbortIncompleteMultipartUploadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
+	return o
+}
+
+func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
+	return o
+}
+
+func (o BucketAbortIncompleteMultipartUploadPtrOutput) Elem() BucketAbortIncompleteMultipartUploadOutput {
+	return o.ApplyT(func(v *BucketAbortIncompleteMultipartUpload) BucketAbortIncompleteMultipartUpload {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAbortIncompleteMultipartUpload
+		return ret
+	}).(BucketAbortIncompleteMultipartUploadOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+func (o BucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketAbortIncompleteMultipartUpload) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DaysAfterInitiation
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html
+type BucketAccelerateConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+	AccelerationStatus string `pulumi:"accelerationStatus"`
+}
+
+// BucketAccelerateConfigurationInput is an input type that accepts BucketAccelerateConfigurationArgs and BucketAccelerateConfigurationOutput values.
+// You can construct a concrete instance of `BucketAccelerateConfigurationInput` via:
+//
+//          BucketAccelerateConfigurationArgs{...}
+type BucketAccelerateConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketAccelerateConfigurationOutput() BucketAccelerateConfigurationOutput
+	ToBucketAccelerateConfigurationOutputWithContext(context.Context) BucketAccelerateConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html
+type BucketAccelerateConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+	AccelerationStatus pulumi.StringInput `pulumi:"accelerationStatus"`
+}
+
+func (BucketAccelerateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccelerateConfiguration)(nil)).Elem()
+}
+
+func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationOutput() BucketAccelerateConfigurationOutput {
+	return i.ToBucketAccelerateConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationOutputWithContext(ctx context.Context) BucketAccelerateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationOutput)
+}
+
+func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput {
+	return i.ToBucketAccelerateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationPtrOutputWithContext(ctx context.Context) BucketAccelerateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationOutput).ToBucketAccelerateConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketAccelerateConfigurationPtrInput is an input type that accepts BucketAccelerateConfigurationArgs, BucketAccelerateConfigurationPtr and BucketAccelerateConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketAccelerateConfigurationPtrInput` via:
+//
+//          BucketAccelerateConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketAccelerateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput
+	ToBucketAccelerateConfigurationPtrOutputWithContext(context.Context) BucketAccelerateConfigurationPtrOutput
+}
+
+type bucketAccelerateConfigurationPtrType BucketAccelerateConfigurationArgs
+
+func BucketAccelerateConfigurationPtr(v *BucketAccelerateConfigurationArgs) BucketAccelerateConfigurationPtrInput {
+	return (*bucketAccelerateConfigurationPtrType)(v)
+}
+
+func (*bucketAccelerateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccelerateConfiguration)(nil)).Elem()
+}
+
+func (i *bucketAccelerateConfigurationPtrType) ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput {
+	return i.ToBucketAccelerateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAccelerateConfigurationPtrType) ToBucketAccelerateConfigurationPtrOutputWithContext(ctx context.Context) BucketAccelerateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html
+type BucketAccelerateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketAccelerateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccelerateConfiguration)(nil)).Elem()
+}
+
+func (o BucketAccelerateConfigurationOutput) ToBucketAccelerateConfigurationOutput() BucketAccelerateConfigurationOutput {
+	return o
+}
+
+func (o BucketAccelerateConfigurationOutput) ToBucketAccelerateConfigurationOutputWithContext(ctx context.Context) BucketAccelerateConfigurationOutput {
+	return o
+}
+
+func (o BucketAccelerateConfigurationOutput) ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput {
+	return o.ToBucketAccelerateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAccelerateConfigurationOutput) ToBucketAccelerateConfigurationPtrOutputWithContext(ctx context.Context) BucketAccelerateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAccelerateConfiguration) *BucketAccelerateConfiguration {
+		return &v
+	}).(BucketAccelerateConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+func (o BucketAccelerateConfigurationOutput) AccelerationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAccelerateConfiguration) string { return v.AccelerationStatus }).(pulumi.StringOutput)
+}
+
+type BucketAccelerateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAccelerateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccelerateConfiguration)(nil)).Elem()
+}
+
+func (o BucketAccelerateConfigurationPtrOutput) ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketAccelerateConfigurationPtrOutput) ToBucketAccelerateConfigurationPtrOutputWithContext(ctx context.Context) BucketAccelerateConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketAccelerateConfigurationPtrOutput) Elem() BucketAccelerateConfigurationOutput {
+	return o.ApplyT(func(v *BucketAccelerateConfiguration) BucketAccelerateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAccelerateConfiguration
+		return ret
+	}).(BucketAccelerateConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+func (o BucketAccelerateConfigurationPtrOutput) AccelerationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccelerateConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccelerationStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+type BucketAccessControlTranslation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+	Owner string `pulumi:"owner"`
+}
+
+// BucketAccessControlTranslationInput is an input type that accepts BucketAccessControlTranslationArgs and BucketAccessControlTranslationOutput values.
+// You can construct a concrete instance of `BucketAccessControlTranslationInput` via:
+//
+//          BucketAccessControlTranslationArgs{...}
+type BucketAccessControlTranslationInput interface {
+	pulumi.Input
+
+	ToBucketAccessControlTranslationOutput() BucketAccessControlTranslationOutput
+	ToBucketAccessControlTranslationOutputWithContext(context.Context) BucketAccessControlTranslationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+type BucketAccessControlTranslationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+	Owner pulumi.StringInput `pulumi:"owner"`
+}
+
+func (BucketAccessControlTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccessControlTranslation)(nil)).Elem()
+}
+
+func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationOutput() BucketAccessControlTranslationOutput {
+	return i.ToBucketAccessControlTranslationOutputWithContext(context.Background())
+}
+
+func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationOutputWithContext(ctx context.Context) BucketAccessControlTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessControlTranslationOutput)
+}
+
+func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput {
+	return i.ToBucketAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketAccessControlTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessControlTranslationOutput).ToBucketAccessControlTranslationPtrOutputWithContext(ctx)
+}
+
+// BucketAccessControlTranslationPtrInput is an input type that accepts BucketAccessControlTranslationArgs, BucketAccessControlTranslationPtr and BucketAccessControlTranslationPtrOutput values.
+// You can construct a concrete instance of `BucketAccessControlTranslationPtrInput` via:
+//
+//          BucketAccessControlTranslationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketAccessControlTranslationPtrInput interface {
+	pulumi.Input
+
+	ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput
+	ToBucketAccessControlTranslationPtrOutputWithContext(context.Context) BucketAccessControlTranslationPtrOutput
+}
+
+type bucketAccessControlTranslationPtrType BucketAccessControlTranslationArgs
+
+func BucketAccessControlTranslationPtr(v *BucketAccessControlTranslationArgs) BucketAccessControlTranslationPtrInput {
+	return (*bucketAccessControlTranslationPtrType)(v)
+}
+
+func (*bucketAccessControlTranslationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccessControlTranslation)(nil)).Elem()
+}
+
+func (i *bucketAccessControlTranslationPtrType) ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput {
+	return i.ToBucketAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketAccessControlTranslationPtrType) ToBucketAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketAccessControlTranslationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessControlTranslationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html
+type BucketAccessControlTranslationOutput struct{ *pulumi.OutputState }
+
+func (BucketAccessControlTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAccessControlTranslation)(nil)).Elem()
+}
+
+func (o BucketAccessControlTranslationOutput) ToBucketAccessControlTranslationOutput() BucketAccessControlTranslationOutput {
+	return o
+}
+
+func (o BucketAccessControlTranslationOutput) ToBucketAccessControlTranslationOutputWithContext(ctx context.Context) BucketAccessControlTranslationOutput {
+	return o
+}
+
+func (o BucketAccessControlTranslationOutput) ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput {
+	return o.ToBucketAccessControlTranslationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAccessControlTranslationOutput) ToBucketAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketAccessControlTranslationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAccessControlTranslation) *BucketAccessControlTranslation {
+		return &v
+	}).(BucketAccessControlTranslationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+func (o BucketAccessControlTranslationOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+type BucketAccessControlTranslationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAccessControlTranslationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAccessControlTranslation)(nil)).Elem()
+}
+
+func (o BucketAccessControlTranslationPtrOutput) ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput {
+	return o
+}
+
+func (o BucketAccessControlTranslationPtrOutput) ToBucketAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketAccessControlTranslationPtrOutput {
+	return o
+}
+
+func (o BucketAccessControlTranslationPtrOutput) Elem() BucketAccessControlTranslationOutput {
+	return o.ApplyT(func(v *BucketAccessControlTranslation) BucketAccessControlTranslation {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAccessControlTranslation
+		return ret
+	}).(BucketAccessControlTranslationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+func (o BucketAccessControlTranslationPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketAccessControlTranslation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html
+type BucketAnalyticsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id
+	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis
+	StorageClassAnalysis BucketStorageClassAnalysis `pulumi:"storageClassAnalysis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+}
+
+// BucketAnalyticsConfigurationInput is an input type that accepts BucketAnalyticsConfigurationArgs and BucketAnalyticsConfigurationOutput values.
+// You can construct a concrete instance of `BucketAnalyticsConfigurationInput` via:
+//
+//          BucketAnalyticsConfigurationArgs{...}
+type BucketAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketAnalyticsConfigurationOutput() BucketAnalyticsConfigurationOutput
+	ToBucketAnalyticsConfigurationOutputWithContext(context.Context) BucketAnalyticsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html
+type BucketAnalyticsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id
+	Id pulumi.StringInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis
+	StorageClassAnalysis BucketStorageClassAnalysisInput `pulumi:"storageClassAnalysis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (BucketAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i BucketAnalyticsConfigurationArgs) ToBucketAnalyticsConfigurationOutput() BucketAnalyticsConfigurationOutput {
+	return i.ToBucketAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketAnalyticsConfigurationArgs) ToBucketAnalyticsConfigurationOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAnalyticsConfigurationOutput)
+}
+
+// BucketAnalyticsConfigurationArrayInput is an input type that accepts BucketAnalyticsConfigurationArray and BucketAnalyticsConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketAnalyticsConfigurationArrayInput` via:
+//
+//          BucketAnalyticsConfigurationArray{ BucketAnalyticsConfigurationArgs{...} }
+type BucketAnalyticsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketAnalyticsConfigurationArrayOutput() BucketAnalyticsConfigurationArrayOutput
+	ToBucketAnalyticsConfigurationArrayOutputWithContext(context.Context) BucketAnalyticsConfigurationArrayOutput
+}
+
+type BucketAnalyticsConfigurationArray []BucketAnalyticsConfigurationInput
+
+func (BucketAnalyticsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i BucketAnalyticsConfigurationArray) ToBucketAnalyticsConfigurationArrayOutput() BucketAnalyticsConfigurationArrayOutput {
+	return i.ToBucketAnalyticsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketAnalyticsConfigurationArray) ToBucketAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketAnalyticsConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html
+type BucketAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o BucketAnalyticsConfigurationOutput) ToBucketAnalyticsConfigurationOutput() BucketAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o BucketAnalyticsConfigurationOutput) ToBucketAnalyticsConfigurationOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id
+func (o BucketAnalyticsConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketAnalyticsConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix
+func (o BucketAnalyticsConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketAnalyticsConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis
+func (o BucketAnalyticsConfigurationOutput) StorageClassAnalysis() BucketStorageClassAnalysisOutput {
+	return o.ApplyT(func(v BucketAnalyticsConfiguration) BucketStorageClassAnalysis { return v.StorageClassAnalysis }).(BucketStorageClassAnalysisOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters
+func (o BucketAnalyticsConfigurationOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketAnalyticsConfiguration) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+type BucketAnalyticsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketAnalyticsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o BucketAnalyticsConfigurationArrayOutput) ToBucketAnalyticsConfigurationArrayOutput() BucketAnalyticsConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketAnalyticsConfigurationArrayOutput) ToBucketAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) BucketAnalyticsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketAnalyticsConfiguration {
+		return vs[0].([]BucketAnalyticsConfiguration)[vs[1].(int)]
+	}).(BucketAnalyticsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html
+type BucketBucketEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
+	ServerSideEncryptionConfiguration []BucketServerSideEncryptionRule `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+// BucketBucketEncryptionInput is an input type that accepts BucketBucketEncryptionArgs and BucketBucketEncryptionOutput values.
+// You can construct a concrete instance of `BucketBucketEncryptionInput` via:
+//
+//          BucketBucketEncryptionArgs{...}
+type BucketBucketEncryptionInput interface {
+	pulumi.Input
+
+	ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput
+	ToBucketBucketEncryptionOutputWithContext(context.Context) BucketBucketEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html
+type BucketBucketEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
+	ServerSideEncryptionConfiguration BucketServerSideEncryptionRuleArrayInput `pulumi:"serverSideEncryptionConfiguration"`
+}
+
+func (BucketBucketEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBucketEncryption)(nil)).Elem()
+}
+
+func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput {
+	return i.ToBucketBucketEncryptionOutputWithContext(context.Background())
+}
+
+func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionOutputWithContext(ctx context.Context) BucketBucketEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionOutput)
+}
+
+func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
+	return i.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketBucketEncryptionArgs) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionOutput).ToBucketBucketEncryptionPtrOutputWithContext(ctx)
+}
+
+// BucketBucketEncryptionPtrInput is an input type that accepts BucketBucketEncryptionArgs, BucketBucketEncryptionPtr and BucketBucketEncryptionPtrOutput values.
+// You can construct a concrete instance of `BucketBucketEncryptionPtrInput` via:
+//
+//          BucketBucketEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketBucketEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput
+	ToBucketBucketEncryptionPtrOutputWithContext(context.Context) BucketBucketEncryptionPtrOutput
+}
+
+type bucketBucketEncryptionPtrType BucketBucketEncryptionArgs
+
+func BucketBucketEncryptionPtr(v *BucketBucketEncryptionArgs) BucketBucketEncryptionPtrInput {
+	return (*bucketBucketEncryptionPtrType)(v)
+}
+
+func (*bucketBucketEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketBucketEncryption)(nil)).Elem()
+}
+
+func (i *bucketBucketEncryptionPtrType) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
+	return i.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketBucketEncryptionPtrType) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBucketEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html
+type BucketBucketEncryptionOutput struct{ *pulumi.OutputState }
+
+func (BucketBucketEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBucketEncryption)(nil)).Elem()
+}
+
+func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionOutput() BucketBucketEncryptionOutput {
+	return o
+}
+
+func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionOutputWithContext(ctx context.Context) BucketBucketEncryptionOutput {
+	return o
+}
+
+func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
+	return o.ToBucketBucketEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketBucketEncryptionOutput) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketBucketEncryption) *BucketBucketEncryption {
+		return &v
+	}).(BucketBucketEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
+func (o BucketBucketEncryptionOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
+	return o.ApplyT(func(v BucketBucketEncryption) []BucketServerSideEncryptionRule {
+		return v.ServerSideEncryptionConfiguration
+	}).(BucketServerSideEncryptionRuleArrayOutput)
+}
+
+type BucketBucketEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketBucketEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketBucketEncryption)(nil)).Elem()
+}
+
+func (o BucketBucketEncryptionPtrOutput) ToBucketBucketEncryptionPtrOutput() BucketBucketEncryptionPtrOutput {
+	return o
+}
+
+func (o BucketBucketEncryptionPtrOutput) ToBucketBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketBucketEncryptionPtrOutput {
+	return o
+}
+
+func (o BucketBucketEncryptionPtrOutput) Elem() BucketBucketEncryptionOutput {
+	return o.ApplyT(func(v *BucketBucketEncryption) BucketBucketEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret BucketBucketEncryption
+		return ret
+	}).(BucketBucketEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
+func (o BucketBucketEncryptionPtrOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
+	return o.ApplyT(func(v *BucketBucketEncryption) []BucketServerSideEncryptionRule {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionConfiguration
+	}).(BucketServerSideEncryptionRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
+type BucketCorsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
+	CorsRules []BucketCorsRule `pulumi:"corsRules"`
+}
+
+// BucketCorsConfigurationInput is an input type that accepts BucketCorsConfigurationArgs and BucketCorsConfigurationOutput values.
+// You can construct a concrete instance of `BucketCorsConfigurationInput` via:
+//
+//          BucketCorsConfigurationArgs{...}
+type BucketCorsConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketCorsConfigurationOutput() BucketCorsConfigurationOutput
+	ToBucketCorsConfigurationOutputWithContext(context.Context) BucketCorsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
+type BucketCorsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
+	CorsRules BucketCorsRuleArrayInput `pulumi:"corsRules"`
+}
+
+func (BucketCorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsConfiguration)(nil)).Elem()
+}
+
+func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationOutput() BucketCorsConfigurationOutput {
+	return i.ToBucketCorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationOutputWithContext(ctx context.Context) BucketCorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationOutput)
+}
+
+func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput {
+	return i.ToBucketCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationPtrOutputWithContext(ctx context.Context) BucketCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationOutput).ToBucketCorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketCorsConfigurationPtrInput is an input type that accepts BucketCorsConfigurationArgs, BucketCorsConfigurationPtr and BucketCorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketCorsConfigurationPtrInput` via:
+//
+//          BucketCorsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketCorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput
+	ToBucketCorsConfigurationPtrOutputWithContext(context.Context) BucketCorsConfigurationPtrOutput
+}
+
+type bucketCorsConfigurationPtrType BucketCorsConfigurationArgs
+
+func BucketCorsConfigurationPtr(v *BucketCorsConfigurationArgs) BucketCorsConfigurationPtrInput {
+	return (*bucketCorsConfigurationPtrType)(v)
+}
+
+func (*bucketCorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketCorsConfiguration)(nil)).Elem()
+}
+
+func (i *bucketCorsConfigurationPtrType) ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput {
+	return i.ToBucketCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketCorsConfigurationPtrType) ToBucketCorsConfigurationPtrOutputWithContext(ctx context.Context) BucketCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
+type BucketCorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsConfiguration)(nil)).Elem()
+}
+
+func (o BucketCorsConfigurationOutput) ToBucketCorsConfigurationOutput() BucketCorsConfigurationOutput {
+	return o
+}
+
+func (o BucketCorsConfigurationOutput) ToBucketCorsConfigurationOutputWithContext(ctx context.Context) BucketCorsConfigurationOutput {
+	return o
+}
+
+func (o BucketCorsConfigurationOutput) ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput {
+	return o.ToBucketCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketCorsConfigurationOutput) ToBucketCorsConfigurationPtrOutputWithContext(ctx context.Context) BucketCorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketCorsConfiguration) *BucketCorsConfiguration {
+		return &v
+	}).(BucketCorsConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
+func (o BucketCorsConfigurationOutput) CorsRules() BucketCorsRuleArrayOutput {
+	return o.ApplyT(func(v BucketCorsConfiguration) []BucketCorsRule { return v.CorsRules }).(BucketCorsRuleArrayOutput)
+}
+
+type BucketCorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketCorsConfiguration)(nil)).Elem()
+}
+
+func (o BucketCorsConfigurationPtrOutput) ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketCorsConfigurationPtrOutput) ToBucketCorsConfigurationPtrOutputWithContext(ctx context.Context) BucketCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketCorsConfigurationPtrOutput) Elem() BucketCorsConfigurationOutput {
+	return o.ApplyT(func(v *BucketCorsConfiguration) BucketCorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketCorsConfiguration
+		return ret
+	}).(BucketCorsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
+func (o BucketCorsConfigurationPtrOutput) CorsRules() BucketCorsRuleArrayOutput {
+	return o.ApplyT(func(v *BucketCorsConfiguration) []BucketCorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(BucketCorsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
+type BucketCorsRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedheaders
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedmethods
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedorigins
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-exposedheaders
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-id
+	Id *string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
+	MaxAge *int `pulumi:"maxAge"`
+}
+
+// BucketCorsRuleInput is an input type that accepts BucketCorsRuleArgs and BucketCorsRuleOutput values.
+// You can construct a concrete instance of `BucketCorsRuleInput` via:
+//
+//          BucketCorsRuleArgs{...}
+type BucketCorsRuleInput interface {
+	pulumi.Input
+
+	ToBucketCorsRuleOutput() BucketCorsRuleOutput
+	ToBucketCorsRuleOutputWithContext(context.Context) BucketCorsRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
+type BucketCorsRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedheaders
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedmethods
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedorigins
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-exposedheaders
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+}
+
+func (BucketCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsRule)(nil)).Elem()
+}
+
+func (i BucketCorsRuleArgs) ToBucketCorsRuleOutput() BucketCorsRuleOutput {
+	return i.ToBucketCorsRuleOutputWithContext(context.Background())
+}
+
+func (i BucketCorsRuleArgs) ToBucketCorsRuleOutputWithContext(ctx context.Context) BucketCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleOutput)
+}
+
+// BucketCorsRuleArrayInput is an input type that accepts BucketCorsRuleArray and BucketCorsRuleArrayOutput values.
+// You can construct a concrete instance of `BucketCorsRuleArrayInput` via:
+//
+//          BucketCorsRuleArray{ BucketCorsRuleArgs{...} }
+type BucketCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketCorsRuleArrayOutput() BucketCorsRuleArrayOutput
+	ToBucketCorsRuleArrayOutputWithContext(context.Context) BucketCorsRuleArrayOutput
+}
+
+type BucketCorsRuleArray []BucketCorsRuleInput
+
+func (BucketCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsRule)(nil)).Elem()
+}
+
+func (i BucketCorsRuleArray) ToBucketCorsRuleArrayOutput() BucketCorsRuleArrayOutput {
+	return i.ToBucketCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketCorsRuleArray) ToBucketCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
+type BucketCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketCorsRule)(nil)).Elem()
+}
+
+func (o BucketCorsRuleOutput) ToBucketCorsRuleOutput() BucketCorsRuleOutput {
+	return o
+}
+
+func (o BucketCorsRuleOutput) ToBucketCorsRuleOutputWithContext(ctx context.Context) BucketCorsRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedheaders
+func (o BucketCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedmethods
+func (o BucketCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedorigins
+func (o BucketCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-exposedheaders
+func (o BucketCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-id
+func (o BucketCorsRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketCorsRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
+func (o BucketCorsRuleOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketCorsRule) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+type BucketCorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketCorsRule)(nil)).Elem()
+}
+
+func (o BucketCorsRuleArrayOutput) ToBucketCorsRuleArrayOutput() BucketCorsRuleArrayOutput {
+	return o
+}
+
+func (o BucketCorsRuleArrayOutput) ToBucketCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsRuleArrayOutput {
+	return o
+}
+
+func (o BucketCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketCorsRule {
+		return vs[0].([]BucketCorsRule)[vs[1].(int)]
+	}).(BucketCorsRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html
+type BucketDataExport struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+	Destination BucketDestination `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+	OutputSchemaVersion string `pulumi:"outputSchemaVersion"`
+}
+
+// BucketDataExportInput is an input type that accepts BucketDataExportArgs and BucketDataExportOutput values.
+// You can construct a concrete instance of `BucketDataExportInput` via:
+//
+//          BucketDataExportArgs{...}
+type BucketDataExportInput interface {
+	pulumi.Input
+
+	ToBucketDataExportOutput() BucketDataExportOutput
+	ToBucketDataExportOutputWithContext(context.Context) BucketDataExportOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html
+type BucketDataExportArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+	Destination BucketDestinationInput `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+	OutputSchemaVersion pulumi.StringInput `pulumi:"outputSchemaVersion"`
+}
+
+func (BucketDataExportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDataExport)(nil)).Elem()
+}
+
+func (i BucketDataExportArgs) ToBucketDataExportOutput() BucketDataExportOutput {
+	return i.ToBucketDataExportOutputWithContext(context.Background())
+}
+
+func (i BucketDataExportArgs) ToBucketDataExportOutputWithContext(ctx context.Context) BucketDataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDataExportOutput)
+}
+
+func (i BucketDataExportArgs) ToBucketDataExportPtrOutput() BucketDataExportPtrOutput {
+	return i.ToBucketDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDataExportArgs) ToBucketDataExportPtrOutputWithContext(ctx context.Context) BucketDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDataExportOutput).ToBucketDataExportPtrOutputWithContext(ctx)
+}
+
+// BucketDataExportPtrInput is an input type that accepts BucketDataExportArgs, BucketDataExportPtr and BucketDataExportPtrOutput values.
+// You can construct a concrete instance of `BucketDataExportPtrInput` via:
+//
+//          BucketDataExportArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketDataExportPtrInput interface {
+	pulumi.Input
+
+	ToBucketDataExportPtrOutput() BucketDataExportPtrOutput
+	ToBucketDataExportPtrOutputWithContext(context.Context) BucketDataExportPtrOutput
+}
+
+type bucketDataExportPtrType BucketDataExportArgs
+
+func BucketDataExportPtr(v *BucketDataExportArgs) BucketDataExportPtrInput {
+	return (*bucketDataExportPtrType)(v)
+}
+
+func (*bucketDataExportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDataExport)(nil)).Elem()
+}
+
+func (i *bucketDataExportPtrType) ToBucketDataExportPtrOutput() BucketDataExportPtrOutput {
+	return i.ToBucketDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDataExportPtrType) ToBucketDataExportPtrOutputWithContext(ctx context.Context) BucketDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html
+type BucketDataExportOutput struct{ *pulumi.OutputState }
+
+func (BucketDataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDataExport)(nil)).Elem()
+}
+
+func (o BucketDataExportOutput) ToBucketDataExportOutput() BucketDataExportOutput {
+	return o
+}
+
+func (o BucketDataExportOutput) ToBucketDataExportOutputWithContext(ctx context.Context) BucketDataExportOutput {
+	return o
+}
+
+func (o BucketDataExportOutput) ToBucketDataExportPtrOutput() BucketDataExportPtrOutput {
+	return o.ToBucketDataExportPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDataExportOutput) ToBucketDataExportPtrOutputWithContext(ctx context.Context) BucketDataExportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDataExport) *BucketDataExport {
+		return &v
+	}).(BucketDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+func (o BucketDataExportOutput) Destination() BucketDestinationOutput {
+	return o.ApplyT(func(v BucketDataExport) BucketDestination { return v.Destination }).(BucketDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+func (o BucketDataExportOutput) OutputSchemaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketDataExport) string { return v.OutputSchemaVersion }).(pulumi.StringOutput)
+}
+
+type BucketDataExportPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDataExportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDataExport)(nil)).Elem()
+}
+
+func (o BucketDataExportPtrOutput) ToBucketDataExportPtrOutput() BucketDataExportPtrOutput {
+	return o
+}
+
+func (o BucketDataExportPtrOutput) ToBucketDataExportPtrOutputWithContext(ctx context.Context) BucketDataExportPtrOutput {
+	return o
+}
+
+func (o BucketDataExportPtrOutput) Elem() BucketDataExportOutput {
+	return o.ApplyT(func(v *BucketDataExport) BucketDataExport {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDataExport
+		return ret
+	}).(BucketDataExportOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+func (o BucketDataExportPtrOutput) Destination() BucketDestinationPtrOutput {
+	return o.ApplyT(func(v *BucketDataExport) *BucketDestination {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+func (o BucketDataExportPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDataExport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputSchemaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html
+type BucketDefaultRetention struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
+	Days *int `pulumi:"days"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
+	Mode *string `pulumi:"mode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
+	Years *int `pulumi:"years"`
+}
+
+// BucketDefaultRetentionInput is an input type that accepts BucketDefaultRetentionArgs and BucketDefaultRetentionOutput values.
+// You can construct a concrete instance of `BucketDefaultRetentionInput` via:
+//
+//          BucketDefaultRetentionArgs{...}
+type BucketDefaultRetentionInput interface {
+	pulumi.Input
+
+	ToBucketDefaultRetentionOutput() BucketDefaultRetentionOutput
+	ToBucketDefaultRetentionOutputWithContext(context.Context) BucketDefaultRetentionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html
+type BucketDefaultRetentionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
+	Days pulumi.IntPtrInput `pulumi:"days"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
+	Years pulumi.IntPtrInput `pulumi:"years"`
+}
+
+func (BucketDefaultRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefaultRetention)(nil)).Elem()
+}
+
+func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionOutput() BucketDefaultRetentionOutput {
+	return i.ToBucketDefaultRetentionOutputWithContext(context.Background())
+}
+
+func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionOutputWithContext(ctx context.Context) BucketDefaultRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionOutput)
+}
+
+func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput {
+	return i.ToBucketDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionOutput).ToBucketDefaultRetentionPtrOutputWithContext(ctx)
+}
+
+// BucketDefaultRetentionPtrInput is an input type that accepts BucketDefaultRetentionArgs, BucketDefaultRetentionPtr and BucketDefaultRetentionPtrOutput values.
+// You can construct a concrete instance of `BucketDefaultRetentionPtrInput` via:
+//
+//          BucketDefaultRetentionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketDefaultRetentionPtrInput interface {
+	pulumi.Input
+
+	ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput
+	ToBucketDefaultRetentionPtrOutputWithContext(context.Context) BucketDefaultRetentionPtrOutput
+}
+
+type bucketDefaultRetentionPtrType BucketDefaultRetentionArgs
+
+func BucketDefaultRetentionPtr(v *BucketDefaultRetentionArgs) BucketDefaultRetentionPtrInput {
+	return (*bucketDefaultRetentionPtrType)(v)
+}
+
+func (*bucketDefaultRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefaultRetention)(nil)).Elem()
+}
+
+func (i *bucketDefaultRetentionPtrType) ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput {
+	return i.ToBucketDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDefaultRetentionPtrType) ToBucketDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketDefaultRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html
+type BucketDefaultRetentionOutput struct{ *pulumi.OutputState }
+
+func (BucketDefaultRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefaultRetention)(nil)).Elem()
+}
+
+func (o BucketDefaultRetentionOutput) ToBucketDefaultRetentionOutput() BucketDefaultRetentionOutput {
+	return o
+}
+
+func (o BucketDefaultRetentionOutput) ToBucketDefaultRetentionOutputWithContext(ctx context.Context) BucketDefaultRetentionOutput {
+	return o
+}
+
+func (o BucketDefaultRetentionOutput) ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput {
+	return o.ToBucketDefaultRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDefaultRetentionOutput) ToBucketDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketDefaultRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDefaultRetention) *BucketDefaultRetention {
+		return &v
+	}).(BucketDefaultRetentionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
+func (o BucketDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketDefaultRetention) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
+func (o BucketDefaultRetentionOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDefaultRetention) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
+func (o BucketDefaultRetentionOutput) Years() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketDefaultRetention) *int { return v.Years }).(pulumi.IntPtrOutput)
+}
+
+type BucketDefaultRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDefaultRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefaultRetention)(nil)).Elem()
+}
+
+func (o BucketDefaultRetentionPtrOutput) ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput {
+	return o
+}
+
+func (o BucketDefaultRetentionPtrOutput) ToBucketDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketDefaultRetentionPtrOutput {
+	return o
+}
+
+func (o BucketDefaultRetentionPtrOutput) Elem() BucketDefaultRetentionOutput {
+	return o.ApplyT(func(v *BucketDefaultRetention) BucketDefaultRetention {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDefaultRetention
+		return ret
+	}).(BucketDefaultRetentionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-days
+func (o BucketDefaultRetentionPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-mode
+func (o BucketDefaultRetentionPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultRetention) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html#cfn-s3-bucket-defaultretention-years
+func (o BucketDefaultRetentionPtrOutput) Years() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Years
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html
+type BucketDeleteMarkerReplication struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status
+	Status *string `pulumi:"status"`
+}
+
+// BucketDeleteMarkerReplicationInput is an input type that accepts BucketDeleteMarkerReplicationArgs and BucketDeleteMarkerReplicationOutput values.
+// You can construct a concrete instance of `BucketDeleteMarkerReplicationInput` via:
+//
+//          BucketDeleteMarkerReplicationArgs{...}
+type BucketDeleteMarkerReplicationInput interface {
+	pulumi.Input
+
+	ToBucketDeleteMarkerReplicationOutput() BucketDeleteMarkerReplicationOutput
+	ToBucketDeleteMarkerReplicationOutputWithContext(context.Context) BucketDeleteMarkerReplicationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html
+type BucketDeleteMarkerReplicationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (BucketDeleteMarkerReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationOutput() BucketDeleteMarkerReplicationOutput {
+	return i.ToBucketDeleteMarkerReplicationOutputWithContext(context.Background())
+}
+
+func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationOutput)
+}
+
+func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput {
+	return i.ToBucketDeleteMarkerReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationOutput).ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx)
+}
+
+// BucketDeleteMarkerReplicationPtrInput is an input type that accepts BucketDeleteMarkerReplicationArgs, BucketDeleteMarkerReplicationPtr and BucketDeleteMarkerReplicationPtrOutput values.
+// You can construct a concrete instance of `BucketDeleteMarkerReplicationPtrInput` via:
+//
+//          BucketDeleteMarkerReplicationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketDeleteMarkerReplicationPtrInput interface {
+	pulumi.Input
+
+	ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput
+	ToBucketDeleteMarkerReplicationPtrOutputWithContext(context.Context) BucketDeleteMarkerReplicationPtrOutput
+}
+
+type bucketDeleteMarkerReplicationPtrType BucketDeleteMarkerReplicationArgs
+
+func BucketDeleteMarkerReplicationPtr(v *BucketDeleteMarkerReplicationArgs) BucketDeleteMarkerReplicationPtrInput {
+	return (*bucketDeleteMarkerReplicationPtrType)(v)
+}
+
+func (*bucketDeleteMarkerReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (i *bucketDeleteMarkerReplicationPtrType) ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput {
+	return i.ToBucketDeleteMarkerReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDeleteMarkerReplicationPtrType) ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html
+type BucketDeleteMarkerReplicationOutput struct{ *pulumi.OutputState }
+
+func (BucketDeleteMarkerReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationOutput() BucketDeleteMarkerReplicationOutput {
+	return o
+}
+
+func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationOutput {
+	return o
+}
+
+func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput {
+	return o.ToBucketDeleteMarkerReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDeleteMarkerReplication) *BucketDeleteMarkerReplication {
+		return &v
+	}).(BucketDeleteMarkerReplicationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status
+func (o BucketDeleteMarkerReplicationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDeleteMarkerReplication) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type BucketDeleteMarkerReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDeleteMarkerReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (o BucketDeleteMarkerReplicationPtrOutput) ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput {
+	return o
+}
+
+func (o BucketDeleteMarkerReplicationPtrOutput) ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationPtrOutput {
+	return o
+}
+
+func (o BucketDeleteMarkerReplicationPtrOutput) Elem() BucketDeleteMarkerReplicationOutput {
+	return o.ApplyT(func(v *BucketDeleteMarkerReplication) BucketDeleteMarkerReplication {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDeleteMarkerReplication
+		return ret
+	}).(BucketDeleteMarkerReplicationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html#cfn-s3-bucket-deletemarkerreplication-status
+func (o BucketDeleteMarkerReplicationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDeleteMarkerReplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html
+type BucketDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
+	BucketAccountId *string `pulumi:"bucketAccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
+	BucketArn string `pulumi:"bucketArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
+	Format string `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
+	Prefix *string `pulumi:"prefix"`
+}
+
+// BucketDestinationInput is an input type that accepts BucketDestinationArgs and BucketDestinationOutput values.
+// You can construct a concrete instance of `BucketDestinationInput` via:
+//
+//          BucketDestinationArgs{...}
+type BucketDestinationInput interface {
+	pulumi.Input
+
+	ToBucketDestinationOutput() BucketDestinationOutput
+	ToBucketDestinationOutputWithContext(context.Context) BucketDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html
+type BucketDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
+	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
+	Format pulumi.StringInput `pulumi:"format"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (BucketDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDestination)(nil)).Elem()
+}
+
+func (i BucketDestinationArgs) ToBucketDestinationOutput() BucketDestinationOutput {
+	return i.ToBucketDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketDestinationArgs) ToBucketDestinationOutputWithContext(ctx context.Context) BucketDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDestinationOutput)
+}
+
+func (i BucketDestinationArgs) ToBucketDestinationPtrOutput() BucketDestinationPtrOutput {
+	return i.ToBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDestinationArgs) ToBucketDestinationPtrOutputWithContext(ctx context.Context) BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDestinationOutput).ToBucketDestinationPtrOutputWithContext(ctx)
+}
+
+// BucketDestinationPtrInput is an input type that accepts BucketDestinationArgs, BucketDestinationPtr and BucketDestinationPtrOutput values.
+// You can construct a concrete instance of `BucketDestinationPtrInput` via:
+//
+//          BucketDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketDestinationPtrInput interface {
+	pulumi.Input
+
+	ToBucketDestinationPtrOutput() BucketDestinationPtrOutput
+	ToBucketDestinationPtrOutputWithContext(context.Context) BucketDestinationPtrOutput
+}
+
+type bucketDestinationPtrType BucketDestinationArgs
+
+func BucketDestinationPtr(v *BucketDestinationArgs) BucketDestinationPtrInput {
+	return (*bucketDestinationPtrType)(v)
+}
+
+func (*bucketDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDestination)(nil)).Elem()
+}
+
+func (i *bucketDestinationPtrType) ToBucketDestinationPtrOutput() BucketDestinationPtrOutput {
+	return i.ToBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDestinationPtrType) ToBucketDestinationPtrOutputWithContext(ctx context.Context) BucketDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html
+type BucketDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDestination)(nil)).Elem()
+}
+
+func (o BucketDestinationOutput) ToBucketDestinationOutput() BucketDestinationOutput {
+	return o
+}
+
+func (o BucketDestinationOutput) ToBucketDestinationOutputWithContext(ctx context.Context) BucketDestinationOutput {
+	return o
+}
+
+func (o BucketDestinationOutput) ToBucketDestinationPtrOutput() BucketDestinationPtrOutput {
+	return o.ToBucketDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDestinationOutput) ToBucketDestinationPtrOutputWithContext(ctx context.Context) BucketDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDestination) *BucketDestination {
+		return &v
+	}).(BucketDestinationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
+func (o BucketDestinationOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDestination) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
+func (o BucketDestinationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketDestination) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
+func (o BucketDestinationOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketDestination) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
+func (o BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type BucketDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDestination)(nil)).Elem()
+}
+
+func (o BucketDestinationPtrOutput) ToBucketDestinationPtrOutput() BucketDestinationPtrOutput {
+	return o
+}
+
+func (o BucketDestinationPtrOutput) ToBucketDestinationPtrOutputWithContext(ctx context.Context) BucketDestinationPtrOutput {
+	return o
+}
+
+func (o BucketDestinationPtrOutput) Elem() BucketDestinationOutput {
+	return o.ApplyT(func(v *BucketDestination) BucketDestination {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDestination
+		return ret
+	}).(BucketDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
+func (o BucketDestinationPtrOutput) BucketAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
+func (o BucketDestinationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
+func (o BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
+func (o BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html
+type BucketEncryptionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
+	ReplicaKmsKeyID string `pulumi:"replicaKmsKeyID"`
+}
+
+// BucketEncryptionConfigurationInput is an input type that accepts BucketEncryptionConfigurationArgs and BucketEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `BucketEncryptionConfigurationInput` via:
+//
+//          BucketEncryptionConfigurationArgs{...}
+type BucketEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketEncryptionConfigurationOutput() BucketEncryptionConfigurationOutput
+	ToBucketEncryptionConfigurationOutputWithContext(context.Context) BucketEncryptionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html
+type BucketEncryptionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
+	ReplicaKmsKeyID pulumi.StringInput `pulumi:"replicaKmsKeyID"`
+}
+
+func (BucketEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationOutput() BucketEncryptionConfigurationOutput {
+	return i.ToBucketEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationOutputWithContext(ctx context.Context) BucketEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionConfigurationOutput)
+}
+
+func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput {
+	return i.ToBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionConfigurationOutput).ToBucketEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketEncryptionConfigurationPtrInput is an input type that accepts BucketEncryptionConfigurationArgs, BucketEncryptionConfigurationPtr and BucketEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketEncryptionConfigurationPtrInput` via:
+//
+//          BucketEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput
+	ToBucketEncryptionConfigurationPtrOutputWithContext(context.Context) BucketEncryptionConfigurationPtrOutput
+}
+
+type bucketEncryptionConfigurationPtrType BucketEncryptionConfigurationArgs
+
+func BucketEncryptionConfigurationPtr(v *BucketEncryptionConfigurationArgs) BucketEncryptionConfigurationPtrInput {
+	return (*bucketEncryptionConfigurationPtrType)(v)
+}
+
+func (*bucketEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *bucketEncryptionConfigurationPtrType) ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput {
+	return i.ToBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketEncryptionConfigurationPtrType) ToBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html
+type BucketEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationOutput() BucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationOutputWithContext(ctx context.Context) BucketEncryptionConfigurationOutput {
+	return o
+}
+
+func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput {
+	return o.ToBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketEncryptionConfiguration) *BucketEncryptionConfiguration {
+		return &v
+	}).(BucketEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
+func (o BucketEncryptionConfigurationOutput) ReplicaKmsKeyID() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketEncryptionConfiguration) string { return v.ReplicaKmsKeyID }).(pulumi.StringOutput)
+}
+
+type BucketEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o BucketEncryptionConfigurationPtrOutput) ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketEncryptionConfigurationPtrOutput) ToBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketEncryptionConfigurationPtrOutput) Elem() BucketEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *BucketEncryptionConfiguration) BucketEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketEncryptionConfiguration
+		return ret
+	}).(BucketEncryptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
+func (o BucketEncryptionConfigurationPtrOutput) ReplicaKmsKeyID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReplicaKmsKeyID
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
+type BucketFilterRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-value
+	Value string `pulumi:"value"`
+}
+
+// BucketFilterRuleInput is an input type that accepts BucketFilterRuleArgs and BucketFilterRuleOutput values.
+// You can construct a concrete instance of `BucketFilterRuleInput` via:
+//
+//          BucketFilterRuleArgs{...}
+type BucketFilterRuleInput interface {
+	pulumi.Input
+
+	ToBucketFilterRuleOutput() BucketFilterRuleOutput
+	ToBucketFilterRuleOutputWithContext(context.Context) BucketFilterRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
+type BucketFilterRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BucketFilterRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterRule)(nil)).Elem()
+}
+
+func (i BucketFilterRuleArgs) ToBucketFilterRuleOutput() BucketFilterRuleOutput {
+	return i.ToBucketFilterRuleOutputWithContext(context.Background())
+}
+
+func (i BucketFilterRuleArgs) ToBucketFilterRuleOutputWithContext(ctx context.Context) BucketFilterRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterRuleOutput)
+}
+
+// BucketFilterRuleArrayInput is an input type that accepts BucketFilterRuleArray and BucketFilterRuleArrayOutput values.
+// You can construct a concrete instance of `BucketFilterRuleArrayInput` via:
+//
+//          BucketFilterRuleArray{ BucketFilterRuleArgs{...} }
+type BucketFilterRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketFilterRuleArrayOutput() BucketFilterRuleArrayOutput
+	ToBucketFilterRuleArrayOutputWithContext(context.Context) BucketFilterRuleArrayOutput
+}
+
+type BucketFilterRuleArray []BucketFilterRuleInput
+
+func (BucketFilterRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketFilterRule)(nil)).Elem()
+}
+
+func (i BucketFilterRuleArray) ToBucketFilterRuleArrayOutput() BucketFilterRuleArrayOutput {
+	return i.ToBucketFilterRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketFilterRuleArray) ToBucketFilterRuleArrayOutputWithContext(ctx context.Context) BucketFilterRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
+type BucketFilterRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketFilterRule)(nil)).Elem()
+}
+
+func (o BucketFilterRuleOutput) ToBucketFilterRuleOutput() BucketFilterRuleOutput {
+	return o
+}
+
+func (o BucketFilterRuleOutput) ToBucketFilterRuleOutputWithContext(ctx context.Context) BucketFilterRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-name
+func (o BucketFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketFilterRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-value
+func (o BucketFilterRuleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketFilterRule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BucketFilterRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketFilterRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketFilterRule)(nil)).Elem()
+}
+
+func (o BucketFilterRuleArrayOutput) ToBucketFilterRuleArrayOutput() BucketFilterRuleArrayOutput {
+	return o
+}
+
+func (o BucketFilterRuleArrayOutput) ToBucketFilterRuleArrayOutputWithContext(ctx context.Context) BucketFilterRuleArrayOutput {
+	return o
+}
+
+func (o BucketFilterRuleArrayOutput) Index(i pulumi.IntInput) BucketFilterRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketFilterRule {
+		return vs[0].([]BucketFilterRule)[vs[1].(int)]
+	}).(BucketFilterRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+	Status string `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+	Tierings []BucketTiering `pulumi:"tierings"`
+}
+
+// BucketIntelligentTieringConfigurationInput is an input type that accepts BucketIntelligentTieringConfigurationArgs and BucketIntelligentTieringConfigurationOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationInput` via:
+//
+//          BucketIntelligentTieringConfigurationArgs{...}
+type BucketIntelligentTieringConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput
+	ToBucketIntelligentTieringConfigurationOutputWithContext(context.Context) BucketIntelligentTieringConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+	Id pulumi.StringInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+	Status pulumi.StringInput `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+	Tierings BucketTieringArrayInput `pulumi:"tierings"`
+}
+
+func (BucketIntelligentTieringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationArgs) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
+	return i.ToBucketIntelligentTieringConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationArgs) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationOutput)
+}
+
+// BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationArrayInput` via:
+//
+//          BucketIntelligentTieringConfigurationArray{ BucketIntelligentTieringConfigurationArgs{...} }
+type BucketIntelligentTieringConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput
+	ToBucketIntelligentTieringConfigurationArrayOutputWithContext(context.Context) BucketIntelligentTieringConfigurationArrayOutput
+}
+
+type BucketIntelligentTieringConfigurationArray []BucketIntelligentTieringConfigurationInput
+
+func (BucketIntelligentTieringConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput {
+	return i.ToBucketIntelligentTieringConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html
+type BucketIntelligentTieringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutput() BucketIntelligentTieringConfigurationOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-id
+func (o BucketIntelligentTieringConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-prefix
+func (o BucketIntelligentTieringConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-status
+func (o BucketIntelligentTieringConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tagfilters
+func (o BucketIntelligentTieringConfigurationOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html#cfn-s3-bucket-intelligenttieringconfiguration-tierings
+func (o BucketIntelligentTieringConfigurationOutput) Tierings() BucketTieringArrayOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfiguration) []BucketTiering { return v.Tierings }).(BucketTieringArrayOutput)
+}
+
+type BucketIntelligentTieringConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfiguration)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutput() BucketIntelligentTieringConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketIntelligentTieringConfiguration {
+		return vs[0].([]BucketIntelligentTieringConfiguration)[vs[1].(int)]
+	}).(BucketIntelligentTieringConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
+type BucketInventoryConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
+	Destination BucketDestination `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
+	Enabled bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
+	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
+	IncludedObjectVersions string `pulumi:"includedObjectVersions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
+	OptionalFields []string `pulumi:"optionalFields"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
+	ScheduleFrequency string `pulumi:"scheduleFrequency"`
+}
+
+// BucketInventoryConfigurationInput is an input type that accepts BucketInventoryConfigurationArgs and BucketInventoryConfigurationOutput values.
+// You can construct a concrete instance of `BucketInventoryConfigurationInput` via:
+//
+//          BucketInventoryConfigurationArgs{...}
+type BucketInventoryConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketInventoryConfigurationOutput() BucketInventoryConfigurationOutput
+	ToBucketInventoryConfigurationOutputWithContext(context.Context) BucketInventoryConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
+type BucketInventoryConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
+	Destination BucketDestinationInput `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
+	Id pulumi.StringInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
+	IncludedObjectVersions pulumi.StringInput `pulumi:"includedObjectVersions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
+	OptionalFields pulumi.StringArrayInput `pulumi:"optionalFields"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
+	ScheduleFrequency pulumi.StringInput `pulumi:"scheduleFrequency"`
+}
+
+func (BucketInventoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (i BucketInventoryConfigurationArgs) ToBucketInventoryConfigurationOutput() BucketInventoryConfigurationOutput {
+	return i.ToBucketInventoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryConfigurationArgs) ToBucketInventoryConfigurationOutputWithContext(ctx context.Context) BucketInventoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryConfigurationOutput)
+}
+
+// BucketInventoryConfigurationArrayInput is an input type that accepts BucketInventoryConfigurationArray and BucketInventoryConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketInventoryConfigurationArrayInput` via:
+//
+//          BucketInventoryConfigurationArray{ BucketInventoryConfigurationArgs{...} }
+type BucketInventoryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketInventoryConfigurationArrayOutput() BucketInventoryConfigurationArrayOutput
+	ToBucketInventoryConfigurationArrayOutputWithContext(context.Context) BucketInventoryConfigurationArrayOutput
+}
+
+type BucketInventoryConfigurationArray []BucketInventoryConfigurationInput
+
+func (BucketInventoryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (i BucketInventoryConfigurationArray) ToBucketInventoryConfigurationArrayOutput() BucketInventoryConfigurationArrayOutput {
+	return i.ToBucketInventoryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketInventoryConfigurationArray) ToBucketInventoryConfigurationArrayOutputWithContext(ctx context.Context) BucketInventoryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html
+type BucketInventoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (o BucketInventoryConfigurationOutput) ToBucketInventoryConfigurationOutput() BucketInventoryConfigurationOutput {
+	return o
+}
+
+func (o BucketInventoryConfigurationOutput) ToBucketInventoryConfigurationOutputWithContext(ctx context.Context) BucketInventoryConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
+func (o BucketInventoryConfigurationOutput) Destination() BucketDestinationOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) BucketDestination { return v.Destination }).(BucketDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
+func (o BucketInventoryConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
+func (o BucketInventoryConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
+func (o BucketInventoryConfigurationOutput) IncludedObjectVersions() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) string { return v.IncludedObjectVersions }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
+func (o BucketInventoryConfigurationOutput) OptionalFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) []string { return v.OptionalFields }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
+func (o BucketInventoryConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
+func (o BucketInventoryConfigurationOutput) ScheduleFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketInventoryConfiguration) string { return v.ScheduleFrequency }).(pulumi.StringOutput)
+}
+
+type BucketInventoryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketInventoryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketInventoryConfiguration)(nil)).Elem()
+}
+
+func (o BucketInventoryConfigurationArrayOutput) ToBucketInventoryConfigurationArrayOutput() BucketInventoryConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketInventoryConfigurationArrayOutput) ToBucketInventoryConfigurationArrayOutputWithContext(ctx context.Context) BucketInventoryConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketInventoryConfigurationArrayOutput) Index(i pulumi.IntInput) BucketInventoryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketInventoryConfiguration {
+		return vs[0].([]BucketInventoryConfiguration)[vs[1].(int)]
+	}).(BucketInventoryConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html
+type BucketLambdaConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-event
+	Event string `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-filter
+	Filter *BucketNotificationFilter `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-function
+	Function string `pulumi:"function"`
+}
+
+// BucketLambdaConfigurationInput is an input type that accepts BucketLambdaConfigurationArgs and BucketLambdaConfigurationOutput values.
+// You can construct a concrete instance of `BucketLambdaConfigurationInput` via:
+//
+//          BucketLambdaConfigurationArgs{...}
+type BucketLambdaConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketLambdaConfigurationOutput() BucketLambdaConfigurationOutput
+	ToBucketLambdaConfigurationOutputWithContext(context.Context) BucketLambdaConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html
+type BucketLambdaConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-event
+	Event pulumi.StringInput `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-filter
+	Filter BucketNotificationFilterPtrInput `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-function
+	Function pulumi.StringInput `pulumi:"function"`
+}
+
+func (BucketLambdaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLambdaConfiguration)(nil)).Elem()
+}
+
+func (i BucketLambdaConfigurationArgs) ToBucketLambdaConfigurationOutput() BucketLambdaConfigurationOutput {
+	return i.ToBucketLambdaConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketLambdaConfigurationArgs) ToBucketLambdaConfigurationOutputWithContext(ctx context.Context) BucketLambdaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLambdaConfigurationOutput)
+}
+
+// BucketLambdaConfigurationArrayInput is an input type that accepts BucketLambdaConfigurationArray and BucketLambdaConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketLambdaConfigurationArrayInput` via:
+//
+//          BucketLambdaConfigurationArray{ BucketLambdaConfigurationArgs{...} }
+type BucketLambdaConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketLambdaConfigurationArrayOutput() BucketLambdaConfigurationArrayOutput
+	ToBucketLambdaConfigurationArrayOutputWithContext(context.Context) BucketLambdaConfigurationArrayOutput
+}
+
+type BucketLambdaConfigurationArray []BucketLambdaConfigurationInput
+
+func (BucketLambdaConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLambdaConfiguration)(nil)).Elem()
+}
+
+func (i BucketLambdaConfigurationArray) ToBucketLambdaConfigurationArrayOutput() BucketLambdaConfigurationArrayOutput {
+	return i.ToBucketLambdaConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketLambdaConfigurationArray) ToBucketLambdaConfigurationArrayOutputWithContext(ctx context.Context) BucketLambdaConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLambdaConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html
+type BucketLambdaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketLambdaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLambdaConfiguration)(nil)).Elem()
+}
+
+func (o BucketLambdaConfigurationOutput) ToBucketLambdaConfigurationOutput() BucketLambdaConfigurationOutput {
+	return o
+}
+
+func (o BucketLambdaConfigurationOutput) ToBucketLambdaConfigurationOutputWithContext(ctx context.Context) BucketLambdaConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-event
+func (o BucketLambdaConfigurationOutput) Event() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLambdaConfiguration) string { return v.Event }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-filter
+func (o BucketLambdaConfigurationOutput) Filter() BucketNotificationFilterPtrOutput {
+	return o.ApplyT(func(v BucketLambdaConfiguration) *BucketNotificationFilter { return v.Filter }).(BucketNotificationFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-function
+func (o BucketLambdaConfigurationOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketLambdaConfiguration) string { return v.Function }).(pulumi.StringOutput)
+}
+
+type BucketLambdaConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketLambdaConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketLambdaConfiguration)(nil)).Elem()
+}
+
+func (o BucketLambdaConfigurationArrayOutput) ToBucketLambdaConfigurationArrayOutput() BucketLambdaConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketLambdaConfigurationArrayOutput) ToBucketLambdaConfigurationArrayOutputWithContext(ctx context.Context) BucketLambdaConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketLambdaConfigurationArrayOutput) Index(i pulumi.IntInput) BucketLambdaConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLambdaConfiguration {
+		return vs[0].([]BucketLambdaConfiguration)[vs[1].(int)]
+	}).(BucketLambdaConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
+type BucketLifecycleConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
+	Rules []BucketRule `pulumi:"rules"`
+}
+
+// BucketLifecycleConfigurationInput is an input type that accepts BucketLifecycleConfigurationArgs and BucketLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationInput` via:
+//
+//          BucketLifecycleConfigurationArgs{...}
+type BucketLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput
+	ToBucketLifecycleConfigurationOutputWithContext(context.Context) BucketLifecycleConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
+type BucketLifecycleConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
+	Rules BucketRuleArrayInput `pulumi:"rules"`
+}
+
+func (BucketLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput {
+	return i.ToBucketLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
+}
+
+func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return i.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput).ToBucketLifecycleConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketLifecycleConfigurationPtrInput is an input type that accepts BucketLifecycleConfigurationArgs, BucketLifecycleConfigurationPtr and BucketLifecycleConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketLifecycleConfigurationPtrInput` via:
+//
+//          BucketLifecycleConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketLifecycleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput
+	ToBucketLifecycleConfigurationPtrOutputWithContext(context.Context) BucketLifecycleConfigurationPtrOutput
+}
+
+type bucketLifecycleConfigurationPtrType BucketLifecycleConfigurationArgs
+
+func BucketLifecycleConfigurationPtr(v *BucketLifecycleConfigurationArgs) BucketLifecycleConfigurationPtrInput {
+	return (*bucketLifecycleConfigurationPtrType)(v)
+}
+
+func (*bucketLifecycleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return i.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
+type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput() BucketLifecycleConfigurationOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return o.ToBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfiguration) *BucketLifecycleConfiguration {
+		return &v
+	}).(BucketLifecycleConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
+func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
+	return o.ApplyT(func(v BucketLifecycleConfiguration) []BucketRule { return v.Rules }).(BucketRuleArrayOutput)
+}
+
+type BucketLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) Elem() BucketLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfiguration) BucketLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfiguration
+		return ret
+	}).(BucketLifecycleConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
+func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfiguration) []BucketRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BucketRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html
+type BucketLoggingConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-destinationbucketname
+	DestinationBucketName *string `pulumi:"destinationBucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
+	LogFilePrefix *string `pulumi:"logFilePrefix"`
+}
+
+// BucketLoggingConfigurationInput is an input type that accepts BucketLoggingConfigurationArgs and BucketLoggingConfigurationOutput values.
+// You can construct a concrete instance of `BucketLoggingConfigurationInput` via:
+//
+//          BucketLoggingConfigurationArgs{...}
+type BucketLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketLoggingConfigurationOutput() BucketLoggingConfigurationOutput
+	ToBucketLoggingConfigurationOutputWithContext(context.Context) BucketLoggingConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html
+type BucketLoggingConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-destinationbucketname
+	DestinationBucketName pulumi.StringPtrInput `pulumi:"destinationBucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
+	LogFilePrefix pulumi.StringPtrInput `pulumi:"logFilePrefix"`
+}
+
+func (BucketLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationOutput() BucketLoggingConfigurationOutput {
+	return i.ToBucketLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationOutputWithContext(ctx context.Context) BucketLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingConfigurationOutput)
+}
+
+func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput {
+	return i.ToBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) BucketLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingConfigurationOutput).ToBucketLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketLoggingConfigurationPtrInput is an input type that accepts BucketLoggingConfigurationArgs, BucketLoggingConfigurationPtr and BucketLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketLoggingConfigurationPtrInput` via:
+//
+//          BucketLoggingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput
+	ToBucketLoggingConfigurationPtrOutputWithContext(context.Context) BucketLoggingConfigurationPtrOutput
+}
+
+type bucketLoggingConfigurationPtrType BucketLoggingConfigurationArgs
+
+func BucketLoggingConfigurationPtr(v *BucketLoggingConfigurationArgs) BucketLoggingConfigurationPtrInput {
+	return (*bucketLoggingConfigurationPtrType)(v)
+}
+
+func (*bucketLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *bucketLoggingConfigurationPtrType) ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput {
+	return i.ToBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketLoggingConfigurationPtrType) ToBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) BucketLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html
+type BucketLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (o BucketLoggingConfigurationOutput) ToBucketLoggingConfigurationOutput() BucketLoggingConfigurationOutput {
+	return o
+}
+
+func (o BucketLoggingConfigurationOutput) ToBucketLoggingConfigurationOutputWithContext(ctx context.Context) BucketLoggingConfigurationOutput {
+	return o
+}
+
+func (o BucketLoggingConfigurationOutput) ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput {
+	return o.ToBucketLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketLoggingConfigurationOutput) ToBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) BucketLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLoggingConfiguration) *BucketLoggingConfiguration {
+		return &v
+	}).(BucketLoggingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-destinationbucketname
+func (o BucketLoggingConfigurationOutput) DestinationBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingConfiguration) *string { return v.DestinationBucketName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
+func (o BucketLoggingConfigurationOutput) LogFilePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketLoggingConfiguration) *string { return v.LogFilePrefix }).(pulumi.StringPtrOutput)
+}
+
+type BucketLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketLoggingConfiguration)(nil)).Elem()
+}
+
+func (o BucketLoggingConfigurationPtrOutput) ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketLoggingConfigurationPtrOutput) ToBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) BucketLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketLoggingConfigurationPtrOutput) Elem() BucketLoggingConfigurationOutput {
+	return o.ApplyT(func(v *BucketLoggingConfiguration) BucketLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLoggingConfiguration
+		return ret
+	}).(BucketLoggingConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-destinationbucketname
+func (o BucketLoggingConfigurationPtrOutput) DestinationBucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationBucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
+func (o BucketLoggingConfigurationPtrOutput) LogFilePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogFilePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
+type BucketMetrics struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+	EventThreshold *BucketReplicationTimeValue `pulumi:"eventThreshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
+	Status string `pulumi:"status"`
+}
+
+// BucketMetricsInput is an input type that accepts BucketMetricsArgs and BucketMetricsOutput values.
+// You can construct a concrete instance of `BucketMetricsInput` via:
+//
+//          BucketMetricsArgs{...}
+type BucketMetricsInput interface {
+	pulumi.Input
+
+	ToBucketMetricsOutput() BucketMetricsOutput
+	ToBucketMetricsOutputWithContext(context.Context) BucketMetricsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
+type BucketMetricsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+	EventThreshold BucketReplicationTimeValuePtrInput `pulumi:"eventThreshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetrics)(nil)).Elem()
+}
+
+func (i BucketMetricsArgs) ToBucketMetricsOutput() BucketMetricsOutput {
+	return i.ToBucketMetricsOutputWithContext(context.Background())
+}
+
+func (i BucketMetricsArgs) ToBucketMetricsOutputWithContext(ctx context.Context) BucketMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsOutput)
+}
+
+func (i BucketMetricsArgs) ToBucketMetricsPtrOutput() BucketMetricsPtrOutput {
+	return i.ToBucketMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketMetricsArgs) ToBucketMetricsPtrOutputWithContext(ctx context.Context) BucketMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsOutput).ToBucketMetricsPtrOutputWithContext(ctx)
+}
+
+// BucketMetricsPtrInput is an input type that accepts BucketMetricsArgs, BucketMetricsPtr and BucketMetricsPtrOutput values.
+// You can construct a concrete instance of `BucketMetricsPtrInput` via:
+//
+//          BucketMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketMetricsPtrInput interface {
+	pulumi.Input
+
+	ToBucketMetricsPtrOutput() BucketMetricsPtrOutput
+	ToBucketMetricsPtrOutputWithContext(context.Context) BucketMetricsPtrOutput
+}
+
+type bucketMetricsPtrType BucketMetricsArgs
+
+func BucketMetricsPtr(v *BucketMetricsArgs) BucketMetricsPtrInput {
+	return (*bucketMetricsPtrType)(v)
+}
+
+func (*bucketMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketMetrics)(nil)).Elem()
+}
+
+func (i *bucketMetricsPtrType) ToBucketMetricsPtrOutput() BucketMetricsPtrOutput {
+	return i.ToBucketMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketMetricsPtrType) ToBucketMetricsPtrOutputWithContext(ctx context.Context) BucketMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html
+type BucketMetricsOutput struct{ *pulumi.OutputState }
+
+func (BucketMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetrics)(nil)).Elem()
+}
+
+func (o BucketMetricsOutput) ToBucketMetricsOutput() BucketMetricsOutput {
+	return o
+}
+
+func (o BucketMetricsOutput) ToBucketMetricsOutputWithContext(ctx context.Context) BucketMetricsOutput {
+	return o
+}
+
+func (o BucketMetricsOutput) ToBucketMetricsPtrOutput() BucketMetricsPtrOutput {
+	return o.ToBucketMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketMetricsOutput) ToBucketMetricsPtrOutputWithContext(ctx context.Context) BucketMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketMetrics) *BucketMetrics {
+		return &v
+	}).(BucketMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+func (o BucketMetricsOutput) EventThreshold() BucketReplicationTimeValuePtrOutput {
+	return o.ApplyT(func(v BucketMetrics) *BucketReplicationTimeValue { return v.EventThreshold }).(BucketReplicationTimeValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
+func (o BucketMetricsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketMetrics) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketMetrics)(nil)).Elem()
+}
+
+func (o BucketMetricsPtrOutput) ToBucketMetricsPtrOutput() BucketMetricsPtrOutput {
+	return o
+}
+
+func (o BucketMetricsPtrOutput) ToBucketMetricsPtrOutputWithContext(ctx context.Context) BucketMetricsPtrOutput {
+	return o
+}
+
+func (o BucketMetricsPtrOutput) Elem() BucketMetricsOutput {
+	return o.ApplyT(func(v *BucketMetrics) BucketMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret BucketMetrics
+		return ret
+	}).(BucketMetricsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-eventthreshold
+func (o BucketMetricsPtrOutput) EventThreshold() BucketReplicationTimeValuePtrOutput {
+	return o.ApplyT(func(v *BucketMetrics) *BucketReplicationTimeValue {
+		if v == nil {
+			return nil
+		}
+		return v.EventThreshold
+	}).(BucketReplicationTimeValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html#cfn-s3-bucket-metrics-status
+func (o BucketMetricsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
+type BucketMetricsConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id
+	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+}
+
+// BucketMetricsConfigurationInput is an input type that accepts BucketMetricsConfigurationArgs and BucketMetricsConfigurationOutput values.
+// You can construct a concrete instance of `BucketMetricsConfigurationInput` via:
+//
+//          BucketMetricsConfigurationArgs{...}
+type BucketMetricsConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketMetricsConfigurationOutput() BucketMetricsConfigurationOutput
+	ToBucketMetricsConfigurationOutputWithContext(context.Context) BucketMetricsConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
+type BucketMetricsConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id
+	Id pulumi.StringInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (BucketMetricsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i BucketMetricsConfigurationArgs) ToBucketMetricsConfigurationOutput() BucketMetricsConfigurationOutput {
+	return i.ToBucketMetricsConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketMetricsConfigurationArgs) ToBucketMetricsConfigurationOutputWithContext(ctx context.Context) BucketMetricsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsConfigurationOutput)
+}
+
+// BucketMetricsConfigurationArrayInput is an input type that accepts BucketMetricsConfigurationArray and BucketMetricsConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketMetricsConfigurationArrayInput` via:
+//
+//          BucketMetricsConfigurationArray{ BucketMetricsConfigurationArgs{...} }
+type BucketMetricsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketMetricsConfigurationArrayOutput() BucketMetricsConfigurationArrayOutput
+	ToBucketMetricsConfigurationArrayOutputWithContext(context.Context) BucketMetricsConfigurationArrayOutput
+}
+
+type BucketMetricsConfigurationArray []BucketMetricsConfigurationInput
+
+func (BucketMetricsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i BucketMetricsConfigurationArray) ToBucketMetricsConfigurationArrayOutput() BucketMetricsConfigurationArrayOutput {
+	return i.ToBucketMetricsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketMetricsConfigurationArray) ToBucketMetricsConfigurationArrayOutputWithContext(ctx context.Context) BucketMetricsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html
+type BucketMetricsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketMetricsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutput() BucketMetricsConfigurationOutput {
+	return o
+}
+
+func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutputWithContext(ctx context.Context) BucketMetricsConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id
+func (o BucketMetricsConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketMetricsConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix
+func (o BucketMetricsConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketMetricsConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters
+func (o BucketMetricsConfigurationOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketMetricsConfiguration) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+type BucketMetricsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketMetricsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o BucketMetricsConfigurationArrayOutput) ToBucketMetricsConfigurationArrayOutput() BucketMetricsConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketMetricsConfigurationArrayOutput) ToBucketMetricsConfigurationArrayOutputWithContext(ctx context.Context) BucketMetricsConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketMetricsConfigurationArrayOutput) Index(i pulumi.IntInput) BucketMetricsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketMetricsConfiguration {
+		return vs[0].([]BucketMetricsConfiguration)[vs[1].(int)]
+	}).(BucketMetricsConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
+type BucketNoncurrentVersionTransition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
+	StorageClass string `pulumi:"storageClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
+	TransitionInDays int `pulumi:"transitionInDays"`
+}
+
+// BucketNoncurrentVersionTransitionInput is an input type that accepts BucketNoncurrentVersionTransitionArgs and BucketNoncurrentVersionTransitionOutput values.
+// You can construct a concrete instance of `BucketNoncurrentVersionTransitionInput` via:
+//
+//          BucketNoncurrentVersionTransitionArgs{...}
+type BucketNoncurrentVersionTransitionInput interface {
+	pulumi.Input
+
+	ToBucketNoncurrentVersionTransitionOutput() BucketNoncurrentVersionTransitionOutput
+	ToBucketNoncurrentVersionTransitionOutputWithContext(context.Context) BucketNoncurrentVersionTransitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
+type BucketNoncurrentVersionTransitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
+	TransitionInDays pulumi.IntInput `pulumi:"transitionInDays"`
+}
+
+func (BucketNoncurrentVersionTransitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransitionOutput() BucketNoncurrentVersionTransitionOutput {
+	return i.ToBucketNoncurrentVersionTransitionOutputWithContext(context.Background())
+}
+
+func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionOutput)
+}
+
+func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput {
+	return i.ToBucketNoncurrentVersionTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionOutput).ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx)
+}
+
+// BucketNoncurrentVersionTransitionPtrInput is an input type that accepts BucketNoncurrentVersionTransitionArgs, BucketNoncurrentVersionTransitionPtr and BucketNoncurrentVersionTransitionPtrOutput values.
+// You can construct a concrete instance of `BucketNoncurrentVersionTransitionPtrInput` via:
+//
+//          BucketNoncurrentVersionTransitionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketNoncurrentVersionTransitionPtrInput interface {
+	pulumi.Input
+
+	ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput
+	ToBucketNoncurrentVersionTransitionPtrOutputWithContext(context.Context) BucketNoncurrentVersionTransitionPtrOutput
+}
+
+type bucketNoncurrentVersionTransitionPtrType BucketNoncurrentVersionTransitionArgs
+
+func BucketNoncurrentVersionTransitionPtr(v *BucketNoncurrentVersionTransitionArgs) BucketNoncurrentVersionTransitionPtrInput {
+	return (*bucketNoncurrentVersionTransitionPtrType)(v)
+}
+
+func (*bucketNoncurrentVersionTransitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (i *bucketNoncurrentVersionTransitionPtrType) ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput {
+	return i.ToBucketNoncurrentVersionTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNoncurrentVersionTransitionPtrType) ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionPtrOutput)
+}
+
+// BucketNoncurrentVersionTransitionArrayInput is an input type that accepts BucketNoncurrentVersionTransitionArray and BucketNoncurrentVersionTransitionArrayOutput values.
+// You can construct a concrete instance of `BucketNoncurrentVersionTransitionArrayInput` via:
+//
+//          BucketNoncurrentVersionTransitionArray{ BucketNoncurrentVersionTransitionArgs{...} }
+type BucketNoncurrentVersionTransitionArrayInput interface {
+	pulumi.Input
+
+	ToBucketNoncurrentVersionTransitionArrayOutput() BucketNoncurrentVersionTransitionArrayOutput
+	ToBucketNoncurrentVersionTransitionArrayOutputWithContext(context.Context) BucketNoncurrentVersionTransitionArrayOutput
+}
+
+type BucketNoncurrentVersionTransitionArray []BucketNoncurrentVersionTransitionInput
+
+func (BucketNoncurrentVersionTransitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (i BucketNoncurrentVersionTransitionArray) ToBucketNoncurrentVersionTransitionArrayOutput() BucketNoncurrentVersionTransitionArrayOutput {
+	return i.ToBucketNoncurrentVersionTransitionArrayOutputWithContext(context.Background())
+}
+
+func (i BucketNoncurrentVersionTransitionArray) ToBucketNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
+type BucketNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
+
+func (BucketNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransitionOutput() BucketNoncurrentVersionTransitionOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput {
+	return o.ToBucketNoncurrentVersionTransitionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNoncurrentVersionTransition) *BucketNoncurrentVersionTransition {
+		return &v
+	}).(BucketNoncurrentVersionTransitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
+func (o BucketNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
+func (o BucketNoncurrentVersionTransitionOutput) TransitionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketNoncurrentVersionTransition) int { return v.TransitionInDays }).(pulumi.IntOutput)
+}
+
+type BucketNoncurrentVersionTransitionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNoncurrentVersionTransitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (o BucketNoncurrentVersionTransitionPtrOutput) ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionPtrOutput) ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionPtrOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionPtrOutput) Elem() BucketNoncurrentVersionTransitionOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionTransition) BucketNoncurrentVersionTransition {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNoncurrentVersionTransition
+		return ret
+	}).(BucketNoncurrentVersionTransitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
+func (o BucketNoncurrentVersionTransitionPtrOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionTransition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
+func (o BucketNoncurrentVersionTransitionPtrOutput) TransitionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketNoncurrentVersionTransition) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TransitionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type BucketNoncurrentVersionTransitionArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketNoncurrentVersionTransitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketNoncurrentVersionTransition)(nil)).Elem()
+}
+
+func (o BucketNoncurrentVersionTransitionArrayOutput) ToBucketNoncurrentVersionTransitionArrayOutput() BucketNoncurrentVersionTransitionArrayOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionArrayOutput) ToBucketNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionArrayOutput {
+	return o
+}
+
+func (o BucketNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketNoncurrentVersionTransitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNoncurrentVersionTransition {
+		return vs[0].([]BucketNoncurrentVersionTransition)[vs[1].(int)]
+	}).(BucketNoncurrentVersionTransitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
+type BucketNotificationConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+	LambdaConfigurations []BucketLambdaConfiguration `pulumi:"lambdaConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+	QueueConfigurations []BucketQueueConfiguration `pulumi:"queueConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+	TopicConfigurations []BucketTopicConfiguration `pulumi:"topicConfigurations"`
+}
+
+// BucketNotificationConfigurationInput is an input type that accepts BucketNotificationConfigurationArgs and BucketNotificationConfigurationOutput values.
+// You can construct a concrete instance of `BucketNotificationConfigurationInput` via:
+//
+//          BucketNotificationConfigurationArgs{...}
+type BucketNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketNotificationConfigurationOutput() BucketNotificationConfigurationOutput
+	ToBucketNotificationConfigurationOutputWithContext(context.Context) BucketNotificationConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
+type BucketNotificationConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+	LambdaConfigurations BucketLambdaConfigurationArrayInput `pulumi:"lambdaConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+	QueueConfigurations BucketQueueConfigurationArrayInput `pulumi:"queueConfigurations"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+	TopicConfigurations BucketTopicConfigurationArrayInput `pulumi:"topicConfigurations"`
+}
+
+func (BucketNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationConfiguration)(nil)).Elem()
+}
+
+func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationOutput() BucketNotificationConfigurationOutput {
+	return i.ToBucketNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationOutputWithContext(ctx context.Context) BucketNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationConfigurationOutput)
+}
+
+func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput {
+	return i.ToBucketNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationPtrOutputWithContext(ctx context.Context) BucketNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationConfigurationOutput).ToBucketNotificationConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketNotificationConfigurationPtrInput is an input type that accepts BucketNotificationConfigurationArgs, BucketNotificationConfigurationPtr and BucketNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketNotificationConfigurationPtrInput` via:
+//
+//          BucketNotificationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketNotificationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput
+	ToBucketNotificationConfigurationPtrOutputWithContext(context.Context) BucketNotificationConfigurationPtrOutput
+}
+
+type bucketNotificationConfigurationPtrType BucketNotificationConfigurationArgs
+
+func BucketNotificationConfigurationPtr(v *BucketNotificationConfigurationArgs) BucketNotificationConfigurationPtrInput {
+	return (*bucketNotificationConfigurationPtrType)(v)
+}
+
+func (*bucketNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationConfiguration)(nil)).Elem()
+}
+
+func (i *bucketNotificationConfigurationPtrType) ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput {
+	return i.ToBucketNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationConfigurationPtrType) ToBucketNotificationConfigurationPtrOutputWithContext(ctx context.Context) BucketNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
+type BucketNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationConfiguration)(nil)).Elem()
+}
+
+func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfigurationOutput() BucketNotificationConfigurationOutput {
+	return o
+}
+
+func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfigurationOutputWithContext(ctx context.Context) BucketNotificationConfigurationOutput {
+	return o
+}
+
+func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput {
+	return o.ToBucketNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfigurationPtrOutputWithContext(ctx context.Context) BucketNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationConfiguration) *BucketNotificationConfiguration {
+		return &v
+	}).(BucketNotificationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+func (o BucketNotificationConfigurationOutput) LambdaConfigurations() BucketLambdaConfigurationArrayOutput {
+	return o.ApplyT(func(v BucketNotificationConfiguration) []BucketLambdaConfiguration { return v.LambdaConfigurations }).(BucketLambdaConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+func (o BucketNotificationConfigurationOutput) QueueConfigurations() BucketQueueConfigurationArrayOutput {
+	return o.ApplyT(func(v BucketNotificationConfiguration) []BucketQueueConfiguration { return v.QueueConfigurations }).(BucketQueueConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+func (o BucketNotificationConfigurationOutput) TopicConfigurations() BucketTopicConfigurationArrayOutput {
+	return o.ApplyT(func(v BucketNotificationConfiguration) []BucketTopicConfiguration { return v.TopicConfigurations }).(BucketTopicConfigurationArrayOutput)
+}
+
+type BucketNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationConfiguration)(nil)).Elem()
+}
+
+func (o BucketNotificationConfigurationPtrOutput) ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketNotificationConfigurationPtrOutput) ToBucketNotificationConfigurationPtrOutputWithContext(ctx context.Context) BucketNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketNotificationConfigurationPtrOutput) Elem() BucketNotificationConfigurationOutput {
+	return o.ApplyT(func(v *BucketNotificationConfiguration) BucketNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotificationConfiguration
+		return ret
+	}).(BucketNotificationConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+func (o BucketNotificationConfigurationPtrOutput) LambdaConfigurations() BucketLambdaConfigurationArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationConfiguration) []BucketLambdaConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaConfigurations
+	}).(BucketLambdaConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+func (o BucketNotificationConfigurationPtrOutput) QueueConfigurations() BucketQueueConfigurationArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationConfiguration) []BucketQueueConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.QueueConfigurations
+	}).(BucketQueueConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+func (o BucketNotificationConfigurationPtrOutput) TopicConfigurations() BucketTopicConfigurationArrayOutput {
+	return o.ApplyT(func(v *BucketNotificationConfiguration) []BucketTopicConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TopicConfigurations
+	}).(BucketTopicConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
+type BucketNotificationFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
+	S3Key BucketS3KeyFilter `pulumi:"s3Key"`
+}
+
+// BucketNotificationFilterInput is an input type that accepts BucketNotificationFilterArgs and BucketNotificationFilterOutput values.
+// You can construct a concrete instance of `BucketNotificationFilterInput` via:
+//
+//          BucketNotificationFilterArgs{...}
+type BucketNotificationFilterInput interface {
+	pulumi.Input
+
+	ToBucketNotificationFilterOutput() BucketNotificationFilterOutput
+	ToBucketNotificationFilterOutputWithContext(context.Context) BucketNotificationFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
+type BucketNotificationFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
+	S3Key BucketS3KeyFilterInput `pulumi:"s3Key"`
+}
+
+func (BucketNotificationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationFilter)(nil)).Elem()
+}
+
+func (i BucketNotificationFilterArgs) ToBucketNotificationFilterOutput() BucketNotificationFilterOutput {
+	return i.ToBucketNotificationFilterOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationFilterArgs) ToBucketNotificationFilterOutputWithContext(ctx context.Context) BucketNotificationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationFilterOutput)
+}
+
+func (i BucketNotificationFilterArgs) ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput {
+	return i.ToBucketNotificationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketNotificationFilterArgs) ToBucketNotificationFilterPtrOutputWithContext(ctx context.Context) BucketNotificationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationFilterOutput).ToBucketNotificationFilterPtrOutputWithContext(ctx)
+}
+
+// BucketNotificationFilterPtrInput is an input type that accepts BucketNotificationFilterArgs, BucketNotificationFilterPtr and BucketNotificationFilterPtrOutput values.
+// You can construct a concrete instance of `BucketNotificationFilterPtrInput` via:
+//
+//          BucketNotificationFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketNotificationFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput
+	ToBucketNotificationFilterPtrOutputWithContext(context.Context) BucketNotificationFilterPtrOutput
+}
+
+type bucketNotificationFilterPtrType BucketNotificationFilterArgs
+
+func BucketNotificationFilterPtr(v *BucketNotificationFilterArgs) BucketNotificationFilterPtrInput {
+	return (*bucketNotificationFilterPtrType)(v)
+}
+
+func (*bucketNotificationFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationFilter)(nil)).Elem()
+}
+
+func (i *bucketNotificationFilterPtrType) ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput {
+	return i.ToBucketNotificationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketNotificationFilterPtrType) ToBucketNotificationFilterPtrOutputWithContext(ctx context.Context) BucketNotificationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
+type BucketNotificationFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketNotificationFilter)(nil)).Elem()
+}
+
+func (o BucketNotificationFilterOutput) ToBucketNotificationFilterOutput() BucketNotificationFilterOutput {
+	return o
+}
+
+func (o BucketNotificationFilterOutput) ToBucketNotificationFilterOutputWithContext(ctx context.Context) BucketNotificationFilterOutput {
+	return o
+}
+
+func (o BucketNotificationFilterOutput) ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput {
+	return o.ToBucketNotificationFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketNotificationFilterOutput) ToBucketNotificationFilterPtrOutputWithContext(ctx context.Context) BucketNotificationFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationFilter) *BucketNotificationFilter {
+		return &v
+	}).(BucketNotificationFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
+func (o BucketNotificationFilterOutput) S3Key() BucketS3KeyFilterOutput {
+	return o.ApplyT(func(v BucketNotificationFilter) BucketS3KeyFilter { return v.S3Key }).(BucketS3KeyFilterOutput)
+}
+
+type BucketNotificationFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketNotificationFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketNotificationFilter)(nil)).Elem()
+}
+
+func (o BucketNotificationFilterPtrOutput) ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput {
+	return o
+}
+
+func (o BucketNotificationFilterPtrOutput) ToBucketNotificationFilterPtrOutputWithContext(ctx context.Context) BucketNotificationFilterPtrOutput {
+	return o
+}
+
+func (o BucketNotificationFilterPtrOutput) Elem() BucketNotificationFilterOutput {
+	return o.ApplyT(func(v *BucketNotificationFilter) BucketNotificationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotificationFilter
+		return ret
+	}).(BucketNotificationFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
+func (o BucketNotificationFilterPtrOutput) S3Key() BucketS3KeyFilterPtrOutput {
+	return o.ApplyT(func(v *BucketNotificationFilter) *BucketS3KeyFilter {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(BucketS3KeyFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html
+type BucketObjectLockConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-objectlockenabled
+	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-rule
+	Rule *BucketObjectLockRule `pulumi:"rule"`
+}
+
+// BucketObjectLockConfigurationInput is an input type that accepts BucketObjectLockConfigurationArgs and BucketObjectLockConfigurationOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationInput` via:
+//
+//          BucketObjectLockConfigurationArgs{...}
+type BucketObjectLockConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput
+	ToBucketObjectLockConfigurationOutputWithContext(context.Context) BucketObjectLockConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html
+type BucketObjectLockConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-objectlockenabled
+	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-rule
+	Rule BucketObjectLockRulePtrInput `pulumi:"rule"`
+}
+
+func (BucketObjectLockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockConfiguration)(nil)).Elem()
+}
+
+func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput {
+	return i.ToBucketObjectLockConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutputWithContext(ctx context.Context) BucketObjectLockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput)
+}
+
+func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
+	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput).ToBucketObjectLockConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketObjectLockConfigurationPtrInput is an input type that accepts BucketObjectLockConfigurationArgs, BucketObjectLockConfigurationPtr and BucketObjectLockConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketObjectLockConfigurationPtrInput` via:
+//
+//          BucketObjectLockConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketObjectLockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput
+	ToBucketObjectLockConfigurationPtrOutputWithContext(context.Context) BucketObjectLockConfigurationPtrOutput
+}
+
+type bucketObjectLockConfigurationPtrType BucketObjectLockConfigurationArgs
+
+func BucketObjectLockConfigurationPtr(v *BucketObjectLockConfigurationArgs) BucketObjectLockConfigurationPtrInput {
+	return (*bucketObjectLockConfigurationPtrType)(v)
+}
+
+func (*bucketObjectLockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfiguration)(nil)).Elem()
+}
+
+func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
+	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html
+type BucketObjectLockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectLockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockConfiguration)(nil)).Elem()
+}
+
+func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationOutput() BucketObjectLockConfigurationOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationOutputWithContext(ctx context.Context) BucketObjectLockConfigurationOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
+	return o.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfiguration) *BucketObjectLockConfiguration {
+		return &v
+	}).(BucketObjectLockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-objectlockenabled
+func (o BucketObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-rule
+func (o BucketObjectLockConfigurationOutput) Rule() BucketObjectLockRulePtrOutput {
+	return o.ApplyT(func(v BucketObjectLockConfiguration) *BucketObjectLockRule { return v.Rule }).(BucketObjectLockRulePtrOutput)
+}
+
+type BucketObjectLockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectLockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockConfiguration)(nil)).Elem()
+}
+
+func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketObjectLockConfigurationPtrOutput) Elem() BucketObjectLockConfigurationOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfiguration) BucketObjectLockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfiguration
+		return ret
+	}).(BucketObjectLockConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-objectlockenabled
+func (o BucketObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectLockEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html#cfn-s3-bucket-objectlockconfiguration-rule
+func (o BucketObjectLockConfigurationPtrOutput) Rule() BucketObjectLockRulePtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockConfiguration) *BucketObjectLockRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rule
+	}).(BucketObjectLockRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html
+type BucketObjectLockRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention
+	DefaultRetention *BucketDefaultRetention `pulumi:"defaultRetention"`
+}
+
+// BucketObjectLockRuleInput is an input type that accepts BucketObjectLockRuleArgs and BucketObjectLockRuleOutput values.
+// You can construct a concrete instance of `BucketObjectLockRuleInput` via:
+//
+//          BucketObjectLockRuleArgs{...}
+type BucketObjectLockRuleInput interface {
+	pulumi.Input
+
+	ToBucketObjectLockRuleOutput() BucketObjectLockRuleOutput
+	ToBucketObjectLockRuleOutputWithContext(context.Context) BucketObjectLockRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html
+type BucketObjectLockRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention
+	DefaultRetention BucketDefaultRetentionPtrInput `pulumi:"defaultRetention"`
+}
+
+func (BucketObjectLockRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockRule)(nil)).Elem()
+}
+
+func (i BucketObjectLockRuleArgs) ToBucketObjectLockRuleOutput() BucketObjectLockRuleOutput {
+	return i.ToBucketObjectLockRuleOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockRuleArgs) ToBucketObjectLockRuleOutputWithContext(ctx context.Context) BucketObjectLockRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockRuleOutput)
+}
+
+func (i BucketObjectLockRuleArgs) ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput {
+	return i.ToBucketObjectLockRulePtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectLockRuleArgs) ToBucketObjectLockRulePtrOutputWithContext(ctx context.Context) BucketObjectLockRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockRuleOutput).ToBucketObjectLockRulePtrOutputWithContext(ctx)
+}
+
+// BucketObjectLockRulePtrInput is an input type that accepts BucketObjectLockRuleArgs, BucketObjectLockRulePtr and BucketObjectLockRulePtrOutput values.
+// You can construct a concrete instance of `BucketObjectLockRulePtrInput` via:
+//
+//          BucketObjectLockRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketObjectLockRulePtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput
+	ToBucketObjectLockRulePtrOutputWithContext(context.Context) BucketObjectLockRulePtrOutput
+}
+
+type bucketObjectLockRulePtrType BucketObjectLockRuleArgs
+
+func BucketObjectLockRulePtr(v *BucketObjectLockRuleArgs) BucketObjectLockRulePtrInput {
+	return (*bucketObjectLockRulePtrType)(v)
+}
+
+func (*bucketObjectLockRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockRule)(nil)).Elem()
+}
+
+func (i *bucketObjectLockRulePtrType) ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput {
+	return i.ToBucketObjectLockRulePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectLockRulePtrType) ToBucketObjectLockRulePtrOutputWithContext(ctx context.Context) BucketObjectLockRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html
+type BucketObjectLockRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectLockRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectLockRule)(nil)).Elem()
+}
+
+func (o BucketObjectLockRuleOutput) ToBucketObjectLockRuleOutput() BucketObjectLockRuleOutput {
+	return o
+}
+
+func (o BucketObjectLockRuleOutput) ToBucketObjectLockRuleOutputWithContext(ctx context.Context) BucketObjectLockRuleOutput {
+	return o
+}
+
+func (o BucketObjectLockRuleOutput) ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput {
+	return o.ToBucketObjectLockRulePtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectLockRuleOutput) ToBucketObjectLockRulePtrOutputWithContext(ctx context.Context) BucketObjectLockRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockRule) *BucketObjectLockRule {
+		return &v
+	}).(BucketObjectLockRulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention
+func (o BucketObjectLockRuleOutput) DefaultRetention() BucketDefaultRetentionPtrOutput {
+	return o.ApplyT(func(v BucketObjectLockRule) *BucketDefaultRetention { return v.DefaultRetention }).(BucketDefaultRetentionPtrOutput)
+}
+
+type BucketObjectLockRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectLockRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectLockRule)(nil)).Elem()
+}
+
+func (o BucketObjectLockRulePtrOutput) ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput {
+	return o
+}
+
+func (o BucketObjectLockRulePtrOutput) ToBucketObjectLockRulePtrOutputWithContext(ctx context.Context) BucketObjectLockRulePtrOutput {
+	return o
+}
+
+func (o BucketObjectLockRulePtrOutput) Elem() BucketObjectLockRuleOutput {
+	return o.ApplyT(func(v *BucketObjectLockRule) BucketObjectLockRule {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockRule
+		return ret
+	}).(BucketObjectLockRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html#cfn-s3-bucket-objectlockrule-defaultretention
+func (o BucketObjectLockRulePtrOutput) DefaultRetention() BucketDefaultRetentionPtrOutput {
+	return o.ApplyT(func(v *BucketObjectLockRule) *BucketDefaultRetention {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultRetention
+	}).(BucketDefaultRetentionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControls struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+	Rules []BucketOwnershipControlsRule `pulumi:"rules"`
+}
+
+// BucketOwnershipControlsInput is an input type that accepts BucketOwnershipControlsArgs and BucketOwnershipControlsOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsInput` via:
+//
+//          BucketOwnershipControlsArgs{...}
+type BucketOwnershipControlsInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput
+	ToBucketOwnershipControlsOutputWithContext(context.Context) BucketOwnershipControlsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControlsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+	Rules BucketOwnershipControlsRuleArrayInput `pulumi:"rules"`
+}
+
+func (BucketOwnershipControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControls)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput {
+	return i.ToBucketOwnershipControlsOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsOutputWithContext(ctx context.Context) BucketOwnershipControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput)
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput).ToBucketOwnershipControlsPtrOutputWithContext(ctx)
+}
+
+// BucketOwnershipControlsPtrInput is an input type that accepts BucketOwnershipControlsArgs, BucketOwnershipControlsPtr and BucketOwnershipControlsPtrOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsPtrInput` via:
+//
+//          BucketOwnershipControlsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketOwnershipControlsPtrInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput
+	ToBucketOwnershipControlsPtrOutputWithContext(context.Context) BucketOwnershipControlsPtrOutput
+}
+
+type bucketOwnershipControlsPtrType BucketOwnershipControlsArgs
+
+func BucketOwnershipControlsPtr(v *BucketOwnershipControlsArgs) BucketOwnershipControlsPtrInput {
+	return (*bucketOwnershipControlsPtrType)(v)
+}
+
+func (*bucketOwnershipControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil)).Elem()
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html
+type BucketOwnershipControlsOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControls)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutput() BucketOwnershipControlsOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContext(ctx context.Context) BucketOwnershipControlsOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketOwnershipControls) *BucketOwnershipControls {
+		return &v
+	}).(BucketOwnershipControlsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+func (o BucketOwnershipControlsOutput) Rules() BucketOwnershipControlsRuleArrayOutput {
+	return o.ApplyT(func(v BucketOwnershipControls) []BucketOwnershipControlsRule { return v.Rules }).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+type BucketOwnershipControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketOwnershipControls)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsPtrOutput) Elem() BucketOwnershipControlsOutput {
+	return o.ApplyT(func(v *BucketOwnershipControls) BucketOwnershipControls {
+		if v != nil {
+			return *v
+		}
+		var ret BucketOwnershipControls
+		return ret
+	}).(BucketOwnershipControlsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html#cfn-s3-bucket-ownershipcontrols-rules
+func (o BucketOwnershipControlsPtrOutput) Rules() BucketOwnershipControlsRuleArrayOutput {
+	return o.ApplyT(func(v *BucketOwnershipControls) []BucketOwnershipControlsRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+	ObjectOwnership *string `pulumi:"objectOwnership"`
+}
+
+// BucketOwnershipControlsRuleInput is an input type that accepts BucketOwnershipControlsRuleArgs and BucketOwnershipControlsRuleOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRuleInput` via:
+//
+//          BucketOwnershipControlsRuleArgs{...}
+type BucketOwnershipControlsRuleInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput
+	ToBucketOwnershipControlsRuleOutputWithContext(context.Context) BucketOwnershipControlsRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+	ObjectOwnership pulumi.StringPtrInput `pulumi:"objectOwnership"`
+}
+
+func (BucketOwnershipControlsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return i.ToBucketOwnershipControlsRuleOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
+}
+
+// BucketOwnershipControlsRuleArrayInput is an input type that accepts BucketOwnershipControlsRuleArray and BucketOwnershipControlsRuleArrayOutput values.
+// You can construct a concrete instance of `BucketOwnershipControlsRuleArrayInput` via:
+//
+//          BucketOwnershipControlsRuleArray{ BucketOwnershipControlsRuleArgs{...} }
+type BucketOwnershipControlsRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput
+	ToBucketOwnershipControlsRuleArrayOutputWithContext(context.Context) BucketOwnershipControlsRuleArrayOutput
+}
+
+type BucketOwnershipControlsRuleArray []BucketOwnershipControlsRuleInput
+
+func (BucketOwnershipControlsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (i BucketOwnershipControlsRuleArray) ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput {
+	return i.ToBucketOwnershipControlsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketOwnershipControlsRuleArray) ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html
+type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutput() BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html#cfn-s3-bucket-ownershipcontrolsrule-objectownership
+func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketOwnershipControlsRule) *string { return v.ObjectOwnership }).(pulumi.StringPtrOutput)
+}
+
+type BucketOwnershipControlsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketOwnershipControlsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketOwnershipControlsRule)(nil)).Elem()
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArrayOutput() BucketOwnershipControlsRuleArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleArrayOutput {
+	return o
+}
+
+func (o BucketOwnershipControlsRuleArrayOutput) Index(i pulumi.IntInput) BucketOwnershipControlsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketOwnershipControlsRule {
+		return vs[0].([]BucketOwnershipControlsRule)[vs[1].(int)]
+	}).(BucketOwnershipControlsRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html
+type BucketPublicAccessBlockConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicacls
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicpolicy
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-ignorepublicacls
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-restrictpublicbuckets
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+// BucketPublicAccessBlockConfigurationInput is an input type that accepts BucketPublicAccessBlockConfigurationArgs and BucketPublicAccessBlockConfigurationOutput values.
+// You can construct a concrete instance of `BucketPublicAccessBlockConfigurationInput` via:
+//
+//          BucketPublicAccessBlockConfigurationArgs{...}
+type BucketPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockConfigurationOutput() BucketPublicAccessBlockConfigurationOutput
+	ToBucketPublicAccessBlockConfigurationOutputWithContext(context.Context) BucketPublicAccessBlockConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html
+type BucketPublicAccessBlockConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicacls
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicpolicy
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-ignorepublicacls
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-restrictpublicbuckets
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (BucketPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfigurationOutput() BucketPublicAccessBlockConfigurationOutput {
+	return i.ToBucketPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationOutput)
+}
+
+func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput {
+	return i.ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationOutput).ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketPublicAccessBlockConfigurationPtrInput is an input type that accepts BucketPublicAccessBlockConfigurationArgs, BucketPublicAccessBlockConfigurationPtr and BucketPublicAccessBlockConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketPublicAccessBlockConfigurationPtrInput` via:
+//
+//          BucketPublicAccessBlockConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketPublicAccessBlockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput
+	ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(context.Context) BucketPublicAccessBlockConfigurationPtrOutput
+}
+
+type bucketPublicAccessBlockConfigurationPtrType BucketPublicAccessBlockConfigurationArgs
+
+func BucketPublicAccessBlockConfigurationPtr(v *BucketPublicAccessBlockConfigurationArgs) BucketPublicAccessBlockConfigurationPtrInput {
+	return (*bucketPublicAccessBlockConfigurationPtrType)(v)
+}
+
+func (*bucketPublicAccessBlockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i *bucketPublicAccessBlockConfigurationPtrType) ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput {
+	return i.ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketPublicAccessBlockConfigurationPtrType) ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html
+type BucketPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o BucketPublicAccessBlockConfigurationOutput) ToBucketPublicAccessBlockConfigurationOutput() BucketPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockConfigurationOutput) ToBucketPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockConfigurationOutput) ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput {
+	return o.ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketPublicAccessBlockConfigurationOutput) ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPublicAccessBlockConfiguration) *BucketPublicAccessBlockConfiguration {
+		return &v
+	}).(BucketPublicAccessBlockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicacls
+func (o BucketPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicpolicy
+func (o BucketPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-ignorepublicacls
+func (o BucketPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-restrictpublicbuckets
+func (o BucketPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type BucketPublicAccessBlockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketPublicAccessBlockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o BucketPublicAccessBlockConfigurationPtrOutput) ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockConfigurationPtrOutput) ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketPublicAccessBlockConfigurationPtrOutput) Elem() BucketPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlockConfiguration) BucketPublicAccessBlockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketPublicAccessBlockConfiguration
+		return ret
+	}).(BucketPublicAccessBlockConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicacls
+func (o BucketPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicpolicy
+func (o BucketPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-ignorepublicacls
+func (o BucketPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-restrictpublicbuckets
+func (o BucketPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictPublicBuckets
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
+type BucketQueueConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-event
+	Event string `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-filter
+	Filter *BucketNotificationFilter `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-queue
+	Queue string `pulumi:"queue"`
+}
+
+// BucketQueueConfigurationInput is an input type that accepts BucketQueueConfigurationArgs and BucketQueueConfigurationOutput values.
+// You can construct a concrete instance of `BucketQueueConfigurationInput` via:
+//
+//          BucketQueueConfigurationArgs{...}
+type BucketQueueConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketQueueConfigurationOutput() BucketQueueConfigurationOutput
+	ToBucketQueueConfigurationOutputWithContext(context.Context) BucketQueueConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
+type BucketQueueConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-event
+	Event pulumi.StringInput `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-filter
+	Filter BucketNotificationFilterPtrInput `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-queue
+	Queue pulumi.StringInput `pulumi:"queue"`
+}
+
+func (BucketQueueConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketQueueConfiguration)(nil)).Elem()
+}
+
+func (i BucketQueueConfigurationArgs) ToBucketQueueConfigurationOutput() BucketQueueConfigurationOutput {
+	return i.ToBucketQueueConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketQueueConfigurationArgs) ToBucketQueueConfigurationOutputWithContext(ctx context.Context) BucketQueueConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketQueueConfigurationOutput)
+}
+
+// BucketQueueConfigurationArrayInput is an input type that accepts BucketQueueConfigurationArray and BucketQueueConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketQueueConfigurationArrayInput` via:
+//
+//          BucketQueueConfigurationArray{ BucketQueueConfigurationArgs{...} }
+type BucketQueueConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketQueueConfigurationArrayOutput() BucketQueueConfigurationArrayOutput
+	ToBucketQueueConfigurationArrayOutputWithContext(context.Context) BucketQueueConfigurationArrayOutput
+}
+
+type BucketQueueConfigurationArray []BucketQueueConfigurationInput
+
+func (BucketQueueConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketQueueConfiguration)(nil)).Elem()
+}
+
+func (i BucketQueueConfigurationArray) ToBucketQueueConfigurationArrayOutput() BucketQueueConfigurationArrayOutput {
+	return i.ToBucketQueueConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketQueueConfigurationArray) ToBucketQueueConfigurationArrayOutputWithContext(ctx context.Context) BucketQueueConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketQueueConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
+type BucketQueueConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketQueueConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketQueueConfiguration)(nil)).Elem()
+}
+
+func (o BucketQueueConfigurationOutput) ToBucketQueueConfigurationOutput() BucketQueueConfigurationOutput {
+	return o
+}
+
+func (o BucketQueueConfigurationOutput) ToBucketQueueConfigurationOutputWithContext(ctx context.Context) BucketQueueConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-event
+func (o BucketQueueConfigurationOutput) Event() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketQueueConfiguration) string { return v.Event }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-filter
+func (o BucketQueueConfigurationOutput) Filter() BucketNotificationFilterPtrOutput {
+	return o.ApplyT(func(v BucketQueueConfiguration) *BucketNotificationFilter { return v.Filter }).(BucketNotificationFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-queue
+func (o BucketQueueConfigurationOutput) Queue() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketQueueConfiguration) string { return v.Queue }).(pulumi.StringOutput)
+}
+
+type BucketQueueConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketQueueConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketQueueConfiguration)(nil)).Elem()
+}
+
+func (o BucketQueueConfigurationArrayOutput) ToBucketQueueConfigurationArrayOutput() BucketQueueConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketQueueConfigurationArrayOutput) ToBucketQueueConfigurationArrayOutputWithContext(ctx context.Context) BucketQueueConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketQueueConfigurationArrayOutput) Index(i pulumi.IntInput) BucketQueueConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketQueueConfiguration {
+		return vs[0].([]BucketQueueConfiguration)[vs[1].(int)]
+	}).(BucketQueueConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html
+type BucketRedirectAllRequestsTo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-hostname
+	HostName string `pulumi:"hostName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-protocol
+	Protocol *string `pulumi:"protocol"`
+}
+
+// BucketRedirectAllRequestsToInput is an input type that accepts BucketRedirectAllRequestsToArgs and BucketRedirectAllRequestsToOutput values.
+// You can construct a concrete instance of `BucketRedirectAllRequestsToInput` via:
+//
+//          BucketRedirectAllRequestsToArgs{...}
+type BucketRedirectAllRequestsToInput interface {
+	pulumi.Input
+
+	ToBucketRedirectAllRequestsToOutput() BucketRedirectAllRequestsToOutput
+	ToBucketRedirectAllRequestsToOutputWithContext(context.Context) BucketRedirectAllRequestsToOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html
+type BucketRedirectAllRequestsToArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-hostname
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (BucketRedirectAllRequestsToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToOutput() BucketRedirectAllRequestsToOutput {
+	return i.ToBucketRedirectAllRequestsToOutputWithContext(context.Background())
+}
+
+func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectAllRequestsToOutput)
+}
+
+func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput {
+	return i.ToBucketRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectAllRequestsToOutput).ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx)
+}
+
+// BucketRedirectAllRequestsToPtrInput is an input type that accepts BucketRedirectAllRequestsToArgs, BucketRedirectAllRequestsToPtr and BucketRedirectAllRequestsToPtrOutput values.
+// You can construct a concrete instance of `BucketRedirectAllRequestsToPtrInput` via:
+//
+//          BucketRedirectAllRequestsToArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketRedirectAllRequestsToPtrInput interface {
+	pulumi.Input
+
+	ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput
+	ToBucketRedirectAllRequestsToPtrOutputWithContext(context.Context) BucketRedirectAllRequestsToPtrOutput
+}
+
+type bucketRedirectAllRequestsToPtrType BucketRedirectAllRequestsToArgs
+
+func BucketRedirectAllRequestsToPtr(v *BucketRedirectAllRequestsToArgs) BucketRedirectAllRequestsToPtrInput {
+	return (*bucketRedirectAllRequestsToPtrType)(v)
+}
+
+func (*bucketRedirectAllRequestsToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (i *bucketRedirectAllRequestsToPtrType) ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput {
+	return i.ToBucketRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketRedirectAllRequestsToPtrType) ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectAllRequestsToPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html
+type BucketRedirectAllRequestsToOutput struct{ *pulumi.OutputState }
+
+func (BucketRedirectAllRequestsToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (o BucketRedirectAllRequestsToOutput) ToBucketRedirectAllRequestsToOutput() BucketRedirectAllRequestsToOutput {
+	return o
+}
+
+func (o BucketRedirectAllRequestsToOutput) ToBucketRedirectAllRequestsToOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToOutput {
+	return o
+}
+
+func (o BucketRedirectAllRequestsToOutput) ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput {
+	return o.ToBucketRedirectAllRequestsToPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRedirectAllRequestsToOutput) ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRedirectAllRequestsTo) *BucketRedirectAllRequestsTo {
+		return &v
+	}).(BucketRedirectAllRequestsToPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-hostname
+func (o BucketRedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketRedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-protocol
+func (o BucketRedirectAllRequestsToOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectAllRequestsTo) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type BucketRedirectAllRequestsToPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketRedirectAllRequestsToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRedirectAllRequestsTo)(nil)).Elem()
+}
+
+func (o BucketRedirectAllRequestsToPtrOutput) ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput {
+	return o
+}
+
+func (o BucketRedirectAllRequestsToPtrOutput) ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToPtrOutput {
+	return o
+}
+
+func (o BucketRedirectAllRequestsToPtrOutput) Elem() BucketRedirectAllRequestsToOutput {
+	return o.ApplyT(func(v *BucketRedirectAllRequestsTo) BucketRedirectAllRequestsTo {
+		if v != nil {
+			return *v
+		}
+		var ret BucketRedirectAllRequestsTo
+		return ret
+	}).(BucketRedirectAllRequestsToOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-hostname
+func (o BucketRedirectAllRequestsToPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRedirectAllRequestsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-protocol
+func (o BucketRedirectAllRequestsToPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRedirectAllRequestsTo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html
+type BucketRedirectRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-hostname
+	HostName *string `pulumi:"hostName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-httpredirectcode
+	HttpRedirectCode *string `pulumi:"httpRedirectCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-protocol
+	Protocol *string `pulumi:"protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeyprefixwith
+	ReplaceKeyPrefixWith *string `pulumi:"replaceKeyPrefixWith"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeywith
+	ReplaceKeyWith *string `pulumi:"replaceKeyWith"`
+}
+
+// BucketRedirectRuleInput is an input type that accepts BucketRedirectRuleArgs and BucketRedirectRuleOutput values.
+// You can construct a concrete instance of `BucketRedirectRuleInput` via:
+//
+//          BucketRedirectRuleArgs{...}
+type BucketRedirectRuleInput interface {
+	pulumi.Input
+
+	ToBucketRedirectRuleOutput() BucketRedirectRuleOutput
+	ToBucketRedirectRuleOutputWithContext(context.Context) BucketRedirectRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html
+type BucketRedirectRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-hostname
+	HostName pulumi.StringPtrInput `pulumi:"hostName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-httpredirectcode
+	HttpRedirectCode pulumi.StringPtrInput `pulumi:"httpRedirectCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-protocol
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeyprefixwith
+	ReplaceKeyPrefixWith pulumi.StringPtrInput `pulumi:"replaceKeyPrefixWith"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeywith
+	ReplaceKeyWith pulumi.StringPtrInput `pulumi:"replaceKeyWith"`
+}
+
+func (BucketRedirectRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRedirectRule)(nil)).Elem()
+}
+
+func (i BucketRedirectRuleArgs) ToBucketRedirectRuleOutput() BucketRedirectRuleOutput {
+	return i.ToBucketRedirectRuleOutputWithContext(context.Background())
+}
+
+func (i BucketRedirectRuleArgs) ToBucketRedirectRuleOutputWithContext(ctx context.Context) BucketRedirectRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html
+type BucketRedirectRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketRedirectRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRedirectRule)(nil)).Elem()
+}
+
+func (o BucketRedirectRuleOutput) ToBucketRedirectRuleOutput() BucketRedirectRuleOutput {
+	return o
+}
+
+func (o BucketRedirectRuleOutput) ToBucketRedirectRuleOutputWithContext(ctx context.Context) BucketRedirectRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-hostname
+func (o BucketRedirectRuleOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectRule) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-httpredirectcode
+func (o BucketRedirectRuleOutput) HttpRedirectCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectRule) *string { return v.HttpRedirectCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-protocol
+func (o BucketRedirectRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeyprefixwith
+func (o BucketRedirectRuleOutput) ReplaceKeyPrefixWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectRule) *string { return v.ReplaceKeyPrefixWith }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeywith
+func (o BucketRedirectRuleOutput) ReplaceKeyWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRedirectRule) *string { return v.ReplaceKeyWith }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModifications struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+	Status string `pulumi:"status"`
+}
+
+// BucketReplicaModificationsInput is an input type that accepts BucketReplicaModificationsArgs and BucketReplicaModificationsOutput values.
+// You can construct a concrete instance of `BucketReplicaModificationsInput` via:
+//
+//          BucketReplicaModificationsArgs{...}
+type BucketReplicaModificationsInput interface {
+	pulumi.Input
+
+	ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput
+	ToBucketReplicaModificationsOutputWithContext(context.Context) BucketReplicaModificationsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModificationsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketReplicaModificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicaModifications)(nil)).Elem()
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput {
+	return i.ToBucketReplicaModificationsOutputWithContext(context.Background())
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsOutputWithContext(ctx context.Context) BucketReplicaModificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsOutput)
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return i.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsOutput).ToBucketReplicaModificationsPtrOutputWithContext(ctx)
+}
+
+// BucketReplicaModificationsPtrInput is an input type that accepts BucketReplicaModificationsArgs, BucketReplicaModificationsPtr and BucketReplicaModificationsPtrOutput values.
+// You can construct a concrete instance of `BucketReplicaModificationsPtrInput` via:
+//
+//          BucketReplicaModificationsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicaModificationsPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput
+	ToBucketReplicaModificationsPtrOutputWithContext(context.Context) BucketReplicaModificationsPtrOutput
+}
+
+type bucketReplicaModificationsPtrType BucketReplicaModificationsArgs
+
+func BucketReplicaModificationsPtr(v *BucketReplicaModificationsArgs) BucketReplicaModificationsPtrInput {
+	return (*bucketReplicaModificationsPtrType)(v)
+}
+
+func (*bucketReplicaModificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicaModifications)(nil)).Elem()
+}
+
+func (i *bucketReplicaModificationsPtrType) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return i.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicaModificationsPtrType) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html
+type BucketReplicaModificationsOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicaModificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicaModifications)(nil)).Elem()
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsOutput() BucketReplicaModificationsOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsOutputWithContext(ctx context.Context) BucketReplicaModificationsOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return o.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicaModifications) *BucketReplicaModifications {
+		return &v
+	}).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+func (o BucketReplicaModificationsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicaModifications) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketReplicaModificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicaModificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicaModifications)(nil)).Elem()
+}
+
+func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
+	return o
+}
+
+func (o BucketReplicaModificationsPtrOutput) Elem() BucketReplicaModificationsOutput {
+	return o.ApplyT(func(v *BucketReplicaModifications) BucketReplicaModifications {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicaModifications
+		return ret
+	}).(BucketReplicaModificationsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html#cfn-s3-bucket-replicamodifications-status
+func (o BucketReplicaModificationsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicaModifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html
+type BucketReplicationConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
+	Role string `pulumi:"role"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules
+	Rules []BucketReplicationRule `pulumi:"rules"`
+}
+
+// BucketReplicationConfigurationInput is an input type that accepts BucketReplicationConfigurationArgs and BucketReplicationConfigurationOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationInput` via:
+//
+//          BucketReplicationConfigurationArgs{...}
+type BucketReplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationOutput() BucketReplicationConfigurationOutput
+	ToBucketReplicationConfigurationOutputWithContext(context.Context) BucketReplicationConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html
+type BucketReplicationConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
+	Role pulumi.StringInput `pulumi:"role"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules
+	Rules BucketReplicationRuleArrayInput `pulumi:"rules"`
+}
+
+func (BucketReplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationOutput() BucketReplicationConfigurationOutput {
+	return i.ToBucketReplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationOutputWithContext(ctx context.Context) BucketReplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationOutput)
+}
+
+func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
+	return i.ToBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationOutput).ToBucketReplicationConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationConfigurationPtrInput is an input type that accepts BucketReplicationConfigurationArgs, BucketReplicationConfigurationPtr and BucketReplicationConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationPtrInput` via:
+//
+//          BucketReplicationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput
+	ToBucketReplicationConfigurationPtrOutputWithContext(context.Context) BucketReplicationConfigurationPtrOutput
+}
+
+type bucketReplicationConfigurationPtrType BucketReplicationConfigurationArgs
+
+func BucketReplicationConfigurationPtr(v *BucketReplicationConfigurationArgs) BucketReplicationConfigurationPtrInput {
+	return (*bucketReplicationConfigurationPtrType)(v)
+}
+
+func (*bucketReplicationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (i *bucketReplicationConfigurationPtrType) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
+	return i.ToBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationConfigurationPtrType) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html
+type BucketReplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationOutput() BucketReplicationConfigurationOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationOutputWithContext(ctx context.Context) BucketReplicationConfigurationOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
+	return o.ToBucketReplicationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfiguration) *BucketReplicationConfiguration {
+		return &v
+	}).(BucketReplicationConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
+func (o BucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules
+func (o BucketReplicationConfigurationOutput) Rules() BucketReplicationRuleArrayOutput {
+	return o.ApplyT(func(v BucketReplicationConfiguration) []BucketReplicationRule { return v.Rules }).(BucketReplicationRuleArrayOutput)
+}
+
+type BucketReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfiguration)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationPtrOutput) Elem() BucketReplicationConfigurationOutput {
+	return o.ApplyT(func(v *BucketReplicationConfiguration) BucketReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfiguration
+		return ret
+	}).(BucketReplicationConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
+func (o BucketReplicationConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Role
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules
+func (o BucketReplicationConfigurationPtrOutput) Rules() BucketReplicationRuleArrayOutput {
+	return o.ApplyT(func(v *BucketReplicationConfiguration) []BucketReplicationRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BucketReplicationRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
+type BucketReplicationDestination struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation
+	AccessControlTranslation *BucketAccessControlTranslation `pulumi:"accessControlTranslation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-account
+	Account *string `pulumi:"account"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-bucket
+	Bucket string `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
+	EncryptionConfiguration *BucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-metrics
+	Metrics *BucketMetrics `pulumi:"metrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-replicationtime
+	ReplicationTime *BucketReplicationTime `pulumi:"replicationTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-storageclass
+	StorageClass *string `pulumi:"storageClass"`
+}
+
+// BucketReplicationDestinationInput is an input type that accepts BucketReplicationDestinationArgs and BucketReplicationDestinationOutput values.
+// You can construct a concrete instance of `BucketReplicationDestinationInput` via:
+//
+//          BucketReplicationDestinationArgs{...}
+type BucketReplicationDestinationInput interface {
+	pulumi.Input
+
+	ToBucketReplicationDestinationOutput() BucketReplicationDestinationOutput
+	ToBucketReplicationDestinationOutputWithContext(context.Context) BucketReplicationDestinationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
+type BucketReplicationDestinationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation
+	AccessControlTranslation BucketAccessControlTranslationPtrInput `pulumi:"accessControlTranslation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-account
+	Account pulumi.StringPtrInput `pulumi:"account"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
+	EncryptionConfiguration BucketEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-metrics
+	Metrics BucketMetricsPtrInput `pulumi:"metrics"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-replicationtime
+	ReplicationTime BucketReplicationTimePtrInput `pulumi:"replicationTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-storageclass
+	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
+}
+
+func (BucketReplicationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationDestination)(nil)).Elem()
+}
+
+func (i BucketReplicationDestinationArgs) ToBucketReplicationDestinationOutput() BucketReplicationDestinationOutput {
+	return i.ToBucketReplicationDestinationOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationDestinationArgs) ToBucketReplicationDestinationOutputWithContext(ctx context.Context) BucketReplicationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
+type BucketReplicationDestinationOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationDestination)(nil)).Elem()
+}
+
+func (o BucketReplicationDestinationOutput) ToBucketReplicationDestinationOutput() BucketReplicationDestinationOutput {
+	return o
+}
+
+func (o BucketReplicationDestinationOutput) ToBucketReplicationDestinationOutputWithContext(ctx context.Context) BucketReplicationDestinationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation
+func (o BucketReplicationDestinationOutput) AccessControlTranslation() BucketAccessControlTranslationPtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *BucketAccessControlTranslation {
+		return v.AccessControlTranslation
+	}).(BucketAccessControlTranslationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-account
+func (o BucketReplicationDestinationOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *string { return v.Account }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-bucket
+func (o BucketReplicationDestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
+func (o BucketReplicationDestinationOutput) EncryptionConfiguration() BucketEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *BucketEncryptionConfiguration { return v.EncryptionConfiguration }).(BucketEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-metrics
+func (o BucketReplicationDestinationOutput) Metrics() BucketMetricsPtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *BucketMetrics { return v.Metrics }).(BucketMetricsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-replicationtime
+func (o BucketReplicationDestinationOutput) ReplicationTime() BucketReplicationTimePtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *BucketReplicationTime { return v.ReplicationTime }).(BucketReplicationTimePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-storageclass
+func (o BucketReplicationDestinationOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
+type BucketReplicationRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-deletemarkerreplication
+	DeleteMarkerReplication *BucketDeleteMarkerReplication `pulumi:"deleteMarkerReplication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-destination
+	Destination BucketReplicationDestination `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-filter
+	Filter *BucketReplicationRuleFilter `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-id
+	Id *string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-priority
+	Priority *int `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria
+	SourceSelectionCriteria *BucketSourceSelectionCriteria `pulumi:"sourceSelectionCriteria"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-status
+	Status string `pulumi:"status"`
+}
+
+// BucketReplicationRuleInput is an input type that accepts BucketReplicationRuleArgs and BucketReplicationRuleOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleInput` via:
+//
+//          BucketReplicationRuleArgs{...}
+type BucketReplicationRuleInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleOutput() BucketReplicationRuleOutput
+	ToBucketReplicationRuleOutputWithContext(context.Context) BucketReplicationRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
+type BucketReplicationRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-deletemarkerreplication
+	DeleteMarkerReplication BucketDeleteMarkerReplicationPtrInput `pulumi:"deleteMarkerReplication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-destination
+	Destination BucketReplicationDestinationInput `pulumi:"destination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-filter
+	Filter BucketReplicationRuleFilterPtrInput `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-priority
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria
+	SourceSelectionCriteria BucketSourceSelectionCriteriaPtrInput `pulumi:"sourceSelectionCriteria"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRule)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleArgs) ToBucketReplicationRuleOutput() BucketReplicationRuleOutput {
+	return i.ToBucketReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleArgs) ToBucketReplicationRuleOutputWithContext(ctx context.Context) BucketReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleOutput)
+}
+
+// BucketReplicationRuleArrayInput is an input type that accepts BucketReplicationRuleArray and BucketReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleArrayInput` via:
+//
+//          BucketReplicationRuleArray{ BucketReplicationRuleArgs{...} }
+type BucketReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput
+	ToBucketReplicationRuleArrayOutputWithContext(context.Context) BucketReplicationRuleArrayOutput
+}
+
+type BucketReplicationRuleArray []BucketReplicationRuleInput
+
+func (BucketReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketReplicationRule)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleArray) ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput {
+	return i.ToBucketReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleArray) ToBucketReplicationRuleArrayOutputWithContext(ctx context.Context) BucketReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
+type BucketReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRule)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutput() BucketReplicationRuleOutput {
+	return o
+}
+
+func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutputWithContext(ctx context.Context) BucketReplicationRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-deletemarkerreplication
+func (o BucketReplicationRuleOutput) DeleteMarkerReplication() BucketDeleteMarkerReplicationPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *BucketDeleteMarkerReplication { return v.DeleteMarkerReplication }).(BucketDeleteMarkerReplicationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-destination
+func (o BucketReplicationRuleOutput) Destination() BucketReplicationDestinationOutput {
+	return o.ApplyT(func(v BucketReplicationRule) BucketReplicationDestination { return v.Destination }).(BucketReplicationDestinationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-filter
+func (o BucketReplicationRuleOutput) Filter() BucketReplicationRuleFilterPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *BucketReplicationRuleFilter { return v.Filter }).(BucketReplicationRuleFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-id
+func (o BucketReplicationRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-prefix
+func (o BucketReplicationRuleOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-priority
+func (o BucketReplicationRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria
+func (o BucketReplicationRuleOutput) SourceSelectionCriteria() BucketSourceSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRule) *BucketSourceSelectionCriteria { return v.SourceSelectionCriteria }).(BucketSourceSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-status
+func (o BucketReplicationRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationRule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketReplicationRule)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleArrayOutput) ToBucketReplicationRuleArrayOutput() BucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o BucketReplicationRuleArrayOutput) ToBucketReplicationRuleArrayOutputWithContext(ctx context.Context) BucketReplicationRuleArrayOutput {
+	return o
+}
+
+func (o BucketReplicationRuleArrayOutput) Index(i pulumi.IntInput) BucketReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketReplicationRule {
+		return vs[0].([]BucketReplicationRule)[vs[1].(int)]
+	}).(BucketReplicationRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html
+type BucketReplicationRuleAndOperator struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+}
+
+// BucketReplicationRuleAndOperatorInput is an input type that accepts BucketReplicationRuleAndOperatorArgs and BucketReplicationRuleAndOperatorOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleAndOperatorInput` via:
+//
+//          BucketReplicationRuleAndOperatorArgs{...}
+type BucketReplicationRuleAndOperatorInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleAndOperatorOutput() BucketReplicationRuleAndOperatorOutput
+	ToBucketReplicationRuleAndOperatorOutputWithContext(context.Context) BucketReplicationRuleAndOperatorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html
+type BucketReplicationRuleAndOperatorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+}
+
+func (BucketReplicationRuleAndOperatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleAndOperator)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorOutput() BucketReplicationRuleAndOperatorOutput {
+	return i.ToBucketReplicationRuleAndOperatorOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAndOperatorOutput)
+}
+
+func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput {
+	return i.ToBucketReplicationRuleAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAndOperatorOutput).ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationRuleAndOperatorPtrInput is an input type that accepts BucketReplicationRuleAndOperatorArgs, BucketReplicationRuleAndOperatorPtr and BucketReplicationRuleAndOperatorPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleAndOperatorPtrInput` via:
+//
+//          BucketReplicationRuleAndOperatorArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationRuleAndOperatorPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput
+	ToBucketReplicationRuleAndOperatorPtrOutputWithContext(context.Context) BucketReplicationRuleAndOperatorPtrOutput
+}
+
+type bucketReplicationRuleAndOperatorPtrType BucketReplicationRuleAndOperatorArgs
+
+func BucketReplicationRuleAndOperatorPtr(v *BucketReplicationRuleAndOperatorArgs) BucketReplicationRuleAndOperatorPtrInput {
+	return (*bucketReplicationRuleAndOperatorPtrType)(v)
+}
+
+func (*bucketReplicationRuleAndOperatorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleAndOperator)(nil)).Elem()
+}
+
+func (i *bucketReplicationRuleAndOperatorPtrType) ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput {
+	return i.ToBucketReplicationRuleAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationRuleAndOperatorPtrType) ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAndOperatorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html
+type BucketReplicationRuleAndOperatorOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleAndOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleAndOperator)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleAndOperatorOutput) ToBucketReplicationRuleAndOperatorOutput() BucketReplicationRuleAndOperatorOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAndOperatorOutput) ToBucketReplicationRuleAndOperatorOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAndOperatorOutput) ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput {
+	return o.ToBucketReplicationRuleAndOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationRuleAndOperatorOutput) ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationRuleAndOperator) *BucketReplicationRuleAndOperator {
+		return &v
+	}).(BucketReplicationRuleAndOperatorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
+func (o BucketReplicationRuleAndOperatorOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleAndOperator) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
+func (o BucketReplicationRuleAndOperatorOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketReplicationRuleAndOperator) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+type BucketReplicationRuleAndOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleAndOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleAndOperator)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleAndOperatorPtrOutput) ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAndOperatorPtrOutput) ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleAndOperatorPtrOutput) Elem() BucketReplicationRuleAndOperatorOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleAndOperator) BucketReplicationRuleAndOperator {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationRuleAndOperator
+		return ret
+	}).(BucketReplicationRuleAndOperatorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-prefix
+func (o BucketReplicationRuleAndOperatorPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleAndOperator) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html#cfn-s3-bucket-replicationruleandoperator-tagfilters
+func (o BucketReplicationRuleAndOperatorPtrOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleAndOperator) []BucketTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilters
+	}).(BucketTagFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html
+type BucketReplicationRuleFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and
+	And *BucketReplicationRuleAndOperator `pulumi:"and"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
+	TagFilter *BucketTagFilter `pulumi:"tagFilter"`
+}
+
+// BucketReplicationRuleFilterInput is an input type that accepts BucketReplicationRuleFilterArgs and BucketReplicationRuleFilterOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleFilterInput` via:
+//
+//          BucketReplicationRuleFilterArgs{...}
+type BucketReplicationRuleFilterInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleFilterOutput() BucketReplicationRuleFilterOutput
+	ToBucketReplicationRuleFilterOutputWithContext(context.Context) BucketReplicationRuleFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html
+type BucketReplicationRuleFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and
+	And BucketReplicationRuleAndOperatorPtrInput `pulumi:"and"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
+	TagFilter BucketTagFilterPtrInput `pulumi:"tagFilter"`
+}
+
+func (BucketReplicationRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleFilter)(nil)).Elem()
+}
+
+func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterOutput() BucketReplicationRuleFilterOutput {
+	return i.ToBucketReplicationRuleFilterOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterOutputWithContext(ctx context.Context) BucketReplicationRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleFilterOutput)
+}
+
+func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput {
+	return i.ToBucketReplicationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleFilterOutput).ToBucketReplicationRuleFilterPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationRuleFilterPtrInput is an input type that accepts BucketReplicationRuleFilterArgs, BucketReplicationRuleFilterPtr and BucketReplicationRuleFilterPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationRuleFilterPtrInput` via:
+//
+//          BucketReplicationRuleFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationRuleFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput
+	ToBucketReplicationRuleFilterPtrOutputWithContext(context.Context) BucketReplicationRuleFilterPtrOutput
+}
+
+type bucketReplicationRuleFilterPtrType BucketReplicationRuleFilterArgs
+
+func BucketReplicationRuleFilterPtr(v *BucketReplicationRuleFilterArgs) BucketReplicationRuleFilterPtrInput {
+	return (*bucketReplicationRuleFilterPtrType)(v)
+}
+
+func (*bucketReplicationRuleFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleFilter)(nil)).Elem()
+}
+
+func (i *bucketReplicationRuleFilterPtrType) ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput {
+	return i.ToBucketReplicationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationRuleFilterPtrType) ToBucketReplicationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationRuleFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html
+type BucketReplicationRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationRuleFilter)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleFilterOutput) ToBucketReplicationRuleFilterOutput() BucketReplicationRuleFilterOutput {
+	return o
+}
+
+func (o BucketReplicationRuleFilterOutput) ToBucketReplicationRuleFilterOutputWithContext(ctx context.Context) BucketReplicationRuleFilterOutput {
+	return o
+}
+
+func (o BucketReplicationRuleFilterOutput) ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput {
+	return o.ToBucketReplicationRuleFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationRuleFilterOutput) ToBucketReplicationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationRuleFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationRuleFilter) *BucketReplicationRuleFilter {
+		return &v
+	}).(BucketReplicationRuleFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and
+func (o BucketReplicationRuleFilterOutput) And() BucketReplicationRuleAndOperatorPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleFilter) *BucketReplicationRuleAndOperator { return v.And }).(BucketReplicationRuleAndOperatorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
+func (o BucketReplicationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
+func (o BucketReplicationRuleFilterOutput) TagFilter() BucketTagFilterPtrOutput {
+	return o.ApplyT(func(v BucketReplicationRuleFilter) *BucketTagFilter { return v.TagFilter }).(BucketTagFilterPtrOutput)
+}
+
+type BucketReplicationRuleFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationRuleFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationRuleFilter)(nil)).Elem()
+}
+
+func (o BucketReplicationRuleFilterPtrOutput) ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleFilterPtrOutput) ToBucketReplicationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationRuleFilterPtrOutput {
+	return o
+}
+
+func (o BucketReplicationRuleFilterPtrOutput) Elem() BucketReplicationRuleFilterOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleFilter) BucketReplicationRuleFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationRuleFilter
+		return ret
+	}).(BucketReplicationRuleFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-and
+func (o BucketReplicationRuleFilterPtrOutput) And() BucketReplicationRuleAndOperatorPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleFilter) *BucketReplicationRuleAndOperator {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(BucketReplicationRuleAndOperatorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-prefix
+func (o BucketReplicationRuleFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html#cfn-s3-bucket-replicationrulefilter-tagfilter
+func (o BucketReplicationRuleFilterPtrOutput) TagFilter() BucketTagFilterPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationRuleFilter) *BucketTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.TagFilter
+	}).(BucketTagFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html
+type BucketReplicationTime struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
+	Status string `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
+	Time BucketReplicationTimeValue `pulumi:"time"`
+}
+
+// BucketReplicationTimeInput is an input type that accepts BucketReplicationTimeArgs and BucketReplicationTimeOutput values.
+// You can construct a concrete instance of `BucketReplicationTimeInput` via:
+//
+//          BucketReplicationTimeArgs{...}
+type BucketReplicationTimeInput interface {
+	pulumi.Input
+
+	ToBucketReplicationTimeOutput() BucketReplicationTimeOutput
+	ToBucketReplicationTimeOutputWithContext(context.Context) BucketReplicationTimeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html
+type BucketReplicationTimeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
+	Status pulumi.StringInput `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
+	Time BucketReplicationTimeValueInput `pulumi:"time"`
+}
+
+func (BucketReplicationTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationTime)(nil)).Elem()
+}
+
+func (i BucketReplicationTimeArgs) ToBucketReplicationTimeOutput() BucketReplicationTimeOutput {
+	return i.ToBucketReplicationTimeOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationTimeArgs) ToBucketReplicationTimeOutputWithContext(ctx context.Context) BucketReplicationTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeOutput)
+}
+
+func (i BucketReplicationTimeArgs) ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput {
+	return i.ToBucketReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationTimeArgs) ToBucketReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeOutput).ToBucketReplicationTimePtrOutputWithContext(ctx)
+}
+
+// BucketReplicationTimePtrInput is an input type that accepts BucketReplicationTimeArgs, BucketReplicationTimePtr and BucketReplicationTimePtrOutput values.
+// You can construct a concrete instance of `BucketReplicationTimePtrInput` via:
+//
+//          BucketReplicationTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationTimePtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput
+	ToBucketReplicationTimePtrOutputWithContext(context.Context) BucketReplicationTimePtrOutput
+}
+
+type bucketReplicationTimePtrType BucketReplicationTimeArgs
+
+func BucketReplicationTimePtr(v *BucketReplicationTimeArgs) BucketReplicationTimePtrInput {
+	return (*bucketReplicationTimePtrType)(v)
+}
+
+func (*bucketReplicationTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationTime)(nil)).Elem()
+}
+
+func (i *bucketReplicationTimePtrType) ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput {
+	return i.ToBucketReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationTimePtrType) ToBucketReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html
+type BucketReplicationTimeOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationTime)(nil)).Elem()
+}
+
+func (o BucketReplicationTimeOutput) ToBucketReplicationTimeOutput() BucketReplicationTimeOutput {
+	return o
+}
+
+func (o BucketReplicationTimeOutput) ToBucketReplicationTimeOutputWithContext(ctx context.Context) BucketReplicationTimeOutput {
+	return o
+}
+
+func (o BucketReplicationTimeOutput) ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput {
+	return o.ToBucketReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationTimeOutput) ToBucketReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationTime) *BucketReplicationTime {
+		return &v
+	}).(BucketReplicationTimePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
+func (o BucketReplicationTimeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketReplicationTime) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
+func (o BucketReplicationTimeOutput) Time() BucketReplicationTimeValueOutput {
+	return o.ApplyT(func(v BucketReplicationTime) BucketReplicationTimeValue { return v.Time }).(BucketReplicationTimeValueOutput)
+}
+
+type BucketReplicationTimePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationTime)(nil)).Elem()
+}
+
+func (o BucketReplicationTimePtrOutput) ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput {
+	return o
+}
+
+func (o BucketReplicationTimePtrOutput) ToBucketReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationTimePtrOutput {
+	return o
+}
+
+func (o BucketReplicationTimePtrOutput) Elem() BucketReplicationTimeOutput {
+	return o.ApplyT(func(v *BucketReplicationTime) BucketReplicationTime {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationTime
+		return ret
+	}).(BucketReplicationTimeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-status
+func (o BucketReplicationTimePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html#cfn-s3-bucket-replicationtime-time
+func (o BucketReplicationTimePtrOutput) Time() BucketReplicationTimeValuePtrOutput {
+	return o.ApplyT(func(v *BucketReplicationTime) *BucketReplicationTimeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(BucketReplicationTimeValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
+type BucketReplicationTimeValue struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
+	Minutes int `pulumi:"minutes"`
+}
+
+// BucketReplicationTimeValueInput is an input type that accepts BucketReplicationTimeValueArgs and BucketReplicationTimeValueOutput values.
+// You can construct a concrete instance of `BucketReplicationTimeValueInput` via:
+//
+//          BucketReplicationTimeValueArgs{...}
+type BucketReplicationTimeValueInput interface {
+	pulumi.Input
+
+	ToBucketReplicationTimeValueOutput() BucketReplicationTimeValueOutput
+	ToBucketReplicationTimeValueOutputWithContext(context.Context) BucketReplicationTimeValueOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
+type BucketReplicationTimeValueArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (BucketReplicationTimeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationTimeValue)(nil)).Elem()
+}
+
+func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValueOutput() BucketReplicationTimeValueOutput {
+	return i.ToBucketReplicationTimeValueOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValueOutputWithContext(ctx context.Context) BucketReplicationTimeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeValueOutput)
+}
+
+func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput {
+	return i.ToBucketReplicationTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValuePtrOutputWithContext(ctx context.Context) BucketReplicationTimeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeValueOutput).ToBucketReplicationTimeValuePtrOutputWithContext(ctx)
+}
+
+// BucketReplicationTimeValuePtrInput is an input type that accepts BucketReplicationTimeValueArgs, BucketReplicationTimeValuePtr and BucketReplicationTimeValuePtrOutput values.
+// You can construct a concrete instance of `BucketReplicationTimeValuePtrInput` via:
+//
+//          BucketReplicationTimeValueArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationTimeValuePtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput
+	ToBucketReplicationTimeValuePtrOutputWithContext(context.Context) BucketReplicationTimeValuePtrOutput
+}
+
+type bucketReplicationTimeValuePtrType BucketReplicationTimeValueArgs
+
+func BucketReplicationTimeValuePtr(v *BucketReplicationTimeValueArgs) BucketReplicationTimeValuePtrInput {
+	return (*bucketReplicationTimeValuePtrType)(v)
+}
+
+func (*bucketReplicationTimeValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationTimeValue)(nil)).Elem()
+}
+
+func (i *bucketReplicationTimeValuePtrType) ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput {
+	return i.ToBucketReplicationTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationTimeValuePtrType) ToBucketReplicationTimeValuePtrOutputWithContext(ctx context.Context) BucketReplicationTimeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html
+type BucketReplicationTimeValueOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationTimeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationTimeValue)(nil)).Elem()
+}
+
+func (o BucketReplicationTimeValueOutput) ToBucketReplicationTimeValueOutput() BucketReplicationTimeValueOutput {
+	return o
+}
+
+func (o BucketReplicationTimeValueOutput) ToBucketReplicationTimeValueOutputWithContext(ctx context.Context) BucketReplicationTimeValueOutput {
+	return o
+}
+
+func (o BucketReplicationTimeValueOutput) ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput {
+	return o.ToBucketReplicationTimeValuePtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationTimeValueOutput) ToBucketReplicationTimeValuePtrOutputWithContext(ctx context.Context) BucketReplicationTimeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationTimeValue) *BucketReplicationTimeValue {
+		return &v
+	}).(BucketReplicationTimeValuePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
+func (o BucketReplicationTimeValueOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketReplicationTimeValue) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type BucketReplicationTimeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationTimeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationTimeValue)(nil)).Elem()
+}
+
+func (o BucketReplicationTimeValuePtrOutput) ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput {
+	return o
+}
+
+func (o BucketReplicationTimeValuePtrOutput) ToBucketReplicationTimeValuePtrOutputWithContext(ctx context.Context) BucketReplicationTimeValuePtrOutput {
+	return o
+}
+
+func (o BucketReplicationTimeValuePtrOutput) Elem() BucketReplicationTimeValueOutput {
+	return o.ApplyT(func(v *BucketReplicationTimeValue) BucketReplicationTimeValue {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationTimeValue
+		return ret
+	}).(BucketReplicationTimeValueOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html#cfn-s3-bucket-replicationtimevalue-minutes
+func (o BucketReplicationTimeValuePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationTimeValue) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html
+type BucketRoutingRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-redirectrule
+	RedirectRule BucketRedirectRule `pulumi:"redirectRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition
+	RoutingRuleCondition *BucketRoutingRuleCondition `pulumi:"routingRuleCondition"`
+}
+
+// BucketRoutingRuleInput is an input type that accepts BucketRoutingRuleArgs and BucketRoutingRuleOutput values.
+// You can construct a concrete instance of `BucketRoutingRuleInput` via:
+//
+//          BucketRoutingRuleArgs{...}
+type BucketRoutingRuleInput interface {
+	pulumi.Input
+
+	ToBucketRoutingRuleOutput() BucketRoutingRuleOutput
+	ToBucketRoutingRuleOutputWithContext(context.Context) BucketRoutingRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html
+type BucketRoutingRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-redirectrule
+	RedirectRule BucketRedirectRuleInput `pulumi:"redirectRule"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition
+	RoutingRuleCondition BucketRoutingRuleConditionPtrInput `pulumi:"routingRuleCondition"`
+}
+
+func (BucketRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRoutingRule)(nil)).Elem()
+}
+
+func (i BucketRoutingRuleArgs) ToBucketRoutingRuleOutput() BucketRoutingRuleOutput {
+	return i.ToBucketRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i BucketRoutingRuleArgs) ToBucketRoutingRuleOutputWithContext(ctx context.Context) BucketRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleOutput)
+}
+
+// BucketRoutingRuleArrayInput is an input type that accepts BucketRoutingRuleArray and BucketRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `BucketRoutingRuleArrayInput` via:
+//
+//          BucketRoutingRuleArray{ BucketRoutingRuleArgs{...} }
+type BucketRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketRoutingRuleArrayOutput() BucketRoutingRuleArrayOutput
+	ToBucketRoutingRuleArrayOutputWithContext(context.Context) BucketRoutingRuleArrayOutput
+}
+
+type BucketRoutingRuleArray []BucketRoutingRuleInput
+
+func (BucketRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketRoutingRule)(nil)).Elem()
+}
+
+func (i BucketRoutingRuleArray) ToBucketRoutingRuleArrayOutput() BucketRoutingRuleArrayOutput {
+	return i.ToBucketRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketRoutingRuleArray) ToBucketRoutingRuleArrayOutputWithContext(ctx context.Context) BucketRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html
+type BucketRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRoutingRule)(nil)).Elem()
+}
+
+func (o BucketRoutingRuleOutput) ToBucketRoutingRuleOutput() BucketRoutingRuleOutput {
+	return o
+}
+
+func (o BucketRoutingRuleOutput) ToBucketRoutingRuleOutputWithContext(ctx context.Context) BucketRoutingRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-redirectrule
+func (o BucketRoutingRuleOutput) RedirectRule() BucketRedirectRuleOutput {
+	return o.ApplyT(func(v BucketRoutingRule) BucketRedirectRule { return v.RedirectRule }).(BucketRedirectRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition
+func (o BucketRoutingRuleOutput) RoutingRuleCondition() BucketRoutingRuleConditionPtrOutput {
+	return o.ApplyT(func(v BucketRoutingRule) *BucketRoutingRuleCondition { return v.RoutingRuleCondition }).(BucketRoutingRuleConditionPtrOutput)
+}
+
+type BucketRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketRoutingRule)(nil)).Elem()
+}
+
+func (o BucketRoutingRuleArrayOutput) ToBucketRoutingRuleArrayOutput() BucketRoutingRuleArrayOutput {
+	return o
+}
+
+func (o BucketRoutingRuleArrayOutput) ToBucketRoutingRuleArrayOutputWithContext(ctx context.Context) BucketRoutingRuleArrayOutput {
+	return o
+}
+
+func (o BucketRoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketRoutingRule {
+		return vs[0].([]BucketRoutingRule)[vs[1].(int)]
+	}).(BucketRoutingRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
+type BucketRoutingRuleCondition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
+	HttpErrorCodeReturnedEquals *string `pulumi:"httpErrorCodeReturnedEquals"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
+	KeyPrefixEquals *string `pulumi:"keyPrefixEquals"`
+}
+
+// BucketRoutingRuleConditionInput is an input type that accepts BucketRoutingRuleConditionArgs and BucketRoutingRuleConditionOutput values.
+// You can construct a concrete instance of `BucketRoutingRuleConditionInput` via:
+//
+//          BucketRoutingRuleConditionArgs{...}
+type BucketRoutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToBucketRoutingRuleConditionOutput() BucketRoutingRuleConditionOutput
+	ToBucketRoutingRuleConditionOutputWithContext(context.Context) BucketRoutingRuleConditionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
+type BucketRoutingRuleConditionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
+	HttpErrorCodeReturnedEquals pulumi.StringPtrInput `pulumi:"httpErrorCodeReturnedEquals"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
+	KeyPrefixEquals pulumi.StringPtrInput `pulumi:"keyPrefixEquals"`
+}
+
+func (BucketRoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRoutingRuleCondition)(nil)).Elem()
+}
+
+func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionOutput() BucketRoutingRuleConditionOutput {
+	return i.ToBucketRoutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionOutputWithContext(ctx context.Context) BucketRoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleConditionOutput)
+}
+
+func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput {
+	return i.ToBucketRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleConditionOutput).ToBucketRoutingRuleConditionPtrOutputWithContext(ctx)
+}
+
+// BucketRoutingRuleConditionPtrInput is an input type that accepts BucketRoutingRuleConditionArgs, BucketRoutingRuleConditionPtr and BucketRoutingRuleConditionPtrOutput values.
+// You can construct a concrete instance of `BucketRoutingRuleConditionPtrInput` via:
+//
+//          BucketRoutingRuleConditionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketRoutingRuleConditionPtrInput interface {
+	pulumi.Input
+
+	ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput
+	ToBucketRoutingRuleConditionPtrOutputWithContext(context.Context) BucketRoutingRuleConditionPtrOutput
+}
+
+type bucketRoutingRuleConditionPtrType BucketRoutingRuleConditionArgs
+
+func BucketRoutingRuleConditionPtr(v *BucketRoutingRuleConditionArgs) BucketRoutingRuleConditionPtrInput {
+	return (*bucketRoutingRuleConditionPtrType)(v)
+}
+
+func (*bucketRoutingRuleConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRoutingRuleCondition)(nil)).Elem()
+}
+
+func (i *bucketRoutingRuleConditionPtrType) ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput {
+	return i.ToBucketRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketRoutingRuleConditionPtrType) ToBucketRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketRoutingRuleConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleConditionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
+type BucketRoutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (BucketRoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRoutingRuleCondition)(nil)).Elem()
+}
+
+func (o BucketRoutingRuleConditionOutput) ToBucketRoutingRuleConditionOutput() BucketRoutingRuleConditionOutput {
+	return o
+}
+
+func (o BucketRoutingRuleConditionOutput) ToBucketRoutingRuleConditionOutputWithContext(ctx context.Context) BucketRoutingRuleConditionOutput {
+	return o
+}
+
+func (o BucketRoutingRuleConditionOutput) ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput {
+	return o.ToBucketRoutingRuleConditionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketRoutingRuleConditionOutput) ToBucketRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketRoutingRuleConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRoutingRuleCondition) *BucketRoutingRuleCondition {
+		return &v
+	}).(BucketRoutingRuleConditionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
+func (o BucketRoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRoutingRuleCondition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
+func (o BucketRoutingRuleConditionOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRoutingRuleCondition) *string { return v.KeyPrefixEquals }).(pulumi.StringPtrOutput)
+}
+
+type BucketRoutingRuleConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketRoutingRuleConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketRoutingRuleCondition)(nil)).Elem()
+}
+
+func (o BucketRoutingRuleConditionPtrOutput) ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o BucketRoutingRuleConditionPtrOutput) ToBucketRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketRoutingRuleConditionPtrOutput {
+	return o
+}
+
+func (o BucketRoutingRuleConditionPtrOutput) Elem() BucketRoutingRuleConditionOutput {
+	return o.ApplyT(func(v *BucketRoutingRuleCondition) BucketRoutingRuleCondition {
+		if v != nil {
+			return *v
+		}
+		var ret BucketRoutingRuleCondition
+		return ret
+	}).(BucketRoutingRuleConditionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
+func (o BucketRoutingRuleConditionPtrOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRoutingRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpErrorCodeReturnedEquals
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
+func (o BucketRoutingRuleConditionPtrOutput) KeyPrefixEquals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketRoutingRuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPrefixEquals
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
+type BucketRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-abortincompletemultipartupload
+	AbortIncompleteMultipartUpload *BucketAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationdate
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
+	ExpirationInDays *int `pulumi:"expirationInDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-expiredobjectdeletemarker
+	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-id
+	Id *string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
+	NoncurrentVersionExpirationInDays *int `pulumi:"noncurrentVersionExpirationInDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition
+	NoncurrentVersionTransition *BucketNoncurrentVersionTransition `pulumi:"noncurrentVersionTransition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
+	NoncurrentVersionTransitions []BucketNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-prefix
+	Prefix *string `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-status
+	Status string `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
+	TagFilters []BucketTagFilter `pulumi:"tagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transition
+	Transition *BucketTransition `pulumi:"transition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
+	Transitions []BucketTransition `pulumi:"transitions"`
+}
+
+// BucketRuleInput is an input type that accepts BucketRuleArgs and BucketRuleOutput values.
+// You can construct a concrete instance of `BucketRuleInput` via:
+//
+//          BucketRuleArgs{...}
+type BucketRuleInput interface {
+	pulumi.Input
+
+	ToBucketRuleOutput() BucketRuleOutput
+	ToBucketRuleOutputWithContext(context.Context) BucketRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
+type BucketRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-abortincompletemultipartupload
+	AbortIncompleteMultipartUpload BucketAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationdate
+	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
+	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-expiredobjectdeletemarker
+	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-id
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
+	NoncurrentVersionExpirationInDays pulumi.IntPtrInput `pulumi:"noncurrentVersionExpirationInDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition
+	NoncurrentVersionTransition BucketNoncurrentVersionTransitionPtrInput `pulumi:"noncurrentVersionTransition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
+	NoncurrentVersionTransitions BucketNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-prefix
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-status
+	Status pulumi.StringInput `pulumi:"status"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
+	TagFilters BucketTagFilterArrayInput `pulumi:"tagFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transition
+	Transition BucketTransitionPtrInput `pulumi:"transition"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
+	Transitions BucketTransitionArrayInput `pulumi:"transitions"`
+}
+
+func (BucketRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRule)(nil)).Elem()
+}
+
+func (i BucketRuleArgs) ToBucketRuleOutput() BucketRuleOutput {
+	return i.ToBucketRuleOutputWithContext(context.Background())
+}
+
+func (i BucketRuleArgs) ToBucketRuleOutputWithContext(ctx context.Context) BucketRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleOutput)
+}
+
+// BucketRuleArrayInput is an input type that accepts BucketRuleArray and BucketRuleArrayOutput values.
+// You can construct a concrete instance of `BucketRuleArrayInput` via:
+//
+//          BucketRuleArray{ BucketRuleArgs{...} }
+type BucketRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketRuleArrayOutput() BucketRuleArrayOutput
+	ToBucketRuleArrayOutputWithContext(context.Context) BucketRuleArrayOutput
+}
+
+type BucketRuleArray []BucketRuleInput
+
+func (BucketRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketRule)(nil)).Elem()
+}
+
+func (i BucketRuleArray) ToBucketRuleArrayOutput() BucketRuleArrayOutput {
+	return i.ToBucketRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketRuleArray) ToBucketRuleArrayOutputWithContext(ctx context.Context) BucketRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
+type BucketRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketRule)(nil)).Elem()
+}
+
+func (o BucketRuleOutput) ToBucketRuleOutput() BucketRuleOutput {
+	return o
+}
+
+func (o BucketRuleOutput) ToBucketRuleOutputWithContext(ctx context.Context) BucketRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-abortincompletemultipartupload
+func (o BucketRuleOutput) AbortIncompleteMultipartUpload() BucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketAbortIncompleteMultipartUpload { return v.AbortIncompleteMultipartUpload }).(BucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationdate
+func (o BucketRuleOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRule) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
+func (o BucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketRule) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-expiredobjectdeletemarker
+func (o BucketRuleOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketRule) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-id
+func (o BucketRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
+func (o BucketRuleOutput) NoncurrentVersionExpirationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketRule) *int { return v.NoncurrentVersionExpirationInDays }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition
+func (o BucketRuleOutput) NoncurrentVersionTransition() BucketNoncurrentVersionTransitionPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketNoncurrentVersionTransition { return v.NoncurrentVersionTransition }).(BucketNoncurrentVersionTransitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
+func (o BucketRuleOutput) NoncurrentVersionTransitions() BucketNoncurrentVersionTransitionArrayOutput {
+	return o.ApplyT(func(v BucketRule) []BucketNoncurrentVersionTransition { return v.NoncurrentVersionTransitions }).(BucketNoncurrentVersionTransitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-prefix
+func (o BucketRuleOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-status
+func (o BucketRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketRule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
+func (o BucketRuleOutput) TagFilters() BucketTagFilterArrayOutput {
+	return o.ApplyT(func(v BucketRule) []BucketTagFilter { return v.TagFilters }).(BucketTagFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transition
+func (o BucketRuleOutput) Transition() BucketTransitionPtrOutput {
+	return o.ApplyT(func(v BucketRule) *BucketTransition { return v.Transition }).(BucketTransitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
+func (o BucketRuleOutput) Transitions() BucketTransitionArrayOutput {
+	return o.ApplyT(func(v BucketRule) []BucketTransition { return v.Transitions }).(BucketTransitionArrayOutput)
+}
+
+type BucketRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketRule)(nil)).Elem()
+}
+
+func (o BucketRuleArrayOutput) ToBucketRuleArrayOutput() BucketRuleArrayOutput {
+	return o
+}
+
+func (o BucketRuleArrayOutput) ToBucketRuleArrayOutputWithContext(ctx context.Context) BucketRuleArrayOutput {
+	return o
+}
+
+func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketRule {
+		return vs[0].([]BucketRule)[vs[1].(int)]
+	}).(BucketRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html
+type BucketS3KeyFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
+	Rules []BucketFilterRule `pulumi:"rules"`
+}
+
+// BucketS3KeyFilterInput is an input type that accepts BucketS3KeyFilterArgs and BucketS3KeyFilterOutput values.
+// You can construct a concrete instance of `BucketS3KeyFilterInput` via:
+//
+//          BucketS3KeyFilterArgs{...}
+type BucketS3KeyFilterInput interface {
+	pulumi.Input
+
+	ToBucketS3KeyFilterOutput() BucketS3KeyFilterOutput
+	ToBucketS3KeyFilterOutputWithContext(context.Context) BucketS3KeyFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html
+type BucketS3KeyFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
+	Rules BucketFilterRuleArrayInput `pulumi:"rules"`
+}
+
+func (BucketS3KeyFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketS3KeyFilter)(nil)).Elem()
+}
+
+func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterOutput() BucketS3KeyFilterOutput {
+	return i.ToBucketS3KeyFilterOutputWithContext(context.Background())
+}
+
+func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterOutputWithContext(ctx context.Context) BucketS3KeyFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketS3KeyFilterOutput)
+}
+
+func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput {
+	return i.ToBucketS3KeyFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterPtrOutputWithContext(ctx context.Context) BucketS3KeyFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketS3KeyFilterOutput).ToBucketS3KeyFilterPtrOutputWithContext(ctx)
+}
+
+// BucketS3KeyFilterPtrInput is an input type that accepts BucketS3KeyFilterArgs, BucketS3KeyFilterPtr and BucketS3KeyFilterPtrOutput values.
+// You can construct a concrete instance of `BucketS3KeyFilterPtrInput` via:
+//
+//          BucketS3KeyFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketS3KeyFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput
+	ToBucketS3KeyFilterPtrOutputWithContext(context.Context) BucketS3KeyFilterPtrOutput
+}
+
+type bucketS3KeyFilterPtrType BucketS3KeyFilterArgs
+
+func BucketS3KeyFilterPtr(v *BucketS3KeyFilterArgs) BucketS3KeyFilterPtrInput {
+	return (*bucketS3KeyFilterPtrType)(v)
+}
+
+func (*bucketS3KeyFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketS3KeyFilter)(nil)).Elem()
+}
+
+func (i *bucketS3KeyFilterPtrType) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput {
+	return i.ToBucketS3KeyFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketS3KeyFilterPtrType) ToBucketS3KeyFilterPtrOutputWithContext(ctx context.Context) BucketS3KeyFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketS3KeyFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html
+type BucketS3KeyFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketS3KeyFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketS3KeyFilter)(nil)).Elem()
+}
+
+func (o BucketS3KeyFilterOutput) ToBucketS3KeyFilterOutput() BucketS3KeyFilterOutput {
+	return o
+}
+
+func (o BucketS3KeyFilterOutput) ToBucketS3KeyFilterOutputWithContext(ctx context.Context) BucketS3KeyFilterOutput {
+	return o
+}
+
+func (o BucketS3KeyFilterOutput) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput {
+	return o.ToBucketS3KeyFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketS3KeyFilterOutput) ToBucketS3KeyFilterPtrOutputWithContext(ctx context.Context) BucketS3KeyFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketS3KeyFilter) *BucketS3KeyFilter {
+		return &v
+	}).(BucketS3KeyFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
+func (o BucketS3KeyFilterOutput) Rules() BucketFilterRuleArrayOutput {
+	return o.ApplyT(func(v BucketS3KeyFilter) []BucketFilterRule { return v.Rules }).(BucketFilterRuleArrayOutput)
+}
+
+type BucketS3KeyFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketS3KeyFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketS3KeyFilter)(nil)).Elem()
+}
+
+func (o BucketS3KeyFilterPtrOutput) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput {
+	return o
+}
+
+func (o BucketS3KeyFilterPtrOutput) ToBucketS3KeyFilterPtrOutputWithContext(ctx context.Context) BucketS3KeyFilterPtrOutput {
+	return o
+}
+
+func (o BucketS3KeyFilterPtrOutput) Elem() BucketS3KeyFilterOutput {
+	return o.ApplyT(func(v *BucketS3KeyFilter) BucketS3KeyFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketS3KeyFilter
+		return ret
+	}).(BucketS3KeyFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
+func (o BucketS3KeyFilterPtrOutput) Rules() BucketFilterRuleArrayOutput {
+	return o.ApplyT(func(v *BucketS3KeyFilter) []BucketFilterRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(BucketFilterRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html
+type BucketServerSideEncryptionByDefault struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
+	KMSMasterKeyID *string `pulumi:"kMSMasterKeyID"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm
+	SSEAlgorithm string `pulumi:"sSEAlgorithm"`
+}
+
+// BucketServerSideEncryptionByDefaultInput is an input type that accepts BucketServerSideEncryptionByDefaultArgs and BucketServerSideEncryptionByDefaultOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionByDefaultInput` via:
+//
+//          BucketServerSideEncryptionByDefaultArgs{...}
+type BucketServerSideEncryptionByDefaultInput interface {
+	pulumi.Input
+
+	ToBucketServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionByDefaultOutput
+	ToBucketServerSideEncryptionByDefaultOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html
+type BucketServerSideEncryptionByDefaultArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
+	KMSMasterKeyID pulumi.StringPtrInput `pulumi:"kMSMasterKeyID"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm
+	SSEAlgorithm pulumi.StringInput `pulumi:"sSEAlgorithm"`
+}
+
+func (BucketServerSideEncryptionByDefaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionByDefault)(nil)).Elem()
+}
+
+func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionByDefaultOutput {
+	return i.ToBucketServerSideEncryptionByDefaultOutputWithContext(context.Background())
+}
+
+func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionByDefaultOutput)
+}
+
+func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput {
+	return i.ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionByDefaultOutput).ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx)
+}
+
+// BucketServerSideEncryptionByDefaultPtrInput is an input type that accepts BucketServerSideEncryptionByDefaultArgs, BucketServerSideEncryptionByDefaultPtr and BucketServerSideEncryptionByDefaultPtrOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionByDefaultPtrInput` via:
+//
+//          BucketServerSideEncryptionByDefaultArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketServerSideEncryptionByDefaultPtrInput interface {
+	pulumi.Input
+
+	ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput
+	ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(context.Context) BucketServerSideEncryptionByDefaultPtrOutput
+}
+
+type bucketServerSideEncryptionByDefaultPtrType BucketServerSideEncryptionByDefaultArgs
+
+func BucketServerSideEncryptionByDefaultPtr(v *BucketServerSideEncryptionByDefaultArgs) BucketServerSideEncryptionByDefaultPtrInput {
+	return (*bucketServerSideEncryptionByDefaultPtrType)(v)
+}
+
+func (*bucketServerSideEncryptionByDefaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketServerSideEncryptionByDefault)(nil)).Elem()
+}
+
+func (i *bucketServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput {
+	return i.ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionByDefaultPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html
+type BucketServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
+
+func (BucketServerSideEncryptionByDefaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionByDefault)(nil)).Elem()
+}
+
+func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionByDefaultOutput() BucketServerSideEncryptionByDefaultOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput {
+	return o.ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionByDefault) *BucketServerSideEncryptionByDefault {
+		return &v
+	}).(BucketServerSideEncryptionByDefaultPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
+func (o BucketServerSideEncryptionByDefaultOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KMSMasterKeyID }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm
+func (o BucketServerSideEncryptionByDefaultOutput) SSEAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) string { return v.SSEAlgorithm }).(pulumi.StringOutput)
+}
+
+type BucketServerSideEncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketServerSideEncryptionByDefaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketServerSideEncryptionByDefault)(nil)).Elem()
+}
+
+func (o BucketServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultPtrOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionByDefaultOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) BucketServerSideEncryptionByDefault {
+		if v != nil {
+			return *v
+		}
+		var ret BucketServerSideEncryptionByDefault
+		return ret
+	}).(BucketServerSideEncryptionByDefaultOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
+func (o BucketServerSideEncryptionByDefaultPtrOutput) KMSMasterKeyID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KMSMasterKeyID
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm
+func (o BucketServerSideEncryptionByDefaultPtrOutput) SSEAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketServerSideEncryptionByDefault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SSEAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
+type BucketServerSideEncryptionRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
+	ServerSideEncryptionByDefault *BucketServerSideEncryptionByDefault `pulumi:"serverSideEncryptionByDefault"`
+}
+
+// BucketServerSideEncryptionRuleInput is an input type that accepts BucketServerSideEncryptionRuleArgs and BucketServerSideEncryptionRuleOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionRuleInput` via:
+//
+//          BucketServerSideEncryptionRuleArgs{...}
+type BucketServerSideEncryptionRuleInput interface {
+	pulumi.Input
+
+	ToBucketServerSideEncryptionRuleOutput() BucketServerSideEncryptionRuleOutput
+	ToBucketServerSideEncryptionRuleOutputWithContext(context.Context) BucketServerSideEncryptionRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
+type BucketServerSideEncryptionRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
+	ServerSideEncryptionByDefault BucketServerSideEncryptionByDefaultPtrInput `pulumi:"serverSideEncryptionByDefault"`
+}
+
+func (BucketServerSideEncryptionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionRule)(nil)).Elem()
+}
+
+func (i BucketServerSideEncryptionRuleArgs) ToBucketServerSideEncryptionRuleOutput() BucketServerSideEncryptionRuleOutput {
+	return i.ToBucketServerSideEncryptionRuleOutputWithContext(context.Background())
+}
+
+func (i BucketServerSideEncryptionRuleArgs) ToBucketServerSideEncryptionRuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionRuleOutput)
+}
+
+// BucketServerSideEncryptionRuleArrayInput is an input type that accepts BucketServerSideEncryptionRuleArray and BucketServerSideEncryptionRuleArrayOutput values.
+// You can construct a concrete instance of `BucketServerSideEncryptionRuleArrayInput` via:
+//
+//          BucketServerSideEncryptionRuleArray{ BucketServerSideEncryptionRuleArgs{...} }
+type BucketServerSideEncryptionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBucketServerSideEncryptionRuleArrayOutput() BucketServerSideEncryptionRuleArrayOutput
+	ToBucketServerSideEncryptionRuleArrayOutputWithContext(context.Context) BucketServerSideEncryptionRuleArrayOutput
+}
+
+type BucketServerSideEncryptionRuleArray []BucketServerSideEncryptionRuleInput
+
+func (BucketServerSideEncryptionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketServerSideEncryptionRule)(nil)).Elem()
+}
+
+func (i BucketServerSideEncryptionRuleArray) ToBucketServerSideEncryptionRuleArrayOutput() BucketServerSideEncryptionRuleArrayOutput {
+	return i.ToBucketServerSideEncryptionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BucketServerSideEncryptionRuleArray) ToBucketServerSideEncryptionRuleArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html
+type BucketServerSideEncryptionRuleOutput struct{ *pulumi.OutputState }
+
+func (BucketServerSideEncryptionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketServerSideEncryptionRule)(nil)).Elem()
+}
+
+func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOutput() BucketServerSideEncryptionRuleOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-bucketkeyenabled
+func (o BucketServerSideEncryptionRuleOutput) BucketKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionRule) *bool { return v.BucketKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
+func (o BucketServerSideEncryptionRuleOutput) ServerSideEncryptionByDefault() BucketServerSideEncryptionByDefaultPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionRule) *BucketServerSideEncryptionByDefault {
+		return v.ServerSideEncryptionByDefault
+	}).(BucketServerSideEncryptionByDefaultPtrOutput)
+}
+
+type BucketServerSideEncryptionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketServerSideEncryptionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketServerSideEncryptionRule)(nil)).Elem()
+}
+
+func (o BucketServerSideEncryptionRuleArrayOutput) ToBucketServerSideEncryptionRuleArrayOutput() BucketServerSideEncryptionRuleArrayOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionRuleArrayOutput) ToBucketServerSideEncryptionRuleArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleArrayOutput {
+	return o
+}
+
+func (o BucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionRule {
+		return vs[0].([]BucketServerSideEncryptionRule)[vs[1].(int)]
+	}).(BucketServerSideEncryptionRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
+type BucketSourceSelectionCriteria struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+	ReplicaModifications *BucketReplicaModifications `pulumi:"replicaModifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+	SseKmsEncryptedObjects *BucketSseKmsEncryptedObjects `pulumi:"sseKmsEncryptedObjects"`
+}
+
+// BucketSourceSelectionCriteriaInput is an input type that accepts BucketSourceSelectionCriteriaArgs and BucketSourceSelectionCriteriaOutput values.
+// You can construct a concrete instance of `BucketSourceSelectionCriteriaInput` via:
+//
+//          BucketSourceSelectionCriteriaArgs{...}
+type BucketSourceSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToBucketSourceSelectionCriteriaOutput() BucketSourceSelectionCriteriaOutput
+	ToBucketSourceSelectionCriteriaOutputWithContext(context.Context) BucketSourceSelectionCriteriaOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
+type BucketSourceSelectionCriteriaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+	ReplicaModifications BucketReplicaModificationsPtrInput `pulumi:"replicaModifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+	SseKmsEncryptedObjects BucketSseKmsEncryptedObjectsPtrInput `pulumi:"sseKmsEncryptedObjects"`
+}
+
+func (BucketSourceSelectionCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaOutput() BucketSourceSelectionCriteriaOutput {
+	return i.ToBucketSourceSelectionCriteriaOutputWithContext(context.Background())
+}
+
+func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSourceSelectionCriteriaOutput)
+}
+
+func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput {
+	return i.ToBucketSourceSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSourceSelectionCriteriaOutput).ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx)
+}
+
+// BucketSourceSelectionCriteriaPtrInput is an input type that accepts BucketSourceSelectionCriteriaArgs, BucketSourceSelectionCriteriaPtr and BucketSourceSelectionCriteriaPtrOutput values.
+// You can construct a concrete instance of `BucketSourceSelectionCriteriaPtrInput` via:
+//
+//          BucketSourceSelectionCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketSourceSelectionCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput
+	ToBucketSourceSelectionCriteriaPtrOutputWithContext(context.Context) BucketSourceSelectionCriteriaPtrOutput
+}
+
+type bucketSourceSelectionCriteriaPtrType BucketSourceSelectionCriteriaArgs
+
+func BucketSourceSelectionCriteriaPtr(v *BucketSourceSelectionCriteriaArgs) BucketSourceSelectionCriteriaPtrInput {
+	return (*bucketSourceSelectionCriteriaPtrType)(v)
+}
+
+func (*bucketSourceSelectionCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (i *bucketSourceSelectionCriteriaPtrType) ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput {
+	return i.ToBucketSourceSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketSourceSelectionCriteriaPtrType) ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSourceSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html
+type BucketSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BucketSourceSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaOutput() BucketSourceSelectionCriteriaOutput {
+	return o
+}
+
+func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaOutput {
+	return o
+}
+
+func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput {
+	return o.ToBucketSourceSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketSourceSelectionCriteria) *BucketSourceSelectionCriteria {
+		return &v
+	}).(BucketSourceSelectionCriteriaPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+func (o BucketSourceSelectionCriteriaOutput) ReplicaModifications() BucketReplicaModificationsPtrOutput {
+	return o.ApplyT(func(v BucketSourceSelectionCriteria) *BucketReplicaModifications { return v.ReplicaModifications }).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+func (o BucketSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketSseKmsEncryptedObjectsPtrOutput {
+	return o.ApplyT(func(v BucketSourceSelectionCriteria) *BucketSseKmsEncryptedObjects { return v.SseKmsEncryptedObjects }).(BucketSseKmsEncryptedObjectsPtrOutput)
+}
+
+type BucketSourceSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketSourceSelectionCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (o BucketSourceSelectionCriteriaPtrOutput) ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o BucketSourceSelectionCriteriaPtrOutput) ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o BucketSourceSelectionCriteriaPtrOutput) Elem() BucketSourceSelectionCriteriaOutput {
+	return o.ApplyT(func(v *BucketSourceSelectionCriteria) BucketSourceSelectionCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret BucketSourceSelectionCriteria
+		return ret
+	}).(BucketSourceSelectionCriteriaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-replicamodifications
+func (o BucketSourceSelectionCriteriaPtrOutput) ReplicaModifications() BucketReplicaModificationsPtrOutput {
+	return o.ApplyT(func(v *BucketSourceSelectionCriteria) *BucketReplicaModifications {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaModifications
+	}).(BucketReplicaModificationsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+func (o BucketSourceSelectionCriteriaPtrOutput) SseKmsEncryptedObjects() BucketSseKmsEncryptedObjectsPtrOutput {
+	return o.ApplyT(func(v *BucketSourceSelectionCriteria) *BucketSseKmsEncryptedObjects {
+		if v == nil {
+			return nil
+		}
+		return v.SseKmsEncryptedObjects
+	}).(BucketSseKmsEncryptedObjectsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html
+type BucketSseKmsEncryptedObjects struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+	Status string `pulumi:"status"`
+}
+
+// BucketSseKmsEncryptedObjectsInput is an input type that accepts BucketSseKmsEncryptedObjectsArgs and BucketSseKmsEncryptedObjectsOutput values.
+// You can construct a concrete instance of `BucketSseKmsEncryptedObjectsInput` via:
+//
+//          BucketSseKmsEncryptedObjectsArgs{...}
+type BucketSseKmsEncryptedObjectsInput interface {
+	pulumi.Input
+
+	ToBucketSseKmsEncryptedObjectsOutput() BucketSseKmsEncryptedObjectsOutput
+	ToBucketSseKmsEncryptedObjectsOutputWithContext(context.Context) BucketSseKmsEncryptedObjectsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html
+type BucketSseKmsEncryptedObjectsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketSseKmsEncryptedObjectsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketSseKmsEncryptedObjects)(nil)).Elem()
+}
+
+func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsOutput() BucketSseKmsEncryptedObjectsOutput {
+	return i.ToBucketSseKmsEncryptedObjectsOutputWithContext(context.Background())
+}
+
+func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSseKmsEncryptedObjectsOutput)
+}
+
+func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput {
+	return i.ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSseKmsEncryptedObjectsOutput).ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx)
+}
+
+// BucketSseKmsEncryptedObjectsPtrInput is an input type that accepts BucketSseKmsEncryptedObjectsArgs, BucketSseKmsEncryptedObjectsPtr and BucketSseKmsEncryptedObjectsPtrOutput values.
+// You can construct a concrete instance of `BucketSseKmsEncryptedObjectsPtrInput` via:
+//
+//          BucketSseKmsEncryptedObjectsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketSseKmsEncryptedObjectsPtrInput interface {
+	pulumi.Input
+
+	ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput
+	ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(context.Context) BucketSseKmsEncryptedObjectsPtrOutput
+}
+
+type bucketSseKmsEncryptedObjectsPtrType BucketSseKmsEncryptedObjectsArgs
+
+func BucketSseKmsEncryptedObjectsPtr(v *BucketSseKmsEncryptedObjectsArgs) BucketSseKmsEncryptedObjectsPtrInput {
+	return (*bucketSseKmsEncryptedObjectsPtrType)(v)
+}
+
+func (*bucketSseKmsEncryptedObjectsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketSseKmsEncryptedObjects)(nil)).Elem()
+}
+
+func (i *bucketSseKmsEncryptedObjectsPtrType) ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput {
+	return i.ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketSseKmsEncryptedObjectsPtrType) ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketSseKmsEncryptedObjectsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html
+type BucketSseKmsEncryptedObjectsOutput struct{ *pulumi.OutputState }
+
+func (BucketSseKmsEncryptedObjectsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketSseKmsEncryptedObjects)(nil)).Elem()
+}
+
+func (o BucketSseKmsEncryptedObjectsOutput) ToBucketSseKmsEncryptedObjectsOutput() BucketSseKmsEncryptedObjectsOutput {
+	return o
+}
+
+func (o BucketSseKmsEncryptedObjectsOutput) ToBucketSseKmsEncryptedObjectsOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsOutput {
+	return o
+}
+
+func (o BucketSseKmsEncryptedObjectsOutput) ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput {
+	return o.ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketSseKmsEncryptedObjectsOutput) ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketSseKmsEncryptedObjects) *BucketSseKmsEncryptedObjects {
+		return &v
+	}).(BucketSseKmsEncryptedObjectsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+func (o BucketSseKmsEncryptedObjectsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketSseKmsEncryptedObjects) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketSseKmsEncryptedObjectsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketSseKmsEncryptedObjectsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketSseKmsEncryptedObjects)(nil)).Elem()
+}
+
+func (o BucketSseKmsEncryptedObjectsPtrOutput) ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput {
+	return o
+}
+
+func (o BucketSseKmsEncryptedObjectsPtrOutput) ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsPtrOutput {
+	return o
+}
+
+func (o BucketSseKmsEncryptedObjectsPtrOutput) Elem() BucketSseKmsEncryptedObjectsOutput {
+	return o.ApplyT(func(v *BucketSseKmsEncryptedObjects) BucketSseKmsEncryptedObjects {
+		if v != nil {
+			return *v
+		}
+		var ret BucketSseKmsEncryptedObjects
+		return ret
+	}).(BucketSseKmsEncryptedObjectsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+func (o BucketSseKmsEncryptedObjectsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketSseKmsEncryptedObjects) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html
+type BucketStorageClassAnalysis struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport
+	DataExport *BucketDataExport `pulumi:"dataExport"`
+}
+
+// BucketStorageClassAnalysisInput is an input type that accepts BucketStorageClassAnalysisArgs and BucketStorageClassAnalysisOutput values.
+// You can construct a concrete instance of `BucketStorageClassAnalysisInput` via:
+//
+//          BucketStorageClassAnalysisArgs{...}
+type BucketStorageClassAnalysisInput interface {
+	pulumi.Input
+
+	ToBucketStorageClassAnalysisOutput() BucketStorageClassAnalysisOutput
+	ToBucketStorageClassAnalysisOutputWithContext(context.Context) BucketStorageClassAnalysisOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html
+type BucketStorageClassAnalysisArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport
+	DataExport BucketDataExportPtrInput `pulumi:"dataExport"`
+}
+
+func (BucketStorageClassAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketStorageClassAnalysis)(nil)).Elem()
+}
+
+func (i BucketStorageClassAnalysisArgs) ToBucketStorageClassAnalysisOutput() BucketStorageClassAnalysisOutput {
+	return i.ToBucketStorageClassAnalysisOutputWithContext(context.Background())
+}
+
+func (i BucketStorageClassAnalysisArgs) ToBucketStorageClassAnalysisOutputWithContext(ctx context.Context) BucketStorageClassAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketStorageClassAnalysisOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html
+type BucketStorageClassAnalysisOutput struct{ *pulumi.OutputState }
+
+func (BucketStorageClassAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketStorageClassAnalysis)(nil)).Elem()
+}
+
+func (o BucketStorageClassAnalysisOutput) ToBucketStorageClassAnalysisOutput() BucketStorageClassAnalysisOutput {
+	return o
+}
+
+func (o BucketStorageClassAnalysisOutput) ToBucketStorageClassAnalysisOutputWithContext(ctx context.Context) BucketStorageClassAnalysisOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport
+func (o BucketStorageClassAnalysisOutput) DataExport() BucketDataExportPtrOutput {
+	return o.ApplyT(func(v BucketStorageClassAnalysis) *BucketDataExport { return v.DataExport }).(BucketDataExportPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html
+type BucketTagFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+	Value string `pulumi:"value"`
+}
+
+// BucketTagFilterInput is an input type that accepts BucketTagFilterArgs and BucketTagFilterOutput values.
+// You can construct a concrete instance of `BucketTagFilterInput` via:
+//
+//          BucketTagFilterArgs{...}
+type BucketTagFilterInput interface {
+	pulumi.Input
+
+	ToBucketTagFilterOutput() BucketTagFilterOutput
+	ToBucketTagFilterOutputWithContext(context.Context) BucketTagFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html
+type BucketTagFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BucketTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTagFilter)(nil)).Elem()
+}
+
+func (i BucketTagFilterArgs) ToBucketTagFilterOutput() BucketTagFilterOutput {
+	return i.ToBucketTagFilterOutputWithContext(context.Background())
+}
+
+func (i BucketTagFilterArgs) ToBucketTagFilterOutputWithContext(ctx context.Context) BucketTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterOutput)
+}
+
+func (i BucketTagFilterArgs) ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput {
+	return i.ToBucketTagFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketTagFilterArgs) ToBucketTagFilterPtrOutputWithContext(ctx context.Context) BucketTagFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterOutput).ToBucketTagFilterPtrOutputWithContext(ctx)
+}
+
+// BucketTagFilterPtrInput is an input type that accepts BucketTagFilterArgs, BucketTagFilterPtr and BucketTagFilterPtrOutput values.
+// You can construct a concrete instance of `BucketTagFilterPtrInput` via:
+//
+//          BucketTagFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketTagFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput
+	ToBucketTagFilterPtrOutputWithContext(context.Context) BucketTagFilterPtrOutput
+}
+
+type bucketTagFilterPtrType BucketTagFilterArgs
+
+func BucketTagFilterPtr(v *BucketTagFilterArgs) BucketTagFilterPtrInput {
+	return (*bucketTagFilterPtrType)(v)
+}
+
+func (*bucketTagFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTagFilter)(nil)).Elem()
+}
+
+func (i *bucketTagFilterPtrType) ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput {
+	return i.ToBucketTagFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketTagFilterPtrType) ToBucketTagFilterPtrOutputWithContext(ctx context.Context) BucketTagFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterPtrOutput)
+}
+
+// BucketTagFilterArrayInput is an input type that accepts BucketTagFilterArray and BucketTagFilterArrayOutput values.
+// You can construct a concrete instance of `BucketTagFilterArrayInput` via:
+//
+//          BucketTagFilterArray{ BucketTagFilterArgs{...} }
+type BucketTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToBucketTagFilterArrayOutput() BucketTagFilterArrayOutput
+	ToBucketTagFilterArrayOutputWithContext(context.Context) BucketTagFilterArrayOutput
+}
+
+type BucketTagFilterArray []BucketTagFilterInput
+
+func (BucketTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTagFilter)(nil)).Elem()
+}
+
+func (i BucketTagFilterArray) ToBucketTagFilterArrayOutput() BucketTagFilterArrayOutput {
+	return i.ToBucketTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTagFilterArray) ToBucketTagFilterArrayOutputWithContext(ctx context.Context) BucketTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html
+type BucketTagFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTagFilter)(nil)).Elem()
+}
+
+func (o BucketTagFilterOutput) ToBucketTagFilterOutput() BucketTagFilterOutput {
+	return o
+}
+
+func (o BucketTagFilterOutput) ToBucketTagFilterOutputWithContext(ctx context.Context) BucketTagFilterOutput {
+	return o
+}
+
+func (o BucketTagFilterOutput) ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput {
+	return o.ToBucketTagFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketTagFilterOutput) ToBucketTagFilterPtrOutputWithContext(ctx context.Context) BucketTagFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketTagFilter) *BucketTagFilter {
+		return &v
+	}).(BucketTagFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+func (o BucketTagFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTagFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+func (o BucketTagFilterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTagFilter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BucketTagFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketTagFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTagFilter)(nil)).Elem()
+}
+
+func (o BucketTagFilterPtrOutput) ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput {
+	return o
+}
+
+func (o BucketTagFilterPtrOutput) ToBucketTagFilterPtrOutputWithContext(ctx context.Context) BucketTagFilterPtrOutput {
+	return o
+}
+
+func (o BucketTagFilterPtrOutput) Elem() BucketTagFilterOutput {
+	return o.ApplyT(func(v *BucketTagFilter) BucketTagFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketTagFilter
+		return ret
+	}).(BucketTagFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+func (o BucketTagFilterPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketTagFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+func (o BucketTagFilterPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketTagFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTagFilter)(nil)).Elem()
+}
+
+func (o BucketTagFilterArrayOutput) ToBucketTagFilterArrayOutput() BucketTagFilterArrayOutput {
+	return o
+}
+
+func (o BucketTagFilterArrayOutput) ToBucketTagFilterArrayOutputWithContext(ctx context.Context) BucketTagFilterArrayOutput {
+	return o
+}
+
+func (o BucketTagFilterArrayOutput) Index(i pulumi.IntInput) BucketTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTagFilter {
+		return vs[0].([]BucketTagFilter)[vs[1].(int)]
+	}).(BucketTagFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTiering struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+	AccessTier string `pulumi:"accessTier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+	Days int `pulumi:"days"`
+}
+
+// BucketTieringInput is an input type that accepts BucketTieringArgs and BucketTieringOutput values.
+// You can construct a concrete instance of `BucketTieringInput` via:
+//
+//          BucketTieringArgs{...}
+type BucketTieringInput interface {
+	pulumi.Input
+
+	ToBucketTieringOutput() BucketTieringOutput
+	ToBucketTieringOutputWithContext(context.Context) BucketTieringOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTieringArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+	Days pulumi.IntInput `pulumi:"days"`
+}
+
+func (BucketTieringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTiering)(nil)).Elem()
+}
+
+func (i BucketTieringArgs) ToBucketTieringOutput() BucketTieringOutput {
+	return i.ToBucketTieringOutputWithContext(context.Background())
+}
+
+func (i BucketTieringArgs) ToBucketTieringOutputWithContext(ctx context.Context) BucketTieringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringOutput)
+}
+
+// BucketTieringArrayInput is an input type that accepts BucketTieringArray and BucketTieringArrayOutput values.
+// You can construct a concrete instance of `BucketTieringArrayInput` via:
+//
+//          BucketTieringArray{ BucketTieringArgs{...} }
+type BucketTieringArrayInput interface {
+	pulumi.Input
+
+	ToBucketTieringArrayOutput() BucketTieringArrayOutput
+	ToBucketTieringArrayOutputWithContext(context.Context) BucketTieringArrayOutput
+}
+
+type BucketTieringArray []BucketTieringInput
+
+func (BucketTieringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTiering)(nil)).Elem()
+}
+
+func (i BucketTieringArray) ToBucketTieringArrayOutput() BucketTieringArrayOutput {
+	return i.ToBucketTieringArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTieringArray) ToBucketTieringArrayOutputWithContext(ctx context.Context) BucketTieringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html
+type BucketTieringOutput struct{ *pulumi.OutputState }
+
+func (BucketTieringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTiering)(nil)).Elem()
+}
+
+func (o BucketTieringOutput) ToBucketTieringOutput() BucketTieringOutput {
+	return o
+}
+
+func (o BucketTieringOutput) ToBucketTieringOutputWithContext(ctx context.Context) BucketTieringOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-accesstier
+func (o BucketTieringOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTiering) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html#cfn-s3-bucket-tiering-days
+func (o BucketTieringOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketTiering) int { return v.Days }).(pulumi.IntOutput)
+}
+
+type BucketTieringArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTieringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTiering)(nil)).Elem()
+}
+
+func (o BucketTieringArrayOutput) ToBucketTieringArrayOutput() BucketTieringArrayOutput {
+	return o
+}
+
+func (o BucketTieringArrayOutput) ToBucketTieringArrayOutputWithContext(ctx context.Context) BucketTieringArrayOutput {
+	return o
+}
+
+func (o BucketTieringArrayOutput) Index(i pulumi.IntInput) BucketTieringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTiering {
+		return vs[0].([]BucketTiering)[vs[1].(int)]
+	}).(BucketTieringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
+type BucketTopicConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-event
+	Event string `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-filter
+	Filter *BucketNotificationFilter `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-topic
+	Topic string `pulumi:"topic"`
+}
+
+// BucketTopicConfigurationInput is an input type that accepts BucketTopicConfigurationArgs and BucketTopicConfigurationOutput values.
+// You can construct a concrete instance of `BucketTopicConfigurationInput` via:
+//
+//          BucketTopicConfigurationArgs{...}
+type BucketTopicConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketTopicConfigurationOutput() BucketTopicConfigurationOutput
+	ToBucketTopicConfigurationOutputWithContext(context.Context) BucketTopicConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
+type BucketTopicConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-event
+	Event pulumi.StringInput `pulumi:"event"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-filter
+	Filter BucketNotificationFilterPtrInput `pulumi:"filter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-topic
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (BucketTopicConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTopicConfiguration)(nil)).Elem()
+}
+
+func (i BucketTopicConfigurationArgs) ToBucketTopicConfigurationOutput() BucketTopicConfigurationOutput {
+	return i.ToBucketTopicConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketTopicConfigurationArgs) ToBucketTopicConfigurationOutputWithContext(ctx context.Context) BucketTopicConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTopicConfigurationOutput)
+}
+
+// BucketTopicConfigurationArrayInput is an input type that accepts BucketTopicConfigurationArray and BucketTopicConfigurationArrayOutput values.
+// You can construct a concrete instance of `BucketTopicConfigurationArrayInput` via:
+//
+//          BucketTopicConfigurationArray{ BucketTopicConfigurationArgs{...} }
+type BucketTopicConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToBucketTopicConfigurationArrayOutput() BucketTopicConfigurationArrayOutput
+	ToBucketTopicConfigurationArrayOutputWithContext(context.Context) BucketTopicConfigurationArrayOutput
+}
+
+type BucketTopicConfigurationArray []BucketTopicConfigurationInput
+
+func (BucketTopicConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTopicConfiguration)(nil)).Elem()
+}
+
+func (i BucketTopicConfigurationArray) ToBucketTopicConfigurationArrayOutput() BucketTopicConfigurationArrayOutput {
+	return i.ToBucketTopicConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTopicConfigurationArray) ToBucketTopicConfigurationArrayOutputWithContext(ctx context.Context) BucketTopicConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTopicConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
+type BucketTopicConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketTopicConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTopicConfiguration)(nil)).Elem()
+}
+
+func (o BucketTopicConfigurationOutput) ToBucketTopicConfigurationOutput() BucketTopicConfigurationOutput {
+	return o
+}
+
+func (o BucketTopicConfigurationOutput) ToBucketTopicConfigurationOutputWithContext(ctx context.Context) BucketTopicConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-event
+func (o BucketTopicConfigurationOutput) Event() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTopicConfiguration) string { return v.Event }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-filter
+func (o BucketTopicConfigurationOutput) Filter() BucketNotificationFilterPtrOutput {
+	return o.ApplyT(func(v BucketTopicConfiguration) *BucketNotificationFilter { return v.Filter }).(BucketNotificationFilterPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-topic
+func (o BucketTopicConfigurationOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTopicConfiguration) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+type BucketTopicConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTopicConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTopicConfiguration)(nil)).Elem()
+}
+
+func (o BucketTopicConfigurationArrayOutput) ToBucketTopicConfigurationArrayOutput() BucketTopicConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketTopicConfigurationArrayOutput) ToBucketTopicConfigurationArrayOutputWithContext(ctx context.Context) BucketTopicConfigurationArrayOutput {
+	return o
+}
+
+func (o BucketTopicConfigurationArrayOutput) Index(i pulumi.IntInput) BucketTopicConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTopicConfiguration {
+		return vs[0].([]BucketTopicConfiguration)[vs[1].(int)]
+	}).(BucketTopicConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
+type BucketTransition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-storageclass
+	StorageClass string `pulumi:"storageClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitiondate
+	TransitionDate *string `pulumi:"transitionDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
+	TransitionInDays *int `pulumi:"transitionInDays"`
+}
+
+// BucketTransitionInput is an input type that accepts BucketTransitionArgs and BucketTransitionOutput values.
+// You can construct a concrete instance of `BucketTransitionInput` via:
+//
+//          BucketTransitionArgs{...}
+type BucketTransitionInput interface {
+	pulumi.Input
+
+	ToBucketTransitionOutput() BucketTransitionOutput
+	ToBucketTransitionOutputWithContext(context.Context) BucketTransitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
+type BucketTransitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-storageclass
+	StorageClass pulumi.StringInput `pulumi:"storageClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitiondate
+	TransitionDate pulumi.StringPtrInput `pulumi:"transitionDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
+	TransitionInDays pulumi.IntPtrInput `pulumi:"transitionInDays"`
+}
+
+func (BucketTransitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTransition)(nil)).Elem()
+}
+
+func (i BucketTransitionArgs) ToBucketTransitionOutput() BucketTransitionOutput {
+	return i.ToBucketTransitionOutputWithContext(context.Background())
+}
+
+func (i BucketTransitionArgs) ToBucketTransitionOutputWithContext(ctx context.Context) BucketTransitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionOutput)
+}
+
+func (i BucketTransitionArgs) ToBucketTransitionPtrOutput() BucketTransitionPtrOutput {
+	return i.ToBucketTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i BucketTransitionArgs) ToBucketTransitionPtrOutputWithContext(ctx context.Context) BucketTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionOutput).ToBucketTransitionPtrOutputWithContext(ctx)
+}
+
+// BucketTransitionPtrInput is an input type that accepts BucketTransitionArgs, BucketTransitionPtr and BucketTransitionPtrOutput values.
+// You can construct a concrete instance of `BucketTransitionPtrInput` via:
+//
+//          BucketTransitionArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketTransitionPtrInput interface {
+	pulumi.Input
+
+	ToBucketTransitionPtrOutput() BucketTransitionPtrOutput
+	ToBucketTransitionPtrOutputWithContext(context.Context) BucketTransitionPtrOutput
+}
+
+type bucketTransitionPtrType BucketTransitionArgs
+
+func BucketTransitionPtr(v *BucketTransitionArgs) BucketTransitionPtrInput {
+	return (*bucketTransitionPtrType)(v)
+}
+
+func (*bucketTransitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTransition)(nil)).Elem()
+}
+
+func (i *bucketTransitionPtrType) ToBucketTransitionPtrOutput() BucketTransitionPtrOutput {
+	return i.ToBucketTransitionPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketTransitionPtrType) ToBucketTransitionPtrOutputWithContext(ctx context.Context) BucketTransitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionPtrOutput)
+}
+
+// BucketTransitionArrayInput is an input type that accepts BucketTransitionArray and BucketTransitionArrayOutput values.
+// You can construct a concrete instance of `BucketTransitionArrayInput` via:
+//
+//          BucketTransitionArray{ BucketTransitionArgs{...} }
+type BucketTransitionArrayInput interface {
+	pulumi.Input
+
+	ToBucketTransitionArrayOutput() BucketTransitionArrayOutput
+	ToBucketTransitionArrayOutputWithContext(context.Context) BucketTransitionArrayOutput
+}
+
+type BucketTransitionArray []BucketTransitionInput
+
+func (BucketTransitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTransition)(nil)).Elem()
+}
+
+func (i BucketTransitionArray) ToBucketTransitionArrayOutput() BucketTransitionArrayOutput {
+	return i.ToBucketTransitionArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTransitionArray) ToBucketTransitionArrayOutputWithContext(ctx context.Context) BucketTransitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
+type BucketTransitionOutput struct{ *pulumi.OutputState }
+
+func (BucketTransitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTransition)(nil)).Elem()
+}
+
+func (o BucketTransitionOutput) ToBucketTransitionOutput() BucketTransitionOutput {
+	return o
+}
+
+func (o BucketTransitionOutput) ToBucketTransitionOutputWithContext(ctx context.Context) BucketTransitionOutput {
+	return o
+}
+
+func (o BucketTransitionOutput) ToBucketTransitionPtrOutput() BucketTransitionPtrOutput {
+	return o.ToBucketTransitionPtrOutputWithContext(context.Background())
+}
+
+func (o BucketTransitionOutput) ToBucketTransitionPtrOutputWithContext(ctx context.Context) BucketTransitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketTransition) *BucketTransition {
+		return &v
+	}).(BucketTransitionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-storageclass
+func (o BucketTransitionOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTransition) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitiondate
+func (o BucketTransitionOutput) TransitionDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketTransition) *string { return v.TransitionDate }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
+func (o BucketTransitionOutput) TransitionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketTransition) *int { return v.TransitionInDays }).(pulumi.IntPtrOutput)
+}
+
+type BucketTransitionPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketTransitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTransition)(nil)).Elem()
+}
+
+func (o BucketTransitionPtrOutput) ToBucketTransitionPtrOutput() BucketTransitionPtrOutput {
+	return o
+}
+
+func (o BucketTransitionPtrOutput) ToBucketTransitionPtrOutputWithContext(ctx context.Context) BucketTransitionPtrOutput {
+	return o
+}
+
+func (o BucketTransitionPtrOutput) Elem() BucketTransitionOutput {
+	return o.ApplyT(func(v *BucketTransition) BucketTransition {
+		if v != nil {
+			return *v
+		}
+		var ret BucketTransition
+		return ret
+	}).(BucketTransitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-storageclass
+func (o BucketTransitionPtrOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketTransition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitiondate
+func (o BucketTransitionPtrOutput) TransitionDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketTransition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitionDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
+func (o BucketTransitionPtrOutput) TransitionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketTransition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TransitionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type BucketTransitionArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTransitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTransition)(nil)).Elem()
+}
+
+func (o BucketTransitionArrayOutput) ToBucketTransitionArrayOutput() BucketTransitionArrayOutput {
+	return o
+}
+
+func (o BucketTransitionArrayOutput) ToBucketTransitionArrayOutputWithContext(ctx context.Context) BucketTransitionArrayOutput {
+	return o
+}
+
+func (o BucketTransitionArrayOutput) Index(i pulumi.IntInput) BucketTransitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTransition {
+		return vs[0].([]BucketTransition)[vs[1].(int)]
+	}).(BucketTransitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
+type BucketVersioningConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
+	Status string `pulumi:"status"`
+}
+
+// BucketVersioningConfigurationInput is an input type that accepts BucketVersioningConfigurationArgs and BucketVersioningConfigurationOutput values.
+// You can construct a concrete instance of `BucketVersioningConfigurationInput` via:
+//
+//          BucketVersioningConfigurationArgs{...}
+type BucketVersioningConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketVersioningConfigurationOutput() BucketVersioningConfigurationOutput
+	ToBucketVersioningConfigurationOutputWithContext(context.Context) BucketVersioningConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
+type BucketVersioningConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BucketVersioningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningConfiguration)(nil)).Elem()
+}
+
+func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationOutput() BucketVersioningConfigurationOutput {
+	return i.ToBucketVersioningConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningConfigurationOutput)
+}
+
+func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput {
+	return i.ToBucketVersioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningConfigurationOutput).ToBucketVersioningConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketVersioningConfigurationPtrInput is an input type that accepts BucketVersioningConfigurationArgs, BucketVersioningConfigurationPtr and BucketVersioningConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketVersioningConfigurationPtrInput` via:
+//
+//          BucketVersioningConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketVersioningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput
+	ToBucketVersioningConfigurationPtrOutputWithContext(context.Context) BucketVersioningConfigurationPtrOutput
+}
+
+type bucketVersioningConfigurationPtrType BucketVersioningConfigurationArgs
+
+func BucketVersioningConfigurationPtr(v *BucketVersioningConfigurationArgs) BucketVersioningConfigurationPtrInput {
+	return (*bucketVersioningConfigurationPtrType)(v)
+}
+
+func (*bucketVersioningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketVersioningConfiguration)(nil)).Elem()
+}
+
+func (i *bucketVersioningConfigurationPtrType) ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput {
+	return i.ToBucketVersioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketVersioningConfigurationPtrType) ToBucketVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
+type BucketVersioningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketVersioningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketVersioningConfiguration)(nil)).Elem()
+}
+
+func (o BucketVersioningConfigurationOutput) ToBucketVersioningConfigurationOutput() BucketVersioningConfigurationOutput {
+	return o
+}
+
+func (o BucketVersioningConfigurationOutput) ToBucketVersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningConfigurationOutput {
+	return o
+}
+
+func (o BucketVersioningConfigurationOutput) ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput {
+	return o.ToBucketVersioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketVersioningConfigurationOutput) ToBucketVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketVersioningConfiguration) *BucketVersioningConfiguration {
+		return &v
+	}).(BucketVersioningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
+func (o BucketVersioningConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketVersioningConfiguration) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BucketVersioningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketVersioningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketVersioningConfiguration)(nil)).Elem()
+}
+
+func (o BucketVersioningConfigurationPtrOutput) ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketVersioningConfigurationPtrOutput) ToBucketVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketVersioningConfigurationPtrOutput) Elem() BucketVersioningConfigurationOutput {
+	return o.ApplyT(func(v *BucketVersioningConfiguration) BucketVersioningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketVersioningConfiguration
+		return ret
+	}).(BucketVersioningConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
+func (o BucketVersioningConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketVersioningConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html
+type BucketWebsiteConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
+	ErrorDocument *string `pulumi:"errorDocument"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
+	IndexDocument *string `pulumi:"indexDocument"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
+	RedirectAllRequestsTo *BucketRedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
+	RoutingRules []BucketRoutingRule `pulumi:"routingRules"`
+}
+
+// BucketWebsiteConfigurationInput is an input type that accepts BucketWebsiteConfigurationArgs and BucketWebsiteConfigurationOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationInput` via:
+//
+//          BucketWebsiteConfigurationArgs{...}
+type BucketWebsiteConfigurationInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteConfigurationOutput() BucketWebsiteConfigurationOutput
+	ToBucketWebsiteConfigurationOutputWithContext(context.Context) BucketWebsiteConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html
+type BucketWebsiteConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
+	ErrorDocument pulumi.StringPtrInput `pulumi:"errorDocument"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
+	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
+	RedirectAllRequestsTo BucketRedirectAllRequestsToPtrInput `pulumi:"redirectAllRequestsTo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
+	RoutingRules BucketRoutingRuleArrayInput `pulumi:"routingRules"`
+}
+
+func (BucketWebsiteConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfiguration)(nil)).Elem()
+}
+
+func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationOutput() BucketWebsiteConfigurationOutput {
+	return i.ToBucketWebsiteConfigurationOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationOutputWithContext(ctx context.Context) BucketWebsiteConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationOutput)
+}
+
+func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput {
+	return i.ToBucketWebsiteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationOutput).ToBucketWebsiteConfigurationPtrOutputWithContext(ctx)
+}
+
+// BucketWebsiteConfigurationPtrInput is an input type that accepts BucketWebsiteConfigurationArgs, BucketWebsiteConfigurationPtr and BucketWebsiteConfigurationPtrOutput values.
+// You can construct a concrete instance of `BucketWebsiteConfigurationPtrInput` via:
+//
+//          BucketWebsiteConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketWebsiteConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput
+	ToBucketWebsiteConfigurationPtrOutputWithContext(context.Context) BucketWebsiteConfigurationPtrOutput
+}
+
+type bucketWebsiteConfigurationPtrType BucketWebsiteConfigurationArgs
+
+func BucketWebsiteConfigurationPtr(v *BucketWebsiteConfigurationArgs) BucketWebsiteConfigurationPtrInput {
+	return (*bucketWebsiteConfigurationPtrType)(v)
+}
+
+func (*bucketWebsiteConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfiguration)(nil)).Elem()
+}
+
+func (i *bucketWebsiteConfigurationPtrType) ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput {
+	return i.ToBucketWebsiteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketWebsiteConfigurationPtrType) ToBucketWebsiteConfigurationPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html
+type BucketWebsiteConfigurationOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketWebsiteConfiguration)(nil)).Elem()
+}
+
+func (o BucketWebsiteConfigurationOutput) ToBucketWebsiteConfigurationOutput() BucketWebsiteConfigurationOutput {
+	return o
+}
+
+func (o BucketWebsiteConfigurationOutput) ToBucketWebsiteConfigurationOutputWithContext(ctx context.Context) BucketWebsiteConfigurationOutput {
+	return o
+}
+
+func (o BucketWebsiteConfigurationOutput) ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput {
+	return o.ToBucketWebsiteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o BucketWebsiteConfigurationOutput) ToBucketWebsiteConfigurationPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfiguration) *BucketWebsiteConfiguration {
+		return &v
+	}).(BucketWebsiteConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
+func (o BucketWebsiteConfigurationOutput) ErrorDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfiguration) *string { return v.ErrorDocument }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
+func (o BucketWebsiteConfigurationOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfiguration) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
+func (o BucketWebsiteConfigurationOutput) RedirectAllRequestsTo() BucketRedirectAllRequestsToPtrOutput {
+	return o.ApplyT(func(v BucketWebsiteConfiguration) *BucketRedirectAllRequestsTo { return v.RedirectAllRequestsTo }).(BucketRedirectAllRequestsToPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
+func (o BucketWebsiteConfigurationOutput) RoutingRules() BucketRoutingRuleArrayOutput {
+	return o.ApplyT(func(v BucketWebsiteConfiguration) []BucketRoutingRule { return v.RoutingRules }).(BucketRoutingRuleArrayOutput)
+}
+
+type BucketWebsiteConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketWebsiteConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketWebsiteConfiguration)(nil)).Elem()
+}
+
+func (o BucketWebsiteConfigurationPtrOutput) ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteConfigurationPtrOutput) ToBucketWebsiteConfigurationPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationPtrOutput {
+	return o
+}
+
+func (o BucketWebsiteConfigurationPtrOutput) Elem() BucketWebsiteConfigurationOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) BucketWebsiteConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsiteConfiguration
+		return ret
+	}).(BucketWebsiteConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
+func (o BucketWebsiteConfigurationPtrOutput) ErrorDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
+func (o BucketWebsiteConfigurationPtrOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexDocument
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
+func (o BucketWebsiteConfigurationPtrOutput) RedirectAllRequestsTo() BucketRedirectAllRequestsToPtrOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) *BucketRedirectAllRequestsTo {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectAllRequestsTo
+	}).(BucketRedirectAllRequestsToPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
+func (o BucketWebsiteConfigurationPtrOutput) RoutingRules() BucketRoutingRuleArrayOutput {
+	return o.ApplyT(func(v *BucketWebsiteConfiguration) []BucketRoutingRule {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingRules
+	}).(BucketRoutingRuleArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
 type StorageLensAccountLevel struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
@@ -2355,6 +10302,114 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadOutput{})
+	pulumi.RegisterOutputType(BucketAbortIncompleteMultipartUploadPtrOutput{})
+	pulumi.RegisterOutputType(BucketAccelerateConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketAccelerateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketAccessControlTranslationOutput{})
+	pulumi.RegisterOutputType(BucketAccessControlTranslationPtrOutput{})
+	pulumi.RegisterOutputType(BucketAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketAnalyticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketBucketEncryptionOutput{})
+	pulumi.RegisterOutputType(BucketBucketEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(BucketCorsConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketCorsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
+	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketDataExportOutput{})
+	pulumi.RegisterOutputType(BucketDataExportPtrOutput{})
+	pulumi.RegisterOutputType(BucketDefaultRetentionOutput{})
+	pulumi.RegisterOutputType(BucketDefaultRetentionPtrOutput{})
+	pulumi.RegisterOutputType(BucketDeleteMarkerReplicationOutput{})
+	pulumi.RegisterOutputType(BucketDeleteMarkerReplicationPtrOutput{})
+	pulumi.RegisterOutputType(BucketDestinationOutput{})
+	pulumi.RegisterOutputType(BucketDestinationPtrOutput{})
+	pulumi.RegisterOutputType(BucketEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketFilterRuleOutput{})
+	pulumi.RegisterOutputType(BucketFilterRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketInventoryConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketInventoryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketLambdaConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketLambdaConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketMetricsOutput{})
+	pulumi.RegisterOutputType(BucketMetricsPtrOutput{})
+	pulumi.RegisterOutputType(BucketMetricsConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketMetricsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionOutput{})
+	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionPtrOutput{})
+	pulumi.RegisterOutputType(BucketNoncurrentVersionTransitionArrayOutput{})
+	pulumi.RegisterOutputType(BucketNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketNotificationFilterOutput{})
+	pulumi.RegisterOutputType(BucketNotificationFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockRuleOutput{})
+	pulumi.RegisterOutputType(BucketObjectLockRulePtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsPtrOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
+	pulumi.RegisterOutputType(BucketOwnershipControlsRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketPublicAccessBlockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketQueueConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketQueueConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketRedirectAllRequestsToOutput{})
+	pulumi.RegisterOutputType(BucketRedirectAllRequestsToPtrOutput{})
+	pulumi.RegisterOutputType(BucketRedirectRuleOutput{})
+	pulumi.RegisterOutputType(BucketReplicaModificationsOutput{})
+	pulumi.RegisterOutputType(BucketReplicaModificationsPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationDestinationOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleAndOperatorOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleAndOperatorPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleFilterOutput{})
+	pulumi.RegisterOutputType(BucketReplicationRuleFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationTimeOutput{})
+	pulumi.RegisterOutputType(BucketReplicationTimePtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationTimeValueOutput{})
+	pulumi.RegisterOutputType(BucketReplicationTimeValuePtrOutput{})
+	pulumi.RegisterOutputType(BucketRoutingRuleOutput{})
+	pulumi.RegisterOutputType(BucketRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketRoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(BucketRoutingRuleConditionPtrOutput{})
+	pulumi.RegisterOutputType(BucketRuleOutput{})
+	pulumi.RegisterOutputType(BucketRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketS3KeyFilterOutput{})
+	pulumi.RegisterOutputType(BucketS3KeyFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionByDefaultPtrOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionRuleOutput{})
+	pulumi.RegisterOutputType(BucketServerSideEncryptionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketSourceSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(BucketSourceSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsOutput{})
+	pulumi.RegisterOutputType(BucketSseKmsEncryptedObjectsPtrOutput{})
+	pulumi.RegisterOutputType(BucketStorageClassAnalysisOutput{})
+	pulumi.RegisterOutputType(BucketTagFilterOutput{})
+	pulumi.RegisterOutputType(BucketTagFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(BucketTieringOutput{})
+	pulumi.RegisterOutputType(BucketTieringArrayOutput{})
+	pulumi.RegisterOutputType(BucketTopicConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketTopicConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketTransitionOutput{})
+	pulumi.RegisterOutputType(BucketTransitionPtrOutput{})
+	pulumi.RegisterOutputType(BucketTransitionArrayOutput{})
+	pulumi.RegisterOutputType(BucketVersioningConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketVersioningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationOutput{})
+	pulumi.RegisterOutputType(BucketWebsiteConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensActivityMetricsOutput{})

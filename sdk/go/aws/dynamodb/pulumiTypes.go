@@ -2401,6 +2401,1600 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAut
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+type TableAttributeDefinition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+	AttributeName string `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+	AttributeType string `pulumi:"attributeType"`
+}
+
+// TableAttributeDefinitionInput is an input type that accepts TableAttributeDefinitionArgs and TableAttributeDefinitionOutput values.
+// You can construct a concrete instance of `TableAttributeDefinitionInput` via:
+//
+//          TableAttributeDefinitionArgs{...}
+type TableAttributeDefinitionInput interface {
+	pulumi.Input
+
+	ToTableAttributeDefinitionOutput() TableAttributeDefinitionOutput
+	ToTableAttributeDefinitionOutputWithContext(context.Context) TableAttributeDefinitionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+type TableAttributeDefinitionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+	AttributeType pulumi.StringInput `pulumi:"attributeType"`
+}
+
+func (TableAttributeDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAttributeDefinition)(nil)).Elem()
+}
+
+func (i TableAttributeDefinitionArgs) ToTableAttributeDefinitionOutput() TableAttributeDefinitionOutput {
+	return i.ToTableAttributeDefinitionOutputWithContext(context.Background())
+}
+
+func (i TableAttributeDefinitionArgs) ToTableAttributeDefinitionOutputWithContext(ctx context.Context) TableAttributeDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionOutput)
+}
+
+// TableAttributeDefinitionArrayInput is an input type that accepts TableAttributeDefinitionArray and TableAttributeDefinitionArrayOutput values.
+// You can construct a concrete instance of `TableAttributeDefinitionArrayInput` via:
+//
+//          TableAttributeDefinitionArray{ TableAttributeDefinitionArgs{...} }
+type TableAttributeDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToTableAttributeDefinitionArrayOutput() TableAttributeDefinitionArrayOutput
+	ToTableAttributeDefinitionArrayOutputWithContext(context.Context) TableAttributeDefinitionArrayOutput
+}
+
+type TableAttributeDefinitionArray []TableAttributeDefinitionInput
+
+func (TableAttributeDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableAttributeDefinition)(nil)).Elem()
+}
+
+func (i TableAttributeDefinitionArray) ToTableAttributeDefinitionArrayOutput() TableAttributeDefinitionArrayOutput {
+	return i.ToTableAttributeDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i TableAttributeDefinitionArray) ToTableAttributeDefinitionArrayOutputWithContext(ctx context.Context) TableAttributeDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeDefinitionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
+type TableAttributeDefinitionOutput struct{ *pulumi.OutputState }
+
+func (TableAttributeDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableAttributeDefinition)(nil)).Elem()
+}
+
+func (o TableAttributeDefinitionOutput) ToTableAttributeDefinitionOutput() TableAttributeDefinitionOutput {
+	return o
+}
+
+func (o TableAttributeDefinitionOutput) ToTableAttributeDefinitionOutputWithContext(ctx context.Context) TableAttributeDefinitionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+func (o TableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableAttributeDefinition) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+func (o TableAttributeDefinitionOutput) AttributeType() pulumi.StringOutput {
+	return o.ApplyT(func(v TableAttributeDefinition) string { return v.AttributeType }).(pulumi.StringOutput)
+}
+
+type TableAttributeDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (TableAttributeDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableAttributeDefinition)(nil)).Elem()
+}
+
+func (o TableAttributeDefinitionArrayOutput) ToTableAttributeDefinitionArrayOutput() TableAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o TableAttributeDefinitionArrayOutput) ToTableAttributeDefinitionArrayOutputWithContext(ctx context.Context) TableAttributeDefinitionArrayOutput {
+	return o
+}
+
+func (o TableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) TableAttributeDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableAttributeDefinition {
+		return vs[0].([]TableAttributeDefinition)[vs[1].(int)]
+	}).(TableAttributeDefinitionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html
+type TableContributorInsightsSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	Enabled bool `pulumi:"enabled"`
+}
+
+// TableContributorInsightsSpecificationInput is an input type that accepts TableContributorInsightsSpecificationArgs and TableContributorInsightsSpecificationOutput values.
+// You can construct a concrete instance of `TableContributorInsightsSpecificationInput` via:
+//
+//          TableContributorInsightsSpecificationArgs{...}
+type TableContributorInsightsSpecificationInput interface {
+	pulumi.Input
+
+	ToTableContributorInsightsSpecificationOutput() TableContributorInsightsSpecificationOutput
+	ToTableContributorInsightsSpecificationOutputWithContext(context.Context) TableContributorInsightsSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html
+type TableContributorInsightsSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (TableContributorInsightsSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableContributorInsightsSpecification)(nil)).Elem()
+}
+
+func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationOutput() TableContributorInsightsSpecificationOutput {
+	return i.ToTableContributorInsightsSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationOutput)
+}
+
+func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput {
+	return i.ToTableContributorInsightsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableContributorInsightsSpecificationArgs) ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationOutput).ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableContributorInsightsSpecificationPtrInput is an input type that accepts TableContributorInsightsSpecificationArgs, TableContributorInsightsSpecificationPtr and TableContributorInsightsSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableContributorInsightsSpecificationPtrInput` via:
+//
+//          TableContributorInsightsSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableContributorInsightsSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput
+	ToTableContributorInsightsSpecificationPtrOutputWithContext(context.Context) TableContributorInsightsSpecificationPtrOutput
+}
+
+type tableContributorInsightsSpecificationPtrType TableContributorInsightsSpecificationArgs
+
+func TableContributorInsightsSpecificationPtr(v *TableContributorInsightsSpecificationArgs) TableContributorInsightsSpecificationPtrInput {
+	return (*tableContributorInsightsSpecificationPtrType)(v)
+}
+
+func (*tableContributorInsightsSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableContributorInsightsSpecification)(nil)).Elem()
+}
+
+func (i *tableContributorInsightsSpecificationPtrType) ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput {
+	return i.ToTableContributorInsightsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableContributorInsightsSpecificationPtrType) ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html
+type TableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableContributorInsightsSpecification)(nil)).Elem()
+}
+
+func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsSpecificationOutput() TableContributorInsightsSpecificationOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsSpecificationOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput {
+	return o.ToTableContributorInsightsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableContributorInsightsSpecificationOutput) ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableContributorInsightsSpecification) *TableContributorInsightsSpecification {
+		return &v
+	}).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+func (o TableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type TableContributorInsightsSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableContributorInsightsSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableContributorInsightsSpecification)(nil)).Elem()
+}
+
+func (o TableContributorInsightsSpecificationPtrOutput) ToTableContributorInsightsSpecificationPtrOutput() TableContributorInsightsSpecificationPtrOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationPtrOutput) ToTableContributorInsightsSpecificationPtrOutputWithContext(ctx context.Context) TableContributorInsightsSpecificationPtrOutput {
+	return o
+}
+
+func (o TableContributorInsightsSpecificationPtrOutput) Elem() TableContributorInsightsSpecificationOutput {
+	return o.ApplyT(func(v *TableContributorInsightsSpecification) TableContributorInsightsSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableContributorInsightsSpecification
+		return ret
+	}).(TableContributorInsightsSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html#cfn-dynamodb-contributorinsightsspecification-enabled
+func (o TableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableContributorInsightsSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
+type TableGlobalSecondaryIndex struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	ContributorInsightsSpecification *TableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+	IndexName string `pulumi:"indexName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+	KeySchema []TableKeySchema `pulumi:"keySchema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+	Projection TableProjection `pulumi:"projection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
+}
+
+// TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexInput` via:
+//
+//          TableGlobalSecondaryIndexArgs{...}
+type TableGlobalSecondaryIndexInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexOutput() TableGlobalSecondaryIndexOutput
+	ToTableGlobalSecondaryIndexOutputWithContext(context.Context) TableGlobalSecondaryIndexOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
+type TableGlobalSecondaryIndexArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-contributorinsightsspecification-enabled
+	ContributorInsightsSpecification TableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+	KeySchema TableKeySchemaArrayInput `pulumi:"keySchema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+	Projection TableProjectionInput `pulumi:"projection"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
+}
+
+func (TableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndex)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutput() TableGlobalSecondaryIndexOutput {
+	return i.ToTableGlobalSecondaryIndexOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOutput)
+}
+
+// TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
+//
+//          TableGlobalSecondaryIndexArray{ TableGlobalSecondaryIndexArgs{...} }
+type TableGlobalSecondaryIndexArrayInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexArrayOutput() TableGlobalSecondaryIndexArrayOutput
+	ToTableGlobalSecondaryIndexArrayOutputWithContext(context.Context) TableGlobalSecondaryIndexArrayOutput
+}
+
+type TableGlobalSecondaryIndexArray []TableGlobalSecondaryIndexInput
+
+func (TableGlobalSecondaryIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableGlobalSecondaryIndex)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexArray) ToTableGlobalSecondaryIndexArrayOutput() TableGlobalSecondaryIndexArrayOutput {
+	return i.ToTableGlobalSecondaryIndexArrayOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexArray) ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
+type TableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndex)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutput() TableGlobalSecondaryIndexOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-contributorinsightsspecification-enabled
+func (o TableGlobalSecondaryIndexOutput) ContributorInsightsSpecification() TableContributorInsightsSpecificationPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableContributorInsightsSpecification {
+		return v.ContributorInsightsSpecification
+	}).(TableContributorInsightsSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+func (o TableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+func (o TableGlobalSecondaryIndexOutput) KeySchema() TableKeySchemaArrayOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) []TableKeySchema { return v.KeySchema }).(TableKeySchemaArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+func (o TableGlobalSecondaryIndexOutput) Projection() TableProjectionOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+func (o TableGlobalSecondaryIndexOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+type TableGlobalSecondaryIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableGlobalSecondaryIndex)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOutput() TableGlobalSecondaryIndexArrayOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexArrayOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlobalSecondaryIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGlobalSecondaryIndex {
+		return vs[0].([]TableGlobalSecondaryIndex)[vs[1].(int)]
+	}).(TableGlobalSecondaryIndexOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
+type TableKeySchema struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+	AttributeName string `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+	KeyType string `pulumi:"keyType"`
+}
+
+// TableKeySchemaInput is an input type that accepts TableKeySchemaArgs and TableKeySchemaOutput values.
+// You can construct a concrete instance of `TableKeySchemaInput` via:
+//
+//          TableKeySchemaArgs{...}
+type TableKeySchemaInput interface {
+	pulumi.Input
+
+	ToTableKeySchemaOutput() TableKeySchemaOutput
+	ToTableKeySchemaOutputWithContext(context.Context) TableKeySchemaOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
+type TableKeySchemaArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+	KeyType pulumi.StringInput `pulumi:"keyType"`
+}
+
+func (TableKeySchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableKeySchema)(nil)).Elem()
+}
+
+func (i TableKeySchemaArgs) ToTableKeySchemaOutput() TableKeySchemaOutput {
+	return i.ToTableKeySchemaOutputWithContext(context.Background())
+}
+
+func (i TableKeySchemaArgs) ToTableKeySchemaOutputWithContext(ctx context.Context) TableKeySchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableKeySchemaOutput)
+}
+
+// TableKeySchemaArrayInput is an input type that accepts TableKeySchemaArray and TableKeySchemaArrayOutput values.
+// You can construct a concrete instance of `TableKeySchemaArrayInput` via:
+//
+//          TableKeySchemaArray{ TableKeySchemaArgs{...} }
+type TableKeySchemaArrayInput interface {
+	pulumi.Input
+
+	ToTableKeySchemaArrayOutput() TableKeySchemaArrayOutput
+	ToTableKeySchemaArrayOutputWithContext(context.Context) TableKeySchemaArrayOutput
+}
+
+type TableKeySchemaArray []TableKeySchemaInput
+
+func (TableKeySchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableKeySchema)(nil)).Elem()
+}
+
+func (i TableKeySchemaArray) ToTableKeySchemaArrayOutput() TableKeySchemaArrayOutput {
+	return i.ToTableKeySchemaArrayOutputWithContext(context.Background())
+}
+
+func (i TableKeySchemaArray) ToTableKeySchemaArrayOutputWithContext(ctx context.Context) TableKeySchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableKeySchemaArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
+type TableKeySchemaOutput struct{ *pulumi.OutputState }
+
+func (TableKeySchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableKeySchema)(nil)).Elem()
+}
+
+func (o TableKeySchemaOutput) ToTableKeySchemaOutput() TableKeySchemaOutput {
+	return o
+}
+
+func (o TableKeySchemaOutput) ToTableKeySchemaOutputWithContext(ctx context.Context) TableKeySchemaOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+func (o TableKeySchemaOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+func (o TableKeySchemaOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v TableKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type TableKeySchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (TableKeySchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableKeySchema)(nil)).Elem()
+}
+
+func (o TableKeySchemaArrayOutput) ToTableKeySchemaArrayOutput() TableKeySchemaArrayOutput {
+	return o
+}
+
+func (o TableKeySchemaArrayOutput) ToTableKeySchemaArrayOutputWithContext(ctx context.Context) TableKeySchemaArrayOutput {
+	return o
+}
+
+func (o TableKeySchemaArrayOutput) Index(i pulumi.IntInput) TableKeySchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableKeySchema {
+		return vs[0].([]TableKeySchema)[vs[1].(int)]
+	}).(TableKeySchemaOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html
+type TableKinesisStreamSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// TableKinesisStreamSpecificationInput is an input type that accepts TableKinesisStreamSpecificationArgs and TableKinesisStreamSpecificationOutput values.
+// You can construct a concrete instance of `TableKinesisStreamSpecificationInput` via:
+//
+//          TableKinesisStreamSpecificationArgs{...}
+type TableKinesisStreamSpecificationInput interface {
+	pulumi.Input
+
+	ToTableKinesisStreamSpecificationOutput() TableKinesisStreamSpecificationOutput
+	ToTableKinesisStreamSpecificationOutputWithContext(context.Context) TableKinesisStreamSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html
+type TableKinesisStreamSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (TableKinesisStreamSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationOutput() TableKinesisStreamSpecificationOutput {
+	return i.ToTableKinesisStreamSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationOutput)
+}
+
+func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput {
+	return i.ToTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableKinesisStreamSpecificationArgs) ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationOutput).ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableKinesisStreamSpecificationPtrInput is an input type that accepts TableKinesisStreamSpecificationArgs, TableKinesisStreamSpecificationPtr and TableKinesisStreamSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableKinesisStreamSpecificationPtrInput` via:
+//
+//          TableKinesisStreamSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableKinesisStreamSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput
+	ToTableKinesisStreamSpecificationPtrOutputWithContext(context.Context) TableKinesisStreamSpecificationPtrOutput
+}
+
+type tableKinesisStreamSpecificationPtrType TableKinesisStreamSpecificationArgs
+
+func TableKinesisStreamSpecificationPtr(v *TableKinesisStreamSpecificationArgs) TableKinesisStreamSpecificationPtrInput {
+	return (*tableKinesisStreamSpecificationPtrType)(v)
+}
+
+func (*tableKinesisStreamSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (i *tableKinesisStreamSpecificationPtrType) ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput {
+	return i.ToTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableKinesisStreamSpecificationPtrType) ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableKinesisStreamSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html
+type TableKinesisStreamSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableKinesisStreamSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecificationOutput() TableKinesisStreamSpecificationOutput {
+	return o
+}
+
+func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecificationOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationOutput {
+	return o
+}
+
+func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput {
+	return o.ToTableKinesisStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableKinesisStreamSpecificationOutput) ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableKinesisStreamSpecification) *TableKinesisStreamSpecification {
+		return &v
+	}).(TableKinesisStreamSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+func (o TableKinesisStreamSpecificationOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TableKinesisStreamSpecification) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type TableKinesisStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableKinesisStreamSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableKinesisStreamSpecification)(nil)).Elem()
+}
+
+func (o TableKinesisStreamSpecificationPtrOutput) ToTableKinesisStreamSpecificationPtrOutput() TableKinesisStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o TableKinesisStreamSpecificationPtrOutput) ToTableKinesisStreamSpecificationPtrOutputWithContext(ctx context.Context) TableKinesisStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o TableKinesisStreamSpecificationPtrOutput) Elem() TableKinesisStreamSpecificationOutput {
+	return o.ApplyT(func(v *TableKinesisStreamSpecification) TableKinesisStreamSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableKinesisStreamSpecification
+		return ret
+	}).(TableKinesisStreamSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html#cfn-dynamodb-kinesisstreamspecification-streamarn
+func (o TableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableKinesisStreamSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
+type TableLocalSecondaryIndex struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+	IndexName string `pulumi:"indexName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+	KeySchema []TableKeySchema `pulumi:"keySchema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+	Projection TableProjection `pulumi:"projection"`
+}
+
+// TableLocalSecondaryIndexInput is an input type that accepts TableLocalSecondaryIndexArgs and TableLocalSecondaryIndexOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexInput` via:
+//
+//          TableLocalSecondaryIndexArgs{...}
+type TableLocalSecondaryIndexInput interface {
+	pulumi.Input
+
+	ToTableLocalSecondaryIndexOutput() TableLocalSecondaryIndexOutput
+	ToTableLocalSecondaryIndexOutputWithContext(context.Context) TableLocalSecondaryIndexOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
+type TableLocalSecondaryIndexArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+	IndexName pulumi.StringInput `pulumi:"indexName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+	KeySchema TableKeySchemaArrayInput `pulumi:"keySchema"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+	Projection TableProjectionInput `pulumi:"projection"`
+}
+
+func (TableLocalSecondaryIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLocalSecondaryIndex)(nil)).Elem()
+}
+
+func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutput() TableLocalSecondaryIndexOutput {
+	return i.ToTableLocalSecondaryIndexOutputWithContext(context.Background())
+}
+
+func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContext(ctx context.Context) TableLocalSecondaryIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexOutput)
+}
+
+// TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
+// You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
+//
+//          TableLocalSecondaryIndexArray{ TableLocalSecondaryIndexArgs{...} }
+type TableLocalSecondaryIndexArrayInput interface {
+	pulumi.Input
+
+	ToTableLocalSecondaryIndexArrayOutput() TableLocalSecondaryIndexArrayOutput
+	ToTableLocalSecondaryIndexArrayOutputWithContext(context.Context) TableLocalSecondaryIndexArrayOutput
+}
+
+type TableLocalSecondaryIndexArray []TableLocalSecondaryIndexInput
+
+func (TableLocalSecondaryIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableLocalSecondaryIndex)(nil)).Elem()
+}
+
+func (i TableLocalSecondaryIndexArray) ToTableLocalSecondaryIndexArrayOutput() TableLocalSecondaryIndexArrayOutput {
+	return i.ToTableLocalSecondaryIndexArrayOutputWithContext(context.Background())
+}
+
+func (i TableLocalSecondaryIndexArray) ToTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableLocalSecondaryIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
+type TableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
+
+func (TableLocalSecondaryIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableLocalSecondaryIndex)(nil)).Elem()
+}
+
+func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutput() TableLocalSecondaryIndexOutput {
+	return o
+}
+
+func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutputWithContext(ctx context.Context) TableLocalSecondaryIndexOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+func (o TableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableLocalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+func (o TableLocalSecondaryIndexOutput) KeySchema() TableKeySchemaArrayOutput {
+	return o.ApplyT(func(v TableLocalSecondaryIndex) []TableKeySchema { return v.KeySchema }).(TableKeySchemaArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+func (o TableLocalSecondaryIndexOutput) Projection() TableProjectionOutput {
+	return o.ApplyT(func(v TableLocalSecondaryIndex) TableProjection { return v.Projection }).(TableProjectionOutput)
+}
+
+type TableLocalSecondaryIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (TableLocalSecondaryIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableLocalSecondaryIndex)(nil)).Elem()
+}
+
+func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutput() TableLocalSecondaryIndexArrayOutput {
+	return o
+}
+
+func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableLocalSecondaryIndexArrayOutput {
+	return o
+}
+
+func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocalSecondaryIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableLocalSecondaryIndex {
+		return vs[0].([]TableLocalSecondaryIndex)[vs[1].(int)]
+	}).(TableLocalSecondaryIndexOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html
+type TablePointInTimeRecoverySpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
+}
+
+// TablePointInTimeRecoverySpecificationInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs and TablePointInTimeRecoverySpecificationOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoverySpecificationInput` via:
+//
+//          TablePointInTimeRecoverySpecificationArgs{...}
+type TablePointInTimeRecoverySpecificationInput interface {
+	pulumi.Input
+
+	ToTablePointInTimeRecoverySpecificationOutput() TablePointInTimeRecoverySpecificationOutput
+	ToTablePointInTimeRecoverySpecificationOutputWithContext(context.Context) TablePointInTimeRecoverySpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html
+type TablePointInTimeRecoverySpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
+}
+
+func (TablePointInTimeRecoverySpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePointInTimeRecoverySpecification)(nil)).Elem()
+}
+
+func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationOutput() TablePointInTimeRecoverySpecificationOutput {
+	return i.ToTablePointInTimeRecoverySpecificationOutputWithContext(context.Background())
+}
+
+func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationOutput)
+}
+
+func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput {
+	return i.ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TablePointInTimeRecoverySpecificationArgs) ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationOutput).ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx)
+}
+
+// TablePointInTimeRecoverySpecificationPtrInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs, TablePointInTimeRecoverySpecificationPtr and TablePointInTimeRecoverySpecificationPtrOutput values.
+// You can construct a concrete instance of `TablePointInTimeRecoverySpecificationPtrInput` via:
+//
+//          TablePointInTimeRecoverySpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TablePointInTimeRecoverySpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput
+	ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(context.Context) TablePointInTimeRecoverySpecificationPtrOutput
+}
+
+type tablePointInTimeRecoverySpecificationPtrType TablePointInTimeRecoverySpecificationArgs
+
+func TablePointInTimeRecoverySpecificationPtr(v *TablePointInTimeRecoverySpecificationArgs) TablePointInTimeRecoverySpecificationPtrInput {
+	return (*tablePointInTimeRecoverySpecificationPtrType)(v)
+}
+
+func (*tablePointInTimeRecoverySpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePointInTimeRecoverySpecification)(nil)).Elem()
+}
+
+func (i *tablePointInTimeRecoverySpecificationPtrType) ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput {
+	return i.ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tablePointInTimeRecoverySpecificationPtrType) ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoverySpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html
+type TablePointInTimeRecoverySpecificationOutput struct{ *pulumi.OutputState }
+
+func (TablePointInTimeRecoverySpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TablePointInTimeRecoverySpecification)(nil)).Elem()
+}
+
+func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoverySpecificationOutput() TablePointInTimeRecoverySpecificationOutput {
+	return o
+}
+
+func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoverySpecificationOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationOutput {
+	return o
+}
+
+func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput {
+	return o.ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TablePointInTimeRecoverySpecificationOutput) ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablePointInTimeRecoverySpecification) *TablePointInTimeRecoverySpecification {
+		return &v
+	}).(TablePointInTimeRecoverySpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+func (o TablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type TablePointInTimeRecoverySpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TablePointInTimeRecoverySpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TablePointInTimeRecoverySpecification)(nil)).Elem()
+}
+
+func (o TablePointInTimeRecoverySpecificationPtrOutput) ToTablePointInTimeRecoverySpecificationPtrOutput() TablePointInTimeRecoverySpecificationPtrOutput {
+	return o
+}
+
+func (o TablePointInTimeRecoverySpecificationPtrOutput) ToTablePointInTimeRecoverySpecificationPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoverySpecificationPtrOutput {
+	return o
+}
+
+func (o TablePointInTimeRecoverySpecificationPtrOutput) Elem() TablePointInTimeRecoverySpecificationOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecoverySpecification) TablePointInTimeRecoverySpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TablePointInTimeRecoverySpecification
+		return ret
+	}).(TablePointInTimeRecoverySpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+func (o TablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecoverySpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PointInTimeRecoveryEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
+type TableProjection struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+	ProjectionType *string `pulumi:"projectionType"`
+}
+
+// TableProjectionInput is an input type that accepts TableProjectionArgs and TableProjectionOutput values.
+// You can construct a concrete instance of `TableProjectionInput` via:
+//
+//          TableProjectionArgs{...}
+type TableProjectionInput interface {
+	pulumi.Input
+
+	ToTableProjectionOutput() TableProjectionOutput
+	ToTableProjectionOutputWithContext(context.Context) TableProjectionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
+type TableProjectionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
+}
+
+func (TableProjectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableProjection)(nil)).Elem()
+}
+
+func (i TableProjectionArgs) ToTableProjectionOutput() TableProjectionOutput {
+	return i.ToTableProjectionOutputWithContext(context.Background())
+}
+
+func (i TableProjectionArgs) ToTableProjectionOutputWithContext(ctx context.Context) TableProjectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableProjectionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
+type TableProjectionOutput struct{ *pulumi.OutputState }
+
+func (TableProjectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableProjection)(nil)).Elem()
+}
+
+func (o TableProjectionOutput) ToTableProjectionOutput() TableProjectionOutput {
+	return o
+}
+
+func (o TableProjectionOutput) ToTableProjectionOutputWithContext(ctx context.Context) TableProjectionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+func (o TableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+func (o TableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+type TableProvisionedThroughput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+	ReadCapacityUnits int `pulumi:"readCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+	WriteCapacityUnits int `pulumi:"writeCapacityUnits"`
+}
+
+// TableProvisionedThroughputInput is an input type that accepts TableProvisionedThroughputArgs and TableProvisionedThroughputOutput values.
+// You can construct a concrete instance of `TableProvisionedThroughputInput` via:
+//
+//          TableProvisionedThroughputArgs{...}
+type TableProvisionedThroughputInput interface {
+	pulumi.Input
+
+	ToTableProvisionedThroughputOutput() TableProvisionedThroughputOutput
+	ToTableProvisionedThroughputOutputWithContext(context.Context) TableProvisionedThroughputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+type TableProvisionedThroughputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+	ReadCapacityUnits pulumi.IntInput `pulumi:"readCapacityUnits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+	WriteCapacityUnits pulumi.IntInput `pulumi:"writeCapacityUnits"`
+}
+
+func (TableProvisionedThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableProvisionedThroughput)(nil)).Elem()
+}
+
+func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputOutput() TableProvisionedThroughputOutput {
+	return i.ToTableProvisionedThroughputOutputWithContext(context.Background())
+}
+
+func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputOutputWithContext(ctx context.Context) TableProvisionedThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputOutput)
+}
+
+func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput {
+	return i.ToTableProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableProvisionedThroughputArgs) ToTableProvisionedThroughputPtrOutputWithContext(ctx context.Context) TableProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputOutput).ToTableProvisionedThroughputPtrOutputWithContext(ctx)
+}
+
+// TableProvisionedThroughputPtrInput is an input type that accepts TableProvisionedThroughputArgs, TableProvisionedThroughputPtr and TableProvisionedThroughputPtrOutput values.
+// You can construct a concrete instance of `TableProvisionedThroughputPtrInput` via:
+//
+//          TableProvisionedThroughputArgs{...}
+//
+//  or:
+//
+//          nil
+type TableProvisionedThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput
+	ToTableProvisionedThroughputPtrOutputWithContext(context.Context) TableProvisionedThroughputPtrOutput
+}
+
+type tableProvisionedThroughputPtrType TableProvisionedThroughputArgs
+
+func TableProvisionedThroughputPtr(v *TableProvisionedThroughputArgs) TableProvisionedThroughputPtrInput {
+	return (*tableProvisionedThroughputPtrType)(v)
+}
+
+func (*tableProvisionedThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableProvisionedThroughput)(nil)).Elem()
+}
+
+func (i *tableProvisionedThroughputPtrType) ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput {
+	return i.ToTableProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableProvisionedThroughputPtrType) ToTableProvisionedThroughputPtrOutputWithContext(ctx context.Context) TableProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableProvisionedThroughputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+type TableProvisionedThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableProvisionedThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableProvisionedThroughput)(nil)).Elem()
+}
+
+func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputOutput() TableProvisionedThroughputOutput {
+	return o
+}
+
+func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputOutputWithContext(ctx context.Context) TableProvisionedThroughputOutput {
+	return o
+}
+
+func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput {
+	return o.ToTableProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableProvisionedThroughputOutput) ToTableProvisionedThroughputPtrOutputWithContext(ctx context.Context) TableProvisionedThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableProvisionedThroughput) *TableProvisionedThroughput {
+		return &v
+	}).(TableProvisionedThroughputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+func (o TableProvisionedThroughputOutput) ReadCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.ReadCapacityUnits }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+func (o TableProvisionedThroughputOutput) WriteCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v TableProvisionedThroughput) int { return v.WriteCapacityUnits }).(pulumi.IntOutput)
+}
+
+type TableProvisionedThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableProvisionedThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableProvisionedThroughput)(nil)).Elem()
+}
+
+func (o TableProvisionedThroughputPtrOutput) ToTableProvisionedThroughputPtrOutput() TableProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o TableProvisionedThroughputPtrOutput) ToTableProvisionedThroughputPtrOutputWithContext(ctx context.Context) TableProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o TableProvisionedThroughputPtrOutput) Elem() TableProvisionedThroughputOutput {
+	return o.ApplyT(func(v *TableProvisionedThroughput) TableProvisionedThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableProvisionedThroughput
+		return ret
+	}).(TableProvisionedThroughputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+func (o TableProvisionedThroughputPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ReadCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WriteCapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html
+type TableSSESpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+	KMSMasterKeyId *string `pulumi:"kMSMasterKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+	SSEEnabled bool `pulumi:"sSEEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+	SSEType *string `pulumi:"sSEType"`
+}
+
+// TableSSESpecificationInput is an input type that accepts TableSSESpecificationArgs and TableSSESpecificationOutput values.
+// You can construct a concrete instance of `TableSSESpecificationInput` via:
+//
+//          TableSSESpecificationArgs{...}
+type TableSSESpecificationInput interface {
+	pulumi.Input
+
+	ToTableSSESpecificationOutput() TableSSESpecificationOutput
+	ToTableSSESpecificationOutputWithContext(context.Context) TableSSESpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html
+type TableSSESpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+	KMSMasterKeyId pulumi.StringPtrInput `pulumi:"kMSMasterKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+	SSEEnabled pulumi.BoolInput `pulumi:"sSEEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+	SSEType pulumi.StringPtrInput `pulumi:"sSEType"`
+}
+
+func (TableSSESpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSSESpecification)(nil)).Elem()
+}
+
+func (i TableSSESpecificationArgs) ToTableSSESpecificationOutput() TableSSESpecificationOutput {
+	return i.ToTableSSESpecificationOutputWithContext(context.Background())
+}
+
+func (i TableSSESpecificationArgs) ToTableSSESpecificationOutputWithContext(ctx context.Context) TableSSESpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationOutput)
+}
+
+func (i TableSSESpecificationArgs) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
+	return i.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableSSESpecificationArgs) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationOutput).ToTableSSESpecificationPtrOutputWithContext(ctx)
+}
+
+// TableSSESpecificationPtrInput is an input type that accepts TableSSESpecificationArgs, TableSSESpecificationPtr and TableSSESpecificationPtrOutput values.
+// You can construct a concrete instance of `TableSSESpecificationPtrInput` via:
+//
+//          TableSSESpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSSESpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput
+	ToTableSSESpecificationPtrOutputWithContext(context.Context) TableSSESpecificationPtrOutput
+}
+
+type tableSSESpecificationPtrType TableSSESpecificationArgs
+
+func TableSSESpecificationPtr(v *TableSSESpecificationArgs) TableSSESpecificationPtrInput {
+	return (*tableSSESpecificationPtrType)(v)
+}
+
+func (*tableSSESpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSSESpecification)(nil)).Elem()
+}
+
+func (i *tableSSESpecificationPtrType) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
+	return i.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSSESpecificationPtrType) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSSESpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html
+type TableSSESpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableSSESpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSSESpecification)(nil)).Elem()
+}
+
+func (o TableSSESpecificationOutput) ToTableSSESpecificationOutput() TableSSESpecificationOutput {
+	return o
+}
+
+func (o TableSSESpecificationOutput) ToTableSSESpecificationOutputWithContext(ctx context.Context) TableSSESpecificationOutput {
+	return o
+}
+
+func (o TableSSESpecificationOutput) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
+	return o.ToTableSSESpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableSSESpecificationOutput) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSSESpecification) *TableSSESpecification {
+		return &v
+	}).(TableSSESpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+func (o TableSSESpecificationOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSSESpecification) *string { return v.KMSMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+func (o TableSSESpecificationOutput) SSEEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableSSESpecification) bool { return v.SSEEnabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+func (o TableSSESpecificationOutput) SSEType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSSESpecification) *string { return v.SSEType }).(pulumi.StringPtrOutput)
+}
+
+type TableSSESpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSSESpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSSESpecification)(nil)).Elem()
+}
+
+func (o TableSSESpecificationPtrOutput) ToTableSSESpecificationPtrOutput() TableSSESpecificationPtrOutput {
+	return o
+}
+
+func (o TableSSESpecificationPtrOutput) ToTableSSESpecificationPtrOutputWithContext(ctx context.Context) TableSSESpecificationPtrOutput {
+	return o
+}
+
+func (o TableSSESpecificationPtrOutput) Elem() TableSSESpecificationOutput {
+	return o.ApplyT(func(v *TableSSESpecification) TableSSESpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableSSESpecification
+		return ret
+	}).(TableSSESpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-kmsmasterkeyid
+func (o TableSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSSESpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KMSMasterKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+func (o TableSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableSSESpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.SSEEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-ssetype
+func (o TableSSESpecificationPtrOutput) SSEType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSSESpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SSEType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
+type TableStreamSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+	StreamViewType string `pulumi:"streamViewType"`
+}
+
+// TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
+// You can construct a concrete instance of `TableStreamSpecificationInput` via:
+//
+//          TableStreamSpecificationArgs{...}
+type TableStreamSpecificationInput interface {
+	pulumi.Input
+
+	ToTableStreamSpecificationOutput() TableStreamSpecificationOutput
+	ToTableStreamSpecificationOutputWithContext(context.Context) TableStreamSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
+type TableStreamSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
+}
+
+func (TableStreamSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStreamSpecification)(nil)).Elem()
+}
+
+func (i TableStreamSpecificationArgs) ToTableStreamSpecificationOutput() TableStreamSpecificationOutput {
+	return i.ToTableStreamSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableStreamSpecificationArgs) ToTableStreamSpecificationOutputWithContext(ctx context.Context) TableStreamSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationOutput)
+}
+
+func (i TableStreamSpecificationArgs) ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput {
+	return i.ToTableStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableStreamSpecificationArgs) ToTableStreamSpecificationPtrOutputWithContext(ctx context.Context) TableStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationOutput).ToTableStreamSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableStreamSpecificationPtrInput is an input type that accepts TableStreamSpecificationArgs, TableStreamSpecificationPtr and TableStreamSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableStreamSpecificationPtrInput` via:
+//
+//          TableStreamSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableStreamSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput
+	ToTableStreamSpecificationPtrOutputWithContext(context.Context) TableStreamSpecificationPtrOutput
+}
+
+type tableStreamSpecificationPtrType TableStreamSpecificationArgs
+
+func TableStreamSpecificationPtr(v *TableStreamSpecificationArgs) TableStreamSpecificationPtrInput {
+	return (*tableStreamSpecificationPtrType)(v)
+}
+
+func (*tableStreamSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStreamSpecification)(nil)).Elem()
+}
+
+func (i *tableStreamSpecificationPtrType) ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput {
+	return i.ToTableStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableStreamSpecificationPtrType) ToTableStreamSpecificationPtrOutputWithContext(ctx context.Context) TableStreamSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStreamSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
+type TableStreamSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableStreamSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStreamSpecification)(nil)).Elem()
+}
+
+func (o TableStreamSpecificationOutput) ToTableStreamSpecificationOutput() TableStreamSpecificationOutput {
+	return o
+}
+
+func (o TableStreamSpecificationOutput) ToTableStreamSpecificationOutputWithContext(ctx context.Context) TableStreamSpecificationOutput {
+	return o
+}
+
+func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput {
+	return o.ToTableStreamSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableStreamSpecificationOutput) ToTableStreamSpecificationPtrOutputWithContext(ctx context.Context) TableStreamSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableStreamSpecification) *TableStreamSpecification {
+		return &v
+	}).(TableStreamSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
+	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
+}
+
+type TableStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableStreamSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStreamSpecification)(nil)).Elem()
+}
+
+func (o TableStreamSpecificationPtrOutput) ToTableStreamSpecificationPtrOutput() TableStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o TableStreamSpecificationPtrOutput) ToTableStreamSpecificationPtrOutputWithContext(ctx context.Context) TableStreamSpecificationPtrOutput {
+	return o
+}
+
+func (o TableStreamSpecificationPtrOutput) Elem() TableStreamSpecificationOutput {
+	return o.ApplyT(func(v *TableStreamSpecification) TableStreamSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableStreamSpecification
+		return ret
+	}).(TableStreamSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStreamSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StreamViewType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html
+type TableTimeToLiveSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+	AttributeName string `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+	Enabled bool `pulumi:"enabled"`
+}
+
+// TableTimeToLiveSpecificationInput is an input type that accepts TableTimeToLiveSpecificationArgs and TableTimeToLiveSpecificationOutput values.
+// You can construct a concrete instance of `TableTimeToLiveSpecificationInput` via:
+//
+//          TableTimeToLiveSpecificationArgs{...}
+type TableTimeToLiveSpecificationInput interface {
+	pulumi.Input
+
+	ToTableTimeToLiveSpecificationOutput() TableTimeToLiveSpecificationOutput
+	ToTableTimeToLiveSpecificationOutputWithContext(context.Context) TableTimeToLiveSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html
+type TableTimeToLiveSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (TableTimeToLiveSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTimeToLiveSpecification)(nil)).Elem()
+}
+
+func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationOutput() TableTimeToLiveSpecificationOutput {
+	return i.ToTableTimeToLiveSpecificationOutputWithContext(context.Background())
+}
+
+func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationOutput)
+}
+
+func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput {
+	return i.ToTableTimeToLiveSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i TableTimeToLiveSpecificationArgs) ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationOutput).ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx)
+}
+
+// TableTimeToLiveSpecificationPtrInput is an input type that accepts TableTimeToLiveSpecificationArgs, TableTimeToLiveSpecificationPtr and TableTimeToLiveSpecificationPtrOutput values.
+// You can construct a concrete instance of `TableTimeToLiveSpecificationPtrInput` via:
+//
+//          TableTimeToLiveSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type TableTimeToLiveSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput
+	ToTableTimeToLiveSpecificationPtrOutputWithContext(context.Context) TableTimeToLiveSpecificationPtrOutput
+}
+
+type tableTimeToLiveSpecificationPtrType TableTimeToLiveSpecificationArgs
+
+func TableTimeToLiveSpecificationPtr(v *TableTimeToLiveSpecificationArgs) TableTimeToLiveSpecificationPtrInput {
+	return (*tableTimeToLiveSpecificationPtrType)(v)
+}
+
+func (*tableTimeToLiveSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTimeToLiveSpecification)(nil)).Elem()
+}
+
+func (i *tableTimeToLiveSpecificationPtrType) ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput {
+	return i.ToTableTimeToLiveSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableTimeToLiveSpecificationPtrType) ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTimeToLiveSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html
+type TableTimeToLiveSpecificationOutput struct{ *pulumi.OutputState }
+
+func (TableTimeToLiveSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTimeToLiveSpecification)(nil)).Elem()
+}
+
+func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationOutput() TableTimeToLiveSpecificationOutput {
+	return o
+}
+
+func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationOutput {
+	return o
+}
+
+func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput {
+	return o.ToTableTimeToLiveSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o TableTimeToLiveSpecificationOutput) ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTimeToLiveSpecification) *TableTimeToLiveSpecification {
+		return &v
+	}).(TableTimeToLiveSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+func (o TableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTimeToLiveSpecification) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+func (o TableTimeToLiveSpecificationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v TableTimeToLiveSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type TableTimeToLiveSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableTimeToLiveSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTimeToLiveSpecification)(nil)).Elem()
+}
+
+func (o TableTimeToLiveSpecificationPtrOutput) ToTableTimeToLiveSpecificationPtrOutput() TableTimeToLiveSpecificationPtrOutput {
+	return o
+}
+
+func (o TableTimeToLiveSpecificationPtrOutput) ToTableTimeToLiveSpecificationPtrOutputWithContext(ctx context.Context) TableTimeToLiveSpecificationPtrOutput {
+	return o
+}
+
+func (o TableTimeToLiveSpecificationPtrOutput) Elem() TableTimeToLiveSpecificationOutput {
+	return o.ApplyT(func(v *TableTimeToLiveSpecification) TableTimeToLiveSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret TableTimeToLiveSpecification
+		return ret
+	}).(TableTimeToLiveSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+func (o TableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTimeToLiveSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AttributeName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableTimeToLiveSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionOutput{})
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionArrayOutput{})
@@ -2435,4 +4029,27 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteProvisionedThroughputSettingsOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteProvisionedThroughputSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TableAttributeDefinitionOutput{})
+	pulumi.RegisterOutputType(TableAttributeDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(TableContributorInsightsSpecificationOutput{})
+	pulumi.RegisterOutputType(TableContributorInsightsSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableKeySchemaOutput{})
+	pulumi.RegisterOutputType(TableKeySchemaArrayOutput{})
+	pulumi.RegisterOutputType(TableKinesisStreamSpecificationOutput{})
+	pulumi.RegisterOutputType(TableKinesisStreamSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableLocalSecondaryIndexOutput{})
+	pulumi.RegisterOutputType(TableLocalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TablePointInTimeRecoverySpecificationOutput{})
+	pulumi.RegisterOutputType(TablePointInTimeRecoverySpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableProjectionOutput{})
+	pulumi.RegisterOutputType(TableProvisionedThroughputOutput{})
+	pulumi.RegisterOutputType(TableProvisionedThroughputPtrOutput{})
+	pulumi.RegisterOutputType(TableSSESpecificationOutput{})
+	pulumi.RegisterOutputType(TableSSESpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})
+	pulumi.RegisterOutputType(TableStreamSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableTimeToLiveSpecificationOutput{})
+	pulumi.RegisterOutputType(TableTimeToLiveSpecificationPtrOutput{})
 }

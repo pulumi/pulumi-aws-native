@@ -29,10 +29,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallRuleGroupAssociation{}
 	case "aws-native:route53resolver:ResolverDNSSECConfig":
 		r = &ResolverDNSSECConfig{}
+	case "aws-native:route53resolver:ResolverEndpoint":
+		r = &ResolverEndpoint{}
 	case "aws-native:route53resolver:ResolverQueryLoggingConfig":
 		r = &ResolverQueryLoggingConfig{}
 	case "aws-native:route53resolver:ResolverQueryLoggingConfigAssociation":
 		r = &ResolverQueryLoggingConfigAssociation{}
+	case "aws-native:route53resolver:ResolverRule":
+		r = &ResolverRule{}
+	case "aws-native:route53resolver:ResolverRuleAssociation":
+		r = &ResolverRuleAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

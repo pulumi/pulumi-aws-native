@@ -328,9 +328,120 @@ func (o ClusterLoggingPropertiesPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
+type ClusterParameterGroupParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
+	ParameterName string `pulumi:"parameterName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// ClusterParameterGroupParameterInput is an input type that accepts ClusterParameterGroupParameterArgs and ClusterParameterGroupParameterOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterInput` via:
+//
+//          ClusterParameterGroupParameterArgs{...}
+type ClusterParameterGroupParameterInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput
+	ToClusterParameterGroupParameterOutputWithContext(context.Context) ClusterParameterGroupParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
+type ClusterParameterGroupParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (ClusterParameterGroupParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput {
+	return i.ToClusterParameterGroupParameterOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
+}
+
+// ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
+// You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
+//
+//          ClusterParameterGroupParameterArray{ ClusterParameterGroupParameterArgs{...} }
+type ClusterParameterGroupParameterArrayInput interface {
+	pulumi.Input
+
+	ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput
+	ToClusterParameterGroupParameterArrayOutputWithContext(context.Context) ClusterParameterGroupParameterArrayOutput
+}
+
+type ClusterParameterGroupParameterArray []ClusterParameterGroupParameterInput
+
+func (ClusterParameterGroupParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput {
+	return i.ToClusterParameterGroupParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
+type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutput() ClusterParameterGroupParameterOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametername
+func (o ClusterParameterGroupParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html#cfn-redshift-clusterparametergroup-parameter-parametervalue
+func (o ClusterParameterGroupParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type ClusterParameterGroupParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterParameterGroupParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterParameterGroupParameter)(nil)).Elem()
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutput() ClusterParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
+	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterParameterGroupParameter {
+		return vs[0].([]ClusterParameterGroupParameter)[vs[1].(int)]
+	}).(ClusterParameterGroupParameterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
+	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
 }

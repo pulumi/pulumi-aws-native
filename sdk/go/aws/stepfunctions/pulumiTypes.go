@@ -10,6 +10,115 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html
+type ActivityTagsEntry struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
+	Value string `pulumi:"value"`
+}
+
+// ActivityTagsEntryInput is an input type that accepts ActivityTagsEntryArgs and ActivityTagsEntryOutput values.
+// You can construct a concrete instance of `ActivityTagsEntryInput` via:
+//
+//          ActivityTagsEntryArgs{...}
+type ActivityTagsEntryInput interface {
+	pulumi.Input
+
+	ToActivityTagsEntryOutput() ActivityTagsEntryOutput
+	ToActivityTagsEntryOutputWithContext(context.Context) ActivityTagsEntryOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html
+type ActivityTagsEntryArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ActivityTagsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityTagsEntry)(nil)).Elem()
+}
+
+func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutput() ActivityTagsEntryOutput {
+	return i.ToActivityTagsEntryOutputWithContext(context.Background())
+}
+
+func (i ActivityTagsEntryArgs) ToActivityTagsEntryOutputWithContext(ctx context.Context) ActivityTagsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryOutput)
+}
+
+// ActivityTagsEntryArrayInput is an input type that accepts ActivityTagsEntryArray and ActivityTagsEntryArrayOutput values.
+// You can construct a concrete instance of `ActivityTagsEntryArrayInput` via:
+//
+//          ActivityTagsEntryArray{ ActivityTagsEntryArgs{...} }
+type ActivityTagsEntryArrayInput interface {
+	pulumi.Input
+
+	ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput
+	ToActivityTagsEntryArrayOutputWithContext(context.Context) ActivityTagsEntryArrayOutput
+}
+
+type ActivityTagsEntryArray []ActivityTagsEntryInput
+
+func (ActivityTagsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityTagsEntry)(nil)).Elem()
+}
+
+func (i ActivityTagsEntryArray) ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput {
+	return i.ToActivityTagsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i ActivityTagsEntryArray) ToActivityTagsEntryArrayOutputWithContext(ctx context.Context) ActivityTagsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityTagsEntryArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html
+type ActivityTagsEntryOutput struct{ *pulumi.OutputState }
+
+func (ActivityTagsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityTagsEntry)(nil)).Elem()
+}
+
+func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutput() ActivityTagsEntryOutput {
+	return o
+}
+
+func (o ActivityTagsEntryOutput) ToActivityTagsEntryOutputWithContext(ctx context.Context) ActivityTagsEntryOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-key
+func (o ActivityTagsEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTagsEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-tagsentry.html#cfn-stepfunctions-activity-tagsentry-value
+func (o ActivityTagsEntryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ActivityTagsEntry) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ActivityTagsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ActivityTagsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityTagsEntry)(nil)).Elem()
+}
+
+func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutput() ActivityTagsEntryArrayOutput {
+	return o
+}
+
+func (o ActivityTagsEntryArrayOutput) ToActivityTagsEntryArrayOutputWithContext(ctx context.Context) ActivityTagsEntryArrayOutput {
+	return o
+}
+
+func (o ActivityTagsEntryArrayOutput) Index(i pulumi.IntInput) ActivityTagsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityTagsEntry {
+		return vs[0].([]ActivityTagsEntry)[vs[1].(int)]
+	}).(ActivityTagsEntryOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
 type StateMachineCloudWatchLogsLogGroup struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
@@ -979,6 +1088,8 @@ func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActivityTagsEntryOutput{})
+	pulumi.RegisterOutputType(ActivityTagsEntryArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupOutput{})
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionOutput{})

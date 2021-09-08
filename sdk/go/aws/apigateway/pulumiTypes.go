@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,6 +118,1400 @@ func (o ApiKeyStageKeyArrayOutput) Index(i pulumi.IntInput) ApiKeyStageKeyOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyStageKey {
 		return vs[0].([]ApiKeyStageKey)[vs[1].(int)]
 	}).(ApiKeyStageKeyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html
+type DeploymentAccessLogSetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+	DestinationArn *string `pulumi:"destinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+	Format *string `pulumi:"format"`
+}
+
+// DeploymentAccessLogSettingInput is an input type that accepts DeploymentAccessLogSettingArgs and DeploymentAccessLogSettingOutput values.
+// You can construct a concrete instance of `DeploymentAccessLogSettingInput` via:
+//
+//          DeploymentAccessLogSettingArgs{...}
+type DeploymentAccessLogSettingInput interface {
+	pulumi.Input
+
+	ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput
+	ToDeploymentAccessLogSettingOutputWithContext(context.Context) DeploymentAccessLogSettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html
+type DeploymentAccessLogSettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+	Format pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (DeploymentAccessLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput {
+	return i.ToDeploymentAccessLogSettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingOutputWithContext(ctx context.Context) DeploymentAccessLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingOutput)
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return i.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentAccessLogSettingArgs) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingOutput).ToDeploymentAccessLogSettingPtrOutputWithContext(ctx)
+}
+
+// DeploymentAccessLogSettingPtrInput is an input type that accepts DeploymentAccessLogSettingArgs, DeploymentAccessLogSettingPtr and DeploymentAccessLogSettingPtrOutput values.
+// You can construct a concrete instance of `DeploymentAccessLogSettingPtrInput` via:
+//
+//          DeploymentAccessLogSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentAccessLogSettingPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput
+	ToDeploymentAccessLogSettingPtrOutputWithContext(context.Context) DeploymentAccessLogSettingPtrOutput
+}
+
+type deploymentAccessLogSettingPtrType DeploymentAccessLogSettingArgs
+
+func DeploymentAccessLogSettingPtr(v *DeploymentAccessLogSettingArgs) DeploymentAccessLogSettingPtrInput {
+	return (*deploymentAccessLogSettingPtrType)(v)
+}
+
+func (*deploymentAccessLogSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (i *deploymentAccessLogSettingPtrType) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return i.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentAccessLogSettingPtrType) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html
+type DeploymentAccessLogSettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAccessLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingOutput() DeploymentAccessLogSettingOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingOutputWithContext(ctx context.Context) DeploymentAccessLogSettingOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return o.ToDeploymentAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentAccessLogSettingOutput) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentAccessLogSetting) *DeploymentAccessLogSetting {
+		return &v
+	}).(DeploymentAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+func (o DeploymentAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+func (o DeploymentAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentAccessLogSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentAccessLogSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentAccessLogSetting)(nil)).Elem()
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) ToDeploymentAccessLogSettingPtrOutput() DeploymentAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) ToDeploymentAccessLogSettingPtrOutputWithContext(ctx context.Context) DeploymentAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o DeploymentAccessLogSettingPtrOutput) Elem() DeploymentAccessLogSettingOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) DeploymentAccessLogSetting {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentAccessLogSetting
+		return ret
+	}).(DeploymentAccessLogSettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+func (o DeploymentAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+func (o DeploymentAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+type DeploymentCanarySetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+	UseStageCache *bool `pulumi:"useStageCache"`
+}
+
+// DeploymentCanarySettingInput is an input type that accepts DeploymentCanarySettingArgs and DeploymentCanarySettingOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingInput` via:
+//
+//          DeploymentCanarySettingArgs{...}
+type DeploymentCanarySettingInput interface {
+	pulumi.Input
+
+	ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput
+	ToDeploymentCanarySettingOutputWithContext(context.Context) DeploymentCanarySettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+type DeploymentCanarySettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
+}
+
+func (DeploymentCanarySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput {
+	return i.ToDeploymentCanarySettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingOutputWithContext(ctx context.Context) DeploymentCanarySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingOutput)
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return i.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentCanarySettingArgs) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingOutput).ToDeploymentCanarySettingPtrOutputWithContext(ctx)
+}
+
+// DeploymentCanarySettingPtrInput is an input type that accepts DeploymentCanarySettingArgs, DeploymentCanarySettingPtr and DeploymentCanarySettingPtrOutput values.
+// You can construct a concrete instance of `DeploymentCanarySettingPtrInput` via:
+//
+//          DeploymentCanarySettingArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentCanarySettingPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput
+	ToDeploymentCanarySettingPtrOutputWithContext(context.Context) DeploymentCanarySettingPtrOutput
+}
+
+type deploymentCanarySettingPtrType DeploymentCanarySettingArgs
+
+func DeploymentCanarySettingPtr(v *DeploymentCanarySettingArgs) DeploymentCanarySettingPtrInput {
+	return (*deploymentCanarySettingPtrType)(v)
+}
+
+func (*deploymentCanarySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (i *deploymentCanarySettingPtrType) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return i.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentCanarySettingPtrType) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+type DeploymentCanarySettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentCanarySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingOutput() DeploymentCanarySettingOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingOutputWithContext(ctx context.Context) DeploymentCanarySettingOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return o.ToDeploymentCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentCanarySettingOutput) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentCanarySetting) *DeploymentCanarySetting {
+		return &v
+	}).(DeploymentCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+func (o DeploymentCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+func (o DeploymentCanarySettingOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+func (o DeploymentCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentCanarySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentCanarySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentCanarySetting)(nil)).Elem()
+}
+
+func (o DeploymentCanarySettingPtrOutput) ToDeploymentCanarySettingPtrOutput() DeploymentCanarySettingPtrOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingPtrOutput) ToDeploymentCanarySettingPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingPtrOutput {
+	return o
+}
+
+func (o DeploymentCanarySettingPtrOutput) Elem() DeploymentCanarySettingOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) DeploymentCanarySetting {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentCanarySetting
+		return ret
+	}).(DeploymentCanarySettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+func (o DeploymentCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+func (o DeploymentCanarySettingPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+func (o DeploymentCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentCanarySetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+type DeploymentDeploymentCanarySettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+	UseStageCache *bool `pulumi:"useStageCache"`
+}
+
+// DeploymentDeploymentCanarySettingsInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs and DeploymentDeploymentCanarySettingsOutput values.
+// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsInput` via:
+//
+//          DeploymentDeploymentCanarySettingsArgs{...}
+type DeploymentDeploymentCanarySettingsInput interface {
+	pulumi.Input
+
+	ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput
+	ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+type DeploymentDeploymentCanarySettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
+}
+
+func (DeploymentDeploymentCanarySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
+	return i.ToDeploymentDeploymentCanarySettingsOutputWithContext(context.Background())
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput)
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentDeploymentCanarySettingsArgs) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsOutput).ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx)
+}
+
+// DeploymentDeploymentCanarySettingsPtrInput is an input type that accepts DeploymentDeploymentCanarySettingsArgs, DeploymentDeploymentCanarySettingsPtr and DeploymentDeploymentCanarySettingsPtrOutput values.
+// You can construct a concrete instance of `DeploymentDeploymentCanarySettingsPtrInput` via:
+//
+//          DeploymentDeploymentCanarySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentDeploymentCanarySettingsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput
+	ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentDeploymentCanarySettingsPtrOutput
+}
+
+type deploymentDeploymentCanarySettingsPtrType DeploymentDeploymentCanarySettingsArgs
+
+func DeploymentDeploymentCanarySettingsPtr(v *DeploymentDeploymentCanarySettingsArgs) DeploymentDeploymentCanarySettingsPtrInput {
+	return (*deploymentDeploymentCanarySettingsPtrType)(v)
+}
+
+func (*deploymentDeploymentCanarySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return i.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentDeploymentCanarySettingsPtrType) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDeploymentCanarySettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+type DeploymentDeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDeploymentCanarySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutput() DeploymentDeploymentCanarySettingsOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return o.ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentDeploymentCanarySettingsOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentDeploymentCanarySettings) *DeploymentDeploymentCanarySettings {
+		return &v
+	}).(DeploymentDeploymentCanarySettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+func (o DeploymentDeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+func (o DeploymentDeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+func (o DeploymentDeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentDeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type DeploymentDeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentDeploymentCanarySettings)(nil)).Elem()
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutput() DeploymentDeploymentCanarySettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) ToDeploymentDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentDeploymentCanarySettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentDeploymentCanarySettingsPtrOutput) Elem() DeploymentDeploymentCanarySettingsOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) DeploymentDeploymentCanarySettings {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentDeploymentCanarySettings
+		return ret
+	}).(DeploymentDeploymentCanarySettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+func (o DeploymentDeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+func (o DeploymentDeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+func (o DeploymentDeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentDeploymentCanarySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html
+type DeploymentMethodSetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+	HttpMethod *string `pulumi:"httpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+	ResourcePath *string `pulumi:"resourcePath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// DeploymentMethodSettingInput is an input type that accepts DeploymentMethodSettingArgs and DeploymentMethodSettingOutput values.
+// You can construct a concrete instance of `DeploymentMethodSettingInput` via:
+//
+//          DeploymentMethodSettingArgs{...}
+type DeploymentMethodSettingInput interface {
+	pulumi.Input
+
+	ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput
+	ToDeploymentMethodSettingOutputWithContext(context.Context) DeploymentMethodSettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html
+type DeploymentMethodSettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+	ResourcePath pulumi.StringPtrInput `pulumi:"resourcePath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (DeploymentMethodSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (i DeploymentMethodSettingArgs) ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput {
+	return i.ToDeploymentMethodSettingOutputWithContext(context.Background())
+}
+
+func (i DeploymentMethodSettingArgs) ToDeploymentMethodSettingOutputWithContext(ctx context.Context) DeploymentMethodSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMethodSettingOutput)
+}
+
+// DeploymentMethodSettingArrayInput is an input type that accepts DeploymentMethodSettingArray and DeploymentMethodSettingArrayOutput values.
+// You can construct a concrete instance of `DeploymentMethodSettingArrayInput` via:
+//
+//          DeploymentMethodSettingArray{ DeploymentMethodSettingArgs{...} }
+type DeploymentMethodSettingArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput
+	ToDeploymentMethodSettingArrayOutputWithContext(context.Context) DeploymentMethodSettingArrayOutput
+}
+
+type DeploymentMethodSettingArray []DeploymentMethodSettingInput
+
+func (DeploymentMethodSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (i DeploymentMethodSettingArray) ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput {
+	return i.ToDeploymentMethodSettingArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentMethodSettingArray) ToDeploymentMethodSettingArrayOutputWithContext(ctx context.Context) DeploymentMethodSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentMethodSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html
+type DeploymentMethodSettingOutput struct{ *pulumi.OutputState }
+
+func (DeploymentMethodSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (o DeploymentMethodSettingOutput) ToDeploymentMethodSettingOutput() DeploymentMethodSettingOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingOutput) ToDeploymentMethodSettingOutputWithContext(ctx context.Context) DeploymentMethodSettingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+func (o DeploymentMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+func (o DeploymentMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+func (o DeploymentMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+func (o DeploymentMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+func (o DeploymentMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+func (o DeploymentMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+func (o DeploymentMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+func (o DeploymentMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+func (o DeploymentMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+func (o DeploymentMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type DeploymentMethodSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentMethodSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentMethodSetting)(nil)).Elem()
+}
+
+func (o DeploymentMethodSettingArrayOutput) ToDeploymentMethodSettingArrayOutput() DeploymentMethodSettingArrayOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingArrayOutput) ToDeploymentMethodSettingArrayOutputWithContext(ctx context.Context) DeploymentMethodSettingArrayOutput {
+	return o
+}
+
+func (o DeploymentMethodSettingArrayOutput) Index(i pulumi.IntInput) DeploymentMethodSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentMethodSetting {
+		return vs[0].([]DeploymentMethodSetting)[vs[1].(int)]
+	}).(DeploymentMethodSettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html
+type DeploymentStageDescription struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+	AccessLogSetting *DeploymentAccessLogSetting `pulumi:"accessLogSetting"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+	CacheClusterSize *string `pulumi:"cacheClusterSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+	CanarySetting *DeploymentCanarySetting `pulumi:"canarySetting"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+	ClientCertificateId *string `pulumi:"clientCertificateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+	DocumentationVersion *string `pulumi:"documentationVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+	MethodSettings []DeploymentMethodSetting `pulumi:"methodSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+	Tags []aws.Tag `pulumi:"tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+	TracingEnabled *bool `pulumi:"tracingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+	Variables map[string]string `pulumi:"variables"`
+}
+
+// DeploymentStageDescriptionInput is an input type that accepts DeploymentStageDescriptionArgs and DeploymentStageDescriptionOutput values.
+// You can construct a concrete instance of `DeploymentStageDescriptionInput` via:
+//
+//          DeploymentStageDescriptionArgs{...}
+type DeploymentStageDescriptionInput interface {
+	pulumi.Input
+
+	ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput
+	ToDeploymentStageDescriptionOutputWithContext(context.Context) DeploymentStageDescriptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html
+type DeploymentStageDescriptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+	AccessLogSetting DeploymentAccessLogSettingPtrInput `pulumi:"accessLogSetting"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+	CacheClusterEnabled pulumi.BoolPtrInput `pulumi:"cacheClusterEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+	CacheClusterSize pulumi.StringPtrInput `pulumi:"cacheClusterSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+	CanarySetting DeploymentCanarySettingPtrInput `pulumi:"canarySetting"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+	ClientCertificateId pulumi.StringPtrInput `pulumi:"clientCertificateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+	DocumentationVersion pulumi.StringPtrInput `pulumi:"documentationVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+	MethodSettings DeploymentMethodSettingArrayInput `pulumi:"methodSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+	Tags aws.TagArrayInput `pulumi:"tags"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+	TracingEnabled pulumi.BoolPtrInput `pulumi:"tracingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+	Variables pulumi.StringMapInput `pulumi:"variables"`
+}
+
+func (DeploymentStageDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStageDescription)(nil)).Elem()
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput {
+	return i.ToDeploymentStageDescriptionOutputWithContext(context.Background())
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionOutputWithContext(ctx context.Context) DeploymentStageDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionOutput)
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return i.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentStageDescriptionArgs) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionOutput).ToDeploymentStageDescriptionPtrOutputWithContext(ctx)
+}
+
+// DeploymentStageDescriptionPtrInput is an input type that accepts DeploymentStageDescriptionArgs, DeploymentStageDescriptionPtr and DeploymentStageDescriptionPtrOutput values.
+// You can construct a concrete instance of `DeploymentStageDescriptionPtrInput` via:
+//
+//          DeploymentStageDescriptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DeploymentStageDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput
+	ToDeploymentStageDescriptionPtrOutputWithContext(context.Context) DeploymentStageDescriptionPtrOutput
+}
+
+type deploymentStageDescriptionPtrType DeploymentStageDescriptionArgs
+
+func DeploymentStageDescriptionPtr(v *DeploymentStageDescriptionArgs) DeploymentStageDescriptionPtrInput {
+	return (*deploymentStageDescriptionPtrType)(v)
+}
+
+func (*deploymentStageDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStageDescription)(nil)).Elem()
+}
+
+func (i *deploymentStageDescriptionPtrType) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return i.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentStageDescriptionPtrType) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStageDescriptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html
+type DeploymentStageDescriptionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStageDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentStageDescription)(nil)).Elem()
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionOutput() DeploymentStageDescriptionOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionOutputWithContext(ctx context.Context) DeploymentStageDescriptionOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return o.ToDeploymentStageDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentStageDescriptionOutput) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentStageDescription) *DeploymentStageDescription {
+		return &v
+	}).(DeploymentStageDescriptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+func (o DeploymentStageDescriptionOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentAccessLogSetting { return v.AccessLogSetting }).(DeploymentAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+func (o DeploymentStageDescriptionOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheClusterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+func (o DeploymentStageDescriptionOutput) CacheClusterSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.CacheClusterSize }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+func (o DeploymentStageDescriptionOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+func (o DeploymentStageDescriptionOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+func (o DeploymentStageDescriptionOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+func (o DeploymentStageDescriptionOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *DeploymentCanarySetting { return v.CanarySetting }).(DeploymentCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+func (o DeploymentStageDescriptionOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.ClientCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+func (o DeploymentStageDescriptionOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+func (o DeploymentStageDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+func (o DeploymentStageDescriptionOutput) DocumentationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+func (o DeploymentStageDescriptionOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+func (o DeploymentStageDescriptionOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) []DeploymentMethodSetting { return v.MethodSettings }).(DeploymentMethodSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+func (o DeploymentStageDescriptionOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+func (o DeploymentStageDescriptionOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+func (o DeploymentStageDescriptionOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+func (o DeploymentStageDescriptionOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+func (o DeploymentStageDescriptionOutput) TracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) *bool { return v.TracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+func (o DeploymentStageDescriptionOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DeploymentStageDescription) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
+}
+
+type DeploymentStageDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentStageDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentStageDescription)(nil)).Elem()
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ToDeploymentStageDescriptionPtrOutput() DeploymentStageDescriptionPtrOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionPtrOutput) ToDeploymentStageDescriptionPtrOutputWithContext(ctx context.Context) DeploymentStageDescriptionPtrOutput {
+	return o
+}
+
+func (o DeploymentStageDescriptionPtrOutput) Elem() DeploymentStageDescriptionOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) DeploymentStageDescription {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentStageDescription
+		return ret
+	}).(DeploymentStageDescriptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+func (o DeploymentStageDescriptionPtrOutput) AccessLogSetting() DeploymentAccessLogSettingPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentAccessLogSetting {
+		if v == nil {
+			return nil
+		}
+		return v.AccessLogSetting
+	}).(DeploymentAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
+func (o DeploymentStageDescriptionPtrOutput) CacheClusterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheClusterEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
+func (o DeploymentStageDescriptionPtrOutput) CacheClusterSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheClusterSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
+func (o DeploymentStageDescriptionPtrOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CacheDataEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
+func (o DeploymentStageDescriptionPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CacheTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
+func (o DeploymentStageDescriptionPtrOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CachingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+func (o DeploymentStageDescriptionPtrOutput) CanarySetting() DeploymentCanarySettingPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *DeploymentCanarySetting {
+		if v == nil {
+			return nil
+		}
+		return v.CanarySetting
+	}).(DeploymentCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
+func (o DeploymentStageDescriptionPtrOutput) ClientCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
+func (o DeploymentStageDescriptionPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataTraceEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
+func (o DeploymentStageDescriptionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-documentationversion
+func (o DeploymentStageDescriptionPtrOutput) DocumentationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentationVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
+func (o DeploymentStageDescriptionPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
+func (o DeploymentStageDescriptionPtrOutput) MethodSettings() DeploymentMethodSettingArrayOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) []DeploymentMethodSetting {
+		if v == nil {
+			return nil
+		}
+		return v.MethodSettings
+	}).(DeploymentMethodSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
+func (o DeploymentStageDescriptionPtrOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+func (o DeploymentStageDescriptionPtrOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) []aws.Tag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(aws.TagArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
+func (o DeploymentStageDescriptionPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingBurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
+func (o DeploymentStageDescriptionPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ThrottlingRateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+func (o DeploymentStageDescriptionPtrOutput) TracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TracingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables
+func (o DeploymentStageDescriptionPtrOutput) Variables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentStageDescription) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Variables
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html
+type DocumentationPartLocation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+	Method *string `pulumi:"method"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+	Path *string `pulumi:"path"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+	StatusCode *string `pulumi:"statusCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+	Type *string `pulumi:"type"`
+}
+
+// DocumentationPartLocationInput is an input type that accepts DocumentationPartLocationArgs and DocumentationPartLocationOutput values.
+// You can construct a concrete instance of `DocumentationPartLocationInput` via:
+//
+//          DocumentationPartLocationArgs{...}
+type DocumentationPartLocationInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationOutput() DocumentationPartLocationOutput
+	ToDocumentationPartLocationOutputWithContext(context.Context) DocumentationPartLocationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html
+type DocumentationPartLocationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DocumentationPartLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return i.ToDocumentationPartLocationOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput)
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput).ToDocumentationPartLocationPtrOutputWithContext(ctx)
+}
+
+// DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
+// You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
+//
+//          DocumentationPartLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DocumentationPartLocationPtrInput interface {
+	pulumi.Input
+
+	ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput
+	ToDocumentationPartLocationPtrOutputWithContext(context.Context) DocumentationPartLocationPtrOutput
+}
+
+type documentationPartLocationPtrType DocumentationPartLocationArgs
+
+func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {
+	return (*documentationPartLocationPtrType)(v)
+}
+
+func (*documentationPartLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
+}
+
+func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html
+type DocumentationPartLocationOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentationPartLocation)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutput() DocumentationPartLocationOutput {
+	return o
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
+	return o
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return o.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocation) *DocumentationPartLocation {
+		return &v
+	}).(DocumentationPartLocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+func (o DocumentationPartLocationOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Method }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+func (o DocumentationPartLocationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+func (o DocumentationPartLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+func (o DocumentationPartLocationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DocumentationPartLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DocumentationPartLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
+}
+
+func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
+	return o
+}
+
+func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentationPartLocation
+		return ret
+	}).(DocumentationPartLocationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-method
+func (o DocumentationPartLocationPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-name
+func (o DocumentationPartLocationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-path
+func (o DocumentationPartLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-statuscode
+func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-documentationpart-location.html#cfn-apigateway-documentationpart-location-type
+func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DocumentationPartLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
@@ -418,11 +1813,2080 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
+type MethodIntegration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+	CacheKeyParameters []string `pulumi:"cacheKeyParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+	CacheNamespace *string `pulumi:"cacheNamespace"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+	ConnectionId *string `pulumi:"connectionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+	ConnectionType *string `pulumi:"connectionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+	ContentHandling *string `pulumi:"contentHandling"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+	Credentials *string `pulumi:"credentials"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+	IntegrationResponses []MethodIntegrationResponse `pulumi:"integrationResponses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+	PassthroughBehavior *string `pulumi:"passthroughBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+	RequestParameters map[string]string `pulumi:"requestParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+	RequestTemplates map[string]string `pulumi:"requestTemplates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+	Type *string `pulumi:"type"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+	Uri *string `pulumi:"uri"`
+}
+
+// MethodIntegrationInput is an input type that accepts MethodIntegrationArgs and MethodIntegrationOutput values.
+// You can construct a concrete instance of `MethodIntegrationInput` via:
+//
+//          MethodIntegrationArgs{...}
+type MethodIntegrationInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationOutput() MethodIntegrationOutput
+	ToMethodIntegrationOutputWithContext(context.Context) MethodIntegrationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
+type MethodIntegrationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+	CacheKeyParameters pulumi.StringArrayInput `pulumi:"cacheKeyParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+	CacheNamespace pulumi.StringPtrInput `pulumi:"cacheNamespace"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+	ConnectionId pulumi.StringPtrInput `pulumi:"connectionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+	ConnectionType pulumi.StringPtrInput `pulumi:"connectionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+	ContentHandling pulumi.StringPtrInput `pulumi:"contentHandling"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+	IntegrationHttpMethod pulumi.StringPtrInput `pulumi:"integrationHttpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+	IntegrationResponses MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+	PassthroughBehavior pulumi.StringPtrInput `pulumi:"passthroughBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (MethodIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegration)(nil)).Elem()
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationOutput() MethodIntegrationOutput {
+	return i.ToMethodIntegrationOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationOutputWithContext(ctx context.Context) MethodIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationOutput)
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return i.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationArgs) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationOutput).ToMethodIntegrationPtrOutputWithContext(ctx)
+}
+
+// MethodIntegrationPtrInput is an input type that accepts MethodIntegrationArgs, MethodIntegrationPtr and MethodIntegrationPtrOutput values.
+// You can construct a concrete instance of `MethodIntegrationPtrInput` via:
+//
+//          MethodIntegrationArgs{...}
+//
+//  or:
+//
+//          nil
+type MethodIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput
+	ToMethodIntegrationPtrOutputWithContext(context.Context) MethodIntegrationPtrOutput
+}
+
+type methodIntegrationPtrType MethodIntegrationArgs
+
+func MethodIntegrationPtr(v *MethodIntegrationArgs) MethodIntegrationPtrInput {
+	return (*methodIntegrationPtrType)(v)
+}
+
+func (*methodIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodIntegration)(nil)).Elem()
+}
+
+func (i *methodIntegrationPtrType) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return i.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *methodIntegrationPtrType) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
+type MethodIntegrationOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegration)(nil)).Elem()
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationOutput() MethodIntegrationOutput {
+	return o
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationOutputWithContext(ctx context.Context) MethodIntegrationOutput {
+	return o
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return o.ToMethodIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o MethodIntegrationOutput) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodIntegration) *MethodIntegration {
+		return &v
+	}).(MethodIntegrationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+func (o MethodIntegrationOutput) CacheKeyParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MethodIntegration) []string { return v.CacheKeyParameters }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+func (o MethodIntegrationOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.CacheNamespace }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+func (o MethodIntegrationOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+func (o MethodIntegrationOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+func (o MethodIntegrationOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+func (o MethodIntegrationOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Credentials }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+func (o MethodIntegrationOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.IntegrationHttpMethod }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+func (o MethodIntegrationOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v MethodIntegration) []MethodIntegrationResponse { return v.IntegrationResponses }).(MethodIntegrationResponseArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+func (o MethodIntegrationOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.PassthroughBehavior }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+func (o MethodIntegrationOutput) RequestParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestParameters }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+func (o MethodIntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestTemplates }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+func (o MethodIntegrationOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *int { return v.TimeoutInMillis }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+func (o MethodIntegrationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+func (o MethodIntegrationOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type MethodIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MethodIntegration)(nil)).Elem()
+}
+
+func (o MethodIntegrationPtrOutput) ToMethodIntegrationPtrOutput() MethodIntegrationPtrOutput {
+	return o
+}
+
+func (o MethodIntegrationPtrOutput) ToMethodIntegrationPtrOutputWithContext(ctx context.Context) MethodIntegrationPtrOutput {
+	return o
+}
+
+func (o MethodIntegrationPtrOutput) Elem() MethodIntegrationOutput {
+	return o.ApplyT(func(v *MethodIntegration) MethodIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret MethodIntegration
+		return ret
+	}).(MethodIntegrationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
+func (o MethodIntegrationPtrOutput) CacheKeyParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MethodIntegration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheKeyParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
+func (o MethodIntegrationPtrOutput) CacheNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+func (o MethodIntegrationPtrOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+func (o MethodIntegrationPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+func (o MethodIntegrationPtrOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentHandling
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
+func (o MethodIntegrationPtrOutput) Credentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Credentials
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
+func (o MethodIntegrationPtrOutput) IntegrationHttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationHttpMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
+func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResponseArrayOutput {
+	return o.ApplyT(func(v *MethodIntegration) []MethodIntegrationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationResponses
+	}).(MethodIntegrationResponseArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
+func (o MethodIntegrationPtrOutput) PassthroughBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassthroughBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
+func (o MethodIntegrationPtrOutput) RequestParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MethodIntegration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestParameters
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
+func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MethodIntegration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTemplates
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+func (o MethodIntegrationPtrOutput) TimeoutInMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMillis
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
+func (o MethodIntegrationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri
+func (o MethodIntegrationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
+type MethodIntegrationResponse struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+	ContentHandling *string `pulumi:"contentHandling"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
+	ResponseParameters map[string]string `pulumi:"responseParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
+	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern
+	SelectionPattern *string `pulumi:"selectionPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// MethodIntegrationResponseInput is an input type that accepts MethodIntegrationResponseArgs and MethodIntegrationResponseOutput values.
+// You can construct a concrete instance of `MethodIntegrationResponseInput` via:
+//
+//          MethodIntegrationResponseArgs{...}
+type MethodIntegrationResponseInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput
+	ToMethodIntegrationResponseOutputWithContext(context.Context) MethodIntegrationResponseOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
+type MethodIntegrationResponseArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+	ContentHandling pulumi.StringPtrInput `pulumi:"contentHandling"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
+	ResponseParameters pulumi.StringMapInput `pulumi:"responseParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
+	ResponseTemplates pulumi.StringMapInput `pulumi:"responseTemplates"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern
+	SelectionPattern pulumi.StringPtrInput `pulumi:"selectionPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (MethodIntegrationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (i MethodIntegrationResponseArgs) ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput {
+	return i.ToMethodIntegrationResponseOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationResponseArgs) ToMethodIntegrationResponseOutputWithContext(ctx context.Context) MethodIntegrationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationResponseOutput)
+}
+
+// MethodIntegrationResponseArrayInput is an input type that accepts MethodIntegrationResponseArray and MethodIntegrationResponseArrayOutput values.
+// You can construct a concrete instance of `MethodIntegrationResponseArrayInput` via:
+//
+//          MethodIntegrationResponseArray{ MethodIntegrationResponseArgs{...} }
+type MethodIntegrationResponseArrayInput interface {
+	pulumi.Input
+
+	ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput
+	ToMethodIntegrationResponseArrayOutputWithContext(context.Context) MethodIntegrationResponseArrayOutput
+}
+
+type MethodIntegrationResponseArray []MethodIntegrationResponseInput
+
+func (MethodIntegrationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (i MethodIntegrationResponseArray) ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput {
+	return i.ToMethodIntegrationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MethodIntegrationResponseArray) ToMethodIntegrationResponseArrayOutputWithContext(ctx context.Context) MethodIntegrationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodIntegrationResponseArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
+type MethodIntegrationResponseOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutput() MethodIntegrationResponseOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseOutput) ToMethodIntegrationResponseOutputWithContext(ctx context.Context) MethodIntegrationResponseOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+func (o MethodIntegrationResponseOutput) ContentHandling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.ContentHandling }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
+func (o MethodIntegrationResponseOutput) ResponseParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseParameters }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates
+func (o MethodIntegrationResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) map[string]string { return v.ResponseTemplates }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern
+func (o MethodIntegrationResponseOutput) SelectionPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) *string { return v.SelectionPattern }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
+func (o MethodIntegrationResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v MethodIntegrationResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type MethodIntegrationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodIntegrationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodIntegrationResponse)(nil)).Elem()
+}
+
+func (o MethodIntegrationResponseArrayOutput) ToMethodIntegrationResponseArrayOutput() MethodIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseArrayOutput) ToMethodIntegrationResponseArrayOutputWithContext(ctx context.Context) MethodIntegrationResponseArrayOutput {
+	return o
+}
+
+func (o MethodIntegrationResponseArrayOutput) Index(i pulumi.IntInput) MethodIntegrationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodIntegrationResponse {
+		return vs[0].([]MethodIntegrationResponse)[vs[1].(int)]
+	}).(MethodIntegrationResponseOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
+type MethodMethodResponse struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+	ResponseModels map[string]string `pulumi:"responseModels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
+	ResponseParameters map[string]bool `pulumi:"responseParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// MethodMethodResponseInput is an input type that accepts MethodMethodResponseArgs and MethodMethodResponseOutput values.
+// You can construct a concrete instance of `MethodMethodResponseInput` via:
+//
+//          MethodMethodResponseArgs{...}
+type MethodMethodResponseInput interface {
+	pulumi.Input
+
+	ToMethodMethodResponseOutput() MethodMethodResponseOutput
+	ToMethodMethodResponseOutputWithContext(context.Context) MethodMethodResponseOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
+type MethodMethodResponseArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+	ResponseModels pulumi.StringMapInput `pulumi:"responseModels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
+	ResponseParameters pulumi.BoolMapInput `pulumi:"responseParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (MethodMethodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+}
+
+func (i MethodMethodResponseArgs) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
+	return i.ToMethodMethodResponseOutputWithContext(context.Background())
+}
+
+func (i MethodMethodResponseArgs) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseOutput)
+}
+
+// MethodMethodResponseArrayInput is an input type that accepts MethodMethodResponseArray and MethodMethodResponseArrayOutput values.
+// You can construct a concrete instance of `MethodMethodResponseArrayInput` via:
+//
+//          MethodMethodResponseArray{ MethodMethodResponseArgs{...} }
+type MethodMethodResponseArrayInput interface {
+	pulumi.Input
+
+	ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput
+	ToMethodMethodResponseArrayOutputWithContext(context.Context) MethodMethodResponseArrayOutput
+}
+
+type MethodMethodResponseArray []MethodMethodResponseInput
+
+func (MethodMethodResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+}
+
+func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
+	return i.ToMethodMethodResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MethodMethodResponseArray) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MethodMethodResponseArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
+type MethodMethodResponseOutput struct{ *pulumi.OutputState }
+
+func (MethodMethodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MethodMethodResponse)(nil)).Elem()
+}
+
+func (o MethodMethodResponseOutput) ToMethodMethodResponseOutput() MethodMethodResponseOutput {
+	return o
+}
+
+func (o MethodMethodResponseOutput) ToMethodMethodResponseOutputWithContext(ctx context.Context) MethodMethodResponseOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
+func (o MethodMethodResponseOutput) ResponseModels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MethodMethodResponse) map[string]string { return v.ResponseModels }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responseparameters
+func (o MethodMethodResponseOutput) ResponseParameters() pulumi.BoolMapOutput {
+	return o.ApplyT(func(v MethodMethodResponse) map[string]bool { return v.ResponseParameters }).(pulumi.BoolMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
+func (o MethodMethodResponseOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v MethodMethodResponse) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type MethodMethodResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MethodMethodResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MethodMethodResponse)(nil)).Elem()
+}
+
+func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutput() MethodMethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodMethodResponseArrayOutput) ToMethodMethodResponseArrayOutputWithContext(ctx context.Context) MethodMethodResponseArrayOutput {
+	return o
+}
+
+func (o MethodMethodResponseArrayOutput) Index(i pulumi.IntInput) MethodMethodResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MethodMethodResponse {
+		return vs[0].([]MethodMethodResponse)[vs[1].(int)]
+	}).(MethodMethodResponseOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+type RestApiEndpointConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+	Types []string `pulumi:"types"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
+}
+
+// RestApiEndpointConfigurationInput is an input type that accepts RestApiEndpointConfigurationArgs and RestApiEndpointConfigurationOutput values.
+// You can construct a concrete instance of `RestApiEndpointConfigurationInput` via:
+//
+//          RestApiEndpointConfigurationArgs{...}
+type RestApiEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput
+	ToRestApiEndpointConfigurationOutputWithContext(context.Context) RestApiEndpointConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+type RestApiEndpointConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+	Types pulumi.StringArrayInput `pulumi:"types"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
+}
+
+func (RestApiEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return i.ToRestApiEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationOutput)
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return i.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RestApiEndpointConfigurationArgs) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationOutput).ToRestApiEndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// RestApiEndpointConfigurationPtrInput is an input type that accepts RestApiEndpointConfigurationArgs, RestApiEndpointConfigurationPtr and RestApiEndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `RestApiEndpointConfigurationPtrInput` via:
+//
+//          RestApiEndpointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RestApiEndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput
+	ToRestApiEndpointConfigurationPtrOutputWithContext(context.Context) RestApiEndpointConfigurationPtrOutput
+}
+
+type restApiEndpointConfigurationPtrType RestApiEndpointConfigurationArgs
+
+func RestApiEndpointConfigurationPtr(v *RestApiEndpointConfigurationArgs) RestApiEndpointConfigurationPtrInput {
+	return (*restApiEndpointConfigurationPtrType)(v)
+}
+
+func (*restApiEndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return i.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiEndpointConfigurationPtrType) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+type RestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RestApiEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutput() RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationOutputWithContext(ctx context.Context) RestApiEndpointConfigurationOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return o.ToRestApiEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiEndpointConfiguration) *RestApiEndpointConfiguration {
+		return &v
+	}).(RestApiEndpointConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+func (o RestApiEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+func (o RestApiEndpointConfigurationOutput) VpcEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestApiEndpointConfiguration) []string { return v.VpcEndpointIds }).(pulumi.StringArrayOutput)
+}
+
+type RestApiEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RestApiEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiEndpointConfiguration)(nil)).Elem()
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtrOutput() RestApiEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurationOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) RestApiEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiEndpointConfiguration
+		return ret
+	}).(RestApiEndpointConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-types
+func (o RestApiEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html#cfn-apigateway-restapi-endpointconfiguration-vpcendpointids
+func (o RestApiEndpointConfigurationPtrOutput) VpcEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html
+type RestApiS3Location struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+	Bucket *string `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+	ETag *string `pulumi:"eTag"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+	Version *string `pulumi:"version"`
+}
+
+// RestApiS3LocationInput is an input type that accepts RestApiS3LocationArgs and RestApiS3LocationOutput values.
+// You can construct a concrete instance of `RestApiS3LocationInput` via:
+//
+//          RestApiS3LocationArgs{...}
+type RestApiS3LocationInput interface {
+	pulumi.Input
+
+	ToRestApiS3LocationOutput() RestApiS3LocationOutput
+	ToRestApiS3LocationOutputWithContext(context.Context) RestApiS3LocationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html
+type RestApiS3LocationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (RestApiS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiS3Location)(nil)).Elem()
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationOutput() RestApiS3LocationOutput {
+	return i.ToRestApiS3LocationOutputWithContext(context.Background())
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationOutputWithContext(ctx context.Context) RestApiS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationOutput)
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return i.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i RestApiS3LocationArgs) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationOutput).ToRestApiS3LocationPtrOutputWithContext(ctx)
+}
+
+// RestApiS3LocationPtrInput is an input type that accepts RestApiS3LocationArgs, RestApiS3LocationPtr and RestApiS3LocationPtrOutput values.
+// You can construct a concrete instance of `RestApiS3LocationPtrInput` via:
+//
+//          RestApiS3LocationArgs{...}
+//
+//  or:
+//
+//          nil
+type RestApiS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput
+	ToRestApiS3LocationPtrOutputWithContext(context.Context) RestApiS3LocationPtrOutput
+}
+
+type restApiS3LocationPtrType RestApiS3LocationArgs
+
+func RestApiS3LocationPtr(v *RestApiS3LocationArgs) RestApiS3LocationPtrInput {
+	return (*restApiS3LocationPtrType)(v)
+}
+
+func (*restApiS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiS3Location)(nil)).Elem()
+}
+
+func (i *restApiS3LocationPtrType) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return i.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *restApiS3LocationPtrType) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestApiS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html
+type RestApiS3LocationOutput struct{ *pulumi.OutputState }
+
+func (RestApiS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestApiS3Location)(nil)).Elem()
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationOutput() RestApiS3LocationOutput {
+	return o
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationOutputWithContext(ctx context.Context) RestApiS3LocationOutput {
+	return o
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return o.ToRestApiS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o RestApiS3LocationOutput) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiS3Location) *RestApiS3Location {
+		return &v
+	}).(RestApiS3LocationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+func (o RestApiS3LocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+func (o RestApiS3LocationOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+func (o RestApiS3LocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+func (o RestApiS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestApiS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type RestApiS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RestApiS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestApiS3Location)(nil)).Elem()
+}
+
+func (o RestApiS3LocationPtrOutput) ToRestApiS3LocationPtrOutput() RestApiS3LocationPtrOutput {
+	return o
+}
+
+func (o RestApiS3LocationPtrOutput) ToRestApiS3LocationPtrOutputWithContext(ctx context.Context) RestApiS3LocationPtrOutput {
+	return o
+}
+
+func (o RestApiS3LocationPtrOutput) Elem() RestApiS3LocationOutput {
+	return o.ApplyT(func(v *RestApiS3Location) RestApiS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiS3Location
+		return ret
+	}).(RestApiS3LocationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
+func (o RestApiS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
+func (o RestApiS3LocationPtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
+func (o RestApiS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
+func (o RestApiS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApiS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html
+type StageAccessLogSetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+	DestinationArn *string `pulumi:"destinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+	Format *string `pulumi:"format"`
+}
+
+// StageAccessLogSettingInput is an input type that accepts StageAccessLogSettingArgs and StageAccessLogSettingOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingInput` via:
+//
+//          StageAccessLogSettingArgs{...}
+type StageAccessLogSettingInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingOutput() StageAccessLogSettingOutput
+	ToStageAccessLogSettingOutputWithContext(context.Context) StageAccessLogSettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html
+type StageAccessLogSettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+	Format pulumi.StringPtrInput `pulumi:"format"`
+}
+
+func (StageAccessLogSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSetting)(nil)).Elem()
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingOutput() StageAccessLogSettingOutput {
+	return i.ToStageAccessLogSettingOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingOutputWithContext(ctx context.Context) StageAccessLogSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingOutput)
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return i.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i StageAccessLogSettingArgs) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingOutput).ToStageAccessLogSettingPtrOutputWithContext(ctx)
+}
+
+// StageAccessLogSettingPtrInput is an input type that accepts StageAccessLogSettingArgs, StageAccessLogSettingPtr and StageAccessLogSettingPtrOutput values.
+// You can construct a concrete instance of `StageAccessLogSettingPtrInput` via:
+//
+//          StageAccessLogSettingArgs{...}
+//
+//  or:
+//
+//          nil
+type StageAccessLogSettingPtrInput interface {
+	pulumi.Input
+
+	ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput
+	ToStageAccessLogSettingPtrOutputWithContext(context.Context) StageAccessLogSettingPtrOutput
+}
+
+type stageAccessLogSettingPtrType StageAccessLogSettingArgs
+
+func StageAccessLogSettingPtr(v *StageAccessLogSettingArgs) StageAccessLogSettingPtrInput {
+	return (*stageAccessLogSettingPtrType)(v)
+}
+
+func (*stageAccessLogSettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSetting)(nil)).Elem()
+}
+
+func (i *stageAccessLogSettingPtrType) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return i.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (i *stageAccessLogSettingPtrType) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html
+type StageAccessLogSettingOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageAccessLogSetting)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingOutput() StageAccessLogSettingOutput {
+	return o
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingOutputWithContext(ctx context.Context) StageAccessLogSettingOutput {
+	return o
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return o.ToStageAccessLogSettingPtrOutputWithContext(context.Background())
+}
+
+func (o StageAccessLogSettingOutput) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAccessLogSetting) *StageAccessLogSetting {
+		return &v
+	}).(StageAccessLogSettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+func (o StageAccessLogSettingOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+func (o StageAccessLogSettingOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageAccessLogSetting) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+type StageAccessLogSettingPtrOutput struct{ *pulumi.OutputState }
+
+func (StageAccessLogSettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageAccessLogSetting)(nil)).Elem()
+}
+
+func (o StageAccessLogSettingPtrOutput) ToStageAccessLogSettingPtrOutput() StageAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingPtrOutput) ToStageAccessLogSettingPtrOutputWithContext(ctx context.Context) StageAccessLogSettingPtrOutput {
+	return o
+}
+
+func (o StageAccessLogSettingPtrOutput) Elem() StageAccessLogSettingOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) StageAccessLogSetting {
+		if v != nil {
+			return *v
+		}
+		var ret StageAccessLogSetting
+		return ret
+	}).(StageAccessLogSettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+func (o StageAccessLogSettingPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+func (o StageAccessLogSettingPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageAccessLogSetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
+type StageCanarySetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+	DeploymentId *string `pulumi:"deploymentId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+	UseStageCache *bool `pulumi:"useStageCache"`
+}
+
+// StageCanarySettingInput is an input type that accepts StageCanarySettingArgs and StageCanarySettingOutput values.
+// You can construct a concrete instance of `StageCanarySettingInput` via:
+//
+//          StageCanarySettingArgs{...}
+type StageCanarySettingInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingOutput() StageCanarySettingOutput
+	ToStageCanarySettingOutputWithContext(context.Context) StageCanarySettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
+type StageCanarySettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+	DeploymentId pulumi.StringPtrInput `pulumi:"deploymentId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
+}
+
+func (StageCanarySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySetting)(nil)).Elem()
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingOutput() StageCanarySettingOutput {
+	return i.ToStageCanarySettingOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingOutputWithContext(ctx context.Context) StageCanarySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingOutput)
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return i.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingArgs) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingOutput).ToStageCanarySettingPtrOutputWithContext(ctx)
+}
+
+// StageCanarySettingPtrInput is an input type that accepts StageCanarySettingArgs, StageCanarySettingPtr and StageCanarySettingPtrOutput values.
+// You can construct a concrete instance of `StageCanarySettingPtrInput` via:
+//
+//          StageCanarySettingArgs{...}
+//
+//  or:
+//
+//          nil
+type StageCanarySettingPtrInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput
+	ToStageCanarySettingPtrOutputWithContext(context.Context) StageCanarySettingPtrOutput
+}
+
+type stageCanarySettingPtrType StageCanarySettingArgs
+
+func StageCanarySettingPtr(v *StageCanarySettingArgs) StageCanarySettingPtrInput {
+	return (*stageCanarySettingPtrType)(v)
+}
+
+func (*stageCanarySettingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySetting)(nil)).Elem()
+}
+
+func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return i.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (i *stageCanarySettingPtrType) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
+type StageCanarySettingOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySetting)(nil)).Elem()
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingOutput() StageCanarySettingOutput {
+	return o
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingOutputWithContext(ctx context.Context) StageCanarySettingOutput {
+	return o
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return o.ToStageCanarySettingPtrOutputWithContext(context.Background())
+}
+
+func (o StageCanarySettingOutput) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageCanarySetting) *StageCanarySetting {
+		return &v
+	}).(StageCanarySettingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+func (o StageCanarySettingOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+func (o StageCanarySettingOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+func (o StageCanarySettingOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StageCanarySetting) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+func (o StageCanarySettingOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageCanarySetting) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type StageCanarySettingPtrOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySetting)(nil)).Elem()
+}
+
+func (o StageCanarySettingPtrOutput) ToStageCanarySettingPtrOutput() StageCanarySettingPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingPtrOutput) ToStageCanarySettingPtrOutputWithContext(ctx context.Context) StageCanarySettingPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingPtrOutput) Elem() StageCanarySettingOutput {
+	return o.ApplyT(func(v *StageCanarySetting) StageCanarySetting {
+		if v != nil {
+			return *v
+		}
+		var ret StageCanarySetting
+		return ret
+	}).(StageCanarySettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+func (o StageCanarySettingPtrOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+func (o StageCanarySettingPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+func (o StageCanarySettingPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StageCanarySetting) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.StringMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+func (o StageCanarySettingPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageCanarySetting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
+type StageMethodSetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
+	CacheDataEncrypted *bool `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
+	CacheTtlInSeconds *int `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
+	CachingEnabled *bool `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
+	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+	HttpMethod *string `pulumi:"httpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+	LoggingLevel *string `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+	ResourcePath *string `pulumi:"resourcePath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
+	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+	ThrottlingRateLimit *float64 `pulumi:"throttlingRateLimit"`
+}
+
+// StageMethodSettingInput is an input type that accepts StageMethodSettingArgs and StageMethodSettingOutput values.
+// You can construct a concrete instance of `StageMethodSettingInput` via:
+//
+//          StageMethodSettingArgs{...}
+type StageMethodSettingInput interface {
+	pulumi.Input
+
+	ToStageMethodSettingOutput() StageMethodSettingOutput
+	ToStageMethodSettingOutputWithContext(context.Context) StageMethodSettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
+type StageMethodSettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
+	CacheDataEncrypted pulumi.BoolPtrInput `pulumi:"cacheDataEncrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
+	CacheTtlInSeconds pulumi.IntPtrInput `pulumi:"cacheTtlInSeconds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
+	CachingEnabled pulumi.BoolPtrInput `pulumi:"cachingEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
+	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
+	MetricsEnabled pulumi.BoolPtrInput `pulumi:"metricsEnabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+	ResourcePath pulumi.StringPtrInput `pulumi:"resourcePath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
+	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+	ThrottlingRateLimit pulumi.Float64PtrInput `pulumi:"throttlingRateLimit"`
+}
+
+func (StageMethodSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageMethodSetting)(nil)).Elem()
+}
+
+func (i StageMethodSettingArgs) ToStageMethodSettingOutput() StageMethodSettingOutput {
+	return i.ToStageMethodSettingOutputWithContext(context.Background())
+}
+
+func (i StageMethodSettingArgs) ToStageMethodSettingOutputWithContext(ctx context.Context) StageMethodSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageMethodSettingOutput)
+}
+
+// StageMethodSettingArrayInput is an input type that accepts StageMethodSettingArray and StageMethodSettingArrayOutput values.
+// You can construct a concrete instance of `StageMethodSettingArrayInput` via:
+//
+//          StageMethodSettingArray{ StageMethodSettingArgs{...} }
+type StageMethodSettingArrayInput interface {
+	pulumi.Input
+
+	ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput
+	ToStageMethodSettingArrayOutputWithContext(context.Context) StageMethodSettingArrayOutput
+}
+
+type StageMethodSettingArray []StageMethodSettingInput
+
+func (StageMethodSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageMethodSetting)(nil)).Elem()
+}
+
+func (i StageMethodSettingArray) ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput {
+	return i.ToStageMethodSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StageMethodSettingArray) ToStageMethodSettingArrayOutputWithContext(ctx context.Context) StageMethodSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageMethodSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
+type StageMethodSettingOutput struct{ *pulumi.OutputState }
+
+func (StageMethodSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageMethodSetting)(nil)).Elem()
+}
+
+func (o StageMethodSettingOutput) ToStageMethodSettingOutput() StageMethodSettingOutput {
+	return o
+}
+
+func (o StageMethodSettingOutput) ToStageMethodSettingOutputWithContext(ctx context.Context) StageMethodSettingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
+func (o StageMethodSettingOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CacheDataEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
+func (o StageMethodSettingOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *int { return v.CacheTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
+func (o StageMethodSettingOutput) CachingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.CachingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
+func (o StageMethodSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+func (o StageMethodSettingOutput) HttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+func (o StageMethodSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
+func (o StageMethodSettingOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *bool { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+func (o StageMethodSettingOutput) ResourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *string { return v.ResourcePath }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
+func (o StageMethodSettingOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *int { return v.ThrottlingBurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+func (o StageMethodSettingOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageMethodSetting) *float64 { return v.ThrottlingRateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type StageMethodSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StageMethodSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StageMethodSetting)(nil)).Elem()
+}
+
+func (o StageMethodSettingArrayOutput) ToStageMethodSettingArrayOutput() StageMethodSettingArrayOutput {
+	return o
+}
+
+func (o StageMethodSettingArrayOutput) ToStageMethodSettingArrayOutputWithContext(ctx context.Context) StageMethodSettingArrayOutput {
+	return o
+}
+
+func (o StageMethodSettingArrayOutput) Index(i pulumi.IntInput) StageMethodSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageMethodSetting {
+		return vs[0].([]StageMethodSetting)[vs[1].(int)]
+	}).(StageMethodSettingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	ApiId *string `pulumi:"apiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	Stage *string `pulumi:"stage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+	Throttle map[string]UsagePlanThrottleSettings `pulumi:"throttle"`
+}
+
+// UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageInput` via:
+//
+//          UsagePlanApiStageArgs{...}
+type UsagePlanApiStageInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageOutput() UsagePlanApiStageOutput
+	ToUsagePlanApiStageOutputWithContext(context.Context) UsagePlanApiStageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	ApiId pulumi.StringPtrInput `pulumi:"apiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+	Throttle UsagePlanThrottleSettingsMapInput `pulumi:"throttle"`
+}
+
+func (UsagePlanApiStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStage)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutput() UsagePlanApiStageOutput {
+	return i.ToUsagePlanApiStageOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutputWithContext(ctx context.Context) UsagePlanApiStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageOutput)
+}
+
+// UsagePlanApiStageArrayInput is an input type that accepts UsagePlanApiStageArray and UsagePlanApiStageArrayOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageArrayInput` via:
+//
+//          UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
+type UsagePlanApiStageArrayInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput
+	ToUsagePlanApiStageArrayOutputWithContext(context.Context) UsagePlanApiStageArrayOutput
+}
+
+type UsagePlanApiStageArray []UsagePlanApiStageInput
+
+func (UsagePlanApiStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStage)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput {
+	return i.ToUsagePlanApiStageArrayOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutputWithContext(ctx context.Context) UsagePlanApiStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStage)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutput() UsagePlanApiStageOutput {
+	return o
+}
+
+func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx context.Context) UsagePlanApiStageOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+func (o UsagePlanApiStageOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+func (o UsagePlanApiStageOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+func (o UsagePlanApiStageOutput) Throttle() UsagePlanThrottleSettingsMapOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) map[string]UsagePlanThrottleSettings { return v.Throttle }).(UsagePlanThrottleSettingsMapOutput)
+}
+
+type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStage)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageArrayOutput) ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageArrayOutput) ToUsagePlanApiStageArrayOutputWithContext(ctx context.Context) UsagePlanApiStageArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanApiStage {
+		return vs[0].([]UsagePlanApiStage)[vs[1].(int)]
+	}).(UsagePlanApiStageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	Limit *int `pulumi:"limit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	Offset *int `pulumi:"offset"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	Period *string `pulumi:"period"`
+}
+
+// UsagePlanQuotaSettingsInput is an input type that accepts UsagePlanQuotaSettingsArgs and UsagePlanQuotaSettingsOutput values.
+// You can construct a concrete instance of `UsagePlanQuotaSettingsInput` via:
+//
+//          UsagePlanQuotaSettingsArgs{...}
+type UsagePlanQuotaSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput
+	ToUsagePlanQuotaSettingsOutputWithContext(context.Context) UsagePlanQuotaSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	Offset pulumi.IntPtrInput `pulumi:"offset"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	Period pulumi.StringPtrInput `pulumi:"period"`
+}
+
+func (UsagePlanQuotaSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return i.ToUsagePlanQuotaSettingsOutputWithContext(context.Background())
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsOutput)
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return i.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsOutput).ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx)
+}
+
+// UsagePlanQuotaSettingsPtrInput is an input type that accepts UsagePlanQuotaSettingsArgs, UsagePlanQuotaSettingsPtr and UsagePlanQuotaSettingsPtrOutput values.
+// You can construct a concrete instance of `UsagePlanQuotaSettingsPtrInput` via:
+//
+//          UsagePlanQuotaSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UsagePlanQuotaSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput
+	ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Context) UsagePlanQuotaSettingsPtrOutput
+}
+
+type usagePlanQuotaSettingsPtrType UsagePlanQuotaSettingsArgs
+
+func UsagePlanQuotaSettingsPtr(v *UsagePlanQuotaSettingsArgs) UsagePlanQuotaSettingsPtrInput {
+	return (*usagePlanQuotaSettingsPtrType)(v)
+}
+
+func (*usagePlanQuotaSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return i.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettingsOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return o.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanQuotaSettings) *UsagePlanQuotaSettings {
+		return &v
+	}).(UsagePlanQuotaSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *string { return v.Period }).(pulumi.StringPtrOutput)
+}
+
+type UsagePlanQuotaSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanQuotaSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) UsagePlanQuotaSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanQuotaSettings
+		return ret
+	}).(UsagePlanQuotaSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Offset
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Period
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	BurstLimit *int `pulumi:"burstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+
+// UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsInput` via:
+//
+//          UsagePlanThrottleSettingsArgs{...}
+type UsagePlanThrottleSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput
+	ToUsagePlanThrottleSettingsOutputWithContext(context.Context) UsagePlanThrottleSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+}
+
+func (UsagePlanThrottleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return i.ToUsagePlanThrottleSettingsOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsOutput)
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return i.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsOutput).ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx)
+}
+
+// UsagePlanThrottleSettingsPtrInput is an input type that accepts UsagePlanThrottleSettingsArgs, UsagePlanThrottleSettingsPtr and UsagePlanThrottleSettingsPtrOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsPtrInput` via:
+//
+//          UsagePlanThrottleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UsagePlanThrottleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput
+	ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Context) UsagePlanThrottleSettingsPtrOutput
+}
+
+type usagePlanThrottleSettingsPtrType UsagePlanThrottleSettingsArgs
+
+func UsagePlanThrottleSettingsPtr(v *UsagePlanThrottleSettingsArgs) UsagePlanThrottleSettingsPtrInput {
+	return (*usagePlanThrottleSettingsPtrType)(v)
+}
+
+func (*usagePlanThrottleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return i.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsPtrOutput)
+}
+
+// UsagePlanThrottleSettingsMapInput is an input type that accepts UsagePlanThrottleSettingsMap and UsagePlanThrottleSettingsMapOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsMapInput` via:
+//
+//          UsagePlanThrottleSettingsMap{ "key": UsagePlanThrottleSettingsArgs{...} }
+type UsagePlanThrottleSettingsMapInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput
+	ToUsagePlanThrottleSettingsMapOutputWithContext(context.Context) UsagePlanThrottleSettingsMapOutput
+}
+
+type UsagePlanThrottleSettingsMap map[string]UsagePlanThrottleSettingsInput
+
+func (UsagePlanThrottleSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return i.ToUsagePlanThrottleSettingsMapOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return o.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanThrottleSettings) *UsagePlanThrottleSettings {
+		return &v
+	}).(UsagePlanThrottleSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) UsagePlanThrottleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanThrottleSettings
+		return ret
+	}).(UsagePlanThrottleSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanThrottleSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) UsagePlanThrottleSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsagePlanThrottleSettings {
+		return vs[0].(map[string]UsagePlanThrottleSettings)[vs[1].(string)]
+	}).(UsagePlanThrottleSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentAccessLogSettingOutput{})
+	pulumi.RegisterOutputType(DeploymentAccessLogSettingPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingOutput{})
+	pulumi.RegisterOutputType(DeploymentCanarySettingPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsOutput{})
+	pulumi.RegisterOutputType(DeploymentDeploymentCanarySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentMethodSettingOutput{})
+	pulumi.RegisterOutputType(DeploymentMethodSettingArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentStageDescriptionOutput{})
+	pulumi.RegisterOutputType(DeploymentStageDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
+	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseOutput{})
+	pulumi.RegisterOutputType(MethodIntegrationResponseArrayOutput{})
+	pulumi.RegisterOutputType(MethodMethodResponseOutput{})
+	pulumi.RegisterOutputType(MethodMethodResponseArrayOutput{})
+	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RestApiS3LocationOutput{})
+	pulumi.RegisterOutputType(RestApiS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingOutput{})
+	pulumi.RegisterOutputType(StageAccessLogSettingPtrOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingPtrOutput{})
+	pulumi.RegisterOutputType(StageMethodSettingOutput{})
+	pulumi.RegisterOutputType(StageMethodSettingArrayOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
+	pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{})
+	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsMapOutput{})
 }

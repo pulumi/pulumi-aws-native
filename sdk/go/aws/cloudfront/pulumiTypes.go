@@ -7002,6 +7002,762 @@ func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOut
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html
+type StreamingDistributionLogging struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-bucket
+	Bucket string `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-enabled
+	Enabled bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-prefix
+	Prefix string `pulumi:"prefix"`
+}
+
+// StreamingDistributionLoggingInput is an input type that accepts StreamingDistributionLoggingArgs and StreamingDistributionLoggingOutput values.
+// You can construct a concrete instance of `StreamingDistributionLoggingInput` via:
+//
+//          StreamingDistributionLoggingArgs{...}
+type StreamingDistributionLoggingInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput
+	ToStreamingDistributionLoggingOutputWithContext(context.Context) StreamingDistributionLoggingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html
+type StreamingDistributionLoggingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-prefix
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+}
+
+func (StreamingDistributionLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput {
+	return i.ToStreamingDistributionLoggingOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingOutputWithContext(ctx context.Context) StreamingDistributionLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingOutput)
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return i.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionLoggingArgs) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingOutput).ToStreamingDistributionLoggingPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionLoggingPtrInput is an input type that accepts StreamingDistributionLoggingArgs, StreamingDistributionLoggingPtr and StreamingDistributionLoggingPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionLoggingPtrInput` via:
+//
+//          StreamingDistributionLoggingArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionLoggingPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput
+	ToStreamingDistributionLoggingPtrOutputWithContext(context.Context) StreamingDistributionLoggingPtrOutput
+}
+
+type streamingDistributionLoggingPtrType StreamingDistributionLoggingArgs
+
+func StreamingDistributionLoggingPtr(v *StreamingDistributionLoggingArgs) StreamingDistributionLoggingPtrInput {
+	return (*streamingDistributionLoggingPtrType)(v)
+}
+
+func (*streamingDistributionLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (i *streamingDistributionLoggingPtrType) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return i.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionLoggingPtrType) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html
+type StreamingDistributionLoggingOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingOutput() StreamingDistributionLoggingOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingOutputWithContext(ctx context.Context) StreamingDistributionLoggingOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return o.ToStreamingDistributionLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionLoggingOutput) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionLogging) *StreamingDistributionLogging {
+		return &v
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-bucket
+func (o StreamingDistributionLoggingOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-enabled
+func (o StreamingDistributionLoggingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-prefix
+func (o StreamingDistributionLoggingOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionLogging) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionLogging)(nil)).Elem()
+}
+
+func (o StreamingDistributionLoggingPtrOutput) ToStreamingDistributionLoggingPtrOutput() StreamingDistributionLoggingPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingPtrOutput) ToStreamingDistributionLoggingPtrOutputWithContext(ctx context.Context) StreamingDistributionLoggingPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionLoggingPtrOutput) Elem() StreamingDistributionLoggingOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) StreamingDistributionLogging {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionLogging
+		return ret
+	}).(StreamingDistributionLoggingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-bucket
+func (o StreamingDistributionLoggingPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-enabled
+func (o StreamingDistributionLoggingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-prefix
+func (o StreamingDistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html
+type StreamingDistributionS3Origin struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+	DomainName string `pulumi:"domainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+	OriginAccessIdentity string `pulumi:"originAccessIdentity"`
+}
+
+// StreamingDistributionS3OriginInput is an input type that accepts StreamingDistributionS3OriginArgs and StreamingDistributionS3OriginOutput values.
+// You can construct a concrete instance of `StreamingDistributionS3OriginInput` via:
+//
+//          StreamingDistributionS3OriginArgs{...}
+type StreamingDistributionS3OriginInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput
+	ToStreamingDistributionS3OriginOutputWithContext(context.Context) StreamingDistributionS3OriginOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html
+type StreamingDistributionS3OriginArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+	OriginAccessIdentity pulumi.StringInput `pulumi:"originAccessIdentity"`
+}
+
+func (StreamingDistributionS3OriginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput {
+	return i.ToStreamingDistributionS3OriginOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginOutputWithContext(ctx context.Context) StreamingDistributionS3OriginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginOutput)
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return i.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionS3OriginArgs) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginOutput).ToStreamingDistributionS3OriginPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionS3OriginPtrInput is an input type that accepts StreamingDistributionS3OriginArgs, StreamingDistributionS3OriginPtr and StreamingDistributionS3OriginPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionS3OriginPtrInput` via:
+//
+//          StreamingDistributionS3OriginArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionS3OriginPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput
+	ToStreamingDistributionS3OriginPtrOutputWithContext(context.Context) StreamingDistributionS3OriginPtrOutput
+}
+
+type streamingDistributionS3OriginPtrType StreamingDistributionS3OriginArgs
+
+func StreamingDistributionS3OriginPtr(v *StreamingDistributionS3OriginArgs) StreamingDistributionS3OriginPtrInput {
+	return (*streamingDistributionS3OriginPtrType)(v)
+}
+
+func (*streamingDistributionS3OriginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (i *streamingDistributionS3OriginPtrType) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return i.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionS3OriginPtrType) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionS3OriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html
+type StreamingDistributionS3OriginOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionS3OriginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginOutput() StreamingDistributionS3OriginOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginOutputWithContext(ctx context.Context) StreamingDistributionS3OriginOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return o.ToStreamingDistributionS3OriginPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionS3OriginOutput) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionS3Origin) *StreamingDistributionS3Origin {
+		return &v
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+func (o StreamingDistributionS3OriginOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionS3Origin) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+func (o StreamingDistributionS3OriginOutput) OriginAccessIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionS3Origin) string { return v.OriginAccessIdentity }).(pulumi.StringOutput)
+}
+
+type StreamingDistributionS3OriginPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionS3OriginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionS3Origin)(nil)).Elem()
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutput() StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) ToStreamingDistributionS3OriginPtrOutputWithContext(ctx context.Context) StreamingDistributionS3OriginPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionS3OriginPtrOutput) Elem() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) StreamingDistributionS3Origin {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionS3Origin
+		return ret
+	}).(StreamingDistributionS3OriginOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+func (o StreamingDistributionS3OriginPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+func (o StreamingDistributionS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionS3Origin) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginAccessIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html
+type StreamingDistributionStreamingDistributionConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
+	Aliases []string `pulumi:"aliases"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
+	Comment string `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled
+	Enabled bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging
+	Logging *StreamingDistributionLogging `pulumi:"logging"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
+	PriceClass *string `pulumi:"priceClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
+	S3Origin StreamingDistributionS3Origin `pulumi:"s3Origin"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
+	TrustedSigners StreamingDistributionTrustedSigners `pulumi:"trustedSigners"`
+}
+
+// StreamingDistributionStreamingDistributionConfigInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs and StreamingDistributionStreamingDistributionConfigOutput values.
+// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigInput` via:
+//
+//          StreamingDistributionStreamingDistributionConfigArgs{...}
+type StreamingDistributionStreamingDistributionConfigInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput
+	ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html
+type StreamingDistributionStreamingDistributionConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
+	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging
+	Logging StreamingDistributionLoggingPtrInput `pulumi:"logging"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
+	PriceClass pulumi.StringPtrInput `pulumi:"priceClass"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
+	S3Origin StreamingDistributionS3OriginInput `pulumi:"s3Origin"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
+	TrustedSigners StreamingDistributionTrustedSignersInput `pulumi:"trustedSigners"`
+}
+
+func (StreamingDistributionStreamingDistributionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput)
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionStreamingDistributionConfigArgs) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigOutput).ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionStreamingDistributionConfigPtrInput is an input type that accepts StreamingDistributionStreamingDistributionConfigArgs, StreamingDistributionStreamingDistributionConfigPtr and StreamingDistributionStreamingDistributionConfigPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionStreamingDistributionConfigPtrInput` via:
+//
+//          StreamingDistributionStreamingDistributionConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionStreamingDistributionConfigPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput
+	ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput
+}
+
+type streamingDistributionStreamingDistributionConfigPtrType StreamingDistributionStreamingDistributionConfigArgs
+
+func StreamingDistributionStreamingDistributionConfigPtr(v *StreamingDistributionStreamingDistributionConfigArgs) StreamingDistributionStreamingDistributionConfigPtrInput {
+	return (*streamingDistributionStreamingDistributionConfigPtrType)(v)
+}
+
+func (*streamingDistributionStreamingDistributionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return i.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionStreamingDistributionConfigPtrType) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionStreamingDistributionConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html
+type StreamingDistributionStreamingDistributionConfigOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionStreamingDistributionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutput() StreamingDistributionStreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o.ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionStreamingDistributionConfigOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionStreamingDistributionConfig {
+		return &v
+	}).(StreamingDistributionStreamingDistributionConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
+func (o StreamingDistributionStreamingDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
+func (o StreamingDistributionStreamingDistributionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled
+func (o StreamingDistributionStreamingDistributionConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging
+func (o StreamingDistributionStreamingDistributionConfigOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
+func (o StreamingDistributionStreamingDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
+func (o StreamingDistributionStreamingDistributionConfigOutput) S3Origin() StreamingDistributionS3OriginOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionS3Origin {
+		return v.S3Origin
+	}).(StreamingDistributionS3OriginOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
+func (o StreamingDistributionStreamingDistributionConfigOutput) TrustedSigners() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v StreamingDistributionStreamingDistributionConfig) StreamingDistributionTrustedSigners {
+		return v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersOutput)
+}
+
+type StreamingDistributionStreamingDistributionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionStreamingDistributionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionStreamingDistributionConfig)(nil)).Elem()
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutput() StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) ToStreamingDistributionStreamingDistributionConfigPtrOutputWithContext(ctx context.Context) StreamingDistributionStreamingDistributionConfigPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Elem() StreamingDistributionStreamingDistributionConfigOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) StreamingDistributionStreamingDistributionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionStreamingDistributionConfig
+		return ret
+	}).(StreamingDistributionStreamingDistributionConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aliases
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) Logging() StreamingDistributionLoggingPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionLogging {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(StreamingDistributionLoggingPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PriceClass
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) S3Origin() StreamingDistributionS3OriginPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionS3Origin {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Origin
+	}).(StreamingDistributionS3OriginPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
+func (o StreamingDistributionStreamingDistributionConfigPtrOutput) TrustedSigners() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionStreamingDistributionConfig) *StreamingDistributionTrustedSigners {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustedSigners
+	}).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html
+type StreamingDistributionTrustedSigners struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+	AwsAccountNumbers []string `pulumi:"awsAccountNumbers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+	Enabled bool `pulumi:"enabled"`
+}
+
+// StreamingDistributionTrustedSignersInput is an input type that accepts StreamingDistributionTrustedSignersArgs and StreamingDistributionTrustedSignersOutput values.
+// You can construct a concrete instance of `StreamingDistributionTrustedSignersInput` via:
+//
+//          StreamingDistributionTrustedSignersArgs{...}
+type StreamingDistributionTrustedSignersInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput
+	ToStreamingDistributionTrustedSignersOutputWithContext(context.Context) StreamingDistributionTrustedSignersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html
+type StreamingDistributionTrustedSignersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+	AwsAccountNumbers pulumi.StringArrayInput `pulumi:"awsAccountNumbers"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (StreamingDistributionTrustedSignersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput {
+	return i.ToStreamingDistributionTrustedSignersOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersOutput)
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return i.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingDistributionTrustedSignersArgs) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersOutput).ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx)
+}
+
+// StreamingDistributionTrustedSignersPtrInput is an input type that accepts StreamingDistributionTrustedSignersArgs, StreamingDistributionTrustedSignersPtr and StreamingDistributionTrustedSignersPtrOutput values.
+// You can construct a concrete instance of `StreamingDistributionTrustedSignersPtrInput` via:
+//
+//          StreamingDistributionTrustedSignersArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingDistributionTrustedSignersPtrInput interface {
+	pulumi.Input
+
+	ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput
+	ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Context) StreamingDistributionTrustedSignersPtrOutput
+}
+
+type streamingDistributionTrustedSignersPtrType StreamingDistributionTrustedSignersArgs
+
+func StreamingDistributionTrustedSignersPtr(v *StreamingDistributionTrustedSignersArgs) StreamingDistributionTrustedSignersPtrInput {
+	return (*streamingDistributionTrustedSignersPtrType)(v)
+}
+
+func (*streamingDistributionTrustedSignersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (i *streamingDistributionTrustedSignersPtrType) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return i.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingDistributionTrustedSignersPtrType) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html
+type StreamingDistributionTrustedSignersOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTrustedSignersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersOutput() StreamingDistributionTrustedSignersOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return o.ToStreamingDistributionTrustedSignersPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingDistributionTrustedSignersOutput) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingDistributionTrustedSigners) *StreamingDistributionTrustedSigners {
+		return &v
+	}).(StreamingDistributionTrustedSignersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+func (o StreamingDistributionTrustedSignersOutput) AwsAccountNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StreamingDistributionTrustedSigners) []string { return v.AwsAccountNumbers }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+func (o StreamingDistributionTrustedSignersOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StreamingDistributionTrustedSigners) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type StreamingDistributionTrustedSignersPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingDistributionTrustedSignersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingDistributionTrustedSigners)(nil)).Elem()
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutput() StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) ToStreamingDistributionTrustedSignersPtrOutputWithContext(ctx context.Context) StreamingDistributionTrustedSignersPtrOutput {
+	return o
+}
+
+func (o StreamingDistributionTrustedSignersPtrOutput) Elem() StreamingDistributionTrustedSignersOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) StreamingDistributionTrustedSigners {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingDistributionTrustedSigners
+		return ret
+	}).(StreamingDistributionTrustedSignersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+func (o StreamingDistributionTrustedSignersPtrOutput) AwsAccountNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsAccountNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+func (o StreamingDistributionTrustedSignersPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StreamingDistributionTrustedSigners) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyCachePolicyConfigPtrOutput{})
@@ -7081,4 +7837,12 @@ func init() {
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndPointArrayOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigKinesisStreamConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionLoggingOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionLoggingPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionS3OriginOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionS3OriginPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionStreamingDistributionConfigPtrOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersOutput{})
+	pulumi.RegisterOutputType(StreamingDistributionTrustedSignersPtrOutput{})
 }

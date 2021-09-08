@@ -21,12 +21,24 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:lambda:Alias":
+		r = &Alias{}
 	case "aws-native:lambda:CodeSigningConfig":
 		r = &CodeSigningConfig{}
+	case "aws-native:lambda:EventInvokeConfig":
+		r = &EventInvokeConfig{}
 	case "aws-native:lambda:EventSourceMapping":
 		r = &EventSourceMapping{}
 	case "aws-native:lambda:Function":
 		r = &Function{}
+	case "aws-native:lambda:LayerVersion":
+		r = &LayerVersion{}
+	case "aws-native:lambda:LayerVersionPermission":
+		r = &LayerVersionPermission{}
+	case "aws-native:lambda:Permission":
+		r = &Permission{}
+	case "aws-native:lambda:Version":
+		r = &Version{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -150,7 +150,127 @@ func (o AccountExpiryEventsConfigurationPtrOutput) DaysBeforeExpiry() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
+type CertificateDomainValidationOption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoptions-domainname
+	DomainName string `pulumi:"domainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-hostedzoneid
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain
+	ValidationDomain *string `pulumi:"validationDomain"`
+}
+
+// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
+//
+//          CertificateDomainValidationOptionArgs{...}
+type CertificateDomainValidationOptionInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput
+	ToCertificateDomainValidationOptionOutputWithContext(context.Context) CertificateDomainValidationOptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
+type CertificateDomainValidationOptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoptions-domainname
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-hostedzoneid
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain
+	ValidationDomain pulumi.StringPtrInput `pulumi:"validationDomain"`
+}
+
+func (CertificateDomainValidationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return i.ToCertificateDomainValidationOptionOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
+}
+
+// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
+//
+//          CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
+type CertificateDomainValidationOptionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput
+	ToCertificateDomainValidationOptionArrayOutputWithContext(context.Context) CertificateDomainValidationOptionArrayOutput
+}
+
+type CertificateDomainValidationOptionArray []CertificateDomainValidationOptionInput
+
+func (CertificateDomainValidationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return i.ToCertificateDomainValidationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
+type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoptions-domainname
+func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-hostedzoneid
+func (o CertificateDomainValidationOptionOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain
+func (o CertificateDomainValidationOptionOutput) ValidationDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.ValidationDomain }).(pulumi.StringPtrOutput)
+}
+
+type CertificateDomainValidationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateDomainValidationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateDomainValidationOption {
+		return vs[0].([]CertificateDomainValidationOption)[vs[1].(int)]
+	}).(CertificateDomainValidationOptionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
+	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 }

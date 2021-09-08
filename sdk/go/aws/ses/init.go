@@ -23,8 +23,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ses:ConfigurationSet":
 		r = &ConfigurationSet{}
+	case "aws-native:ses:ConfigurationSetEventDestination":
+		r = &ConfigurationSetEventDestination{}
 	case "aws-native:ses:ContactList":
 		r = &ContactList{}
+	case "aws-native:ses:ReceiptFilter":
+		r = &ReceiptFilter{}
+	case "aws-native:ses:ReceiptRule":
+		r = &ReceiptRule{}
+	case "aws-native:ses:ReceiptRuleSet":
+		r = &ReceiptRuleSet{}
+	case "aws-native:ses:Template":
+		r = &Template{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

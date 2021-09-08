@@ -164,7 +164,229 @@ func (o FirewallRuleGroupFirewallRuleArrayOutput) Index(i pulumi.IntInput) Firew
 	}).(FirewallRuleGroupFirewallRuleOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html
+type ResolverEndpointIpAddressRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ip
+	Ip *string `pulumi:"ip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-subnetid
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// ResolverEndpointIpAddressRequestInput is an input type that accepts ResolverEndpointIpAddressRequestArgs and ResolverEndpointIpAddressRequestOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestInput` via:
+//
+//          ResolverEndpointIpAddressRequestArgs{...}
+type ResolverEndpointIpAddressRequestInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput
+	ToResolverEndpointIpAddressRequestOutputWithContext(context.Context) ResolverEndpointIpAddressRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html
+type ResolverEndpointIpAddressRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ip
+	Ip pulumi.StringPtrInput `pulumi:"ip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-subnetid
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (ResolverEndpointIpAddressRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return i.ToResolverEndpointIpAddressRequestOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestOutput)
+}
+
+// ResolverEndpointIpAddressRequestArrayInput is an input type that accepts ResolverEndpointIpAddressRequestArray and ResolverEndpointIpAddressRequestArrayOutput values.
+// You can construct a concrete instance of `ResolverEndpointIpAddressRequestArrayInput` via:
+//
+//          ResolverEndpointIpAddressRequestArray{ ResolverEndpointIpAddressRequestArgs{...} }
+type ResolverEndpointIpAddressRequestArrayInput interface {
+	pulumi.Input
+
+	ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput
+	ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Context) ResolverEndpointIpAddressRequestArrayOutput
+}
+
+type ResolverEndpointIpAddressRequestArray []ResolverEndpointIpAddressRequestInput
+
+func (ResolverEndpointIpAddressRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return i.ToResolverEndpointIpAddressRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html
+type ResolverEndpointIpAddressRequestOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutput() ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ip
+func (o ResolverEndpointIpAddressRequestOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-subnetid
+func (o ResolverEndpointIpAddressRequestOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverEndpointIpAddressRequest) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type ResolverEndpointIpAddressRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverEndpointIpAddressRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverEndpointIpAddressRequest)(nil)).Elem()
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutput() ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
+	return o
+}
+
+func (o ResolverEndpointIpAddressRequestArrayOutput) Index(i pulumi.IntInput) ResolverEndpointIpAddressRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverEndpointIpAddressRequest {
+		return vs[0].([]ResolverEndpointIpAddressRequest)[vs[1].(int)]
+	}).(ResolverEndpointIpAddressRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html
+type ResolverRuleTargetAddress struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip
+	Ip string `pulumi:"ip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
+	Port *string `pulumi:"port"`
+}
+
+// ResolverRuleTargetAddressInput is an input type that accepts ResolverRuleTargetAddressArgs and ResolverRuleTargetAddressOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetAddressInput` via:
+//
+//          ResolverRuleTargetAddressArgs{...}
+type ResolverRuleTargetAddressInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput
+	ToResolverRuleTargetAddressOutputWithContext(context.Context) ResolverRuleTargetAddressOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html
+type ResolverRuleTargetAddressArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
+	Port pulumi.StringPtrInput `pulumi:"port"`
+}
+
+func (ResolverRuleTargetAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput {
+	return i.ToResolverRuleTargetAddressOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutputWithContext(ctx context.Context) ResolverRuleTargetAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressOutput)
+}
+
+// ResolverRuleTargetAddressArrayInput is an input type that accepts ResolverRuleTargetAddressArray and ResolverRuleTargetAddressArrayOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetAddressArrayInput` via:
+//
+//          ResolverRuleTargetAddressArray{ ResolverRuleTargetAddressArgs{...} }
+type ResolverRuleTargetAddressArrayInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput
+	ToResolverRuleTargetAddressArrayOutputWithContext(context.Context) ResolverRuleTargetAddressArrayOutput
+}
+
+type ResolverRuleTargetAddressArray []ResolverRuleTargetAddressInput
+
+func (ResolverRuleTargetAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (i ResolverRuleTargetAddressArray) ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput {
+	return i.ToResolverRuleTargetAddressArrayOutputWithContext(context.Background())
+}
+
+func (i ResolverRuleTargetAddressArray) ToResolverRuleTargetAddressArrayOutputWithContext(ctx context.Context) ResolverRuleTargetAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html
+type ResolverRuleTargetAddressOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutput() ResolverRuleTargetAddressOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutputWithContext(ctx context.Context) ResolverRuleTargetAddressOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip
+func (o ResolverRuleTargetAddressOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
+func (o ResolverRuleTargetAddressOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+type ResolverRuleTargetAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResolverRuleTargetAddress)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOutput() ResolverRuleTargetAddressArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOutputWithContext(ctx context.Context) ResolverRuleTargetAddressArrayOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverRuleTargetAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverRuleTargetAddress {
+		return vs[0].([]ResolverRuleTargetAddress)[vs[1].(int)]
+	}).(ResolverRuleTargetAddressOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
+	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressArrayOutput{})
 }

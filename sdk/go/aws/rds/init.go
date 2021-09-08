@@ -21,14 +21,32 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:rds:DBCluster":
+		r = &DBCluster{}
+	case "aws-native:rds:DBClusterParameterGroup":
+		r = &DBClusterParameterGroup{}
+	case "aws-native:rds:DBInstance":
+		r = &DBInstance{}
+	case "aws-native:rds:DBParameterGroup":
+		r = &DBParameterGroup{}
 	case "aws-native:rds:DBProxy":
 		r = &DBProxy{}
 	case "aws-native:rds:DBProxyEndpoint":
 		r = &DBProxyEndpoint{}
 	case "aws-native:rds:DBProxyTargetGroup":
 		r = &DBProxyTargetGroup{}
+	case "aws-native:rds:DBSecurityGroup":
+		r = &DBSecurityGroup{}
+	case "aws-native:rds:DBSecurityGroupIngress":
+		r = &DBSecurityGroupIngress{}
+	case "aws-native:rds:DBSubnetGroup":
+		r = &DBSubnetGroup{}
+	case "aws-native:rds:EventSubscription":
+		r = &EventSubscription{}
 	case "aws-native:rds:GlobalCluster":
 		r = &GlobalCluster{}
+	case "aws-native:rds:OptionGroup":
+		r = &OptionGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

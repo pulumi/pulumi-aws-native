@@ -777,103 +777,203 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) UserInfoEndpoint() pulumi.Strin
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
-type ListenerCertificate struct {
+type ListenerCertificateType struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 	CertificateArn *string `pulumi:"certificateArn"`
 }
 
-// ListenerCertificateInput is an input type that accepts ListenerCertificateArgs and ListenerCertificateOutput values.
-// You can construct a concrete instance of `ListenerCertificateInput` via:
+// ListenerCertificateTypeInput is an input type that accepts ListenerCertificateTypeArgs and ListenerCertificateTypeOutput values.
+// You can construct a concrete instance of `ListenerCertificateTypeInput` via:
 //
-//          ListenerCertificateArgs{...}
-type ListenerCertificateInput interface {
+//          ListenerCertificateTypeArgs{...}
+type ListenerCertificateTypeInput interface {
 	pulumi.Input
 
-	ToListenerCertificateOutput() ListenerCertificateOutput
-	ToListenerCertificateOutputWithContext(context.Context) ListenerCertificateOutput
+	ToListenerCertificateTypeOutput() ListenerCertificateTypeOutput
+	ToListenerCertificateTypeOutputWithContext(context.Context) ListenerCertificateTypeOutput
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
-type ListenerCertificateArgs struct {
+type ListenerCertificateTypeArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
 }
 
-func (ListenerCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil)).Elem()
+func (ListenerCertificateTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificateType)(nil)).Elem()
 }
 
-func (i ListenerCertificateArgs) ToListenerCertificateOutput() ListenerCertificateOutput {
-	return i.ToListenerCertificateOutputWithContext(context.Background())
+func (i ListenerCertificateTypeArgs) ToListenerCertificateTypeOutput() ListenerCertificateTypeOutput {
+	return i.ToListenerCertificateTypeOutputWithContext(context.Background())
 }
 
-func (i ListenerCertificateArgs) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
+func (i ListenerCertificateTypeArgs) ToListenerCertificateTypeOutputWithContext(ctx context.Context) ListenerCertificateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeOutput)
 }
 
-// ListenerCertificateArrayInput is an input type that accepts ListenerCertificateArray and ListenerCertificateArrayOutput values.
-// You can construct a concrete instance of `ListenerCertificateArrayInput` via:
+// ListenerCertificateTypeArrayInput is an input type that accepts ListenerCertificateTypeArray and ListenerCertificateTypeArrayOutput values.
+// You can construct a concrete instance of `ListenerCertificateTypeArrayInput` via:
 //
-//          ListenerCertificateArray{ ListenerCertificateArgs{...} }
-type ListenerCertificateArrayInput interface {
+//          ListenerCertificateTypeArray{ ListenerCertificateTypeArgs{...} }
+type ListenerCertificateTypeArrayInput interface {
 	pulumi.Input
 
-	ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput
-	ToListenerCertificateArrayOutputWithContext(context.Context) ListenerCertificateArrayOutput
+	ToListenerCertificateTypeArrayOutput() ListenerCertificateTypeArrayOutput
+	ToListenerCertificateTypeArrayOutputWithContext(context.Context) ListenerCertificateTypeArrayOutput
 }
 
-type ListenerCertificateArray []ListenerCertificateInput
+type ListenerCertificateTypeArray []ListenerCertificateTypeInput
 
-func (ListenerCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ListenerCertificate)(nil)).Elem()
+func (ListenerCertificateTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerCertificateType)(nil)).Elem()
 }
 
-func (i ListenerCertificateArray) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
-	return i.ToListenerCertificateArrayOutputWithContext(context.Background())
+func (i ListenerCertificateTypeArray) ToListenerCertificateTypeArrayOutput() ListenerCertificateTypeArrayOutput {
+	return i.ToListenerCertificateTypeArrayOutputWithContext(context.Background())
 }
 
-func (i ListenerCertificateArray) ToListenerCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateArrayOutput)
+func (i ListenerCertificateTypeArray) ToListenerCertificateTypeArrayOutputWithContext(ctx context.Context) ListenerCertificateTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeArrayOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html
-type ListenerCertificateOutput struct{ *pulumi.OutputState }
+type ListenerCertificateTypeOutput struct{ *pulumi.OutputState }
 
-func (ListenerCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ListenerCertificate)(nil)).Elem()
+func (ListenerCertificateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificateType)(nil)).Elem()
 }
 
-func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertificateOutput {
+func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutput() ListenerCertificateTypeOutput {
 	return o
 }
 
-func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
+func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutputWithContext(ctx context.Context) ListenerCertificateTypeOutput {
 	return o
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificate.html#cfn-elasticloadbalancingv2-listener-certificate-certificatearn
-func (o ListenerCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ListenerCertificate) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+func (o ListenerCertificateTypeOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerCertificateType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-type ListenerCertificateArrayOutput struct{ *pulumi.OutputState }
+type ListenerCertificateTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ListenerCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ListenerCertificate)(nil)).Elem()
+func (ListenerCertificateTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerCertificateType)(nil)).Elem()
 }
 
-func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
+func (o ListenerCertificateTypeArrayOutput) ToListenerCertificateTypeArrayOutput() ListenerCertificateTypeArrayOutput {
 	return o
 }
 
-func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateArrayOutput {
+func (o ListenerCertificateTypeArrayOutput) ToListenerCertificateTypeArrayOutputWithContext(ctx context.Context) ListenerCertificateTypeArrayOutput {
 	return o
 }
 
-func (o ListenerCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerCertificate {
-		return vs[0].([]ListenerCertificate)[vs[1].(int)]
-	}).(ListenerCertificateOutput)
+func (o ListenerCertificateTypeArrayOutput) Index(i pulumi.IntInput) ListenerCertificateTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerCertificateType {
+		return vs[0].([]ListenerCertificateType)[vs[1].(int)]
+	}).(ListenerCertificateTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+type ListenerCertificateCertificate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+	CertificateArn *string `pulumi:"certificateArn"`
+}
+
+// ListenerCertificateCertificateInput is an input type that accepts ListenerCertificateCertificateArgs and ListenerCertificateCertificateOutput values.
+// You can construct a concrete instance of `ListenerCertificateCertificateInput` via:
+//
+//          ListenerCertificateCertificateArgs{...}
+type ListenerCertificateCertificateInput interface {
+	pulumi.Input
+
+	ToListenerCertificateCertificateOutput() ListenerCertificateCertificateOutput
+	ToListenerCertificateCertificateOutputWithContext(context.Context) ListenerCertificateCertificateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+type ListenerCertificateCertificateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+}
+
+func (ListenerCertificateCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificateCertificate)(nil)).Elem()
+}
+
+func (i ListenerCertificateCertificateArgs) ToListenerCertificateCertificateOutput() ListenerCertificateCertificateOutput {
+	return i.ToListenerCertificateCertificateOutputWithContext(context.Background())
+}
+
+func (i ListenerCertificateCertificateArgs) ToListenerCertificateCertificateOutputWithContext(ctx context.Context) ListenerCertificateCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateCertificateOutput)
+}
+
+// ListenerCertificateCertificateArrayInput is an input type that accepts ListenerCertificateCertificateArray and ListenerCertificateCertificateArrayOutput values.
+// You can construct a concrete instance of `ListenerCertificateCertificateArrayInput` via:
+//
+//          ListenerCertificateCertificateArray{ ListenerCertificateCertificateArgs{...} }
+type ListenerCertificateCertificateArrayInput interface {
+	pulumi.Input
+
+	ToListenerCertificateCertificateArrayOutput() ListenerCertificateCertificateArrayOutput
+	ToListenerCertificateCertificateArrayOutputWithContext(context.Context) ListenerCertificateCertificateArrayOutput
+}
+
+type ListenerCertificateCertificateArray []ListenerCertificateCertificateInput
+
+func (ListenerCertificateCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerCertificateCertificate)(nil)).Elem()
+}
+
+func (i ListenerCertificateCertificateArray) ToListenerCertificateCertificateArrayOutput() ListenerCertificateCertificateArrayOutput {
+	return i.ToListenerCertificateCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ListenerCertificateCertificateArray) ToListenerCertificateCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateCertificateArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
+type ListenerCertificateCertificateOutput struct{ *pulumi.OutputState }
+
+func (ListenerCertificateCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerCertificateCertificate)(nil)).Elem()
+}
+
+func (o ListenerCertificateCertificateOutput) ToListenerCertificateCertificateOutput() ListenerCertificateCertificateOutput {
+	return o
+}
+
+func (o ListenerCertificateCertificateOutput) ToListenerCertificateCertificateOutputWithContext(ctx context.Context) ListenerCertificateCertificateOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+func (o ListenerCertificateCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerCertificateCertificate) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+type ListenerCertificateCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ListenerCertificateCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ListenerCertificateCertificate)(nil)).Elem()
+}
+
+func (o ListenerCertificateCertificateArrayOutput) ToListenerCertificateCertificateArrayOutput() ListenerCertificateCertificateArrayOutput {
+	return o
+}
+
+func (o ListenerCertificateCertificateArrayOutput) ToListenerCertificateCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateCertificateArrayOutput {
+	return o
+}
+
+func (o ListenerCertificateCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerCertificateCertificate {
+		return vs[0].([]ListenerCertificateCertificate)[vs[1].(int)]
+	}).(ListenerCertificateCertificateOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html
@@ -4482,6 +4582,628 @@ func (o ListenerTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) ListenerTa
 	}).(ListenerTargetGroupTupleOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
+type LoadBalancerLoadBalancerAttribute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-value
+	Value *string `pulumi:"value"`
+}
+
+// LoadBalancerLoadBalancerAttributeInput is an input type that accepts LoadBalancerLoadBalancerAttributeArgs and LoadBalancerLoadBalancerAttributeOutput values.
+// You can construct a concrete instance of `LoadBalancerLoadBalancerAttributeInput` via:
+//
+//          LoadBalancerLoadBalancerAttributeArgs{...}
+type LoadBalancerLoadBalancerAttributeInput interface {
+	pulumi.Input
+
+	ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput
+	ToLoadBalancerLoadBalancerAttributeOutputWithContext(context.Context) LoadBalancerLoadBalancerAttributeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
+type LoadBalancerLoadBalancerAttributeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LoadBalancerLoadBalancerAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+}
+
+func (i LoadBalancerLoadBalancerAttributeArgs) ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput {
+	return i.ToLoadBalancerLoadBalancerAttributeOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerLoadBalancerAttributeArgs) ToLoadBalancerLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLoadBalancerAttributeOutput)
+}
+
+// LoadBalancerLoadBalancerAttributeArrayInput is an input type that accepts LoadBalancerLoadBalancerAttributeArray and LoadBalancerLoadBalancerAttributeArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerLoadBalancerAttributeArrayInput` via:
+//
+//          LoadBalancerLoadBalancerAttributeArray{ LoadBalancerLoadBalancerAttributeArgs{...} }
+type LoadBalancerLoadBalancerAttributeArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput
+	ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(context.Context) LoadBalancerLoadBalancerAttributeArrayOutput
+}
+
+type LoadBalancerLoadBalancerAttributeArray []LoadBalancerLoadBalancerAttributeInput
+
+func (LoadBalancerLoadBalancerAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+}
+
+func (i LoadBalancerLoadBalancerAttributeArray) ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput {
+	return i.ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerLoadBalancerAttributeArray) ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerLoadBalancerAttributeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
+type LoadBalancerLoadBalancerAttributeOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerLoadBalancerAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+}
+
+func (o LoadBalancerLoadBalancerAttributeOutput) ToLoadBalancerLoadBalancerAttributeOutput() LoadBalancerLoadBalancerAttributeOutput {
+	return o
+}
+
+func (o LoadBalancerLoadBalancerAttributeOutput) ToLoadBalancerLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-key
+func (o LoadBalancerLoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerLoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-value
+func (o LoadBalancerLoadBalancerAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerLoadBalancerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LoadBalancerLoadBalancerAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerLoadBalancerAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerLoadBalancerAttribute)(nil)).Elem()
+}
+
+func (o LoadBalancerLoadBalancerAttributeArrayOutput) ToLoadBalancerLoadBalancerAttributeArrayOutput() LoadBalancerLoadBalancerAttributeArrayOutput {
+	return o
+}
+
+func (o LoadBalancerLoadBalancerAttributeArrayOutput) ToLoadBalancerLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerLoadBalancerAttributeArrayOutput {
+	return o
+}
+
+func (o LoadBalancerLoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerLoadBalancerAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerLoadBalancerAttribute {
+		return vs[0].([]LoadBalancerLoadBalancerAttribute)[vs[1].(int)]
+	}).(LoadBalancerLoadBalancerAttributeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html
+type LoadBalancerSubnetMapping struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
+	AllocationId *string `pulumi:"allocationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+	IPv6Address *string `pulumi:"iPv6Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
+	PrivateIPv4Address *string `pulumi:"privateIPv4Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// LoadBalancerSubnetMappingInput is an input type that accepts LoadBalancerSubnetMappingArgs and LoadBalancerSubnetMappingOutput values.
+// You can construct a concrete instance of `LoadBalancerSubnetMappingInput` via:
+//
+//          LoadBalancerSubnetMappingArgs{...}
+type LoadBalancerSubnetMappingInput interface {
+	pulumi.Input
+
+	ToLoadBalancerSubnetMappingOutput() LoadBalancerSubnetMappingOutput
+	ToLoadBalancerSubnetMappingOutputWithContext(context.Context) LoadBalancerSubnetMappingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html
+type LoadBalancerSubnetMappingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
+	AllocationId pulumi.StringPtrInput `pulumi:"allocationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+	IPv6Address pulumi.StringPtrInput `pulumi:"iPv6Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
+	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (LoadBalancerSubnetMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerSubnetMapping)(nil)).Elem()
+}
+
+func (i LoadBalancerSubnetMappingArgs) ToLoadBalancerSubnetMappingOutput() LoadBalancerSubnetMappingOutput {
+	return i.ToLoadBalancerSubnetMappingOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerSubnetMappingArgs) ToLoadBalancerSubnetMappingOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingOutput)
+}
+
+// LoadBalancerSubnetMappingArrayInput is an input type that accepts LoadBalancerSubnetMappingArray and LoadBalancerSubnetMappingArrayOutput values.
+// You can construct a concrete instance of `LoadBalancerSubnetMappingArrayInput` via:
+//
+//          LoadBalancerSubnetMappingArray{ LoadBalancerSubnetMappingArgs{...} }
+type LoadBalancerSubnetMappingArrayInput interface {
+	pulumi.Input
+
+	ToLoadBalancerSubnetMappingArrayOutput() LoadBalancerSubnetMappingArrayOutput
+	ToLoadBalancerSubnetMappingArrayOutputWithContext(context.Context) LoadBalancerSubnetMappingArrayOutput
+}
+
+type LoadBalancerSubnetMappingArray []LoadBalancerSubnetMappingInput
+
+func (LoadBalancerSubnetMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerSubnetMapping)(nil)).Elem()
+}
+
+func (i LoadBalancerSubnetMappingArray) ToLoadBalancerSubnetMappingArrayOutput() LoadBalancerSubnetMappingArrayOutput {
+	return i.ToLoadBalancerSubnetMappingArrayOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerSubnetMappingArray) ToLoadBalancerSubnetMappingArrayOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html
+type LoadBalancerSubnetMappingOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerSubnetMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerSubnetMapping)(nil)).Elem()
+}
+
+func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutput() LoadBalancerSubnetMappingOutput {
+	return o
+}
+
+func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
+func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.AllocationId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-ipv6address
+func (o LoadBalancerSubnetMappingOutput) IPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.IPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-privateipv4address
+func (o LoadBalancerSubnetMappingOutput) PrivateIPv4Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIPv4Address }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
+func (o LoadBalancerSubnetMappingOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type LoadBalancerSubnetMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerSubnetMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoadBalancerSubnetMapping)(nil)).Elem()
+}
+
+func (o LoadBalancerSubnetMappingArrayOutput) ToLoadBalancerSubnetMappingArrayOutput() LoadBalancerSubnetMappingArrayOutput {
+	return o
+}
+
+func (o LoadBalancerSubnetMappingArrayOutput) ToLoadBalancerSubnetMappingArrayOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingArrayOutput {
+	return o
+}
+
+func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalancerSubnetMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerSubnetMapping {
+		return vs[0].([]LoadBalancerSubnetMapping)[vs[1].(int)]
+	}).(LoadBalancerSubnetMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
+type TargetGroupMatcher struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
+	GrpcCode *string `pulumi:"grpcCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+	HttpCode *string `pulumi:"httpCode"`
+}
+
+// TargetGroupMatcherInput is an input type that accepts TargetGroupMatcherArgs and TargetGroupMatcherOutput values.
+// You can construct a concrete instance of `TargetGroupMatcherInput` via:
+//
+//          TargetGroupMatcherArgs{...}
+type TargetGroupMatcherInput interface {
+	pulumi.Input
+
+	ToTargetGroupMatcherOutput() TargetGroupMatcherOutput
+	ToTargetGroupMatcherOutputWithContext(context.Context) TargetGroupMatcherOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
+type TargetGroupMatcherArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
+	GrpcCode pulumi.StringPtrInput `pulumi:"grpcCode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+	HttpCode pulumi.StringPtrInput `pulumi:"httpCode"`
+}
+
+func (TargetGroupMatcherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupMatcher)(nil)).Elem()
+}
+
+func (i TargetGroupMatcherArgs) ToTargetGroupMatcherOutput() TargetGroupMatcherOutput {
+	return i.ToTargetGroupMatcherOutputWithContext(context.Background())
+}
+
+func (i TargetGroupMatcherArgs) ToTargetGroupMatcherOutputWithContext(ctx context.Context) TargetGroupMatcherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherOutput)
+}
+
+func (i TargetGroupMatcherArgs) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
+	return i.ToTargetGroupMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i TargetGroupMatcherArgs) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherOutput).ToTargetGroupMatcherPtrOutputWithContext(ctx)
+}
+
+// TargetGroupMatcherPtrInput is an input type that accepts TargetGroupMatcherArgs, TargetGroupMatcherPtr and TargetGroupMatcherPtrOutput values.
+// You can construct a concrete instance of `TargetGroupMatcherPtrInput` via:
+//
+//          TargetGroupMatcherArgs{...}
+//
+//  or:
+//
+//          nil
+type TargetGroupMatcherPtrInput interface {
+	pulumi.Input
+
+	ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput
+	ToTargetGroupMatcherPtrOutputWithContext(context.Context) TargetGroupMatcherPtrOutput
+}
+
+type targetGroupMatcherPtrType TargetGroupMatcherArgs
+
+func TargetGroupMatcherPtr(v *TargetGroupMatcherArgs) TargetGroupMatcherPtrInput {
+	return (*targetGroupMatcherPtrType)(v)
+}
+
+func (*targetGroupMatcherPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupMatcher)(nil)).Elem()
+}
+
+func (i *targetGroupMatcherPtrType) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
+	return i.ToTargetGroupMatcherPtrOutputWithContext(context.Background())
+}
+
+func (i *targetGroupMatcherPtrType) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
+type TargetGroupMatcherOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupMatcherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupMatcher)(nil)).Elem()
+}
+
+func (o TargetGroupMatcherOutput) ToTargetGroupMatcherOutput() TargetGroupMatcherOutput {
+	return o
+}
+
+func (o TargetGroupMatcherOutput) ToTargetGroupMatcherOutputWithContext(ctx context.Context) TargetGroupMatcherOutput {
+	return o
+}
+
+func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
+	return o.ToTargetGroupMatcherPtrOutputWithContext(context.Background())
+}
+
+func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupMatcher) *TargetGroupMatcher {
+		return &v
+	}).(TargetGroupMatcherPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
+func (o TargetGroupMatcherOutput) GrpcCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.GrpcCode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+func (o TargetGroupMatcherOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupMatcherPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupMatcherPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetGroupMatcher)(nil)).Elem()
+}
+
+func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
+	return o
+}
+
+func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
+	return o
+}
+
+func (o TargetGroupMatcherPtrOutput) Elem() TargetGroupMatcherOutput {
+	return o.ApplyT(func(v *TargetGroupMatcher) TargetGroupMatcher {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupMatcher
+		return ret
+	}).(TargetGroupMatcherOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-grpccode
+func (o TargetGroupMatcherPtrOutput) GrpcCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupMatcher) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+func (o TargetGroupMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupMatcher) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
+type TargetGroupTargetDescription struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-availabilityzone
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-id
+	Id string `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
+	Port *int `pulumi:"port"`
+}
+
+// TargetGroupTargetDescriptionInput is an input type that accepts TargetGroupTargetDescriptionArgs and TargetGroupTargetDescriptionOutput values.
+// You can construct a concrete instance of `TargetGroupTargetDescriptionInput` via:
+//
+//          TargetGroupTargetDescriptionArgs{...}
+type TargetGroupTargetDescriptionInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetDescriptionOutput() TargetGroupTargetDescriptionOutput
+	ToTargetGroupTargetDescriptionOutputWithContext(context.Context) TargetGroupTargetDescriptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
+type TargetGroupTargetDescriptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-availabilityzone
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-id
+	Id pulumi.StringInput `pulumi:"id"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (TargetGroupTargetDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetDescription)(nil)).Elem()
+}
+
+func (i TargetGroupTargetDescriptionArgs) ToTargetGroupTargetDescriptionOutput() TargetGroupTargetDescriptionOutput {
+	return i.ToTargetGroupTargetDescriptionOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetDescriptionArgs) ToTargetGroupTargetDescriptionOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetDescriptionOutput)
+}
+
+// TargetGroupTargetDescriptionArrayInput is an input type that accepts TargetGroupTargetDescriptionArray and TargetGroupTargetDescriptionArrayOutput values.
+// You can construct a concrete instance of `TargetGroupTargetDescriptionArrayInput` via:
+//
+//          TargetGroupTargetDescriptionArray{ TargetGroupTargetDescriptionArgs{...} }
+type TargetGroupTargetDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetDescriptionArrayOutput() TargetGroupTargetDescriptionArrayOutput
+	ToTargetGroupTargetDescriptionArrayOutputWithContext(context.Context) TargetGroupTargetDescriptionArrayOutput
+}
+
+type TargetGroupTargetDescriptionArray []TargetGroupTargetDescriptionInput
+
+func (TargetGroupTargetDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetDescription)(nil)).Elem()
+}
+
+func (i TargetGroupTargetDescriptionArray) ToTargetGroupTargetDescriptionArrayOutput() TargetGroupTargetDescriptionArrayOutput {
+	return i.ToTargetGroupTargetDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetDescriptionArray) ToTargetGroupTargetDescriptionArrayOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetDescriptionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
+type TargetGroupTargetDescriptionOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetDescription)(nil)).Elem()
+}
+
+func (o TargetGroupTargetDescriptionOutput) ToTargetGroupTargetDescriptionOutput() TargetGroupTargetDescriptionOutput {
+	return o
+}
+
+func (o TargetGroupTargetDescriptionOutput) ToTargetGroupTargetDescriptionOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-availabilityzone
+func (o TargetGroupTargetDescriptionOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetDescription) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-id
+func (o TargetGroupTargetDescriptionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TargetGroupTargetDescription) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
+func (o TargetGroupTargetDescriptionOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetDescription) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type TargetGroupTargetDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetDescription)(nil)).Elem()
+}
+
+func (o TargetGroupTargetDescriptionArrayOutput) ToTargetGroupTargetDescriptionArrayOutput() TargetGroupTargetDescriptionArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetDescriptionArrayOutput) ToTargetGroupTargetDescriptionArrayOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetDescriptionArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTargetDescription {
+		return vs[0].([]TargetGroupTargetDescription)[vs[1].(int)]
+	}).(TargetGroupTargetDescriptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html
+type TargetGroupTargetGroupAttribute struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-value
+	Value *string `pulumi:"value"`
+}
+
+// TargetGroupTargetGroupAttributeInput is an input type that accepts TargetGroupTargetGroupAttributeArgs and TargetGroupTargetGroupAttributeOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupAttributeInput` via:
+//
+//          TargetGroupTargetGroupAttributeArgs{...}
+type TargetGroupTargetGroupAttributeInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput
+	ToTargetGroupTargetGroupAttributeOutputWithContext(context.Context) TargetGroupTargetGroupAttributeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html
+type TargetGroupTargetGroupAttributeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TargetGroupTargetGroupAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupAttribute)(nil)).Elem()
+}
+
+func (i TargetGroupTargetGroupAttributeArgs) ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput {
+	return i.ToTargetGroupTargetGroupAttributeOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupAttributeArgs) ToTargetGroupTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupAttributeOutput)
+}
+
+// TargetGroupTargetGroupAttributeArrayInput is an input type that accepts TargetGroupTargetGroupAttributeArray and TargetGroupTargetGroupAttributeArrayOutput values.
+// You can construct a concrete instance of `TargetGroupTargetGroupAttributeArrayInput` via:
+//
+//          TargetGroupTargetGroupAttributeArray{ TargetGroupTargetGroupAttributeArgs{...} }
+type TargetGroupTargetGroupAttributeArrayInput interface {
+	pulumi.Input
+
+	ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput
+	ToTargetGroupTargetGroupAttributeArrayOutputWithContext(context.Context) TargetGroupTargetGroupAttributeArrayOutput
+}
+
+type TargetGroupTargetGroupAttributeArray []TargetGroupTargetGroupAttributeInput
+
+func (TargetGroupTargetGroupAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetGroupAttribute)(nil)).Elem()
+}
+
+func (i TargetGroupTargetGroupAttributeArray) ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput {
+	return i.ToTargetGroupTargetGroupAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i TargetGroupTargetGroupAttributeArray) ToTargetGroupTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetGroupAttributeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html
+type TargetGroupTargetGroupAttributeOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetGroupTargetGroupAttribute)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupAttributeOutput) ToTargetGroupTargetGroupAttributeOutput() TargetGroupTargetGroupAttributeOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupAttributeOutput) ToTargetGroupTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-key
+func (o TargetGroupTargetGroupAttributeOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-value
+func (o TargetGroupTargetGroupAttributeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupTargetGroupAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TargetGroupTargetGroupAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetGroupTargetGroupAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetGroupTargetGroupAttribute)(nil)).Elem()
+}
+
+func (o TargetGroupTargetGroupAttributeArrayOutput) ToTargetGroupTargetGroupAttributeArrayOutput() TargetGroupTargetGroupAttributeArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupAttributeArrayOutput) ToTargetGroupTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupTargetGroupAttributeArrayOutput {
+	return o
+}
+
+func (o TargetGroupTargetGroupAttributeArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetGroupAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTargetGroupAttribute {
+		return vs[0].([]TargetGroupTargetGroupAttribute)[vs[1].(int)]
+	}).(TargetGroupTargetGroupAttributeOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ListenerActionOutput{})
 	pulumi.RegisterOutputType(ListenerActionArrayOutput{})
@@ -4489,8 +5211,10 @@ func init() {
 	pulumi.RegisterOutputType(ListenerAuthenticateCognitoConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateOidcConfigOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateOidcConfigPtrOutput{})
-	pulumi.RegisterOutputType(ListenerCertificateOutput{})
-	pulumi.RegisterOutputType(ListenerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateTypeOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateTypeArrayOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateCertificateOutput{})
+	pulumi.RegisterOutputType(ListenerCertificateCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ListenerFixedResponseConfigOutput{})
 	pulumi.RegisterOutputType(ListenerFixedResponseConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerForwardConfigOutput{})
@@ -4533,4 +5257,14 @@ func init() {
 	pulumi.RegisterOutputType(ListenerTargetGroupStickinessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleOutput{})
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerLoadBalancerAttributeOutput{})
+	pulumi.RegisterOutputType(LoadBalancerLoadBalancerAttributeArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
+	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupMatcherOutput{})
+	pulumi.RegisterOutputType(TargetGroupMatcherPtrOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetDescriptionOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupAttributeOutput{})
+	pulumi.RegisterOutputType(TargetGroupTargetGroupAttributeArrayOutput{})
 }

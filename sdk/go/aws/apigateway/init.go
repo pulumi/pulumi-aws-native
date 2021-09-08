@@ -21,22 +21,44 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:apigateway:Account":
+		r = &Account{}
 	case "aws-native:apigateway:ApiKey":
 		r = &ApiKey{}
+	case "aws-native:apigateway:Authorizer":
+		r = &Authorizer{}
+	case "aws-native:apigateway:BasePathMapping":
+		r = &BasePathMapping{}
 	case "aws-native:apigateway:ClientCertificate":
 		r = &ClientCertificate{}
+	case "aws-native:apigateway:Deployment":
+		r = &Deployment{}
+	case "aws-native:apigateway:DocumentationPart":
+		r = &DocumentationPart{}
 	case "aws-native:apigateway:DocumentationVersion":
 		r = &DocumentationVersion{}
 	case "aws-native:apigateway:DomainName":
 		r = &DomainName{}
+	case "aws-native:apigateway:GatewayResponse":
+		r = &GatewayResponse{}
+	case "aws-native:apigateway:Method":
+		r = &Method{}
 	case "aws-native:apigateway:Model":
 		r = &Model{}
 	case "aws-native:apigateway:RequestValidator":
 		r = &RequestValidator{}
 	case "aws-native:apigateway:Resource":
 		r = &Resource{}
+	case "aws-native:apigateway:RestApi":
+		r = &RestApi{}
+	case "aws-native:apigateway:Stage":
+		r = &Stage{}
+	case "aws-native:apigateway:UsagePlan":
+		r = &UsagePlan{}
 	case "aws-native:apigateway:UsagePlanKey":
 		r = &UsagePlanKey{}
+	case "aws-native:apigateway:VpcLink":
+		r = &VpcLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

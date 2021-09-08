@@ -10,6 +10,530 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRole struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
+	FeatureName *string `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DBClusterDBClusterRoleInput is an input type that accepts DBClusterDBClusterRoleArgs and DBClusterDBClusterRoleOutput values.
+// You can construct a concrete instance of `DBClusterDBClusterRoleInput` via:
+//
+//          DBClusterDBClusterRoleArgs{...}
+type DBClusterDBClusterRoleInput interface {
+	pulumi.Input
+
+	ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput
+	ToDBClusterDBClusterRoleOutputWithContext(context.Context) DBClusterDBClusterRoleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRoleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
+	FeatureName pulumi.StringPtrInput `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DBClusterDBClusterRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
+	return i.ToDBClusterDBClusterRoleOutputWithContext(context.Background())
+}
+
+func (i DBClusterDBClusterRoleArgs) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleOutput)
+}
+
+// DBClusterDBClusterRoleArrayInput is an input type that accepts DBClusterDBClusterRoleArray and DBClusterDBClusterRoleArrayOutput values.
+// You can construct a concrete instance of `DBClusterDBClusterRoleArrayInput` via:
+//
+//          DBClusterDBClusterRoleArray{ DBClusterDBClusterRoleArgs{...} }
+type DBClusterDBClusterRoleArrayInput interface {
+	pulumi.Input
+
+	ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput
+	ToDBClusterDBClusterRoleArrayOutputWithContext(context.Context) DBClusterDBClusterRoleArrayOutput
+}
+
+type DBClusterDBClusterRoleArray []DBClusterDBClusterRoleInput
+
+func (DBClusterDBClusterRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
+	return i.ToDBClusterDBClusterRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DBClusterDBClusterRoleArray) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterDBClusterRoleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html
+type DBClusterDBClusterRoleOutput struct{ *pulumi.OutputState }
+
+func (DBClusterDBClusterRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutput() DBClusterDBClusterRoleOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleOutput) ToDBClusterDBClusterRoleOutputWithContext(ctx context.Context) DBClusterDBClusterRoleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
+func (o DBClusterDBClusterRoleOutput) FeatureName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterDBClusterRole) *string { return v.FeatureName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
+func (o DBClusterDBClusterRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DBClusterDBClusterRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DBClusterDBClusterRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DBClusterDBClusterRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBClusterDBClusterRole)(nil)).Elem()
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutput() DBClusterDBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) ToDBClusterDBClusterRoleArrayOutputWithContext(ctx context.Context) DBClusterDBClusterRoleArrayOutput {
+	return o
+}
+
+func (o DBClusterDBClusterRoleArrayOutput) Index(i pulumi.IntInput) DBClusterDBClusterRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBClusterDBClusterRole {
+		return vs[0].([]DBClusterDBClusterRole)[vs[1].(int)]
+	}).(DBClusterDBClusterRoleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html
+type DBClusterScalingConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
+	AutoPause *bool `pulumi:"autoPause"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
+	MinCapacity *int `pulumi:"minCapacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
+}
+
+// DBClusterScalingConfigurationInput is an input type that accepts DBClusterScalingConfigurationArgs and DBClusterScalingConfigurationOutput values.
+// You can construct a concrete instance of `DBClusterScalingConfigurationInput` via:
+//
+//          DBClusterScalingConfigurationArgs{...}
+type DBClusterScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput
+	ToDBClusterScalingConfigurationOutputWithContext(context.Context) DBClusterScalingConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html
+type DBClusterScalingConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
+	AutoPause pulumi.BoolPtrInput `pulumi:"autoPause"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
+	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
+	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
+}
+
+func (DBClusterScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterScalingConfiguration)(nil)).Elem()
+}
+
+func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput {
+	return i.ToDBClusterScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationOutputWithContext(ctx context.Context) DBClusterScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationOutput)
+}
+
+func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
+	return i.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DBClusterScalingConfigurationArgs) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationOutput).ToDBClusterScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DBClusterScalingConfigurationPtrInput is an input type that accepts DBClusterScalingConfigurationArgs, DBClusterScalingConfigurationPtr and DBClusterScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DBClusterScalingConfigurationPtrInput` via:
+//
+//          DBClusterScalingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DBClusterScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput
+	ToDBClusterScalingConfigurationPtrOutputWithContext(context.Context) DBClusterScalingConfigurationPtrOutput
+}
+
+type dbclusterScalingConfigurationPtrType DBClusterScalingConfigurationArgs
+
+func DBClusterScalingConfigurationPtr(v *DBClusterScalingConfigurationArgs) DBClusterScalingConfigurationPtrInput {
+	return (*dbclusterScalingConfigurationPtrType)(v)
+}
+
+func (*dbclusterScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterScalingConfiguration)(nil)).Elem()
+}
+
+func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
+	return i.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dbclusterScalingConfigurationPtrType) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterScalingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html
+type DBClusterScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DBClusterScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationOutput() DBClusterScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationOutputWithContext(ctx context.Context) DBClusterScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
+	return o.ToDBClusterScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DBClusterScalingConfigurationOutput) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterScalingConfiguration) *DBClusterScalingConfiguration {
+		return &v
+	}).(DBClusterScalingConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
+func (o DBClusterScalingConfigurationOutput) AutoPause() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *bool { return v.AutoPause }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
+func (o DBClusterScalingConfigurationOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
+func (o DBClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
+}
+
+type DBClusterScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationPtrOutput() DBClusterScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterScalingConfigurationPtrOutput) ToDBClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterScalingConfigurationPtrOutput) Elem() DBClusterScalingConfigurationOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) DBClusterScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterScalingConfiguration
+		return ret
+	}).(DBClusterScalingConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
+func (o DBClusterScalingConfigurationPtrOutput) AutoPause() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoPause
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
+func (o DBClusterScalingConfigurationPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
+func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsUntilAutoPause
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html
+type DBInstanceDBInstanceRole struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
+	FeatureName string `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// DBInstanceDBInstanceRoleInput is an input type that accepts DBInstanceDBInstanceRoleArgs and DBInstanceDBInstanceRoleOutput values.
+// You can construct a concrete instance of `DBInstanceDBInstanceRoleInput` via:
+//
+//          DBInstanceDBInstanceRoleArgs{...}
+type DBInstanceDBInstanceRoleInput interface {
+	pulumi.Input
+
+	ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput
+	ToDBInstanceDBInstanceRoleOutputWithContext(context.Context) DBInstanceDBInstanceRoleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html
+type DBInstanceDBInstanceRoleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
+	FeatureName pulumi.StringInput `pulumi:"featureName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (DBInstanceDBInstanceRoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceDBInstanceRole)(nil)).Elem()
+}
+
+func (i DBInstanceDBInstanceRoleArgs) ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput {
+	return i.ToDBInstanceDBInstanceRoleOutputWithContext(context.Background())
+}
+
+func (i DBInstanceDBInstanceRoleArgs) ToDBInstanceDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceDBInstanceRoleOutput)
+}
+
+// DBInstanceDBInstanceRoleArrayInput is an input type that accepts DBInstanceDBInstanceRoleArray and DBInstanceDBInstanceRoleArrayOutput values.
+// You can construct a concrete instance of `DBInstanceDBInstanceRoleArrayInput` via:
+//
+//          DBInstanceDBInstanceRoleArray{ DBInstanceDBInstanceRoleArgs{...} }
+type DBInstanceDBInstanceRoleArrayInput interface {
+	pulumi.Input
+
+	ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput
+	ToDBInstanceDBInstanceRoleArrayOutputWithContext(context.Context) DBInstanceDBInstanceRoleArrayOutput
+}
+
+type DBInstanceDBInstanceRoleArray []DBInstanceDBInstanceRoleInput
+
+func (DBInstanceDBInstanceRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceDBInstanceRole)(nil)).Elem()
+}
+
+func (i DBInstanceDBInstanceRoleArray) ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput {
+	return i.ToDBInstanceDBInstanceRoleArrayOutputWithContext(context.Background())
+}
+
+func (i DBInstanceDBInstanceRoleArray) ToDBInstanceDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceDBInstanceRoleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html
+type DBInstanceDBInstanceRoleOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceDBInstanceRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceDBInstanceRole)(nil)).Elem()
+}
+
+func (o DBInstanceDBInstanceRoleOutput) ToDBInstanceDBInstanceRoleOutput() DBInstanceDBInstanceRoleOutput {
+	return o
+}
+
+func (o DBInstanceDBInstanceRoleOutput) ToDBInstanceDBInstanceRoleOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
+func (o DBInstanceDBInstanceRoleOutput) FeatureName() pulumi.StringOutput {
+	return o.ApplyT(func(v DBInstanceDBInstanceRole) string { return v.FeatureName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
+func (o DBInstanceDBInstanceRoleOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DBInstanceDBInstanceRole) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type DBInstanceDBInstanceRoleArrayOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceDBInstanceRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceDBInstanceRole)(nil)).Elem()
+}
+
+func (o DBInstanceDBInstanceRoleArrayOutput) ToDBInstanceDBInstanceRoleArrayOutput() DBInstanceDBInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DBInstanceDBInstanceRoleArrayOutput) ToDBInstanceDBInstanceRoleArrayOutputWithContext(ctx context.Context) DBInstanceDBInstanceRoleArrayOutput {
+	return o
+}
+
+func (o DBInstanceDBInstanceRoleArrayOutput) Index(i pulumi.IntInput) DBInstanceDBInstanceRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceDBInstanceRole {
+		return vs[0].([]DBInstanceDBInstanceRole)[vs[1].(int)]
+	}).(DBInstanceDBInstanceRoleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html
+type DBInstanceProcessorFeature struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
+	Value *string `pulumi:"value"`
+}
+
+// DBInstanceProcessorFeatureInput is an input type that accepts DBInstanceProcessorFeatureArgs and DBInstanceProcessorFeatureOutput values.
+// You can construct a concrete instance of `DBInstanceProcessorFeatureInput` via:
+//
+//          DBInstanceProcessorFeatureArgs{...}
+type DBInstanceProcessorFeatureInput interface {
+	pulumi.Input
+
+	ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput
+	ToDBInstanceProcessorFeatureOutputWithContext(context.Context) DBInstanceProcessorFeatureOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html
+type DBInstanceProcessorFeatureArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DBInstanceProcessorFeatureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceProcessorFeature)(nil)).Elem()
+}
+
+func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput {
+	return i.ToDBInstanceProcessorFeatureOutputWithContext(context.Background())
+}
+
+func (i DBInstanceProcessorFeatureArgs) ToDBInstanceProcessorFeatureOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureOutput)
+}
+
+// DBInstanceProcessorFeatureArrayInput is an input type that accepts DBInstanceProcessorFeatureArray and DBInstanceProcessorFeatureArrayOutput values.
+// You can construct a concrete instance of `DBInstanceProcessorFeatureArrayInput` via:
+//
+//          DBInstanceProcessorFeatureArray{ DBInstanceProcessorFeatureArgs{...} }
+type DBInstanceProcessorFeatureArrayInput interface {
+	pulumi.Input
+
+	ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput
+	ToDBInstanceProcessorFeatureArrayOutputWithContext(context.Context) DBInstanceProcessorFeatureArrayOutput
+}
+
+type DBInstanceProcessorFeatureArray []DBInstanceProcessorFeatureInput
+
+func (DBInstanceProcessorFeatureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceProcessorFeature)(nil)).Elem()
+}
+
+func (i DBInstanceProcessorFeatureArray) ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput {
+	return i.ToDBInstanceProcessorFeatureArrayOutputWithContext(context.Background())
+}
+
+func (i DBInstanceProcessorFeatureArray) ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceProcessorFeatureArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html
+type DBInstanceProcessorFeatureOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceProcessorFeatureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceProcessorFeature)(nil)).Elem()
+}
+
+func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutput() DBInstanceProcessorFeatureOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureOutput) ToDBInstanceProcessorFeatureOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
+func (o DBInstanceProcessorFeatureOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceProcessorFeature) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
+func (o DBInstanceProcessorFeatureOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceProcessorFeature) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DBInstanceProcessorFeatureArrayOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceProcessorFeatureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBInstanceProcessorFeature)(nil)).Elem()
+}
+
+func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArrayOutput() DBInstanceProcessorFeatureArrayOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureArrayOutput) ToDBInstanceProcessorFeatureArrayOutputWithContext(ctx context.Context) DBInstanceProcessorFeatureArrayOutput {
+	return o
+}
+
+func (o DBInstanceProcessorFeatureArrayOutput) Index(i pulumi.IntInput) DBInstanceProcessorFeatureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBInstanceProcessorFeature {
+		return vs[0].([]DBInstanceProcessorFeature)[vs[1].(int)]
+	}).(DBInstanceProcessorFeatureOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
 type DBProxyAuthFormat struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
@@ -584,7 +1108,396 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 	}).(pulumi.StringArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html
+type DBSecurityGroupIngressType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-cidrip
+	CIDRIP *string `pulumi:"cIDRIP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupid
+	EC2SecurityGroupId *string `pulumi:"eC2SecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupname
+	EC2SecurityGroupName *string `pulumi:"eC2SecurityGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupownerid
+	EC2SecurityGroupOwnerId *string `pulumi:"eC2SecurityGroupOwnerId"`
+}
+
+// DBSecurityGroupIngressTypeInput is an input type that accepts DBSecurityGroupIngressTypeArgs and DBSecurityGroupIngressTypeOutput values.
+// You can construct a concrete instance of `DBSecurityGroupIngressTypeInput` via:
+//
+//          DBSecurityGroupIngressTypeArgs{...}
+type DBSecurityGroupIngressTypeInput interface {
+	pulumi.Input
+
+	ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput
+	ToDBSecurityGroupIngressTypeOutputWithContext(context.Context) DBSecurityGroupIngressTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html
+type DBSecurityGroupIngressTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-cidrip
+	CIDRIP pulumi.StringPtrInput `pulumi:"cIDRIP"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupid
+	EC2SecurityGroupId pulumi.StringPtrInput `pulumi:"eC2SecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupname
+	EC2SecurityGroupName pulumi.StringPtrInput `pulumi:"eC2SecurityGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupownerid
+	EC2SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"eC2SecurityGroupOwnerId"`
+}
+
+func (DBSecurityGroupIngressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput {
+	return i.ToDBSecurityGroupIngressTypeOutputWithContext(context.Background())
+}
+
+func (i DBSecurityGroupIngressTypeArgs) ToDBSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeOutput)
+}
+
+// DBSecurityGroupIngressTypeArrayInput is an input type that accepts DBSecurityGroupIngressTypeArray and DBSecurityGroupIngressTypeArrayOutput values.
+// You can construct a concrete instance of `DBSecurityGroupIngressTypeArrayInput` via:
+//
+//          DBSecurityGroupIngressTypeArray{ DBSecurityGroupIngressTypeArgs{...} }
+type DBSecurityGroupIngressTypeArrayInput interface {
+	pulumi.Input
+
+	ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput
+	ToDBSecurityGroupIngressTypeArrayOutputWithContext(context.Context) DBSecurityGroupIngressTypeArrayOutput
+}
+
+type DBSecurityGroupIngressTypeArray []DBSecurityGroupIngressTypeInput
+
+func (DBSecurityGroupIngressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBSecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i DBSecurityGroupIngressTypeArray) ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput {
+	return i.ToDBSecurityGroupIngressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i DBSecurityGroupIngressTypeArray) ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBSecurityGroupIngressTypeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html
+type DBSecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
+
+func (DBSecurityGroupIngressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBSecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutput() DBSecurityGroupIngressTypeOutput {
+	return o
+}
+
+func (o DBSecurityGroupIngressTypeOutput) ToDBSecurityGroupIngressTypeOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-cidrip
+func (o DBSecurityGroupIngressTypeOutput) CIDRIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.CIDRIP }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupid
+func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupname
+func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupownerid
+func (o DBSecurityGroupIngressTypeOutput) EC2SecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBSecurityGroupIngressType) *string { return v.EC2SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
+type DBSecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (DBSecurityGroupIngressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DBSecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArrayOutput() DBSecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o DBSecurityGroupIngressTypeArrayOutput) ToDBSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) DBSecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o DBSecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) DBSecurityGroupIngressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DBSecurityGroupIngressType {
+		return vs[0].([]DBSecurityGroupIngressType)[vs[1].(int)]
+	}).(DBSecurityGroupIngressTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
+type OptionGroupOptionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
+	DBSecurityGroupMemberships []string `pulumi:"dBSecurityGroupMemberships"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
+	OptionName string `pulumi:"optionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
+	OptionSettings []OptionGroupOptionSetting `pulumi:"optionSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
+	OptionVersion *string `pulumi:"optionVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
+	Port *int `pulumi:"port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
+	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
+}
+
+// OptionGroupOptionConfigurationInput is an input type that accepts OptionGroupOptionConfigurationArgs and OptionGroupOptionConfigurationOutput values.
+// You can construct a concrete instance of `OptionGroupOptionConfigurationInput` via:
+//
+//          OptionGroupOptionConfigurationArgs{...}
+type OptionGroupOptionConfigurationInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionConfigurationOutput() OptionGroupOptionConfigurationOutput
+	ToOptionGroupOptionConfigurationOutputWithContext(context.Context) OptionGroupOptionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
+type OptionGroupOptionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
+	DBSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dBSecurityGroupMemberships"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
+	OptionName pulumi.StringInput `pulumi:"optionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
+	OptionSettings OptionGroupOptionSettingArrayInput `pulumi:"optionSettings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
+	OptionVersion pulumi.StringPtrInput `pulumi:"optionVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
+	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
+}
+
+func (OptionGroupOptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroupOptionConfiguration)(nil)).Elem()
+}
+
+func (i OptionGroupOptionConfigurationArgs) ToOptionGroupOptionConfigurationOutput() OptionGroupOptionConfigurationOutput {
+	return i.ToOptionGroupOptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i OptionGroupOptionConfigurationArgs) ToOptionGroupOptionConfigurationOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationOutput)
+}
+
+// OptionGroupOptionConfigurationArrayInput is an input type that accepts OptionGroupOptionConfigurationArray and OptionGroupOptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionConfigurationArrayInput` via:
+//
+//          OptionGroupOptionConfigurationArray{ OptionGroupOptionConfigurationArgs{...} }
+type OptionGroupOptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionConfigurationArrayOutput() OptionGroupOptionConfigurationArrayOutput
+	ToOptionGroupOptionConfigurationArrayOutputWithContext(context.Context) OptionGroupOptionConfigurationArrayOutput
+}
+
+type OptionGroupOptionConfigurationArray []OptionGroupOptionConfigurationInput
+
+func (OptionGroupOptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptionGroupOptionConfiguration)(nil)).Elem()
+}
+
+func (i OptionGroupOptionConfigurationArray) ToOptionGroupOptionConfigurationArrayOutput() OptionGroupOptionConfigurationArrayOutput {
+	return i.ToOptionGroupOptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i OptionGroupOptionConfigurationArray) ToOptionGroupOptionConfigurationArrayOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
+type OptionGroupOptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupOptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroupOptionConfiguration)(nil)).Elem()
+}
+
+func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOutput() OptionGroupOptionConfigurationOutput {
+	return o
+}
+
+func (o OptionGroupOptionConfigurationOutput) ToOptionGroupOptionConfigurationOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
+func (o OptionGroupOptionConfigurationOutput) DBSecurityGroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.DBSecurityGroupMemberships }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
+func (o OptionGroupOptionConfigurationOutput) OptionName() pulumi.StringOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) string { return v.OptionName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
+func (o OptionGroupOptionConfigurationOutput) OptionSettings() OptionGroupOptionSettingArrayOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) []OptionGroupOptionSetting { return v.OptionSettings }).(OptionGroupOptionSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
+func (o OptionGroupOptionConfigurationOutput) OptionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) *string { return v.OptionVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
+func (o OptionGroupOptionConfigurationOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
+func (o OptionGroupOptionConfigurationOutput) VpcSecurityGroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OptionGroupOptionConfiguration) []string { return v.VpcSecurityGroupMemberships }).(pulumi.StringArrayOutput)
+}
+
+type OptionGroupOptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupOptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptionGroupOptionConfiguration)(nil)).Elem()
+}
+
+func (o OptionGroupOptionConfigurationArrayOutput) ToOptionGroupOptionConfigurationArrayOutput() OptionGroupOptionConfigurationArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionConfigurationArrayOutput) ToOptionGroupOptionConfigurationArrayOutputWithContext(ctx context.Context) OptionGroupOptionConfigurationArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionConfigurationArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptionGroupOptionConfiguration {
+		return vs[0].([]OptionGroupOptionConfiguration)[vs[1].(int)]
+	}).(OptionGroupOptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
+type OptionGroupOptionSetting struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
+	Value *string `pulumi:"value"`
+}
+
+// OptionGroupOptionSettingInput is an input type that accepts OptionGroupOptionSettingArgs and OptionGroupOptionSettingOutput values.
+// You can construct a concrete instance of `OptionGroupOptionSettingInput` via:
+//
+//          OptionGroupOptionSettingArgs{...}
+type OptionGroupOptionSettingInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionSettingOutput() OptionGroupOptionSettingOutput
+	ToOptionGroupOptionSettingOutputWithContext(context.Context) OptionGroupOptionSettingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
+type OptionGroupOptionSettingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (OptionGroupOptionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroupOptionSetting)(nil)).Elem()
+}
+
+func (i OptionGroupOptionSettingArgs) ToOptionGroupOptionSettingOutput() OptionGroupOptionSettingOutput {
+	return i.ToOptionGroupOptionSettingOutputWithContext(context.Background())
+}
+
+func (i OptionGroupOptionSettingArgs) ToOptionGroupOptionSettingOutputWithContext(ctx context.Context) OptionGroupOptionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingOutput)
+}
+
+// OptionGroupOptionSettingArrayInput is an input type that accepts OptionGroupOptionSettingArray and OptionGroupOptionSettingArrayOutput values.
+// You can construct a concrete instance of `OptionGroupOptionSettingArrayInput` via:
+//
+//          OptionGroupOptionSettingArray{ OptionGroupOptionSettingArgs{...} }
+type OptionGroupOptionSettingArrayInput interface {
+	pulumi.Input
+
+	ToOptionGroupOptionSettingArrayOutput() OptionGroupOptionSettingArrayOutput
+	ToOptionGroupOptionSettingArrayOutputWithContext(context.Context) OptionGroupOptionSettingArrayOutput
+}
+
+type OptionGroupOptionSettingArray []OptionGroupOptionSettingInput
+
+func (OptionGroupOptionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptionGroupOptionSetting)(nil)).Elem()
+}
+
+func (i OptionGroupOptionSettingArray) ToOptionGroupOptionSettingArrayOutput() OptionGroupOptionSettingArrayOutput {
+	return i.ToOptionGroupOptionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i OptionGroupOptionSettingArray) ToOptionGroupOptionSettingArrayOutputWithContext(ctx context.Context) OptionGroupOptionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOptionSettingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
+type OptionGroupOptionSettingOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupOptionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionGroupOptionSetting)(nil)).Elem()
+}
+
+func (o OptionGroupOptionSettingOutput) ToOptionGroupOptionSettingOutput() OptionGroupOptionSettingOutput {
+	return o
+}
+
+func (o OptionGroupOptionSettingOutput) ToOptionGroupOptionSettingOutputWithContext(ctx context.Context) OptionGroupOptionSettingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
+func (o OptionGroupOptionSettingOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionGroupOptionSetting) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
+func (o OptionGroupOptionSettingOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OptionGroupOptionSetting) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type OptionGroupOptionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (OptionGroupOptionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OptionGroupOptionSetting)(nil)).Elem()
+}
+
+func (o OptionGroupOptionSettingArrayOutput) ToOptionGroupOptionSettingArrayOutput() OptionGroupOptionSettingArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionSettingArrayOutput) ToOptionGroupOptionSettingArrayOutputWithContext(ctx context.Context) OptionGroupOptionSettingArrayOutput {
+	return o
+}
+
+func (o OptionGroupOptionSettingArrayOutput) Index(i pulumi.IntInput) OptionGroupOptionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OptionGroupOptionSetting {
+		return vs[0].([]OptionGroupOptionSetting)[vs[1].(int)]
+	}).(OptionGroupOptionSettingOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DBClusterDBClusterRoleOutput{})
+	pulumi.RegisterOutputType(DBClusterDBClusterRoleArrayOutput{})
+	pulumi.RegisterOutputType(DBClusterScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(DBClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DBInstanceDBInstanceRoleOutput{})
+	pulumi.RegisterOutputType(DBInstanceDBInstanceRoleArrayOutput{})
+	pulumi.RegisterOutputType(DBInstanceProcessorFeatureOutput{})
+	pulumi.RegisterOutputType(DBInstanceProcessorFeatureArrayOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatArrayOutput{})
 	pulumi.RegisterOutputType(DBProxyEndpointTagFormatOutput{})
@@ -593,4 +1506,10 @@ func init() {
 	pulumi.RegisterOutputType(DBProxyTagFormatArrayOutput{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})
 	pulumi.RegisterOutputType(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
+	pulumi.RegisterOutputType(DBSecurityGroupIngressTypeOutput{})
+	pulumi.RegisterOutputType(DBSecurityGroupIngressTypeArrayOutput{})
+	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})
+	pulumi.RegisterOutputType(OptionGroupOptionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(OptionGroupOptionSettingOutput{})
+	pulumi.RegisterOutputType(OptionGroupOptionSettingArrayOutput{})
 }

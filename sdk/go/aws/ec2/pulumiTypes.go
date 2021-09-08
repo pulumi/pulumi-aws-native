@@ -11,6 +11,1135 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html
+type CapacityReservationTagSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-resourcetype
+	ResourceType *string `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-tags
+	Tags []aws.Tag `pulumi:"tags"`
+}
+
+// CapacityReservationTagSpecificationInput is an input type that accepts CapacityReservationTagSpecificationArgs and CapacityReservationTagSpecificationOutput values.
+// You can construct a concrete instance of `CapacityReservationTagSpecificationInput` via:
+//
+//          CapacityReservationTagSpecificationArgs{...}
+type CapacityReservationTagSpecificationInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput
+	ToCapacityReservationTagSpecificationOutputWithContext(context.Context) CapacityReservationTagSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html
+type CapacityReservationTagSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-resourcetype
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-tags
+	Tags aws.TagArrayInput `pulumi:"tags"`
+}
+
+func (CapacityReservationTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (i CapacityReservationTagSpecificationArgs) ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput {
+	return i.ToCapacityReservationTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagSpecificationArgs) ToCapacityReservationTagSpecificationOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagSpecificationOutput)
+}
+
+// CapacityReservationTagSpecificationArrayInput is an input type that accepts CapacityReservationTagSpecificationArray and CapacityReservationTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationTagSpecificationArrayInput` via:
+//
+//          CapacityReservationTagSpecificationArray{ CapacityReservationTagSpecificationArgs{...} }
+type CapacityReservationTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput
+	ToCapacityReservationTagSpecificationArrayOutputWithContext(context.Context) CapacityReservationTagSpecificationArrayOutput
+}
+
+type CapacityReservationTagSpecificationArray []CapacityReservationTagSpecificationInput
+
+func (CapacityReservationTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (i CapacityReservationTagSpecificationArray) ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput {
+	return i.ToCapacityReservationTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationTagSpecificationArray) ToCapacityReservationTagSpecificationArrayOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html
+type CapacityReservationTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (o CapacityReservationTagSpecificationOutput) ToCapacityReservationTagSpecificationOutput() CapacityReservationTagSpecificationOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationOutput) ToCapacityReservationTagSpecificationOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-resourcetype
+func (o CapacityReservationTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityReservationTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-tagspecification.html#cfn-ec2-capacityreservation-tagspecification-tags
+func (o CapacityReservationTagSpecificationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v CapacityReservationTagSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+type CapacityReservationTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationTagSpecification)(nil)).Elem()
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) ToCapacityReservationTagSpecificationArrayOutput() CapacityReservationTagSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) ToCapacityReservationTagSpecificationArrayOutputWithContext(ctx context.Context) CapacityReservationTagSpecificationArrayOutput {
+	return o
+}
+
+func (o CapacityReservationTagSpecificationArrayOutput) Index(i pulumi.IntInput) CapacityReservationTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationTagSpecification {
+		return vs[0].([]CapacityReservationTagSpecification)[vs[1].(int)]
+	}).(CapacityReservationTagSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html
+type ClientVpnEndpointCertificateAuthenticationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html#cfn-ec2-clientvpnendpoint-certificateauthenticationrequest-clientrootcertificatechainarn
+	ClientRootCertificateChainArn string `pulumi:"clientRootCertificateChainArn"`
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs and ClientVpnEndpointCertificateAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+type ClientVpnEndpointCertificateAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html
+type ClientVpnEndpointCertificateAuthenticationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html#cfn-ec2-clientvpnendpoint-certificateauthenticationrequest-clientrootcertificatechainarn
+	ClientRootCertificateChainArn pulumi.StringInput `pulumi:"clientRootCertificateChainArn"`
+}
+
+func (ClientVpnEndpointCertificateAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointCertificateAuthenticationRequestArgs) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestOutput).ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointCertificateAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointCertificateAuthenticationRequestArgs, ClientVpnEndpointCertificateAuthenticationRequestPtr and ClientVpnEndpointCertificateAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointCertificateAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointCertificateAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointCertificateAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+	ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointCertificateAuthenticationRequestPtrType ClientVpnEndpointCertificateAuthenticationRequestArgs
+
+func ClientVpnEndpointCertificateAuthenticationRequestPtr(v *ClientVpnEndpointCertificateAuthenticationRequestArgs) ClientVpnEndpointCertificateAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointCertificateAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointCertificateAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointCertificateAuthenticationRequestPtrType) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html
+type ClientVpnEndpointCertificateAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutput() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointCertificateAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html#cfn-ec2-clientvpnendpoint-certificateauthenticationrequest-clientrootcertificatechainarn
+func (o ClientVpnEndpointCertificateAuthenticationRequestOutput) ClientRootCertificateChainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointCertificateAuthenticationRequest) string {
+		return v.ClientRootCertificateChainArn
+	}).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointCertificateAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointCertificateAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutput() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ToClientVpnEndpointCertificateAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointCertificateAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) ClientVpnEndpointCertificateAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointCertificateAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointCertificateAuthenticationRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html#cfn-ec2-clientvpnendpoint-certificateauthenticationrequest-clientrootcertificatechainarn
+func (o ClientVpnEndpointCertificateAuthenticationRequestPtrOutput) ClientRootCertificateChainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointCertificateAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientRootCertificateChainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
+type ClientVpnEndpointClientAuthenticationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
+	ActiveDirectory *ClientVpnEndpointDirectoryServiceAuthenticationRequest `pulumi:"activeDirectory"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
+	FederatedAuthentication *ClientVpnEndpointFederatedAuthenticationRequest `pulumi:"federatedAuthentication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
+	MutualAuthentication *ClientVpnEndpointCertificateAuthenticationRequest `pulumi:"mutualAuthentication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
+	Type string `pulumi:"type"`
+}
+
+// ClientVpnEndpointClientAuthenticationRequestInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArgs and ClientVpnEndpointClientAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointClientAuthenticationRequestArgs{...}
+type ClientVpnEndpointClientAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput
+	ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
+type ClientVpnEndpointClientAuthenticationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
+	ActiveDirectory ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput `pulumi:"activeDirectory"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
+	FederatedAuthentication ClientVpnEndpointFederatedAuthenticationRequestPtrInput `pulumi:"federatedAuthentication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
+	MutualAuthentication ClientVpnEndpointCertificateAuthenticationRequestPtrInput `pulumi:"mutualAuthentication"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClientVpnEndpointClientAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArgs) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+// ClientVpnEndpointClientAuthenticationRequestArrayInput is an input type that accepts ClientVpnEndpointClientAuthenticationRequestArray and ClientVpnEndpointClientAuthenticationRequestArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientAuthenticationRequestArrayInput` via:
+//
+//          ClientVpnEndpointClientAuthenticationRequestArray{ ClientVpnEndpointClientAuthenticationRequestArgs{...} }
+type ClientVpnEndpointClientAuthenticationRequestArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput
+	ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArray []ClientVpnEndpointClientAuthenticationRequestInput
+
+func (ClientVpnEndpointClientAuthenticationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return i.ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientAuthenticationRequestArray) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientAuthenticationRequestArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html
+type ClientVpnEndpointClientAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutput() ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ToClientVpnEndpointClientAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-activedirectory
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) ActiveDirectory() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return v.ActiveDirectory
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-federatedauthentication
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) FederatedAuthentication() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return v.FederatedAuthentication
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-mutualauthentication
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) MutualAuthentication() ClientVpnEndpointCertificateAuthenticationRequestPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) *ClientVpnEndpointCertificateAuthenticationRequest {
+		return v.MutualAuthentication
+	}).(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest.html#cfn-ec2-clientvpnendpoint-clientauthenticationrequest-type
+func (o ClientVpnEndpointClientAuthenticationRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientAuthenticationRequest) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointClientAuthenticationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientAuthenticationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointClientAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutput() ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) ToClientVpnEndpointClientAuthenticationRequestArrayOutputWithContext(ctx context.Context) ClientVpnEndpointClientAuthenticationRequestArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientAuthenticationRequestArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointClientAuthenticationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointClientAuthenticationRequest {
+		return vs[0].([]ClientVpnEndpointClientAuthenticationRequest)[vs[1].(int)]
+	}).(ClientVpnEndpointClientAuthenticationRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+	Enabled bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+	LambdaFunctionArn *string `pulumi:"lambdaFunctionArn"`
+}
+
+// ClientVpnEndpointClientConnectOptionsInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs and ClientVpnEndpointClientConnectOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+type ClientVpnEndpointClientConnectOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput
+	ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+	LambdaFunctionArn pulumi.StringPtrInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (ClientVpnEndpointClientConnectOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointClientConnectOptionsArgs) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsOutput).ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointClientConnectOptionsPtrInput is an input type that accepts ClientVpnEndpointClientConnectOptionsArgs, ClientVpnEndpointClientConnectOptionsPtr and ClientVpnEndpointClientConnectOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointClientConnectOptionsPtrInput` via:
+//
+//          ClientVpnEndpointClientConnectOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointClientConnectOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput
+	ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput
+}
+
+type clientVpnEndpointClientConnectOptionsPtrType ClientVpnEndpointClientConnectOptionsArgs
+
+func ClientVpnEndpointClientConnectOptionsPtr(v *ClientVpnEndpointClientConnectOptionsArgs) ClientVpnEndpointClientConnectOptionsPtrInput {
+	return (*clientVpnEndpointClientConnectOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointClientConnectOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return i.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointClientConnectOptionsPtrType) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html
+type ClientVpnEndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutput() ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointClientConnectOptionsOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointClientConnectOptions) *ClientVpnEndpointClientConnectOptions {
+		return &v
+	}).(ClientVpnEndpointClientConnectOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+func (o ClientVpnEndpointClientConnectOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+func (o ClientVpnEndpointClientConnectOptionsOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointClientConnectOptions) *string { return v.LambdaFunctionArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointClientConnectOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointClientConnectOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointClientConnectOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutput() ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) ToClientVpnEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointClientConnectOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Elem() ClientVpnEndpointClientConnectOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) ClientVpnEndpointClientConnectOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointClientConnectOptions
+		return ret
+	}).(ClientVpnEndpointClientConnectOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-enabled
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientconnectoptions.html#cfn-ec2-clientvpnendpoint-clientconnectoptions-lambdafunctionarn
+func (o ClientVpnEndpointClientConnectOptionsPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointClientConnectOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html
+type ClientVpnEndpointConnectionLogOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
+	CloudwatchLogGroup *string `pulumi:"cloudwatchLogGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
+	CloudwatchLogStream *string `pulumi:"cloudwatchLogStream"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClientVpnEndpointConnectionLogOptionsInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs and ClientVpnEndpointConnectionLogOptionsOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsInput` via:
+//
+//          ClientVpnEndpointConnectionLogOptionsArgs{...}
+type ClientVpnEndpointConnectionLogOptionsInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput
+	ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html
+type ClientVpnEndpointConnectionLogOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
+	CloudwatchLogGroup pulumi.StringPtrInput `pulumi:"cloudwatchLogGroup"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
+	CloudwatchLogStream pulumi.StringPtrInput `pulumi:"cloudwatchLogStream"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClientVpnEndpointConnectionLogOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointConnectionLogOptionsArgs) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsOutput).ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointConnectionLogOptionsPtrInput is an input type that accepts ClientVpnEndpointConnectionLogOptionsArgs, ClientVpnEndpointConnectionLogOptionsPtr and ClientVpnEndpointConnectionLogOptionsPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointConnectionLogOptionsPtrInput` via:
+//
+//          ClientVpnEndpointConnectionLogOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointConnectionLogOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput
+	ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput
+}
+
+type clientVpnEndpointConnectionLogOptionsPtrType ClientVpnEndpointConnectionLogOptionsArgs
+
+func ClientVpnEndpointConnectionLogOptionsPtr(v *ClientVpnEndpointConnectionLogOptionsArgs) ClientVpnEndpointConnectionLogOptionsPtrInput {
+	return (*clientVpnEndpointConnectionLogOptionsPtrType)(v)
+}
+
+func (*clientVpnEndpointConnectionLogOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return i.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointConnectionLogOptionsPtrType) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html
+type ClientVpnEndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutput() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o.ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointConnectionLogOptions) *ClientVpnEndpointConnectionLogOptions {
+		return &v
+	}).(ClientVpnEndpointConnectionLogOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogGroup }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
+func (o ClientVpnEndpointConnectionLogOptionsOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) *string { return v.CloudwatchLogStream }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
+func (o ClientVpnEndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClientVpnEndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClientVpnEndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointConnectionLogOptions)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutput() ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) ToClientVpnEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) ClientVpnEndpointConnectionLogOptionsPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Elem() ClientVpnEndpointConnectionLogOptionsOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) ClientVpnEndpointConnectionLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointConnectionLogOptions
+		return ret
+	}).(ClientVpnEndpointConnectionLogOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchloggroup
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-cloudwatchlogstream
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html#cfn-ec2-clientvpnendpoint-connectionlogoptions-enabled
+func (o ClientVpnEndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointConnectionLogOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
+type ClientVpnEndpointDirectoryServiceAuthenticationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
+	DirectoryId string `pulumi:"directoryId"`
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs and ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+}
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput).ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs, ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr and ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+	ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs
+
+func ClientVpnEndpointDirectoryServiceAuthenticationRequestPtr(v *ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointDirectoryServiceAuthenticationRequestPtrType) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointDirectoryServiceAuthenticationRequest) *ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointDirectoryServiceAuthenticationRequest) string { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+type ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointDirectoryServiceAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput() ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) ToClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) ClientVpnEndpointDirectoryServiceAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointDirectoryServiceAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html#cfn-ec2-clientvpnendpoint-directoryserviceauthenticationrequest-directoryid
+func (o ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointDirectoryServiceAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html
+type ClientVpnEndpointFederatedAuthenticationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+	SAMLProviderArn string `pulumi:"sAMLProviderArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+	SelfServiceSAMLProviderArn *string `pulumi:"selfServiceSAMLProviderArn"`
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs and ClientVpnEndpointFederatedAuthenticationRequestOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestInput` via:
+//
+//          ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+type ClientVpnEndpointFederatedAuthenticationRequestInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html
+type ClientVpnEndpointFederatedAuthenticationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+	SAMLProviderArn pulumi.StringInput `pulumi:"sAMLProviderArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+	SelfServiceSAMLProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSAMLProviderArn"`
+}
+
+func (ClientVpnEndpointFederatedAuthenticationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointFederatedAuthenticationRequestArgs) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestOutput).ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx)
+}
+
+// ClientVpnEndpointFederatedAuthenticationRequestPtrInput is an input type that accepts ClientVpnEndpointFederatedAuthenticationRequestArgs, ClientVpnEndpointFederatedAuthenticationRequestPtr and ClientVpnEndpointFederatedAuthenticationRequestPtrOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointFederatedAuthenticationRequestPtrInput` via:
+//
+//          ClientVpnEndpointFederatedAuthenticationRequestArgs{...}
+//
+//  or:
+//
+//          nil
+type ClientVpnEndpointFederatedAuthenticationRequestPtrInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+	ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput
+}
+
+type clientVpnEndpointFederatedAuthenticationRequestPtrType ClientVpnEndpointFederatedAuthenticationRequestArgs
+
+func ClientVpnEndpointFederatedAuthenticationRequestPtr(v *ClientVpnEndpointFederatedAuthenticationRequestArgs) ClientVpnEndpointFederatedAuthenticationRequestPtrInput {
+	return (*clientVpnEndpointFederatedAuthenticationRequestPtrType)(v)
+}
+
+func (*clientVpnEndpointFederatedAuthenticationRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return i.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *clientVpnEndpointFederatedAuthenticationRequestPtrType) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html
+type ClientVpnEndpointFederatedAuthenticationRequestOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutput() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(context.Background())
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClientVpnEndpointFederatedAuthenticationRequest) *ClientVpnEndpointFederatedAuthenticationRequest {
+		return &v
+	}).(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SAMLProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) string { return v.SAMLProviderArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClientVpnEndpointFederatedAuthenticationRequest) *string { return v.SelfServiceSAMLProviderArn }).(pulumi.StringPtrOutput)
+}
+
+type ClientVpnEndpointFederatedAuthenticationRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClientVpnEndpointFederatedAuthenticationRequest)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutput() ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) ToClientVpnEndpointFederatedAuthenticationRequestPtrOutputWithContext(ctx context.Context) ClientVpnEndpointFederatedAuthenticationRequestPtrOutput {
+	return o
+}
+
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) Elem() ClientVpnEndpointFederatedAuthenticationRequestOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) ClientVpnEndpointFederatedAuthenticationRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ClientVpnEndpointFederatedAuthenticationRequest
+		return ret
+	}).(ClientVpnEndpointFederatedAuthenticationRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-samlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SAMLProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-federatedauthenticationrequest.html#cfn-ec2-clientvpnendpoint-federatedauthenticationrequest-selfservicesamlproviderarn
+func (o ClientVpnEndpointFederatedAuthenticationRequestPtrOutput) SelfServiceSAMLProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClientVpnEndpointFederatedAuthenticationRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceSAMLProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html
+type ClientVpnEndpointTagSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-resourcetype
+	ResourceType string `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
+	Tags []aws.Tag `pulumi:"tags"`
+}
+
+// ClientVpnEndpointTagSpecificationInput is an input type that accepts ClientVpnEndpointTagSpecificationArgs and ClientVpnEndpointTagSpecificationOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationInput` via:
+//
+//          ClientVpnEndpointTagSpecificationArgs{...}
+type ClientVpnEndpointTagSpecificationInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput
+	ToClientVpnEndpointTagSpecificationOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html
+type ClientVpnEndpointTagSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-resourcetype
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
+	Tags aws.TagArrayInput `pulumi:"tags"`
+}
+
+func (ClientVpnEndpointTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return i.ToClientVpnEndpointTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArgs) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationOutput)
+}
+
+// ClientVpnEndpointTagSpecificationArrayInput is an input type that accepts ClientVpnEndpointTagSpecificationArray and ClientVpnEndpointTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `ClientVpnEndpointTagSpecificationArrayInput` via:
+//
+//          ClientVpnEndpointTagSpecificationArray{ ClientVpnEndpointTagSpecificationArgs{...} }
+type ClientVpnEndpointTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput
+	ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Context) ClientVpnEndpointTagSpecificationArrayOutput
+}
+
+type ClientVpnEndpointTagSpecificationArray []ClientVpnEndpointTagSpecificationInput
+
+func (ClientVpnEndpointTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return i.ToClientVpnEndpointTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ClientVpnEndpointTagSpecificationArray) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html
+type ClientVpnEndpointTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutput() ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationOutput) ToClientVpnEndpointTagSpecificationOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-resourcetype
+func (o ClientVpnEndpointTagSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-tagspecification.html#cfn-ec2-clientvpnendpoint-tagspecification-tags
+func (o ClientVpnEndpointTagSpecificationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v ClientVpnEndpointTagSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+type ClientVpnEndpointTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientVpnEndpointTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientVpnEndpointTagSpecification)(nil)).Elem()
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutput() ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) ToClientVpnEndpointTagSpecificationArrayOutputWithContext(ctx context.Context) ClientVpnEndpointTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ClientVpnEndpointTagSpecificationArrayOutput) Index(i pulumi.IntInput) ClientVpnEndpointTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientVpnEndpointTagSpecification {
+		return vs[0].([]ClientVpnEndpointTagSpecification)[vs[1].(int)]
+	}).(ClientVpnEndpointTagSpecificationOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html
 type EC2FleetCapacityReservationOptionsRequest struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityreservationoptionsrequest.html#cfn-ec2-ec2fleet-capacityreservationoptionsrequest-usagestrategy
@@ -1663,6 +2792,6665 @@ func (o EC2FleetTargetCapacitySpecificationRequestPtrOutput) TotalTargetCapacity
 			return nil
 		}
 		return &v.TotalTargetCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html
+type InstanceAssociationParameter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-value
+	Value []string `pulumi:"value"`
+}
+
+// InstanceAssociationParameterInput is an input type that accepts InstanceAssociationParameterArgs and InstanceAssociationParameterOutput values.
+// You can construct a concrete instance of `InstanceAssociationParameterInput` via:
+//
+//          InstanceAssociationParameterArgs{...}
+type InstanceAssociationParameterInput interface {
+	pulumi.Input
+
+	ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput
+	ToInstanceAssociationParameterOutputWithContext(context.Context) InstanceAssociationParameterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html
+type InstanceAssociationParameterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-value
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (InstanceAssociationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (i InstanceAssociationParameterArgs) ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput {
+	return i.ToInstanceAssociationParameterOutputWithContext(context.Background())
+}
+
+func (i InstanceAssociationParameterArgs) ToInstanceAssociationParameterOutputWithContext(ctx context.Context) InstanceAssociationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAssociationParameterOutput)
+}
+
+// InstanceAssociationParameterArrayInput is an input type that accepts InstanceAssociationParameterArray and InstanceAssociationParameterArrayOutput values.
+// You can construct a concrete instance of `InstanceAssociationParameterArrayInput` via:
+//
+//          InstanceAssociationParameterArray{ InstanceAssociationParameterArgs{...} }
+type InstanceAssociationParameterArrayInput interface {
+	pulumi.Input
+
+	ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput
+	ToInstanceAssociationParameterArrayOutputWithContext(context.Context) InstanceAssociationParameterArrayOutput
+}
+
+type InstanceAssociationParameterArray []InstanceAssociationParameterInput
+
+func (InstanceAssociationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (i InstanceAssociationParameterArray) ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput {
+	return i.ToInstanceAssociationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceAssociationParameterArray) ToInstanceAssociationParameterArrayOutputWithContext(ctx context.Context) InstanceAssociationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceAssociationParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html
+type InstanceAssociationParameterOutput struct{ *pulumi.OutputState }
+
+func (InstanceAssociationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (o InstanceAssociationParameterOutput) ToInstanceAssociationParameterOutput() InstanceAssociationParameterOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterOutput) ToInstanceAssociationParameterOutputWithContext(ctx context.Context) InstanceAssociationParameterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-key
+func (o InstanceAssociationParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceAssociationParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-value
+func (o InstanceAssociationParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceAssociationParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type InstanceAssociationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceAssociationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceAssociationParameter)(nil)).Elem()
+}
+
+func (o InstanceAssociationParameterArrayOutput) ToInstanceAssociationParameterArrayOutput() InstanceAssociationParameterArrayOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterArrayOutput) ToInstanceAssociationParameterArrayOutputWithContext(ctx context.Context) InstanceAssociationParameterArrayOutput {
+	return o
+}
+
+func (o InstanceAssociationParameterArrayOutput) Index(i pulumi.IntInput) InstanceAssociationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceAssociationParameter {
+		return vs[0].([]InstanceAssociationParameter)[vs[1].(int)]
+	}).(InstanceAssociationParameterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html
+type InstanceBlockDeviceMapping struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-devicename
+	DeviceName string `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-ebs
+	Ebs *InstanceEbs `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-nodevice
+	NoDevice *InstanceNoDevice `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-virtualname
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `InstanceBlockDeviceMappingInput` via:
+//
+//          InstanceBlockDeviceMappingArgs{...}
+type InstanceBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput
+	ToInstanceBlockDeviceMappingOutputWithContext(context.Context) InstanceBlockDeviceMappingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html
+type InstanceBlockDeviceMappingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-devicename
+	DeviceName pulumi.StringInput `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-ebs
+	Ebs InstanceEbsPtrInput `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-nodevice
+	NoDevice InstanceNoDevicePtrInput `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-virtualname
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (InstanceBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput {
+	return i.ToInstanceBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i InstanceBlockDeviceMappingArgs) ToInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingOutput)
+}
+
+// InstanceBlockDeviceMappingArrayInput is an input type that accepts InstanceBlockDeviceMappingArray and InstanceBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `InstanceBlockDeviceMappingArrayInput` via:
+//
+//          InstanceBlockDeviceMappingArray{ InstanceBlockDeviceMappingArgs{...} }
+type InstanceBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput
+	ToInstanceBlockDeviceMappingArrayOutputWithContext(context.Context) InstanceBlockDeviceMappingArrayOutput
+}
+
+type InstanceBlockDeviceMappingArray []InstanceBlockDeviceMappingInput
+
+func (InstanceBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i InstanceBlockDeviceMappingArray) ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput {
+	return i.ToInstanceBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceBlockDeviceMappingArray) ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html
+type InstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutput() InstanceBlockDeviceMappingOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingOutput) ToInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-devicename
+func (o InstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-ebs
+func (o InstanceBlockDeviceMappingOutput) Ebs() InstanceEbsPtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceEbs { return v.Ebs }).(InstanceEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-nodevice
+func (o InstanceBlockDeviceMappingOutput) NoDevice() InstanceNoDevicePtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceNoDevice { return v.NoDevice }).(InstanceNoDevicePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html#cfn-ec2-blockdev-mapping-virtualname
+func (o InstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type InstanceBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArrayOutput() InstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) ToInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) InstanceBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o InstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) InstanceBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceBlockDeviceMapping {
+		return vs[0].([]InstanceBlockDeviceMapping)[vs[1].(int)]
+	}).(InstanceBlockDeviceMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html
+type InstanceCpuOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-corecount
+	CoreCount *int `pulumi:"coreCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-threadspercore
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// InstanceCpuOptionsInput is an input type that accepts InstanceCpuOptionsArgs and InstanceCpuOptionsOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsInput` via:
+//
+//          InstanceCpuOptionsArgs{...}
+type InstanceCpuOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput
+	ToInstanceCpuOptionsOutputWithContext(context.Context) InstanceCpuOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html
+type InstanceCpuOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-corecount
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-threadspercore
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (InstanceCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return i.ToInstanceCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput)
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCpuOptionsArgs) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsOutput).ToInstanceCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceCpuOptionsPtrInput is an input type that accepts InstanceCpuOptionsArgs, InstanceCpuOptionsPtr and InstanceCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceCpuOptionsPtrInput` via:
+//
+//          InstanceCpuOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput
+	ToInstanceCpuOptionsPtrOutputWithContext(context.Context) InstanceCpuOptionsPtrOutput
+}
+
+type instanceCpuOptionsPtrType InstanceCpuOptionsArgs
+
+func InstanceCpuOptionsPtr(v *InstanceCpuOptionsArgs) InstanceCpuOptionsPtrInput {
+	return (*instanceCpuOptionsPtrType)(v)
+}
+
+func (*instanceCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return i.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCpuOptionsPtrType) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html
+type InstanceCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutput() InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsOutputWithContext(ctx context.Context) InstanceCpuOptionsOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o.ToInstanceCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCpuOptionsOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCpuOptions) *InstanceCpuOptions {
+		return &v
+	}).(InstanceCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-corecount
+func (o InstanceCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-threadspercore
+func (o InstanceCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type InstanceCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCpuOptions)(nil)).Elem()
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutput() InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) ToInstanceCpuOptionsPtrOutputWithContext(ctx context.Context) InstanceCpuOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceCpuOptionsPtrOutput) Elem() InstanceCpuOptionsOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) InstanceCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCpuOptions
+		return ret
+	}).(InstanceCpuOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-corecount
+func (o InstanceCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-cpuoptions.html#cfn-ec2-instance-cpuoptions-threadspercore
+func (o InstanceCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
+type InstanceCreditSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
+	CPUCredits *string `pulumi:"cPUCredits"`
+}
+
+// InstanceCreditSpecificationInput is an input type that accepts InstanceCreditSpecificationArgs and InstanceCreditSpecificationOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
+type InstanceCreditSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput
+	ToInstanceCreditSpecificationOutputWithContext(context.Context) InstanceCreditSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
+type InstanceCreditSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
+	CPUCredits pulumi.StringPtrInput `pulumi:"cPUCredits"`
+}
+
+func (InstanceCreditSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
+	return i.ToInstanceCreditSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput)
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceCreditSpecificationArgs) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationOutput).ToInstanceCreditSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceCreditSpecificationPtrInput is an input type that accepts InstanceCreditSpecificationArgs, InstanceCreditSpecificationPtr and InstanceCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceCreditSpecificationPtrInput` via:
+//
+//          InstanceCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceCreditSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput
+	ToInstanceCreditSpecificationPtrOutputWithContext(context.Context) InstanceCreditSpecificationPtrOutput
+}
+
+type instanceCreditSpecificationPtrType InstanceCreditSpecificationArgs
+
+func InstanceCreditSpecificationPtr(v *InstanceCreditSpecificationArgs) InstanceCreditSpecificationPtrInput {
+	return (*instanceCreditSpecificationPtrType)(v)
+}
+
+func (*instanceCreditSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return i.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceCreditSpecificationPtrType) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
+type InstanceCreditSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceCreditSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutput() InstanceCreditSpecificationOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationOutputWithContext(ctx context.Context) InstanceCreditSpecificationOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return o.ToInstanceCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCreditSpecification) *InstanceCreditSpecification {
+		return &v
+	}).(InstanceCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
+func (o InstanceCreditSpecificationOutput) CPUCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCreditSpecification) *string { return v.CPUCredits }).(pulumi.StringPtrOutput)
+}
+
+type InstanceCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceCreditSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceCreditSpecification)(nil)).Elem()
+}
+
+func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutput() InstanceCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecificationOutput {
+	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCreditSpecification
+		return ret
+	}).(InstanceCreditSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
+func (o InstanceCreditSpecificationPtrOutput) CPUCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CPUCredits
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
+type InstanceEbs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-deleteontermination
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-encrypted
+	Encrypted *bool `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
+	Iops *int `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-instance-ebs-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
+	SnapshotId *string `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumesize
+	VolumeSize *int `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumetype
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// InstanceEbsInput is an input type that accepts InstanceEbsArgs and InstanceEbsOutput values.
+// You can construct a concrete instance of `InstanceEbsInput` via:
+//
+//          InstanceEbsArgs{...}
+type InstanceEbsInput interface {
+	pulumi.Input
+
+	ToInstanceEbsOutput() InstanceEbsOutput
+	ToInstanceEbsOutputWithContext(context.Context) InstanceEbsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
+type InstanceEbsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-deleteontermination
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-encrypted
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-instance-ebs-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumesize
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumetype
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (InstanceEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEbs)(nil)).Elem()
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsOutput() InstanceEbsOutput {
+	return i.ToInstanceEbsOutputWithContext(context.Background())
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsOutputWithContext(ctx context.Context) InstanceEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsOutput)
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return i.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEbsArgs) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsOutput).ToInstanceEbsPtrOutputWithContext(ctx)
+}
+
+// InstanceEbsPtrInput is an input type that accepts InstanceEbsArgs, InstanceEbsPtr and InstanceEbsPtrOutput values.
+// You can construct a concrete instance of `InstanceEbsPtrInput` via:
+//
+//          InstanceEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEbsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEbsPtrOutput() InstanceEbsPtrOutput
+	ToInstanceEbsPtrOutputWithContext(context.Context) InstanceEbsPtrOutput
+}
+
+type instanceEbsPtrType InstanceEbsArgs
+
+func InstanceEbsPtr(v *InstanceEbsArgs) InstanceEbsPtrInput {
+	return (*instanceEbsPtrType)(v)
+}
+
+func (*instanceEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEbs)(nil)).Elem()
+}
+
+func (i *instanceEbsPtrType) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return i.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEbsPtrType) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
+type InstanceEbsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEbs)(nil)).Elem()
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsOutput() InstanceEbsOutput {
+	return o
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsOutputWithContext(ctx context.Context) InstanceEbsOutput {
+	return o
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return o.ToInstanceEbsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEbsOutput) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEbs) *InstanceEbs {
+		return &v
+	}).(InstanceEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-deleteontermination
+func (o InstanceEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-encrypted
+func (o InstanceEbsOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
+func (o InstanceEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-instance-ebs-kmskeyid
+func (o InstanceEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
+func (o InstanceEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumesize
+func (o InstanceEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumetype
+func (o InstanceEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type InstanceEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEbs)(nil)).Elem()
+}
+
+func (o InstanceEbsPtrOutput) ToInstanceEbsPtrOutput() InstanceEbsPtrOutput {
+	return o
+}
+
+func (o InstanceEbsPtrOutput) ToInstanceEbsPtrOutputWithContext(ctx context.Context) InstanceEbsPtrOutput {
+	return o
+}
+
+func (o InstanceEbsPtrOutput) Elem() InstanceEbsOutput {
+	return o.ApplyT(func(v *InstanceEbs) InstanceEbs {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEbs
+		return ret
+	}).(InstanceEbsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-deleteontermination
+func (o InstanceEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-encrypted
+func (o InstanceEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
+func (o InstanceEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-instance-ebs-kmskeyid
+func (o InstanceEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
+func (o InstanceEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumesize
+func (o InstanceEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumetype
+func (o InstanceEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html
+type InstanceElasticGpuSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html#cfn-ec2-instance-elasticgpuspecification-type
+	Type string `pulumi:"type"`
+}
+
+// InstanceElasticGpuSpecificationInput is an input type that accepts InstanceElasticGpuSpecificationArgs and InstanceElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `InstanceElasticGpuSpecificationInput` via:
+//
+//          InstanceElasticGpuSpecificationArgs{...}
+type InstanceElasticGpuSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput
+	ToInstanceElasticGpuSpecificationOutputWithContext(context.Context) InstanceElasticGpuSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html
+type InstanceElasticGpuSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html#cfn-ec2-instance-elasticgpuspecification-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InstanceElasticGpuSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i InstanceElasticGpuSpecificationArgs) ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput {
+	return i.ToInstanceElasticGpuSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticGpuSpecificationArgs) ToInstanceElasticGpuSpecificationOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticGpuSpecificationOutput)
+}
+
+// InstanceElasticGpuSpecificationArrayInput is an input type that accepts InstanceElasticGpuSpecificationArray and InstanceElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceElasticGpuSpecificationArrayInput` via:
+//
+//          InstanceElasticGpuSpecificationArray{ InstanceElasticGpuSpecificationArgs{...} }
+type InstanceElasticGpuSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput
+	ToInstanceElasticGpuSpecificationArrayOutputWithContext(context.Context) InstanceElasticGpuSpecificationArrayOutput
+}
+
+type InstanceElasticGpuSpecificationArray []InstanceElasticGpuSpecificationInput
+
+func (InstanceElasticGpuSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i InstanceElasticGpuSpecificationArray) ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput {
+	return i.ToInstanceElasticGpuSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticGpuSpecificationArray) ToInstanceElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticGpuSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html
+type InstanceElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticGpuSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecificationOutput() InstanceElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationOutput) ToInstanceElasticGpuSpecificationOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticgpuspecification.html#cfn-ec2-instance-elasticgpuspecification-type
+func (o InstanceElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InstanceElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) ToInstanceElasticGpuSpecificationArrayOutput() InstanceElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) ToInstanceElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) InstanceElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceElasticGpuSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceElasticGpuSpecification {
+		return vs[0].([]InstanceElasticGpuSpecification)[vs[1].(int)]
+	}).(InstanceElasticGpuSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html
+type InstanceElasticInferenceAccelerator struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count
+	Count *int `pulumi:"count"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
+	Type string `pulumi:"type"`
+}
+
+// InstanceElasticInferenceAcceleratorInput is an input type that accepts InstanceElasticInferenceAcceleratorArgs and InstanceElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `InstanceElasticInferenceAcceleratorInput` via:
+//
+//          InstanceElasticInferenceAcceleratorArgs{...}
+type InstanceElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput
+	ToInstanceElasticInferenceAcceleratorOutputWithContext(context.Context) InstanceElasticInferenceAcceleratorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html
+type InstanceElasticInferenceAcceleratorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (InstanceElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i InstanceElasticInferenceAcceleratorArgs) ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput {
+	return i.ToInstanceElasticInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticInferenceAcceleratorArgs) ToInstanceElasticInferenceAcceleratorOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticInferenceAcceleratorOutput)
+}
+
+// InstanceElasticInferenceAcceleratorArrayInput is an input type that accepts InstanceElasticInferenceAcceleratorArray and InstanceElasticInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `InstanceElasticInferenceAcceleratorArrayInput` via:
+//
+//          InstanceElasticInferenceAcceleratorArray{ InstanceElasticInferenceAcceleratorArgs{...} }
+type InstanceElasticInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput
+	ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(context.Context) InstanceElasticInferenceAcceleratorArrayOutput
+}
+
+type InstanceElasticInferenceAcceleratorArray []InstanceElasticInferenceAcceleratorInput
+
+func (InstanceElasticInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i InstanceElasticInferenceAcceleratorArray) ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput {
+	return i.ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceElasticInferenceAcceleratorArray) ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html
+type InstanceElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcceleratorOutput() InstanceElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorOutput) ToInstanceElasticInferenceAcceleratorOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-count
+func (o InstanceElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
+func (o InstanceElasticInferenceAcceleratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceElasticInferenceAccelerator) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type InstanceElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) ToInstanceElasticInferenceAcceleratorArrayOutput() InstanceElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) ToInstanceElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) InstanceElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o InstanceElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) InstanceElasticInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceElasticInferenceAccelerator {
+		return vs[0].([]InstanceElasticInferenceAccelerator)[vs[1].(int)]
+	}).(InstanceElasticInferenceAcceleratorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// InstanceEnclaveOptionsInput is an input type that accepts InstanceEnclaveOptionsArgs and InstanceEnclaveOptionsOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+type InstanceEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput
+	ToInstanceEnclaveOptionsOutputWithContext(context.Context) InstanceEnclaveOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (InstanceEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return i.ToInstanceEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput)
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceEnclaveOptionsArgs) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsOutput).ToInstanceEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceEnclaveOptionsPtrInput is an input type that accepts InstanceEnclaveOptionsArgs, InstanceEnclaveOptionsPtr and InstanceEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceEnclaveOptionsPtrInput` via:
+//
+//          InstanceEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput
+	ToInstanceEnclaveOptionsPtrOutputWithContext(context.Context) InstanceEnclaveOptionsPtrOutput
+}
+
+type instanceEnclaveOptionsPtrType InstanceEnclaveOptionsArgs
+
+func InstanceEnclaveOptionsPtr(v *InstanceEnclaveOptionsArgs) InstanceEnclaveOptionsPtrInput {
+	return (*instanceEnclaveOptionsPtrType)(v)
+}
+
+func (*instanceEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return i.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceEnclaveOptionsPtrType) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html
+type InstanceEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutput() InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsOutputWithContext(ctx context.Context) InstanceEnclaveOptionsOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o.ToInstanceEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnclaveOptions) *InstanceEnclaveOptions {
+		return &v
+	}).(InstanceEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+func (o InstanceEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceEnclaveOptions)(nil)).Elem()
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutput() InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEnclaveOptions
+		return ret
+	}).(InstanceEnclaveOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enclaveoptions.html#cfn-ec2-instance-enclaveoptions-enabled
+func (o InstanceEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
+type InstanceHibernationOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+	Configured *bool `pulumi:"configured"`
+}
+
+// InstanceHibernationOptionsInput is an input type that accepts InstanceHibernationOptionsArgs and InstanceHibernationOptionsOutput values.
+// You can construct a concrete instance of `InstanceHibernationOptionsInput` via:
+//
+//          InstanceHibernationOptionsArgs{...}
+type InstanceHibernationOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput
+	ToInstanceHibernationOptionsOutputWithContext(context.Context) InstanceHibernationOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
+type InstanceHibernationOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+}
+
+func (InstanceHibernationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
+	return i.ToInstanceHibernationOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput)
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceHibernationOptionsArgs) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsOutput).ToInstanceHibernationOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceHibernationOptionsPtrInput is an input type that accepts InstanceHibernationOptionsArgs, InstanceHibernationOptionsPtr and InstanceHibernationOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceHibernationOptionsPtrInput` via:
+//
+//          InstanceHibernationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceHibernationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput
+	ToInstanceHibernationOptionsPtrOutputWithContext(context.Context) InstanceHibernationOptionsPtrOutput
+}
+
+type instanceHibernationOptionsPtrType InstanceHibernationOptionsArgs
+
+func InstanceHibernationOptionsPtr(v *InstanceHibernationOptionsArgs) InstanceHibernationOptionsPtrInput {
+	return (*instanceHibernationOptionsPtrType)(v)
+}
+
+func (*instanceHibernationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return i.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceHibernationOptionsPtrType) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html
+type InstanceHibernationOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceHibernationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutput() InstanceHibernationOptionsOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsOutputWithContext(ctx context.Context) InstanceHibernationOptionsOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return o.ToInstanceHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceHibernationOptionsOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceHibernationOptions) *InstanceHibernationOptions {
+		return &v
+	}).(InstanceHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+func (o InstanceHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+type InstanceHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceHibernationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceHibernationOptions)(nil)).Elem()
+}
+
+func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutput() InstanceHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsPtrOutput) ToInstanceHibernationOptionsPtrOutputWithContext(ctx context.Context) InstanceHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceHibernationOptionsPtrOutput) Elem() InstanceHibernationOptionsOutput {
+	return o.ApplyT(func(v *InstanceHibernationOptions) InstanceHibernationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceHibernationOptions
+		return ret
+	}).(InstanceHibernationOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-hibernationoptions.html#cfn-ec2-instance-hibernationoptions-configured
+func (o InstanceHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstanceHibernationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html
+type InstanceInstanceIpv6Address struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html#cfn-ec2-instance-instanceipv6address-ipv6address
+	Ipv6Address string `pulumi:"ipv6Address"`
+}
+
+// InstanceInstanceIpv6AddressInput is an input type that accepts InstanceInstanceIpv6AddressArgs and InstanceInstanceIpv6AddressOutput values.
+// You can construct a concrete instance of `InstanceInstanceIpv6AddressInput` via:
+//
+//          InstanceInstanceIpv6AddressArgs{...}
+type InstanceInstanceIpv6AddressInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput
+	ToInstanceInstanceIpv6AddressOutputWithContext(context.Context) InstanceInstanceIpv6AddressOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html
+type InstanceInstanceIpv6AddressArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html#cfn-ec2-instance-instanceipv6address-ipv6address
+	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
+}
+
+func (InstanceInstanceIpv6AddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
+	return i.ToInstanceInstanceIpv6AddressOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceIpv6AddressArgs) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressOutput)
+}
+
+// InstanceInstanceIpv6AddressArrayInput is an input type that accepts InstanceInstanceIpv6AddressArray and InstanceInstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `InstanceInstanceIpv6AddressArrayInput` via:
+//
+//          InstanceInstanceIpv6AddressArray{ InstanceInstanceIpv6AddressArgs{...} }
+type InstanceInstanceIpv6AddressArrayInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput
+	ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Context) InstanceInstanceIpv6AddressArrayOutput
+}
+
+type InstanceInstanceIpv6AddressArray []InstanceInstanceIpv6AddressInput
+
+func (InstanceInstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
+	return i.ToInstanceInstanceIpv6AddressArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceIpv6AddressArray) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceIpv6AddressArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html
+type InstanceInstanceIpv6AddressOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceIpv6AddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutput() InstanceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressOutput) ToInstanceInstanceIpv6AddressOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html#cfn-ec2-instance-instanceipv6address-ipv6address
+func (o InstanceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+type InstanceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutput() InstanceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) ToInstanceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InstanceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o InstanceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InstanceInstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceInstanceIpv6Address {
+		return vs[0].([]InstanceInstanceIpv6Address)[vs[1].(int)]
+	}).(InstanceInstanceIpv6AddressOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html
+type InstanceLaunchTemplateSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
+	Version string `pulumi:"version"`
+}
+
+// InstanceLaunchTemplateSpecificationInput is an input type that accepts InstanceLaunchTemplateSpecificationArgs and InstanceLaunchTemplateSpecificationOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplateSpecificationInput` via:
+//
+//          InstanceLaunchTemplateSpecificationArgs{...}
+type InstanceLaunchTemplateSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput
+	ToInstanceLaunchTemplateSpecificationOutputWithContext(context.Context) InstanceLaunchTemplateSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html
+type InstanceLaunchTemplateSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (InstanceLaunchTemplateSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput {
+	return i.ToInstanceLaunchTemplateSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationOutput)
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return i.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateSpecificationArgs) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationOutput).ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx)
+}
+
+// InstanceLaunchTemplateSpecificationPtrInput is an input type that accepts InstanceLaunchTemplateSpecificationArgs, InstanceLaunchTemplateSpecificationPtr and InstanceLaunchTemplateSpecificationPtrOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplateSpecificationPtrInput` via:
+//
+//          InstanceLaunchTemplateSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceLaunchTemplateSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput
+	ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Context) InstanceLaunchTemplateSpecificationPtrOutput
+}
+
+type instanceLaunchTemplateSpecificationPtrType InstanceLaunchTemplateSpecificationArgs
+
+func InstanceLaunchTemplateSpecificationPtr(v *InstanceLaunchTemplateSpecificationArgs) InstanceLaunchTemplateSpecificationPtrInput {
+	return (*instanceLaunchTemplateSpecificationPtrType)(v)
+}
+
+func (*instanceLaunchTemplateSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (i *instanceLaunchTemplateSpecificationPtrType) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return i.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLaunchTemplateSpecificationPtrType) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html
+type InstanceLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationOutput() InstanceLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return o.ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLaunchTemplateSpecificationOutput) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLaunchTemplateSpecification) *InstanceLaunchTemplateSpecification {
+		return &v
+	}).(InstanceLaunchTemplateSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
+func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename
+func (o InstanceLaunchTemplateSpecificationOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
+func (o InstanceLaunchTemplateSpecificationOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplateSpecification) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type InstanceLaunchTemplateSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplateSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplateSpecification)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) ToInstanceLaunchTemplateSpecificationPtrOutput() InstanceLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) ToInstanceLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) InstanceLaunchTemplateSpecificationPtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateSpecificationPtrOutput) Elem() InstanceLaunchTemplateSpecificationOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) InstanceLaunchTemplateSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLaunchTemplateSpecification
+		return ret
+	}).(InstanceLaunchTemplateSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplateid
+func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-launchtemplatename
+func (o InstanceLaunchTemplateSpecificationPtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
+func (o InstanceLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplateSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html
+type InstanceLicenseSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn
+	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
+}
+
+// InstanceLicenseSpecificationInput is an input type that accepts InstanceLicenseSpecificationArgs and InstanceLicenseSpecificationOutput values.
+// You can construct a concrete instance of `InstanceLicenseSpecificationInput` via:
+//
+//          InstanceLicenseSpecificationArgs{...}
+type InstanceLicenseSpecificationInput interface {
+	pulumi.Input
+
+	ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput
+	ToInstanceLicenseSpecificationOutputWithContext(context.Context) InstanceLicenseSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html
+type InstanceLicenseSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn
+	LicenseConfigurationArn pulumi.StringInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (InstanceLicenseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (i InstanceLicenseSpecificationArgs) ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput {
+	return i.ToInstanceLicenseSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstanceLicenseSpecificationArgs) ToInstanceLicenseSpecificationOutputWithContext(ctx context.Context) InstanceLicenseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLicenseSpecificationOutput)
+}
+
+// InstanceLicenseSpecificationArrayInput is an input type that accepts InstanceLicenseSpecificationArray and InstanceLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstanceLicenseSpecificationArrayInput` via:
+//
+//          InstanceLicenseSpecificationArray{ InstanceLicenseSpecificationArgs{...} }
+type InstanceLicenseSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput
+	ToInstanceLicenseSpecificationArrayOutputWithContext(context.Context) InstanceLicenseSpecificationArrayOutput
+}
+
+type InstanceLicenseSpecificationArray []InstanceLicenseSpecificationInput
+
+func (InstanceLicenseSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (i InstanceLicenseSpecificationArray) ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput {
+	return i.ToInstanceLicenseSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceLicenseSpecificationArray) ToInstanceLicenseSpecificationArrayOutputWithContext(ctx context.Context) InstanceLicenseSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLicenseSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html
+type InstanceLicenseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstanceLicenseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (o InstanceLicenseSpecificationOutput) ToInstanceLicenseSpecificationOutput() InstanceLicenseSpecificationOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationOutput) ToInstanceLicenseSpecificationOutputWithContext(ctx context.Context) InstanceLicenseSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn
+func (o InstanceLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceLicenseSpecification) string { return v.LicenseConfigurationArn }).(pulumi.StringOutput)
+}
+
+type InstanceLicenseSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceLicenseSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceLicenseSpecification)(nil)).Elem()
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) ToInstanceLicenseSpecificationArrayOutput() InstanceLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) ToInstanceLicenseSpecificationArrayOutputWithContext(ctx context.Context) InstanceLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o InstanceLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceLicenseSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceLicenseSpecification {
+		return vs[0].([]InstanceLicenseSpecification)[vs[1].(int)]
+	}).(InstanceLicenseSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
+type InstanceNetworkInterface struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-associatepubip
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-delete
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-deviceindex
+	DeviceIndex string `pulumi:"deviceIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
+	GroupSet []string `pulumi:"groupSet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
+	Ipv6Addresses []InstanceInstanceIpv6Address `pulumi:"ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-network-iface
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddress
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddresses
+	PrivateIpAddresses []InstancePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-secondprivateip
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-subnetid
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// InstanceNetworkInterfaceInput is an input type that accepts InstanceNetworkInterfaceArgs and InstanceNetworkInterfaceOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceInput` via:
+//
+//          InstanceNetworkInterfaceArgs{...}
+type InstanceNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput
+	ToInstanceNetworkInterfaceOutputWithContext(context.Context) InstanceNetworkInterfaceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
+type InstanceNetworkInterfaceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-associatepubip
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-delete
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-deviceindex
+	DeviceIndex pulumi.StringInput `pulumi:"deviceIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
+	GroupSet pulumi.StringArrayInput `pulumi:"groupSet"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
+	Ipv6Addresses InstanceInstanceIpv6AddressArrayInput `pulumi:"ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-network-iface
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddress
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddresses
+	PrivateIpAddresses InstancePrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-secondprivateip
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-subnetid
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (InstanceNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i InstanceNetworkInterfaceArgs) ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput {
+	return i.ToInstanceNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i InstanceNetworkInterfaceArgs) ToInstanceNetworkInterfaceOutputWithContext(ctx context.Context) InstanceNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkInterfaceOutput)
+}
+
+// InstanceNetworkInterfaceArrayInput is an input type that accepts InstanceNetworkInterfaceArray and InstanceNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `InstanceNetworkInterfaceArrayInput` via:
+//
+//          InstanceNetworkInterfaceArray{ InstanceNetworkInterfaceArgs{...} }
+type InstanceNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput
+	ToInstanceNetworkInterfaceArrayOutputWithContext(context.Context) InstanceNetworkInterfaceArrayOutput
+}
+
+type InstanceNetworkInterfaceArray []InstanceNetworkInterfaceInput
+
+func (InstanceNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i InstanceNetworkInterfaceArray) ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput {
+	return i.ToInstanceNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceNetworkInterfaceArray) ToInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) InstanceNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkInterfaceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
+type InstanceNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (InstanceNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutput() InstanceNetworkInterfaceOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceOutput) ToInstanceNetworkInterfaceOutputWithContext(ctx context.Context) InstanceNetworkInterfaceOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-associatepubip
+func (o InstanceNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-delete
+func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-description
+func (o InstanceNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-deviceindex
+func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) string { return v.DeviceIndex }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
+func (o InstanceNetworkInterfaceOutput) GroupSet() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []string { return v.GroupSet }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
+func (o InstanceNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
+func (o InstanceNetworkInterfaceOutput) Ipv6Addresses() InstanceInstanceIpv6AddressArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []InstanceInstanceIpv6Address { return v.Ipv6Addresses }).(InstanceInstanceIpv6AddressArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-network-iface
+func (o InstanceNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddress
+func (o InstanceNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-privateipaddresses
+func (o InstanceNetworkInterfaceOutput) PrivateIpAddresses() InstancePrivateIpAddressSpecificationArrayOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) []InstancePrivateIpAddressSpecification { return v.PrivateIpAddresses }).(InstancePrivateIpAddressSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-secondprivateip
+func (o InstanceNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-subnetid
+func (o InstanceNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type InstanceNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) ToInstanceNetworkInterfaceArrayOutput() InstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) ToInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) InstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceNetworkInterface {
+		return vs[0].([]InstanceNetworkInterface)[vs[1].(int)]
+	}).(InstanceNetworkInterfaceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
+type InstanceNoDevice struct {
+}
+
+// InstanceNoDeviceInput is an input type that accepts InstanceNoDeviceArgs and InstanceNoDeviceOutput values.
+// You can construct a concrete instance of `InstanceNoDeviceInput` via:
+//
+//          InstanceNoDeviceArgs{...}
+type InstanceNoDeviceInput interface {
+	pulumi.Input
+
+	ToInstanceNoDeviceOutput() InstanceNoDeviceOutput
+	ToInstanceNoDeviceOutputWithContext(context.Context) InstanceNoDeviceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
+type InstanceNoDeviceArgs struct {
+}
+
+func (InstanceNoDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return i.ToInstanceNoDeviceOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput)
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput).ToInstanceNoDevicePtrOutputWithContext(ctx)
+}
+
+// InstanceNoDevicePtrInput is an input type that accepts InstanceNoDeviceArgs, InstanceNoDevicePtr and InstanceNoDevicePtrOutput values.
+// You can construct a concrete instance of `InstanceNoDevicePtrInput` via:
+//
+//          InstanceNoDeviceArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceNoDevicePtrInput interface {
+	pulumi.Input
+
+	ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput
+	ToInstanceNoDevicePtrOutputWithContext(context.Context) InstanceNoDevicePtrOutput
+}
+
+type instanceNoDevicePtrType InstanceNoDeviceArgs
+
+func InstanceNoDevicePtr(v *InstanceNoDeviceArgs) InstanceNoDevicePtrInput {
+	return (*instanceNoDevicePtrType)(v)
+}
+
+func (*instanceNoDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDevicePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
+type InstanceNoDeviceOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceNoDevice) *InstanceNoDevice {
+		return &v
+	}).(InstanceNoDevicePtrOutput)
+}
+
+type InstanceNoDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
+	return o.ApplyT(func(v *InstanceNoDevice) InstanceNoDevice {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceNoDevice
+		return ret
+	}).(InstanceNoDeviceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type InstancePrivateIpAddressSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+	Primary bool `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// InstancePrivateIpAddressSpecificationInput is an input type that accepts InstancePrivateIpAddressSpecificationArgs and InstancePrivateIpAddressSpecificationOutput values.
+// You can construct a concrete instance of `InstancePrivateIpAddressSpecificationInput` via:
+//
+//          InstancePrivateIpAddressSpecificationArgs{...}
+type InstancePrivateIpAddressSpecificationInput interface {
+	pulumi.Input
+
+	ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput
+	ToInstancePrivateIpAddressSpecificationOutputWithContext(context.Context) InstancePrivateIpAddressSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type InstancePrivateIpAddressSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (InstancePrivateIpAddressSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i InstancePrivateIpAddressSpecificationArgs) ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput {
+	return i.ToInstancePrivateIpAddressSpecificationOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateIpAddressSpecificationArgs) ToInstancePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateIpAddressSpecificationOutput)
+}
+
+// InstancePrivateIpAddressSpecificationArrayInput is an input type that accepts InstancePrivateIpAddressSpecificationArray and InstancePrivateIpAddressSpecificationArrayOutput values.
+// You can construct a concrete instance of `InstancePrivateIpAddressSpecificationArrayInput` via:
+//
+//          InstancePrivateIpAddressSpecificationArray{ InstancePrivateIpAddressSpecificationArgs{...} }
+type InstancePrivateIpAddressSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput
+	ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(context.Context) InstancePrivateIpAddressSpecificationArrayOutput
+}
+
+type InstancePrivateIpAddressSpecificationArray []InstancePrivateIpAddressSpecificationInput
+
+func (InstancePrivateIpAddressSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i InstancePrivateIpAddressSpecificationArray) ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput {
+	return i.ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateIpAddressSpecificationArray) ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateIpAddressSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type InstancePrivateIpAddressSpecificationOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateIpAddressSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) ToInstancePrivateIpAddressSpecificationOutput() InstancePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationOutput) ToInstancePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+func (o InstancePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+func (o InstancePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v InstancePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type InstancePrivateIpAddressSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateIpAddressSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstancePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) ToInstancePrivateIpAddressSpecificationArrayOutput() InstancePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) ToInstancePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) InstancePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o InstancePrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInput) InstancePrivateIpAddressSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstancePrivateIpAddressSpecification {
+		return vs[0].([]InstancePrivateIpAddressSpecification)[vs[1].(int)]
+	}).(InstancePrivateIpAddressSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
+type InstanceSsmAssociation struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-associationparameters
+	AssociationParameters []InstanceAssociationParameter `pulumi:"associationParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-documentname
+	DocumentName string `pulumi:"documentName"`
+}
+
+// InstanceSsmAssociationInput is an input type that accepts InstanceSsmAssociationArgs and InstanceSsmAssociationOutput values.
+// You can construct a concrete instance of `InstanceSsmAssociationInput` via:
+//
+//          InstanceSsmAssociationArgs{...}
+type InstanceSsmAssociationInput interface {
+	pulumi.Input
+
+	ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput
+	ToInstanceSsmAssociationOutputWithContext(context.Context) InstanceSsmAssociationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
+type InstanceSsmAssociationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-associationparameters
+	AssociationParameters InstanceAssociationParameterArrayInput `pulumi:"associationParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-documentname
+	DocumentName pulumi.StringInput `pulumi:"documentName"`
+}
+
+func (InstanceSsmAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (i InstanceSsmAssociationArgs) ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput {
+	return i.ToInstanceSsmAssociationOutputWithContext(context.Background())
+}
+
+func (i InstanceSsmAssociationArgs) ToInstanceSsmAssociationOutputWithContext(ctx context.Context) InstanceSsmAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceSsmAssociationOutput)
+}
+
+// InstanceSsmAssociationArrayInput is an input type that accepts InstanceSsmAssociationArray and InstanceSsmAssociationArrayOutput values.
+// You can construct a concrete instance of `InstanceSsmAssociationArrayInput` via:
+//
+//          InstanceSsmAssociationArray{ InstanceSsmAssociationArgs{...} }
+type InstanceSsmAssociationArrayInput interface {
+	pulumi.Input
+
+	ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput
+	ToInstanceSsmAssociationArrayOutputWithContext(context.Context) InstanceSsmAssociationArrayOutput
+}
+
+type InstanceSsmAssociationArray []InstanceSsmAssociationInput
+
+func (InstanceSsmAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (i InstanceSsmAssociationArray) ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput {
+	return i.ToInstanceSsmAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceSsmAssociationArray) ToInstanceSsmAssociationArrayOutputWithContext(ctx context.Context) InstanceSsmAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceSsmAssociationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
+type InstanceSsmAssociationOutput struct{ *pulumi.OutputState }
+
+func (InstanceSsmAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (o InstanceSsmAssociationOutput) ToInstanceSsmAssociationOutput() InstanceSsmAssociationOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationOutput) ToInstanceSsmAssociationOutputWithContext(ctx context.Context) InstanceSsmAssociationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-associationparameters
+func (o InstanceSsmAssociationOutput) AssociationParameters() InstanceAssociationParameterArrayOutput {
+	return o.ApplyT(func(v InstanceSsmAssociation) []InstanceAssociationParameter { return v.AssociationParameters }).(InstanceAssociationParameterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html#cfn-ec2-instance-ssmassociations-documentname
+func (o InstanceSsmAssociationOutput) DocumentName() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceSsmAssociation) string { return v.DocumentName }).(pulumi.StringOutput)
+}
+
+type InstanceSsmAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceSsmAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceSsmAssociation)(nil)).Elem()
+}
+
+func (o InstanceSsmAssociationArrayOutput) ToInstanceSsmAssociationArrayOutput() InstanceSsmAssociationArrayOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationArrayOutput) ToInstanceSsmAssociationArrayOutputWithContext(ctx context.Context) InstanceSsmAssociationArrayOutput {
+	return o
+}
+
+func (o InstanceSsmAssociationArrayOutput) Index(i pulumi.IntInput) InstanceSsmAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceSsmAssociation {
+		return vs[0].([]InstanceSsmAssociation)[vs[1].(int)]
+	}).(InstanceSsmAssociationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html
+type InstanceVolume struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-device
+	Device string `pulumi:"device"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-volumeid
+	VolumeId string `pulumi:"volumeId"`
+}
+
+// InstanceVolumeInput is an input type that accepts InstanceVolumeArgs and InstanceVolumeOutput values.
+// You can construct a concrete instance of `InstanceVolumeInput` via:
+//
+//          InstanceVolumeArgs{...}
+type InstanceVolumeInput interface {
+	pulumi.Input
+
+	ToInstanceVolumeOutput() InstanceVolumeOutput
+	ToInstanceVolumeOutputWithContext(context.Context) InstanceVolumeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html
+type InstanceVolumeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-device
+	Device pulumi.StringInput `pulumi:"device"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-volumeid
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+}
+
+func (InstanceVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVolume)(nil)).Elem()
+}
+
+func (i InstanceVolumeArgs) ToInstanceVolumeOutput() InstanceVolumeOutput {
+	return i.ToInstanceVolumeOutputWithContext(context.Background())
+}
+
+func (i InstanceVolumeArgs) ToInstanceVolumeOutputWithContext(ctx context.Context) InstanceVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVolumeOutput)
+}
+
+// InstanceVolumeArrayInput is an input type that accepts InstanceVolumeArray and InstanceVolumeArrayOutput values.
+// You can construct a concrete instance of `InstanceVolumeArrayInput` via:
+//
+//          InstanceVolumeArray{ InstanceVolumeArgs{...} }
+type InstanceVolumeArrayInput interface {
+	pulumi.Input
+
+	ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput
+	ToInstanceVolumeArrayOutputWithContext(context.Context) InstanceVolumeArrayOutput
+}
+
+type InstanceVolumeArray []InstanceVolumeInput
+
+func (InstanceVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVolume)(nil)).Elem()
+}
+
+func (i InstanceVolumeArray) ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput {
+	return i.ToInstanceVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceVolumeArray) ToInstanceVolumeArrayOutputWithContext(ctx context.Context) InstanceVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceVolumeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html
+type InstanceVolumeOutput struct{ *pulumi.OutputState }
+
+func (InstanceVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceVolume)(nil)).Elem()
+}
+
+func (o InstanceVolumeOutput) ToInstanceVolumeOutput() InstanceVolumeOutput {
+	return o
+}
+
+func (o InstanceVolumeOutput) ToInstanceVolumeOutputWithContext(ctx context.Context) InstanceVolumeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-device
+func (o InstanceVolumeOutput) Device() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceVolume) string { return v.Device }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-volumeid
+func (o InstanceVolumeOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceVolume) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+type InstanceVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceVolume)(nil)).Elem()
+}
+
+func (o InstanceVolumeArrayOutput) ToInstanceVolumeArrayOutput() InstanceVolumeArrayOutput {
+	return o
+}
+
+func (o InstanceVolumeArrayOutput) ToInstanceVolumeArrayOutputWithContext(ctx context.Context) InstanceVolumeArrayOutput {
+	return o
+}
+
+func (o InstanceVolumeArrayOutput) Index(i pulumi.IntInput) InstanceVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceVolume {
+		return vs[0].([]InstanceVolume)[vs[1].(int)]
+	}).(InstanceVolumeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html
+type LaunchTemplateBlockDeviceMapping struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-devicename
+	DeviceName *string `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs
+	Ebs *LaunchTemplateEbs `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-nodevice
+	NoDevice *string `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-virtualname
+	VirtualName *string `pulumi:"virtualName"`
+}
+
+// LaunchTemplateBlockDeviceMappingInput is an input type that accepts LaunchTemplateBlockDeviceMappingArgs and LaunchTemplateBlockDeviceMappingOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArgs{...}
+type LaunchTemplateBlockDeviceMappingInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput
+	ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html
+type LaunchTemplateBlockDeviceMappingArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-devicename
+	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs
+	Ebs LaunchTemplateEbsPtrInput `pulumi:"ebs"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-nodevice
+	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-virtualname
+	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+}
+
+func (LaunchTemplateBlockDeviceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i LaunchTemplateBlockDeviceMappingArgs) ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput {
+	return i.ToLaunchTemplateBlockDeviceMappingOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBlockDeviceMappingArgs) ToLaunchTemplateBlockDeviceMappingOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingOutput)
+}
+
+// LaunchTemplateBlockDeviceMappingArrayInput is an input type that accepts LaunchTemplateBlockDeviceMappingArray and LaunchTemplateBlockDeviceMappingArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateBlockDeviceMappingArrayInput` via:
+//
+//          LaunchTemplateBlockDeviceMappingArray{ LaunchTemplateBlockDeviceMappingArgs{...} }
+type LaunchTemplateBlockDeviceMappingArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput
+	ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(context.Context) LaunchTemplateBlockDeviceMappingArrayOutput
+}
+
+type LaunchTemplateBlockDeviceMappingArray []LaunchTemplateBlockDeviceMappingInput
+
+func (LaunchTemplateBlockDeviceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return i.ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBlockDeviceMappingArray) ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html
+type LaunchTemplateBlockDeviceMappingOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBlockDeviceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappingOutput() LaunchTemplateBlockDeviceMappingOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingOutput) ToLaunchTemplateBlockDeviceMappingOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-devicename
+func (o LaunchTemplateBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs
+func (o LaunchTemplateBlockDeviceMappingOutput) Ebs() LaunchTemplateEbsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *LaunchTemplateEbs { return v.Ebs }).(LaunchTemplateEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-nodevice
+func (o LaunchTemplateBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping.html#cfn-ec2-launchtemplate-blockdevicemapping-virtualname
+func (o LaunchTemplateBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateBlockDeviceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBlockDeviceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateBlockDeviceMapping)(nil)).Elem()
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) ToLaunchTemplateBlockDeviceMappingArrayOutput() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) ToLaunchTemplateBlockDeviceMappingArrayOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) LaunchTemplateBlockDeviceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateBlockDeviceMapping {
+		return vs[0].([]LaunchTemplateBlockDeviceMapping)[vs[1].(int)]
+	}).(LaunchTemplateBlockDeviceMappingOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html
+type LaunchTemplateCapacityReservationSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationtarget
+	CapacityReservationTarget *LaunchTemplateCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// LaunchTemplateCapacityReservationSpecificationInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs and LaunchTemplateCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
+type LaunchTemplateCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput
+	ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html
+type LaunchTemplateCapacityReservationSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationtarget
+	CapacityReservationTarget LaunchTemplateCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (LaunchTemplateCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationSpecificationArgs) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationOutput).ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCapacityReservationSpecificationPtrInput is an input type that accepts LaunchTemplateCapacityReservationSpecificationArgs, LaunchTemplateCapacityReservationSpecificationPtr and LaunchTemplateCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationSpecificationPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput
+	ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput
+}
+
+type launchTemplateCapacityReservationSpecificationPtrType LaunchTemplateCapacityReservationSpecificationArgs
+
+func LaunchTemplateCapacityReservationSpecificationPtr(v *LaunchTemplateCapacityReservationSpecificationArgs) LaunchTemplateCapacityReservationSpecificationPtrInput {
+	return (*launchTemplateCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*launchTemplateCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCapacityReservationSpecificationPtrType) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html
+type LaunchTemplateCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutput() LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecification {
+		return &v
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationtarget
+func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutput() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTemplateCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) LaunchTemplateCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationSpecification
+		return ret
+	}).(LaunchTemplateCapacityReservationSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationpreference
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification-capacityreservationtarget
+func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html
+type LaunchTemplateCapacityReservationTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
+	CapacityReservationId *string `pulumi:"capacityReservationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+// LaunchTemplateCapacityReservationTargetInput is an input type that accepts LaunchTemplateCapacityReservationTargetArgs and LaunchTemplateCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationTargetInput` via:
+//
+//          LaunchTemplateCapacityReservationTargetArgs{...}
+type LaunchTemplateCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput
+	ToLaunchTemplateCapacityReservationTargetOutputWithContext(context.Context) LaunchTemplateCapacityReservationTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html
+type LaunchTemplateCapacityReservationTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
+	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
+}
+
+func (LaunchTemplateCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetOutput)
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCapacityReservationTargetArgs) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetOutput).ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCapacityReservationTargetPtrInput is an input type that accepts LaunchTemplateCapacityReservationTargetArgs, LaunchTemplateCapacityReservationTargetPtr and LaunchTemplateCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCapacityReservationTargetPtrInput` via:
+//
+//          LaunchTemplateCapacityReservationTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput
+	ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Context) LaunchTemplateCapacityReservationTargetPtrOutput
+}
+
+type launchTemplateCapacityReservationTargetPtrType LaunchTemplateCapacityReservationTargetArgs
+
+func LaunchTemplateCapacityReservationTargetPtr(v *LaunchTemplateCapacityReservationTargetArgs) LaunchTemplateCapacityReservationTargetPtrInput {
+	return (*launchTemplateCapacityReservationTargetPtrType)(v)
+}
+
+func (*launchTemplateCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return i.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCapacityReservationTargetPtrType) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html
+type LaunchTemplateCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetOutput() LaunchTemplateCapacityReservationTargetOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationTarget) *LaunchTemplateCapacityReservationTarget {
+		return &v
+	}).(LaunchTemplateCapacityReservationTargetPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
+func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+func (o LaunchTemplateCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCapacityReservationTarget) *string { return v.CapacityReservationResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) ToLaunchTemplateCapacityReservationTargetPtrOutput() LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) ToLaunchTemplateCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) Elem() LaunchTemplateCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) LaunchTemplateCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationTarget
+		return ret
+	}).(LaunchTemplateCapacityReservationTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationid
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html#cfn-ec2-launchtemplate-capacityreservationtarget-capacityreservationresourcegrouparn
+func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html
+type LaunchTemplateCpuOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
+	CoreCount *int `pulumi:"coreCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
+	ThreadsPerCore *int `pulumi:"threadsPerCore"`
+}
+
+// LaunchTemplateCpuOptionsInput is an input type that accepts LaunchTemplateCpuOptionsArgs and LaunchTemplateCpuOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
+type LaunchTemplateCpuOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput
+	ToLaunchTemplateCpuOptionsOutputWithContext(context.Context) LaunchTemplateCpuOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html
+type LaunchTemplateCpuOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
+	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
+	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
+}
+
+func (LaunchTemplateCpuOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return i.ToLaunchTemplateCpuOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput)
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuOptionsArgs) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsOutput).ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCpuOptionsPtrInput is an input type that accepts LaunchTemplateCpuOptionsArgs, LaunchTemplateCpuOptionsPtr and LaunchTemplateCpuOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuOptionsPtrInput` via:
+//
+//          LaunchTemplateCpuOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCpuOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput
+	ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Context) LaunchTemplateCpuOptionsPtrOutput
+}
+
+type launchTemplateCpuOptionsPtrType LaunchTemplateCpuOptionsArgs
+
+func LaunchTemplateCpuOptionsPtr(v *LaunchTemplateCpuOptionsArgs) LaunchTemplateCpuOptionsPtrInput {
+	return (*launchTemplateCpuOptionsPtrType)(v)
+}
+
+func (*launchTemplateCpuOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return i.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCpuOptionsPtrType) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html
+type LaunchTemplateCpuOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutput() LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ToLaunchTemplateCpuOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptions {
+		return &v
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
+func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
+func (o LaunchTemplateCpuOptionsOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.ThreadsPerCore }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateCpuOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpuOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutput() LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpuOptions
+		return ret
+	}).(LaunchTemplateCpuOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-corecount
+func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoreCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions-threadspercore
+func (o LaunchTemplateCpuOptionsPtrOutput) ThreadsPerCore() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThreadsPerCore
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html
+type LaunchTemplateCreditSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification-cpucredits
+	CpuCredits *string `pulumi:"cpuCredits"`
+}
+
+// LaunchTemplateCreditSpecificationInput is an input type that accepts LaunchTemplateCreditSpecificationArgs and LaunchTemplateCreditSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
+type LaunchTemplateCreditSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput
+	ToLaunchTemplateCreditSpecificationOutputWithContext(context.Context) LaunchTemplateCreditSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html
+type LaunchTemplateCreditSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification-cpucredits
+	CpuCredits pulumi.StringPtrInput `pulumi:"cpuCredits"`
+}
+
+func (LaunchTemplateCreditSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return i.ToLaunchTemplateCreditSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationOutput)
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return i.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCreditSpecificationArgs) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationOutput).ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCreditSpecificationPtrInput is an input type that accepts LaunchTemplateCreditSpecificationArgs, LaunchTemplateCreditSpecificationPtr and LaunchTemplateCreditSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCreditSpecificationPtrInput` via:
+//
+//          LaunchTemplateCreditSpecificationArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateCreditSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput
+	ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Context) LaunchTemplateCreditSpecificationPtrOutput
+}
+
+type launchTemplateCreditSpecificationPtrType LaunchTemplateCreditSpecificationArgs
+
+func LaunchTemplateCreditSpecificationPtr(v *LaunchTemplateCreditSpecificationArgs) LaunchTemplateCreditSpecificationPtrInput {
+	return (*launchTemplateCreditSpecificationPtrType)(v)
+}
+
+func (*launchTemplateCreditSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return i.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCreditSpecificationPtrType) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html
+type LaunchTemplateCreditSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCreditSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutput() LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ToLaunchTemplateCreditSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCreditSpecification) *LaunchTemplateCreditSpecification {
+		return &v
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification-cpucredits
+func (o LaunchTemplateCreditSpecificationOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *string { return v.CpuCredits }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateCreditSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCreditSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCreditSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) ToLaunchTemplateCreditSpecificationPtrOutput() LaunchTemplateCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) LaunchTemplateCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCreditSpecification
+		return ret
+	}).(LaunchTemplateCreditSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification-cpucredits
+func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCredits
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html
+type LaunchTemplateEbs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-deleteontermination
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-encrypted
+	Encrypted *bool `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-iops
+	Iops *int `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-snapshotid
+	SnapshotId *string `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-throughput
+	Throughput *int `pulumi:"throughput"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumesize
+	VolumeSize *int `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumetype
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// LaunchTemplateEbsInput is an input type that accepts LaunchTemplateEbsArgs and LaunchTemplateEbsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEbsInput` via:
+//
+//          LaunchTemplateEbsArgs{...}
+type LaunchTemplateEbsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput
+	ToLaunchTemplateEbsOutputWithContext(context.Context) LaunchTemplateEbsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html
+type LaunchTemplateEbsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-deleteontermination
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-encrypted
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-iops
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-snapshotid
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-throughput
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumesize
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumetype
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (LaunchTemplateEbsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput {
+	return i.ToLaunchTemplateEbsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsOutputWithContext(ctx context.Context) LaunchTemplateEbsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsOutput)
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return i.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEbsArgs) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsOutput).ToLaunchTemplateEbsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEbsPtrInput is an input type that accepts LaunchTemplateEbsArgs, LaunchTemplateEbsPtr and LaunchTemplateEbsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEbsPtrInput` via:
+//
+//          LaunchTemplateEbsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEbsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput
+	ToLaunchTemplateEbsPtrOutputWithContext(context.Context) LaunchTemplateEbsPtrOutput
+}
+
+type launchTemplateEbsPtrType LaunchTemplateEbsArgs
+
+func LaunchTemplateEbsPtr(v *LaunchTemplateEbsArgs) LaunchTemplateEbsPtrInput {
+	return (*launchTemplateEbsPtrType)(v)
+}
+
+func (*launchTemplateEbsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return i.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEbsPtrType) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html
+type LaunchTemplateEbsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEbsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsOutput() LaunchTemplateEbsOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsOutputWithContext(ctx context.Context) LaunchTemplateEbsOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return o.ToLaunchTemplateEbsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEbsOutput) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEbs) *LaunchTemplateEbs {
+		return &v
+	}).(LaunchTemplateEbsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-deleteontermination
+func (o LaunchTemplateEbsOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-encrypted
+func (o LaunchTemplateEbsOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-iops
+func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-kmskeyid
+func (o LaunchTemplateEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-snapshotid
+func (o LaunchTemplateEbsOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-throughput
+func (o LaunchTemplateEbsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumesize
+func (o LaunchTemplateEbsOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumetype
+func (o LaunchTemplateEbsOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateEbsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEbsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEbs)(nil)).Elem()
+}
+
+func (o LaunchTemplateEbsPtrOutput) ToLaunchTemplateEbsPtrOutput() LaunchTemplateEbsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsPtrOutput) ToLaunchTemplateEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateEbsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEbsPtrOutput) Elem() LaunchTemplateEbsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) LaunchTemplateEbs {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEbs
+		return ret
+	}).(LaunchTemplateEbsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-deleteontermination
+func (o LaunchTemplateEbsPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteOnTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-encrypted
+func (o LaunchTemplateEbsPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-iops
+func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-kmskeyid
+func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-snapshotid
+func (o LaunchTemplateEbsPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-throughput
+func (o LaunchTemplateEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumesize
+func (o LaunchTemplateEbsPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html#cfn-ec2-launchtemplate-blockdevicemapping-ebs-volumetype
+func (o LaunchTemplateEbsPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html
+type LaunchTemplateElasticGpuSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html#cfn-ec2-launchtemplate-elasticgpuspecification-type
+	Type *string `pulumi:"type"`
+}
+
+// LaunchTemplateElasticGpuSpecificationInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArgs and LaunchTemplateElasticGpuSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArgs{...}
+type LaunchTemplateElasticGpuSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput
+	ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html
+type LaunchTemplateElasticGpuSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html#cfn-ec2-launchtemplate-elasticgpuspecification-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LaunchTemplateElasticGpuSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
+	return i.ToLaunchTemplateElasticGpuSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArgs) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationOutput)
+}
+
+// LaunchTemplateElasticGpuSpecificationArrayInput is an input type that accepts LaunchTemplateElasticGpuSpecificationArray and LaunchTemplateElasticGpuSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateElasticGpuSpecificationArrayInput` via:
+//
+//          LaunchTemplateElasticGpuSpecificationArray{ LaunchTemplateElasticGpuSpecificationArgs{...} }
+type LaunchTemplateElasticGpuSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput
+	ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput
+}
+
+type LaunchTemplateElasticGpuSpecificationArray []LaunchTemplateElasticGpuSpecificationInput
+
+func (LaunchTemplateElasticGpuSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return i.ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateElasticGpuSpecificationArray) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html
+type LaunchTemplateElasticGpuSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticGpuSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutput() LaunchTemplateElasticGpuSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuSpecificationOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html#cfn-ec2-launchtemplate-elasticgpuspecification-type
+func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateElasticGpuSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateElasticGpuSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateElasticGpuSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutput() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) ToLaunchTemplateElasticGpuSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateElasticGpuSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateElasticGpuSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateElasticGpuSpecification {
+		return vs[0].([]LaunchTemplateElasticGpuSpecification)[vs[1].(int)]
+	}).(LaunchTemplateElasticGpuSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// LaunchTemplateEnclaveOptionsInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs and LaunchTemplateEnclaveOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+type LaunchTemplateEnclaveOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput
+	ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateEnclaveOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return i.ToLaunchTemplateEnclaveOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnclaveOptionsArgs) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsOutput).ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnclaveOptionsPtrInput is an input type that accepts LaunchTemplateEnclaveOptionsArgs, LaunchTemplateEnclaveOptionsPtr and LaunchTemplateEnclaveOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnclaveOptionsPtrInput` via:
+//
+//          LaunchTemplateEnclaveOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateEnclaveOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput
+	ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Context) LaunchTemplateEnclaveOptionsPtrOutput
+}
+
+type launchTemplateEnclaveOptionsPtrType LaunchTemplateEnclaveOptionsArgs
+
+func LaunchTemplateEnclaveOptionsPtr(v *LaunchTemplateEnclaveOptionsArgs) LaunchTemplateEnclaveOptionsPtrInput {
+	return (*launchTemplateEnclaveOptionsPtrType)(v)
+}
+
+func (*launchTemplateEnclaveOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return i.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnclaveOptionsPtrType) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html
+type LaunchTemplateEnclaveOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutput() LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
+		return &v
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+func (o LaunchTemplateEnclaveOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateEnclaveOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnclaveOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnclaveOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutput() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEnclaveOptions
+		return ret
+	}).(LaunchTemplateEnclaveOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions-enabled
+func (o LaunchTemplateEnclaveOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html
+type LaunchTemplateHibernationOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions-configured
+	Configured *bool `pulumi:"configured"`
+}
+
+// LaunchTemplateHibernationOptionsInput is an input type that accepts LaunchTemplateHibernationOptionsArgs and LaunchTemplateHibernationOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
+type LaunchTemplateHibernationOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput
+	ToLaunchTemplateHibernationOptionsOutputWithContext(context.Context) LaunchTemplateHibernationOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html
+type LaunchTemplateHibernationOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions-configured
+	Configured pulumi.BoolPtrInput `pulumi:"configured"`
+}
+
+func (LaunchTemplateHibernationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return i.ToLaunchTemplateHibernationOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput)
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateHibernationOptionsArgs) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsOutput).ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateHibernationOptionsPtrInput is an input type that accepts LaunchTemplateHibernationOptionsArgs, LaunchTemplateHibernationOptionsPtr and LaunchTemplateHibernationOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateHibernationOptionsPtrInput` via:
+//
+//          LaunchTemplateHibernationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateHibernationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput
+	ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Context) LaunchTemplateHibernationOptionsPtrOutput
+}
+
+type launchTemplateHibernationOptionsPtrType LaunchTemplateHibernationOptionsArgs
+
+func LaunchTemplateHibernationOptionsPtr(v *LaunchTemplateHibernationOptionsArgs) LaunchTemplateHibernationOptionsPtrInput {
+	return (*launchTemplateHibernationOptionsPtrType)(v)
+}
+
+func (*launchTemplateHibernationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return i.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateHibernationOptionsPtrType) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html
+type LaunchTemplateHibernationOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutput() LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ToLaunchTemplateHibernationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateHibernationOptions) *LaunchTemplateHibernationOptions {
+		return &v
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions-configured
+func (o LaunchTemplateHibernationOptionsOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *bool { return v.Configured }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateHibernationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateHibernationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateHibernationOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutput() LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernationOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) LaunchTemplateHibernationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateHibernationOptions
+		return ret
+	}).(LaunchTemplateHibernationOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions-configured
+func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Configured
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html
+type LaunchTemplateIamInstanceProfile struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-arn
+	Arn *string `pulumi:"arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-name
+	Name *string `pulumi:"name"`
+}
+
+// LaunchTemplateIamInstanceProfileInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs and LaunchTemplateIamInstanceProfileOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfileInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
+type LaunchTemplateIamInstanceProfileInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput
+	ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Context) LaunchTemplateIamInstanceProfileOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html
+type LaunchTemplateIamInstanceProfileArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-arn
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LaunchTemplateIamInstanceProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return i.ToLaunchTemplateIamInstanceProfileOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return i.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIamInstanceProfileArgs) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfileOutput).ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateIamInstanceProfilePtrInput is an input type that accepts LaunchTemplateIamInstanceProfileArgs, LaunchTemplateIamInstanceProfilePtr and LaunchTemplateIamInstanceProfilePtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateIamInstanceProfilePtrInput` via:
+//
+//          LaunchTemplateIamInstanceProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateIamInstanceProfilePtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput
+	ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Context) LaunchTemplateIamInstanceProfilePtrOutput
+}
+
+type launchTemplateIamInstanceProfilePtrType LaunchTemplateIamInstanceProfileArgs
+
+func LaunchTemplateIamInstanceProfilePtr(v *LaunchTemplateIamInstanceProfileArgs) LaunchTemplateIamInstanceProfilePtrInput {
+	return (*launchTemplateIamInstanceProfilePtrType)(v)
+}
+
+func (*launchTemplateIamInstanceProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return i.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateIamInstanceProfilePtrType) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html
+type LaunchTemplateIamInstanceProfileOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIamInstanceProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutput() LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfileOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfileOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateIamInstanceProfile) *LaunchTemplateIamInstanceProfile {
+		return &v
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-arn
+func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-name
+func (o LaunchTemplateIamInstanceProfileOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIamInstanceProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIamInstanceProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateIamInstanceProfile)(nil)).Elem()
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) ToLaunchTemplateIamInstanceProfilePtrOutput() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
+	return o
+}
+
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInstanceProfileOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) LaunchTemplateIamInstanceProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateIamInstanceProfile
+		return ret
+	}).(LaunchTemplateIamInstanceProfileOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-arn
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile-name
+func (o LaunchTemplateIamInstanceProfilePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html
+type LaunchTemplateInstanceMarketOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-markettype
+	MarketType *string `pulumi:"marketType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions
+	SpotOptions *LaunchTemplateSpotOptions `pulumi:"spotOptions"`
+}
+
+// LaunchTemplateInstanceMarketOptionsInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs and LaunchTemplateInstanceMarketOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
+type LaunchTemplateInstanceMarketOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput
+	ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html
+type LaunchTemplateInstanceMarketOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-markettype
+	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions
+	SpotOptions LaunchTemplateSpotOptionsPtrInput `pulumi:"spotOptions"`
+}
+
+func (LaunchTemplateInstanceMarketOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceMarketOptionsArgs) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsOutput).ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceMarketOptionsPtrInput is an input type that accepts LaunchTemplateInstanceMarketOptionsArgs, LaunchTemplateInstanceMarketOptionsPtr and LaunchTemplateInstanceMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceMarketOptionsPtrInput` via:
+//
+//          LaunchTemplateInstanceMarketOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceMarketOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput
+	ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput
+}
+
+type launchTemplateInstanceMarketOptionsPtrType LaunchTemplateInstanceMarketOptionsArgs
+
+func LaunchTemplateInstanceMarketOptionsPtr(v *LaunchTemplateInstanceMarketOptionsArgs) LaunchTemplateInstanceMarketOptionsPtrInput {
+	return (*launchTemplateInstanceMarketOptionsPtrType)(v)
+}
+
+func (*launchTemplateInstanceMarketOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return i.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceMarketOptionsPtrType) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html
+type LaunchTemplateInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceMarketOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutput() LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptions {
+		return &v
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-markettype
+func (o LaunchTemplateInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions
+func (o LaunchTemplateInstanceMarketOptionsOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions { return v.SpotOptions }).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+type LaunchTemplateInstanceMarketOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceMarketOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutput() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceMarketOptions
+		return ret
+	}).(LaunchTemplateInstanceMarketOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-markettype
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions
+func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) *LaunchTemplateSpotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SpotOptions
+	}).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html
+type LaunchTemplateIpv6Add struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html#cfn-ec2-launchtemplate-ipv6add-ipv6address
+	Ipv6Address *string `pulumi:"ipv6Address"`
+}
+
+// LaunchTemplateIpv6AddInput is an input type that accepts LaunchTemplateIpv6AddArgs and LaunchTemplateIpv6AddOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6AddInput` via:
+//
+//          LaunchTemplateIpv6AddArgs{...}
+type LaunchTemplateIpv6AddInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput
+	ToLaunchTemplateIpv6AddOutputWithContext(context.Context) LaunchTemplateIpv6AddOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html
+type LaunchTemplateIpv6AddArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html#cfn-ec2-launchtemplate-ipv6add-ipv6address
+	Ipv6Address pulumi.StringPtrInput `pulumi:"ipv6Address"`
+}
+
+func (LaunchTemplateIpv6AddArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6AddArgs) ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput {
+	return i.ToLaunchTemplateIpv6AddOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6AddArgs) ToLaunchTemplateIpv6AddOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddOutput)
+}
+
+// LaunchTemplateIpv6AddArrayInput is an input type that accepts LaunchTemplateIpv6AddArray and LaunchTemplateIpv6AddArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateIpv6AddArrayInput` via:
+//
+//          LaunchTemplateIpv6AddArray{ LaunchTemplateIpv6AddArgs{...} }
+type LaunchTemplateIpv6AddArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput
+	ToLaunchTemplateIpv6AddArrayOutputWithContext(context.Context) LaunchTemplateIpv6AddArrayOutput
+}
+
+type LaunchTemplateIpv6AddArray []LaunchTemplateIpv6AddInput
+
+func (LaunchTemplateIpv6AddArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput {
+	return i.ToLaunchTemplateIpv6AddArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateIpv6AddArray) ToLaunchTemplateIpv6AddArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html
+type LaunchTemplateIpv6AddOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6AddOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6AddOutput) ToLaunchTemplateIpv6AddOutput() LaunchTemplateIpv6AddOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddOutput) ToLaunchTemplateIpv6AddOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html#cfn-ec2-launchtemplate-ipv6add-ipv6address
+func (o LaunchTemplateIpv6AddOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateIpv6Add) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateIpv6AddArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateIpv6AddArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateIpv6Add)(nil)).Elem()
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) ToLaunchTemplateIpv6AddArrayOutput() LaunchTemplateIpv6AddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) ToLaunchTemplateIpv6AddArrayOutputWithContext(ctx context.Context) LaunchTemplateIpv6AddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateIpv6AddArrayOutput) Index(i pulumi.IntInput) LaunchTemplateIpv6AddOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateIpv6Add {
+		return vs[0].([]LaunchTemplateIpv6Add)[vs[1].(int)]
+	}).(LaunchTemplateIpv6AddOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html
+type LaunchTemplateLaunchTemplateData struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
+	BlockDeviceMappings []LaunchTemplateBlockDeviceMapping `pulumi:"blockDeviceMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification
+	CapacityReservationSpecification *LaunchTemplateCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+	CpuOptions *LaunchTemplateCpuOptions `pulumi:"cpuOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
+	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-disableapitermination
+	DisableApiTermination *bool `pulumi:"disableApiTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized
+	EbsOptimized *bool `pulumi:"ebsOptimized"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
+	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
+	ElasticInferenceAccelerators []LaunchTemplateLaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
+	HibernationOptions *LaunchTemplateHibernationOptions `pulumi:"hibernationOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
+	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-imageid
+	ImageId *string `pulumi:"imageId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instanceinitiatedshutdownbehavior
+	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions
+	InstanceMarketOptions *LaunchTemplateInstanceMarketOptions `pulumi:"instanceMarketOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancetype
+	InstanceType *string `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-kernelid
+	KernelId *string `pulumi:"kernelId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-keyname
+	KeyName *string `pulumi:"keyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
+	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
+	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
+	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement
+	Placement *LaunchTemplatePlacement `pulumi:"placement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ramdiskid
+	RamDiskId *string `pulumi:"ramDiskId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications
+	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
+	UserData *string `pulumi:"userData"`
+}
+
+// LaunchTemplateLaunchTemplateDataInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs and LaunchTemplateLaunchTemplateDataOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataInput` via:
+//
+//          LaunchTemplateLaunchTemplateDataArgs{...}
+type LaunchTemplateLaunchTemplateDataInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput
+	ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html
+type LaunchTemplateLaunchTemplateDataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
+	BlockDeviceMappings LaunchTemplateBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification
+	CapacityReservationSpecification LaunchTemplateCapacityReservationSpecificationPtrInput `pulumi:"capacityReservationSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+	CpuOptions LaunchTemplateCpuOptionsPtrInput `pulumi:"cpuOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
+	CreditSpecification LaunchTemplateCreditSpecificationPtrInput `pulumi:"creditSpecification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-disableapitermination
+	DisableApiTermination pulumi.BoolPtrInput `pulumi:"disableApiTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized
+	EbsOptimized pulumi.BoolPtrInput `pulumi:"ebsOptimized"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
+	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
+	ElasticInferenceAccelerators LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput `pulumi:"enclaveOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
+	HibernationOptions LaunchTemplateHibernationOptionsPtrInput `pulumi:"hibernationOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
+	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput `pulumi:"iamInstanceProfile"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-imageid
+	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instanceinitiatedshutdownbehavior
+	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput `pulumi:"instanceInitiatedShutdownBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions
+	InstanceMarketOptions LaunchTemplateInstanceMarketOptionsPtrInput `pulumi:"instanceMarketOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancetype
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-kernelid
+	KernelId pulumi.StringPtrInput `pulumi:"kernelId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-keyname
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
+	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput `pulumi:"licenseSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+	MetadataOptions LaunchTemplateMetadataOptionsPtrInput `pulumi:"metadataOptions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
+	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
+	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement
+	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ramdiskid
+	RamDiskId pulumi.StringPtrInput `pulumi:"ramDiskId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications
+	TagSpecifications LaunchTemplateTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
+	UserData pulumi.StringPtrInput `pulumi:"userData"`
+}
+
+func (LaunchTemplateLaunchTemplateDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput)
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateDataArgs) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataOutput).ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateLaunchTemplateDataPtrInput is an input type that accepts LaunchTemplateLaunchTemplateDataArgs, LaunchTemplateLaunchTemplateDataPtr and LaunchTemplateLaunchTemplateDataPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateDataPtrInput` via:
+//
+//          LaunchTemplateLaunchTemplateDataArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateLaunchTemplateDataPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput
+	ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Context) LaunchTemplateLaunchTemplateDataPtrOutput
+}
+
+type launchTemplateLaunchTemplateDataPtrType LaunchTemplateLaunchTemplateDataArgs
+
+func LaunchTemplateLaunchTemplateDataPtr(v *LaunchTemplateLaunchTemplateDataArgs) LaunchTemplateLaunchTemplateDataPtrInput {
+	return (*launchTemplateLaunchTemplateDataPtrType)(v)
+}
+
+func (*launchTemplateLaunchTemplateDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return i.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateLaunchTemplateDataPtrType) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html
+type LaunchTemplateLaunchTemplateDataOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutput() LaunchTemplateLaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o.ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateLaunchTemplateDataOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateLaunchTemplateData) *LaunchTemplateLaunchTemplateData {
+		return &v
+	}).(LaunchTemplateLaunchTemplateDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
+func (o LaunchTemplateLaunchTemplateDataOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
+		return v.BlockDeviceMappings
+	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification
+func (o LaunchTemplateLaunchTemplateDataOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions { return v.CpuOptions }).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
+func (o LaunchTemplateLaunchTemplateDataOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
+		return v.CreditSpecification
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-disableapitermination
+func (o LaunchTemplateLaunchTemplateDataOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.DisableApiTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized
+func (o LaunchTemplateLaunchTemplateDataOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *bool { return v.EbsOptimized }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
+func (o LaunchTemplateLaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
+		return v.ElasticGpuSpecifications
+	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
+func (o LaunchTemplateLaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
+		return v.HibernationOptions
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
+func (o LaunchTemplateLaunchTemplateDataOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
+		return v.IamInstanceProfile
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-imageid
+func (o LaunchTemplateLaunchTemplateDataOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.ImageId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instanceinitiatedshutdownbehavior
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
+		return v.InstanceMarketOptions
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancetype
+func (o LaunchTemplateLaunchTemplateDataOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-kernelid
+func (o LaunchTemplateLaunchTemplateDataOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KernelId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-keyname
+func (o LaunchTemplateLaunchTemplateDataOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
+func (o LaunchTemplateLaunchTemplateDataOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
+		return v.LicenseSpecifications
+	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+func (o LaunchTemplateLaunchTemplateDataOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions { return v.MetadataOptions }).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
+func (o LaunchTemplateLaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring { return v.Monitoring }).(LaunchTemplateMonitoringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
+func (o LaunchTemplateLaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement
+func (o LaunchTemplateLaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ramdiskid
+func (o LaunchTemplateLaunchTemplateDataOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.RamDiskId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
+func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
+func (o LaunchTemplateLaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications
+func (o LaunchTemplateLaunchTemplateDataOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification { return v.TagSpecifications }).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
+func (o LaunchTemplateLaunchTemplateDataOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateData) *string { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateLaunchTemplateData)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutput() LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ToLaunchTemplateLaunchTemplateDataPtrOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateDataPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Elem() LaunchTemplateLaunchTemplateDataOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) LaunchTemplateLaunchTemplateData {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateLaunchTemplateData
+		return ret
+	}).(LaunchTemplateLaunchTemplateDataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-blockdevicemappings
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) BlockDeviceMappings() LaunchTemplateBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateBlockDeviceMapping {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDeviceMappings
+	}).(LaunchTemplateBlockDeviceMappingArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CapacityReservationSpecification() LaunchTemplateCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCapacityReservationSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationSpecification
+	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-cpuoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CpuOptions() LaunchTemplateCpuOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCpuOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CpuOptions
+	}).(LaunchTemplateCpuOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-creditspecification
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) CreditSpecification() LaunchTemplateCreditSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateCreditSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CreditSpecification
+	}).(LaunchTemplateCreditSpecificationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-disableapitermination
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) DisableApiTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableApiTermination
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) EbsOptimized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EbsOptimized
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateElasticGpuSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticGpuSpecifications
+	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ElasticInferenceAccelerators() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticInferenceAccelerators
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-enclaveoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateEnclaveOptions {
+		if v == nil {
+			return nil
+		}
+		return v.EnclaveOptions
+	}).(LaunchTemplateEnclaveOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-hibernationoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) HibernationOptions() LaunchTemplateHibernationOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateHibernationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.HibernationOptions
+	}).(LaunchTemplateHibernationOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) IamInstanceProfile() LaunchTemplateIamInstanceProfilePtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateIamInstanceProfile {
+		if v == nil {
+			return nil
+		}
+		return v.IamInstanceProfile
+	}).(LaunchTemplateIamInstanceProfilePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-imageid
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instanceinitiatedshutdownbehavior
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInitiatedShutdownBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceMarketOptions() LaunchTemplateInstanceMarketOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateInstanceMarketOptions {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceMarketOptions
+	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-instancetype
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-kernelid
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) KernelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KernelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-keyname
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateLicenseSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseSpecifications
+	}).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) MetadataOptions() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMetadataOptions {
+		if v == nil {
+			return nil
+		}
+		return v.MetadataOptions
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Monitoring() LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplateMonitoring {
+		if v == nil {
+			return nil
+		}
+		return v.Monitoring
+	}).(LaunchTemplateMonitoringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateNetworkInterface {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaces
+	}).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) Placement() LaunchTemplatePlacementPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *LaunchTemplatePlacement {
+		if v == nil {
+			return nil
+		}
+		return v.Placement
+	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ramdiskid
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) RamDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RamDiskId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroupids
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-securitygroups
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) TagSpecifications() LaunchTemplateTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) []LaunchTemplateTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
+func (o LaunchTemplateLaunchTemplateDataPtrOutput) UserData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateLaunchTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserData
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html
+type LaunchTemplateLaunchTemplateElasticInferenceAccelerator struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-count
+	Count *int `pulumi:"count"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-type
+	Type *string `pulumi:"type"`
+}
+
+// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput` via:
+//
+//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...}
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-count
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+// LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput is an input type that accepts LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray and LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput` via:
+//
+//          LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray{ LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArgs{...} }
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
+	ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray []LaunchTemplateLaunchTemplateElasticInferenceAcceleratorInput
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return i.ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArray) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-count
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-type
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateElasticInferenceAccelerator) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput() LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) ToLaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateElasticInferenceAccelerator {
+		return vs[0].([]LaunchTemplateLaunchTemplateElasticInferenceAccelerator)[vs[1].(int)]
+	}).(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html
+type LaunchTemplateLaunchTemplateTagSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-resourcetype
+	ResourceType *string `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-tags
+	Tags []aws.Tag `pulumi:"tags"`
+}
+
+// LaunchTemplateLaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArgs and LaunchTemplateLaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationInput` via:
+//
+//          LaunchTemplateLaunchTemplateTagSpecificationArgs{...}
+type LaunchTemplateLaunchTemplateTagSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput
+	ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html
+type LaunchTemplateLaunchTemplateTagSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-resourcetype
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-tags
+	Tags aws.TagArrayInput `pulumi:"tags"`
+}
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return i.ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArgs) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
+}
+
+// LaunchTemplateLaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateLaunchTemplateTagSpecificationArray and LaunchTemplateLaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLaunchTemplateTagSpecificationArrayInput` via:
+//
+//          LaunchTemplateLaunchTemplateTagSpecificationArray{ LaunchTemplateLaunchTemplateTagSpecificationArgs{...} }
+type LaunchTemplateLaunchTemplateTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
+	ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationArray []LaunchTemplateLaunchTemplateTagSpecificationInput
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return i.ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLaunchTemplateTagSpecificationArray) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html
+type LaunchTemplateLaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutput() LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ToLaunchTemplateLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-resourcetype
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html#cfn-ec2-launchtemplate-launchtemplatetagspecification-tags
+func (o LaunchTemplateLaunchTemplateTagSpecificationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateLaunchTemplateTagSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+type LaunchTemplateLaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLaunchTemplateTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLaunchTemplateTagSpecification {
+		return vs[0].([]LaunchTemplateLaunchTemplateTagSpecification)[vs[1].(int)]
+	}).(LaunchTemplateLaunchTemplateTagSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html
+type LaunchTemplateLicenseSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html#cfn-ec2-launchtemplate-licensespecification-licenseconfigurationarn
+	LicenseConfigurationArn *string `pulumi:"licenseConfigurationArn"`
+}
+
+// LaunchTemplateLicenseSpecificationInput is an input type that accepts LaunchTemplateLicenseSpecificationArgs and LaunchTemplateLicenseSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArgs{...}
+type LaunchTemplateLicenseSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput
+	ToLaunchTemplateLicenseSpecificationOutputWithContext(context.Context) LaunchTemplateLicenseSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html
+type LaunchTemplateLicenseSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html#cfn-ec2-launchtemplate-licensespecification-licenseconfigurationarn
+	LicenseConfigurationArn pulumi.StringPtrInput `pulumi:"licenseConfigurationArn"`
+}
+
+func (LaunchTemplateLicenseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLicenseSpecificationArgs) ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput {
+	return i.ToLaunchTemplateLicenseSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLicenseSpecificationArgs) ToLaunchTemplateLicenseSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+// LaunchTemplateLicenseSpecificationArrayInput is an input type that accepts LaunchTemplateLicenseSpecificationArray and LaunchTemplateLicenseSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateLicenseSpecificationArrayInput` via:
+//
+//          LaunchTemplateLicenseSpecificationArray{ LaunchTemplateLicenseSpecificationArgs{...} }
+type LaunchTemplateLicenseSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput
+	ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(context.Context) LaunchTemplateLicenseSpecificationArrayOutput
+}
+
+type LaunchTemplateLicenseSpecificationArray []LaunchTemplateLicenseSpecificationInput
+
+func (LaunchTemplateLicenseSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput {
+	return i.ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateLicenseSpecificationArray) ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html
+type LaunchTemplateLicenseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLicenseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecificationOutput() LaunchTemplateLicenseSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationOutput) ToLaunchTemplateLicenseSpecificationOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html#cfn-ec2-launchtemplate-licensespecification-licenseconfigurationarn
+func (o LaunchTemplateLicenseSpecificationOutput) LicenseConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateLicenseSpecification) *string { return v.LicenseConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateLicenseSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateLicenseSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateLicenseSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) ToLaunchTemplateLicenseSpecificationArrayOutput() LaunchTemplateLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) ToLaunchTemplateLicenseSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateLicenseSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateLicenseSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
+		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
+	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html
+type LaunchTemplateMetadataOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+// LaunchTemplateMetadataOptionsInput is an input type that accepts LaunchTemplateMetadataOptionsArgs and LaunchTemplateMetadataOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
+type LaunchTemplateMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput
+	ToLaunchTemplateMetadataOptionsOutputWithContext(context.Context) LaunchTemplateMetadataOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html
+type LaunchTemplateMetadataOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (LaunchTemplateMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return i.ToLaunchTemplateMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput)
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMetadataOptionsArgs) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsOutput).ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMetadataOptionsPtrInput is an input type that accepts LaunchTemplateMetadataOptionsArgs, LaunchTemplateMetadataOptionsPtr and LaunchTemplateMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMetadataOptionsPtrInput` via:
+//
+//          LaunchTemplateMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput
+	ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Context) LaunchTemplateMetadataOptionsPtrOutput
+}
+
+type launchTemplateMetadataOptionsPtrType LaunchTemplateMetadataOptionsArgs
+
+func LaunchTemplateMetadataOptionsPtr(v *LaunchTemplateMetadataOptionsArgs) LaunchTemplateMetadataOptionsPtrInput {
+	return (*launchTemplateMetadataOptionsPtrType)(v)
+}
+
+func (*launchTemplateMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return i.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMetadataOptionsPtrType) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html
+type LaunchTemplateMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutput() LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ToLaunchTemplateMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMetadataOptions) *LaunchTemplateMetadataOptions {
+		return &v
+	}).(LaunchTemplateMetadataOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint
+func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit
+func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens
+func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMetadataOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutput() LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) LaunchTemplateMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMetadataOptions
+		return ret
+	}).(LaunchTemplateMetadataOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens
+func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html
+type LaunchTemplateMonitoring struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring-enabled
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// LaunchTemplateMonitoringInput is an input type that accepts LaunchTemplateMonitoringArgs and LaunchTemplateMonitoringOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
+type LaunchTemplateMonitoringInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput
+	ToLaunchTemplateMonitoringOutputWithContext(context.Context) LaunchTemplateMonitoringOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html
+type LaunchTemplateMonitoringArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (LaunchTemplateMonitoringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return i.ToLaunchTemplateMonitoringOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringOutput)
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return i.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMonitoringArgs) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringOutput).ToLaunchTemplateMonitoringPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMonitoringPtrInput is an input type that accepts LaunchTemplateMonitoringArgs, LaunchTemplateMonitoringPtr and LaunchTemplateMonitoringPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMonitoringPtrInput` via:
+//
+//          LaunchTemplateMonitoringArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMonitoringPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput
+	ToLaunchTemplateMonitoringPtrOutputWithContext(context.Context) LaunchTemplateMonitoringPtrOutput
+}
+
+type launchTemplateMonitoringPtrType LaunchTemplateMonitoringArgs
+
+func LaunchTemplateMonitoringPtr(v *LaunchTemplateMonitoringArgs) LaunchTemplateMonitoringPtrInput {
+	return (*launchTemplateMonitoringPtrType)(v)
+}
+
+func (*launchTemplateMonitoringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return i.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMonitoringPtrType) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMonitoringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html
+type LaunchTemplateMonitoringOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMonitoringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutput() LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringOutputWithContext(ctx context.Context) LaunchTemplateMonitoringOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return o.ToLaunchTemplateMonitoringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMonitoring) *LaunchTemplateMonitoring {
+		return &v
+	}).(LaunchTemplateMonitoringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring-enabled
+func (o LaunchTemplateMonitoringOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMonitoring) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateMonitoringPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMonitoringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMonitoring)(nil)).Elem()
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) ToLaunchTemplateMonitoringPtrOutput() LaunchTemplateMonitoringPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput {
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) LaunchTemplateMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMonitoring
+		return ret
+	}).(LaunchTemplateMonitoringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring-enabled
+func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
+type LaunchTemplateNetworkInterface struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
+	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
+	Groups []string `pulumi:"groups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
+	InterfaceType *string `pulumi:"interfaceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount
+	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
+	Ipv6Addresses []LaunchTemplateIpv6Add `pulumi:"ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddresses
+	PrivateIpAddresses []LaunchTemplatePrivateIpAdd `pulumi:"privateIpAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-secondaryprivateipaddresscount
+	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-subnetid
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// LaunchTemplateNetworkInterfaceInput is an input type that accepts LaunchTemplateNetworkInterfaceArgs and LaunchTemplateNetworkInterfaceOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArgs{...}
+type LaunchTemplateNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput
+	ToLaunchTemplateNetworkInterfaceOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
+type LaunchTemplateNetworkInterfaceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"associateCarrierIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
+	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
+	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount
+	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
+	Ipv6Addresses LaunchTemplateIpv6AddArrayInput `pulumi:"ipv6Addresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddresses
+	PrivateIpAddresses LaunchTemplatePrivateIpAddArrayInput `pulumi:"privateIpAddresses"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-secondaryprivateipaddresscount
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-subnetid
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (LaunchTemplateNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceArgs) ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput {
+	return i.ToLaunchTemplateNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceArgs) ToLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+// LaunchTemplateNetworkInterfaceArrayInput is an input type that accepts LaunchTemplateNetworkInterfaceArray and LaunchTemplateNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkInterfaceArrayInput` via:
+//
+//          LaunchTemplateNetworkInterfaceArray{ LaunchTemplateNetworkInterfaceArgs{...} }
+type LaunchTemplateNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput
+	ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(context.Context) LaunchTemplateNetworkInterfaceArrayOutput
+}
+
+type LaunchTemplateNetworkInterfaceArray []LaunchTemplateNetworkInterfaceInput
+
+func (LaunchTemplateNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput {
+	return i.ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkInterfaceArray) ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html
+type LaunchTemplateNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOutput() LaunchTemplateNetworkInterfaceOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) ToLaunchTemplateNetworkInterfaceOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress
+func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociateCarrierIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-associatepublicipaddress
+func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deleteontermination
+func (o LaunchTemplateNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-description
+func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-deviceindex
+func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
+func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
+func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.Ipv6AddressCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresses
+func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() LaunchTemplateIpv6AddArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplateIpv6Add { return v.Ipv6Addresses }).(LaunchTemplateIpv6AddArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkcardindex
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddress
+func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-privateipaddresses
+func (o LaunchTemplateNetworkInterfaceOutput) PrivateIpAddresses() LaunchTemplatePrivateIpAddArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []LaunchTemplatePrivateIpAdd { return v.PrivateIpAddresses }).(LaunchTemplatePrivateIpAddArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-secondaryprivateipaddresscount
+func (o LaunchTemplateNetworkInterfaceOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-subnetid
+func (o LaunchTemplateNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateNetworkInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) ToLaunchTemplateNetworkInterfaceArrayOutput() LaunchTemplateNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) ToLaunchTemplateNetworkInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) LaunchTemplateNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateNetworkInterface {
+		return vs[0].([]LaunchTemplateNetworkInterface)[vs[1].(int)]
+	}).(LaunchTemplateNetworkInterfaceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html
+type LaunchTemplatePlacement struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-affinity
+	Affinity *string `pulumi:"affinity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-availabilityzone
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-groupname
+	GroupName *string `pulumi:"groupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostid
+	HostId *string `pulumi:"hostId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostresourcegrouparn
+	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-partitionnumber
+	PartitionNumber *int `pulumi:"partitionNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-spreaddomain
+	SpreadDomain *string `pulumi:"spreadDomain"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-tenancy
+	Tenancy *string `pulumi:"tenancy"`
+}
+
+// LaunchTemplatePlacementInput is an input type that accepts LaunchTemplatePlacementArgs and LaunchTemplatePlacementOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
+type LaunchTemplatePlacementInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput
+	ToLaunchTemplatePlacementOutputWithContext(context.Context) LaunchTemplatePlacementOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html
+type LaunchTemplatePlacementArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-affinity
+	Affinity pulumi.StringPtrInput `pulumi:"affinity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-availabilityzone
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-groupname
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostid
+	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostresourcegrouparn
+	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-partitionnumber
+	PartitionNumber pulumi.IntPtrInput `pulumi:"partitionNumber"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-spreaddomain
+	SpreadDomain pulumi.StringPtrInput `pulumi:"spreadDomain"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-tenancy
+	Tenancy pulumi.StringPtrInput `pulumi:"tenancy"`
+}
+
+func (LaunchTemplatePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return i.ToLaunchTemplatePlacementOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementOutput)
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return i.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePlacementArgs) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementOutput).ToLaunchTemplatePlacementPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplatePlacementPtrInput is an input type that accepts LaunchTemplatePlacementArgs, LaunchTemplatePlacementPtr and LaunchTemplatePlacementPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplatePlacementPtrInput` via:
+//
+//          LaunchTemplatePlacementArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplatePlacementPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput
+	ToLaunchTemplatePlacementPtrOutputWithContext(context.Context) LaunchTemplatePlacementPtrOutput
+}
+
+type launchTemplatePlacementPtrType LaunchTemplatePlacementArgs
+
+func LaunchTemplatePlacementPtr(v *LaunchTemplatePlacementArgs) LaunchTemplatePlacementPtrInput {
+	return (*launchTemplatePlacementPtrType)(v)
+}
+
+func (*launchTemplatePlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return i.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplatePlacementPtrType) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePlacementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html
+type LaunchTemplatePlacementOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutput() LaunchTemplatePlacementOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementOutputWithContext(ctx context.Context) LaunchTemplatePlacementOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return o.ToLaunchTemplatePlacementPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplatePlacement) *LaunchTemplatePlacement {
+		return &v
+	}).(LaunchTemplatePlacementPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-affinity
+func (o LaunchTemplatePlacementOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Affinity }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-availabilityzone
+func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-groupname
+func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostid
+func (o LaunchTemplatePlacementOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostresourcegrouparn
+func (o LaunchTemplatePlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-partitionnumber
+func (o LaunchTemplatePlacementOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *int { return v.PartitionNumber }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-spreaddomain
+func (o LaunchTemplatePlacementOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.SpreadDomain }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-tenancy
+func (o LaunchTemplatePlacementOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.Tenancy }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplatePlacement)(nil)).Elem()
+}
+
+func (o LaunchTemplatePlacementPtrOutput) ToLaunchTemplatePlacementPtrOutput() LaunchTemplatePlacementPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementPtrOutput) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
+	return o
+}
+
+func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) LaunchTemplatePlacement {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplatePlacement
+		return ret
+	}).(LaunchTemplatePlacementOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-affinity
+func (o LaunchTemplatePlacementPtrOutput) Affinity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Affinity
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-availabilityzone
+func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-groupname
+func (o LaunchTemplatePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostid
+func (o LaunchTemplatePlacementPtrOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-hostresourcegrouparn
+func (o LaunchTemplatePlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-partitionnumber
+func (o LaunchTemplatePlacementPtrOutput) PartitionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-spreaddomain
+func (o LaunchTemplatePlacementPtrOutput) SpreadDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html#cfn-ec2-launchtemplate-launchtemplatedata-placement-tenancy
+func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tenancy
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html
+type LaunchTemplatePrivateIpAdd struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-primary
+	Primary *bool `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-privateipaddress
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+}
+
+// LaunchTemplatePrivateIpAddInput is an input type that accepts LaunchTemplatePrivateIpAddArgs and LaunchTemplatePrivateIpAddOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateIpAddInput` via:
+//
+//          LaunchTemplatePrivateIpAddArgs{...}
+type LaunchTemplatePrivateIpAddInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput
+	ToLaunchTemplatePrivateIpAddOutputWithContext(context.Context) LaunchTemplatePrivateIpAddOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html
+type LaunchTemplatePrivateIpAddArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-primary
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-privateipaddress
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+}
+
+func (LaunchTemplatePrivateIpAddArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (i LaunchTemplatePrivateIpAddArgs) ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput {
+	return i.ToLaunchTemplatePrivateIpAddOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateIpAddArgs) ToLaunchTemplatePrivateIpAddOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateIpAddOutput)
+}
+
+// LaunchTemplatePrivateIpAddArrayInput is an input type that accepts LaunchTemplatePrivateIpAddArray and LaunchTemplatePrivateIpAddArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplatePrivateIpAddArrayInput` via:
+//
+//          LaunchTemplatePrivateIpAddArray{ LaunchTemplatePrivateIpAddArgs{...} }
+type LaunchTemplatePrivateIpAddArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput
+	ToLaunchTemplatePrivateIpAddArrayOutputWithContext(context.Context) LaunchTemplatePrivateIpAddArrayOutput
+}
+
+type LaunchTemplatePrivateIpAddArray []LaunchTemplatePrivateIpAddInput
+
+func (LaunchTemplatePrivateIpAddArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput {
+	return i.ToLaunchTemplatePrivateIpAddArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplatePrivateIpAddArray) ToLaunchTemplatePrivateIpAddArrayOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplatePrivateIpAddArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html
+type LaunchTemplatePrivateIpAddOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateIpAddOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) ToLaunchTemplatePrivateIpAddOutput() LaunchTemplatePrivateIpAddOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddOutput) ToLaunchTemplatePrivateIpAddOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-primary
+func (o LaunchTemplatePrivateIpAddOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html#cfn-ec2-launchtemplate-privateipadd-privateipaddress
+func (o LaunchTemplatePrivateIpAddOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePrivateIpAdd) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplatePrivateIpAddArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplatePrivateIpAddArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplatePrivateIpAdd)(nil)).Elem()
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) ToLaunchTemplatePrivateIpAddArrayOutput() LaunchTemplatePrivateIpAddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) ToLaunchTemplatePrivateIpAddArrayOutputWithContext(ctx context.Context) LaunchTemplatePrivateIpAddArrayOutput {
+	return o
+}
+
+func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTemplatePrivateIpAddOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplatePrivateIpAdd {
+		return vs[0].([]LaunchTemplatePrivateIpAdd)[vs[1].(int)]
+	}).(LaunchTemplatePrivateIpAddOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html
+type LaunchTemplateSpotOptions struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes
+	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-instanceinterruptionbehavior
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice
+	MaxPrice *string `pulumi:"maxPrice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-spotinstancetype
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil
+	ValidUntil *string `pulumi:"validUntil"`
+}
+
+// LaunchTemplateSpotOptionsInput is an input type that accepts LaunchTemplateSpotOptionsArgs and LaunchTemplateSpotOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateSpotOptionsInput` via:
+//
+//          LaunchTemplateSpotOptionsArgs{...}
+type LaunchTemplateSpotOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput
+	ToLaunchTemplateSpotOptionsOutputWithContext(context.Context) LaunchTemplateSpotOptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html
+type LaunchTemplateSpotOptionsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes
+	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-instanceinterruptionbehavior
+	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-spotinstancetype
+	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
+}
+
+func (LaunchTemplateSpotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput {
+	return i.ToLaunchTemplateSpotOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsOutput)
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return i.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSpotOptionsArgs) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsOutput).ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateSpotOptionsPtrInput is an input type that accepts LaunchTemplateSpotOptionsArgs, LaunchTemplateSpotOptionsPtr and LaunchTemplateSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateSpotOptionsPtrInput` via:
+//
+//          LaunchTemplateSpotOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateSpotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput
+	ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Context) LaunchTemplateSpotOptionsPtrOutput
+}
+
+type launchTemplateSpotOptionsPtrType LaunchTemplateSpotOptionsArgs
+
+func LaunchTemplateSpotOptionsPtr(v *LaunchTemplateSpotOptionsArgs) LaunchTemplateSpotOptionsPtrInput {
+	return (*launchTemplateSpotOptionsPtrType)(v)
+}
+
+func (*launchTemplateSpotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return i.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateSpotOptionsPtrType) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html
+type LaunchTemplateSpotOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSpotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsOutput() LaunchTemplateSpotOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return o.ToLaunchTemplateSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateSpotOptionsOutput) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateSpotOptions) *LaunchTemplateSpotOptions {
+		return &v
+	}).(LaunchTemplateSpotOptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes
+func (o LaunchTemplateSpotOptionsOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *int { return v.BlockDurationMinutes }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-instanceinterruptionbehavior
+func (o LaunchTemplateSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice
+func (o LaunchTemplateSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-spotinstancetype
+func (o LaunchTemplateSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil
+func (o LaunchTemplateSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateSpotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSpotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateSpotOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) ToLaunchTemplateSpotOptionsPtrOutput() LaunchTemplateSpotOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) ToLaunchTemplateSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateSpotOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateSpotOptionsPtrOutput) Elem() LaunchTemplateSpotOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) LaunchTemplateSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateSpotOptions
+		return ret
+	}).(LaunchTemplateSpotOptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-blockdurationminutes
+func (o LaunchTemplateSpotOptionsPtrOutput) BlockDurationMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlockDurationMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-instanceinterruptionbehavior
+func (o LaunchTemplateSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-maxprice
+func (o LaunchTemplateSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-spotinstancetype
+func (o LaunchTemplateSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html#cfn-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions-validuntil
+func (o LaunchTemplateSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html
+type LaunchTemplateTagSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-resourcetype
+	ResourceType *string `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-tags
+	Tags []aws.Tag `pulumi:"tags"`
+}
+
+// LaunchTemplateTagSpecificationInput is an input type that accepts LaunchTemplateTagSpecificationArgs and LaunchTemplateTagSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationInput` via:
+//
+//          LaunchTemplateTagSpecificationArgs{...}
+type LaunchTemplateTagSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput
+	ToLaunchTemplateTagSpecificationOutputWithContext(context.Context) LaunchTemplateTagSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html
+type LaunchTemplateTagSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-resourcetype
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-tags
+	Tags aws.TagArrayInput `pulumi:"tags"`
+}
+
+func (LaunchTemplateTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagSpecificationArgs) ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput {
+	return i.ToLaunchTemplateTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagSpecificationArgs) ToLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationOutput)
+}
+
+// LaunchTemplateTagSpecificationArrayInput is an input type that accepts LaunchTemplateTagSpecificationArray and LaunchTemplateTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateTagSpecificationArrayInput` via:
+//
+//          LaunchTemplateTagSpecificationArray{ LaunchTemplateTagSpecificationArgs{...} }
+type LaunchTemplateTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput
+	ToLaunchTemplateTagSpecificationArrayOutputWithContext(context.Context) LaunchTemplateTagSpecificationArrayOutput
+}
+
+type LaunchTemplateTagSpecificationArray []LaunchTemplateTagSpecificationInput
+
+func (LaunchTemplateTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput {
+	return i.ToLaunchTemplateTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateTagSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html
+type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOutput() LaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-resourcetype
+func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-tags
+func (o LaunchTemplateTagSpecificationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateTagSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+type LaunchTemplateTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateTagSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateTagSpecificationArrayOutput() LaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) ToLaunchTemplateTagSpecificationArrayOutputWithContext(ctx context.Context) LaunchTemplateTagSpecificationArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateTagSpecification {
+		return vs[0].([]LaunchTemplateTagSpecification)[vs[1].(int)]
+	}).(LaunchTemplateTagSpecificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html
+type NetworkAclEntryIcmp struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
+	Code *int `pulumi:"code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
+	Type *int `pulumi:"type"`
+}
+
+// NetworkAclEntryIcmpInput is an input type that accepts NetworkAclEntryIcmpArgs and NetworkAclEntryIcmpOutput values.
+// You can construct a concrete instance of `NetworkAclEntryIcmpInput` via:
+//
+//          NetworkAclEntryIcmpArgs{...}
+type NetworkAclEntryIcmpInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput
+	ToNetworkAclEntryIcmpOutputWithContext(context.Context) NetworkAclEntryIcmpOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html
+type NetworkAclEntryIcmpArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
+	Code pulumi.IntPtrInput `pulumi:"code"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
+	Type pulumi.IntPtrInput `pulumi:"type"`
+}
+
+func (NetworkAclEntryIcmpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput {
+	return i.ToNetworkAclEntryIcmpOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpOutputWithContext(ctx context.Context) NetworkAclEntryIcmpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpOutput)
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return i.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryIcmpArgs) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpOutput).ToNetworkAclEntryIcmpPtrOutputWithContext(ctx)
+}
+
+// NetworkAclEntryIcmpPtrInput is an input type that accepts NetworkAclEntryIcmpArgs, NetworkAclEntryIcmpPtr and NetworkAclEntryIcmpPtrOutput values.
+// You can construct a concrete instance of `NetworkAclEntryIcmpPtrInput` via:
+//
+//          NetworkAclEntryIcmpArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkAclEntryIcmpPtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput
+	ToNetworkAclEntryIcmpPtrOutputWithContext(context.Context) NetworkAclEntryIcmpPtrOutput
+}
+
+type networkAclEntryIcmpPtrType NetworkAclEntryIcmpArgs
+
+func NetworkAclEntryIcmpPtr(v *NetworkAclEntryIcmpArgs) NetworkAclEntryIcmpPtrInput {
+	return (*networkAclEntryIcmpPtrType)(v)
+}
+
+func (*networkAclEntryIcmpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (i *networkAclEntryIcmpPtrType) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return i.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclEntryIcmpPtrType) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryIcmpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html
+type NetworkAclEntryIcmpOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryIcmpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpOutput() NetworkAclEntryIcmpOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpOutputWithContext(ctx context.Context) NetworkAclEntryIcmpOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return o.ToNetworkAclEntryIcmpPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclEntryIcmpOutput) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAclEntryIcmp) *NetworkAclEntryIcmp {
+		return &v
+	}).(NetworkAclEntryIcmpPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
+func (o NetworkAclEntryIcmpOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryIcmp) *int { return v.Code }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
+func (o NetworkAclEntryIcmpOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryIcmp) *int { return v.Type }).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclEntryIcmpPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryIcmpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryIcmp)(nil)).Elem()
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) ToNetworkAclEntryIcmpPtrOutput() NetworkAclEntryIcmpPtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) ToNetworkAclEntryIcmpPtrOutputWithContext(ctx context.Context) NetworkAclEntryIcmpPtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryIcmpPtrOutput) Elem() NetworkAclEntryIcmpOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) NetworkAclEntryIcmp {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAclEntryIcmp
+		return ret
+	}).(NetworkAclEntryIcmpOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-code
+func (o NetworkAclEntryIcmpPtrOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-icmp.html#cfn-ec2-networkaclentry-icmp-type
+func (o NetworkAclEntryIcmpPtrOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryIcmp) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
+type NetworkAclEntryPortRange struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from
+	From *int `pulumi:"from"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to
+	To *int `pulumi:"to"`
+}
+
+// NetworkAclEntryPortRangeInput is an input type that accepts NetworkAclEntryPortRangeArgs and NetworkAclEntryPortRangeOutput values.
+// You can construct a concrete instance of `NetworkAclEntryPortRangeInput` via:
+//
+//          NetworkAclEntryPortRangeArgs{...}
+type NetworkAclEntryPortRangeInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput
+	ToNetworkAclEntryPortRangeOutputWithContext(context.Context) NetworkAclEntryPortRangeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
+type NetworkAclEntryPortRangeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from
+	From pulumi.IntPtrInput `pulumi:"from"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to
+	To pulumi.IntPtrInput `pulumi:"to"`
+}
+
+func (NetworkAclEntryPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput {
+	return i.ToNetworkAclEntryPortRangeOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangeOutputWithContext(ctx context.Context) NetworkAclEntryPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangeOutput)
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return i.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i NetworkAclEntryPortRangeArgs) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangeOutput).ToNetworkAclEntryPortRangePtrOutputWithContext(ctx)
+}
+
+// NetworkAclEntryPortRangePtrInput is an input type that accepts NetworkAclEntryPortRangeArgs, NetworkAclEntryPortRangePtr and NetworkAclEntryPortRangePtrOutput values.
+// You can construct a concrete instance of `NetworkAclEntryPortRangePtrInput` via:
+//
+//          NetworkAclEntryPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type NetworkAclEntryPortRangePtrInput interface {
+	pulumi.Input
+
+	ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput
+	ToNetworkAclEntryPortRangePtrOutputWithContext(context.Context) NetworkAclEntryPortRangePtrOutput
+}
+
+type networkAclEntryPortRangePtrType NetworkAclEntryPortRangeArgs
+
+func NetworkAclEntryPortRangePtr(v *NetworkAclEntryPortRangeArgs) NetworkAclEntryPortRangePtrInput {
+	return (*networkAclEntryPortRangePtrType)(v)
+}
+
+func (*networkAclEntryPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (i *networkAclEntryPortRangePtrType) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return i.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *networkAclEntryPortRangePtrType) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclEntryPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
+type NetworkAclEntryPortRangeOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangeOutput() NetworkAclEntryPortRangeOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangeOutputWithContext(ctx context.Context) NetworkAclEntryPortRangeOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return o.ToNetworkAclEntryPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o NetworkAclEntryPortRangeOutput) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAclEntryPortRange) *NetworkAclEntryPortRange {
+		return &v
+	}).(NetworkAclEntryPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from
+func (o NetworkAclEntryPortRangeOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryPortRange) *int { return v.From }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to
+func (o NetworkAclEntryPortRangeOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkAclEntryPortRange) *int { return v.To }).(pulumi.IntPtrOutput)
+}
+
+type NetworkAclEntryPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclEntryPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkAclEntryPortRange)(nil)).Elem()
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) ToNetworkAclEntryPortRangePtrOutput() NetworkAclEntryPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) ToNetworkAclEntryPortRangePtrOutputWithContext(ctx context.Context) NetworkAclEntryPortRangePtrOutput {
+	return o
+}
+
+func (o NetworkAclEntryPortRangePtrOutput) Elem() NetworkAclEntryPortRangeOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) NetworkAclEntryPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAclEntryPortRange
+		return ret
+	}).(NetworkAclEntryPortRangeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-from
+func (o NetworkAclEntryPortRangePtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html#cfn-ec2-networkaclentry-portrange-to
+func (o NetworkAclEntryPortRangePtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkAclEntryPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.To
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -4298,6 +12086,215 @@ func (o NetworkInsightsAnalysisPortRangeArrayOutput) Index(i pulumi.IntInput) Ne
 	}).(NetworkInsightsAnalysisPortRangeOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html
+type NetworkInterfaceInstanceIpv6Address struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html#cfn-ec2-networkinterface-instanceipv6address-ipv6address
+	Ipv6Address string `pulumi:"ipv6Address"`
+}
+
+// NetworkInterfaceInstanceIpv6AddressInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArgs and NetworkInterfaceInstanceIpv6AddressOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressInput` via:
+//
+//          NetworkInterfaceInstanceIpv6AddressArgs{...}
+type NetworkInterfaceInstanceIpv6AddressInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput
+	ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html
+type NetworkInterfaceInstanceIpv6AddressArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html#cfn-ec2-networkinterface-instanceipv6address-ipv6address
+	Ipv6Address pulumi.StringInput `pulumi:"ipv6Address"`
+}
+
+func (NetworkInterfaceInstanceIpv6AddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput {
+	return i.ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArgs) ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressOutput)
+}
+
+// NetworkInterfaceInstanceIpv6AddressArrayInput is an input type that accepts NetworkInterfaceInstanceIpv6AddressArray and NetworkInterfaceInstanceIpv6AddressArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceInstanceIpv6AddressArrayInput` via:
+//
+//          NetworkInterfaceInstanceIpv6AddressArray{ NetworkInterfaceInstanceIpv6AddressArgs{...} }
+type NetworkInterfaceInstanceIpv6AddressArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput
+	ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput
+}
+
+type NetworkInterfaceInstanceIpv6AddressArray []NetworkInterfaceInstanceIpv6AddressInput
+
+func (NetworkInterfaceInstanceIpv6AddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return i.ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceInstanceIpv6AddressArray) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceInstanceIpv6AddressArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html
+type NetworkInterfaceInstanceIpv6AddressOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInstanceIpv6AddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressOutput() NetworkInterfaceInstanceIpv6AddressOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressOutput) ToNetworkInterfaceInstanceIpv6AddressOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html#cfn-ec2-networkinterface-instanceipv6address-ipv6address
+func (o NetworkInterfaceInstanceIpv6AddressOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfaceInstanceIpv6Address) string { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+type NetworkInterfaceInstanceIpv6AddressArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceInstanceIpv6AddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceInstanceIpv6Address)(nil)).Elem()
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutput() NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) ToNetworkInterfaceInstanceIpv6AddressArrayOutputWithContext(ctx context.Context) NetworkInterfaceInstanceIpv6AddressArrayOutput {
+	return o
+}
+
+func (o NetworkInterfaceInstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceInstanceIpv6AddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceInstanceIpv6Address {
+		return vs[0].([]NetworkInterfaceInstanceIpv6Address)[vs[1].(int)]
+	}).(NetworkInterfaceInstanceIpv6AddressOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type NetworkInterfacePrivateIpAddressSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+	Primary bool `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+}
+
+// NetworkInterfacePrivateIpAddressSpecificationInput is an input type that accepts NetworkInterfacePrivateIpAddressSpecificationArgs and NetworkInterfacePrivateIpAddressSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfacePrivateIpAddressSpecificationInput` via:
+//
+//          NetworkInterfacePrivateIpAddressSpecificationArgs{...}
+type NetworkInterfacePrivateIpAddressSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput
+	ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type NetworkInterfacePrivateIpAddressSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+}
+
+func (NetworkInterfacePrivateIpAddressSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArgs) ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return i.ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArgs) ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePrivateIpAddressSpecificationOutput)
+}
+
+// NetworkInterfacePrivateIpAddressSpecificationArrayInput is an input type that accepts NetworkInterfacePrivateIpAddressSpecificationArray and NetworkInterfacePrivateIpAddressSpecificationArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfacePrivateIpAddressSpecificationArrayInput` via:
+//
+//          NetworkInterfacePrivateIpAddressSpecificationArray{ NetworkInterfacePrivateIpAddressSpecificationArgs{...} }
+type NetworkInterfacePrivateIpAddressSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput
+	ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationArray []NetworkInterfacePrivateIpAddressSpecificationInput
+
+func (NetworkInterfacePrivateIpAddressSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArray) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return i.ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfacePrivateIpAddressSpecificationArray) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePrivateIpAddressSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
+type NetworkInterfacePrivateIpAddressSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePrivateIpAddressSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) ToNetworkInterfacePrivateIpAddressSpecificationOutput() NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) ToNetworkInterfacePrivateIpAddressSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress
+func (o NetworkInterfacePrivateIpAddressSpecificationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkInterfacePrivateIpAddressSpecification) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+type NetworkInterfacePrivateIpAddressSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfacePrivateIpAddressSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutput() NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) ToNetworkInterfacePrivateIpAddressSpecificationArrayOutputWithContext(ctx context.Context) NetworkInterfacePrivateIpAddressSpecificationArrayOutput {
+	return o
+}
+
+func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) Index(i pulumi.IntInput) NetworkInterfacePrivateIpAddressSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfacePrivateIpAddressSpecification {
+		return vs[0].([]NetworkInterfacePrivateIpAddressSpecification)[vs[1].(int)]
+	}).(NetworkInterfacePrivateIpAddressSpecificationOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html
 type PrefixListEntry struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-prefixlist-entry.html#cfn-ec2-prefixlist-entry-cidr
@@ -4405,6 +12402,350 @@ func (o PrefixListEntryArrayOutput) Index(i pulumi.IntInput) PrefixListEntryOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrefixListEntry {
 		return vs[0].([]PrefixListEntry)[vs[1].(int)]
 	}).(PrefixListEntryOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupEgressType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+	CidrIp *string `pulumi:"cidrIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destinationprefixlistid
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destsecgroupid
+	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+	FromPort *int `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+	IpProtocol string `pulumi:"ipProtocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+	ToPort *int `pulumi:"toPort"`
+}
+
+// SecurityGroupEgressTypeInput is an input type that accepts SecurityGroupEgressTypeArgs and SecurityGroupEgressTypeOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressTypeInput` via:
+//
+//          SecurityGroupEgressTypeArgs{...}
+type SecurityGroupEgressTypeInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput
+	ToSecurityGroupEgressTypeOutputWithContext(context.Context) SecurityGroupEgressTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupEgressTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+	CidrIpv6 pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destinationprefixlistid
+	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destsecgroupid
+	DestinationSecurityGroupId pulumi.StringPtrInput `pulumi:"destinationSecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+	IpProtocol pulumi.StringInput `pulumi:"ipProtocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (SecurityGroupEgressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressTypeArgs) ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput {
+	return i.ToSecurityGroupEgressTypeOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressTypeArgs) ToSecurityGroupEgressTypeOutputWithContext(ctx context.Context) SecurityGroupEgressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressTypeOutput)
+}
+
+// SecurityGroupEgressTypeArrayInput is an input type that accepts SecurityGroupEgressTypeArray and SecurityGroupEgressTypeArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressTypeArrayInput` via:
+//
+//          SecurityGroupEgressTypeArray{ SecurityGroupEgressTypeArgs{...} }
+type SecurityGroupEgressTypeArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput
+	ToSecurityGroupEgressTypeArrayOutputWithContext(context.Context) SecurityGroupEgressTypeArrayOutput
+}
+
+type SecurityGroupEgressTypeArray []SecurityGroupEgressTypeInput
+
+func (SecurityGroupEgressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressTypeArray) ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput {
+	return i.ToSecurityGroupEgressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressTypeArray) ToSecurityGroupEgressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupEgressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressTypeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupEgressTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressTypeOutput) ToSecurityGroupEgressTypeOutput() SecurityGroupEgressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeOutput) ToSecurityGroupEgressTypeOutputWithContext(ctx context.Context) SecurityGroupEgressTypeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+func (o SecurityGroupEgressTypeOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+func (o SecurityGroupEgressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+func (o SecurityGroupEgressTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destinationprefixlistid
+func (o SecurityGroupEgressTypeOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destsecgroupid
+func (o SecurityGroupEgressTypeOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *string { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+func (o SecurityGroupEgressTypeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+func (o SecurityGroupEgressTypeOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) string { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+func (o SecurityGroupEgressTypeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupEgressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type SecurityGroupEgressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressType)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) ToSecurityGroupEgressTypeArrayOutput() SecurityGroupEgressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) ToSecurityGroupEgressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupEgressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupEgressType {
+		return vs[0].([]SecurityGroupEgressType)[vs[1].(int)]
+	}).(SecurityGroupEgressTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupIngressType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+	CidrIp *string `pulumi:"cidrIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+	FromPort *int `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+	IpProtocol string `pulumi:"ipProtocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid
+	SourcePrefixListId *string `pulumi:"sourcePrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupid
+	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupname
+	SourceSecurityGroupName *string `pulumi:"sourceSecurityGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupownerid
+	SourceSecurityGroupOwnerId *string `pulumi:"sourceSecurityGroupOwnerId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+	ToPort *int `pulumi:"toPort"`
+}
+
+// SecurityGroupIngressTypeInput is an input type that accepts SecurityGroupIngressTypeArgs and SecurityGroupIngressTypeOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressTypeInput` via:
+//
+//          SecurityGroupIngressTypeArgs{...}
+type SecurityGroupIngressTypeInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput
+	ToSecurityGroupIngressTypeOutputWithContext(context.Context) SecurityGroupIngressTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupIngressTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+	CidrIpv6 pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+	FromPort pulumi.IntPtrInput `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+	IpProtocol pulumi.StringInput `pulumi:"ipProtocol"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid
+	SourcePrefixListId pulumi.StringPtrInput `pulumi:"sourcePrefixListId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupid
+	SourceSecurityGroupId pulumi.StringPtrInput `pulumi:"sourceSecurityGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupname
+	SourceSecurityGroupName pulumi.StringPtrInput `pulumi:"sourceSecurityGroupName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupownerid
+	SourceSecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"sourceSecurityGroupOwnerId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+	ToPort pulumi.IntPtrInput `pulumi:"toPort"`
+}
+
+func (SecurityGroupIngressTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressTypeArgs) ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput {
+	return i.ToSecurityGroupIngressTypeOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressTypeArgs) ToSecurityGroupIngressTypeOutputWithContext(ctx context.Context) SecurityGroupIngressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressTypeOutput)
+}
+
+// SecurityGroupIngressTypeArrayInput is an input type that accepts SecurityGroupIngressTypeArray and SecurityGroupIngressTypeArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressTypeArrayInput` via:
+//
+//          SecurityGroupIngressTypeArray{ SecurityGroupIngressTypeArgs{...} }
+type SecurityGroupIngressTypeArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput
+	ToSecurityGroupIngressTypeArrayOutputWithContext(context.Context) SecurityGroupIngressTypeArrayOutput
+}
+
+type SecurityGroupIngressTypeArray []SecurityGroupIngressTypeInput
+
+func (SecurityGroupIngressTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressTypeArray) ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput {
+	return i.ToSecurityGroupIngressTypeArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressTypeArray) ToSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupIngressTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressTypeArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
+type SecurityGroupIngressTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressTypeOutput) ToSecurityGroupIngressTypeOutput() SecurityGroupIngressTypeOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeOutput) ToSecurityGroupIngressTypeOutputWithContext(ctx context.Context) SecurityGroupIngressTypeOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidrip
+func (o SecurityGroupIngressTypeOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
+func (o SecurityGroupIngressTypeOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+func (o SecurityGroupIngressTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
+func (o SecurityGroupIngressTypeOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.FromPort }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
+func (o SecurityGroupIngressTypeOutput) IpProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) string { return v.IpProtocol }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid
+func (o SecurityGroupIngressTypeOutput) SourcePrefixListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourcePrefixListId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupid
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupname
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupownerid
+func (o SecurityGroupIngressTypeOutput) SourceSecurityGroupOwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *string { return v.SourceSecurityGroupOwnerId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
+func (o SecurityGroupIngressTypeOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityGroupIngressType) *int { return v.ToPort }).(pulumi.IntPtrOutput)
+}
+
+type SecurityGroupIngressTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressType)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) ToSecurityGroupIngressTypeArrayOutput() SecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) ToSecurityGroupIngressTypeArrayOutputWithContext(ctx context.Context) SecurityGroupIngressTypeArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressTypeArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngressType {
+		return vs[0].([]SecurityGroupIngressType)[vs[1].(int)]
+	}).(SecurityGroupIngressTypeOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html
@@ -7967,6 +16308,165 @@ func (o SpotFleetTargetGroupsConfigPtrOutput) TargetGroups() SpotFleetTargetGrou
 	}).(SpotFleetTargetGroupArrayOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html
+type TrafficMirrorFilterRuleTrafficMirrorPortRange struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport
+	FromPort int `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport
+	ToPort int `pulumi:"toPort"`
+}
+
+// TrafficMirrorFilterRuleTrafficMirrorPortRangeInput is an input type that accepts TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs and TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleTrafficMirrorPortRangeInput` via:
+//
+//          TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{...}
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput)
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput).ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx)
+}
+
+// TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput is an input type that accepts TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs, TrafficMirrorFilterRuleTrafficMirrorPortRangePtr and TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput values.
+// You can construct a concrete instance of `TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput` via:
+//
+//          TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput interface {
+	pulumi.Input
+
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput
+	ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput
+}
+
+type trafficMirrorFilterRuleTrafficMirrorPortRangePtrType TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs
+
+func TrafficMirrorFilterRuleTrafficMirrorPortRangePtr(v *TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrInput {
+	return (*trafficMirrorFilterRuleTrafficMirrorPortRangePtrType)(v)
+}
+
+func (*trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (i *trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return i.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *trafficMirrorFilterRuleTrafficMirrorPortRangePtrType) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html
+type TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangeOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilterRuleTrafficMirrorPortRange) *TrafficMirrorFilterRuleTrafficMirrorPortRange {
+		return &v
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleTrafficMirrorPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TrafficMirrorFilterRuleTrafficMirrorPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficMirrorFilterRuleTrafficMirrorPortRange)(nil)).Elem()
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput() TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToTrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput {
+	return o
+}
+
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) Elem() TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) TrafficMirrorFilterRuleTrafficMirrorPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilterRuleTrafficMirrorPortRange
+		return ret
+	}).(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-fromport
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-trafficmirrorportrange.html#cfn-ec2-trafficmirrorfilterrule-trafficmirrorportrange-toport
+func (o TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleTrafficMirrorPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html
 type TransitGatewayConnectTransitGatewayConnectOptions struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayconnect-transitgatewayconnectoptions.html#cfn-ec2-transitgatewayconnect-transitgatewayconnectoptions-protocol
@@ -8107,7 +16607,132 @@ func (o TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput) Protocol() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html
+type VPNConnectionVpnTunnelOptionsSpecification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey
+	PreSharedKey *string `pulumi:"preSharedKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr
+	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
+}
+
+// VPNConnectionVpnTunnelOptionsSpecificationInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArgs and VPNConnectionVpnTunnelOptionsSpecificationOutput values.
+// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationInput` via:
+//
+//          VPNConnectionVpnTunnelOptionsSpecificationArgs{...}
+type VPNConnectionVpnTunnelOptionsSpecificationInput interface {
+	pulumi.Input
+
+	ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput
+	ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html
+type VPNConnectionVpnTunnelOptionsSpecificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey
+	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr
+	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
+}
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return i.ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArgs) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
+// VPNConnectionVpnTunnelOptionsSpecificationArrayInput is an input type that accepts VPNConnectionVpnTunnelOptionsSpecificationArray and VPNConnectionVpnTunnelOptionsSpecificationArrayOutput values.
+// You can construct a concrete instance of `VPNConnectionVpnTunnelOptionsSpecificationArrayInput` via:
+//
+//          VPNConnectionVpnTunnelOptionsSpecificationArray{ VPNConnectionVpnTunnelOptionsSpecificationArgs{...} }
+type VPNConnectionVpnTunnelOptionsSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
+	ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationArray []VPNConnectionVpnTunnelOptionsSpecificationInput
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return i.ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i VPNConnectionVpnTunnelOptionsSpecificationArray) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html
+type VPNConnectionVpnTunnelOptionsSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionVpnTunnelOptionsSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutput() VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) ToVPNConnectionVpnTunnelOptionsSpecificationOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-presharedkey
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html#cfn-ec2-vpnconnection-vpntunneloptionsspecification-tunnelinsidecidr
+func (o VPNConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VPNConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
+}
+
+type VPNConnectionVpnTunnelOptionsSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VPNConnectionVpnTunnelOptionsSpecification)(nil)).Elem()
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutput() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) ToVPNConnectionVpnTunnelOptionsSpecificationArrayOutputWithContext(ctx context.Context) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
+	return o
+}
+
+func (o VPNConnectionVpnTunnelOptionsSpecificationArrayOutput) Index(i pulumi.IntInput) VPNConnectionVpnTunnelOptionsSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VPNConnectionVpnTunnelOptionsSpecification {
+		return vs[0].([]VPNConnectionVpnTunnelOptionsSpecification)[vs[1].(int)]
+	}).(VPNConnectionVpnTunnelOptionsSpecificationOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CapacityReservationTagSpecificationOutput{})
+	pulumi.RegisterOutputType(CapacityReservationTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointCertificateAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientAuthenticationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointClientConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointConnectionLogOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointDirectoryServiceAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointFederatedAuthenticationRequestPtrOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationOutput{})
+	pulumi.RegisterOutputType(ClientVpnEndpointTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetCapacityReservationOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetFleetLaunchTemplateConfigRequestOutput{})
@@ -8126,6 +16751,90 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetTargetCapacitySpecificationRequestPtrOutput{})
+	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})
+	pulumi.RegisterOutputType(InstanceAssociationParameterArrayOutput{})
+	pulumi.RegisterOutputType(InstanceBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(InstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceCpuOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceCreditSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceCreditSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceEbsOutput{})
+	pulumi.RegisterOutputType(InstanceEbsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(InstanceElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceHibernationOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceHibernationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplateSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(InstanceLicenseSpecificationOutput{})
+	pulumi.RegisterOutputType(InstanceLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceNoDeviceOutput{})
+	pulumi.RegisterOutputType(InstanceNoDevicePtrOutput{})
+	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationOutput{})
+	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceSsmAssociationOutput{})
+	pulumi.RegisterOutputType(InstanceSsmAssociationArrayOutput{})
+	pulumi.RegisterOutputType(InstanceVolumeOutput{})
+	pulumi.RegisterOutputType(InstanceVolumeArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEbsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEbsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfileOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIamInstanceProfilePtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6AddOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateIpv6AddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateDataPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddOutput{})
+	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryIcmpOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryIcmpPtrOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryPortRangeOutput{})
+	pulumi.RegisterOutputType(NetworkAclEntryPortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAlternatePathHintArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisAnalysisAclRuleOutput{})
@@ -8150,8 +16859,16 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangeOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceInstanceIpv6AddressArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressTypeOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressTypeArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressTypeOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressTypeArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancerOutput{})
@@ -8196,6 +16913,10 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetTargetGroupsConfigPtrOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangeOutput{})
+	pulumi.RegisterOutputType(TrafficMirrorFilterRuleTrafficMirrorPortRangePtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsOutput{})
 	pulumi.RegisterOutputType(TransitGatewayConnectTransitGatewayConnectOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationOutput{})
+	pulumi.RegisterOutputType(VPNConnectionVpnTunnelOptionsSpecificationArrayOutput{})
 }

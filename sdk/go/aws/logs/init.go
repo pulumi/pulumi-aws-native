@@ -21,12 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:logs:Destination":
+		r = &Destination{}
 	case "aws-native:logs:LogGroup":
 		r = &LogGroup{}
+	case "aws-native:logs:LogStream":
+		r = &LogStream{}
+	case "aws-native:logs:MetricFilter":
+		r = &MetricFilter{}
 	case "aws-native:logs:QueryDefinition":
 		r = &QueryDefinition{}
 	case "aws-native:logs:ResourcePolicy":
 		r = &ResourcePolicy{}
+	case "aws-native:logs:SubscriptionFilter":
+		r = &SubscriptionFilter{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

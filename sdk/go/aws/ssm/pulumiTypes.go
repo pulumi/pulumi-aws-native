@@ -664,6 +664,2338 @@ func (o DocumentDocumentRequiresArrayOutput) Index(i pulumi.IntInput) DocumentDo
 	}).(DocumentDocumentRequiresOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html
+type MaintenanceWindowTargetTargets struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+	Values []string `pulumi:"values"`
+}
+
+// MaintenanceWindowTargetTargetsInput is an input type that accepts MaintenanceWindowTargetTargetsArgs and MaintenanceWindowTargetTargetsOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsInput` via:
+//
+//          MaintenanceWindowTargetTargetsArgs{...}
+type MaintenanceWindowTargetTargetsInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput
+	ToMaintenanceWindowTargetTargetsOutputWithContext(context.Context) MaintenanceWindowTargetTargetsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html
+type MaintenanceWindowTargetTargetsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTargetTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return i.ToMaintenanceWindowTargetTargetsOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsOutput)
+}
+
+// MaintenanceWindowTargetTargetsArrayInput is an input type that accepts MaintenanceWindowTargetTargetsArray and MaintenanceWindowTargetTargetsArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsArrayInput` via:
+//
+//          MaintenanceWindowTargetTargetsArray{ MaintenanceWindowTargetTargetsArgs{...} }
+type MaintenanceWindowTargetTargetsArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput
+	ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Context) MaintenanceWindowTargetTargetsArrayOutput
+}
+
+type MaintenanceWindowTargetTargetsArray []MaintenanceWindowTargetTargetsInput
+
+func (MaintenanceWindowTargetTargetsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return i.ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html
+type MaintenanceWindowTargetTargetsOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
+func (o MaintenanceWindowTargetTargetsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
+func (o MaintenanceWindowTargetTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTargetTargets {
+		return vs[0].([]MaintenanceWindowTargetTargets)[vs[1].(int)]
+	}).(MaintenanceWindowTargetTargetsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
+type MaintenanceWindowTaskLoggingInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+	Region string `pulumi:"region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+	S3Bucket string `pulumi:"s3Bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+	S3Prefix *string `pulumi:"s3Prefix"`
+}
+
+// MaintenanceWindowTaskLoggingInfoInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs and MaintenanceWindowTaskLoggingInfoOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoInput` via:
+//
+//          MaintenanceWindowTaskLoggingInfoArgs{...}
+type MaintenanceWindowTaskLoggingInfoInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput
+	ToMaintenanceWindowTaskLoggingInfoOutputWithContext(context.Context) MaintenanceWindowTaskLoggingInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
+type MaintenanceWindowTaskLoggingInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+	Region pulumi.StringInput `pulumi:"region"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
+}
+
+func (MaintenanceWindowTaskLoggingInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskLoggingInfoArgs) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoOutput).ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskLoggingInfoPtrInput is an input type that accepts MaintenanceWindowTaskLoggingInfoArgs, MaintenanceWindowTaskLoggingInfoPtr and MaintenanceWindowTaskLoggingInfoPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskLoggingInfoPtrInput` via:
+//
+//          MaintenanceWindowTaskLoggingInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskLoggingInfoPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput
+	ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput
+}
+
+type maintenanceWindowTaskLoggingInfoPtrType MaintenanceWindowTaskLoggingInfoArgs
+
+func MaintenanceWindowTaskLoggingInfoPtr(v *MaintenanceWindowTaskLoggingInfoArgs) MaintenanceWindowTaskLoggingInfoPtrInput {
+	return (*maintenanceWindowTaskLoggingInfoPtrType)(v)
+}
+
+func (*maintenanceWindowTaskLoggingInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskLoggingInfoPtrType) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return i.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskLoggingInfoPtrType) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskLoggingInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html
+type MaintenanceWindowTaskLoggingInfoOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskLoggingInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutput() MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o.ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskLoggingInfoOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskLoggingInfo) *MaintenanceWindowTaskLoggingInfo {
+		return &v
+	}).(MaintenanceWindowTaskLoggingInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+func (o MaintenanceWindowTaskLoggingInfoOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+func (o MaintenanceWindowTaskLoggingInfoOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskLoggingInfo) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskLoggingInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskLoggingInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskLoggingInfo)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutput() MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) ToMaintenanceWindowTaskLoggingInfoPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskLoggingInfoPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) Elem() MaintenanceWindowTaskLoggingInfoOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) MaintenanceWindowTaskLoggingInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskLoggingInfo
+		return ret
+	}).(MaintenanceWindowTaskLoggingInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+func (o MaintenanceWindowTaskLoggingInfoPtrOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskLoggingInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+type MaintenanceWindowTaskMaintenanceWindowAutomationParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+	DocumentVersion *string `pulumi:"documentVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+	Parameters interface{} `pulumi:"parameters"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs and MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs, MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtr and MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowAutomationParametersArgs) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowAutomationParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowAutomationParameters) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowAutomationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowAutomationParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+func (o MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowAutomationParameters) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
+type MaintenanceWindowTaskMaintenanceWindowLambdaParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+	ClientContext *string `pulumi:"clientContext"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+	Payload *string `pulumi:"payload"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+	Qualifier *string `pulumi:"qualifier"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs and MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+	ClientContext pulumi.StringPtrInput `pulumi:"clientContext"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+	Payload pulumi.StringPtrInput `pulumi:"payload"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs, MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtr and MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowLambdaParametersArgs) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowLambdaParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) ClientContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.ClientContext }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.Payload }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string { return v.Qualifier }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowLambdaParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowLambdaParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) ClientContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientContext
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Payload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Payload
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+func (o MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput) Qualifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowLambdaParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Qualifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+	Comment *string `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+	DocumentHash *string `pulumi:"documentHash"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+	DocumentHashType *string `pulumi:"documentHashType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+	NotificationConfig *MaintenanceWindowTaskNotificationConfig `pulumi:"notificationConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+	OutputS3BucketName *string `pulumi:"outputS3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs and MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+	DocumentHash pulumi.StringPtrInput `pulumi:"documentHash"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+	DocumentHashType pulumi.StringPtrInput `pulumi:"documentHashType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+	NotificationConfig MaintenanceWindowTaskNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+	OutputS3BucketName pulumi.StringPtrInput `pulumi:"outputS3BucketName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+	OutputS3KeyPrefix pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+	ServiceRoleArn pulumi.StringPtrInput `pulumi:"serviceRoleArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs, MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtr and MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParametersArgs) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentHash }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) DocumentHashType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.DocumentHashType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) NotificationConfig() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskNotificationConfig {
+		return v.NotificationConfig
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		return v.OutputS3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.OutputS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowRunCommandParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowRunCommandParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) DocumentHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) DocumentHashType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentHashType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) NotificationConfig() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *MaintenanceWindowTaskNotificationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationConfig
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) OutputS3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputS3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) ServiceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+func (o MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+	Input *string `pulumi:"input"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+	Name *string `pulumi:"name"`
+}
+
+// MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs and MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs{...}
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+	Input pulumi.StringPtrInput `pulumi:"input"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput)
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput).ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput is an input type that accepts MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs, MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtr and MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput
+	ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput
+}
+
+type maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs
+
+func MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtr(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersArgs) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput {
+	return (*maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrType) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		return &v
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) Input() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string { return v.Input }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) ToMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Elem() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters
+		return ret
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Input() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Input
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+func (o MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
+type MaintenanceWindowTaskNotificationConfig struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+	NotificationArn string `pulumi:"notificationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+	NotificationEvents []string `pulumi:"notificationEvents"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+	NotificationType *string `pulumi:"notificationType"`
+}
+
+// MaintenanceWindowTaskNotificationConfigInput is an input type that accepts MaintenanceWindowTaskNotificationConfigArgs and MaintenanceWindowTaskNotificationConfigOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskNotificationConfigInput` via:
+//
+//          MaintenanceWindowTaskNotificationConfigArgs{...}
+type MaintenanceWindowTaskNotificationConfigInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput
+	ToMaintenanceWindowTaskNotificationConfigOutputWithContext(context.Context) MaintenanceWindowTaskNotificationConfigOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
+type MaintenanceWindowTaskNotificationConfigArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+	NotificationArn pulumi.StringInput `pulumi:"notificationArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+	NotificationEvents pulumi.StringArrayInput `pulumi:"notificationEvents"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+	NotificationType pulumi.StringPtrInput `pulumi:"notificationType"`
+}
+
+func (MaintenanceWindowTaskNotificationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigOutput)
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskNotificationConfigArgs) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigOutput).ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskNotificationConfigPtrInput is an input type that accepts MaintenanceWindowTaskNotificationConfigArgs, MaintenanceWindowTaskNotificationConfigPtr and MaintenanceWindowTaskNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskNotificationConfigPtrInput` via:
+//
+//          MaintenanceWindowTaskNotificationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskNotificationConfigPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput
+	ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput
+}
+
+type maintenanceWindowTaskNotificationConfigPtrType MaintenanceWindowTaskNotificationConfigArgs
+
+func MaintenanceWindowTaskNotificationConfigPtr(v *MaintenanceWindowTaskNotificationConfigArgs) MaintenanceWindowTaskNotificationConfigPtrInput {
+	return (*maintenanceWindowTaskNotificationConfigPtrType)(v)
+}
+
+func (*maintenanceWindowTaskNotificationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskNotificationConfigPtrType) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return i.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskNotificationConfigPtrType) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
+type MaintenanceWindowTaskNotificationConfigOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskNotificationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigOutput() MaintenanceWindowTaskNotificationConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskNotificationConfigOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskNotificationConfig) *MaintenanceWindowTaskNotificationConfig {
+		return &v
+	}).(MaintenanceWindowTaskNotificationConfigPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) string { return v.NotificationArn }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) []string { return v.NotificationEvents }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+func (o MaintenanceWindowTaskNotificationConfigOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskNotificationConfig) *string { return v.NotificationType }).(pulumi.StringPtrOutput)
+}
+
+type MaintenanceWindowTaskNotificationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskNotificationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskNotificationConfig)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutput() MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) ToMaintenanceWindowTaskNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskNotificationConfigPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) Elem() MaintenanceWindowTaskNotificationConfigOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) MaintenanceWindowTaskNotificationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskNotificationConfig
+		return ret
+	}).(MaintenanceWindowTaskNotificationConfigOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+func (o MaintenanceWindowTaskNotificationConfigPtrOutput) NotificationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
+type MaintenanceWindowTaskTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+	Key string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+	Values []string `pulumi:"values"`
+}
+
+// MaintenanceWindowTaskTargetInput is an input type that accepts MaintenanceWindowTaskTargetArgs and MaintenanceWindowTaskTargetOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetInput` via:
+//
+//          MaintenanceWindowTaskTargetArgs{...}
+type MaintenanceWindowTaskTargetInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput
+	ToMaintenanceWindowTaskTargetOutputWithContext(context.Context) MaintenanceWindowTaskTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
+type MaintenanceWindowTaskTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+	Key pulumi.StringInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTaskTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput {
+	return i.ToMaintenanceWindowTaskTargetOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetOutput)
+}
+
+// MaintenanceWindowTaskTargetArrayInput is an input type that accepts MaintenanceWindowTaskTargetArray and MaintenanceWindowTaskTargetArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTargetArrayInput` via:
+//
+//          MaintenanceWindowTaskTargetArray{ MaintenanceWindowTaskTargetArgs{...} }
+type MaintenanceWindowTaskTargetArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput
+	ToMaintenanceWindowTaskTargetArrayOutputWithContext(context.Context) MaintenanceWindowTaskTargetArrayOutput
+}
+
+type MaintenanceWindowTaskTargetArray []MaintenanceWindowTaskTargetInput
+
+func (MaintenanceWindowTaskTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTargetArray) ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput {
+	return i.ToMaintenanceWindowTaskTargetArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTargetArray) ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html
+type MaintenanceWindowTaskTargetOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutput() MaintenanceWindowTaskTargetOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTarget) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+func (o MaintenanceWindowTaskTargetOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MaintenanceWindowTaskTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTaskTarget)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArrayOutput() MaintenanceWindowTaskTargetArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTargetArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTaskTarget {
+		return vs[0].([]MaintenanceWindowTaskTarget)[vs[1].(int)]
+	}).(MaintenanceWindowTaskTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
+type MaintenanceWindowTaskTaskInvocationParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+	MaintenanceWindowAutomationParameters *MaintenanceWindowTaskMaintenanceWindowAutomationParameters `pulumi:"maintenanceWindowAutomationParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+	MaintenanceWindowLambdaParameters *MaintenanceWindowTaskMaintenanceWindowLambdaParameters `pulumi:"maintenanceWindowLambdaParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+	MaintenanceWindowRunCommandParameters *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters `pulumi:"maintenanceWindowRunCommandParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+	MaintenanceWindowStepFunctionsParameters *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters `pulumi:"maintenanceWindowStepFunctionsParameters"`
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs and MaintenanceWindowTaskTaskInvocationParametersOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+type MaintenanceWindowTaskTaskInvocationParametersInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
+type MaintenanceWindowTaskTaskInvocationParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+	MaintenanceWindowAutomationParameters MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrInput `pulumi:"maintenanceWindowAutomationParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+	MaintenanceWindowLambdaParameters MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrInput `pulumi:"maintenanceWindowLambdaParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+	MaintenanceWindowRunCommandParameters MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrInput `pulumi:"maintenanceWindowRunCommandParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+	MaintenanceWindowStepFunctionsParameters MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrInput `pulumi:"maintenanceWindowStepFunctionsParameters"`
+}
+
+func (MaintenanceWindowTaskTaskInvocationParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput).ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx)
+}
+
+// MaintenanceWindowTaskTaskInvocationParametersPtrInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersArgs, MaintenanceWindowTaskTaskInvocationParametersPtr and MaintenanceWindowTaskTaskInvocationParametersPtrOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersPtrInput` via:
+//
+//          MaintenanceWindowTaskTaskInvocationParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MaintenanceWindowTaskTaskInvocationParametersPtrInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput
+	ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput
+}
+
+type maintenanceWindowTaskTaskInvocationParametersPtrType MaintenanceWindowTaskTaskInvocationParametersArgs
+
+func MaintenanceWindowTaskTaskInvocationParametersPtr(v *MaintenanceWindowTaskTaskInvocationParametersArgs) MaintenanceWindowTaskTaskInvocationParametersPtrInput {
+	return (*maintenanceWindowTaskTaskInvocationParametersPtrType)(v)
+}
+
+func (*maintenanceWindowTaskTaskInvocationParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
+type MaintenanceWindowTaskTaskInvocationParametersOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutput() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskTaskInvocationParameters {
+		return &v
+	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowAutomationParameters() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		return v.MaintenanceWindowAutomationParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowLambdaParameters() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		return v.MaintenanceWindowLambdaParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowRunCommandParameters() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		return v.MaintenanceWindowRunCommandParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersOutput) MaintenanceWindowStepFunctionsParameters() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		return v.MaintenanceWindowStepFunctionsParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+type MaintenanceWindowTaskTaskInvocationParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MaintenanceWindowTaskTaskInvocationParameters)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
+	return o
+}
+
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParameters
+		return ret
+	}).(MaintenanceWindowTaskTaskInvocationParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowAutomationParameters() MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowAutomationParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowAutomationParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowLambdaParameters() MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowLambdaParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowLambdaParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowRunCommandParameters() MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowRunCommandParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowRunCommandParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) MaintenanceWindowStepFunctionsParameters() MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceWindowStepFunctionsParameters
+	}).(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
+type PatchBaselinePatchFilter struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+	Key *string `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+	Values []string `pulumi:"values"`
+}
+
+// PatchBaselinePatchFilterInput is an input type that accepts PatchBaselinePatchFilterArgs and PatchBaselinePatchFilterOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterInput` via:
+//
+//          PatchBaselinePatchFilterArgs{...}
+type PatchBaselinePatchFilterInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput
+	ToPatchBaselinePatchFilterOutputWithContext(context.Context) PatchBaselinePatchFilterOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
+type PatchBaselinePatchFilterArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PatchBaselinePatchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterArgs) ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput {
+	return i.ToPatchBaselinePatchFilterOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterArgs) ToPatchBaselinePatchFilterOutputWithContext(ctx context.Context) PatchBaselinePatchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterOutput)
+}
+
+// PatchBaselinePatchFilterArrayInput is an input type that accepts PatchBaselinePatchFilterArray and PatchBaselinePatchFilterArrayOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterArrayInput` via:
+//
+//          PatchBaselinePatchFilterArray{ PatchBaselinePatchFilterArgs{...} }
+type PatchBaselinePatchFilterArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput
+	ToPatchBaselinePatchFilterArrayOutputWithContext(context.Context) PatchBaselinePatchFilterArrayOutput
+}
+
+type PatchBaselinePatchFilterArray []PatchBaselinePatchFilterInput
+
+func (PatchBaselinePatchFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterArray) ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput {
+	return i.ToPatchBaselinePatchFilterArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterArray) ToPatchBaselinePatchFilterArrayOutputWithContext(ctx context.Context) PatchBaselinePatchFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html
+type PatchBaselinePatchFilterOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterOutput) ToPatchBaselinePatchFilterOutput() PatchBaselinePatchFilterOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterOutput) ToPatchBaselinePatchFilterOutputWithContext(ctx context.Context) PatchBaselinePatchFilterOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+func (o PatchBaselinePatchFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+func (o PatchBaselinePatchFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PatchBaselinePatchFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchFilter)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) ToPatchBaselinePatchFilterArrayOutput() PatchBaselinePatchFilterArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) ToPatchBaselinePatchFilterArrayOutputWithContext(ctx context.Context) PatchBaselinePatchFilterArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBaselinePatchFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselinePatchFilter {
+		return vs[0].([]PatchBaselinePatchFilter)[vs[1].(int)]
+	}).(PatchBaselinePatchFilterOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+type PatchBaselinePatchFilterGroup struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+	PatchFilters []PatchBaselinePatchFilter `pulumi:"patchFilters"`
+}
+
+// PatchBaselinePatchFilterGroupInput is an input type that accepts PatchBaselinePatchFilterGroupArgs and PatchBaselinePatchFilterGroupOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterGroupInput` via:
+//
+//          PatchBaselinePatchFilterGroupArgs{...}
+type PatchBaselinePatchFilterGroupInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput
+	ToPatchBaselinePatchFilterGroupOutputWithContext(context.Context) PatchBaselinePatchFilterGroupOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+type PatchBaselinePatchFilterGroupArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+	PatchFilters PatchBaselinePatchFilterArrayInput `pulumi:"patchFilters"`
+}
+
+func (PatchBaselinePatchFilterGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput {
+	return i.ToPatchBaselinePatchFilterGroupOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupOutput)
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return i.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchFilterGroupArgs) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupOutput).ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx)
+}
+
+// PatchBaselinePatchFilterGroupPtrInput is an input type that accepts PatchBaselinePatchFilterGroupArgs, PatchBaselinePatchFilterGroupPtr and PatchBaselinePatchFilterGroupPtrOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchFilterGroupPtrInput` via:
+//
+//          PatchBaselinePatchFilterGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselinePatchFilterGroupPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput
+	ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Context) PatchBaselinePatchFilterGroupPtrOutput
+}
+
+type patchBaselinePatchFilterGroupPtrType PatchBaselinePatchFilterGroupArgs
+
+func PatchBaselinePatchFilterGroupPtr(v *PatchBaselinePatchFilterGroupArgs) PatchBaselinePatchFilterGroupPtrInput {
+	return (*patchBaselinePatchFilterGroupPtrType)(v)
+}
+
+func (*patchBaselinePatchFilterGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (i *patchBaselinePatchFilterGroupPtrType) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return i.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselinePatchFilterGroupPtrType) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html
+type PatchBaselinePatchFilterGroupOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupOutput() PatchBaselinePatchFilterGroupOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ToPatchBaselinePatchFilterGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchFilterGroup) *PatchBaselinePatchFilterGroup {
+		return &v
+	}).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+func (o PatchBaselinePatchFilterGroupOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter { return v.PatchFilters }).(PatchBaselinePatchFilterArrayOutput)
+}
+
+type PatchBaselinePatchFilterGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchFilterGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchFilterGroup)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) ToPatchBaselinePatchFilterGroupPtrOutput() PatchBaselinePatchFilterGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) ToPatchBaselinePatchFilterGroupPtrOutputWithContext(ctx context.Context) PatchBaselinePatchFilterGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchFilterGroupPtrOutput) Elem() PatchBaselinePatchFilterGroupOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) PatchBaselinePatchFilterGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselinePatchFilterGroup
+		return ret
+	}).(PatchBaselinePatchFilterGroupOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter {
+		if v == nil {
+			return nil
+		}
+		return v.PatchFilters
+	}).(PatchBaselinePatchFilterArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html
+type PatchBaselinePatchSource struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+	Configuration *string `pulumi:"configuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+	Products []string `pulumi:"products"`
+}
+
+// PatchBaselinePatchSourceInput is an input type that accepts PatchBaselinePatchSourceArgs and PatchBaselinePatchSourceOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchSourceInput` via:
+//
+//          PatchBaselinePatchSourceArgs{...}
+type PatchBaselinePatchSourceInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput
+	ToPatchBaselinePatchSourceOutputWithContext(context.Context) PatchBaselinePatchSourceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html
+type PatchBaselinePatchSourceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+	Configuration pulumi.StringPtrInput `pulumi:"configuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+	Products pulumi.StringArrayInput `pulumi:"products"`
+}
+
+func (PatchBaselinePatchSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchSourceArgs) ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput {
+	return i.ToPatchBaselinePatchSourceOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchSourceArgs) ToPatchBaselinePatchSourceOutputWithContext(ctx context.Context) PatchBaselinePatchSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchSourceOutput)
+}
+
+// PatchBaselinePatchSourceArrayInput is an input type that accepts PatchBaselinePatchSourceArray and PatchBaselinePatchSourceArrayOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchSourceArrayInput` via:
+//
+//          PatchBaselinePatchSourceArray{ PatchBaselinePatchSourceArgs{...} }
+type PatchBaselinePatchSourceArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput
+	ToPatchBaselinePatchSourceArrayOutputWithContext(context.Context) PatchBaselinePatchSourceArrayOutput
+}
+
+type PatchBaselinePatchSourceArray []PatchBaselinePatchSourceInput
+
+func (PatchBaselinePatchSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchSourceArray) ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput {
+	return i.ToPatchBaselinePatchSourceArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchSourceArray) ToPatchBaselinePatchSourceArrayOutputWithContext(ctx context.Context) PatchBaselinePatchSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchSourceArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html
+type PatchBaselinePatchSourceOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutput() PatchBaselinePatchSourceOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceOutput) ToPatchBaselinePatchSourceOutputWithContext(ctx context.Context) PatchBaselinePatchSourceOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+func (o PatchBaselinePatchSourceOutput) Configuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Configuration }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+func (o PatchBaselinePatchSourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+func (o PatchBaselinePatchSourceOutput) Products() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PatchBaselinePatchSource) []string { return v.Products }).(pulumi.StringArrayOutput)
+}
+
+type PatchBaselinePatchSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselinePatchSource)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) ToPatchBaselinePatchSourceArrayOutput() PatchBaselinePatchSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) ToPatchBaselinePatchSourceArrayOutputWithContext(ctx context.Context) PatchBaselinePatchSourceArrayOutput {
+	return o
+}
+
+func (o PatchBaselinePatchSourceArrayOutput) Index(i pulumi.IntInput) PatchBaselinePatchSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselinePatchSource {
+		return vs[0].([]PatchBaselinePatchSource)[vs[1].(int)]
+	}).(PatchBaselinePatchSourceOutput)
+}
+
+type PatchBaselinePatchStringDate struct {
+}
+
+// PatchBaselinePatchStringDateInput is an input type that accepts PatchBaselinePatchStringDateArgs and PatchBaselinePatchStringDateOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchStringDateInput` via:
+//
+//          PatchBaselinePatchStringDateArgs{...}
+type PatchBaselinePatchStringDateInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput
+	ToPatchBaselinePatchStringDateOutputWithContext(context.Context) PatchBaselinePatchStringDateOutput
+}
+
+type PatchBaselinePatchStringDateArgs struct {
+}
+
+func (PatchBaselinePatchStringDateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
+	return i.ToPatchBaselinePatchStringDateOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput)
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselinePatchStringDateArgs) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDateOutput).ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx)
+}
+
+// PatchBaselinePatchStringDatePtrInput is an input type that accepts PatchBaselinePatchStringDateArgs, PatchBaselinePatchStringDatePtr and PatchBaselinePatchStringDatePtrOutput values.
+// You can construct a concrete instance of `PatchBaselinePatchStringDatePtrInput` via:
+//
+//          PatchBaselinePatchStringDateArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselinePatchStringDatePtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput
+	ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Context) PatchBaselinePatchStringDatePtrOutput
+}
+
+type patchBaselinePatchStringDatePtrType PatchBaselinePatchStringDateArgs
+
+func PatchBaselinePatchStringDatePtr(v *PatchBaselinePatchStringDateArgs) PatchBaselinePatchStringDatePtrInput {
+	return (*patchBaselinePatchStringDatePtrType)(v)
+}
+
+func (*patchBaselinePatchStringDatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return i.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselinePatchStringDatePtrType) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+type PatchBaselinePatchStringDateOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchStringDateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutput() PatchBaselinePatchStringDateOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDateOutputWithContext(ctx context.Context) PatchBaselinePatchStringDateOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return o.ToPatchBaselinePatchStringDatePtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselinePatchStringDateOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselinePatchStringDate) *PatchBaselinePatchStringDate {
+		return &v
+	}).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+type PatchBaselinePatchStringDatePtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselinePatchStringDatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselinePatchStringDate)(nil)).Elem()
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutput() PatchBaselinePatchStringDatePtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) ToPatchBaselinePatchStringDatePtrOutputWithContext(ctx context.Context) PatchBaselinePatchStringDatePtrOutput {
+	return o
+}
+
+func (o PatchBaselinePatchStringDatePtrOutput) Elem() PatchBaselinePatchStringDateOutput {
+	return o.ApplyT(func(v *PatchBaselinePatchStringDate) PatchBaselinePatchStringDate {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselinePatchStringDate
+		return ret
+	}).(PatchBaselinePatchStringDateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
+type PatchBaselineRule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+	ApproveAfterDays *int `pulumi:"approveAfterDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+	ApproveUntilDate *PatchBaselinePatchStringDate `pulumi:"approveUntilDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+	ComplianceLevel *string `pulumi:"complianceLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+	PatchFilterGroup *PatchBaselinePatchFilterGroup `pulumi:"patchFilterGroup"`
+}
+
+// PatchBaselineRuleInput is an input type that accepts PatchBaselineRuleArgs and PatchBaselineRuleOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleInput` via:
+//
+//          PatchBaselineRuleArgs{...}
+type PatchBaselineRuleInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleOutput() PatchBaselineRuleOutput
+	ToPatchBaselineRuleOutputWithContext(context.Context) PatchBaselineRuleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
+type PatchBaselineRuleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+	ApproveAfterDays pulumi.IntPtrInput `pulumi:"approveAfterDays"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+	ApproveUntilDate PatchBaselinePatchStringDatePtrInput `pulumi:"approveUntilDate"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+	ComplianceLevel pulumi.StringPtrInput `pulumi:"complianceLevel"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+	PatchFilterGroup PatchBaselinePatchFilterGroupPtrInput `pulumi:"patchFilterGroup"`
+}
+
+func (PatchBaselineRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRule)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleArgs) ToPatchBaselineRuleOutput() PatchBaselineRuleOutput {
+	return i.ToPatchBaselineRuleOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleArgs) ToPatchBaselineRuleOutputWithContext(ctx context.Context) PatchBaselineRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleOutput)
+}
+
+// PatchBaselineRuleArrayInput is an input type that accepts PatchBaselineRuleArray and PatchBaselineRuleArrayOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleArrayInput` via:
+//
+//          PatchBaselineRuleArray{ PatchBaselineRuleArgs{...} }
+type PatchBaselineRuleArrayInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput
+	ToPatchBaselineRuleArrayOutputWithContext(context.Context) PatchBaselineRuleArrayOutput
+}
+
+type PatchBaselineRuleArray []PatchBaselineRuleInput
+
+func (PatchBaselineRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineRule)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleArray) ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput {
+	return i.ToPatchBaselineRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleArray) ToPatchBaselineRuleArrayOutputWithContext(ctx context.Context) PatchBaselineRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html
+type PatchBaselineRuleOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRule)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutput() PatchBaselineRuleOutput {
+	return o
+}
+
+func (o PatchBaselineRuleOutput) ToPatchBaselineRuleOutputWithContext(ctx context.Context) PatchBaselineRuleOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+func (o PatchBaselineRuleOutput) ApproveAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *int { return v.ApproveAfterDays }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveuntildate
+func (o PatchBaselineRuleOutput) ApproveUntilDate() PatchBaselinePatchStringDatePtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchStringDate { return v.ApproveUntilDate }).(PatchBaselinePatchStringDatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+func (o PatchBaselineRuleOutput) ComplianceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *string { return v.ComplianceLevel }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+func (o PatchBaselineRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+func (o PatchBaselineRuleOutput) PatchFilterGroup() PatchBaselinePatchFilterGroupPtrOutput {
+	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchFilterGroup { return v.PatchFilterGroup }).(PatchBaselinePatchFilterGroupPtrOutput)
+}
+
+type PatchBaselineRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PatchBaselineRule)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleArrayOutput) ToPatchBaselineRuleArrayOutput() PatchBaselineRuleArrayOutput {
+	return o
+}
+
+func (o PatchBaselineRuleArrayOutput) ToPatchBaselineRuleArrayOutputWithContext(ctx context.Context) PatchBaselineRuleArrayOutput {
+	return o
+}
+
+func (o PatchBaselineRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineRule {
+		return vs[0].([]PatchBaselineRule)[vs[1].(int)]
+	}).(PatchBaselineRuleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+type PatchBaselineRuleGroup struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+	PatchRules []PatchBaselineRule `pulumi:"patchRules"`
+}
+
+// PatchBaselineRuleGroupInput is an input type that accepts PatchBaselineRuleGroupArgs and PatchBaselineRuleGroupOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleGroupInput` via:
+//
+//          PatchBaselineRuleGroupArgs{...}
+type PatchBaselineRuleGroupInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput
+	ToPatchBaselineRuleGroupOutputWithContext(context.Context) PatchBaselineRuleGroupOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+type PatchBaselineRuleGroupArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+	PatchRules PatchBaselineRuleArrayInput `pulumi:"patchRules"`
+}
+
+func (PatchBaselineRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput {
+	return i.ToPatchBaselineRuleGroupOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupOutputWithContext(ctx context.Context) PatchBaselineRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupOutput)
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return i.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i PatchBaselineRuleGroupArgs) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupOutput).ToPatchBaselineRuleGroupPtrOutputWithContext(ctx)
+}
+
+// PatchBaselineRuleGroupPtrInput is an input type that accepts PatchBaselineRuleGroupArgs, PatchBaselineRuleGroupPtr and PatchBaselineRuleGroupPtrOutput values.
+// You can construct a concrete instance of `PatchBaselineRuleGroupPtrInput` via:
+//
+//          PatchBaselineRuleGroupArgs{...}
+//
+//  or:
+//
+//          nil
+type PatchBaselineRuleGroupPtrInput interface {
+	pulumi.Input
+
+	ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput
+	ToPatchBaselineRuleGroupPtrOutputWithContext(context.Context) PatchBaselineRuleGroupPtrOutput
+}
+
+type patchBaselineRuleGroupPtrType PatchBaselineRuleGroupArgs
+
+func PatchBaselineRuleGroupPtr(v *PatchBaselineRuleGroupArgs) PatchBaselineRuleGroupPtrInput {
+	return (*patchBaselineRuleGroupPtrType)(v)
+}
+
+func (*patchBaselineRuleGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (i *patchBaselineRuleGroupPtrType) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return i.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *patchBaselineRuleGroupPtrType) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineRuleGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html
+type PatchBaselineRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupOutput() PatchBaselineRuleGroupOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupOutputWithContext(ctx context.Context) PatchBaselineRuleGroupOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return o.ToPatchBaselineRuleGroupPtrOutputWithContext(context.Background())
+}
+
+func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PatchBaselineRuleGroup) *PatchBaselineRuleGroup {
+		return &v
+	}).(PatchBaselineRuleGroupPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+func (o PatchBaselineRuleGroupOutput) PatchRules() PatchBaselineRuleArrayOutput {
+	return o.ApplyT(func(v PatchBaselineRuleGroup) []PatchBaselineRule { return v.PatchRules }).(PatchBaselineRuleArrayOutput)
+}
+
+type PatchBaselineRuleGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (PatchBaselineRuleGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PatchBaselineRuleGroup)(nil)).Elem()
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) ToPatchBaselineRuleGroupPtrOutput() PatchBaselineRuleGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) ToPatchBaselineRuleGroupPtrOutputWithContext(ctx context.Context) PatchBaselineRuleGroupPtrOutput {
+	return o
+}
+
+func (o PatchBaselineRuleGroupPtrOutput) Elem() PatchBaselineRuleGroupOutput {
+	return o.ApplyT(func(v *PatchBaselineRuleGroup) PatchBaselineRuleGroup {
+		if v != nil {
+			return *v
+		}
+		var ret PatchBaselineRuleGroup
+		return ret
+	}).(PatchBaselineRuleGroupOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutput {
+	return o.ApplyT(func(v *PatchBaselineRuleGroup) []PatchBaselineRule {
+		if v == nil {
+			return nil
+		}
+		return v.PatchRules
+	}).(PatchBaselineRuleArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
 type ResourceDataSyncAwsOrganizationsSource struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
@@ -1249,6 +3581,36 @@ func init() {
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentDocumentRequiresOutput{})
 	pulumi.RegisterOutputType(DocumentDocumentRequiresArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskLoggingInfoPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowAutomationParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowAutomationParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowLambdaParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowLambdaParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowRunCommandParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskNotificationConfigOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskNotificationConfigPtrOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTargetOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTargetArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTaskTaskInvocationParametersPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupPtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchSourceOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchSourceArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchStringDateOutput{})
+	pulumi.RegisterOutputType(PatchBaselinePatchStringDatePtrOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleArrayOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleGroupOutput{})
+	pulumi.RegisterOutputType(PatchBaselineRuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourceOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})

@@ -21,8 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:eventschemas:Discoverer":
+		r = &Discoverer{}
+	case "aws-native:eventschemas:Registry":
+		r = &Registry{}
 	case "aws-native:eventschemas:RegistryPolicy":
 		r = &RegistryPolicy{}
+	case "aws-native:eventschemas:Schema":
+		r = &Schema{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

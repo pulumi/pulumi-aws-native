@@ -10,6 +10,6442 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
+type ClassifierCsvClassifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+	ContainsHeader *string `pulumi:"containsHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+	Delimiter *string `pulumi:"delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+	DisableValueTrimming *bool `pulumi:"disableValueTrimming"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+	Header []string `pulumi:"header"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+	QuoteSymbol *string `pulumi:"quoteSymbol"`
+}
+
+// ClassifierCsvClassifierInput is an input type that accepts ClassifierCsvClassifierArgs and ClassifierCsvClassifierOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierInput` via:
+//
+//          ClassifierCsvClassifierArgs{...}
+type ClassifierCsvClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput
+	ToClassifierCsvClassifierOutputWithContext(context.Context) ClassifierCsvClassifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
+type ClassifierCsvClassifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+	AllowSingleColumn pulumi.BoolPtrInput `pulumi:"allowSingleColumn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+	ContainsHeader pulumi.StringPtrInput `pulumi:"containsHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+	DisableValueTrimming pulumi.BoolPtrInput `pulumi:"disableValueTrimming"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+	Header pulumi.StringArrayInput `pulumi:"header"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
+}
+
+func (ClassifierCsvClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput {
+	return i.ToClassifierCsvClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierOutputWithContext(ctx context.Context) ClassifierCsvClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierOutput)
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return i.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierCsvClassifierArgs) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierOutput).ToClassifierCsvClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierCsvClassifierPtrInput is an input type that accepts ClassifierCsvClassifierArgs, ClassifierCsvClassifierPtr and ClassifierCsvClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierCsvClassifierPtrInput` via:
+//
+//          ClassifierCsvClassifierArgs{...}
+//
+//  or:
+//
+//          nil
+type ClassifierCsvClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput
+	ToClassifierCsvClassifierPtrOutputWithContext(context.Context) ClassifierCsvClassifierPtrOutput
+}
+
+type classifierCsvClassifierPtrType ClassifierCsvClassifierArgs
+
+func ClassifierCsvClassifierPtr(v *ClassifierCsvClassifierArgs) ClassifierCsvClassifierPtrInput {
+	return (*classifierCsvClassifierPtrType)(v)
+}
+
+func (*classifierCsvClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (i *classifierCsvClassifierPtrType) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return i.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierCsvClassifierPtrType) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierCsvClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html
+type ClassifierCsvClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierCsvClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierOutput() ClassifierCsvClassifierOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierOutputWithContext(ctx context.Context) ClassifierCsvClassifierOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return o.ToClassifierCsvClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierCsvClassifier) *ClassifierCsvClassifier {
+		return &v
+	}).(ClassifierCsvClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+func (o ClassifierCsvClassifierOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.AllowSingleColumn }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+func (o ClassifierCsvClassifierOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+func (o ClassifierCsvClassifierOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.DisableValueTrimming }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+func (o ClassifierCsvClassifierOutput) Header() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) []string { return v.Header }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+func (o ClassifierCsvClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+func (o ClassifierCsvClassifierOutput) QuoteSymbol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierCsvClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierCsvClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierCsvClassifier)(nil)).Elem()
+}
+
+func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutput() ClassifierCsvClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierCsvClassifierPtrOutput) Elem() ClassifierCsvClassifierOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) ClassifierCsvClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierCsvClassifier
+		return ret
+	}).(ClassifierCsvClassifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-allowsinglecolumn
+func (o ClassifierCsvClassifierPtrOutput) AllowSingleColumn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowSingleColumn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-containsheader
+func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsHeader
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-delimiter
+func (o ClassifierCsvClassifierPtrOutput) Delimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-disablevaluetrimming
+func (o ClassifierCsvClassifierPtrOutput) DisableValueTrimming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableValueTrimming
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-header
+func (o ClassifierCsvClassifierPtrOutput) Header() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-name
+func (o ClassifierCsvClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-csvclassifier.html#cfn-glue-classifier-csvclassifier-quotesymbol
+func (o ClassifierCsvClassifierPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierCsvClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QuoteSymbol
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html
+type ClassifierGrokClassifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+	Classification string `pulumi:"classification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+	CustomPatterns *string `pulumi:"customPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+	GrokPattern string `pulumi:"grokPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+	Name *string `pulumi:"name"`
+}
+
+// ClassifierGrokClassifierInput is an input type that accepts ClassifierGrokClassifierArgs and ClassifierGrokClassifierOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierInput` via:
+//
+//          ClassifierGrokClassifierArgs{...}
+type ClassifierGrokClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput
+	ToClassifierGrokClassifierOutputWithContext(context.Context) ClassifierGrokClassifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html
+type ClassifierGrokClassifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+	CustomPatterns pulumi.StringPtrInput `pulumi:"customPatterns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+	GrokPattern pulumi.StringInput `pulumi:"grokPattern"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClassifierGrokClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput {
+	return i.ToClassifierGrokClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierOutputWithContext(ctx context.Context) ClassifierGrokClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierOutput)
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return i.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierGrokClassifierArgs) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierOutput).ToClassifierGrokClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierGrokClassifierPtrInput is an input type that accepts ClassifierGrokClassifierArgs, ClassifierGrokClassifierPtr and ClassifierGrokClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierGrokClassifierPtrInput` via:
+//
+//          ClassifierGrokClassifierArgs{...}
+//
+//  or:
+//
+//          nil
+type ClassifierGrokClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput
+	ToClassifierGrokClassifierPtrOutputWithContext(context.Context) ClassifierGrokClassifierPtrOutput
+}
+
+type classifierGrokClassifierPtrType ClassifierGrokClassifierArgs
+
+func ClassifierGrokClassifierPtr(v *ClassifierGrokClassifierArgs) ClassifierGrokClassifierPtrInput {
+	return (*classifierGrokClassifierPtrType)(v)
+}
+
+func (*classifierGrokClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (i *classifierGrokClassifierPtrType) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return i.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierGrokClassifierPtrType) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierGrokClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html
+type ClassifierGrokClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierGrokClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierOutput() ClassifierGrokClassifierOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierOutputWithContext(ctx context.Context) ClassifierGrokClassifierOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return o.ToClassifierGrokClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierGrokClassifier) *ClassifierGrokClassifier {
+		return &v
+	}).(ClassifierGrokClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+func (o ClassifierGrokClassifierOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+func (o ClassifierGrokClassifierOutput) CustomPatterns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.CustomPatterns }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+func (o ClassifierGrokClassifierOutput) GrokPattern() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) string { return v.GrokPattern }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+func (o ClassifierGrokClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierGrokClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierGrokClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierGrokClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierGrokClassifier)(nil)).Elem()
+}
+
+func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutput() ClassifierGrokClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) ClassifierGrokClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierGrokClassifier
+		return ret
+	}).(ClassifierGrokClassifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-classification
+func (o ClassifierGrokClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-custompatterns
+func (o ClassifierGrokClassifierPtrOutput) CustomPatterns() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPatterns
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-grokpattern
+func (o ClassifierGrokClassifierPtrOutput) GrokPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GrokPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-grokclassifier.html#cfn-glue-classifier-grokclassifier-name
+func (o ClassifierGrokClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierGrokClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html
+type ClassifierJsonClassifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+	JsonPath string `pulumi:"jsonPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+	Name *string `pulumi:"name"`
+}
+
+// ClassifierJsonClassifierInput is an input type that accepts ClassifierJsonClassifierArgs and ClassifierJsonClassifierOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierInput` via:
+//
+//          ClassifierJsonClassifierArgs{...}
+type ClassifierJsonClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput
+	ToClassifierJsonClassifierOutputWithContext(context.Context) ClassifierJsonClassifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html
+type ClassifierJsonClassifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ClassifierJsonClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput {
+	return i.ToClassifierJsonClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierOutputWithContext(ctx context.Context) ClassifierJsonClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierOutput)
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return i.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierJsonClassifierArgs) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierOutput).ToClassifierJsonClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierJsonClassifierPtrInput is an input type that accepts ClassifierJsonClassifierArgs, ClassifierJsonClassifierPtr and ClassifierJsonClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierJsonClassifierPtrInput` via:
+//
+//          ClassifierJsonClassifierArgs{...}
+//
+//  or:
+//
+//          nil
+type ClassifierJsonClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput
+	ToClassifierJsonClassifierPtrOutputWithContext(context.Context) ClassifierJsonClassifierPtrOutput
+}
+
+type classifierJsonClassifierPtrType ClassifierJsonClassifierArgs
+
+func ClassifierJsonClassifierPtr(v *ClassifierJsonClassifierArgs) ClassifierJsonClassifierPtrInput {
+	return (*classifierJsonClassifierPtrType)(v)
+}
+
+func (*classifierJsonClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (i *classifierJsonClassifierPtrType) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return i.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierJsonClassifierPtrType) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierJsonClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html
+type ClassifierJsonClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierJsonClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierOutput() ClassifierJsonClassifierOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierOutputWithContext(ctx context.Context) ClassifierJsonClassifierOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return o.ToClassifierJsonClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierJsonClassifier) *ClassifierJsonClassifier {
+		return &v
+	}).(ClassifierJsonClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+func (o ClassifierJsonClassifierOutput) JsonPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierJsonClassifier) string { return v.JsonPath }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+func (o ClassifierJsonClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierJsonClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ClassifierJsonClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierJsonClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierJsonClassifier)(nil)).Elem()
+}
+
+func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutput() ClassifierJsonClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierJsonClassifierPtrOutput) Elem() ClassifierJsonClassifierOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) ClassifierJsonClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierJsonClassifier
+		return ret
+	}).(ClassifierJsonClassifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-jsonpath
+func (o ClassifierJsonClassifierPtrOutput) JsonPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JsonPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-jsonclassifier.html#cfn-glue-classifier-jsonclassifier-name
+func (o ClassifierJsonClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierJsonClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html
+type ClassifierXMLClassifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+	Classification string `pulumi:"classification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+	RowTag string `pulumi:"rowTag"`
+}
+
+// ClassifierXMLClassifierInput is an input type that accepts ClassifierXMLClassifierArgs and ClassifierXMLClassifierOutput values.
+// You can construct a concrete instance of `ClassifierXMLClassifierInput` via:
+//
+//          ClassifierXMLClassifierArgs{...}
+type ClassifierXMLClassifierInput interface {
+	pulumi.Input
+
+	ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput
+	ToClassifierXMLClassifierOutputWithContext(context.Context) ClassifierXMLClassifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html
+type ClassifierXMLClassifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+	RowTag pulumi.StringInput `pulumi:"rowTag"`
+}
+
+func (ClassifierXMLClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXMLClassifier)(nil)).Elem()
+}
+
+func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput {
+	return i.ToClassifierXMLClassifierOutputWithContext(context.Background())
+}
+
+func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierOutputWithContext(ctx context.Context) ClassifierXMLClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierOutput)
+}
+
+func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
+	return i.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i ClassifierXMLClassifierArgs) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierOutput).ToClassifierXMLClassifierPtrOutputWithContext(ctx)
+}
+
+// ClassifierXMLClassifierPtrInput is an input type that accepts ClassifierXMLClassifierArgs, ClassifierXMLClassifierPtr and ClassifierXMLClassifierPtrOutput values.
+// You can construct a concrete instance of `ClassifierXMLClassifierPtrInput` via:
+//
+//          ClassifierXMLClassifierArgs{...}
+//
+//  or:
+//
+//          nil
+type ClassifierXMLClassifierPtrInput interface {
+	pulumi.Input
+
+	ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput
+	ToClassifierXMLClassifierPtrOutputWithContext(context.Context) ClassifierXMLClassifierPtrOutput
+}
+
+type classifierXMLClassifierPtrType ClassifierXMLClassifierArgs
+
+func ClassifierXMLClassifierPtr(v *ClassifierXMLClassifierArgs) ClassifierXMLClassifierPtrInput {
+	return (*classifierXMLClassifierPtrType)(v)
+}
+
+func (*classifierXMLClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXMLClassifier)(nil)).Elem()
+}
+
+func (i *classifierXMLClassifierPtrType) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
+	return i.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *classifierXMLClassifierPtrType) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClassifierXMLClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html
+type ClassifierXMLClassifierOutput struct{ *pulumi.OutputState }
+
+func (ClassifierXMLClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClassifierXMLClassifier)(nil)).Elem()
+}
+
+func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierOutput() ClassifierXMLClassifierOutput {
+	return o
+}
+
+func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierOutputWithContext(ctx context.Context) ClassifierXMLClassifierOutput {
+	return o
+}
+
+func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
+	return o.ToClassifierXMLClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o ClassifierXMLClassifierOutput) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierXMLClassifier) *ClassifierXMLClassifier {
+		return &v
+	}).(ClassifierXMLClassifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+func (o ClassifierXMLClassifierOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXMLClassifier) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+func (o ClassifierXMLClassifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClassifierXMLClassifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+func (o ClassifierXMLClassifierOutput) RowTag() pulumi.StringOutput {
+	return o.ApplyT(func(v ClassifierXMLClassifier) string { return v.RowTag }).(pulumi.StringOutput)
+}
+
+type ClassifierXMLClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (ClassifierXMLClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClassifierXMLClassifier)(nil)).Elem()
+}
+
+func (o ClassifierXMLClassifierPtrOutput) ToClassifierXMLClassifierPtrOutput() ClassifierXMLClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierXMLClassifierPtrOutput) ToClassifierXMLClassifierPtrOutputWithContext(ctx context.Context) ClassifierXMLClassifierPtrOutput {
+	return o
+}
+
+func (o ClassifierXMLClassifierPtrOutput) Elem() ClassifierXMLClassifierOutput {
+	return o.ApplyT(func(v *ClassifierXMLClassifier) ClassifierXMLClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierXMLClassifier
+		return ret
+	}).(ClassifierXMLClassifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-classification
+func (o ClassifierXMLClassifierPtrOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-name
+func (o ClassifierXMLClassifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-classifier-xmlclassifier.html#cfn-glue-classifier-xmlclassifier-rowtag
+func (o ClassifierXMLClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClassifierXMLClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RowTag
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
+type ConnectionConnectionInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+	ConnectionType string `pulumi:"connectionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+	MatchCriteria []string `pulumi:"matchCriteria"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
+}
+
+// ConnectionConnectionInputInput is an input type that accepts ConnectionConnectionInputArgs and ConnectionConnectionInputOutput values.
+// You can construct a concrete instance of `ConnectionConnectionInputInput` via:
+//
+//          ConnectionConnectionInputArgs{...}
+type ConnectionConnectionInputInput interface {
+	pulumi.Input
+
+	ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput
+	ToConnectionConnectionInputOutputWithContext(context.Context) ConnectionConnectionInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
+type ConnectionConnectionInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+	ConnectionProperties pulumi.Input `pulumi:"connectionProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+	MatchCriteria pulumi.StringArrayInput `pulumi:"matchCriteria"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput `pulumi:"physicalConnectionRequirements"`
+}
+
+func (ConnectionConnectionInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConnectionInput)(nil)).Elem()
+}
+
+func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput {
+	return i.ToConnectionConnectionInputOutputWithContext(context.Background())
+}
+
+func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputOutputWithContext(ctx context.Context) ConnectionConnectionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputOutput)
+}
+
+func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
+	return i.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionConnectionInputArgs) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputOutput).ToConnectionConnectionInputPtrOutputWithContext(ctx)
+}
+
+// ConnectionConnectionInputPtrInput is an input type that accepts ConnectionConnectionInputArgs, ConnectionConnectionInputPtr and ConnectionConnectionInputPtrOutput values.
+// You can construct a concrete instance of `ConnectionConnectionInputPtrInput` via:
+//
+//          ConnectionConnectionInputArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionConnectionInputPtrInput interface {
+	pulumi.Input
+
+	ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput
+	ToConnectionConnectionInputPtrOutputWithContext(context.Context) ConnectionConnectionInputPtrOutput
+}
+
+type connectionConnectionInputPtrType ConnectionConnectionInputArgs
+
+func ConnectionConnectionInputPtr(v *ConnectionConnectionInputArgs) ConnectionConnectionInputPtrInput {
+	return (*connectionConnectionInputPtrType)(v)
+}
+
+func (*connectionConnectionInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionConnectionInput)(nil)).Elem()
+}
+
+func (i *connectionConnectionInputPtrType) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
+	return i.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionConnectionInputPtrType) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectionInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html
+type ConnectionConnectionInputOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConnectionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConnectionInput)(nil)).Elem()
+}
+
+func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputOutput() ConnectionConnectionInputOutput {
+	return o
+}
+
+func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputOutputWithContext(ctx context.Context) ConnectionConnectionInputOutput {
+	return o
+}
+
+func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
+	return o.ToConnectionConnectionInputPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionConnectionInputOutput) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionConnectionInput) *ConnectionConnectionInput {
+		return &v
+	}).(ConnectionConnectionInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+func (o ConnectionConnectionInputOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+func (o ConnectionConnectionInputOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+func (o ConnectionConnectionInputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+func (o ConnectionConnectionInputOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) []string { return v.MatchCriteria }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+func (o ConnectionConnectionInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+func (o ConnectionConnectionInputOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v ConnectionConnectionInput) *ConnectionPhysicalConnectionRequirements {
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+type ConnectionConnectionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConnectionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionConnectionInput)(nil)).Elem()
+}
+
+func (o ConnectionConnectionInputPtrOutput) ToConnectionConnectionInputPtrOutput() ConnectionConnectionInputPtrOutput {
+	return o
+}
+
+func (o ConnectionConnectionInputPtrOutput) ToConnectionConnectionInputPtrOutputWithContext(ctx context.Context) ConnectionConnectionInputPtrOutput {
+	return o
+}
+
+func (o ConnectionConnectionInputPtrOutput) Elem() ConnectionConnectionInputOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) ConnectionConnectionInput {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionConnectionInput
+		return ret
+	}).(ConnectionConnectionInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectionproperties
+func (o ConnectionConnectionInputPtrOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionProperties
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-connectiontype
+func (o ConnectionConnectionInputPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-description
+func (o ConnectionConnectionInputPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-matchcriteria
+func (o ConnectionConnectionInputPtrOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchCriteria
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-name
+func (o ConnectionConnectionInputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-connectioninput.html#cfn-glue-connection-connectioninput-physicalconnectionrequirements
+func (o ConnectionConnectionInputPtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v *ConnectionConnectionInput) *ConnectionPhysicalConnectionRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html
+type ConnectionPhysicalConnectionRequirements struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// ConnectionPhysicalConnectionRequirementsInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs and ConnectionPhysicalConnectionRequirementsOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsInput` via:
+//
+//          ConnectionPhysicalConnectionRequirementsArgs{...}
+type ConnectionPhysicalConnectionRequirementsInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput
+	ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html
+type ConnectionPhysicalConnectionRequirementsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (ConnectionPhysicalConnectionRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput).ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx)
+}
+
+// ConnectionPhysicalConnectionRequirementsPtrInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs, ConnectionPhysicalConnectionRequirementsPtr and ConnectionPhysicalConnectionRequirementsPtrOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsPtrInput` via:
+//
+//          ConnectionPhysicalConnectionRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type ConnectionPhysicalConnectionRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput
+	ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput
+}
+
+type connectionPhysicalConnectionRequirementsPtrType ConnectionPhysicalConnectionRequirementsArgs
+
+func ConnectionPhysicalConnectionRequirementsPtr(v *ConnectionPhysicalConnectionRequirementsArgs) ConnectionPhysicalConnectionRequirementsPtrInput {
+	return (*connectionPhysicalConnectionRequirementsPtrType)(v)
+}
+
+func (*connectionPhysicalConnectionRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html
+type ConnectionPhysicalConnectionRequirementsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPhysicalConnectionRequirements) *ConnectionPhysicalConnectionRequirements {
+		return &v
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionPhysicalConnectionRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhysicalConnectionRequirementsOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPhysicalConnectionRequirements
+		return ret
+	}).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-availabilityzone
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-securitygroupidlist
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIdList
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html#cfn-glue-connection-physicalconnectionrequirements-subnetid
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html
+type CrawlerCatalogTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
+	DatabaseName *string `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
+	Tables []string `pulumi:"tables"`
+}
+
+// CrawlerCatalogTargetInput is an input type that accepts CrawlerCatalogTargetArgs and CrawlerCatalogTargetOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetInput` via:
+//
+//          CrawlerCatalogTargetArgs{...}
+type CrawlerCatalogTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput
+	ToCrawlerCatalogTargetOutputWithContext(context.Context) CrawlerCatalogTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html
+type CrawlerCatalogTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
+	Tables pulumi.StringArrayInput `pulumi:"tables"`
+}
+
+func (CrawlerCatalogTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (i CrawlerCatalogTargetArgs) ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput {
+	return i.ToCrawlerCatalogTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerCatalogTargetArgs) ToCrawlerCatalogTargetOutputWithContext(ctx context.Context) CrawlerCatalogTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetOutput)
+}
+
+// CrawlerCatalogTargetArrayInput is an input type that accepts CrawlerCatalogTargetArray and CrawlerCatalogTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerCatalogTargetArrayInput` via:
+//
+//          CrawlerCatalogTargetArray{ CrawlerCatalogTargetArgs{...} }
+type CrawlerCatalogTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput
+	ToCrawlerCatalogTargetArrayOutputWithContext(context.Context) CrawlerCatalogTargetArrayOutput
+}
+
+type CrawlerCatalogTargetArray []CrawlerCatalogTargetInput
+
+func (CrawlerCatalogTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput {
+	return i.ToCrawlerCatalogTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerCatalogTargetArray) ToCrawlerCatalogTargetArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerCatalogTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html
+type CrawlerCatalogTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerCatalogTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutput() CrawlerCatalogTargetOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetOutput) ToCrawlerCatalogTargetOutputWithContext(ctx context.Context) CrawlerCatalogTargetOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-databasename
+func (o CrawlerCatalogTargetOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-catalogtarget.html#cfn-glue-crawler-catalogtarget-tables
+func (o CrawlerCatalogTargetOutput) Tables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerCatalogTarget) []string { return v.Tables }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerCatalogTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerCatalogTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerCatalogTarget)(nil)).Elem()
+}
+
+func (o CrawlerCatalogTargetArrayOutput) ToCrawlerCatalogTargetArrayOutput() CrawlerCatalogTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetArrayOutput) ToCrawlerCatalogTargetArrayOutputWithContext(ctx context.Context) CrawlerCatalogTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerCatalogTargetArrayOutput) Index(i pulumi.IntInput) CrawlerCatalogTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerCatalogTarget {
+		return vs[0].([]CrawlerCatalogTarget)[vs[1].(int)]
+	}).(CrawlerCatalogTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html
+type CrawlerDynamoDBTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerDynamoDBTargetInput is an input type that accepts CrawlerDynamoDBTargetArgs and CrawlerDynamoDBTargetOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDBTargetInput` via:
+//
+//          CrawlerDynamoDBTargetArgs{...}
+type CrawlerDynamoDBTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput
+	ToCrawlerDynamoDBTargetOutputWithContext(context.Context) CrawlerDynamoDBTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html
+type CrawlerDynamoDBTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerDynamoDBTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDBTarget)(nil)).Elem()
+}
+
+func (i CrawlerDynamoDBTargetArgs) ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput {
+	return i.ToCrawlerDynamoDBTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerDynamoDBTargetArgs) ToCrawlerDynamoDBTargetOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDBTargetOutput)
+}
+
+// CrawlerDynamoDBTargetArrayInput is an input type that accepts CrawlerDynamoDBTargetArray and CrawlerDynamoDBTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerDynamoDBTargetArrayInput` via:
+//
+//          CrawlerDynamoDBTargetArray{ CrawlerDynamoDBTargetArgs{...} }
+type CrawlerDynamoDBTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput
+	ToCrawlerDynamoDBTargetArrayOutputWithContext(context.Context) CrawlerDynamoDBTargetArrayOutput
+}
+
+type CrawlerDynamoDBTargetArray []CrawlerDynamoDBTargetInput
+
+func (CrawlerDynamoDBTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDBTarget)(nil)).Elem()
+}
+
+func (i CrawlerDynamoDBTargetArray) ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput {
+	return i.ToCrawlerDynamoDBTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerDynamoDBTargetArray) ToCrawlerDynamoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerDynamoDBTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html
+type CrawlerDynamoDBTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDynamoDBTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerDynamoDBTarget)(nil)).Elem()
+}
+
+func (o CrawlerDynamoDBTargetOutput) ToCrawlerDynamoDBTargetOutput() CrawlerDynamoDBTargetOutput {
+	return o
+}
+
+func (o CrawlerDynamoDBTargetOutput) ToCrawlerDynamoDBTargetOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html#cfn-glue-crawler-dynamodbtarget-path
+func (o CrawlerDynamoDBTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerDynamoDBTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerDynamoDBTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerDynamoDBTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerDynamoDBTarget)(nil)).Elem()
+}
+
+func (o CrawlerDynamoDBTargetArrayOutput) ToCrawlerDynamoDBTargetArrayOutput() CrawlerDynamoDBTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDynamoDBTargetArrayOutput) ToCrawlerDynamoDBTargetArrayOutputWithContext(ctx context.Context) CrawlerDynamoDBTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerDynamoDBTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamoDBTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerDynamoDBTarget {
+		return vs[0].([]CrawlerDynamoDBTarget)[vs[1].(int)]
+	}).(CrawlerDynamoDBTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html
+type CrawlerJdbcTarget struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-connectionname
+	ConnectionName *string `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
+	Exclusions []string `pulumi:"exclusions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerJdbcTargetInput is an input type that accepts CrawlerJdbcTargetArgs and CrawlerJdbcTargetOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetInput` via:
+//
+//          CrawlerJdbcTargetArgs{...}
+type CrawlerJdbcTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput
+	ToCrawlerJdbcTargetOutputWithContext(context.Context) CrawlerJdbcTargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html
+type CrawlerJdbcTargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-connectionname
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerJdbcTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (i CrawlerJdbcTargetArgs) ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput {
+	return i.ToCrawlerJdbcTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerJdbcTargetArgs) ToCrawlerJdbcTargetOutputWithContext(ctx context.Context) CrawlerJdbcTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetOutput)
+}
+
+// CrawlerJdbcTargetArrayInput is an input type that accepts CrawlerJdbcTargetArray and CrawlerJdbcTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerJdbcTargetArrayInput` via:
+//
+//          CrawlerJdbcTargetArray{ CrawlerJdbcTargetArgs{...} }
+type CrawlerJdbcTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput
+	ToCrawlerJdbcTargetArrayOutputWithContext(context.Context) CrawlerJdbcTargetArrayOutput
+}
+
+type CrawlerJdbcTargetArray []CrawlerJdbcTargetInput
+
+func (CrawlerJdbcTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput {
+	return i.ToCrawlerJdbcTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerJdbcTargetArray) ToCrawlerJdbcTargetArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerJdbcTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html
+type CrawlerJdbcTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerJdbcTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutput() CrawlerJdbcTargetOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetOutput) ToCrawlerJdbcTargetOutputWithContext(ctx context.Context) CrawlerJdbcTargetOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-connectionname
+func (o CrawlerJdbcTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-exclusions
+func (o CrawlerJdbcTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html#cfn-glue-crawler-jdbctarget-path
+func (o CrawlerJdbcTargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerJdbcTarget) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerJdbcTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerJdbcTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerJdbcTarget)(nil)).Elem()
+}
+
+func (o CrawlerJdbcTargetArrayOutput) ToCrawlerJdbcTargetArrayOutput() CrawlerJdbcTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetArrayOutput) ToCrawlerJdbcTargetArrayOutputWithContext(ctx context.Context) CrawlerJdbcTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerJdbcTargetArrayOutput) Index(i pulumi.IntInput) CrawlerJdbcTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerJdbcTarget {
+		return vs[0].([]CrawlerJdbcTarget)[vs[1].(int)]
+	}).(CrawlerJdbcTargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html
+type CrawlerRecrawlPolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
+}
+
+// CrawlerRecrawlPolicyInput is an input type that accepts CrawlerRecrawlPolicyArgs and CrawlerRecrawlPolicyOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyInput` via:
+//
+//          CrawlerRecrawlPolicyArgs{...}
+type CrawlerRecrawlPolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput
+	ToCrawlerRecrawlPolicyOutputWithContext(context.Context) CrawlerRecrawlPolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html
+type CrawlerRecrawlPolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
+}
+
+func (CrawlerRecrawlPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return i.ToCrawlerRecrawlPolicyOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput)
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerRecrawlPolicyArgs) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyOutput).ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx)
+}
+
+// CrawlerRecrawlPolicyPtrInput is an input type that accepts CrawlerRecrawlPolicyArgs, CrawlerRecrawlPolicyPtr and CrawlerRecrawlPolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerRecrawlPolicyPtrInput` via:
+//
+//          CrawlerRecrawlPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerRecrawlPolicyPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput
+	ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Context) CrawlerRecrawlPolicyPtrOutput
+}
+
+type crawlerRecrawlPolicyPtrType CrawlerRecrawlPolicyArgs
+
+func CrawlerRecrawlPolicyPtr(v *CrawlerRecrawlPolicyArgs) CrawlerRecrawlPolicyPtrInput {
+	return (*crawlerRecrawlPolicyPtrType)(v)
+}
+
+func (*crawlerRecrawlPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return i.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerRecrawlPolicyPtrType) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html
+type CrawlerRecrawlPolicyOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutput() CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o.ToCrawlerRecrawlPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerRecrawlPolicy) *CrawlerRecrawlPolicy {
+		return &v
+	}).(CrawlerRecrawlPolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerRecrawlPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerRecrawlPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerRecrawlPolicy)(nil)).Elem()
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) CrawlerRecrawlPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerRecrawlPolicy
+		return ret
+	}).(CrawlerRecrawlPolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html#cfn-glue-crawler-recrawlpolicy-recrawlbehavior
+func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecrawlBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
+type CrawlerS3Target struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+	ConnectionName *string `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
+	Exclusions []string `pulumi:"exclusions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
+	Path *string `pulumi:"path"`
+}
+
+// CrawlerS3TargetInput is an input type that accepts CrawlerS3TargetArgs and CrawlerS3TargetOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetInput` via:
+//
+//          CrawlerS3TargetArgs{...}
+type CrawlerS3TargetInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetOutput() CrawlerS3TargetOutput
+	ToCrawlerS3TargetOutputWithContext(context.Context) CrawlerS3TargetOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
+type CrawlerS3TargetArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CrawlerS3TargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerS3Target)(nil)).Elem()
+}
+
+func (i CrawlerS3TargetArgs) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
+	return i.ToCrawlerS3TargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerS3TargetArgs) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetOutput)
+}
+
+// CrawlerS3TargetArrayInput is an input type that accepts CrawlerS3TargetArray and CrawlerS3TargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerS3TargetArrayInput` via:
+//
+//          CrawlerS3TargetArray{ CrawlerS3TargetArgs{...} }
+type CrawlerS3TargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput
+	ToCrawlerS3TargetArrayOutputWithContext(context.Context) CrawlerS3TargetArrayOutput
+}
+
+type CrawlerS3TargetArray []CrawlerS3TargetInput
+
+func (CrawlerS3TargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerS3Target)(nil)).Elem()
+}
+
+func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput {
+	return i.ToCrawlerS3TargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerS3TargetArray) ToCrawlerS3TargetArrayOutputWithContext(ctx context.Context) CrawlerS3TargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerS3TargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html
+type CrawlerS3TargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerS3TargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerS3Target)(nil)).Elem()
+}
+
+func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutput() CrawlerS3TargetOutput {
+	return o
+}
+
+func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Context) CrawlerS3TargetOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-connectionname
+func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-exclusions
+func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerS3Target) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-s3target.html#cfn-glue-crawler-s3target-path
+func (o CrawlerS3TargetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerS3TargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerS3TargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerS3Target)(nil)).Elem()
+}
+
+func (o CrawlerS3TargetArrayOutput) ToCrawlerS3TargetArrayOutput() CrawlerS3TargetArrayOutput {
+	return o
+}
+
+func (o CrawlerS3TargetArrayOutput) ToCrawlerS3TargetArrayOutputWithContext(ctx context.Context) CrawlerS3TargetArrayOutput {
+	return o
+}
+
+func (o CrawlerS3TargetArrayOutput) Index(i pulumi.IntInput) CrawlerS3TargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerS3Target {
+		return vs[0].([]CrawlerS3Target)[vs[1].(int)]
+	}).(CrawlerS3TargetOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html
+type CrawlerSchedule struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+}
+
+// CrawlerScheduleInput is an input type that accepts CrawlerScheduleArgs and CrawlerScheduleOutput values.
+// You can construct a concrete instance of `CrawlerScheduleInput` via:
+//
+//          CrawlerScheduleArgs{...}
+type CrawlerScheduleInput interface {
+	pulumi.Input
+
+	ToCrawlerScheduleOutput() CrawlerScheduleOutput
+	ToCrawlerScheduleOutputWithContext(context.Context) CrawlerScheduleOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html
+type CrawlerScheduleArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+}
+
+func (CrawlerScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchedule)(nil)).Elem()
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerScheduleOutput() CrawlerScheduleOutput {
+	return i.ToCrawlerScheduleOutputWithContext(context.Background())
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerScheduleOutputWithContext(ctx context.Context) CrawlerScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerScheduleOutput)
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return i.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerScheduleArgs) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerScheduleOutput).ToCrawlerSchedulePtrOutputWithContext(ctx)
+}
+
+// CrawlerSchedulePtrInput is an input type that accepts CrawlerScheduleArgs, CrawlerSchedulePtr and CrawlerSchedulePtrOutput values.
+// You can construct a concrete instance of `CrawlerSchedulePtrInput` via:
+//
+//          CrawlerScheduleArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerSchedulePtrInput interface {
+	pulumi.Input
+
+	ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput
+	ToCrawlerSchedulePtrOutputWithContext(context.Context) CrawlerSchedulePtrOutput
+}
+
+type crawlerSchedulePtrType CrawlerScheduleArgs
+
+func CrawlerSchedulePtr(v *CrawlerScheduleArgs) CrawlerSchedulePtrInput {
+	return (*crawlerSchedulePtrType)(v)
+}
+
+func (*crawlerSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchedule)(nil)).Elem()
+}
+
+func (i *crawlerSchedulePtrType) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return i.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerSchedulePtrType) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchedulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html
+type CrawlerScheduleOutput struct{ *pulumi.OutputState }
+
+func (CrawlerScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchedule)(nil)).Elem()
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerScheduleOutput() CrawlerScheduleOutput {
+	return o
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerScheduleOutputWithContext(ctx context.Context) CrawlerScheduleOutput {
+	return o
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return o.ToCrawlerSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerScheduleOutput) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerSchedule) *CrawlerSchedule {
+		return &v
+	}).(CrawlerSchedulePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+func (o CrawlerScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchedule)(nil)).Elem()
+}
+
+func (o CrawlerSchedulePtrOutput) ToCrawlerSchedulePtrOutput() CrawlerSchedulePtrOutput {
+	return o
+}
+
+func (o CrawlerSchedulePtrOutput) ToCrawlerSchedulePtrOutputWithContext(ctx context.Context) CrawlerSchedulePtrOutput {
+	return o
+}
+
+func (o CrawlerSchedulePtrOutput) Elem() CrawlerScheduleOutput {
+	return o.ApplyT(func(v *CrawlerSchedule) CrawlerSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerSchedule
+		return ret
+	}).(CrawlerScheduleOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schedule.html#cfn-glue-crawler-schedule-scheduleexpression
+func (o CrawlerSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html
+type CrawlerSchemaChangePolicy struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+	DeleteBehavior *string `pulumi:"deleteBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+	UpdateBehavior *string `pulumi:"updateBehavior"`
+}
+
+// CrawlerSchemaChangePolicyInput is an input type that accepts CrawlerSchemaChangePolicyArgs and CrawlerSchemaChangePolicyOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyInput` via:
+//
+//          CrawlerSchemaChangePolicyArgs{...}
+type CrawlerSchemaChangePolicyInput interface {
+	pulumi.Input
+
+	ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput
+	ToCrawlerSchemaChangePolicyOutputWithContext(context.Context) CrawlerSchemaChangePolicyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html
+type CrawlerSchemaChangePolicyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+	DeleteBehavior pulumi.StringPtrInput `pulumi:"deleteBehavior"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+	UpdateBehavior pulumi.StringPtrInput `pulumi:"updateBehavior"`
+}
+
+func (CrawlerSchemaChangePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return i.ToCrawlerSchemaChangePolicyOutputWithContext(context.Background())
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyOutput)
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return i.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerSchemaChangePolicyArgs) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyOutput).ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx)
+}
+
+// CrawlerSchemaChangePolicyPtrInput is an input type that accepts CrawlerSchemaChangePolicyArgs, CrawlerSchemaChangePolicyPtr and CrawlerSchemaChangePolicyPtrOutput values.
+// You can construct a concrete instance of `CrawlerSchemaChangePolicyPtrInput` via:
+//
+//          CrawlerSchemaChangePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerSchemaChangePolicyPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput
+	ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Context) CrawlerSchemaChangePolicyPtrOutput
+}
+
+type crawlerSchemaChangePolicyPtrType CrawlerSchemaChangePolicyArgs
+
+func CrawlerSchemaChangePolicyPtr(v *CrawlerSchemaChangePolicyArgs) CrawlerSchemaChangePolicyPtrInput {
+	return (*crawlerSchemaChangePolicyPtrType)(v)
+}
+
+func (*crawlerSchemaChangePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return i.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerSchemaChangePolicyPtrType) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerSchemaChangePolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html
+type CrawlerSchemaChangePolicyOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchemaChangePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutput() CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return o.ToCrawlerSchemaChangePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerSchemaChangePolicy) *CrawlerSchemaChangePolicy {
+		return &v
+	}).(CrawlerSchemaChangePolicyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+func (o CrawlerSchemaChangePolicyOutput) DeleteBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.DeleteBehavior }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+func (o CrawlerSchemaChangePolicyOutput) UpdateBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *string { return v.UpdateBehavior }).(pulumi.StringPtrOutput)
+}
+
+type CrawlerSchemaChangePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerSchemaChangePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerSchemaChangePolicy)(nil)).Elem()
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutput() CrawlerSchemaChangePolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
+	return o
+}
+
+func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerSchemaChangePolicy
+		return ret
+	}).(CrawlerSchemaChangePolicyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
+func (o CrawlerSchemaChangePolicyPtrOutput) DeleteBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
+func (o CrawlerSchemaChangePolicyPtrOutput) UpdateBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
+type CrawlerTargets struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+	DynamoDBTargets []CrawlerDynamoDBTarget `pulumi:"dynamoDBTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
+}
+
+// CrawlerTargetsInput is an input type that accepts CrawlerTargetsArgs and CrawlerTargetsOutput values.
+// You can construct a concrete instance of `CrawlerTargetsInput` via:
+//
+//          CrawlerTargetsArgs{...}
+type CrawlerTargetsInput interface {
+	pulumi.Input
+
+	ToCrawlerTargetsOutput() CrawlerTargetsOutput
+	ToCrawlerTargetsOutputWithContext(context.Context) CrawlerTargetsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
+type CrawlerTargetsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+	CatalogTargets CrawlerCatalogTargetArrayInput `pulumi:"catalogTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+	DynamoDBTargets CrawlerDynamoDBTargetArrayInput `pulumi:"dynamoDBTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+	JdbcTargets CrawlerJdbcTargetArrayInput `pulumi:"jdbcTargets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+	S3Targets CrawlerS3TargetArrayInput `pulumi:"s3Targets"`
+}
+
+func (CrawlerTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerTargets)(nil)).Elem()
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsOutput() CrawlerTargetsOutput {
+	return i.ToCrawlerTargetsOutputWithContext(context.Background())
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsOutputWithContext(ctx context.Context) CrawlerTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerTargetsOutput)
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return i.ToCrawlerTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i CrawlerTargetsArgs) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerTargetsOutput).ToCrawlerTargetsPtrOutputWithContext(ctx)
+}
+
+// CrawlerTargetsPtrInput is an input type that accepts CrawlerTargetsArgs, CrawlerTargetsPtr and CrawlerTargetsPtrOutput values.
+// You can construct a concrete instance of `CrawlerTargetsPtrInput` via:
+//
+//          CrawlerTargetsArgs{...}
+//
+//  or:
+//
+//          nil
+type CrawlerTargetsPtrInput interface {
+	pulumi.Input
+
+	ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput
+	ToCrawlerTargetsPtrOutputWithContext(context.Context) CrawlerTargetsPtrOutput
+}
+
+type crawlerTargetsPtrType CrawlerTargetsArgs
+
+func CrawlerTargetsPtr(v *CrawlerTargetsArgs) CrawlerTargetsPtrInput {
+	return (*crawlerTargetsPtrType)(v)
+}
+
+func (*crawlerTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerTargets)(nil)).Elem()
+}
+
+func (i *crawlerTargetsPtrType) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return i.ToCrawlerTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *crawlerTargetsPtrType) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerTargetsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
+type CrawlerTargetsOutput struct{ *pulumi.OutputState }
+
+func (CrawlerTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerTargets)(nil)).Elem()
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsOutput() CrawlerTargetsOutput {
+	return o
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsOutputWithContext(ctx context.Context) CrawlerTargetsOutput {
+	return o
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return o.ToCrawlerTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o CrawlerTargetsOutput) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerTargets) *CrawlerTargets {
+		return &v
+	}).(CrawlerTargetsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+func (o CrawlerTargetsOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerCatalogTarget { return v.CatalogTargets }).(CrawlerCatalogTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+func (o CrawlerTargetsOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerDynamoDBTarget { return v.DynamoDBTargets }).(CrawlerDynamoDBTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+func (o CrawlerTargetsOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerJdbcTarget { return v.JdbcTargets }).(CrawlerJdbcTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+func (o CrawlerTargetsOutput) S3Targets() CrawlerS3TargetArrayOutput {
+	return o.ApplyT(func(v CrawlerTargets) []CrawlerS3Target { return v.S3Targets }).(CrawlerS3TargetArrayOutput)
+}
+
+type CrawlerTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (CrawlerTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CrawlerTargets)(nil)).Elem()
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutput() CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) ToCrawlerTargetsPtrOutputWithContext(ctx context.Context) CrawlerTargetsPtrOutput {
+	return o
+}
+
+func (o CrawlerTargetsPtrOutput) Elem() CrawlerTargetsOutput {
+	return o.ApplyT(func(v *CrawlerTargets) CrawlerTargets {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerTargets
+		return ret
+	}).(CrawlerTargetsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
+func (o CrawlerTargetsPtrOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerCatalogTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogTargets
+	}).(CrawlerCatalogTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
+func (o CrawlerTargetsPtrOutput) DynamoDBTargets() CrawlerDynamoDBTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerDynamoDBTarget {
+		if v == nil {
+			return nil
+		}
+		return v.DynamoDBTargets
+	}).(CrawlerDynamoDBTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
+func (o CrawlerTargetsPtrOutput) JdbcTargets() CrawlerJdbcTargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerJdbcTarget {
+		if v == nil {
+			return nil
+		}
+		return v.JdbcTargets
+	}).(CrawlerJdbcTargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
+func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
+	return o.ApplyT(func(v *CrawlerTargets) []CrawlerS3Target {
+		if v == nil {
+			return nil
+		}
+		return v.S3Targets
+	}).(CrawlerS3TargetArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html
+type DataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+	ReturnConnectionPasswordEncrypted *bool `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+// DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput is an input type that accepts DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs and DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput` via:
+//
+//          DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+	ReturnConnectionPasswordEncrypted pulumi.BoolPtrInput `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput).ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput is an input type that accepts DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs, DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr and DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+}
+
+type dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
+
+func DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr(v *DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput {
+	return (*dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return &v
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Elem() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsConnectionPasswordEncryption
+		return ret
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-kmskeyid
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html#cfn-glue-datacatalogencryptionsettings-connectionpasswordencryption-returnconnectionpasswordencrypted
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+	ConnectionPasswordEncryption *DataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+	EncryptionAtRest *DataCatalogEncryptionSettingsEncryptionAtRest `pulumi:"encryptionAtRest"`
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+	ConnectionPasswordEncryption DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput `pulumi:"connectionPasswordEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+	EncryptionAtRest DataCatalogEncryptionSettingsEncryptionAtRestPtrInput `pulumi:"encryptionAtRest"`
+}
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
+	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
+}
+
+type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
+
+func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput {
+	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+		return &v
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettings
+		return ret
+	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-connectionpasswordencryption
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-datacatalogencryptionsettings.html#cfn-glue-datacatalogencryptionsettings-datacatalogencryptionsettings-encryptionatrest
+func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html
+type DataCatalogEncryptionSettingsEncryptionAtRest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+	CatalogEncryptionMode *string `pulumi:"catalogEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
+}
+
+// DataCatalogEncryptionSettingsEncryptionAtRestInput is an input type that accepts DataCatalogEncryptionSettingsEncryptionAtRestArgs and DataCatalogEncryptionSettingsEncryptionAtRestOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsEncryptionAtRestInput` via:
+//
+//          DataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+type DataCatalogEncryptionSettingsEncryptionAtRestInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput
+	ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html
+type DataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+	CatalogEncryptionMode pulumi.StringPtrInput `pulumi:"catalogEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
+}
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestOutput).ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsEncryptionAtRestPtrInput is an input type that accepts DataCatalogEncryptionSettingsEncryptionAtRestArgs, DataCatalogEncryptionSettingsEncryptionAtRestPtr and DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsEncryptionAtRestPtrInput` via:
+//
+//          DataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+//
+//  or:
+//
+//          nil
+type DataCatalogEncryptionSettingsEncryptionAtRestPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+	ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+}
+
+type dataCatalogEncryptionSettingsEncryptionAtRestPtrType DataCatalogEncryptionSettingsEncryptionAtRestArgs
+
+func DataCatalogEncryptionSettingsEncryptionAtRestPtr(v *DataCatalogEncryptionSettingsEncryptionAtRestArgs) DataCatalogEncryptionSettingsEncryptionAtRestPtrInput {
+	return (*dataCatalogEncryptionSettingsEncryptionAtRestPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html
+type DataCatalogEncryptionSettingsEncryptionAtRestOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return &v
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.CatalogEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.SseAwsKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) Elem() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsEncryptionAtRest
+		return ret
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-catalogencryptionmode
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-encryptionatrest.html#cfn-glue-datacatalogencryptionsettings-encryptionatrest-sseawskmskeyid
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SseAwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html
+type DatabaseDataLakePrincipal struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+	DataLakePrincipalIdentifier *string `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+// DatabaseDataLakePrincipalInput is an input type that accepts DatabaseDataLakePrincipalArgs and DatabaseDataLakePrincipalOutput values.
+// You can construct a concrete instance of `DatabaseDataLakePrincipalInput` via:
+//
+//          DatabaseDataLakePrincipalArgs{...}
+type DatabaseDataLakePrincipalInput interface {
+	pulumi.Input
+
+	ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput
+	ToDatabaseDataLakePrincipalOutputWithContext(context.Context) DatabaseDataLakePrincipalOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html
+type DatabaseDataLakePrincipalArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+	DataLakePrincipalIdentifier pulumi.StringPtrInput `pulumi:"dataLakePrincipalIdentifier"`
+}
+
+func (DatabaseDataLakePrincipalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput {
+	return i.ToDatabaseDataLakePrincipalOutputWithContext(context.Background())
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalOutput)
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return i.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseDataLakePrincipalArgs) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalOutput).ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx)
+}
+
+// DatabaseDataLakePrincipalPtrInput is an input type that accepts DatabaseDataLakePrincipalArgs, DatabaseDataLakePrincipalPtr and DatabaseDataLakePrincipalPtrOutput values.
+// You can construct a concrete instance of `DatabaseDataLakePrincipalPtrInput` via:
+//
+//          DatabaseDataLakePrincipalArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseDataLakePrincipalPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput
+	ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Context) DatabaseDataLakePrincipalPtrOutput
+}
+
+type databaseDataLakePrincipalPtrType DatabaseDataLakePrincipalArgs
+
+func DatabaseDataLakePrincipalPtr(v *DatabaseDataLakePrincipalArgs) DatabaseDataLakePrincipalPtrInput {
+	return (*databaseDataLakePrincipalPtrType)(v)
+}
+
+func (*databaseDataLakePrincipalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (i *databaseDataLakePrincipalPtrType) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return i.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseDataLakePrincipalPtrType) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html
+type DatabaseDataLakePrincipalOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDataLakePrincipalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalOutput() DatabaseDataLakePrincipalOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return o.ToDatabaseDataLakePrincipalPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseDataLakePrincipalOutput) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDataLakePrincipal) *DatabaseDataLakePrincipal {
+		return &v
+	}).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+func (o DatabaseDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDataLakePrincipal) *string { return v.DataLakePrincipalIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseDataLakePrincipalPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDataLakePrincipalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDataLakePrincipal)(nil)).Elem()
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) ToDatabaseDataLakePrincipalPtrOutput() DatabaseDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) ToDatabaseDataLakePrincipalPtrOutputWithContext(ctx context.Context) DatabaseDataLakePrincipalPtrOutput {
+	return o
+}
+
+func (o DatabaseDataLakePrincipalPtrOutput) Elem() DatabaseDataLakePrincipalOutput {
+	return o.ApplyT(func(v *DatabaseDataLakePrincipal) DatabaseDataLakePrincipal {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseDataLakePrincipal
+		return ret
+	}).(DatabaseDataLakePrincipalOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html#cfn-glue-database-datalakeprincipal-datalakeprincipalidentifier
+func (o DatabaseDataLakePrincipalPtrOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDataLakePrincipal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataLakePrincipalIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+	CatalogId *string `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+	DatabaseName *string `pulumi:"databaseName"`
+}
+
+// DatabaseDatabaseIdentifierInput is an input type that accepts DatabaseDatabaseIdentifierArgs and DatabaseDatabaseIdentifierOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseIdentifierInput` via:
+//
+//          DatabaseDatabaseIdentifierArgs{...}
+type DatabaseDatabaseIdentifierInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput
+	ToDatabaseDatabaseIdentifierOutputWithContext(context.Context) DatabaseDatabaseIdentifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+}
+
+func (DatabaseDatabaseIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
+	return i.ToDatabaseDatabaseIdentifierOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput)
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseIdentifierArgs) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierOutput).ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx)
+}
+
+// DatabaseDatabaseIdentifierPtrInput is an input type that accepts DatabaseDatabaseIdentifierArgs, DatabaseDatabaseIdentifierPtr and DatabaseDatabaseIdentifierPtrOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseIdentifierPtrInput` via:
+//
+//          DatabaseDatabaseIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseDatabaseIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput
+	ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Context) DatabaseDatabaseIdentifierPtrOutput
+}
+
+type databaseDatabaseIdentifierPtrType DatabaseDatabaseIdentifierArgs
+
+func DatabaseDatabaseIdentifierPtr(v *DatabaseDatabaseIdentifierArgs) DatabaseDatabaseIdentifierPtrInput {
+	return (*databaseDatabaseIdentifierPtrType)(v)
+}
+
+func (*databaseDatabaseIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return i.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseDatabaseIdentifierPtrType) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html
+type DatabaseDatabaseIdentifierOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutput() DatabaseDatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ToDatabaseDatabaseIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseDatabaseIdentifierOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDatabaseIdentifier) *DatabaseDatabaseIdentifier {
+		return &v
+	}).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+func (o DatabaseDatabaseIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+func (o DatabaseDatabaseIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+type DatabaseDatabaseIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseIdentifier)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutput() DatabaseDatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) ToDatabaseDatabaseIdentifierPtrOutputWithContext(ctx context.Context) DatabaseDatabaseIdentifierPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseIdentifierPtrOutput) Elem() DatabaseDatabaseIdentifierOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) DatabaseDatabaseIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseDatabaseIdentifier
+		return ret
+	}).(DatabaseDatabaseIdentifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-catalogid
+func (o DatabaseDatabaseIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html#cfn-glue-database-databaseidentifier-databasename
+func (o DatabaseDatabaseIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
+type DatabaseDatabaseInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+	CreateTableDefaultPermissions []DatabasePrincipalPrivileges `pulumi:"createTableDefaultPermissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+	LocationUri *string `pulumi:"locationUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+	TargetDatabase *DatabaseDatabaseIdentifier `pulumi:"targetDatabase"`
+}
+
+// DatabaseDatabaseInputInput is an input type that accepts DatabaseDatabaseInputArgs and DatabaseDatabaseInputOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseInputInput` via:
+//
+//          DatabaseDatabaseInputArgs{...}
+type DatabaseDatabaseInputInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput
+	ToDatabaseDatabaseInputOutputWithContext(context.Context) DatabaseDatabaseInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
+type DatabaseDatabaseInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+	CreateTableDefaultPermissions DatabasePrincipalPrivilegesArrayInput `pulumi:"createTableDefaultPermissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+	LocationUri pulumi.StringPtrInput `pulumi:"locationUri"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+	TargetDatabase DatabaseDatabaseIdentifierPtrInput `pulumi:"targetDatabase"`
+}
+
+func (DatabaseDatabaseInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseInput)(nil)).Elem()
+}
+
+func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput {
+	return i.ToDatabaseDatabaseInputOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputOutputWithContext(ctx context.Context) DatabaseDatabaseInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputOutput)
+}
+
+func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
+	return i.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseDatabaseInputArgs) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputOutput).ToDatabaseDatabaseInputPtrOutputWithContext(ctx)
+}
+
+// DatabaseDatabaseInputPtrInput is an input type that accepts DatabaseDatabaseInputArgs, DatabaseDatabaseInputPtr and DatabaseDatabaseInputPtrOutput values.
+// You can construct a concrete instance of `DatabaseDatabaseInputPtrInput` via:
+//
+//          DatabaseDatabaseInputArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseDatabaseInputPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput
+	ToDatabaseDatabaseInputPtrOutputWithContext(context.Context) DatabaseDatabaseInputPtrOutput
+}
+
+type databaseDatabaseInputPtrType DatabaseDatabaseInputArgs
+
+func DatabaseDatabaseInputPtr(v *DatabaseDatabaseInputArgs) DatabaseDatabaseInputPtrInput {
+	return (*databaseDatabaseInputPtrType)(v)
+}
+
+func (*databaseDatabaseInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseInput)(nil)).Elem()
+}
+
+func (i *databaseDatabaseInputPtrType) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
+	return i.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseDatabaseInputPtrType) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseDatabaseInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html
+type DatabaseDatabaseInputOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseDatabaseInput)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputOutput() DatabaseDatabaseInputOutput {
+	return o
+}
+
+func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputOutputWithContext(ctx context.Context) DatabaseDatabaseInputOutput {
+	return o
+}
+
+func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
+	return o.ToDatabaseDatabaseInputPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseDatabaseInputOutput) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseDatabaseInput) *DatabaseDatabaseInput {
+		return &v
+	}).(DatabaseDatabaseInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+func (o DatabaseDatabaseInputOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) []DatabasePrincipalPrivileges { return v.CreateTableDefaultPermissions }).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+func (o DatabaseDatabaseInputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+func (o DatabaseDatabaseInputOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+func (o DatabaseDatabaseInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+func (o DatabaseDatabaseInputOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+func (o DatabaseDatabaseInputOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v DatabaseDatabaseInput) *DatabaseDatabaseIdentifier { return v.TargetDatabase }).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+type DatabaseDatabaseInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseDatabaseInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseDatabaseInput)(nil)).Elem()
+}
+
+func (o DatabaseDatabaseInputPtrOutput) ToDatabaseDatabaseInputPtrOutput() DatabaseDatabaseInputPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseInputPtrOutput) ToDatabaseDatabaseInputPtrOutputWithContext(ctx context.Context) DatabaseDatabaseInputPtrOutput {
+	return o
+}
+
+func (o DatabaseDatabaseInputPtrOutput) Elem() DatabaseDatabaseInputOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) DatabaseDatabaseInput {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseDatabaseInput
+		return ret
+	}).(DatabaseDatabaseInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-createtabledefaultpermissions
+func (o DatabaseDatabaseInputPtrOutput) CreateTableDefaultPermissions() DatabasePrincipalPrivilegesArrayOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) []DatabasePrincipalPrivileges {
+		if v == nil {
+			return nil
+		}
+		return v.CreateTableDefaultPermissions
+	}).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-description
+func (o DatabaseDatabaseInputPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-locationuri
+func (o DatabaseDatabaseInputPtrOutput) LocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-name
+func (o DatabaseDatabaseInputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-parameters
+func (o DatabaseDatabaseInputPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput.html#cfn-glue-database-databaseinput-targetdatabase
+func (o DatabaseDatabaseInputPtrOutput) TargetDatabase() DatabaseDatabaseIdentifierPtrOutput {
+	return o.ApplyT(func(v *DatabaseDatabaseInput) *DatabaseDatabaseIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDatabase
+	}).(DatabaseDatabaseIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
+type DatabasePrincipalPrivileges struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+	Permissions []string `pulumi:"permissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+	Principal *DatabaseDataLakePrincipal `pulumi:"principal"`
+}
+
+// DatabasePrincipalPrivilegesInput is an input type that accepts DatabasePrincipalPrivilegesArgs and DatabasePrincipalPrivilegesOutput values.
+// You can construct a concrete instance of `DatabasePrincipalPrivilegesInput` via:
+//
+//          DatabasePrincipalPrivilegesArgs{...}
+type DatabasePrincipalPrivilegesInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput
+	ToDatabasePrincipalPrivilegesOutputWithContext(context.Context) DatabasePrincipalPrivilegesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
+type DatabasePrincipalPrivilegesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+	Principal DatabaseDataLakePrincipalPtrInput `pulumi:"principal"`
+}
+
+func (DatabasePrincipalPrivilegesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (i DatabasePrincipalPrivilegesArgs) ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput {
+	return i.ToDatabasePrincipalPrivilegesOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalPrivilegesArgs) ToDatabasePrincipalPrivilegesOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPrivilegesOutput)
+}
+
+// DatabasePrincipalPrivilegesArrayInput is an input type that accepts DatabasePrincipalPrivilegesArray and DatabasePrincipalPrivilegesArrayOutput values.
+// You can construct a concrete instance of `DatabasePrincipalPrivilegesArrayInput` via:
+//
+//          DatabasePrincipalPrivilegesArray{ DatabasePrincipalPrivilegesArgs{...} }
+type DatabasePrincipalPrivilegesArrayInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput
+	ToDatabasePrincipalPrivilegesArrayOutputWithContext(context.Context) DatabasePrincipalPrivilegesArrayOutput
+}
+
+type DatabasePrincipalPrivilegesArray []DatabasePrincipalPrivilegesInput
+
+func (DatabasePrincipalPrivilegesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (i DatabasePrincipalPrivilegesArray) ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput {
+	return i.ToDatabasePrincipalPrivilegesArrayOutputWithContext(context.Background())
+}
+
+func (i DatabasePrincipalPrivilegesArray) ToDatabasePrincipalPrivilegesArrayOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalPrivilegesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html
+type DatabasePrincipalPrivilegesOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalPrivilegesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (o DatabasePrincipalPrivilegesOutput) ToDatabasePrincipalPrivilegesOutput() DatabasePrincipalPrivilegesOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesOutput) ToDatabasePrincipalPrivilegesOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-permissions
+func (o DatabasePrincipalPrivilegesOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabasePrincipalPrivileges) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-principalprivileges.html#cfn-glue-database-principalprivileges-principal
+func (o DatabasePrincipalPrivilegesOutput) Principal() DatabaseDataLakePrincipalPtrOutput {
+	return o.ApplyT(func(v DatabasePrincipalPrivileges) *DatabaseDataLakePrincipal { return v.Principal }).(DatabaseDataLakePrincipalPtrOutput)
+}
+
+type DatabasePrincipalPrivilegesArrayOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalPrivilegesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatabasePrincipalPrivileges)(nil)).Elem()
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) ToDatabasePrincipalPrivilegesArrayOutput() DatabasePrincipalPrivilegesArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) ToDatabasePrincipalPrivilegesArrayOutputWithContext(ctx context.Context) DatabasePrincipalPrivilegesArrayOutput {
+	return o
+}
+
+func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalPrivilegesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabasePrincipalPrivileges {
+		return vs[0].([]DatabasePrincipalPrivileges)[vs[1].(int)]
+	}).(DatabasePrincipalPrivilegesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+type JobConnectionsList struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+	Connections []string `pulumi:"connections"`
+}
+
+// JobConnectionsListInput is an input type that accepts JobConnectionsListArgs and JobConnectionsListOutput values.
+// You can construct a concrete instance of `JobConnectionsListInput` via:
+//
+//          JobConnectionsListArgs{...}
+type JobConnectionsListInput interface {
+	pulumi.Input
+
+	ToJobConnectionsListOutput() JobConnectionsListOutput
+	ToJobConnectionsListOutputWithContext(context.Context) JobConnectionsListOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+type JobConnectionsListArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+	Connections pulumi.StringArrayInput `pulumi:"connections"`
+}
+
+func (JobConnectionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobConnectionsList)(nil)).Elem()
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListOutput() JobConnectionsListOutput {
+	return i.ToJobConnectionsListOutputWithContext(context.Background())
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListOutputWithContext(ctx context.Context) JobConnectionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListOutput)
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return i.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i JobConnectionsListArgs) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListOutput).ToJobConnectionsListPtrOutputWithContext(ctx)
+}
+
+// JobConnectionsListPtrInput is an input type that accepts JobConnectionsListArgs, JobConnectionsListPtr and JobConnectionsListPtrOutput values.
+// You can construct a concrete instance of `JobConnectionsListPtrInput` via:
+//
+//          JobConnectionsListArgs{...}
+//
+//  or:
+//
+//          nil
+type JobConnectionsListPtrInput interface {
+	pulumi.Input
+
+	ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput
+	ToJobConnectionsListPtrOutputWithContext(context.Context) JobConnectionsListPtrOutput
+}
+
+type jobConnectionsListPtrType JobConnectionsListArgs
+
+func JobConnectionsListPtr(v *JobConnectionsListArgs) JobConnectionsListPtrInput {
+	return (*jobConnectionsListPtrType)(v)
+}
+
+func (*jobConnectionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobConnectionsList)(nil)).Elem()
+}
+
+func (i *jobConnectionsListPtrType) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return i.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *jobConnectionsListPtrType) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobConnectionsListPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+type JobConnectionsListOutput struct{ *pulumi.OutputState }
+
+func (JobConnectionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobConnectionsList)(nil)).Elem()
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListOutput() JobConnectionsListOutput {
+	return o
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListOutputWithContext(ctx context.Context) JobConnectionsListOutput {
+	return o
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return o.ToJobConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (o JobConnectionsListOutput) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobConnectionsList) *JobConnectionsList {
+		return &v
+	}).(JobConnectionsListPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+func (o JobConnectionsListOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobConnectionsList) []string { return v.Connections }).(pulumi.StringArrayOutput)
+}
+
+type JobConnectionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (JobConnectionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobConnectionsList)(nil)).Elem()
+}
+
+func (o JobConnectionsListPtrOutput) ToJobConnectionsListPtrOutput() JobConnectionsListPtrOutput {
+	return o
+}
+
+func (o JobConnectionsListPtrOutput) ToJobConnectionsListPtrOutputWithContext(ctx context.Context) JobConnectionsListPtrOutput {
+	return o
+}
+
+func (o JobConnectionsListPtrOutput) Elem() JobConnectionsListOutput {
+	return o.ApplyT(func(v *JobConnectionsList) JobConnectionsList {
+		if v != nil {
+			return *v
+		}
+		var ret JobConnectionsList
+		return ret
+	}).(JobConnectionsListOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+func (o JobConnectionsListPtrOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobConnectionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Connections
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html
+type JobExecutionProperty struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+	MaxConcurrentRuns *float64 `pulumi:"maxConcurrentRuns"`
+}
+
+// JobExecutionPropertyInput is an input type that accepts JobExecutionPropertyArgs and JobExecutionPropertyOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyInput` via:
+//
+//          JobExecutionPropertyArgs{...}
+type JobExecutionPropertyInput interface {
+	pulumi.Input
+
+	ToJobExecutionPropertyOutput() JobExecutionPropertyOutput
+	ToJobExecutionPropertyOutputWithContext(context.Context) JobExecutionPropertyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html
+type JobExecutionPropertyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+	MaxConcurrentRuns pulumi.Float64PtrInput `pulumi:"maxConcurrentRuns"`
+}
+
+func (JobExecutionPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionProperty)(nil)).Elem()
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyOutput() JobExecutionPropertyOutput {
+	return i.ToJobExecutionPropertyOutputWithContext(context.Background())
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyOutputWithContext(ctx context.Context) JobExecutionPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyOutput)
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return i.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i JobExecutionPropertyArgs) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyOutput).ToJobExecutionPropertyPtrOutputWithContext(ctx)
+}
+
+// JobExecutionPropertyPtrInput is an input type that accepts JobExecutionPropertyArgs, JobExecutionPropertyPtr and JobExecutionPropertyPtrOutput values.
+// You can construct a concrete instance of `JobExecutionPropertyPtrInput` via:
+//
+//          JobExecutionPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type JobExecutionPropertyPtrInput interface {
+	pulumi.Input
+
+	ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput
+	ToJobExecutionPropertyPtrOutputWithContext(context.Context) JobExecutionPropertyPtrOutput
+}
+
+type jobExecutionPropertyPtrType JobExecutionPropertyArgs
+
+func JobExecutionPropertyPtr(v *JobExecutionPropertyArgs) JobExecutionPropertyPtrInput {
+	return (*jobExecutionPropertyPtrType)(v)
+}
+
+func (*jobExecutionPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionProperty)(nil)).Elem()
+}
+
+func (i *jobExecutionPropertyPtrType) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return i.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobExecutionPropertyPtrType) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html
+type JobExecutionPropertyOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobExecutionProperty)(nil)).Elem()
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyOutput() JobExecutionPropertyOutput {
+	return o
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyOutputWithContext(ctx context.Context) JobExecutionPropertyOutput {
+	return o
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return o.ToJobExecutionPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionProperty) *JobExecutionProperty {
+		return &v
+	}).(JobExecutionPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+func (o JobExecutionPropertyOutput) MaxConcurrentRuns() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v JobExecutionProperty) *float64 { return v.MaxConcurrentRuns }).(pulumi.Float64PtrOutput)
+}
+
+type JobExecutionPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (JobExecutionPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobExecutionProperty)(nil)).Elem()
+}
+
+func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutput() JobExecutionPropertyPtrOutput {
+	return o
+}
+
+func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
+	return o
+}
+
+func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
+	return o.ApplyT(func(v *JobExecutionProperty) JobExecutionProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobExecutionProperty
+		return ret
+	}).(JobExecutionPropertyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-executionproperty.html#cfn-glue-job-executionproperty-maxconcurrentruns
+func (o JobExecutionPropertyPtrOutput) MaxConcurrentRuns() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *JobExecutionProperty) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentRuns
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html
+type JobJobCommand struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+	PythonVersion *string `pulumi:"pythonVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+	ScriptLocation *string `pulumi:"scriptLocation"`
+}
+
+// JobJobCommandInput is an input type that accepts JobJobCommandArgs and JobJobCommandOutput values.
+// You can construct a concrete instance of `JobJobCommandInput` via:
+//
+//          JobJobCommandArgs{...}
+type JobJobCommandInput interface {
+	pulumi.Input
+
+	ToJobJobCommandOutput() JobJobCommandOutput
+	ToJobJobCommandOutputWithContext(context.Context) JobJobCommandOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html
+type JobJobCommandArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+	ScriptLocation pulumi.StringPtrInput `pulumi:"scriptLocation"`
+}
+
+func (JobJobCommandArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobJobCommand)(nil)).Elem()
+}
+
+func (i JobJobCommandArgs) ToJobJobCommandOutput() JobJobCommandOutput {
+	return i.ToJobJobCommandOutputWithContext(context.Background())
+}
+
+func (i JobJobCommandArgs) ToJobJobCommandOutputWithContext(ctx context.Context) JobJobCommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandOutput)
+}
+
+func (i JobJobCommandArgs) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
+	return i.ToJobJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (i JobJobCommandArgs) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandOutput).ToJobJobCommandPtrOutputWithContext(ctx)
+}
+
+// JobJobCommandPtrInput is an input type that accepts JobJobCommandArgs, JobJobCommandPtr and JobJobCommandPtrOutput values.
+// You can construct a concrete instance of `JobJobCommandPtrInput` via:
+//
+//          JobJobCommandArgs{...}
+//
+//  or:
+//
+//          nil
+type JobJobCommandPtrInput interface {
+	pulumi.Input
+
+	ToJobJobCommandPtrOutput() JobJobCommandPtrOutput
+	ToJobJobCommandPtrOutputWithContext(context.Context) JobJobCommandPtrOutput
+}
+
+type jobJobCommandPtrType JobJobCommandArgs
+
+func JobJobCommandPtr(v *JobJobCommandArgs) JobJobCommandPtrInput {
+	return (*jobJobCommandPtrType)(v)
+}
+
+func (*jobJobCommandPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobCommand)(nil)).Elem()
+}
+
+func (i *jobJobCommandPtrType) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
+	return i.ToJobJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (i *jobJobCommandPtrType) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobCommandPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html
+type JobJobCommandOutput struct{ *pulumi.OutputState }
+
+func (JobJobCommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobJobCommand)(nil)).Elem()
+}
+
+func (o JobJobCommandOutput) ToJobJobCommandOutput() JobJobCommandOutput {
+	return o
+}
+
+func (o JobJobCommandOutput) ToJobJobCommandOutputWithContext(ctx context.Context) JobJobCommandOutput {
+	return o
+}
+
+func (o JobJobCommandOutput) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
+	return o.ToJobJobCommandPtrOutputWithContext(context.Background())
+}
+
+func (o JobJobCommandOutput) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobJobCommand) *JobJobCommand {
+		return &v
+	}).(JobJobCommandPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+func (o JobJobCommandOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+func (o JobJobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+func (o JobJobCommandOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobJobCommand) *string { return v.ScriptLocation }).(pulumi.StringPtrOutput)
+}
+
+type JobJobCommandPtrOutput struct{ *pulumi.OutputState }
+
+func (JobJobCommandPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobCommand)(nil)).Elem()
+}
+
+func (o JobJobCommandPtrOutput) ToJobJobCommandPtrOutput() JobJobCommandPtrOutput {
+	return o
+}
+
+func (o JobJobCommandPtrOutput) ToJobJobCommandPtrOutputWithContext(ctx context.Context) JobJobCommandPtrOutput {
+	return o
+}
+
+func (o JobJobCommandPtrOutput) Elem() JobJobCommandOutput {
+	return o.ApplyT(func(v *JobJobCommand) JobJobCommand {
+		if v != nil {
+			return *v
+		}
+		var ret JobJobCommand
+		return ret
+	}).(JobJobCommandOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-name
+func (o JobJobCommandPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-pythonversion
+func (o JobJobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-jobcommand.html#cfn-glue-job-jobcommand-scriptlocation
+func (o JobJobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScriptLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html
+type JobNotificationProperty struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
+}
+
+// JobNotificationPropertyInput is an input type that accepts JobNotificationPropertyArgs and JobNotificationPropertyOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyInput` via:
+//
+//          JobNotificationPropertyArgs{...}
+type JobNotificationPropertyInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyOutput() JobNotificationPropertyOutput
+	ToJobNotificationPropertyOutputWithContext(context.Context) JobNotificationPropertyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html
+type JobNotificationPropertyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
+}
+
+func (JobNotificationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return i.ToJobNotificationPropertyOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput)
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i JobNotificationPropertyArgs) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyOutput).ToJobNotificationPropertyPtrOutputWithContext(ctx)
+}
+
+// JobNotificationPropertyPtrInput is an input type that accepts JobNotificationPropertyArgs, JobNotificationPropertyPtr and JobNotificationPropertyPtrOutput values.
+// You can construct a concrete instance of `JobNotificationPropertyPtrInput` via:
+//
+//          JobNotificationPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type JobNotificationPropertyPtrInput interface {
+	pulumi.Input
+
+	ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput
+	ToJobNotificationPropertyPtrOutputWithContext(context.Context) JobNotificationPropertyPtrOutput
+}
+
+type jobNotificationPropertyPtrType JobNotificationPropertyArgs
+
+func JobNotificationPropertyPtr(v *JobNotificationPropertyArgs) JobNotificationPropertyPtrInput {
+	return (*jobNotificationPropertyPtrType)(v)
+}
+
+func (*jobNotificationPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return i.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *jobNotificationPropertyPtrType) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobNotificationPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html
+type JobNotificationPropertyOutput struct{ *pulumi.OutputState }
+
+func (JobNotificationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutput() JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyOutputWithContext(ctx context.Context) JobNotificationPropertyOutput {
+	return o
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o.ToJobNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobNotificationProperty) *JobNotificationProperty {
+		return &v
+	}).(JobNotificationPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+func (o JobNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+}
+
+type JobNotificationPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (JobNotificationPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobNotificationProperty)(nil)).Elem()
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutput() JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o JobNotificationPropertyPtrOutput) Elem() JobNotificationPropertyOutput {
+	return o.ApplyT(func(v *JobNotificationProperty) JobNotificationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobNotificationProperty
+		return ret
+	}).(JobNotificationPropertyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-notificationproperty.html#cfn-glue-job-notificationproperty-notifydelayafter
+func (o JobNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobNotificationProperty) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyDelayAfter
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html
+type MLTransformFindMatchesParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+	AccuracyCostTradeoff *float64 `pulumi:"accuracyCostTradeoff"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+	EnforceProvidedLabels *bool `pulumi:"enforceProvidedLabels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+	PrecisionRecallTradeoff *float64 `pulumi:"precisionRecallTradeoff"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+	PrimaryKeyColumnName string `pulumi:"primaryKeyColumnName"`
+}
+
+// MLTransformFindMatchesParametersInput is an input type that accepts MLTransformFindMatchesParametersArgs and MLTransformFindMatchesParametersOutput values.
+// You can construct a concrete instance of `MLTransformFindMatchesParametersInput` via:
+//
+//          MLTransformFindMatchesParametersArgs{...}
+type MLTransformFindMatchesParametersInput interface {
+	pulumi.Input
+
+	ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput
+	ToMLTransformFindMatchesParametersOutputWithContext(context.Context) MLTransformFindMatchesParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html
+type MLTransformFindMatchesParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+	AccuracyCostTradeoff pulumi.Float64PtrInput `pulumi:"accuracyCostTradeoff"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+	EnforceProvidedLabels pulumi.BoolPtrInput `pulumi:"enforceProvidedLabels"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+	PrecisionRecallTradeoff pulumi.Float64PtrInput `pulumi:"precisionRecallTradeoff"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+	PrimaryKeyColumnName pulumi.StringInput `pulumi:"primaryKeyColumnName"`
+}
+
+func (MLTransformFindMatchesParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput {
+	return i.ToMLTransformFindMatchesParametersOutputWithContext(context.Background())
+}
+
+func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersOutput)
+}
+
+func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
+	return i.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformFindMatchesParametersArgs) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersOutput).ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx)
+}
+
+// MLTransformFindMatchesParametersPtrInput is an input type that accepts MLTransformFindMatchesParametersArgs, MLTransformFindMatchesParametersPtr and MLTransformFindMatchesParametersPtrOutput values.
+// You can construct a concrete instance of `MLTransformFindMatchesParametersPtrInput` via:
+//
+//          MLTransformFindMatchesParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformFindMatchesParametersPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput
+	ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Context) MLTransformFindMatchesParametersPtrOutput
+}
+
+type mltransformFindMatchesParametersPtrType MLTransformFindMatchesParametersArgs
+
+func MLTransformFindMatchesParametersPtr(v *MLTransformFindMatchesParametersArgs) MLTransformFindMatchesParametersPtrInput {
+	return (*mltransformFindMatchesParametersPtrType)(v)
+}
+
+func (*mltransformFindMatchesParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (i *mltransformFindMatchesParametersPtrType) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
+	return i.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformFindMatchesParametersPtrType) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformFindMatchesParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html
+type MLTransformFindMatchesParametersOutput struct{ *pulumi.OutputState }
+
+func (MLTransformFindMatchesParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersOutput() MLTransformFindMatchesParametersOutput {
+	return o
+}
+
+func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersOutput {
+	return o
+}
+
+func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
+	return o.ToMLTransformFindMatchesParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformFindMatchesParametersOutput) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformFindMatchesParameters) *MLTransformFindMatchesParameters {
+		return &v
+	}).(MLTransformFindMatchesParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+func (o MLTransformFindMatchesParametersOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLTransformFindMatchesParameters) *float64 { return v.AccuracyCostTradeoff }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+func (o MLTransformFindMatchesParametersOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MLTransformFindMatchesParameters) *bool { return v.EnforceProvidedLabels }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+func (o MLTransformFindMatchesParametersOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MLTransformFindMatchesParameters) *float64 { return v.PrecisionRecallTradeoff }).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+func (o MLTransformFindMatchesParametersOutput) PrimaryKeyColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformFindMatchesParameters) string { return v.PrimaryKeyColumnName }).(pulumi.StringOutput)
+}
+
+type MLTransformFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformFindMatchesParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformFindMatchesParameters)(nil)).Elem()
+}
+
+func (o MLTransformFindMatchesParametersPtrOutput) ToMLTransformFindMatchesParametersPtrOutput() MLTransformFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformFindMatchesParametersPtrOutput) ToMLTransformFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformFindMatchesParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformFindMatchesParametersPtrOutput) Elem() MLTransformFindMatchesParametersOutput {
+	return o.ApplyT(func(v *MLTransformFindMatchesParameters) MLTransformFindMatchesParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformFindMatchesParameters
+		return ret
+	}).(MLTransformFindMatchesParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-accuracycosttradeoff
+func (o MLTransformFindMatchesParametersPtrOutput) AccuracyCostTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AccuracyCostTradeoff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-enforceprovidedlabels
+func (o MLTransformFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnforceProvidedLabels
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-precisionrecalltradeoff
+func (o MLTransformFindMatchesParametersPtrOutput) PrecisionRecallTradeoff() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PrecisionRecallTradeoff
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters-findmatchesparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters-primarykeycolumnname
+func (o MLTransformFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformFindMatchesParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKeyColumnName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html
+type MLTransformGlueTables struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
+	CatalogId *string `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
+	ConnectionName *string `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
+	DatabaseName string `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
+	TableName string `pulumi:"tableName"`
+}
+
+// MLTransformGlueTablesInput is an input type that accepts MLTransformGlueTablesArgs and MLTransformGlueTablesOutput values.
+// You can construct a concrete instance of `MLTransformGlueTablesInput` via:
+//
+//          MLTransformGlueTablesArgs{...}
+type MLTransformGlueTablesInput interface {
+	pulumi.Input
+
+	ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput
+	ToMLTransformGlueTablesOutputWithContext(context.Context) MLTransformGlueTablesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html
+type MLTransformGlueTablesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (MLTransformGlueTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformGlueTables)(nil)).Elem()
+}
+
+func (i MLTransformGlueTablesArgs) ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput {
+	return i.ToMLTransformGlueTablesOutputWithContext(context.Background())
+}
+
+func (i MLTransformGlueTablesArgs) ToMLTransformGlueTablesOutputWithContext(ctx context.Context) MLTransformGlueTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformGlueTablesOutput)
+}
+
+// MLTransformGlueTablesArrayInput is an input type that accepts MLTransformGlueTablesArray and MLTransformGlueTablesArrayOutput values.
+// You can construct a concrete instance of `MLTransformGlueTablesArrayInput` via:
+//
+//          MLTransformGlueTablesArray{ MLTransformGlueTablesArgs{...} }
+type MLTransformGlueTablesArrayInput interface {
+	pulumi.Input
+
+	ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput
+	ToMLTransformGlueTablesArrayOutputWithContext(context.Context) MLTransformGlueTablesArrayOutput
+}
+
+type MLTransformGlueTablesArray []MLTransformGlueTablesInput
+
+func (MLTransformGlueTablesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformGlueTables)(nil)).Elem()
+}
+
+func (i MLTransformGlueTablesArray) ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput {
+	return i.ToMLTransformGlueTablesArrayOutputWithContext(context.Background())
+}
+
+func (i MLTransformGlueTablesArray) ToMLTransformGlueTablesArrayOutputWithContext(ctx context.Context) MLTransformGlueTablesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformGlueTablesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html
+type MLTransformGlueTablesOutput struct{ *pulumi.OutputState }
+
+func (MLTransformGlueTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformGlueTables)(nil)).Elem()
+}
+
+func (o MLTransformGlueTablesOutput) ToMLTransformGlueTablesOutput() MLTransformGlueTablesOutput {
+	return o
+}
+
+func (o MLTransformGlueTablesOutput) ToMLTransformGlueTablesOutputWithContext(ctx context.Context) MLTransformGlueTablesOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-catalogid
+func (o MLTransformGlueTablesOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformGlueTables) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-connectionname
+func (o MLTransformGlueTablesOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformGlueTables) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-databasename
+func (o MLTransformGlueTablesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformGlueTables) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables-gluetables.html#cfn-glue-mltransform-inputrecordtables-gluetables-tablename
+func (o MLTransformGlueTablesOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformGlueTables) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type MLTransformGlueTablesArrayOutput struct{ *pulumi.OutputState }
+
+func (MLTransformGlueTablesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MLTransformGlueTables)(nil)).Elem()
+}
+
+func (o MLTransformGlueTablesArrayOutput) ToMLTransformGlueTablesArrayOutput() MLTransformGlueTablesArrayOutput {
+	return o
+}
+
+func (o MLTransformGlueTablesArrayOutput) ToMLTransformGlueTablesArrayOutputWithContext(ctx context.Context) MLTransformGlueTablesArrayOutput {
+	return o
+}
+
+func (o MLTransformGlueTablesArrayOutput) Index(i pulumi.IntInput) MLTransformGlueTablesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MLTransformGlueTables {
+		return vs[0].([]MLTransformGlueTables)[vs[1].(int)]
+	}).(MLTransformGlueTablesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html
+type MLTransformInputRecordTables struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+	GlueTables []MLTransformGlueTables `pulumi:"glueTables"`
+}
+
+// MLTransformInputRecordTablesInput is an input type that accepts MLTransformInputRecordTablesArgs and MLTransformInputRecordTablesOutput values.
+// You can construct a concrete instance of `MLTransformInputRecordTablesInput` via:
+//
+//          MLTransformInputRecordTablesArgs{...}
+type MLTransformInputRecordTablesInput interface {
+	pulumi.Input
+
+	ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput
+	ToMLTransformInputRecordTablesOutputWithContext(context.Context) MLTransformInputRecordTablesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html
+type MLTransformInputRecordTablesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+	GlueTables MLTransformGlueTablesArrayInput `pulumi:"glueTables"`
+}
+
+func (MLTransformInputRecordTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformInputRecordTables)(nil)).Elem()
+}
+
+func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput {
+	return i.ToMLTransformInputRecordTablesOutputWithContext(context.Background())
+}
+
+func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesOutputWithContext(ctx context.Context) MLTransformInputRecordTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTablesOutput)
+}
+
+func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesPtrOutput() MLTransformInputRecordTablesPtrOutput {
+	return i.ToMLTransformInputRecordTablesPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformInputRecordTablesArgs) ToMLTransformInputRecordTablesPtrOutputWithContext(ctx context.Context) MLTransformInputRecordTablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTablesOutput).ToMLTransformInputRecordTablesPtrOutputWithContext(ctx)
+}
+
+// MLTransformInputRecordTablesPtrInput is an input type that accepts MLTransformInputRecordTablesArgs, MLTransformInputRecordTablesPtr and MLTransformInputRecordTablesPtrOutput values.
+// You can construct a concrete instance of `MLTransformInputRecordTablesPtrInput` via:
+//
+//          MLTransformInputRecordTablesArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformInputRecordTablesPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformInputRecordTablesPtrOutput() MLTransformInputRecordTablesPtrOutput
+	ToMLTransformInputRecordTablesPtrOutputWithContext(context.Context) MLTransformInputRecordTablesPtrOutput
+}
+
+type mltransformInputRecordTablesPtrType MLTransformInputRecordTablesArgs
+
+func MLTransformInputRecordTablesPtr(v *MLTransformInputRecordTablesArgs) MLTransformInputRecordTablesPtrInput {
+	return (*mltransformInputRecordTablesPtrType)(v)
+}
+
+func (*mltransformInputRecordTablesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformInputRecordTables)(nil)).Elem()
+}
+
+func (i *mltransformInputRecordTablesPtrType) ToMLTransformInputRecordTablesPtrOutput() MLTransformInputRecordTablesPtrOutput {
+	return i.ToMLTransformInputRecordTablesPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformInputRecordTablesPtrType) ToMLTransformInputRecordTablesPtrOutputWithContext(ctx context.Context) MLTransformInputRecordTablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformInputRecordTablesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html
+type MLTransformInputRecordTablesOutput struct{ *pulumi.OutputState }
+
+func (MLTransformInputRecordTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformInputRecordTables)(nil)).Elem()
+}
+
+func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesOutput() MLTransformInputRecordTablesOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesOutputWithContext(ctx context.Context) MLTransformInputRecordTablesOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesPtrOutput() MLTransformInputRecordTablesPtrOutput {
+	return o.ToMLTransformInputRecordTablesPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformInputRecordTablesOutput) ToMLTransformInputRecordTablesPtrOutputWithContext(ctx context.Context) MLTransformInputRecordTablesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformInputRecordTables) *MLTransformInputRecordTables {
+		return &v
+	}).(MLTransformInputRecordTablesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+func (o MLTransformInputRecordTablesOutput) GlueTables() MLTransformGlueTablesArrayOutput {
+	return o.ApplyT(func(v MLTransformInputRecordTables) []MLTransformGlueTables { return v.GlueTables }).(MLTransformGlueTablesArrayOutput)
+}
+
+type MLTransformInputRecordTablesPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformInputRecordTablesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformInputRecordTables)(nil)).Elem()
+}
+
+func (o MLTransformInputRecordTablesPtrOutput) ToMLTransformInputRecordTablesPtrOutput() MLTransformInputRecordTablesPtrOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTablesPtrOutput) ToMLTransformInputRecordTablesPtrOutputWithContext(ctx context.Context) MLTransformInputRecordTablesPtrOutput {
+	return o
+}
+
+func (o MLTransformInputRecordTablesPtrOutput) Elem() MLTransformInputRecordTablesOutput {
+	return o.ApplyT(func(v *MLTransformInputRecordTables) MLTransformInputRecordTables {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformInputRecordTables
+		return ret
+	}).(MLTransformInputRecordTablesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-inputrecordtables.html#cfn-glue-mltransform-inputrecordtables-gluetables
+func (o MLTransformInputRecordTablesPtrOutput) GlueTables() MLTransformGlueTablesArrayOutput {
+	return o.ApplyT(func(v *MLTransformInputRecordTables) []MLTransformGlueTables {
+		if v == nil {
+			return nil
+		}
+		return v.GlueTables
+	}).(MLTransformGlueTablesArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+	MLUserDataEncryptionMode string `pulumi:"mLUserDataEncryptionMode"`
+}
+
+// MLTransformMLUserDataEncryptionInput is an input type that accepts MLTransformMLUserDataEncryptionArgs and MLTransformMLUserDataEncryptionOutput values.
+// You can construct a concrete instance of `MLTransformMLUserDataEncryptionInput` via:
+//
+//          MLTransformMLUserDataEncryptionArgs{...}
+type MLTransformMLUserDataEncryptionInput interface {
+	pulumi.Input
+
+	ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput
+	ToMLTransformMLUserDataEncryptionOutputWithContext(context.Context) MLTransformMLUserDataEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+	MLUserDataEncryptionMode pulumi.StringInput `pulumi:"mLUserDataEncryptionMode"`
+}
+
+func (MLTransformMLUserDataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
+	return i.ToMLTransformMLUserDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput)
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformMLUserDataEncryptionArgs) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionOutput).ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx)
+}
+
+// MLTransformMLUserDataEncryptionPtrInput is an input type that accepts MLTransformMLUserDataEncryptionArgs, MLTransformMLUserDataEncryptionPtr and MLTransformMLUserDataEncryptionPtrOutput values.
+// You can construct a concrete instance of `MLTransformMLUserDataEncryptionPtrInput` via:
+//
+//          MLTransformMLUserDataEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformMLUserDataEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput
+	ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Context) MLTransformMLUserDataEncryptionPtrOutput
+}
+
+type mltransformMLUserDataEncryptionPtrType MLTransformMLUserDataEncryptionArgs
+
+func MLTransformMLUserDataEncryptionPtr(v *MLTransformMLUserDataEncryptionArgs) MLTransformMLUserDataEncryptionPtrInput {
+	return (*mltransformMLUserDataEncryptionPtrType)(v)
+}
+
+func (*mltransformMLUserDataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return i.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformMLUserDataEncryptionPtrType) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html
+type MLTransformMLUserDataEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MLTransformMLUserDataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutput() MLTransformMLUserDataEncryptionOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ToMLTransformMLUserDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformMLUserDataEncryptionOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformMLUserDataEncryption) *MLTransformMLUserDataEncryption {
+		return &v
+	}).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+func (o MLTransformMLUserDataEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+func (o MLTransformMLUserDataEncryptionOutput) MLUserDataEncryptionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformMLUserDataEncryption) string { return v.MLUserDataEncryptionMode }).(pulumi.StringOutput)
+}
+
+type MLTransformMLUserDataEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformMLUserDataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformMLUserDataEncryption)(nil)).Elem()
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutput() MLTransformMLUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) ToMLTransformMLUserDataEncryptionPtrOutputWithContext(ctx context.Context) MLTransformMLUserDataEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformMLUserDataEncryptionPtrOutput) Elem() MLTransformMLUserDataEncryptionOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) MLTransformMLUserDataEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformMLUserDataEncryption
+		return ret
+	}).(MLTransformMLUserDataEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-kmskeyid
+func (o MLTransformMLUserDataEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption-mluserdataencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption-mluserdataencryptionmode
+func (o MLTransformMLUserDataEncryptionPtrOutput) MLUserDataEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformMLUserDataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MLUserDataEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+	MLUserDataEncryption *MLTransformMLUserDataEncryption `pulumi:"mLUserDataEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+	TaskRunSecurityConfigurationName *string `pulumi:"taskRunSecurityConfigurationName"`
+}
+
+// MLTransformTransformEncryptionInput is an input type that accepts MLTransformTransformEncryptionArgs and MLTransformTransformEncryptionOutput values.
+// You can construct a concrete instance of `MLTransformTransformEncryptionInput` via:
+//
+//          MLTransformTransformEncryptionArgs{...}
+type MLTransformTransformEncryptionInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput
+	ToMLTransformTransformEncryptionOutputWithContext(context.Context) MLTransformTransformEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+	MLUserDataEncryption MLTransformMLUserDataEncryptionPtrInput `pulumi:"mLUserDataEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+	TaskRunSecurityConfigurationName pulumi.StringPtrInput `pulumi:"taskRunSecurityConfigurationName"`
+}
+
+func (MLTransformTransformEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
+	return i.ToMLTransformTransformEncryptionOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput)
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformEncryptionArgs) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionOutput).ToMLTransformTransformEncryptionPtrOutputWithContext(ctx)
+}
+
+// MLTransformTransformEncryptionPtrInput is an input type that accepts MLTransformTransformEncryptionArgs, MLTransformTransformEncryptionPtr and MLTransformTransformEncryptionPtrOutput values.
+// You can construct a concrete instance of `MLTransformTransformEncryptionPtrInput` via:
+//
+//          MLTransformTransformEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformTransformEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput
+	ToMLTransformTransformEncryptionPtrOutputWithContext(context.Context) MLTransformTransformEncryptionPtrOutput
+}
+
+type mltransformTransformEncryptionPtrType MLTransformTransformEncryptionArgs
+
+func MLTransformTransformEncryptionPtr(v *MLTransformTransformEncryptionArgs) MLTransformTransformEncryptionPtrInput {
+	return (*mltransformTransformEncryptionPtrType)(v)
+}
+
+func (*mltransformTransformEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return i.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformTransformEncryptionPtrType) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html
+type MLTransformTransformEncryptionOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutput() MLTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionOutputWithContext(ctx context.Context) MLTransformTransformEncryptionOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return o.ToMLTransformTransformEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformTransformEncryptionOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformTransformEncryption) *MLTransformTransformEncryption {
+		return &v
+	}).(MLTransformTransformEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+func (o MLTransformTransformEncryptionOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *MLTransformMLUserDataEncryption { return v.MLUserDataEncryption }).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+func (o MLTransformTransformEncryptionOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformEncryption) *string { return v.TaskRunSecurityConfigurationName }).(pulumi.StringPtrOutput)
+}
+
+type MLTransformTransformEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformEncryption)(nil)).Elem()
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutput() MLTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) ToMLTransformTransformEncryptionPtrOutputWithContext(ctx context.Context) MLTransformTransformEncryptionPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformEncryptionPtrOutput) Elem() MLTransformTransformEncryptionOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) MLTransformTransformEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformTransformEncryption
+		return ret
+	}).(MLTransformTransformEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-mluserdataencryption
+func (o MLTransformTransformEncryptionPtrOutput) MLUserDataEncryption() MLTransformMLUserDataEncryptionPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) *MLTransformMLUserDataEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.MLUserDataEncryption
+	}).(MLTransformMLUserDataEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformencryption.html#cfn-glue-mltransform-transformencryption-taskrunsecurityconfigurationname
+func (o MLTransformTransformEncryptionPtrOutput) TaskRunSecurityConfigurationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskRunSecurityConfigurationName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html
+type MLTransformTransformParameters struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+	FindMatchesParameters *MLTransformFindMatchesParameters `pulumi:"findMatchesParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+	TransformType string `pulumi:"transformType"`
+}
+
+// MLTransformTransformParametersInput is an input type that accepts MLTransformTransformParametersArgs and MLTransformTransformParametersOutput values.
+// You can construct a concrete instance of `MLTransformTransformParametersInput` via:
+//
+//          MLTransformTransformParametersArgs{...}
+type MLTransformTransformParametersInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput
+	ToMLTransformTransformParametersOutputWithContext(context.Context) MLTransformTransformParametersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html
+type MLTransformTransformParametersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+	FindMatchesParameters MLTransformFindMatchesParametersPtrInput `pulumi:"findMatchesParameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+	TransformType pulumi.StringInput `pulumi:"transformType"`
+}
+
+func (MLTransformTransformParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformParameters)(nil)).Elem()
+}
+
+func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput {
+	return i.ToMLTransformTransformParametersOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersOutputWithContext(ctx context.Context) MLTransformTransformParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformParametersOutput)
+}
+
+func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+	return i.ToMLTransformTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (i MLTransformTransformParametersArgs) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformParametersOutput).ToMLTransformTransformParametersPtrOutputWithContext(ctx)
+}
+
+// MLTransformTransformParametersPtrInput is an input type that accepts MLTransformTransformParametersArgs, MLTransformTransformParametersPtr and MLTransformTransformParametersPtrOutput values.
+// You can construct a concrete instance of `MLTransformTransformParametersPtrInput` via:
+//
+//          MLTransformTransformParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type MLTransformTransformParametersPtrInput interface {
+	pulumi.Input
+
+	ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput
+	ToMLTransformTransformParametersPtrOutputWithContext(context.Context) MLTransformTransformParametersPtrOutput
+}
+
+type mltransformTransformParametersPtrType MLTransformTransformParametersArgs
+
+func MLTransformTransformParametersPtr(v *MLTransformTransformParametersArgs) MLTransformTransformParametersPtrInput {
+	return (*mltransformTransformParametersPtrType)(v)
+}
+
+func (*mltransformTransformParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformParameters)(nil)).Elem()
+}
+
+func (i *mltransformTransformParametersPtrType) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+	return i.ToMLTransformTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *mltransformTransformParametersPtrType) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MLTransformTransformParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html
+type MLTransformTransformParametersOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MLTransformTransformParameters)(nil)).Elem()
+}
+
+func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersOutput() MLTransformTransformParametersOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersOutputWithContext(ctx context.Context) MLTransformTransformParametersOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+	return o.ToMLTransformTransformParametersPtrOutputWithContext(context.Background())
+}
+
+func (o MLTransformTransformParametersOutput) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformTransformParameters) *MLTransformTransformParameters {
+		return &v
+	}).(MLTransformTransformParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+func (o MLTransformTransformParametersOutput) FindMatchesParameters() MLTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v MLTransformTransformParameters) *MLTransformFindMatchesParameters {
+		return v.FindMatchesParameters
+	}).(MLTransformFindMatchesParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+func (o MLTransformTransformParametersOutput) TransformType() pulumi.StringOutput {
+	return o.ApplyT(func(v MLTransformTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
+}
+
+type MLTransformTransformParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (MLTransformTransformParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MLTransformTransformParameters)(nil)).Elem()
+}
+
+func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutput() MLTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersPtrOutput) ToMLTransformTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformTransformParametersPtrOutput {
+	return o
+}
+
+func (o MLTransformTransformParametersPtrOutput) Elem() MLTransformTransformParametersOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) MLTransformTransformParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformTransformParameters
+		return ret
+	}).(MLTransformTransformParametersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-findmatchesparameters
+func (o MLTransformTransformParametersPtrOutput) FindMatchesParameters() MLTransformFindMatchesParametersPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) *MLTransformFindMatchesParameters {
+		if v == nil {
+			return nil
+		}
+		return v.FindMatchesParameters
+	}).(MLTransformFindMatchesParametersPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-mltransform-transformparameters.html#cfn-glue-mltransform-transformparameters-transformtype
+func (o MLTransformTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLTransformTransformParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TransformType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html
+type PartitionColumn struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-comment
+	Comment *string `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-type
+	Type *string `pulumi:"type"`
+}
+
+// PartitionColumnInput is an input type that accepts PartitionColumnArgs and PartitionColumnOutput values.
+// You can construct a concrete instance of `PartitionColumnInput` via:
+//
+//          PartitionColumnArgs{...}
+type PartitionColumnInput interface {
+	pulumi.Input
+
+	ToPartitionColumnOutput() PartitionColumnOutput
+	ToPartitionColumnOutputWithContext(context.Context) PartitionColumnOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html
+type PartitionColumnArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-comment
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (PartitionColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionColumn)(nil)).Elem()
+}
+
+func (i PartitionColumnArgs) ToPartitionColumnOutput() PartitionColumnOutput {
+	return i.ToPartitionColumnOutputWithContext(context.Background())
+}
+
+func (i PartitionColumnArgs) ToPartitionColumnOutputWithContext(ctx context.Context) PartitionColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionColumnOutput)
+}
+
+// PartitionColumnArrayInput is an input type that accepts PartitionColumnArray and PartitionColumnArrayOutput values.
+// You can construct a concrete instance of `PartitionColumnArrayInput` via:
+//
+//          PartitionColumnArray{ PartitionColumnArgs{...} }
+type PartitionColumnArrayInput interface {
+	pulumi.Input
+
+	ToPartitionColumnArrayOutput() PartitionColumnArrayOutput
+	ToPartitionColumnArrayOutputWithContext(context.Context) PartitionColumnArrayOutput
+}
+
+type PartitionColumnArray []PartitionColumnInput
+
+func (PartitionColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionColumn)(nil)).Elem()
+}
+
+func (i PartitionColumnArray) ToPartitionColumnArrayOutput() PartitionColumnArrayOutput {
+	return i.ToPartitionColumnArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionColumnArray) ToPartitionColumnArrayOutputWithContext(ctx context.Context) PartitionColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html
+type PartitionColumnOutput struct{ *pulumi.OutputState }
+
+func (PartitionColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionColumn)(nil)).Elem()
+}
+
+func (o PartitionColumnOutput) ToPartitionColumnOutput() PartitionColumnOutput {
+	return o
+}
+
+func (o PartitionColumnOutput) ToPartitionColumnOutputWithContext(ctx context.Context) PartitionColumnOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-comment
+func (o PartitionColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-name
+func (o PartitionColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-column.html#cfn-glue-partition-column-type
+func (o PartitionColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type PartitionColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionColumn)(nil)).Elem()
+}
+
+func (o PartitionColumnArrayOutput) ToPartitionColumnArrayOutput() PartitionColumnArrayOutput {
+	return o
+}
+
+func (o PartitionColumnArrayOutput) ToPartitionColumnArrayOutputWithContext(ctx context.Context) PartitionColumnArrayOutput {
+	return o
+}
+
+func (o PartitionColumnArrayOutput) Index(i pulumi.IntInput) PartitionColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionColumn {
+		return vs[0].([]PartitionColumn)[vs[1].(int)]
+	}).(PartitionColumnOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html
+type PartitionOrder struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
+	Column string `pulumi:"column"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
+	SortOrder *int `pulumi:"sortOrder"`
+}
+
+// PartitionOrderInput is an input type that accepts PartitionOrderArgs and PartitionOrderOutput values.
+// You can construct a concrete instance of `PartitionOrderInput` via:
+//
+//          PartitionOrderArgs{...}
+type PartitionOrderInput interface {
+	pulumi.Input
+
+	ToPartitionOrderOutput() PartitionOrderOutput
+	ToPartitionOrderOutputWithContext(context.Context) PartitionOrderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html
+type PartitionOrderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
+	Column pulumi.StringInput `pulumi:"column"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
+	SortOrder pulumi.IntPtrInput `pulumi:"sortOrder"`
+}
+
+func (PartitionOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionOrder)(nil)).Elem()
+}
+
+func (i PartitionOrderArgs) ToPartitionOrderOutput() PartitionOrderOutput {
+	return i.ToPartitionOrderOutputWithContext(context.Background())
+}
+
+func (i PartitionOrderArgs) ToPartitionOrderOutputWithContext(ctx context.Context) PartitionOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOrderOutput)
+}
+
+// PartitionOrderArrayInput is an input type that accepts PartitionOrderArray and PartitionOrderArrayOutput values.
+// You can construct a concrete instance of `PartitionOrderArrayInput` via:
+//
+//          PartitionOrderArray{ PartitionOrderArgs{...} }
+type PartitionOrderArrayInput interface {
+	pulumi.Input
+
+	ToPartitionOrderArrayOutput() PartitionOrderArrayOutput
+	ToPartitionOrderArrayOutputWithContext(context.Context) PartitionOrderArrayOutput
+}
+
+type PartitionOrderArray []PartitionOrderInput
+
+func (PartitionOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionOrder)(nil)).Elem()
+}
+
+func (i PartitionOrderArray) ToPartitionOrderArrayOutput() PartitionOrderArrayOutput {
+	return i.ToPartitionOrderArrayOutputWithContext(context.Background())
+}
+
+func (i PartitionOrderArray) ToPartitionOrderArrayOutputWithContext(ctx context.Context) PartitionOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html
+type PartitionOrderOutput struct{ *pulumi.OutputState }
+
+func (PartitionOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionOrder)(nil)).Elem()
+}
+
+func (o PartitionOrderOutput) ToPartitionOrderOutput() PartitionOrderOutput {
+	return o
+}
+
+func (o PartitionOrderOutput) ToPartitionOrderOutputWithContext(ctx context.Context) PartitionOrderOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-column
+func (o PartitionOrderOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v PartitionOrder) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-order.html#cfn-glue-partition-order-sortorder
+func (o PartitionOrderOutput) SortOrder() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionOrder) *int { return v.SortOrder }).(pulumi.IntPtrOutput)
+}
+
+type PartitionOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (PartitionOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartitionOrder)(nil)).Elem()
+}
+
+func (o PartitionOrderArrayOutput) ToPartitionOrderArrayOutput() PartitionOrderArrayOutput {
+	return o
+}
+
+func (o PartitionOrderArrayOutput) ToPartitionOrderArrayOutputWithContext(ctx context.Context) PartitionOrderArrayOutput {
+	return o
+}
+
+func (o PartitionOrderArrayOutput) Index(i pulumi.IntInput) PartitionOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartitionOrder {
+		return vs[0].([]PartitionOrder)[vs[1].(int)]
+	}).(PartitionOrderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html
+type PartitionPartitionInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+	StorageDescriptor *PartitionStorageDescriptor `pulumi:"storageDescriptor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+	Values []string `pulumi:"values"`
+}
+
+// PartitionPartitionInputInput is an input type that accepts PartitionPartitionInputArgs and PartitionPartitionInputOutput values.
+// You can construct a concrete instance of `PartitionPartitionInputInput` via:
+//
+//          PartitionPartitionInputArgs{...}
+type PartitionPartitionInputInput interface {
+	pulumi.Input
+
+	ToPartitionPartitionInputOutput() PartitionPartitionInputOutput
+	ToPartitionPartitionInputOutputWithContext(context.Context) PartitionPartitionInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html
+type PartitionPartitionInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+	StorageDescriptor PartitionStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PartitionPartitionInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionPartitionInput)(nil)).Elem()
+}
+
+func (i PartitionPartitionInputArgs) ToPartitionPartitionInputOutput() PartitionPartitionInputOutput {
+	return i.ToPartitionPartitionInputOutputWithContext(context.Background())
+}
+
+func (i PartitionPartitionInputArgs) ToPartitionPartitionInputOutputWithContext(ctx context.Context) PartitionPartitionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputOutput)
+}
+
+func (i PartitionPartitionInputArgs) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
+	return i.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionPartitionInputArgs) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputOutput).ToPartitionPartitionInputPtrOutputWithContext(ctx)
+}
+
+// PartitionPartitionInputPtrInput is an input type that accepts PartitionPartitionInputArgs, PartitionPartitionInputPtr and PartitionPartitionInputPtrOutput values.
+// You can construct a concrete instance of `PartitionPartitionInputPtrInput` via:
+//
+//          PartitionPartitionInputArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionPartitionInputPtrInput interface {
+	pulumi.Input
+
+	ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput
+	ToPartitionPartitionInputPtrOutputWithContext(context.Context) PartitionPartitionInputPtrOutput
+}
+
+type partitionPartitionInputPtrType PartitionPartitionInputArgs
+
+func PartitionPartitionInputPtr(v *PartitionPartitionInputArgs) PartitionPartitionInputPtrInput {
+	return (*partitionPartitionInputPtrType)(v)
+}
+
+func (*partitionPartitionInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionPartitionInput)(nil)).Elem()
+}
+
+func (i *partitionPartitionInputPtrType) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
+	return i.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionPartitionInputPtrType) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionPartitionInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html
+type PartitionPartitionInputOutput struct{ *pulumi.OutputState }
+
+func (PartitionPartitionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionPartitionInput)(nil)).Elem()
+}
+
+func (o PartitionPartitionInputOutput) ToPartitionPartitionInputOutput() PartitionPartitionInputOutput {
+	return o
+}
+
+func (o PartitionPartitionInputOutput) ToPartitionPartitionInputOutputWithContext(ctx context.Context) PartitionPartitionInputOutput {
+	return o
+}
+
+func (o PartitionPartitionInputOutput) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
+	return o.ToPartitionPartitionInputPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionPartitionInputOutput) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionPartitionInput) *PartitionPartitionInput {
+		return &v
+	}).(PartitionPartitionInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+func (o PartitionPartitionInputOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionPartitionInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+func (o PartitionPartitionInputOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v PartitionPartitionInput) *PartitionStorageDescriptor { return v.StorageDescriptor }).(PartitionStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+func (o PartitionPartitionInputOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionPartitionInput) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PartitionPartitionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionPartitionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionPartitionInput)(nil)).Elem()
+}
+
+func (o PartitionPartitionInputPtrOutput) ToPartitionPartitionInputPtrOutput() PartitionPartitionInputPtrOutput {
+	return o
+}
+
+func (o PartitionPartitionInputPtrOutput) ToPartitionPartitionInputPtrOutputWithContext(ctx context.Context) PartitionPartitionInputPtrOutput {
+	return o
+}
+
+func (o PartitionPartitionInputPtrOutput) Elem() PartitionPartitionInputOutput {
+	return o.ApplyT(func(v *PartitionPartitionInput) PartitionPartitionInput {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionPartitionInput
+		return ret
+	}).(PartitionPartitionInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
+func (o PartitionPartitionInputPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionPartitionInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
+func (o PartitionPartitionInputPtrOutput) StorageDescriptor() PartitionStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *PartitionPartitionInput) *PartitionStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
+func (o PartitionPartitionInputPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionPartitionInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaId struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+	RegistryName *string `pulumi:"registryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+	SchemaArn *string `pulumi:"schemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// PartitionSchemaIdInput is an input type that accepts PartitionSchemaIdArgs and PartitionSchemaIdOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdInput` via:
+//
+//          PartitionSchemaIdArgs{...}
+type PartitionSchemaIdInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdOutput() PartitionSchemaIdOutput
+	ToPartitionSchemaIdOutputWithContext(context.Context) PartitionSchemaIdOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaIdArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (PartitionSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return i.ToPartitionSchemaIdOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput)
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaIdArgs) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdOutput).ToPartitionSchemaIdPtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaIdPtrInput is an input type that accepts PartitionSchemaIdArgs, PartitionSchemaIdPtr and PartitionSchemaIdPtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaIdPtrInput` via:
+//
+//          PartitionSchemaIdArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput
+	ToPartitionSchemaIdPtrOutputWithContext(context.Context) PartitionSchemaIdPtrOutput
+}
+
+type partitionSchemaIdPtrType PartitionSchemaIdArgs
+
+func PartitionSchemaIdPtr(v *PartitionSchemaIdArgs) PartitionSchemaIdPtrInput {
+	return (*partitionSchemaIdPtrType)(v)
+}
+
+func (*partitionSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return i.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaIdPtrType) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html
+type PartitionSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutput() PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdOutputWithContext(ctx context.Context) PartitionSchemaIdOutput {
+	return o
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o.ToPartitionSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaIdOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSchemaId) *PartitionSchemaId {
+		return &v
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+func (o PartitionSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+func (o PartitionSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+func (o PartitionSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PartitionSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaId)(nil)).Elem()
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutput() PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) ToPartitionSchemaIdPtrOutputWithContext(ctx context.Context) PartitionSchemaIdPtrOutput {
+	return o
+}
+
+func (o PartitionSchemaIdPtrOutput) Elem() PartitionSchemaIdOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) PartitionSchemaId {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSchemaId
+		return ret
+	}).(PartitionSchemaIdOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-registryname
+func (o PartitionSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaarn
+func (o PartitionSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemaid.html#cfn-glue-partition-schemaid-schemaname
+func (o PartitionSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReference struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+	SchemaId *PartitionSchemaId `pulumi:"schemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+	SchemaVersionNumber *int `pulumi:"schemaVersionNumber"`
+}
+
+// PartitionSchemaReferenceInput is an input type that accepts PartitionSchemaReferenceArgs and PartitionSchemaReferenceOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferenceInput` via:
+//
+//          PartitionSchemaReferenceArgs{...}
+type PartitionSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput
+	ToPartitionSchemaReferenceOutputWithContext(context.Context) PartitionSchemaReferenceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReferenceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+	SchemaId PartitionSchemaIdPtrInput `pulumi:"schemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"schemaVersionNumber"`
+}
+
+func (PartitionSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return i.ToPartitionSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput)
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSchemaReferenceArgs) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferenceOutput).ToPartitionSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// PartitionSchemaReferencePtrInput is an input type that accepts PartitionSchemaReferenceArgs, PartitionSchemaReferencePtr and PartitionSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `PartitionSchemaReferencePtrInput` via:
+//
+//          PartitionSchemaReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput
+	ToPartitionSchemaReferencePtrOutputWithContext(context.Context) PartitionSchemaReferencePtrOutput
+}
+
+type partitionSchemaReferencePtrType PartitionSchemaReferenceArgs
+
+func PartitionSchemaReferencePtr(v *PartitionSchemaReferenceArgs) PartitionSchemaReferencePtrInput {
+	return (*partitionSchemaReferencePtrType)(v)
+}
+
+func (*partitionSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return i.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSchemaReferencePtrType) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html
+type PartitionSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutput() PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferenceOutputWithContext(ctx context.Context) PartitionSchemaReferenceOutput {
+	return o
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o.ToPartitionSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSchemaReferenceOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSchemaReference) *PartitionSchemaReference {
+		return &v
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+func (o PartitionSchemaReferenceOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *PartitionSchemaId { return v.SchemaId }).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+func (o PartitionSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+func (o PartitionSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type PartitionSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSchemaReference)(nil)).Elem()
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutput() PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) ToPartitionSchemaReferencePtrOutputWithContext(ctx context.Context) PartitionSchemaReferencePtrOutput {
+	return o
+}
+
+func (o PartitionSchemaReferencePtrOutput) Elem() PartitionSchemaReferenceOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) PartitionSchemaReference {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSchemaReference
+		return ret
+	}).(PartitionSchemaReferenceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaid
+func (o PartitionSchemaReferencePtrOutput) SchemaId() PartitionSchemaIdPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *PartitionSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(PartitionSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionid
+func (o PartitionSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-schemareference.html#cfn-glue-partition-schemareference-schemaversionnumber
+func (o PartitionSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
+type PartitionSerdeInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+
+// PartitionSerdeInfoInput is an input type that accepts PartitionSerdeInfoArgs and PartitionSerdeInfoOutput values.
+// You can construct a concrete instance of `PartitionSerdeInfoInput` via:
+//
+//          PartitionSerdeInfoArgs{...}
+type PartitionSerdeInfoInput interface {
+	pulumi.Input
+
+	ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput
+	ToPartitionSerdeInfoOutputWithContext(context.Context) PartitionSerdeInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
+type PartitionSerdeInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
+}
+
+func (PartitionSerdeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput {
+	return i.ToPartitionSerdeInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoOutputWithContext(ctx context.Context) PartitionSerdeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoOutput)
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return i.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSerdeInfoArgs) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoOutput).ToPartitionSerdeInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionSerdeInfoPtrInput is an input type that accepts PartitionSerdeInfoArgs, PartitionSerdeInfoPtr and PartitionSerdeInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionSerdeInfoPtrInput` via:
+//
+//          PartitionSerdeInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSerdeInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput
+	ToPartitionSerdeInfoPtrOutputWithContext(context.Context) PartitionSerdeInfoPtrOutput
+}
+
+type partitionSerdeInfoPtrType PartitionSerdeInfoArgs
+
+func PartitionSerdeInfoPtr(v *PartitionSerdeInfoArgs) PartitionSerdeInfoPtrInput {
+	return (*partitionSerdeInfoPtrType)(v)
+}
+
+func (*partitionSerdeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (i *partitionSerdeInfoPtrType) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return i.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSerdeInfoPtrType) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html
+type PartitionSerdeInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionSerdeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoOutput() PartitionSerdeInfoOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoOutputWithContext(ctx context.Context) PartitionSerdeInfoOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return o.ToPartitionSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSerdeInfoOutput) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSerdeInfo) *PartitionSerdeInfo {
+		return &v
+	}).(PartitionSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+func (o PartitionSerdeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+func (o PartitionSerdeInfoOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+func (o PartitionSerdeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionSerdeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+}
+
+type PartitionSerdeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSerdeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSerdeInfo)(nil)).Elem()
+}
+
+func (o PartitionSerdeInfoPtrOutput) ToPartitionSerdeInfoPtrOutput() PartitionSerdeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoPtrOutput) ToPartitionSerdeInfoPtrOutputWithContext(ctx context.Context) PartitionSerdeInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSerdeInfoPtrOutput) Elem() PartitionSerdeInfoOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) PartitionSerdeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSerdeInfo
+		return ret
+	}).(PartitionSerdeInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name
+func (o PartitionSerdeInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters
+func (o PartitionSerdeInfoPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary
+func (o PartitionSerdeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializationLibrary
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html
+type PartitionSkewedInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+	SkewedColumnValueLocationMaps interface{} `pulumi:"skewedColumnValueLocationMaps"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// PartitionSkewedInfoInput is an input type that accepts PartitionSkewedInfoArgs and PartitionSkewedInfoOutput values.
+// You can construct a concrete instance of `PartitionSkewedInfoInput` via:
+//
+//          PartitionSkewedInfoArgs{...}
+type PartitionSkewedInfoInput interface {
+	pulumi.Input
+
+	ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput
+	ToPartitionSkewedInfoOutputWithContext(context.Context) PartitionSkewedInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html
+type PartitionSkewedInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+	SkewedColumnValueLocationMaps pulumi.Input `pulumi:"skewedColumnValueLocationMaps"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (PartitionSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput {
+	return i.ToPartitionSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoOutputWithContext(ctx context.Context) PartitionSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoOutput)
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return i.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionSkewedInfoArgs) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoOutput).ToPartitionSkewedInfoPtrOutputWithContext(ctx)
+}
+
+// PartitionSkewedInfoPtrInput is an input type that accepts PartitionSkewedInfoArgs, PartitionSkewedInfoPtr and PartitionSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `PartitionSkewedInfoPtrInput` via:
+//
+//          PartitionSkewedInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionSkewedInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput
+	ToPartitionSkewedInfoPtrOutputWithContext(context.Context) PartitionSkewedInfoPtrOutput
+}
+
+type partitionSkewedInfoPtrType PartitionSkewedInfoArgs
+
+func PartitionSkewedInfoPtr(v *PartitionSkewedInfoArgs) PartitionSkewedInfoPtrInput {
+	return (*partitionSkewedInfoPtrType)(v)
+}
+
+func (*partitionSkewedInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (i *partitionSkewedInfoPtrType) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return i.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionSkewedInfoPtrType) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html
+type PartitionSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (PartitionSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoOutput() PartitionSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoOutputWithContext(ctx context.Context) PartitionSkewedInfoOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return o.ToPartitionSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionSkewedInfoOutput) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionSkewedInfo) *PartitionSkewedInfo {
+		return &v
+	}).(PartitionSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+func (o PartitionSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+func (o PartitionSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) interface{} { return v.SkewedColumnValueLocationMaps }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+func (o PartitionSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type PartitionSkewedInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionSkewedInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionSkewedInfo)(nil)).Elem()
+}
+
+func (o PartitionSkewedInfoPtrOutput) ToPartitionSkewedInfoPtrOutput() PartitionSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoPtrOutput) ToPartitionSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionSkewedInfoPtrOutput {
+	return o
+}
+
+func (o PartitionSkewedInfoPtrOutput) Elem() PartitionSkewedInfoOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) PartitionSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionSkewedInfo
+		return ret
+	}).(PartitionSkewedInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnnames
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvaluelocationmaps
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-skewedinfo.html#cfn-glue-partition-skewedinfo-skewedcolumnvalues
+func (o PartitionSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html
+type PartitionStorageDescriptor struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+	Columns []PartitionColumn `pulumi:"columns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+	Compressed *bool `pulumi:"compressed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+	InputFormat *string `pulumi:"inputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+	Location *string `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+	OutputFormat *string `pulumi:"outputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+	SchemaReference *PartitionSchemaReference `pulumi:"schemaReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+	SerdeInfo *PartitionSerdeInfo `pulumi:"serdeInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+	SkewedInfo *PartitionSkewedInfo `pulumi:"skewedInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+	SortColumns []PartitionOrder `pulumi:"sortColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+
+// PartitionStorageDescriptorInput is an input type that accepts PartitionStorageDescriptorArgs and PartitionStorageDescriptorOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorInput` via:
+//
+//          PartitionStorageDescriptorArgs{...}
+type PartitionStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput
+	ToPartitionStorageDescriptorOutputWithContext(context.Context) PartitionStorageDescriptorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html
+type PartitionStorageDescriptorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+	Columns PartitionColumnArrayInput `pulumi:"columns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+	SchemaReference PartitionSchemaReferencePtrInput `pulumi:"schemaReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+	SerdeInfo PartitionSerdeInfoPtrInput `pulumi:"serdeInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+	SkewedInfo PartitionSkewedInfoPtrInput `pulumi:"skewedInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+	SortColumns PartitionOrderArrayInput `pulumi:"sortColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (PartitionStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return i.ToPartitionStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput)
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionStorageDescriptorArgs) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorOutput).ToPartitionStorageDescriptorPtrOutputWithContext(ctx)
+}
+
+// PartitionStorageDescriptorPtrInput is an input type that accepts PartitionStorageDescriptorArgs, PartitionStorageDescriptorPtr and PartitionStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `PartitionStorageDescriptorPtrInput` via:
+//
+//          PartitionStorageDescriptorArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionStorageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput
+	ToPartitionStorageDescriptorPtrOutputWithContext(context.Context) PartitionStorageDescriptorPtrOutput
+}
+
+type partitionStorageDescriptorPtrType PartitionStorageDescriptorArgs
+
+func PartitionStorageDescriptorPtr(v *PartitionStorageDescriptorArgs) PartitionStorageDescriptorPtrInput {
+	return (*partitionStorageDescriptorPtrType)(v)
+}
+
+func (*partitionStorageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return i.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionStorageDescriptorPtrType) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html
+type PartitionStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutput() PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorOutputWithContext(ctx context.Context) PartitionStorageDescriptorOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o.ToPartitionStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionStorageDescriptor) *PartitionStorageDescriptor {
+		return &v
+	}).(PartitionStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+func (o PartitionStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+func (o PartitionStorageDescriptorOutput) Columns() PartitionColumnArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionColumn { return v.Columns }).(PartitionColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+func (o PartitionStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+func (o PartitionStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+func (o PartitionStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+func (o PartitionStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+func (o PartitionStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+func (o PartitionStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+func (o PartitionStorageDescriptorOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSchemaReference { return v.SchemaReference }).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+func (o PartitionStorageDescriptorOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSerdeInfo { return v.SerdeInfo }).(PartitionSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+func (o PartitionStorageDescriptorOutput) SkewedInfo() PartitionSkewedInfoPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionSkewedInfo { return v.SkewedInfo }).(PartitionSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+func (o PartitionStorageDescriptorOutput) SortColumns() PartitionOrderArrayOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) []PartitionOrder { return v.SortColumns }).(PartitionOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+func (o PartitionStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PartitionStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+}
+
+type PartitionStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionStorageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionStorageDescriptor)(nil)).Elem()
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutput() PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o PartitionStorageDescriptorPtrOutput) Elem() PartitionStorageDescriptorOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) PartitionStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionStorageDescriptor
+		return ret
+	}).(PartitionStorageDescriptorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-bucketcolumns
+func (o PartitionStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-columns
+func (o PartitionStorageDescriptorPtrOutput) Columns() PartitionColumnArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(PartitionColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-compressed
+func (o PartitionStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compressed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-inputformat
+func (o PartitionStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-location
+func (o PartitionStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-numberofbuckets
+func (o PartitionStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-outputformat
+func (o PartitionStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-parameters
+func (o PartitionStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-schemareference
+func (o PartitionStorageDescriptorPtrOutput) SchemaReference() PartitionSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(PartitionSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-serdeinfo
+func (o PartitionStorageDescriptorPtrOutput) SerdeInfo() PartitionSerdeInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSerdeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SerdeInfo
+	}).(PartitionSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-skewedinfo
+func (o PartitionStorageDescriptorPtrOutput) SkewedInfo() PartitionSkewedInfoPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *PartitionSkewedInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedInfo
+	}).(PartitionSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-sortcolumns
+func (o PartitionStorageDescriptorPtrOutput) SortColumns() PartitionOrderArrayOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) []PartitionOrder {
+		if v == nil {
+			return nil
+		}
+		return v.SortColumns
+	}).(PartitionOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-storagedescriptor.html#cfn-glue-partition-storagedescriptor-storedassubdirectories
+func (o PartitionStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartitionStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StoredAsSubDirectories
+	}).(pulumi.BoolPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
 type SchemaRegistry struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
@@ -506,11 +6942,3206 @@ func (o SchemaVersionSchemaPtrOutput) SchemaName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html
+type SecurityConfigurationCloudWatchEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+	CloudWatchEncryptionMode *string `pulumi:"cloudWatchEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SecurityConfigurationCloudWatchEncryptionInput is an input type that accepts SecurityConfigurationCloudWatchEncryptionArgs and SecurityConfigurationCloudWatchEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationCloudWatchEncryptionInput` via:
+//
+//          SecurityConfigurationCloudWatchEncryptionArgs{...}
+type SecurityConfigurationCloudWatchEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput
+	ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(context.Context) SecurityConfigurationCloudWatchEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html
+type SecurityConfigurationCloudWatchEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+	CloudWatchEncryptionMode pulumi.StringPtrInput `pulumi:"cloudWatchEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationCloudWatchEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionOutput)
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationCloudWatchEncryptionArgs) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionOutput).ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationCloudWatchEncryptionPtrInput is an input type that accepts SecurityConfigurationCloudWatchEncryptionArgs, SecurityConfigurationCloudWatchEncryptionPtr and SecurityConfigurationCloudWatchEncryptionPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationCloudWatchEncryptionPtrInput` via:
+//
+//          SecurityConfigurationCloudWatchEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityConfigurationCloudWatchEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput
+	ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput
+}
+
+type securityConfigurationCloudWatchEncryptionPtrType SecurityConfigurationCloudWatchEncryptionArgs
+
+func SecurityConfigurationCloudWatchEncryptionPtr(v *SecurityConfigurationCloudWatchEncryptionArgs) SecurityConfigurationCloudWatchEncryptionPtrInput {
+	return (*securityConfigurationCloudWatchEncryptionPtrType)(v)
+}
+
+func (*securityConfigurationCloudWatchEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (i *securityConfigurationCloudWatchEncryptionPtrType) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return i.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationCloudWatchEncryptionPtrType) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html
+type SecurityConfigurationCloudWatchEncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationCloudWatchEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionOutput() SecurityConfigurationCloudWatchEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationCloudWatchEncryption) *SecurityConfigurationCloudWatchEncryption {
+		return &v
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+func (o SecurityConfigurationCloudWatchEncryptionOutput) CloudWatchEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationCloudWatchEncryption) *string { return v.CloudWatchEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+func (o SecurityConfigurationCloudWatchEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationCloudWatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationCloudWatchEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationCloudWatchEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationCloudWatchEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutput() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) ToSecurityConfigurationCloudWatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) Elem() SecurityConfigurationCloudWatchEncryptionOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) SecurityConfigurationCloudWatchEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationCloudWatchEncryption
+		return ret
+	}).(SecurityConfigurationCloudWatchEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-cloudwatchencryptionmode
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) CloudWatchEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-cloudwatchencryption.html#cfn-glue-securityconfiguration-cloudwatchencryption-kmskeyarn
+func (o SecurityConfigurationCloudWatchEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationCloudWatchEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html
+type SecurityConfigurationEncryptionConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+	CloudWatchEncryption *SecurityConfigurationCloudWatchEncryption `pulumi:"cloudWatchEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+	JobBookmarksEncryption *SecurityConfigurationJobBookmarksEncryption `pulumi:"jobBookmarksEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+	S3Encryptions *SecurityConfigurationS3Encryptions `pulumi:"s3Encryptions"`
+}
+
+// SecurityConfigurationEncryptionConfigurationInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs and SecurityConfigurationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationInput` via:
+//
+//          SecurityConfigurationEncryptionConfigurationArgs{...}
+type SecurityConfigurationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput
+	ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html
+type SecurityConfigurationEncryptionConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+	CloudWatchEncryption SecurityConfigurationCloudWatchEncryptionPtrInput `pulumi:"cloudWatchEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+	JobBookmarksEncryption SecurityConfigurationJobBookmarksEncryptionPtrInput `pulumi:"jobBookmarksEncryption"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+	S3Encryptions SecurityConfigurationS3EncryptionsPtrInput `pulumi:"s3Encryptions"`
+}
+
+func (SecurityConfigurationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput).ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs, SecurityConfigurationEncryptionConfigurationPtr and SecurityConfigurationEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationPtrInput` via:
+//
+//          SecurityConfigurationEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityConfigurationEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput
+	ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput
+}
+
+type securityConfigurationEncryptionConfigurationPtrType SecurityConfigurationEncryptionConfigurationArgs
+
+func SecurityConfigurationEncryptionConfigurationPtr(v *SecurityConfigurationEncryptionConfigurationArgs) SecurityConfigurationEncryptionConfigurationPtrInput {
+	return (*securityConfigurationEncryptionConfigurationPtrType)(v)
+}
+
+func (*securityConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html
+type SecurityConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutput() SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfiguration {
+		return &v
+	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+func (o SecurityConfigurationEncryptionConfigurationOutput) CloudWatchEncryption() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationCloudWatchEncryption {
+		return v.CloudWatchEncryption
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+func (o SecurityConfigurationEncryptionConfigurationOutput) JobBookmarksEncryption() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationJobBookmarksEncryption {
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryptions() SecurityConfigurationS3EncryptionsPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationS3Encryptions {
+		return v.S3Encryptions
+	}).(SecurityConfigurationS3EncryptionsPtrOutput)
+}
+
+type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfiguration
+		return ret
+	}).(SecurityConfigurationEncryptionConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-cloudwatchencryption
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudWatchEncryption() SecurityConfigurationCloudWatchEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationCloudWatchEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryption
+	}).(SecurityConfigurationCloudWatchEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-jobbookmarksencryption
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationJobBookmarksEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.JobBookmarksEncryption
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-encryptionconfiguration.html#cfn-glue-securityconfiguration-encryptionconfiguration-s3encryptions
+func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryptions() SecurityConfigurationS3EncryptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationS3Encryptions {
+		if v == nil {
+			return nil
+		}
+		return v.S3Encryptions
+	}).(SecurityConfigurationS3EncryptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html
+type SecurityConfigurationJobBookmarksEncryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+	JobBookmarksEncryptionMode *string `pulumi:"jobBookmarksEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// SecurityConfigurationJobBookmarksEncryptionInput is an input type that accepts SecurityConfigurationJobBookmarksEncryptionArgs and SecurityConfigurationJobBookmarksEncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationJobBookmarksEncryptionInput` via:
+//
+//          SecurityConfigurationJobBookmarksEncryptionArgs{...}
+type SecurityConfigurationJobBookmarksEncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput
+	ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(context.Context) SecurityConfigurationJobBookmarksEncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html
+type SecurityConfigurationJobBookmarksEncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+	JobBookmarksEncryptionMode pulumi.StringPtrInput `pulumi:"jobBookmarksEncryptionMode"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (SecurityConfigurationJobBookmarksEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionOutput)
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionOutput).ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationJobBookmarksEncryptionPtrInput is an input type that accepts SecurityConfigurationJobBookmarksEncryptionArgs, SecurityConfigurationJobBookmarksEncryptionPtr and SecurityConfigurationJobBookmarksEncryptionPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationJobBookmarksEncryptionPtrInput` via:
+//
+//          SecurityConfigurationJobBookmarksEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityConfigurationJobBookmarksEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput
+	ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput
+}
+
+type securityConfigurationJobBookmarksEncryptionPtrType SecurityConfigurationJobBookmarksEncryptionArgs
+
+func SecurityConfigurationJobBookmarksEncryptionPtr(v *SecurityConfigurationJobBookmarksEncryptionArgs) SecurityConfigurationJobBookmarksEncryptionPtrInput {
+	return (*securityConfigurationJobBookmarksEncryptionPtrType)(v)
+}
+
+func (*securityConfigurationJobBookmarksEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (i *securityConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return i.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html
+type SecurityConfigurationJobBookmarksEncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationJobBookmarksEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionOutput() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationJobBookmarksEncryption) *SecurityConfigurationJobBookmarksEncryption {
+		return &v
+	}).(SecurityConfigurationJobBookmarksEncryptionPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationJobBookmarksEncryption) *string { return v.JobBookmarksEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+func (o SecurityConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigurationJobBookmarksEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationJobBookmarksEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationJobBookmarksEncryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationJobBookmarksEncryptionPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) Elem() SecurityConfigurationJobBookmarksEncryptionOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) SecurityConfigurationJobBookmarksEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationJobBookmarksEncryption
+		return ret
+	}).(SecurityConfigurationJobBookmarksEncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-jobbookmarksencryptionmode
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JobBookmarksEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-jobbookmarksencryption.html#cfn-glue-securityconfiguration-jobbookmarksencryption-kmskeyarn
+func (o SecurityConfigurationJobBookmarksEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigurationJobBookmarksEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html
+type SecurityConfigurationS3Encryption struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-kmskeyarn
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-s3encryptionmode
+	S3EncryptionMode *string `pulumi:"s3EncryptionMode"`
+}
+
+// SecurityConfigurationS3EncryptionInput is an input type that accepts SecurityConfigurationS3EncryptionArgs and SecurityConfigurationS3EncryptionOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionInput` via:
+//
+//          SecurityConfigurationS3EncryptionArgs{...}
+type SecurityConfigurationS3EncryptionInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput
+	ToSecurityConfigurationS3EncryptionOutputWithContext(context.Context) SecurityConfigurationS3EncryptionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html
+type SecurityConfigurationS3EncryptionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-kmskeyarn
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-s3encryptionmode
+	S3EncryptionMode pulumi.StringPtrInput `pulumi:"s3EncryptionMode"`
+}
+
+func (SecurityConfigurationS3EncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (i SecurityConfigurationS3EncryptionArgs) ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput {
+	return i.ToSecurityConfigurationS3EncryptionOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionArgs) ToSecurityConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html
+type SecurityConfigurationS3EncryptionOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryption)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionOutput) ToSecurityConfigurationS3EncryptionOutput() SecurityConfigurationS3EncryptionOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionOutput) ToSecurityConfigurationS3EncryptionOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-kmskeyarn
+func (o SecurityConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html#cfn-glue-securityconfiguration-s3encryption-s3encryptionmode
+func (o SecurityConfigurationS3EncryptionOutput) S3EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigurationS3Encryption) *string { return v.S3EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryptions.html
+type SecurityConfigurationS3Encryptions struct {
+}
+
+// SecurityConfigurationS3EncryptionsInput is an input type that accepts SecurityConfigurationS3EncryptionsArgs and SecurityConfigurationS3EncryptionsOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionsInput` via:
+//
+//          SecurityConfigurationS3EncryptionsArgs{...}
+type SecurityConfigurationS3EncryptionsInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionsOutput() SecurityConfigurationS3EncryptionsOutput
+	ToSecurityConfigurationS3EncryptionsOutputWithContext(context.Context) SecurityConfigurationS3EncryptionsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryptions.html
+type SecurityConfigurationS3EncryptionsArgs struct {
+}
+
+func (SecurityConfigurationS3EncryptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryptions)(nil)).Elem()
+}
+
+func (i SecurityConfigurationS3EncryptionsArgs) ToSecurityConfigurationS3EncryptionsOutput() SecurityConfigurationS3EncryptionsOutput {
+	return i.ToSecurityConfigurationS3EncryptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionsArgs) ToSecurityConfigurationS3EncryptionsOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionsOutput)
+}
+
+func (i SecurityConfigurationS3EncryptionsArgs) ToSecurityConfigurationS3EncryptionsPtrOutput() SecurityConfigurationS3EncryptionsPtrOutput {
+	return i.ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigurationS3EncryptionsArgs) ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionsOutput).ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigurationS3EncryptionsPtrInput is an input type that accepts SecurityConfigurationS3EncryptionsArgs, SecurityConfigurationS3EncryptionsPtr and SecurityConfigurationS3EncryptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigurationS3EncryptionsPtrInput` via:
+//
+//          SecurityConfigurationS3EncryptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SecurityConfigurationS3EncryptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigurationS3EncryptionsPtrOutput() SecurityConfigurationS3EncryptionsPtrOutput
+	ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(context.Context) SecurityConfigurationS3EncryptionsPtrOutput
+}
+
+type securityConfigurationS3EncryptionsPtrType SecurityConfigurationS3EncryptionsArgs
+
+func SecurityConfigurationS3EncryptionsPtr(v *SecurityConfigurationS3EncryptionsArgs) SecurityConfigurationS3EncryptionsPtrInput {
+	return (*securityConfigurationS3EncryptionsPtrType)(v)
+}
+
+func (*securityConfigurationS3EncryptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationS3Encryptions)(nil)).Elem()
+}
+
+func (i *securityConfigurationS3EncryptionsPtrType) ToSecurityConfigurationS3EncryptionsPtrOutput() SecurityConfigurationS3EncryptionsPtrOutput {
+	return i.ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigurationS3EncryptionsPtrType) ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationS3EncryptionsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryptions.html
+type SecurityConfigurationS3EncryptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigurationS3Encryptions)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionsOutput) ToSecurityConfigurationS3EncryptionsOutput() SecurityConfigurationS3EncryptionsOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionsOutput) ToSecurityConfigurationS3EncryptionsOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionsOutput) ToSecurityConfigurationS3EncryptionsPtrOutput() SecurityConfigurationS3EncryptionsPtrOutput {
+	return o.ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigurationS3EncryptionsOutput) ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationS3Encryptions) *SecurityConfigurationS3Encryptions {
+		return &v
+	}).(SecurityConfigurationS3EncryptionsPtrOutput)
+}
+
+type SecurityConfigurationS3EncryptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigurationS3EncryptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigurationS3Encryptions)(nil)).Elem()
+}
+
+func (o SecurityConfigurationS3EncryptionsPtrOutput) ToSecurityConfigurationS3EncryptionsPtrOutput() SecurityConfigurationS3EncryptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionsPtrOutput) ToSecurityConfigurationS3EncryptionsPtrOutputWithContext(ctx context.Context) SecurityConfigurationS3EncryptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigurationS3EncryptionsPtrOutput) Elem() SecurityConfigurationS3EncryptionsOutput {
+	return o.ApplyT(func(v *SecurityConfigurationS3Encryptions) SecurityConfigurationS3Encryptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationS3Encryptions
+		return ret
+	}).(SecurityConfigurationS3EncryptionsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html
+type TableColumn struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+	Comment *string `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+	Type *string `pulumi:"type"`
+}
+
+// TableColumnInput is an input type that accepts TableColumnArgs and TableColumnOutput values.
+// You can construct a concrete instance of `TableColumnInput` via:
+//
+//          TableColumnArgs{...}
+type TableColumnInput interface {
+	pulumi.Input
+
+	ToTableColumnOutput() TableColumnOutput
+	ToTableColumnOutputWithContext(context.Context) TableColumnOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html
+type TableColumnArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumn)(nil)).Elem()
+}
+
+func (i TableColumnArgs) ToTableColumnOutput() TableColumnOutput {
+	return i.ToTableColumnOutputWithContext(context.Background())
+}
+
+func (i TableColumnArgs) ToTableColumnOutputWithContext(ctx context.Context) TableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnOutput)
+}
+
+// TableColumnArrayInput is an input type that accepts TableColumnArray and TableColumnArrayOutput values.
+// You can construct a concrete instance of `TableColumnArrayInput` via:
+//
+//          TableColumnArray{ TableColumnArgs{...} }
+type TableColumnArrayInput interface {
+	pulumi.Input
+
+	ToTableColumnArrayOutput() TableColumnArrayOutput
+	ToTableColumnArrayOutputWithContext(context.Context) TableColumnArrayOutput
+}
+
+type TableColumnArray []TableColumnInput
+
+func (TableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableColumn)(nil)).Elem()
+}
+
+func (i TableColumnArray) ToTableColumnArrayOutput() TableColumnArrayOutput {
+	return i.ToTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i TableColumnArray) ToTableColumnArrayOutputWithContext(ctx context.Context) TableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html
+type TableColumnOutput struct{ *pulumi.OutputState }
+
+func (TableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableColumn)(nil)).Elem()
+}
+
+func (o TableColumnOutput) ToTableColumnOutput() TableColumnOutput {
+	return o
+}
+
+func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) TableColumnOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
+func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
+func (o TableColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
+func (o TableColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (TableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableColumn)(nil)).Elem()
+}
+
+func (o TableColumnArrayOutput) ToTableColumnArrayOutput() TableColumnArrayOutput {
+	return o
+}
+
+func (o TableColumnArrayOutput) ToTableColumnArrayOutputWithContext(ctx context.Context) TableColumnArrayOutput {
+	return o
+}
+
+func (o TableColumnArrayOutput) Index(i pulumi.IntInput) TableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableColumn {
+		return vs[0].([]TableColumn)[vs[1].(int)]
+	}).(TableColumnOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html
+type TableOrder struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-column
+	Column string `pulumi:"column"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-sortorder
+	SortOrder int `pulumi:"sortOrder"`
+}
+
+// TableOrderInput is an input type that accepts TableOrderArgs and TableOrderOutput values.
+// You can construct a concrete instance of `TableOrderInput` via:
+//
+//          TableOrderArgs{...}
+type TableOrderInput interface {
+	pulumi.Input
+
+	ToTableOrderOutput() TableOrderOutput
+	ToTableOrderOutputWithContext(context.Context) TableOrderOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html
+type TableOrderArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-column
+	Column pulumi.StringInput `pulumi:"column"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-sortorder
+	SortOrder pulumi.IntInput `pulumi:"sortOrder"`
+}
+
+func (TableOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOrder)(nil)).Elem()
+}
+
+func (i TableOrderArgs) ToTableOrderOutput() TableOrderOutput {
+	return i.ToTableOrderOutputWithContext(context.Background())
+}
+
+func (i TableOrderArgs) ToTableOrderOutputWithContext(ctx context.Context) TableOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOrderOutput)
+}
+
+// TableOrderArrayInput is an input type that accepts TableOrderArray and TableOrderArrayOutput values.
+// You can construct a concrete instance of `TableOrderArrayInput` via:
+//
+//          TableOrderArray{ TableOrderArgs{...} }
+type TableOrderArrayInput interface {
+	pulumi.Input
+
+	ToTableOrderArrayOutput() TableOrderArrayOutput
+	ToTableOrderArrayOutputWithContext(context.Context) TableOrderArrayOutput
+}
+
+type TableOrderArray []TableOrderInput
+
+func (TableOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableOrder)(nil)).Elem()
+}
+
+func (i TableOrderArray) ToTableOrderArrayOutput() TableOrderArrayOutput {
+	return i.ToTableOrderArrayOutputWithContext(context.Background())
+}
+
+func (i TableOrderArray) ToTableOrderArrayOutputWithContext(ctx context.Context) TableOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html
+type TableOrderOutput struct{ *pulumi.OutputState }
+
+func (TableOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableOrder)(nil)).Elem()
+}
+
+func (o TableOrderOutput) ToTableOrderOutput() TableOrderOutput {
+	return o
+}
+
+func (o TableOrderOutput) ToTableOrderOutputWithContext(ctx context.Context) TableOrderOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-column
+func (o TableOrderOutput) Column() pulumi.StringOutput {
+	return o.ApplyT(func(v TableOrder) string { return v.Column }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-order.html#cfn-glue-table-order-sortorder
+func (o TableOrderOutput) SortOrder() pulumi.IntOutput {
+	return o.ApplyT(func(v TableOrder) int { return v.SortOrder }).(pulumi.IntOutput)
+}
+
+type TableOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (TableOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableOrder)(nil)).Elem()
+}
+
+func (o TableOrderArrayOutput) ToTableOrderArrayOutput() TableOrderArrayOutput {
+	return o
+}
+
+func (o TableOrderArrayOutput) ToTableOrderArrayOutputWithContext(ctx context.Context) TableOrderArrayOutput {
+	return o
+}
+
+func (o TableOrderArrayOutput) Index(i pulumi.IntInput) TableOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableOrder {
+		return vs[0].([]TableOrder)[vs[1].(int)]
+	}).(TableOrderOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaId struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+	RegistryName *string `pulumi:"registryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+	SchemaArn *string `pulumi:"schemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+	SchemaName *string `pulumi:"schemaName"`
+}
+
+// TableSchemaIdInput is an input type that accepts TableSchemaIdArgs and TableSchemaIdOutput values.
+// You can construct a concrete instance of `TableSchemaIdInput` via:
+//
+//          TableSchemaIdArgs{...}
+type TableSchemaIdInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdOutput() TableSchemaIdOutput
+	ToTableSchemaIdOutputWithContext(context.Context) TableSchemaIdOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaIdArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+	RegistryName pulumi.StringPtrInput `pulumi:"registryName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+	SchemaArn pulumi.StringPtrInput `pulumi:"schemaArn"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (TableSchemaIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return i.ToTableSchemaIdOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput)
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaIdArgs) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdOutput).ToTableSchemaIdPtrOutputWithContext(ctx)
+}
+
+// TableSchemaIdPtrInput is an input type that accepts TableSchemaIdArgs, TableSchemaIdPtr and TableSchemaIdPtrOutput values.
+// You can construct a concrete instance of `TableSchemaIdPtrInput` via:
+//
+//          TableSchemaIdArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSchemaIdPtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput
+	ToTableSchemaIdPtrOutputWithContext(context.Context) TableSchemaIdPtrOutput
+}
+
+type tableSchemaIdPtrType TableSchemaIdArgs
+
+func TableSchemaIdPtr(v *TableSchemaIdArgs) TableSchemaIdPtrInput {
+	return (*tableSchemaIdPtrType)(v)
+}
+
+func (*tableSchemaIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return i.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaIdPtrType) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html
+type TableSchemaIdOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutput() TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdOutputWithContext(ctx context.Context) TableSchemaIdOutput {
+	return o
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o.ToTableSchemaIdPtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaIdOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaId) *TableSchemaId {
+		return &v
+	}).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+func (o TableSchemaIdOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.RegistryName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+func (o TableSchemaIdOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+func (o TableSchemaIdOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaId) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type TableSchemaIdPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaId)(nil)).Elem()
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutput() TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) ToTableSchemaIdPtrOutputWithContext(ctx context.Context) TableSchemaIdPtrOutput {
+	return o
+}
+
+func (o TableSchemaIdPtrOutput) Elem() TableSchemaIdOutput {
+	return o.ApplyT(func(v *TableSchemaId) TableSchemaId {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchemaId
+		return ret
+	}).(TableSchemaIdOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-registryname
+func (o TableSchemaIdPtrOutput) RegistryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaarn
+func (o TableSchemaIdPtrOutput) SchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemaid.html#cfn-glue-table-schemaid-schemaname
+func (o TableSchemaIdPtrOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaId) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReference struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+	SchemaId *TableSchemaId `pulumi:"schemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+	SchemaVersionId *string `pulumi:"schemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+	SchemaVersionNumber *int `pulumi:"schemaVersionNumber"`
+}
+
+// TableSchemaReferenceInput is an input type that accepts TableSchemaReferenceArgs and TableSchemaReferenceOutput values.
+// You can construct a concrete instance of `TableSchemaReferenceInput` via:
+//
+//          TableSchemaReferenceArgs{...}
+type TableSchemaReferenceInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferenceOutput() TableSchemaReferenceOutput
+	ToTableSchemaReferenceOutputWithContext(context.Context) TableSchemaReferenceOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReferenceArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+	SchemaId TableSchemaIdPtrInput `pulumi:"schemaId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+	SchemaVersionId pulumi.StringPtrInput `pulumi:"schemaVersionId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+	SchemaVersionNumber pulumi.IntPtrInput `pulumi:"schemaVersionNumber"`
+}
+
+func (TableSchemaReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return i.ToTableSchemaReferenceOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput)
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i TableSchemaReferenceArgs) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferenceOutput).ToTableSchemaReferencePtrOutputWithContext(ctx)
+}
+
+// TableSchemaReferencePtrInput is an input type that accepts TableSchemaReferenceArgs, TableSchemaReferencePtr and TableSchemaReferencePtrOutput values.
+// You can construct a concrete instance of `TableSchemaReferencePtrInput` via:
+//
+//          TableSchemaReferenceArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSchemaReferencePtrInput interface {
+	pulumi.Input
+
+	ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput
+	ToTableSchemaReferencePtrOutputWithContext(context.Context) TableSchemaReferencePtrOutput
+}
+
+type tableSchemaReferencePtrType TableSchemaReferenceArgs
+
+func TableSchemaReferencePtr(v *TableSchemaReferenceArgs) TableSchemaReferencePtrInput {
+	return (*tableSchemaReferencePtrType)(v)
+}
+
+func (*tableSchemaReferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return i.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (i *tableSchemaReferencePtrType) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html
+type TableSchemaReferenceOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutput() TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferenceOutputWithContext(ctx context.Context) TableSchemaReferenceOutput {
+	return o
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o.ToTableSchemaReferencePtrOutputWithContext(context.Background())
+}
+
+func (o TableSchemaReferenceOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaReference) *TableSchemaReference {
+		return &v
+	}).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+func (o TableSchemaReferenceOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *TableSchemaId { return v.SchemaId }).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+func (o TableSchemaReferenceOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *string { return v.SchemaVersionId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+func (o TableSchemaReferenceOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableSchemaReference) *int { return v.SchemaVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type TableSchemaReferencePtrOutput struct{ *pulumi.OutputState }
+
+func (TableSchemaReferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSchemaReference)(nil)).Elem()
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutput() TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) ToTableSchemaReferencePtrOutputWithContext(ctx context.Context) TableSchemaReferencePtrOutput {
+	return o
+}
+
+func (o TableSchemaReferencePtrOutput) Elem() TableSchemaReferenceOutput {
+	return o.ApplyT(func(v *TableSchemaReference) TableSchemaReference {
+		if v != nil {
+			return *v
+		}
+		var ret TableSchemaReference
+		return ret
+	}).(TableSchemaReferenceOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaid
+func (o TableSchemaReferencePtrOutput) SchemaId() TableSchemaIdPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *TableSchemaId {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaId
+	}).(TableSchemaIdPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionid
+func (o TableSchemaReferencePtrOutput) SchemaVersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-schemareference.html#cfn-glue-table-schemareference-schemaversionnumber
+func (o TableSchemaReferencePtrOutput) SchemaVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableSchemaReference) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaVersionNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html
+type TableSerdeInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+	SerializationLibrary *string `pulumi:"serializationLibrary"`
+}
+
+// TableSerdeInfoInput is an input type that accepts TableSerdeInfoArgs and TableSerdeInfoOutput values.
+// You can construct a concrete instance of `TableSerdeInfoInput` via:
+//
+//          TableSerdeInfoArgs{...}
+type TableSerdeInfoInput interface {
+	pulumi.Input
+
+	ToTableSerdeInfoOutput() TableSerdeInfoOutput
+	ToTableSerdeInfoOutputWithContext(context.Context) TableSerdeInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html
+type TableSerdeInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+	SerializationLibrary pulumi.StringPtrInput `pulumi:"serializationLibrary"`
+}
+
+func (TableSerdeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSerdeInfo)(nil)).Elem()
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoOutput() TableSerdeInfoOutput {
+	return i.ToTableSerdeInfoOutputWithContext(context.Background())
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoOutputWithContext(ctx context.Context) TableSerdeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoOutput)
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return i.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i TableSerdeInfoArgs) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoOutput).ToTableSerdeInfoPtrOutputWithContext(ctx)
+}
+
+// TableSerdeInfoPtrInput is an input type that accepts TableSerdeInfoArgs, TableSerdeInfoPtr and TableSerdeInfoPtrOutput values.
+// You can construct a concrete instance of `TableSerdeInfoPtrInput` via:
+//
+//          TableSerdeInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSerdeInfoPtrInput interface {
+	pulumi.Input
+
+	ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput
+	ToTableSerdeInfoPtrOutputWithContext(context.Context) TableSerdeInfoPtrOutput
+}
+
+type tableSerdeInfoPtrType TableSerdeInfoArgs
+
+func TableSerdeInfoPtr(v *TableSerdeInfoArgs) TableSerdeInfoPtrInput {
+	return (*tableSerdeInfoPtrType)(v)
+}
+
+func (*tableSerdeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSerdeInfo)(nil)).Elem()
+}
+
+func (i *tableSerdeInfoPtrType) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return i.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSerdeInfoPtrType) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html
+type TableSerdeInfoOutput struct{ *pulumi.OutputState }
+
+func (TableSerdeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSerdeInfo)(nil)).Elem()
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoOutput() TableSerdeInfoOutput {
+	return o
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoOutputWithContext(ctx context.Context) TableSerdeInfoOutput {
+	return o
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return o.ToTableSerdeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o TableSerdeInfoOutput) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSerdeInfo) *TableSerdeInfo {
+		return &v
+	}).(TableSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+func (o TableSerdeInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSerdeInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+func (o TableSerdeInfoOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableSerdeInfo) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+func (o TableSerdeInfoOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableSerdeInfo) *string { return v.SerializationLibrary }).(pulumi.StringPtrOutput)
+}
+
+type TableSerdeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSerdeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSerdeInfo)(nil)).Elem()
+}
+
+func (o TableSerdeInfoPtrOutput) ToTableSerdeInfoPtrOutput() TableSerdeInfoPtrOutput {
+	return o
+}
+
+func (o TableSerdeInfoPtrOutput) ToTableSerdeInfoPtrOutputWithContext(ctx context.Context) TableSerdeInfoPtrOutput {
+	return o
+}
+
+func (o TableSerdeInfoPtrOutput) Elem() TableSerdeInfoOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) TableSerdeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret TableSerdeInfo
+		return ret
+	}).(TableSerdeInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-name
+func (o TableSerdeInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-parameters
+func (o TableSerdeInfoPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-serdeinfo.html#cfn-glue-table-serdeinfo-serializationlibrary
+func (o TableSerdeInfoPtrOutput) SerializationLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableSerdeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerializationLibrary
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html
+type TableSkewedInfo struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+	SkewedColumnNames []string `pulumi:"skewedColumnNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+	SkewedColumnValueLocationMaps interface{} `pulumi:"skewedColumnValueLocationMaps"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+	SkewedColumnValues []string `pulumi:"skewedColumnValues"`
+}
+
+// TableSkewedInfoInput is an input type that accepts TableSkewedInfoArgs and TableSkewedInfoOutput values.
+// You can construct a concrete instance of `TableSkewedInfoInput` via:
+//
+//          TableSkewedInfoArgs{...}
+type TableSkewedInfoInput interface {
+	pulumi.Input
+
+	ToTableSkewedInfoOutput() TableSkewedInfoOutput
+	ToTableSkewedInfoOutputWithContext(context.Context) TableSkewedInfoOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html
+type TableSkewedInfoArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+	SkewedColumnNames pulumi.StringArrayInput `pulumi:"skewedColumnNames"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+	SkewedColumnValueLocationMaps pulumi.Input `pulumi:"skewedColumnValueLocationMaps"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+	SkewedColumnValues pulumi.StringArrayInput `pulumi:"skewedColumnValues"`
+}
+
+func (TableSkewedInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSkewedInfo)(nil)).Elem()
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoOutput() TableSkewedInfoOutput {
+	return i.ToTableSkewedInfoOutputWithContext(context.Background())
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoOutputWithContext(ctx context.Context) TableSkewedInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoOutput)
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return i.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i TableSkewedInfoArgs) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoOutput).ToTableSkewedInfoPtrOutputWithContext(ctx)
+}
+
+// TableSkewedInfoPtrInput is an input type that accepts TableSkewedInfoArgs, TableSkewedInfoPtr and TableSkewedInfoPtrOutput values.
+// You can construct a concrete instance of `TableSkewedInfoPtrInput` via:
+//
+//          TableSkewedInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type TableSkewedInfoPtrInput interface {
+	pulumi.Input
+
+	ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput
+	ToTableSkewedInfoPtrOutputWithContext(context.Context) TableSkewedInfoPtrOutput
+}
+
+type tableSkewedInfoPtrType TableSkewedInfoArgs
+
+func TableSkewedInfoPtr(v *TableSkewedInfoArgs) TableSkewedInfoPtrInput {
+	return (*tableSkewedInfoPtrType)(v)
+}
+
+func (*tableSkewedInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSkewedInfo)(nil)).Elem()
+}
+
+func (i *tableSkewedInfoPtrType) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return i.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *tableSkewedInfoPtrType) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html
+type TableSkewedInfoOutput struct{ *pulumi.OutputState }
+
+func (TableSkewedInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableSkewedInfo)(nil)).Elem()
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoOutput() TableSkewedInfoOutput {
+	return o
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoOutputWithContext(ctx context.Context) TableSkewedInfoOutput {
+	return o
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return o.ToTableSkewedInfoPtrOutputWithContext(context.Background())
+}
+
+func (o TableSkewedInfoOutput) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSkewedInfo) *TableSkewedInfo {
+		return &v
+	}).(TableSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+func (o TableSkewedInfoOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableSkewedInfo) []string { return v.SkewedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+func (o TableSkewedInfoOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableSkewedInfo) interface{} { return v.SkewedColumnValueLocationMaps }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+func (o TableSkewedInfoOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableSkewedInfo) []string { return v.SkewedColumnValues }).(pulumi.StringArrayOutput)
+}
+
+type TableSkewedInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (TableSkewedInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableSkewedInfo)(nil)).Elem()
+}
+
+func (o TableSkewedInfoPtrOutput) ToTableSkewedInfoPtrOutput() TableSkewedInfoPtrOutput {
+	return o
+}
+
+func (o TableSkewedInfoPtrOutput) ToTableSkewedInfoPtrOutputWithContext(ctx context.Context) TableSkewedInfoPtrOutput {
+	return o
+}
+
+func (o TableSkewedInfoPtrOutput) Elem() TableSkewedInfoOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) TableSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret TableSkewedInfo
+		return ret
+	}).(TableSkewedInfoOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnnames
+func (o TableSkewedInfoPtrOutput) SkewedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvaluelocationmaps
+func (o TableSkewedInfoPtrOutput) SkewedColumnValueLocationMaps() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValueLocationMaps
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-skewedinfo.html#cfn-glue-table-skewedinfo-skewedcolumnvalues
+func (o TableSkewedInfoPtrOutput) SkewedColumnValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableSkewedInfo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedColumnValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html
+type TableStorageDescriptor struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+	BucketColumns []string `pulumi:"bucketColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+	Columns []TableColumn `pulumi:"columns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+	Compressed *bool `pulumi:"compressed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+	InputFormat *string `pulumi:"inputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+	Location *string `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+	NumberOfBuckets *int `pulumi:"numberOfBuckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+	OutputFormat *string `pulumi:"outputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+	SchemaReference *TableSchemaReference `pulumi:"schemaReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+	SerdeInfo *TableSerdeInfo `pulumi:"serdeInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+	SkewedInfo *TableSkewedInfo `pulumi:"skewedInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+	SortColumns []TableOrder `pulumi:"sortColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+	StoredAsSubDirectories *bool `pulumi:"storedAsSubDirectories"`
+}
+
+// TableStorageDescriptorInput is an input type that accepts TableStorageDescriptorArgs and TableStorageDescriptorOutput values.
+// You can construct a concrete instance of `TableStorageDescriptorInput` via:
+//
+//          TableStorageDescriptorArgs{...}
+type TableStorageDescriptorInput interface {
+	pulumi.Input
+
+	ToTableStorageDescriptorOutput() TableStorageDescriptorOutput
+	ToTableStorageDescriptorOutputWithContext(context.Context) TableStorageDescriptorOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html
+type TableStorageDescriptorArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+	Columns TableColumnArrayInput `pulumi:"columns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+	Compressed pulumi.BoolPtrInput `pulumi:"compressed"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+	InputFormat pulumi.StringPtrInput `pulumi:"inputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+	NumberOfBuckets pulumi.IntPtrInput `pulumi:"numberOfBuckets"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+	SchemaReference TableSchemaReferencePtrInput `pulumi:"schemaReference"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+	SerdeInfo TableSerdeInfoPtrInput `pulumi:"serdeInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+	SkewedInfo TableSkewedInfoPtrInput `pulumi:"skewedInfo"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+	SortColumns TableOrderArrayInput `pulumi:"sortColumns"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+	StoredAsSubDirectories pulumi.BoolPtrInput `pulumi:"storedAsSubDirectories"`
+}
+
+func (TableStorageDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageDescriptor)(nil)).Elem()
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorOutput() TableStorageDescriptorOutput {
+	return i.ToTableStorageDescriptorOutputWithContext(context.Background())
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorOutputWithContext(ctx context.Context) TableStorageDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorOutput)
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return i.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i TableStorageDescriptorArgs) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorOutput).ToTableStorageDescriptorPtrOutputWithContext(ctx)
+}
+
+// TableStorageDescriptorPtrInput is an input type that accepts TableStorageDescriptorArgs, TableStorageDescriptorPtr and TableStorageDescriptorPtrOutput values.
+// You can construct a concrete instance of `TableStorageDescriptorPtrInput` via:
+//
+//          TableStorageDescriptorArgs{...}
+//
+//  or:
+//
+//          nil
+type TableStorageDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput
+	ToTableStorageDescriptorPtrOutputWithContext(context.Context) TableStorageDescriptorPtrOutput
+}
+
+type tableStorageDescriptorPtrType TableStorageDescriptorArgs
+
+func TableStorageDescriptorPtr(v *TableStorageDescriptorArgs) TableStorageDescriptorPtrInput {
+	return (*tableStorageDescriptorPtrType)(v)
+}
+
+func (*tableStorageDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStorageDescriptor)(nil)).Elem()
+}
+
+func (i *tableStorageDescriptorPtrType) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return i.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *tableStorageDescriptorPtrType) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html
+type TableStorageDescriptorOutput struct{ *pulumi.OutputState }
+
+func (TableStorageDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageDescriptor)(nil)).Elem()
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorOutput() TableStorageDescriptorOutput {
+	return o
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorOutputWithContext(ctx context.Context) TableStorageDescriptorOutput {
+	return o
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return o.ToTableStorageDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o TableStorageDescriptorOutput) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableStorageDescriptor) *TableStorageDescriptor {
+		return &v
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+func (o TableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+func (o TableStorageDescriptorOutput) Columns() TableColumnArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []TableColumn { return v.Columns }).(TableColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+func (o TableStorageDescriptorOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *bool { return v.Compressed }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+func (o TableStorageDescriptorOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+func (o TableStorageDescriptorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+func (o TableStorageDescriptorOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *int { return v.NumberOfBuckets }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+func (o TableStorageDescriptorOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *string { return v.OutputFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+func (o TableStorageDescriptorOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+func (o TableStorageDescriptorOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSchemaReference { return v.SchemaReference }).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+func (o TableStorageDescriptorOutput) SerdeInfo() TableSerdeInfoPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSerdeInfo { return v.SerdeInfo }).(TableSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+func (o TableStorageDescriptorOutput) SkewedInfo() TableSkewedInfoPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *TableSkewedInfo { return v.SkewedInfo }).(TableSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+func (o TableStorageDescriptorOutput) SortColumns() TableOrderArrayOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) []TableOrder { return v.SortColumns }).(TableOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+func (o TableStorageDescriptorOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableStorageDescriptor) *bool { return v.StoredAsSubDirectories }).(pulumi.BoolPtrOutput)
+}
+
+type TableStorageDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (TableStorageDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStorageDescriptor)(nil)).Elem()
+}
+
+func (o TableStorageDescriptorPtrOutput) ToTableStorageDescriptorPtrOutput() TableStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o TableStorageDescriptorPtrOutput) ToTableStorageDescriptorPtrOutputWithContext(ctx context.Context) TableStorageDescriptorPtrOutput {
+	return o
+}
+
+func (o TableStorageDescriptorPtrOutput) Elem() TableStorageDescriptorOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) TableStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret TableStorageDescriptor
+		return ret
+	}).(TableStorageDescriptorOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-bucketcolumns
+func (o TableStorageDescriptorPtrOutput) BucketColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-columns
+func (o TableStorageDescriptorPtrOutput) Columns() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(TableColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-compressed
+func (o TableStorageDescriptorPtrOutput) Compressed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Compressed
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-inputformat
+func (o TableStorageDescriptorPtrOutput) InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-location
+func (o TableStorageDescriptorPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-numberofbuckets
+func (o TableStorageDescriptorPtrOutput) NumberOfBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-outputformat
+func (o TableStorageDescriptorPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-parameters
+func (o TableStorageDescriptorPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-schemareference
+func (o TableStorageDescriptorPtrOutput) SchemaReference() TableSchemaReferencePtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSchemaReference {
+		if v == nil {
+			return nil
+		}
+		return v.SchemaReference
+	}).(TableSchemaReferencePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-serdeinfo
+func (o TableStorageDescriptorPtrOutput) SerdeInfo() TableSerdeInfoPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSerdeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SerdeInfo
+	}).(TableSerdeInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-skewedinfo
+func (o TableStorageDescriptorPtrOutput) SkewedInfo() TableSkewedInfoPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *TableSkewedInfo {
+		if v == nil {
+			return nil
+		}
+		return v.SkewedInfo
+	}).(TableSkewedInfoPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-sortcolumns
+func (o TableStorageDescriptorPtrOutput) SortColumns() TableOrderArrayOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) []TableOrder {
+		if v == nil {
+			return nil
+		}
+		return v.SortColumns
+	}).(TableOrderArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-storagedescriptor.html#cfn-glue-table-storagedescriptor-storedassubdirectories
+func (o TableStorageDescriptorPtrOutput) StoredAsSubDirectories() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TableStorageDescriptor) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StoredAsSubDirectories
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifier struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+	CatalogId *string `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+	DatabaseName *string `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+	Name *string `pulumi:"name"`
+}
+
+// TableTableIdentifierInput is an input type that accepts TableTableIdentifierArgs and TableTableIdentifierOutput values.
+// You can construct a concrete instance of `TableTableIdentifierInput` via:
+//
+//          TableTableIdentifierArgs{...}
+type TableTableIdentifierInput interface {
+	pulumi.Input
+
+	ToTableTableIdentifierOutput() TableTableIdentifierOutput
+	ToTableTableIdentifierOutputWithContext(context.Context) TableTableIdentifierOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifierArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TableTableIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
+	return i.ToTableTableIdentifierOutputWithContext(context.Background())
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput)
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i TableTableIdentifierArgs) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierOutput).ToTableTableIdentifierPtrOutputWithContext(ctx)
+}
+
+// TableTableIdentifierPtrInput is an input type that accepts TableTableIdentifierArgs, TableTableIdentifierPtr and TableTableIdentifierPtrOutput values.
+// You can construct a concrete instance of `TableTableIdentifierPtrInput` via:
+//
+//          TableTableIdentifierArgs{...}
+//
+//  or:
+//
+//          nil
+type TableTableIdentifierPtrInput interface {
+	pulumi.Input
+
+	ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput
+	ToTableTableIdentifierPtrOutputWithContext(context.Context) TableTableIdentifierPtrOutput
+}
+
+type tableTableIdentifierPtrType TableTableIdentifierArgs
+
+func TableTableIdentifierPtr(v *TableTableIdentifierArgs) TableTableIdentifierPtrInput {
+	return (*tableTableIdentifierPtrType)(v)
+}
+
+func (*tableTableIdentifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
+}
+
+func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return i.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (i *tableTableIdentifierPtrType) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html
+type TableTableIdentifierOutput struct{ *pulumi.OutputState }
+
+func (TableTableIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableIdentifier)(nil)).Elem()
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierOutput() TableTableIdentifierOutput {
+	return o
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierOutputWithContext(ctx context.Context) TableTableIdentifierOutput {
+	return o
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return o.ToTableTableIdentifierPtrOutputWithContext(context.Background())
+}
+
+func (o TableTableIdentifierOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTableIdentifier) *TableTableIdentifier {
+		return &v
+	}).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+func (o TableTableIdentifierOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+func (o TableTableIdentifierOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+func (o TableTableIdentifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TableTableIdentifierPtrOutput struct{ *pulumi.OutputState }
+
+func (TableTableIdentifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableIdentifier)(nil)).Elem()
+}
+
+func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutput() TableTableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableTableIdentifierPtrOutput) ToTableTableIdentifierPtrOutputWithContext(ctx context.Context) TableTableIdentifierPtrOutput {
+	return o
+}
+
+func (o TableTableIdentifierPtrOutput) Elem() TableTableIdentifierOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) TableTableIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret TableTableIdentifier
+		return ret
+	}).(TableTableIdentifierOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-catalogid
+func (o TableTableIdentifierPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-databasename
+func (o TableTableIdentifierPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html#cfn-glue-table-tableidentifier-name
+func (o TableTableIdentifierPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableIdentifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
+type TableTableInput struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+	Description *string `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+	Name *string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+	Owner *string `pulumi:"owner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	Parameters interface{} `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+	PartitionKeys []TableColumn `pulumi:"partitionKeys"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+	Retention *int `pulumi:"retention"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+	StorageDescriptor *TableStorageDescriptor `pulumi:"storageDescriptor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+	TableType *string `pulumi:"tableType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+	TargetTable *TableTableIdentifier `pulumi:"targetTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+	ViewExpandedText *string `pulumi:"viewExpandedText"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+	ViewOriginalText *string `pulumi:"viewOriginalText"`
+}
+
+// TableTableInputInput is an input type that accepts TableTableInputArgs and TableTableInputOutput values.
+// You can construct a concrete instance of `TableTableInputInput` via:
+//
+//          TableTableInputArgs{...}
+type TableTableInputInput interface {
+	pulumi.Input
+
+	ToTableTableInputOutput() TableTableInputOutput
+	ToTableTableInputOutputWithContext(context.Context) TableTableInputOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
+type TableTableInputArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+	Parameters pulumi.Input `pulumi:"parameters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+	PartitionKeys TableColumnArrayInput `pulumi:"partitionKeys"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+	Retention pulumi.IntPtrInput `pulumi:"retention"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+	StorageDescriptor TableStorageDescriptorPtrInput `pulumi:"storageDescriptor"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+	TableType pulumi.StringPtrInput `pulumi:"tableType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+	TargetTable TableTableIdentifierPtrInput `pulumi:"targetTable"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+	ViewExpandedText pulumi.StringPtrInput `pulumi:"viewExpandedText"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+	ViewOriginalText pulumi.StringPtrInput `pulumi:"viewOriginalText"`
+}
+
+func (TableTableInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableInput)(nil)).Elem()
+}
+
+func (i TableTableInputArgs) ToTableTableInputOutput() TableTableInputOutput {
+	return i.ToTableTableInputOutputWithContext(context.Background())
+}
+
+func (i TableTableInputArgs) ToTableTableInputOutputWithContext(ctx context.Context) TableTableInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputOutput)
+}
+
+func (i TableTableInputArgs) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
+	return i.ToTableTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i TableTableInputArgs) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputOutput).ToTableTableInputPtrOutputWithContext(ctx)
+}
+
+// TableTableInputPtrInput is an input type that accepts TableTableInputArgs, TableTableInputPtr and TableTableInputPtrOutput values.
+// You can construct a concrete instance of `TableTableInputPtrInput` via:
+//
+//          TableTableInputArgs{...}
+//
+//  or:
+//
+//          nil
+type TableTableInputPtrInput interface {
+	pulumi.Input
+
+	ToTableTableInputPtrOutput() TableTableInputPtrOutput
+	ToTableTableInputPtrOutputWithContext(context.Context) TableTableInputPtrOutput
+}
+
+type tableTableInputPtrType TableTableInputArgs
+
+func TableTableInputPtr(v *TableTableInputArgs) TableTableInputPtrInput {
+	return (*tableTableInputPtrType)(v)
+}
+
+func (*tableTableInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableInput)(nil)).Elem()
+}
+
+func (i *tableTableInputPtrType) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
+	return i.ToTableTableInputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableTableInputPtrType) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTableInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html
+type TableTableInputOutput struct{ *pulumi.OutputState }
+
+func (TableTableInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTableInput)(nil)).Elem()
+}
+
+func (o TableTableInputOutput) ToTableTableInputOutput() TableTableInputOutput {
+	return o
+}
+
+func (o TableTableInputOutput) ToTableTableInputOutputWithContext(ctx context.Context) TableTableInputOutput {
+	return o
+}
+
+func (o TableTableInputOutput) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
+	return o.ToTableTableInputPtrOutputWithContext(context.Background())
+}
+
+func (o TableTableInputOutput) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTableInput) *TableTableInput {
+		return &v
+	}).(TableTableInputPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+func (o TableTableInputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+func (o TableTableInputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+func (o TableTableInputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+func (o TableTableInputOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v TableTableInput) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+func (o TableTableInputOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v TableTableInput) []TableColumn { return v.PartitionKeys }).(TableColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+func (o TableTableInputOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *int { return v.Retention }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+func (o TableTableInputOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *TableStorageDescriptor { return v.StorageDescriptor }).(TableStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+func (o TableTableInputOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.TableType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+func (o TableTableInputOutput) TargetTable() TableTableIdentifierPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *TableTableIdentifier { return v.TargetTable }).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+func (o TableTableInputOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+func (o TableTableInputOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTableInput) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
+}
+
+type TableTableInputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableTableInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableTableInput)(nil)).Elem()
+}
+
+func (o TableTableInputPtrOutput) ToTableTableInputPtrOutput() TableTableInputPtrOutput {
+	return o
+}
+
+func (o TableTableInputPtrOutput) ToTableTableInputPtrOutputWithContext(ctx context.Context) TableTableInputPtrOutput {
+	return o
+}
+
+func (o TableTableInputPtrOutput) Elem() TableTableInputOutput {
+	return o.ApplyT(func(v *TableTableInput) TableTableInput {
+		if v != nil {
+			return *v
+		}
+		var ret TableTableInput
+		return ret
+	}).(TableTableInputOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-description
+func (o TableTableInputPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-name
+func (o TableTableInputPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-owner
+func (o TableTableInputPtrOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-parameters
+func (o TableTableInputPtrOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TableTableInput) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-partitionkeys
+func (o TableTableInputPtrOutput) PartitionKeys() TableColumnArrayOutput {
+	return o.ApplyT(func(v *TableTableInput) []TableColumn {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(TableColumnArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-retention
+func (o TableTableInputPtrOutput) Retention() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retention
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-storagedescriptor
+func (o TableTableInputPtrOutput) StorageDescriptor() TableStorageDescriptorPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *TableStorageDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.StorageDescriptor
+	}).(TableStorageDescriptorPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-tabletype
+func (o TableTableInputPtrOutput) TableType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TableType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-targettable
+func (o TableTableInputPtrOutput) TargetTable() TableTableIdentifierPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *TableTableIdentifier {
+		if v == nil {
+			return nil
+		}
+		return v.TargetTable
+	}).(TableTableIdentifierPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-viewexpandedtext
+func (o TableTableInputPtrOutput) ViewExpandedText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewExpandedText
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableinput.html#cfn-glue-table-tableinput-vieworiginaltext
+func (o TableTableInputPtrOutput) ViewOriginalText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableTableInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ViewOriginalText
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html
+type TriggerAction struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+	Arguments interface{} `pulumi:"arguments"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+	CrawlerName *string `pulumi:"crawlerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+	JobName *string `pulumi:"jobName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+	NotificationProperty *TriggerNotificationProperty `pulumi:"notificationProperty"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+	SecurityConfiguration *string `pulumi:"securityConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+	Timeout *int `pulumi:"timeout"`
+}
+
+// TriggerActionInput is an input type that accepts TriggerActionArgs and TriggerActionOutput values.
+// You can construct a concrete instance of `TriggerActionInput` via:
+//
+//          TriggerActionArgs{...}
+type TriggerActionInput interface {
+	pulumi.Input
+
+	ToTriggerActionOutput() TriggerActionOutput
+	ToTriggerActionOutputWithContext(context.Context) TriggerActionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html
+type TriggerActionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+	Arguments pulumi.Input `pulumi:"arguments"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+	JobName pulumi.StringPtrInput `pulumi:"jobName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+	NotificationProperty TriggerNotificationPropertyPtrInput `pulumi:"notificationProperty"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+	SecurityConfiguration pulumi.StringPtrInput `pulumi:"securityConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (TriggerActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerAction)(nil)).Elem()
+}
+
+func (i TriggerActionArgs) ToTriggerActionOutput() TriggerActionOutput {
+	return i.ToTriggerActionOutputWithContext(context.Background())
+}
+
+func (i TriggerActionArgs) ToTriggerActionOutputWithContext(ctx context.Context) TriggerActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionOutput)
+}
+
+// TriggerActionArrayInput is an input type that accepts TriggerActionArray and TriggerActionArrayOutput values.
+// You can construct a concrete instance of `TriggerActionArrayInput` via:
+//
+//          TriggerActionArray{ TriggerActionArgs{...} }
+type TriggerActionArrayInput interface {
+	pulumi.Input
+
+	ToTriggerActionArrayOutput() TriggerActionArrayOutput
+	ToTriggerActionArrayOutputWithContext(context.Context) TriggerActionArrayOutput
+}
+
+type TriggerActionArray []TriggerActionInput
+
+func (TriggerActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerAction)(nil)).Elem()
+}
+
+func (i TriggerActionArray) ToTriggerActionArrayOutput() TriggerActionArrayOutput {
+	return i.ToTriggerActionArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerActionArray) ToTriggerActionArrayOutputWithContext(ctx context.Context) TriggerActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerActionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html
+type TriggerActionOutput struct{ *pulumi.OutputState }
+
+func (TriggerActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerAction)(nil)).Elem()
+}
+
+func (o TriggerActionOutput) ToTriggerActionOutput() TriggerActionOutput {
+	return o
+}
+
+func (o TriggerActionOutput) ToTriggerActionOutputWithContext(ctx context.Context) TriggerActionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
+func (o TriggerActionOutput) Arguments() pulumi.AnyOutput {
+	return o.ApplyT(func(v TriggerAction) interface{} { return v.Arguments }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-crawlername
+func (o TriggerActionOutput) CrawlerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
+func (o TriggerActionOutput) JobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *string { return v.JobName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-notificationproperty
+func (o TriggerActionOutput) NotificationProperty() TriggerNotificationPropertyPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *TriggerNotificationProperty { return v.NotificationProperty }).(TriggerNotificationPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+func (o TriggerActionOutput) SecurityConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *string { return v.SecurityConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-timeout
+func (o TriggerActionOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type TriggerActionArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerAction)(nil)).Elem()
+}
+
+func (o TriggerActionArrayOutput) ToTriggerActionArrayOutput() TriggerActionArrayOutput {
+	return o
+}
+
+func (o TriggerActionArrayOutput) ToTriggerActionArrayOutputWithContext(ctx context.Context) TriggerActionArrayOutput {
+	return o
+}
+
+func (o TriggerActionArrayOutput) Index(i pulumi.IntInput) TriggerActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerAction {
+		return vs[0].([]TriggerAction)[vs[1].(int)]
+	}).(TriggerActionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html
+type TriggerCondition struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+	CrawlState *string `pulumi:"crawlState"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+	CrawlerName *string `pulumi:"crawlerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+	JobName *string `pulumi:"jobName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+	LogicalOperator *string `pulumi:"logicalOperator"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+	State *string `pulumi:"state"`
+}
+
+// TriggerConditionInput is an input type that accepts TriggerConditionArgs and TriggerConditionOutput values.
+// You can construct a concrete instance of `TriggerConditionInput` via:
+//
+//          TriggerConditionArgs{...}
+type TriggerConditionInput interface {
+	pulumi.Input
+
+	ToTriggerConditionOutput() TriggerConditionOutput
+	ToTriggerConditionOutputWithContext(context.Context) TriggerConditionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html
+type TriggerConditionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+	CrawlState pulumi.StringPtrInput `pulumi:"crawlState"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+	CrawlerName pulumi.StringPtrInput `pulumi:"crawlerName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+	JobName pulumi.StringPtrInput `pulumi:"jobName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+	LogicalOperator pulumi.StringPtrInput `pulumi:"logicalOperator"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (TriggerConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutput() TriggerConditionOutput {
+	return i.ToTriggerConditionOutputWithContext(context.Background())
+}
+
+func (i TriggerConditionArgs) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionOutput)
+}
+
+// TriggerConditionArrayInput is an input type that accepts TriggerConditionArray and TriggerConditionArrayOutput values.
+// You can construct a concrete instance of `TriggerConditionArrayInput` via:
+//
+//          TriggerConditionArray{ TriggerConditionArgs{...} }
+type TriggerConditionArrayInput interface {
+	pulumi.Input
+
+	ToTriggerConditionArrayOutput() TriggerConditionArrayOutput
+	ToTriggerConditionArrayOutputWithContext(context.Context) TriggerConditionArrayOutput
+}
+
+type TriggerConditionArray []TriggerConditionInput
+
+func (TriggerConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerCondition)(nil)).Elem()
+}
+
+func (i TriggerConditionArray) ToTriggerConditionArrayOutput() TriggerConditionArrayOutput {
+	return i.ToTriggerConditionArrayOutputWithContext(context.Background())
+}
+
+func (i TriggerConditionArray) ToTriggerConditionArrayOutputWithContext(ctx context.Context) TriggerConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerConditionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html
+type TriggerConditionOutput struct{ *pulumi.OutputState }
+
+func (TriggerConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerCondition)(nil)).Elem()
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutput() TriggerConditionOutput {
+	return o
+}
+
+func (o TriggerConditionOutput) ToTriggerConditionOutputWithContext(ctx context.Context) TriggerConditionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+func (o TriggerConditionOutput) CrawlState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *string { return v.CrawlState }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+func (o TriggerConditionOutput) CrawlerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *string { return v.CrawlerName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
+func (o TriggerConditionOutput) JobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *string { return v.JobName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-logicaloperator
+func (o TriggerConditionOutput) LogicalOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *string { return v.LogicalOperator }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-state
+func (o TriggerConditionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerCondition) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type TriggerConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (TriggerConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TriggerCondition)(nil)).Elem()
+}
+
+func (o TriggerConditionArrayOutput) ToTriggerConditionArrayOutput() TriggerConditionArrayOutput {
+	return o
+}
+
+func (o TriggerConditionArrayOutput) ToTriggerConditionArrayOutputWithContext(ctx context.Context) TriggerConditionArrayOutput {
+	return o
+}
+
+func (o TriggerConditionArrayOutput) Index(i pulumi.IntInput) TriggerConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TriggerCondition {
+		return vs[0].([]TriggerCondition)[vs[1].(int)]
+	}).(TriggerConditionOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
+type TriggerNotificationProperty struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
+}
+
+// TriggerNotificationPropertyInput is an input type that accepts TriggerNotificationPropertyArgs and TriggerNotificationPropertyOutput values.
+// You can construct a concrete instance of `TriggerNotificationPropertyInput` via:
+//
+//          TriggerNotificationPropertyArgs{...}
+type TriggerNotificationPropertyInput interface {
+	pulumi.Input
+
+	ToTriggerNotificationPropertyOutput() TriggerNotificationPropertyOutput
+	ToTriggerNotificationPropertyOutputWithContext(context.Context) TriggerNotificationPropertyOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
+type TriggerNotificationPropertyArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+	NotifyDelayAfter pulumi.IntPtrInput `pulumi:"notifyDelayAfter"`
+}
+
+func (TriggerNotificationPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerNotificationProperty)(nil)).Elem()
+}
+
+func (i TriggerNotificationPropertyArgs) ToTriggerNotificationPropertyOutput() TriggerNotificationPropertyOutput {
+	return i.ToTriggerNotificationPropertyOutputWithContext(context.Background())
+}
+
+func (i TriggerNotificationPropertyArgs) ToTriggerNotificationPropertyOutputWithContext(ctx context.Context) TriggerNotificationPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerNotificationPropertyOutput)
+}
+
+func (i TriggerNotificationPropertyArgs) ToTriggerNotificationPropertyPtrOutput() TriggerNotificationPropertyPtrOutput {
+	return i.ToTriggerNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i TriggerNotificationPropertyArgs) ToTriggerNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerNotificationPropertyOutput).ToTriggerNotificationPropertyPtrOutputWithContext(ctx)
+}
+
+// TriggerNotificationPropertyPtrInput is an input type that accepts TriggerNotificationPropertyArgs, TriggerNotificationPropertyPtr and TriggerNotificationPropertyPtrOutput values.
+// You can construct a concrete instance of `TriggerNotificationPropertyPtrInput` via:
+//
+//          TriggerNotificationPropertyArgs{...}
+//
+//  or:
+//
+//          nil
+type TriggerNotificationPropertyPtrInput interface {
+	pulumi.Input
+
+	ToTriggerNotificationPropertyPtrOutput() TriggerNotificationPropertyPtrOutput
+	ToTriggerNotificationPropertyPtrOutputWithContext(context.Context) TriggerNotificationPropertyPtrOutput
+}
+
+type triggerNotificationPropertyPtrType TriggerNotificationPropertyArgs
+
+func TriggerNotificationPropertyPtr(v *TriggerNotificationPropertyArgs) TriggerNotificationPropertyPtrInput {
+	return (*triggerNotificationPropertyPtrType)(v)
+}
+
+func (*triggerNotificationPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerNotificationProperty)(nil)).Elem()
+}
+
+func (i *triggerNotificationPropertyPtrType) ToTriggerNotificationPropertyPtrOutput() TriggerNotificationPropertyPtrOutput {
+	return i.ToTriggerNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerNotificationPropertyPtrType) ToTriggerNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerNotificationPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerNotificationPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html
+type TriggerNotificationPropertyOutput struct{ *pulumi.OutputState }
+
+func (TriggerNotificationPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerNotificationProperty)(nil)).Elem()
+}
+
+func (o TriggerNotificationPropertyOutput) ToTriggerNotificationPropertyOutput() TriggerNotificationPropertyOutput {
+	return o
+}
+
+func (o TriggerNotificationPropertyOutput) ToTriggerNotificationPropertyOutputWithContext(ctx context.Context) TriggerNotificationPropertyOutput {
+	return o
+}
+
+func (o TriggerNotificationPropertyOutput) ToTriggerNotificationPropertyPtrOutput() TriggerNotificationPropertyPtrOutput {
+	return o.ToTriggerNotificationPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerNotificationPropertyOutput) ToTriggerNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerNotificationPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerNotificationProperty) *TriggerNotificationProperty {
+		return &v
+	}).(TriggerNotificationPropertyPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+func (o TriggerNotificationPropertyOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerNotificationProperty) *int { return v.NotifyDelayAfter }).(pulumi.IntPtrOutput)
+}
+
+type TriggerNotificationPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerNotificationPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerNotificationProperty)(nil)).Elem()
+}
+
+func (o TriggerNotificationPropertyPtrOutput) ToTriggerNotificationPropertyPtrOutput() TriggerNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o TriggerNotificationPropertyPtrOutput) ToTriggerNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerNotificationPropertyPtrOutput {
+	return o
+}
+
+func (o TriggerNotificationPropertyPtrOutput) Elem() TriggerNotificationPropertyOutput {
+	return o.ApplyT(func(v *TriggerNotificationProperty) TriggerNotificationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerNotificationProperty
+		return ret
+	}).(TriggerNotificationPropertyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-notificationproperty.html#cfn-glue-trigger-notificationproperty-notifydelayafter
+func (o TriggerNotificationPropertyPtrOutput) NotifyDelayAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerNotificationProperty) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NotifyDelayAfter
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html
+type TriggerPredicate struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+	Conditions []TriggerCondition `pulumi:"conditions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+	Logical *string `pulumi:"logical"`
+}
+
+// TriggerPredicateInput is an input type that accepts TriggerPredicateArgs and TriggerPredicateOutput values.
+// You can construct a concrete instance of `TriggerPredicateInput` via:
+//
+//          TriggerPredicateArgs{...}
+type TriggerPredicateInput interface {
+	pulumi.Input
+
+	ToTriggerPredicateOutput() TriggerPredicateOutput
+	ToTriggerPredicateOutputWithContext(context.Context) TriggerPredicateOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html
+type TriggerPredicateArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+	Conditions TriggerConditionArrayInput `pulumi:"conditions"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+	Logical pulumi.StringPtrInput `pulumi:"logical"`
+}
+
+func (TriggerPredicateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerPredicate)(nil)).Elem()
+}
+
+func (i TriggerPredicateArgs) ToTriggerPredicateOutput() TriggerPredicateOutput {
+	return i.ToTriggerPredicateOutputWithContext(context.Background())
+}
+
+func (i TriggerPredicateArgs) ToTriggerPredicateOutputWithContext(ctx context.Context) TriggerPredicateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicateOutput)
+}
+
+func (i TriggerPredicateArgs) ToTriggerPredicatePtrOutput() TriggerPredicatePtrOutput {
+	return i.ToTriggerPredicatePtrOutputWithContext(context.Background())
+}
+
+func (i TriggerPredicateArgs) ToTriggerPredicatePtrOutputWithContext(ctx context.Context) TriggerPredicatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicateOutput).ToTriggerPredicatePtrOutputWithContext(ctx)
+}
+
+// TriggerPredicatePtrInput is an input type that accepts TriggerPredicateArgs, TriggerPredicatePtr and TriggerPredicatePtrOutput values.
+// You can construct a concrete instance of `TriggerPredicatePtrInput` via:
+//
+//          TriggerPredicateArgs{...}
+//
+//  or:
+//
+//          nil
+type TriggerPredicatePtrInput interface {
+	pulumi.Input
+
+	ToTriggerPredicatePtrOutput() TriggerPredicatePtrOutput
+	ToTriggerPredicatePtrOutputWithContext(context.Context) TriggerPredicatePtrOutput
+}
+
+type triggerPredicatePtrType TriggerPredicateArgs
+
+func TriggerPredicatePtr(v *TriggerPredicateArgs) TriggerPredicatePtrInput {
+	return (*triggerPredicatePtrType)(v)
+}
+
+func (*triggerPredicatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerPredicate)(nil)).Elem()
+}
+
+func (i *triggerPredicatePtrType) ToTriggerPredicatePtrOutput() TriggerPredicatePtrOutput {
+	return i.ToTriggerPredicatePtrOutputWithContext(context.Background())
+}
+
+func (i *triggerPredicatePtrType) ToTriggerPredicatePtrOutputWithContext(ctx context.Context) TriggerPredicatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerPredicatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html
+type TriggerPredicateOutput struct{ *pulumi.OutputState }
+
+func (TriggerPredicateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerPredicate)(nil)).Elem()
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicateOutput() TriggerPredicateOutput {
+	return o
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicateOutputWithContext(ctx context.Context) TriggerPredicateOutput {
+	return o
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutput() TriggerPredicatePtrOutput {
+	return o.ToTriggerPredicatePtrOutputWithContext(context.Background())
+}
+
+func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutputWithContext(ctx context.Context) TriggerPredicatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerPredicate) *TriggerPredicate {
+		return &v
+	}).(TriggerPredicatePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+func (o TriggerPredicateOutput) Conditions() TriggerConditionArrayOutput {
+	return o.ApplyT(func(v TriggerPredicate) []TriggerCondition { return v.Conditions }).(TriggerConditionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+func (o TriggerPredicateOutput) Logical() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TriggerPredicate) *string { return v.Logical }).(pulumi.StringPtrOutput)
+}
+
+type TriggerPredicatePtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerPredicatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerPredicate)(nil)).Elem()
+}
+
+func (o TriggerPredicatePtrOutput) ToTriggerPredicatePtrOutput() TriggerPredicatePtrOutput {
+	return o
+}
+
+func (o TriggerPredicatePtrOutput) ToTriggerPredicatePtrOutputWithContext(ctx context.Context) TriggerPredicatePtrOutput {
+	return o
+}
+
+func (o TriggerPredicatePtrOutput) Elem() TriggerPredicateOutput {
+	return o.ApplyT(func(v *TriggerPredicate) TriggerPredicate {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerPredicate
+		return ret
+	}).(TriggerPredicateOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-conditions
+func (o TriggerPredicatePtrOutput) Conditions() TriggerConditionArrayOutput {
+	return o.ApplyT(func(v *TriggerPredicate) []TriggerCondition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(TriggerConditionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-predicate.html#cfn-glue-trigger-predicate-logical
+func (o TriggerPredicatePtrOutput) Logical() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TriggerPredicate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Logical
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ClassifierCsvClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierCsvClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierGrokClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierGrokClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierJsonClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ClassifierXMLClassifierOutput{})
+	pulumi.RegisterOutputType(ClassifierXMLClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionConnectionInputOutput{})
+	pulumi.RegisterOutputType(ConnectionConnectionInputPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDBTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerDynamoDBTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyOutput{})
+	pulumi.RegisterOutputType(CrawlerRecrawlPolicyPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerS3TargetOutput{})
+	pulumi.RegisterOutputType(CrawlerS3TargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerScheduleOutput{})
+	pulumi.RegisterOutputType(CrawlerSchedulePtrOutput{})
+	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
+	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
+	pulumi.RegisterOutputType(CrawlerTargetsOutput{})
+	pulumi.RegisterOutputType(CrawlerTargetsPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
+	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseInputOutput{})
+	pulumi.RegisterOutputType(DatabaseDatabaseInputPtrOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
+	pulumi.RegisterOutputType(JobConnectionsListOutput{})
+	pulumi.RegisterOutputType(JobConnectionsListPtrOutput{})
+	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
+	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
+	pulumi.RegisterOutputType(JobJobCommandOutput{})
+	pulumi.RegisterOutputType(JobJobCommandPtrOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
+	pulumi.RegisterOutputType(JobNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformFindMatchesParametersOutput{})
+	pulumi.RegisterOutputType(MLTransformFindMatchesParametersPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformGlueTablesOutput{})
+	pulumi.RegisterOutputType(MLTransformGlueTablesArrayOutput{})
+	pulumi.RegisterOutputType(MLTransformInputRecordTablesOutput{})
+	pulumi.RegisterOutputType(MLTransformInputRecordTablesPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionOutput{})
+	pulumi.RegisterOutputType(MLTransformMLUserDataEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformEncryptionOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformParametersOutput{})
+	pulumi.RegisterOutputType(MLTransformTransformParametersPtrOutput{})
+	pulumi.RegisterOutputType(PartitionColumnOutput{})
+	pulumi.RegisterOutputType(PartitionColumnArrayOutput{})
+	pulumi.RegisterOutputType(PartitionOrderOutput{})
+	pulumi.RegisterOutputType(PartitionOrderArrayOutput{})
+	pulumi.RegisterOutputType(PartitionPartitionInputOutput{})
+	pulumi.RegisterOutputType(PartitionPartitionInputPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(PartitionSchemaReferencePtrOutput{})
+	pulumi.RegisterOutputType(PartitionSerdeInfoOutput{})
+	pulumi.RegisterOutputType(PartitionSerdeInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionSkewedInfoOutput{})
+	pulumi.RegisterOutputType(PartitionSkewedInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryOutput{})
 	pulumi.RegisterOutputType(SchemaRegistryPtrOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaVersionOutput{})
 	pulumi.RegisterOutputType(SchemaSchemaVersionPtrOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaOutput{})
 	pulumi.RegisterOutputType(SchemaVersionSchemaPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationCloudWatchEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionsOutput{})
+	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionsPtrOutput{})
+	pulumi.RegisterOutputType(TableColumnOutput{})
+	pulumi.RegisterOutputType(TableColumnArrayOutput{})
+	pulumi.RegisterOutputType(TableOrderOutput{})
+	pulumi.RegisterOutputType(TableOrderArrayOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdOutput{})
+	pulumi.RegisterOutputType(TableSchemaIdPtrOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferenceOutput{})
+	pulumi.RegisterOutputType(TableSchemaReferencePtrOutput{})
+	pulumi.RegisterOutputType(TableSerdeInfoOutput{})
+	pulumi.RegisterOutputType(TableSerdeInfoPtrOutput{})
+	pulumi.RegisterOutputType(TableSkewedInfoOutput{})
+	pulumi.RegisterOutputType(TableSkewedInfoPtrOutput{})
+	pulumi.RegisterOutputType(TableStorageDescriptorOutput{})
+	pulumi.RegisterOutputType(TableStorageDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(TableTableIdentifierOutput{})
+	pulumi.RegisterOutputType(TableTableIdentifierPtrOutput{})
+	pulumi.RegisterOutputType(TableTableInputOutput{})
+	pulumi.RegisterOutputType(TableTableInputPtrOutput{})
+	pulumi.RegisterOutputType(TriggerActionOutput{})
+	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
+	pulumi.RegisterOutputType(TriggerConditionOutput{})
+	pulumi.RegisterOutputType(TriggerConditionArrayOutput{})
+	pulumi.RegisterOutputType(TriggerNotificationPropertyOutput{})
+	pulumi.RegisterOutputType(TriggerNotificationPropertyPtrOutput{})
+	pulumi.RegisterOutputType(TriggerPredicateOutput{})
+	pulumi.RegisterOutputType(TriggerPredicatePtrOutput{})
 }

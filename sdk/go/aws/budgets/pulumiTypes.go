@@ -10,6 +10,1227 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+type BudgetBudgetData struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+	BudgetLimit *BudgetSpend `pulumi:"budgetLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+	BudgetName *string `pulumi:"budgetName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+	BudgetType string `pulumi:"budgetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+	CostFilters interface{} `pulumi:"costFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+	PlannedBudgetLimits interface{} `pulumi:"plannedBudgetLimits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+	TimePeriod *BudgetTimePeriod `pulumi:"timePeriod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+	TimeUnit string `pulumi:"timeUnit"`
+}
+
+// BudgetBudgetDataInput is an input type that accepts BudgetBudgetDataArgs and BudgetBudgetDataOutput values.
+// You can construct a concrete instance of `BudgetBudgetDataInput` via:
+//
+//          BudgetBudgetDataArgs{...}
+type BudgetBudgetDataInput interface {
+	pulumi.Input
+
+	ToBudgetBudgetDataOutput() BudgetBudgetDataOutput
+	ToBudgetBudgetDataOutputWithContext(context.Context) BudgetBudgetDataOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+type BudgetBudgetDataArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+	BudgetLimit BudgetSpendPtrInput `pulumi:"budgetLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+	BudgetName pulumi.StringPtrInput `pulumi:"budgetName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+	BudgetType pulumi.StringInput `pulumi:"budgetType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+	CostFilters pulumi.Input `pulumi:"costFilters"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+	CostTypes BudgetCostTypesPtrInput `pulumi:"costTypes"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+	PlannedBudgetLimits pulumi.Input `pulumi:"plannedBudgetLimits"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+	TimePeriod BudgetTimePeriodPtrInput `pulumi:"timePeriod"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+	TimeUnit pulumi.StringInput `pulumi:"timeUnit"`
+}
+
+func (BudgetBudgetDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetBudgetData)(nil)).Elem()
+}
+
+func (i BudgetBudgetDataArgs) ToBudgetBudgetDataOutput() BudgetBudgetDataOutput {
+	return i.ToBudgetBudgetDataOutputWithContext(context.Background())
+}
+
+func (i BudgetBudgetDataArgs) ToBudgetBudgetDataOutputWithContext(ctx context.Context) BudgetBudgetDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetBudgetDataOutput)
+}
+
+func (i BudgetBudgetDataArgs) ToBudgetBudgetDataPtrOutput() BudgetBudgetDataPtrOutput {
+	return i.ToBudgetBudgetDataPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetBudgetDataArgs) ToBudgetBudgetDataPtrOutputWithContext(ctx context.Context) BudgetBudgetDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetBudgetDataOutput).ToBudgetBudgetDataPtrOutputWithContext(ctx)
+}
+
+// BudgetBudgetDataPtrInput is an input type that accepts BudgetBudgetDataArgs, BudgetBudgetDataPtr and BudgetBudgetDataPtrOutput values.
+// You can construct a concrete instance of `BudgetBudgetDataPtrInput` via:
+//
+//          BudgetBudgetDataArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetBudgetDataPtrInput interface {
+	pulumi.Input
+
+	ToBudgetBudgetDataPtrOutput() BudgetBudgetDataPtrOutput
+	ToBudgetBudgetDataPtrOutputWithContext(context.Context) BudgetBudgetDataPtrOutput
+}
+
+type budgetBudgetDataPtrType BudgetBudgetDataArgs
+
+func BudgetBudgetDataPtr(v *BudgetBudgetDataArgs) BudgetBudgetDataPtrInput {
+	return (*budgetBudgetDataPtrType)(v)
+}
+
+func (*budgetBudgetDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetBudgetData)(nil)).Elem()
+}
+
+func (i *budgetBudgetDataPtrType) ToBudgetBudgetDataPtrOutput() BudgetBudgetDataPtrOutput {
+	return i.ToBudgetBudgetDataPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetBudgetDataPtrType) ToBudgetBudgetDataPtrOutputWithContext(ctx context.Context) BudgetBudgetDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetBudgetDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
+type BudgetBudgetDataOutput struct{ *pulumi.OutputState }
+
+func (BudgetBudgetDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetBudgetData)(nil)).Elem()
+}
+
+func (o BudgetBudgetDataOutput) ToBudgetBudgetDataOutput() BudgetBudgetDataOutput {
+	return o
+}
+
+func (o BudgetBudgetDataOutput) ToBudgetBudgetDataOutputWithContext(ctx context.Context) BudgetBudgetDataOutput {
+	return o
+}
+
+func (o BudgetBudgetDataOutput) ToBudgetBudgetDataPtrOutput() BudgetBudgetDataPtrOutput {
+	return o.ToBudgetBudgetDataPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetBudgetDataOutput) ToBudgetBudgetDataPtrOutputWithContext(ctx context.Context) BudgetBudgetDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetBudgetData) *BudgetBudgetData {
+		return &v
+	}).(BudgetBudgetDataPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+func (o BudgetBudgetDataOutput) BudgetLimit() BudgetSpendPtrOutput {
+	return o.ApplyT(func(v BudgetBudgetData) *BudgetSpend { return v.BudgetLimit }).(BudgetSpendPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+func (o BudgetBudgetDataOutput) BudgetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetBudgetData) *string { return v.BudgetName }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+func (o BudgetBudgetDataOutput) BudgetType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetBudgetData) string { return v.BudgetType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+func (o BudgetBudgetDataOutput) CostFilters() pulumi.AnyOutput {
+	return o.ApplyT(func(v BudgetBudgetData) interface{} { return v.CostFilters }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+func (o BudgetBudgetDataOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v BudgetBudgetData) *BudgetCostTypes { return v.CostTypes }).(BudgetCostTypesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+func (o BudgetBudgetDataOutput) PlannedBudgetLimits() pulumi.AnyOutput {
+	return o.ApplyT(func(v BudgetBudgetData) interface{} { return v.PlannedBudgetLimits }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+func (o BudgetBudgetDataOutput) TimePeriod() BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v BudgetBudgetData) *BudgetTimePeriod { return v.TimePeriod }).(BudgetTimePeriodPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+func (o BudgetBudgetDataOutput) TimeUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetBudgetData) string { return v.TimeUnit }).(pulumi.StringOutput)
+}
+
+type BudgetBudgetDataPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetBudgetDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetBudgetData)(nil)).Elem()
+}
+
+func (o BudgetBudgetDataPtrOutput) ToBudgetBudgetDataPtrOutput() BudgetBudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetBudgetDataPtrOutput) ToBudgetBudgetDataPtrOutputWithContext(ctx context.Context) BudgetBudgetDataPtrOutput {
+	return o
+}
+
+func (o BudgetBudgetDataPtrOutput) Elem() BudgetBudgetDataOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) BudgetBudgetData {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetBudgetData
+		return ret
+	}).(BudgetBudgetDataOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+func (o BudgetBudgetDataPtrOutput) BudgetLimit() BudgetSpendPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *BudgetSpend {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetLimit
+	}).(BudgetSpendPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+func (o BudgetBudgetDataPtrOutput) BudgetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+func (o BudgetBudgetDataPtrOutput) BudgetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BudgetType
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+func (o BudgetBudgetDataPtrOutput) CostFilters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CostFilters
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+func (o BudgetBudgetDataPtrOutput) CostTypes() BudgetCostTypesPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *BudgetCostTypes {
+		if v == nil {
+			return nil
+		}
+		return v.CostTypes
+	}).(BudgetCostTypesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+func (o BudgetBudgetDataPtrOutput) PlannedBudgetLimits() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PlannedBudgetLimits
+	}).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+func (o BudgetBudgetDataPtrOutput) TimePeriod() BudgetTimePeriodPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *BudgetTimePeriod {
+		if v == nil {
+			return nil
+		}
+		return v.TimePeriod
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+func (o BudgetBudgetDataPtrOutput) TimeUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetBudgetData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
+type BudgetCostTypes struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+	IncludeCredit *bool `pulumi:"includeCredit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+	IncludeDiscount *bool `pulumi:"includeDiscount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+	IncludeOtherSubscription *bool `pulumi:"includeOtherSubscription"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+	IncludeRecurring *bool `pulumi:"includeRecurring"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+	IncludeRefund *bool `pulumi:"includeRefund"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+	IncludeSubscription *bool `pulumi:"includeSubscription"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+	IncludeSupport *bool `pulumi:"includeSupport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+	IncludeTax *bool `pulumi:"includeTax"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+	IncludeUpfront *bool `pulumi:"includeUpfront"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+	UseAmortized *bool `pulumi:"useAmortized"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+	UseBlended *bool `pulumi:"useBlended"`
+}
+
+// BudgetCostTypesInput is an input type that accepts BudgetCostTypesArgs and BudgetCostTypesOutput values.
+// You can construct a concrete instance of `BudgetCostTypesInput` via:
+//
+//          BudgetCostTypesArgs{...}
+type BudgetCostTypesInput interface {
+	pulumi.Input
+
+	ToBudgetCostTypesOutput() BudgetCostTypesOutput
+	ToBudgetCostTypesOutputWithContext(context.Context) BudgetCostTypesOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
+type BudgetCostTypesArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+	IncludeCredit pulumi.BoolPtrInput `pulumi:"includeCredit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+	IncludeDiscount pulumi.BoolPtrInput `pulumi:"includeDiscount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+	IncludeOtherSubscription pulumi.BoolPtrInput `pulumi:"includeOtherSubscription"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+	IncludeRecurring pulumi.BoolPtrInput `pulumi:"includeRecurring"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+	IncludeRefund pulumi.BoolPtrInput `pulumi:"includeRefund"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+	IncludeSubscription pulumi.BoolPtrInput `pulumi:"includeSubscription"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+	IncludeSupport pulumi.BoolPtrInput `pulumi:"includeSupport"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+	IncludeTax pulumi.BoolPtrInput `pulumi:"includeTax"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+	IncludeUpfront pulumi.BoolPtrInput `pulumi:"includeUpfront"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+	UseAmortized pulumi.BoolPtrInput `pulumi:"useAmortized"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+	UseBlended pulumi.BoolPtrInput `pulumi:"useBlended"`
+}
+
+func (BudgetCostTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostTypes)(nil)).Elem()
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return i.ToBudgetCostTypesOutputWithContext(context.Background())
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesOutput)
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return i.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetCostTypesArgs) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesOutput).ToBudgetCostTypesPtrOutputWithContext(ctx)
+}
+
+// BudgetCostTypesPtrInput is an input type that accepts BudgetCostTypesArgs, BudgetCostTypesPtr and BudgetCostTypesPtrOutput values.
+// You can construct a concrete instance of `BudgetCostTypesPtrInput` via:
+//
+//          BudgetCostTypesArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetCostTypesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput
+	ToBudgetCostTypesPtrOutputWithContext(context.Context) BudgetCostTypesPtrOutput
+}
+
+type budgetCostTypesPtrType BudgetCostTypesArgs
+
+func BudgetCostTypesPtr(v *BudgetCostTypesArgs) BudgetCostTypesPtrInput {
+	return (*budgetCostTypesPtrType)(v)
+}
+
+func (*budgetCostTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostTypes)(nil)).Elem()
+}
+
+func (i *budgetCostTypesPtrType) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return i.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetCostTypesPtrType) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostTypesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html
+type BudgetCostTypesOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostTypes)(nil)).Elem()
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutput() BudgetCostTypesOutput {
+	return o
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesOutputWithContext(ctx context.Context) BudgetCostTypesOutput {
+	return o
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return o.ToBudgetCostTypesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetCostTypes) *BudgetCostTypes {
+		return &v
+	}).(BudgetCostTypesPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+func (o BudgetCostTypesOutput) IncludeCredit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeCredit }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+func (o BudgetCostTypesOutput) IncludeDiscount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeDiscount }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+func (o BudgetCostTypesOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeOtherSubscription }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+func (o BudgetCostTypesOutput) IncludeRecurring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRecurring }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+func (o BudgetCostTypesOutput) IncludeRefund() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeRefund }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+func (o BudgetCostTypesOutput) IncludeSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSubscription }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+func (o BudgetCostTypesOutput) IncludeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeSupport }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+func (o BudgetCostTypesOutput) IncludeTax() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeTax }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+func (o BudgetCostTypesOutput) IncludeUpfront() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.IncludeUpfront }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+func (o BudgetCostTypesOutput) UseAmortized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseAmortized }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+func (o BudgetCostTypesOutput) UseBlended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BudgetCostTypes) *bool { return v.UseBlended }).(pulumi.BoolPtrOutput)
+}
+
+type BudgetCostTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetCostTypes)(nil)).Elem()
+}
+
+func (o BudgetCostTypesPtrOutput) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOutput {
+	return o
+}
+
+func (o BudgetCostTypesPtrOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
+	return o
+}
+
+func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) BudgetCostTypes {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetCostTypes
+		return ret
+	}).(BudgetCostTypesOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+func (o BudgetCostTypesPtrOutput) IncludeCredit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeCredit
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+func (o BudgetCostTypesPtrOutput) IncludeDiscount() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDiscount
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+func (o BudgetCostTypesPtrOutput) IncludeOtherSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeOtherSubscription
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+func (o BudgetCostTypesPtrOutput) IncludeRecurring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRecurring
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+func (o BudgetCostTypesPtrOutput) IncludeRefund() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeRefund
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+func (o BudgetCostTypesPtrOutput) IncludeSubscription() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSubscription
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+func (o BudgetCostTypesPtrOutput) IncludeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+func (o BudgetCostTypesPtrOutput) IncludeTax() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTax
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+func (o BudgetCostTypesPtrOutput) IncludeUpfront() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeUpfront
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+func (o BudgetCostTypesPtrOutput) UseAmortized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAmortized
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BudgetCostTypes) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBlended
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
+type BudgetNotification struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+	ComparisonOperator string `pulumi:"comparisonOperator"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+	NotificationType string `pulumi:"notificationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+	Threshold float64 `pulumi:"threshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+	ThresholdType *string `pulumi:"thresholdType"`
+}
+
+// BudgetNotificationInput is an input type that accepts BudgetNotificationArgs and BudgetNotificationOutput values.
+// You can construct a concrete instance of `BudgetNotificationInput` via:
+//
+//          BudgetNotificationArgs{...}
+type BudgetNotificationInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationOutput() BudgetNotificationOutput
+	ToBudgetNotificationOutputWithContext(context.Context) BudgetNotificationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
+type BudgetNotificationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+	NotificationType pulumi.StringInput `pulumi:"notificationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
+}
+
+func (BudgetNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotification)(nil)).Elem()
+}
+
+func (i BudgetNotificationArgs) ToBudgetNotificationOutput() BudgetNotificationOutput {
+	return i.ToBudgetNotificationOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationArgs) ToBudgetNotificationOutputWithContext(ctx context.Context) BudgetNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html
+type BudgetNotificationOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotification)(nil)).Elem()
+}
+
+func (o BudgetNotificationOutput) ToBudgetNotificationOutput() BudgetNotificationOutput {
+	return o
+}
+
+func (o BudgetNotificationOutput) ToBudgetNotificationOutputWithContext(ctx context.Context) BudgetNotificationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+func (o BudgetNotificationOutput) ComparisonOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetNotification) string { return v.ComparisonOperator }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+func (o BudgetNotificationOutput) NotificationType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetNotification) string { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+func (o BudgetNotificationOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v BudgetNotification) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+func (o BudgetNotificationOutput) ThresholdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetNotification) *string { return v.ThresholdType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+type BudgetNotificationWithSubscribers struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+	Notification BudgetNotification `pulumi:"notification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+	Subscribers []BudgetSubscriber `pulumi:"subscribers"`
+}
+
+// BudgetNotificationWithSubscribersInput is an input type that accepts BudgetNotificationWithSubscribersArgs and BudgetNotificationWithSubscribersOutput values.
+// You can construct a concrete instance of `BudgetNotificationWithSubscribersInput` via:
+//
+//          BudgetNotificationWithSubscribersArgs{...}
+type BudgetNotificationWithSubscribersInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput
+	ToBudgetNotificationWithSubscribersOutputWithContext(context.Context) BudgetNotificationWithSubscribersOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+type BudgetNotificationWithSubscribersArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+	Notification BudgetNotificationInput `pulumi:"notification"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+	Subscribers BudgetSubscriberArrayInput `pulumi:"subscribers"`
+}
+
+func (BudgetNotificationWithSubscribersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (i BudgetNotificationWithSubscribersArgs) ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput {
+	return i.ToBudgetNotificationWithSubscribersOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationWithSubscribersArgs) ToBudgetNotificationWithSubscribersOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationWithSubscribersOutput)
+}
+
+// BudgetNotificationWithSubscribersArrayInput is an input type that accepts BudgetNotificationWithSubscribersArray and BudgetNotificationWithSubscribersArrayOutput values.
+// You can construct a concrete instance of `BudgetNotificationWithSubscribersArrayInput` via:
+//
+//          BudgetNotificationWithSubscribersArray{ BudgetNotificationWithSubscribersArgs{...} }
+type BudgetNotificationWithSubscribersArrayInput interface {
+	pulumi.Input
+
+	ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput
+	ToBudgetNotificationWithSubscribersArrayOutputWithContext(context.Context) BudgetNotificationWithSubscribersArrayOutput
+}
+
+type BudgetNotificationWithSubscribersArray []BudgetNotificationWithSubscribersInput
+
+func (BudgetNotificationWithSubscribersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (i BudgetNotificationWithSubscribersArray) ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput {
+	return i.ToBudgetNotificationWithSubscribersArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetNotificationWithSubscribersArray) ToBudgetNotificationWithSubscribersArrayOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetNotificationWithSubscribersArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html
+type BudgetNotificationWithSubscribersOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationWithSubscribersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (o BudgetNotificationWithSubscribersOutput) ToBudgetNotificationWithSubscribersOutput() BudgetNotificationWithSubscribersOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersOutput) ToBudgetNotificationWithSubscribersOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+func (o BudgetNotificationWithSubscribersOutput) Notification() BudgetNotificationOutput {
+	return o.ApplyT(func(v BudgetNotificationWithSubscribers) BudgetNotification { return v.Notification }).(BudgetNotificationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+func (o BudgetNotificationWithSubscribersOutput) Subscribers() BudgetSubscriberArrayOutput {
+	return o.ApplyT(func(v BudgetNotificationWithSubscribers) []BudgetSubscriber { return v.Subscribers }).(BudgetSubscriberArrayOutput)
+}
+
+type BudgetNotificationWithSubscribersArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetNotificationWithSubscribersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetNotificationWithSubscribers)(nil)).Elem()
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) ToBudgetNotificationWithSubscribersArrayOutput() BudgetNotificationWithSubscribersArrayOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) ToBudgetNotificationWithSubscribersArrayOutputWithContext(ctx context.Context) BudgetNotificationWithSubscribersArrayOutput {
+	return o
+}
+
+func (o BudgetNotificationWithSubscribersArrayOutput) Index(i pulumi.IntInput) BudgetNotificationWithSubscribersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetNotificationWithSubscribers {
+		return vs[0].([]BudgetNotificationWithSubscribers)[vs[1].(int)]
+	}).(BudgetNotificationWithSubscribersOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
+type BudgetSpend struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+	Amount float64 `pulumi:"amount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+	Unit string `pulumi:"unit"`
+}
+
+// BudgetSpendInput is an input type that accepts BudgetSpendArgs and BudgetSpendOutput values.
+// You can construct a concrete instance of `BudgetSpendInput` via:
+//
+//          BudgetSpendArgs{...}
+type BudgetSpendInput interface {
+	pulumi.Input
+
+	ToBudgetSpendOutput() BudgetSpendOutput
+	ToBudgetSpendOutputWithContext(context.Context) BudgetSpendOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
+type BudgetSpendArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+	Amount pulumi.Float64Input `pulumi:"amount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (BudgetSpendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSpend)(nil)).Elem()
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendOutput() BudgetSpendOutput {
+	return i.ToBudgetSpendOutputWithContext(context.Background())
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendOutputWithContext(ctx context.Context) BudgetSpendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendOutput)
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return i.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetSpendArgs) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendOutput).ToBudgetSpendPtrOutputWithContext(ctx)
+}
+
+// BudgetSpendPtrInput is an input type that accepts BudgetSpendArgs, BudgetSpendPtr and BudgetSpendPtrOutput values.
+// You can construct a concrete instance of `BudgetSpendPtrInput` via:
+//
+//          BudgetSpendArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetSpendPtrInput interface {
+	pulumi.Input
+
+	ToBudgetSpendPtrOutput() BudgetSpendPtrOutput
+	ToBudgetSpendPtrOutputWithContext(context.Context) BudgetSpendPtrOutput
+}
+
+type budgetSpendPtrType BudgetSpendArgs
+
+func BudgetSpendPtr(v *BudgetSpendArgs) BudgetSpendPtrInput {
+	return (*budgetSpendPtrType)(v)
+}
+
+func (*budgetSpendPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetSpend)(nil)).Elem()
+}
+
+func (i *budgetSpendPtrType) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return i.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetSpendPtrType) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSpendPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html
+type BudgetSpendOutput struct{ *pulumi.OutputState }
+
+func (BudgetSpendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSpend)(nil)).Elem()
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendOutput() BudgetSpendOutput {
+	return o
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendOutputWithContext(ctx context.Context) BudgetSpendOutput {
+	return o
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return o.ToBudgetSpendPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetSpendOutput) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetSpend) *BudgetSpend {
+		return &v
+	}).(BudgetSpendPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+func (o BudgetSpendOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v BudgetSpend) float64 { return v.Amount }).(pulumi.Float64Output)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+func (o BudgetSpendOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSpend) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type BudgetSpendPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetSpendPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetSpend)(nil)).Elem()
+}
+
+func (o BudgetSpendPtrOutput) ToBudgetSpendPtrOutput() BudgetSpendPtrOutput {
+	return o
+}
+
+func (o BudgetSpendPtrOutput) ToBudgetSpendPtrOutputWithContext(ctx context.Context) BudgetSpendPtrOutput {
+	return o
+}
+
+func (o BudgetSpendPtrOutput) Elem() BudgetSpendOutput {
+	return o.ApplyT(func(v *BudgetSpend) BudgetSpend {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSpend
+		return ret
+	}).(BudgetSpendOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+func (o BudgetSpendPtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *BudgetSpend) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+func (o BudgetSpendPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetSpend) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html
+type BudgetSubscriber struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+	Address string `pulumi:"address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+	SubscriptionType string `pulumi:"subscriptionType"`
+}
+
+// BudgetSubscriberInput is an input type that accepts BudgetSubscriberArgs and BudgetSubscriberOutput values.
+// You can construct a concrete instance of `BudgetSubscriberInput` via:
+//
+//          BudgetSubscriberArgs{...}
+type BudgetSubscriberInput interface {
+	pulumi.Input
+
+	ToBudgetSubscriberOutput() BudgetSubscriberOutput
+	ToBudgetSubscriberOutputWithContext(context.Context) BudgetSubscriberOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html
+type BudgetSubscriberArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+	Address pulumi.StringInput `pulumi:"address"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+	SubscriptionType pulumi.StringInput `pulumi:"subscriptionType"`
+}
+
+func (BudgetSubscriberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSubscriber)(nil)).Elem()
+}
+
+func (i BudgetSubscriberArgs) ToBudgetSubscriberOutput() BudgetSubscriberOutput {
+	return i.ToBudgetSubscriberOutputWithContext(context.Background())
+}
+
+func (i BudgetSubscriberArgs) ToBudgetSubscriberOutputWithContext(ctx context.Context) BudgetSubscriberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriberOutput)
+}
+
+// BudgetSubscriberArrayInput is an input type that accepts BudgetSubscriberArray and BudgetSubscriberArrayOutput values.
+// You can construct a concrete instance of `BudgetSubscriberArrayInput` via:
+//
+//          BudgetSubscriberArray{ BudgetSubscriberArgs{...} }
+type BudgetSubscriberArrayInput interface {
+	pulumi.Input
+
+	ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput
+	ToBudgetSubscriberArrayOutputWithContext(context.Context) BudgetSubscriberArrayOutput
+}
+
+type BudgetSubscriberArray []BudgetSubscriberInput
+
+func (BudgetSubscriberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetSubscriber)(nil)).Elem()
+}
+
+func (i BudgetSubscriberArray) ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput {
+	return i.ToBudgetSubscriberArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetSubscriberArray) ToBudgetSubscriberArrayOutputWithContext(ctx context.Context) BudgetSubscriberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetSubscriberArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html
+type BudgetSubscriberOutput struct{ *pulumi.OutputState }
+
+func (BudgetSubscriberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSubscriber)(nil)).Elem()
+}
+
+func (o BudgetSubscriberOutput) ToBudgetSubscriberOutput() BudgetSubscriberOutput {
+	return o
+}
+
+func (o BudgetSubscriberOutput) ToBudgetSubscriberOutputWithContext(ctx context.Context) BudgetSubscriberOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+func (o BudgetSubscriberOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSubscriber) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+func (o BudgetSubscriberOutput) SubscriptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetSubscriber) string { return v.SubscriptionType }).(pulumi.StringOutput)
+}
+
+type BudgetSubscriberArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetSubscriberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetSubscriber)(nil)).Elem()
+}
+
+func (o BudgetSubscriberArrayOutput) ToBudgetSubscriberArrayOutput() BudgetSubscriberArrayOutput {
+	return o
+}
+
+func (o BudgetSubscriberArrayOutput) ToBudgetSubscriberArrayOutputWithContext(ctx context.Context) BudgetSubscriberArrayOutput {
+	return o
+}
+
+func (o BudgetSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetSubscriberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetSubscriber {
+		return vs[0].([]BudgetSubscriber)[vs[1].(int)]
+	}).(BudgetSubscriberOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+type BudgetTimePeriod struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+	End *string `pulumi:"end"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+	Start *string `pulumi:"start"`
+}
+
+// BudgetTimePeriodInput is an input type that accepts BudgetTimePeriodArgs and BudgetTimePeriodOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodInput` via:
+//
+//          BudgetTimePeriodArgs{...}
+type BudgetTimePeriodInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodOutput() BudgetTimePeriodOutput
+	ToBudgetTimePeriodOutputWithContext(context.Context) BudgetTimePeriodOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+type BudgetTimePeriodArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+	Start pulumi.StringPtrInput `pulumi:"start"`
+}
+
+func (BudgetTimePeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return i.ToBudgetTimePeriodOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput)
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput).ToBudgetTimePeriodPtrOutputWithContext(ctx)
+}
+
+// BudgetTimePeriodPtrInput is an input type that accepts BudgetTimePeriodArgs, BudgetTimePeriodPtr and BudgetTimePeriodPtrOutput values.
+// You can construct a concrete instance of `BudgetTimePeriodPtrInput` via:
+//
+//          BudgetTimePeriodArgs{...}
+//
+//  or:
+//
+//          nil
+type BudgetTimePeriodPtrInput interface {
+	pulumi.Input
+
+	ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput
+	ToBudgetTimePeriodPtrOutputWithContext(context.Context) BudgetTimePeriodPtrOutput
+}
+
+type budgetTimePeriodPtrType BudgetTimePeriodArgs
+
+func BudgetTimePeriodPtr(v *BudgetTimePeriodArgs) BudgetTimePeriodPtrInput {
+	return (*budgetTimePeriodPtrType)(v)
+}
+
+func (*budgetTimePeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html
+type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutput() BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutputWithContext(ctx context.Context) BudgetTimePeriodOutput {
+	return o
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
+		return &v
+	}).(BudgetTimePeriodPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+func (o BudgetTimePeriodOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+func (o BudgetTimePeriodOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.Start }).(pulumi.StringPtrOutput)
+}
+
+type BudgetTimePeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetTimePeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
+	return o
+}
+
+func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriod
+		return ret
+	}).(BudgetTimePeriodOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+func (o BudgetTimePeriodPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+func (o BudgetTimePeriodPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetTimePeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
 type BudgetsActionActionThreshold struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
@@ -991,6 +2212,19 @@ func (o BudgetsActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetsActi
 }
 
 func init() {
+	pulumi.RegisterOutputType(BudgetBudgetDataOutput{})
+	pulumi.RegisterOutputType(BudgetBudgetDataPtrOutput{})
+	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
+	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersOutput{})
+	pulumi.RegisterOutputType(BudgetNotificationWithSubscribersArrayOutput{})
+	pulumi.RegisterOutputType(BudgetSpendOutput{})
+	pulumi.RegisterOutputType(BudgetSpendPtrOutput{})
+	pulumi.RegisterOutputType(BudgetSubscriberOutput{})
+	pulumi.RegisterOutputType(BudgetSubscriberArrayOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
+	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdOutput{})
 	pulumi.RegisterOutputType(BudgetsActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetsActionDefinitionOutput{})

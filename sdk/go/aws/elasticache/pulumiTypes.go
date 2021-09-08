@@ -10,6 +10,578 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
+type CacheClusterCloudWatchLogsDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// CacheClusterCloudWatchLogsDestinationDetailsInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs and CacheClusterCloudWatchLogsDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsInput` via:
+//
+//          CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+type CacheClusterCloudWatchLogsDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput
+	ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
+type CacheClusterCloudWatchLogsDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (CacheClusterCloudWatchLogsDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsOutput)
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsOutput).ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// CacheClusterCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts CacheClusterCloudWatchLogsDestinationDetailsArgs, CacheClusterCloudWatchLogsDestinationDetailsPtr and CacheClusterCloudWatchLogsDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `CacheClusterCloudWatchLogsDestinationDetailsPtrInput` via:
+//
+//          CacheClusterCloudWatchLogsDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheClusterCloudWatchLogsDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput
+	ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput
+}
+
+type cacheClusterCloudWatchLogsDestinationDetailsPtrType CacheClusterCloudWatchLogsDestinationDetailsArgs
+
+func CacheClusterCloudWatchLogsDestinationDetailsPtr(v *CacheClusterCloudWatchLogsDestinationDetailsArgs) CacheClusterCloudWatchLogsDestinationDetailsPtrInput {
+	return (*cacheClusterCloudWatchLogsDestinationDetailsPtrType)(v)
+}
+
+func (*cacheClusterCloudWatchLogsDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html
+type CacheClusterCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsOutput() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheClusterCloudWatchLogsDestinationDetails) *CacheClusterCloudWatchLogsDestinationDetails {
+		return &v
+	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterCloudWatchLogsDestinationDetails) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterCloudWatchLogsDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) Elem() CacheClusterCloudWatchLogsDestinationDetailsOutput {
+	return o.ApplyT(func(v *CacheClusterCloudWatchLogsDestinationDetails) CacheClusterCloudWatchLogsDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterCloudWatchLogsDestinationDetails
+		return ret
+	}).(CacheClusterCloudWatchLogsDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-cloudwatchlogsdestinationdetails.html#cfn-elasticache-cachecluster-cloudwatchlogsdestinationdetails-loggroup
+func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterCloudWatchLogsDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html
+type CacheClusterDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+	CloudWatchLogsDetails *CacheClusterCloudWatchLogsDestinationDetails `pulumi:"cloudWatchLogsDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+	KinesisFirehoseDetails *CacheClusterKinesisFirehoseDestinationDetails `pulumi:"kinesisFirehoseDetails"`
+}
+
+// CacheClusterDestinationDetailsInput is an input type that accepts CacheClusterDestinationDetailsArgs and CacheClusterDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterDestinationDetailsInput` via:
+//
+//          CacheClusterDestinationDetailsArgs{...}
+type CacheClusterDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput
+	ToCacheClusterDestinationDetailsOutputWithContext(context.Context) CacheClusterDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html
+type CacheClusterDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+	CloudWatchLogsDetails CacheClusterCloudWatchLogsDestinationDetailsPtrInput `pulumi:"cloudWatchLogsDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+	KinesisFirehoseDetails CacheClusterKinesisFirehoseDestinationDetailsPtrInput `pulumi:"kinesisFirehoseDetails"`
+}
+
+func (CacheClusterDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput {
+	return i.ToCacheClusterDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterDestinationDetailsOutput)
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsPtrOutput() CacheClusterDestinationDetailsPtrOutput {
+	return i.ToCacheClusterDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterDestinationDetailsOutput).ToCacheClusterDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// CacheClusterDestinationDetailsPtrInput is an input type that accepts CacheClusterDestinationDetailsArgs, CacheClusterDestinationDetailsPtr and CacheClusterDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `CacheClusterDestinationDetailsPtrInput` via:
+//
+//          CacheClusterDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheClusterDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCacheClusterDestinationDetailsPtrOutput() CacheClusterDestinationDetailsPtrOutput
+	ToCacheClusterDestinationDetailsPtrOutputWithContext(context.Context) CacheClusterDestinationDetailsPtrOutput
+}
+
+type cacheClusterDestinationDetailsPtrType CacheClusterDestinationDetailsArgs
+
+func CacheClusterDestinationDetailsPtr(v *CacheClusterDestinationDetailsArgs) CacheClusterDestinationDetailsPtrInput {
+	return (*cacheClusterDestinationDetailsPtrType)(v)
+}
+
+func (*cacheClusterDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (i *cacheClusterDestinationDetailsPtrType) ToCacheClusterDestinationDetailsPtrOutput() CacheClusterDestinationDetailsPtrOutput {
+	return i.ToCacheClusterDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheClusterDestinationDetailsPtrType) ToCacheClusterDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html
+type CacheClusterDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOutput() CacheClusterDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsPtrOutput() CacheClusterDestinationDetailsPtrOutput {
+	return o.ToCacheClusterDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheClusterDestinationDetails) *CacheClusterDestinationDetails {
+		return &v
+	}).(CacheClusterDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+func (o CacheClusterDestinationDetailsOutput) CloudWatchLogsDetails() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v CacheClusterDestinationDetails) *CacheClusterCloudWatchLogsDestinationDetails {
+		return v.CloudWatchLogsDetails
+	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+func (o CacheClusterDestinationDetailsOutput) KinesisFirehoseDetails() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v CacheClusterDestinationDetails) *CacheClusterKinesisFirehoseDestinationDetails {
+		return v.KinesisFirehoseDetails
+	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+type CacheClusterDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterDestinationDetailsPtrOutput) ToCacheClusterDestinationDetailsPtrOutput() CacheClusterDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterDestinationDetailsPtrOutput) ToCacheClusterDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterDestinationDetailsPtrOutput) Elem() CacheClusterDestinationDetailsOutput {
+	return o.ApplyT(func(v *CacheClusterDestinationDetails) CacheClusterDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterDestinationDetails
+		return ret
+	}).(CacheClusterDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-cloudwatchlogsdetails
+func (o CacheClusterDestinationDetailsPtrOutput) CloudWatchLogsDetails() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v *CacheClusterDestinationDetails) *CacheClusterCloudWatchLogsDestinationDetails {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogsDetails
+	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-destinationdetails.html#cfn-elasticache-cachecluster-destinationdetails-kinesisfirehosedetails
+func (o CacheClusterDestinationDetailsPtrOutput) KinesisFirehoseDetails() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v *CacheClusterDestinationDetails) *CacheClusterKinesisFirehoseDestinationDetails {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseDetails
+	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html
+type CacheClusterKinesisFirehoseDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+	DeliveryStream *string `pulumi:"deliveryStream"`
+}
+
+// CacheClusterKinesisFirehoseDestinationDetailsInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs and CacheClusterKinesisFirehoseDestinationDetailsOutput values.
+// You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsInput` via:
+//
+//          CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+type CacheClusterKinesisFirehoseDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput
+	ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html
+type CacheClusterKinesisFirehoseDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+}
+
+func (CacheClusterKinesisFirehoseDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsOutput)
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsOutput).ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// CacheClusterKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts CacheClusterKinesisFirehoseDestinationDetailsArgs, CacheClusterKinesisFirehoseDestinationDetailsPtr and CacheClusterKinesisFirehoseDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `CacheClusterKinesisFirehoseDestinationDetailsPtrInput` via:
+//
+//          CacheClusterKinesisFirehoseDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheClusterKinesisFirehoseDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput
+	ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput
+}
+
+type cacheClusterKinesisFirehoseDestinationDetailsPtrType CacheClusterKinesisFirehoseDestinationDetailsArgs
+
+func CacheClusterKinesisFirehoseDestinationDetailsPtr(v *CacheClusterKinesisFirehoseDestinationDetailsArgs) CacheClusterKinesisFirehoseDestinationDetailsPtrInput {
+	return (*cacheClusterKinesisFirehoseDestinationDetailsPtrType)(v)
+}
+
+func (*cacheClusterKinesisFirehoseDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html
+type CacheClusterKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsOutput() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheClusterKinesisFirehoseDestinationDetails) *CacheClusterKinesisFirehoseDestinationDetails {
+		return &v
+	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterKinesisFirehoseDestinationDetails) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterKinesisFirehoseDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheClusterKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) Elem() CacheClusterKinesisFirehoseDestinationDetailsOutput {
+	return o.ApplyT(func(v *CacheClusterKinesisFirehoseDestinationDetails) CacheClusterKinesisFirehoseDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret CacheClusterKinesisFirehoseDestinationDetails
+		return ret
+	}).(CacheClusterKinesisFirehoseDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-kinesisfirehosedestinationdetails.html#cfn-elasticache-cachecluster-kinesisfirehosedestinationdetails-deliverystream
+func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheClusterKinesisFirehoseDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html
+type CacheClusterLogDeliveryConfigurationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails
+	DestinationDetails *CacheClusterDestinationDetails `pulumi:"destinationDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype
+	DestinationType *string `pulumi:"destinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat
+	LogFormat *string `pulumi:"logFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype
+	LogType *string `pulumi:"logType"`
+}
+
+// CacheClusterLogDeliveryConfigurationRequestInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArgs and CacheClusterLogDeliveryConfigurationRequestOutput values.
+// You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestInput` via:
+//
+//          CacheClusterLogDeliveryConfigurationRequestArgs{...}
+type CacheClusterLogDeliveryConfigurationRequestInput interface {
+	pulumi.Input
+
+	ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput
+	ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(context.Context) CacheClusterLogDeliveryConfigurationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html
+type CacheClusterLogDeliveryConfigurationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails
+	DestinationDetails CacheClusterDestinationDetailsPtrInput `pulumi:"destinationDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat
+	LogFormat pulumi.StringPtrInput `pulumi:"logFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype
+	LogType pulumi.StringPtrInput `pulumi:"logType"`
+}
+
+func (CacheClusterLogDeliveryConfigurationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput {
+	return i.ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(context.Background())
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestOutput)
+}
+
+// CacheClusterLogDeliveryConfigurationRequestArrayInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArray and CacheClusterLogDeliveryConfigurationRequestArrayOutput values.
+// You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestArrayInput` via:
+//
+//          CacheClusterLogDeliveryConfigurationRequestArray{ CacheClusterLogDeliveryConfigurationRequestArgs{...} }
+type CacheClusterLogDeliveryConfigurationRequestArrayInput interface {
+	pulumi.Input
+
+	ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput
+	ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput
+}
+
+type CacheClusterLogDeliveryConfigurationRequestArray []CacheClusterLogDeliveryConfigurationRequestInput
+
+func (CacheClusterLogDeliveryConfigurationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArray) ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return i.ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i CacheClusterLogDeliveryConfigurationRequestArray) ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html
+type CacheClusterLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeliveryConfigurationRequestOutput() CacheClusterLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationdetails
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) DestinationDetails() CacheClusterDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) *CacheClusterDestinationDetails {
+		return v.DestinationDetails
+	}).(CacheClusterDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-destinationtype
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logformat
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.html#cfn-elasticache-cachecluster-logdeliveryconfigurationrequest-logtype
+func (o CacheClusterLogDeliveryConfigurationRequestOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheClusterLogDeliveryConfigurationRequest) *string { return v.LogType }).(pulumi.StringPtrOutput)
+}
+
+type CacheClusterLogDeliveryConfigurationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (CacheClusterLogDeliveryConfigurationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CacheClusterLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLogDeliveryConfigurationRequestArrayOutput() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) CacheClusterLogDeliveryConfigurationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CacheClusterLogDeliveryConfigurationRequest {
+		return vs[0].([]CacheClusterLogDeliveryConfigurationRequest)[vs[1].(int)]
+	}).(CacheClusterLogDeliveryConfigurationRequestOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
 type GlobalReplicationGroupGlobalReplicationGroupMember struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
@@ -357,11 +929,737 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi
 	}).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html
+type ReplicationGroupCloudWatchLogsDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// ReplicationGroupCloudWatchLogsDestinationDetailsInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs and ReplicationGroupCloudWatchLogsDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsInput` via:
+//
+//          ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+type ReplicationGroupCloudWatchLogsDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput
+	ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html
+type ReplicationGroupCloudWatchLogsDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput)
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput).ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput is an input type that accepts ReplicationGroupCloudWatchLogsDestinationDetailsArgs, ReplicationGroupCloudWatchLogsDestinationDetailsPtr and ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput` via:
+//
+//          ReplicationGroupCloudWatchLogsDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput
+	ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput
+}
+
+type replicationGroupCloudWatchLogsDestinationDetailsPtrType ReplicationGroupCloudWatchLogsDestinationDetailsArgs
+
+func ReplicationGroupCloudWatchLogsDestinationDetailsPtr(v *ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput {
+	return (*replicationGroupCloudWatchLogsDestinationDetailsPtrType)(v)
+}
+
+func (*replicationGroupCloudWatchLogsDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html
+type ReplicationGroupCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsOutput() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupCloudWatchLogsDestinationDetails) *ReplicationGroupCloudWatchLogsDestinationDetails {
+		return &v
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupCloudWatchLogsDestinationDetails) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupCloudWatchLogsDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) Elem() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
+	return o.ApplyT(func(v *ReplicationGroupCloudWatchLogsDestinationDetails) ReplicationGroupCloudWatchLogsDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupCloudWatchLogsDestinationDetails
+		return ret
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-cloudwatchlogsdestinationdetails.html#cfn-elasticache-replicationgroup-cloudwatchlogsdestinationdetails-loggroup
+func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupCloudWatchLogsDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html
+type ReplicationGroupDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+	CloudWatchLogsDetails *ReplicationGroupCloudWatchLogsDestinationDetails `pulumi:"cloudWatchLogsDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+	KinesisFirehoseDetails *ReplicationGroupKinesisFirehoseDestinationDetails `pulumi:"kinesisFirehoseDetails"`
+}
+
+// ReplicationGroupDestinationDetailsInput is an input type that accepts ReplicationGroupDestinationDetailsArgs and ReplicationGroupDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupDestinationDetailsInput` via:
+//
+//          ReplicationGroupDestinationDetailsArgs{...}
+type ReplicationGroupDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput
+	ToReplicationGroupDestinationDetailsOutputWithContext(context.Context) ReplicationGroupDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html
+type ReplicationGroupDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+	CloudWatchLogsDetails ReplicationGroupCloudWatchLogsDestinationDetailsPtrInput `pulumi:"cloudWatchLogsDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+	KinesisFirehoseDetails ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput `pulumi:"kinesisFirehoseDetails"`
+}
+
+func (ReplicationGroupDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput {
+	return i.ToReplicationGroupDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupDestinationDetailsOutput)
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsPtrOutput() ReplicationGroupDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupDestinationDetailsOutput).ToReplicationGroupDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// ReplicationGroupDestinationDetailsPtrInput is an input type that accepts ReplicationGroupDestinationDetailsArgs, ReplicationGroupDestinationDetailsPtr and ReplicationGroupDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupDestinationDetailsPtrInput` via:
+//
+//          ReplicationGroupDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationGroupDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupDestinationDetailsPtrOutput() ReplicationGroupDestinationDetailsPtrOutput
+	ToReplicationGroupDestinationDetailsPtrOutputWithContext(context.Context) ReplicationGroupDestinationDetailsPtrOutput
+}
+
+type replicationGroupDestinationDetailsPtrType ReplicationGroupDestinationDetailsArgs
+
+func ReplicationGroupDestinationDetailsPtr(v *ReplicationGroupDestinationDetailsArgs) ReplicationGroupDestinationDetailsPtrInput {
+	return (*replicationGroupDestinationDetailsPtrType)(v)
+}
+
+func (*replicationGroupDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (i *replicationGroupDestinationDetailsPtrType) ToReplicationGroupDestinationDetailsPtrOutput() ReplicationGroupDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupDestinationDetailsPtrType) ToReplicationGroupDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html
+type ReplicationGroupDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsOutput() ReplicationGroupDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsPtrOutput() ReplicationGroupDestinationDetailsPtrOutput {
+	return o.ToReplicationGroupDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupDestinationDetails) *ReplicationGroupDestinationDetails {
+		return &v
+	}).(ReplicationGroupDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+func (o ReplicationGroupDestinationDetailsOutput) CloudWatchLogsDetails() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupDestinationDetails) *ReplicationGroupCloudWatchLogsDestinationDetails {
+		return v.CloudWatchLogsDetails
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+func (o ReplicationGroupDestinationDetailsOutput) KinesisFirehoseDetails() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupDestinationDetails) *ReplicationGroupKinesisFirehoseDestinationDetails {
+		return v.KinesisFirehoseDetails
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+type ReplicationGroupDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupDestinationDetailsPtrOutput) ToReplicationGroupDestinationDetailsPtrOutput() ReplicationGroupDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupDestinationDetailsPtrOutput) ToReplicationGroupDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupDestinationDetailsPtrOutput) Elem() ReplicationGroupDestinationDetailsOutput {
+	return o.ApplyT(func(v *ReplicationGroupDestinationDetails) ReplicationGroupDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupDestinationDetails
+		return ret
+	}).(ReplicationGroupDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-cloudwatchlogsdetails
+func (o ReplicationGroupDestinationDetailsPtrOutput) CloudWatchLogsDetails() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupDestinationDetails) *ReplicationGroupCloudWatchLogsDestinationDetails {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogsDetails
+	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-destinationdetails.html#cfn-elasticache-replicationgroup-destinationdetails-kinesisfirehosedetails
+func (o ReplicationGroupDestinationDetailsPtrOutput) KinesisFirehoseDetails() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupDestinationDetails) *ReplicationGroupKinesisFirehoseDestinationDetails {
+		if v == nil {
+			return nil
+		}
+		return v.KinesisFirehoseDetails
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html
+type ReplicationGroupKinesisFirehoseDestinationDetails struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+	DeliveryStream *string `pulumi:"deliveryStream"`
+}
+
+// ReplicationGroupKinesisFirehoseDestinationDetailsInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs and ReplicationGroupKinesisFirehoseDestinationDetailsOutput values.
+// You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsInput` via:
+//
+//          ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+type ReplicationGroupKinesisFirehoseDestinationDetailsInput interface {
+	pulumi.Input
+
+	ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput
+	ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html
+type ReplicationGroupKinesisFirehoseDestinationDetailsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+}
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput)
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput).ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx)
+}
+
+// ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput is an input type that accepts ReplicationGroupKinesisFirehoseDestinationDetailsArgs, ReplicationGroupKinesisFirehoseDestinationDetailsPtr and ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput values.
+// You can construct a concrete instance of `ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput` via:
+//
+//          ReplicationGroupKinesisFirehoseDestinationDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput
+	ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput
+}
+
+type replicationGroupKinesisFirehoseDestinationDetailsPtrType ReplicationGroupKinesisFirehoseDestinationDetailsArgs
+
+func ReplicationGroupKinesisFirehoseDestinationDetailsPtr(v *ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ReplicationGroupKinesisFirehoseDestinationDetailsPtrInput {
+	return (*replicationGroupKinesisFirehoseDestinationDetailsPtrType)(v)
+}
+
+func (*replicationGroupKinesisFirehoseDestinationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html
+type ReplicationGroupKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsOutput() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupKinesisFirehoseDestinationDetails) *ReplicationGroupKinesisFirehoseDestinationDetails {
+		return &v
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupKinesisFirehoseDestinationDetails) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationGroupKinesisFirehoseDestinationDetails)(nil)).Elem()
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
+	return o
+}
+
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) Elem() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
+	return o.ApplyT(func(v *ReplicationGroupKinesisFirehoseDestinationDetails) ReplicationGroupKinesisFirehoseDestinationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupKinesisFirehoseDestinationDetails
+		return ret
+	}).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-kinesisfirehosedestinationdetails.html#cfn-elasticache-replicationgroup-kinesisfirehosedestinationdetails-deliverystream
+func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroupKinesisFirehoseDestinationDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html
+type ReplicationGroupLogDeliveryConfigurationRequest struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+	DestinationDetails *ReplicationGroupDestinationDetails `pulumi:"destinationDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+	DestinationType *string `pulumi:"destinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+	LogFormat *string `pulumi:"logFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+	LogType *string `pulumi:"logType"`
+}
+
+// ReplicationGroupLogDeliveryConfigurationRequestInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArgs and ReplicationGroupLogDeliveryConfigurationRequestOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestInput` via:
+//
+//          ReplicationGroupLogDeliveryConfigurationRequestArgs{...}
+type ReplicationGroupLogDeliveryConfigurationRequestInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput
+	ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html
+type ReplicationGroupLogDeliveryConfigurationRequestArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+	DestinationDetails ReplicationGroupDestinationDetailsPtrInput `pulumi:"destinationDetails"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+	LogFormat pulumi.StringPtrInput `pulumi:"logFormat"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+	LogType pulumi.StringPtrInput `pulumi:"logType"`
+}
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestOutput)
+}
+
+// ReplicationGroupLogDeliveryConfigurationRequestArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArray and ReplicationGroupLogDeliveryConfigurationRequestArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestArrayInput` via:
+//
+//          ReplicationGroupLogDeliveryConfigurationRequestArray{ ReplicationGroupLogDeliveryConfigurationRequestArgs{...} }
+type ReplicationGroupLogDeliveryConfigurationRequestArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput
+	ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestArray []ReplicationGroupLogDeliveryConfigurationRequestInput
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html
+type ReplicationGroupLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGroupLogDeliveryConfigurationRequestOutput() ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationdetails
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) DestinationDetails() ReplicationGroupDestinationDetailsPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) *ReplicationGroupDestinationDetails {
+		return v.DestinationDetails
+	}).(ReplicationGroupDestinationDetailsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-destinationtype
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logformat
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-logdeliveryconfigurationrequest.html#cfn-elasticache-replicationgroup-logdeliveryconfigurationrequest-logtype
+func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfigurationRequest) *string { return v.LogType }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfigurationRequest)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutput() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) ReplicationGroupLogDeliveryConfigurationRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupLogDeliveryConfigurationRequest {
+		return vs[0].([]ReplicationGroupLogDeliveryConfigurationRequest)[vs[1].(int)]
+	}).(ReplicationGroupLogDeliveryConfigurationRequestOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
+type ReplicationGroupNodeGroupConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+	NodeGroupId *string `pulumi:"nodeGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
+	PrimaryAvailabilityZone *string `pulumi:"primaryAvailabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
+	ReplicaAvailabilityZones []string `pulumi:"replicaAvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
+	ReplicaCount *int `pulumi:"replicaCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
+	Slots *string `pulumi:"slots"`
+}
+
+// ReplicationGroupNodeGroupConfigurationInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArgs and ReplicationGroupNodeGroupConfigurationOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationInput` via:
+//
+//          ReplicationGroupNodeGroupConfigurationArgs{...}
+type ReplicationGroupNodeGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput
+	ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
+type ReplicationGroupNodeGroupConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
+	PrimaryAvailabilityZone pulumi.StringPtrInput `pulumi:"primaryAvailabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
+	ReplicaAvailabilityZones pulumi.StringArrayInput `pulumi:"replicaAvailabilityZones"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
+	ReplicaCount pulumi.IntPtrInput `pulumi:"replicaCount"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
+	Slots pulumi.StringPtrInput `pulumi:"slots"`
+}
+
+func (ReplicationGroupNodeGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
+// ReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArray and ReplicationGroupNodeGroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationArrayInput` via:
+//
+//          ReplicationGroupNodeGroupConfigurationArray{ ReplicationGroupNodeGroupConfigurationArgs{...} }
+type ReplicationGroupNodeGroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput
+	ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput
+}
+
+type ReplicationGroupNodeGroupConfigurationArray []ReplicationGroupNodeGroupConfigurationInput
+
+func (ReplicationGroupNodeGroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return i.ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
+type ReplicationGroupNodeGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutput() ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+func (o ReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
+func (o ReplicationGroupNodeGroupConfigurationOutput) PrimaryAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.PrimaryAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaAvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) []string { return v.ReplicaAvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
+func (o ReplicationGroupNodeGroupConfigurationOutput) ReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *int { return v.ReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
+func (o ReplicationGroupNodeGroupConfigurationOutput) Slots() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupNodeGroupConfiguration) *string { return v.Slots }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationGroupNodeGroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupNodeGroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupNodeGroupConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutput() ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupNodeGroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupNodeGroupConfiguration {
+		return vs[0].([]ReplicationGroupNodeGroupConfiguration)[vs[1].(int)]
+	}).(ReplicationGroupNodeGroupConfigurationOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterKinesisFirehoseDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestOutput{})
+	pulumi.RegisterOutputType(CacheClusterLogDeliveryConfigurationRequestArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupRegionalConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupReshardingConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupKinesisFirehoseDestinationDetailsOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationRequestOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupNodeGroupConfigurationArrayOutput{})
 }

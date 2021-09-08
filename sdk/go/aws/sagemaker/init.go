@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "aws-native:sagemaker:AppImageConfig":
 		r = &AppImageConfig{}
+	case "aws-native:sagemaker:CodeRepository":
+		r = &CodeRepository{}
 	case "aws-native:sagemaker:DataQualityJobDefinition":
 		r = &DataQualityJobDefinition{}
 	case "aws-native:sagemaker:Device":
@@ -33,12 +35,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeviceFleet{}
 	case "aws-native:sagemaker:Domain":
 		r = &Domain{}
+	case "aws-native:sagemaker:Endpoint":
+		r = &Endpoint{}
+	case "aws-native:sagemaker:EndpointConfig":
+		r = &EndpointConfig{}
 	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
 	case "aws-native:sagemaker:Image":
 		r = &Image{}
 	case "aws-native:sagemaker:ImageVersion":
 		r = &ImageVersion{}
+	case "aws-native:sagemaker:Model":
+		r = &Model{}
 	case "aws-native:sagemaker:ModelBiasJobDefinition":
 		r = &ModelBiasJobDefinition{}
 	case "aws-native:sagemaker:ModelExplainabilityJobDefinition":
@@ -49,12 +57,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModelQualityJobDefinition{}
 	case "aws-native:sagemaker:MonitoringSchedule":
 		r = &MonitoringSchedule{}
+	case "aws-native:sagemaker:NotebookInstance":
+		r = &NotebookInstance{}
+	case "aws-native:sagemaker:NotebookInstanceLifecycleConfig":
+		r = &NotebookInstanceLifecycleConfig{}
 	case "aws-native:sagemaker:Pipeline":
 		r = &Pipeline{}
 	case "aws-native:sagemaker:Project":
 		r = &Project{}
 	case "aws-native:sagemaker:UserProfile":
 		r = &UserProfile{}
+	case "aws-native:sagemaker:Workteam":
+		r = &Workteam{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
