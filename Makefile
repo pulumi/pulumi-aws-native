@@ -30,8 +30,6 @@ update_submodules:: init_submodules
 		echo "Updating submodule $$submodule" ; \
 		(cd $$submodule && git checkout main && git pull origin main); \
 	done
-	rm ./azure-provider-versions/provider_list.json
-	az provider list >> ./azure-provider-versions/provider_list.json
 
 discovery:: update_submodules codegen
 	curl -s -L $(CFN_SCHEMA_URL) | gzip -d > $(CFN_SCHEMA_FILE)
