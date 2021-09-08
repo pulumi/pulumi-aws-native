@@ -74,10 +74,10 @@ func main() {
 		case "go":
 			writeGoSDK(ppkg, outdir)
 		case "schema":
-			err := generateExamples(&pkgSpec, []string{"nodejs","python","dotnet","go"})
-			if err != nil {
-				panic(fmt.Sprintf("error generating examples: %v", err))
-			}
+			//err := generateExamples(&pkgSpec, []string{"nodejs","python","dotnet","go"})
+			//if err != nil {
+			//	panic(fmt.Sprintf("error generating examples: %v", err))
+			//}
 			writePulumiSchema(pkgSpec, providerDir)
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))

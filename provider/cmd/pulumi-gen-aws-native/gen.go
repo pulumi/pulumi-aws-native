@@ -241,7 +241,7 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 	}
 }
 
-func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []string) pschema.PackageSpec {
+func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes2 []string) pschema.PackageSpec {
 	p := pschema.PackageSpec{
 		Name:        packageName,
 		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
@@ -336,9 +336,6 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 		ctx.types.Add(name)
 	}
 
-	supportedResources := codegen.NewStringSet(supportedResourceTypes...)
-	supportedResources.Add("") // Top-level modules (e.g. Tag).
-
 	// Gather nested property types.
 	for name, spec := range schema.PropertyTypes {
 		resourceScope := ""
@@ -346,20 +343,16 @@ func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []
 		if len(components) > 1 {
 			resourceScope = components[0]
 		}
-		if supportedResources.Has(resourceScope) {
-			p.Types[typeToken(name)] = ctx.gatherPropertyType(resourceScope, spec)
-		}
+		p.Types[typeToken(name)] = ctx.gatherPropertyType(resourceScope, spec)
 	}
 
 	// Gather resource types.
 	var resourceCount int
 	for name, spec := range schema.ResourceTypes {
 		resourceCount += 1
-		if supportedResources.Has(name) {
-			ctx.gatherResourceType(&p, name, spec)
-			module := moduleName(name)
-			csharpNamespaces[strings.ToLower(module)] = module
-		}
+		ctx.gatherResourceType(&p, name, spec)
+		module := moduleName(name)
+		csharpNamespaces[strings.ToLower(module)] = module
 	}
 	fmt.Printf("%v\n", resourceCount)
 
