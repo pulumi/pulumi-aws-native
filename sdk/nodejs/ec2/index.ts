@@ -6,11 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./carrierGateway";
+export * from "./dhcpoptions";
 export * from "./ec2fleet";
 export * from "./egressOnlyInternetGateway";
 export * from "./enclaveCertificateIamRoleAssociation";
 export * from "./flowLog";
 export * from "./gatewayRouteTableAssociation";
+export * from "./internetGateway";
 export * from "./localGatewayRoute";
 export * from "./localGatewayRouteTableVPCAssociation";
 export * from "./networkInsightsAnalysis";
@@ -27,11 +29,13 @@ export * from "./transitGatewayPeeringAttachment";
 
 // Import resources to register:
 import { CarrierGateway } from "./carrierGateway";
+import { DHCPOptions } from "./dhcpoptions";
 import { EC2Fleet } from "./ec2fleet";
 import { EgressOnlyInternetGateway } from "./egressOnlyInternetGateway";
 import { EnclaveCertificateIamRoleAssociation } from "./enclaveCertificateIamRoleAssociation";
 import { FlowLog } from "./flowLog";
 import { GatewayRouteTableAssociation } from "./gatewayRouteTableAssociation";
+import { InternetGateway } from "./internetGateway";
 import { LocalGatewayRoute } from "./localGatewayRoute";
 import { LocalGatewayRouteTableVPCAssociation } from "./localGatewayRouteTableVPCAssociation";
 import { NetworkInsightsAnalysis } from "./networkInsightsAnalysis";
@@ -52,6 +56,8 @@ const _module = {
         switch (type) {
             case "aws-native:ec2:CarrierGateway":
                 return new CarrierGateway(name, <any>undefined, { urn })
+            case "aws-native:ec2:DHCPOptions":
+                return new DHCPOptions(name, <any>undefined, { urn })
             case "aws-native:ec2:EC2Fleet":
                 return new EC2Fleet(name, <any>undefined, { urn })
             case "aws-native:ec2:EgressOnlyInternetGateway":
@@ -62,6 +68,8 @@ const _module = {
                 return new FlowLog(name, <any>undefined, { urn })
             case "aws-native:ec2:GatewayRouteTableAssociation":
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:InternetGateway":
+                return new InternetGateway(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRoute":
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
             case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":

@@ -51,6 +51,10 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+     */
+    public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -94,6 +98,7 @@ export class Task extends pulumi.CustomResource {
             inputs["cloudWatchLogGroupArn"] = args ? args.cloudWatchLogGroupArn : undefined;
             inputs["destinationLocationArn"] = args ? args.destinationLocationArn : undefined;
             inputs["excludes"] = args ? args.excludes : undefined;
+            inputs["includes"] = args ? args.includes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
@@ -112,6 +117,7 @@ export class Task extends pulumi.CustomResource {
             inputs["errorCode"] = undefined /*out*/;
             inputs["errorDetail"] = undefined /*out*/;
             inputs["excludes"] = undefined /*out*/;
+            inputs["includes"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["options"] = undefined /*out*/;
             inputs["schedule"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export interface TaskArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
      */
     excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+     */
+    includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
      */

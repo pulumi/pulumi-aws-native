@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./ipset";
+export * from "./loggingConfiguration";
 export * from "./regexPatternSet";
 export * from "./ruleGroup";
 export * from "./webACL";
@@ -13,6 +14,7 @@ export * from "./webACLAssociation";
 
 // Import resources to register:
 import { IPSet } from "./ipset";
+import { LoggingConfiguration } from "./loggingConfiguration";
 import { RegexPatternSet } from "./regexPatternSet";
 import { RuleGroup } from "./ruleGroup";
 import { WebACL } from "./webACL";
@@ -24,6 +26,8 @@ const _module = {
         switch (type) {
             case "aws-native:wafv2:IPSet":
                 return new IPSet(name, <any>undefined, { urn })
+            case "aws-native:wafv2:LoggingConfiguration":
+                return new LoggingConfiguration(name, <any>undefined, { urn })
             case "aws-native:wafv2:RegexPatternSet":
                 return new RegexPatternSet(name, <any>undefined, { urn })
             case "aws-native:wafv2:RuleGroup":

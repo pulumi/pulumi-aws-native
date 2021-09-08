@@ -40,6 +40,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly allowVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+     */
+    public readonly aquaConfigurationStatus!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
      */
     public readonly automatedSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
@@ -47,6 +51,18 @@ export class Cluster extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+     */
+    public readonly availabilityZoneRelocation!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+     */
+    public readonly availabilityZoneRelocationStatus!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+     */
+    public readonly classic!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
      */
@@ -76,6 +92,27 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dBName!: pulumi.Output<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+     */
+    public readonly deferMaintenance!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+     */
+    public readonly deferMaintenanceDuration!: pulumi.Output<number | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+     */
+    public readonly deferMaintenanceEndTime!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly deferMaintenanceIdentifier!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+     */
+    public readonly deferMaintenanceStartTime!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+     */
+    public readonly destinationRegion!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
      */
     public readonly elasticIp!: pulumi.Output<string | undefined>;
@@ -89,6 +126,10 @@ export class Cluster extends pulumi.CustomResource {
     public readonly endpoint!: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
     public /*out*/ readonly endpointAddress!: pulumi.Output<string>;
     public /*out*/ readonly endpointPort!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+     */
+    public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
      */
@@ -110,6 +151,14 @@ export class Cluster extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
      */
     public readonly loggingProperties!: pulumi.Output<outputs.redshift.ClusterLoggingProperties | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+     */
+    public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+     */
+    public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
      */
@@ -143,9 +192,33 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+     */
+    public readonly resourceAction!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+     */
+    public readonly revisionTarget!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+     */
+    public readonly rotateEncryptionKey!: pulumi.Output<boolean | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
      */
     public readonly snapshotClusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+     */
+    public readonly snapshotCopyGrantName!: pulumi.Output<string | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+     */
+    public readonly snapshotCopyManual!: pulumi.Output<boolean | undefined>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+     */
+    public readonly snapshotCopyRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
      */
@@ -186,8 +259,12 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'nodeType'");
             }
             inputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
+            inputs["aquaConfigurationStatus"] = args ? args.aquaConfigurationStatus : undefined;
             inputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["availabilityZoneRelocation"] = args ? args.availabilityZoneRelocation : undefined;
+            inputs["availabilityZoneRelocationStatus"] = args ? args.availabilityZoneRelocationStatus : undefined;
+            inputs["classic"] = args ? args.classic : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["clusterParameterGroupName"] = args ? args.clusterParameterGroupName : undefined;
             inputs["clusterSecurityGroups"] = args ? args.clusterSecurityGroups : undefined;
@@ -195,14 +272,22 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterType"] = args ? args.clusterType : undefined;
             inputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             inputs["dBName"] = args ? args.dBName : undefined;
+            inputs["deferMaintenance"] = args ? args.deferMaintenance : undefined;
+            inputs["deferMaintenanceDuration"] = args ? args.deferMaintenanceDuration : undefined;
+            inputs["deferMaintenanceEndTime"] = args ? args.deferMaintenanceEndTime : undefined;
+            inputs["deferMaintenanceStartTime"] = args ? args.deferMaintenanceStartTime : undefined;
+            inputs["destinationRegion"] = args ? args.destinationRegion : undefined;
             inputs["elasticIp"] = args ? args.elasticIp : undefined;
             inputs["encrypted"] = args ? args.encrypted : undefined;
             inputs["endpoint"] = args ? args.endpoint : undefined;
+            inputs["enhancedVpcRouting"] = args ? args.enhancedVpcRouting : undefined;
             inputs["hsmClientCertificateIdentifier"] = args ? args.hsmClientCertificateIdentifier : undefined;
             inputs["hsmConfigurationIdentifier"] = args ? args.hsmConfigurationIdentifier : undefined;
             inputs["iamRoles"] = args ? args.iamRoles : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["loggingProperties"] = args ? args.loggingProperties : undefined;
+            inputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
+            inputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
             inputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
             inputs["masterUsername"] = args ? args.masterUsername : undefined;
             inputs["nodeType"] = args ? args.nodeType : undefined;
@@ -211,17 +296,28 @@ export class Cluster extends pulumi.CustomResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            inputs["resourceAction"] = args ? args.resourceAction : undefined;
+            inputs["revisionTarget"] = args ? args.revisionTarget : undefined;
+            inputs["rotateEncryptionKey"] = args ? args.rotateEncryptionKey : undefined;
             inputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
+            inputs["snapshotCopyGrantName"] = args ? args.snapshotCopyGrantName : undefined;
+            inputs["snapshotCopyManual"] = args ? args.snapshotCopyManual : undefined;
+            inputs["snapshotCopyRetentionPeriod"] = args ? args.snapshotCopyRetentionPeriod : undefined;
             inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            inputs["deferMaintenanceIdentifier"] = undefined /*out*/;
             inputs["endpointAddress"] = undefined /*out*/;
             inputs["endpointPort"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
         } else {
             inputs["allowVersionUpgrade"] = undefined /*out*/;
+            inputs["aquaConfigurationStatus"] = undefined /*out*/;
             inputs["automatedSnapshotRetentionPeriod"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
+            inputs["availabilityZoneRelocation"] = undefined /*out*/;
+            inputs["availabilityZoneRelocationStatus"] = undefined /*out*/;
+            inputs["classic"] = undefined /*out*/;
             inputs["clusterIdentifier"] = undefined /*out*/;
             inputs["clusterParameterGroupName"] = undefined /*out*/;
             inputs["clusterSecurityGroups"] = undefined /*out*/;
@@ -229,17 +325,26 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterType"] = undefined /*out*/;
             inputs["clusterVersion"] = undefined /*out*/;
             inputs["dBName"] = undefined /*out*/;
+            inputs["deferMaintenance"] = undefined /*out*/;
+            inputs["deferMaintenanceDuration"] = undefined /*out*/;
+            inputs["deferMaintenanceEndTime"] = undefined /*out*/;
+            inputs["deferMaintenanceIdentifier"] = undefined /*out*/;
+            inputs["deferMaintenanceStartTime"] = undefined /*out*/;
+            inputs["destinationRegion"] = undefined /*out*/;
             inputs["elasticIp"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["endpointAddress"] = undefined /*out*/;
             inputs["endpointPort"] = undefined /*out*/;
+            inputs["enhancedVpcRouting"] = undefined /*out*/;
             inputs["hsmClientCertificateIdentifier"] = undefined /*out*/;
             inputs["hsmConfigurationIdentifier"] = undefined /*out*/;
             inputs["iamRoles"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["loggingProperties"] = undefined /*out*/;
+            inputs["maintenanceTrackName"] = undefined /*out*/;
+            inputs["manualSnapshotRetentionPeriod"] = undefined /*out*/;
             inputs["masterUserPassword"] = undefined /*out*/;
             inputs["masterUsername"] = undefined /*out*/;
             inputs["nodeType"] = undefined /*out*/;
@@ -248,7 +353,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["port"] = undefined /*out*/;
             inputs["preferredMaintenanceWindow"] = undefined /*out*/;
             inputs["publiclyAccessible"] = undefined /*out*/;
+            inputs["resourceAction"] = undefined /*out*/;
+            inputs["revisionTarget"] = undefined /*out*/;
+            inputs["rotateEncryptionKey"] = undefined /*out*/;
             inputs["snapshotClusterIdentifier"] = undefined /*out*/;
+            inputs["snapshotCopyGrantName"] = undefined /*out*/;
+            inputs["snapshotCopyManual"] = undefined /*out*/;
+            inputs["snapshotCopyRetentionPeriod"] = undefined /*out*/;
             inputs["snapshotIdentifier"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["vpcSecurityGroupIds"] = undefined /*out*/;
@@ -269,6 +380,10 @@ export interface ClusterArgs {
      */
     allowVersionUpgrade?: pulumi.Input<boolean>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+     */
+    aquaConfigurationStatus?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
      */
     automatedSnapshotRetentionPeriod?: pulumi.Input<number>;
@@ -276,6 +391,18 @@ export interface ClusterArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
      */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+     */
+    availabilityZoneRelocation?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+     */
+    availabilityZoneRelocationStatus?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+     */
+    classic?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
      */
@@ -305,6 +432,26 @@ export interface ClusterArgs {
      */
     dBName: pulumi.Input<string>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+     */
+    deferMaintenance?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+     */
+    deferMaintenanceDuration?: pulumi.Input<number>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+     */
+    deferMaintenanceEndTime?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+     */
+    deferMaintenanceStartTime?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+     */
+    destinationRegion?: pulumi.Input<string>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
      */
     elasticIp?: pulumi.Input<string>;
@@ -316,6 +463,10 @@ export interface ClusterArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
      */
     endpoint?: pulumi.Input<inputs.redshift.ClusterEndpointArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+     */
+    enhancedVpcRouting?: pulumi.Input<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
      */
@@ -336,6 +487,14 @@ export interface ClusterArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
      */
     loggingProperties?: pulumi.Input<inputs.redshift.ClusterLoggingPropertiesArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+     */
+    maintenanceTrackName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+     */
+    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
      */
@@ -369,9 +528,33 @@ export interface ClusterArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+     */
+    resourceAction?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+     */
+    revisionTarget?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+     */
+    rotateEncryptionKey?: pulumi.Input<boolean>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
      */
     snapshotClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+     */
+    snapshotCopyGrantName?: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+     */
+    snapshotCopyManual?: pulumi.Input<boolean>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+     */
+    snapshotCopyRetentionPeriod?: pulumi.Input<number>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
      */

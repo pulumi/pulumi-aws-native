@@ -35,8 +35,6 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
      */
@@ -87,13 +85,9 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["regex"] = args ? args.regex : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["deleted"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["deleted"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["id"] = undefined /*out*/;
             inputs["ignoreWords"] = undefined /*out*/;
