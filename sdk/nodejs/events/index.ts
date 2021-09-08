@@ -8,11 +8,17 @@ import * as utilities from "../utilities";
 export * from "./apiDestination";
 export * from "./archive";
 export * from "./connection";
+export * from "./eventBus";
+export * from "./eventBusPolicy";
+export * from "./rule";
 
 // Import resources to register:
 import { ApiDestination } from "./apiDestination";
 import { Archive } from "./archive";
 import { Connection } from "./connection";
+import { EventBus } from "./eventBus";
+import { EventBusPolicy } from "./eventBusPolicy";
+import { Rule } from "./rule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +30,12 @@ const _module = {
                 return new Archive(name, <any>undefined, { urn })
             case "aws-native:events:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:events:EventBus":
+                return new EventBus(name, <any>undefined, { urn })
+            case "aws-native:events:EventBusPolicy":
+                return new EventBusPolicy(name, <any>undefined, { urn })
+            case "aws-native:events:Rule":
+                return new Rule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

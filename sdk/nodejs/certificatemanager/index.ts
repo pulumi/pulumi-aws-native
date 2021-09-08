@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./certificate";
 
 // Import resources to register:
 import { Account } from "./account";
+import { Certificate } from "./certificate";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,6 +18,8 @@ const _module = {
         switch (type) {
             case "aws-native:certificatemanager:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws-native:certificatemanager:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

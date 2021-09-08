@@ -6,11 +6,15 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./addon";
+export * from "./cluster";
 export * from "./fargateProfile";
+export * from "./nodegroup";
 
 // Import resources to register:
 import { Addon } from "./addon";
+import { Cluster } from "./cluster";
 import { FargateProfile } from "./fargateProfile";
+import { Nodegroup } from "./nodegroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -18,8 +22,12 @@ const _module = {
         switch (type) {
             case "aws-native:eks:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "aws-native:eks:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "aws-native:eks:FargateProfile":
                 return new FargateProfile(name, <any>undefined, { urn })
+            case "aws-native:eks:Nodegroup":
+                return new Nodegroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

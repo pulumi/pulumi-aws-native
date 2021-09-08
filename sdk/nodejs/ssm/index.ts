@@ -7,11 +7,21 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./association";
 export * from "./document";
+export * from "./maintenanceWindow";
+export * from "./maintenanceWindowTarget";
+export * from "./maintenanceWindowTask";
+export * from "./parameter";
+export * from "./patchBaseline";
 export * from "./resourceDataSync";
 
 // Import resources to register:
 import { Association } from "./association";
 import { Document } from "./document";
+import { MaintenanceWindow } from "./maintenanceWindow";
+import { MaintenanceWindowTarget } from "./maintenanceWindowTarget";
+import { MaintenanceWindowTask } from "./maintenanceWindowTask";
+import { Parameter } from "./parameter";
+import { PatchBaseline } from "./patchBaseline";
 import { ResourceDataSync } from "./resourceDataSync";
 
 const _module = {
@@ -22,6 +32,16 @@ const _module = {
                 return new Association(name, <any>undefined, { urn })
             case "aws-native:ssm:Document":
                 return new Document(name, <any>undefined, { urn })
+            case "aws-native:ssm:MaintenanceWindow":
+                return new MaintenanceWindow(name, <any>undefined, { urn })
+            case "aws-native:ssm:MaintenanceWindowTarget":
+                return new MaintenanceWindowTarget(name, <any>undefined, { urn })
+            case "aws-native:ssm:MaintenanceWindowTask":
+                return new MaintenanceWindowTask(name, <any>undefined, { urn })
+            case "aws-native:ssm:Parameter":
+                return new Parameter(name, <any>undefined, { urn })
+            case "aws-native:ssm:PatchBaseline":
+                return new PatchBaseline(name, <any>undefined, { urn })
             case "aws-native:ssm:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
             default:

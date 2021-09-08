@@ -5,15 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./autoScalingGroup";
+export * from "./launchConfiguration";
+export * from "./lifecycleHook";
+export * from "./scalingPolicy";
+export * from "./scheduledAction";
 export * from "./warmPool";
 
 // Import resources to register:
+import { AutoScalingGroup } from "./autoScalingGroup";
+import { LaunchConfiguration } from "./launchConfiguration";
+import { LifecycleHook } from "./lifecycleHook";
+import { ScalingPolicy } from "./scalingPolicy";
+import { ScheduledAction } from "./scheduledAction";
 import { WarmPool } from "./warmPool";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:autoscaling:AutoScalingGroup":
+                return new AutoScalingGroup(name, <any>undefined, { urn })
+            case "aws-native:autoscaling:LaunchConfiguration":
+                return new LaunchConfiguration(name, <any>undefined, { urn })
+            case "aws-native:autoscaling:LifecycleHook":
+                return new LifecycleHook(name, <any>undefined, { urn })
+            case "aws-native:autoscaling:ScalingPolicy":
+                return new ScalingPolicy(name, <any>undefined, { urn })
+            case "aws-native:autoscaling:ScheduledAction":
+                return new ScheduledAction(name, <any>undefined, { urn })
             case "aws-native:autoscaling:WarmPool":
                 return new WarmPool(name, <any>undefined, { urn })
             default:

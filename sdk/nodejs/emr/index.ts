@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cluster";
+export * from "./instanceFleetConfig";
+export * from "./instanceGroupConfig";
+export * from "./securityConfiguration";
+export * from "./step";
 export * from "./studio";
 export * from "./studioSessionMapping";
 
 // Import resources to register:
+import { Cluster } from "./cluster";
+import { InstanceFleetConfig } from "./instanceFleetConfig";
+import { InstanceGroupConfig } from "./instanceGroupConfig";
+import { SecurityConfiguration } from "./securityConfiguration";
+import { Step } from "./step";
 import { Studio } from "./studio";
 import { StudioSessionMapping } from "./studioSessionMapping";
 
@@ -16,6 +26,16 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:emr:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:emr:InstanceFleetConfig":
+                return new InstanceFleetConfig(name, <any>undefined, { urn })
+            case "aws-native:emr:InstanceGroupConfig":
+                return new InstanceGroupConfig(name, <any>undefined, { urn })
+            case "aws-native:emr:SecurityConfiguration":
+                return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "aws-native:emr:Step":
+                return new Step(name, <any>undefined, { urn })
             case "aws-native:emr:Studio":
                 return new Studio(name, <any>undefined, { urn })
             case "aws-native:emr:StudioSessionMapping":
