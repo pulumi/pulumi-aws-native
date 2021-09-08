@@ -4,13 +4,17 @@ go 1.15
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
-	github.com/aws/aws-sdk-go-v2 v1.7.1
+	github.com/aws/aws-sdk-go v1.38.35
+	github.com/aws/aws-sdk-go-v2 v1.9.0
 	github.com/aws/aws-sdk-go-v2/config v1.5.0
+	github.com/aws/aws-sdk-go-v2/service/amplify v1.5.0
+	github.com/aws/aws-sdk-go-v2/service/apigateway v1.7.0
+	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.6.0
 	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.7.0
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.12.0
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.8.0
 	github.com/aws/aws-sdk-go-v2/service/sts v1.6.0
-	github.com/aws/smithy-go v1.6.1-0.20210719175327-4970553d9934
+	github.com/aws/smithy-go v1.8.0
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/goccy/go-yaml v1.8.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
@@ -21,6 +25,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v3 v3.9.2-0.20210810055824-9c501b5bede1
 	github.com/pulumi/pulumi/sdk/v3 v3.9.1
+	github.com/sanathkr/yaml v1.0.0
+	github.com/satori/go.uuid v1.2.0
 	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
