@@ -418,6 +418,506 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStage struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	ApiId *string `pulumi:"apiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	Stage *string `pulumi:"stage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+	Throttle map[string]UsagePlanThrottleSettings `pulumi:"throttle"`
+}
+
+// UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageInput` via:
+//
+//          UsagePlanApiStageArgs{...}
+type UsagePlanApiStageInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageOutput() UsagePlanApiStageOutput
+	ToUsagePlanApiStageOutputWithContext(context.Context) UsagePlanApiStageOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStageArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	ApiId pulumi.StringPtrInput `pulumi:"apiId"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+	Throttle UsagePlanThrottleSettingsMapInput `pulumi:"throttle"`
+}
+
+func (UsagePlanApiStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStage)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutput() UsagePlanApiStageOutput {
+	return i.ToUsagePlanApiStageOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageArgs) ToUsagePlanApiStageOutputWithContext(ctx context.Context) UsagePlanApiStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageOutput)
+}
+
+// UsagePlanApiStageArrayInput is an input type that accepts UsagePlanApiStageArray and UsagePlanApiStageArrayOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageArrayInput` via:
+//
+//          UsagePlanApiStageArray{ UsagePlanApiStageArgs{...} }
+type UsagePlanApiStageArrayInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput
+	ToUsagePlanApiStageArrayOutputWithContext(context.Context) UsagePlanApiStageArrayOutput
+}
+
+type UsagePlanApiStageArray []UsagePlanApiStageInput
+
+func (UsagePlanApiStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStage)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput {
+	return i.ToUsagePlanApiStageArrayOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutputWithContext(ctx context.Context) UsagePlanApiStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStage)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutput() UsagePlanApiStageOutput {
+	return o
+}
+
+func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx context.Context) UsagePlanApiStageOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+func (o UsagePlanApiStageOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+func (o UsagePlanApiStageOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+func (o UsagePlanApiStageOutput) Throttle() UsagePlanThrottleSettingsMapOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) map[string]UsagePlanThrottleSettings { return v.Throttle }).(UsagePlanThrottleSettingsMapOutput)
+}
+
+type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStage)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageArrayOutput) ToUsagePlanApiStageArrayOutput() UsagePlanApiStageArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageArrayOutput) ToUsagePlanApiStageArrayOutputWithContext(ctx context.Context) UsagePlanApiStageArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanApiStage {
+		return vs[0].([]UsagePlanApiStage)[vs[1].(int)]
+	}).(UsagePlanApiStageOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	Limit *int `pulumi:"limit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	Offset *int `pulumi:"offset"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	Period *string `pulumi:"period"`
+}
+
+// UsagePlanQuotaSettingsInput is an input type that accepts UsagePlanQuotaSettingsArgs and UsagePlanQuotaSettingsOutput values.
+// You can construct a concrete instance of `UsagePlanQuotaSettingsInput` via:
+//
+//          UsagePlanQuotaSettingsArgs{...}
+type UsagePlanQuotaSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput
+	ToUsagePlanQuotaSettingsOutputWithContext(context.Context) UsagePlanQuotaSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	Offset pulumi.IntPtrInput `pulumi:"offset"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	Period pulumi.StringPtrInput `pulumi:"period"`
+}
+
+func (UsagePlanQuotaSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return i.ToUsagePlanQuotaSettingsOutputWithContext(context.Background())
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsOutput)
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return i.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UsagePlanQuotaSettingsArgs) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsOutput).ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx)
+}
+
+// UsagePlanQuotaSettingsPtrInput is an input type that accepts UsagePlanQuotaSettingsArgs, UsagePlanQuotaSettingsPtr and UsagePlanQuotaSettingsPtrOutput values.
+// You can construct a concrete instance of `UsagePlanQuotaSettingsPtrInput` via:
+//
+//          UsagePlanQuotaSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UsagePlanQuotaSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput
+	ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Context) UsagePlanQuotaSettingsPtrOutput
+}
+
+type usagePlanQuotaSettingsPtrType UsagePlanQuotaSettingsArgs
+
+func UsagePlanQuotaSettingsPtr(v *UsagePlanQuotaSettingsArgs) UsagePlanQuotaSettingsPtrInput {
+	return (*usagePlanQuotaSettingsPtrType)(v)
+}
+
+func (*usagePlanQuotaSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return i.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+type UsagePlanQuotaSettingsOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutput() UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return o.ToUsagePlanQuotaSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanQuotaSettings) *UsagePlanQuotaSettings {
+		return &v
+	}).(UsagePlanQuotaSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UsagePlanQuotaSettings) *string { return v.Period }).(pulumi.StringPtrOutput)
+}
+
+type UsagePlanQuotaSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanQuotaSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanQuotaSettings)(nil)).Elem()
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutput() UsagePlanQuotaSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) UsagePlanQuotaSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanQuotaSettings
+		return ret
+	}).(UsagePlanQuotaSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Offset
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Period
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettings struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	BurstLimit *int `pulumi:"burstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+
+// UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsInput` via:
+//
+//          UsagePlanThrottleSettingsArgs{...}
+type UsagePlanThrottleSettingsInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput
+	ToUsagePlanThrottleSettingsOutputWithContext(context.Context) UsagePlanThrottleSettingsOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettingsArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+}
+
+func (UsagePlanThrottleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return i.ToUsagePlanThrottleSettingsOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsOutput)
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return i.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsArgs) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsOutput).ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx)
+}
+
+// UsagePlanThrottleSettingsPtrInput is an input type that accepts UsagePlanThrottleSettingsArgs, UsagePlanThrottleSettingsPtr and UsagePlanThrottleSettingsPtrOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsPtrInput` via:
+//
+//          UsagePlanThrottleSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type UsagePlanThrottleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput
+	ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Context) UsagePlanThrottleSettingsPtrOutput
+}
+
+type usagePlanThrottleSettingsPtrType UsagePlanThrottleSettingsArgs
+
+func UsagePlanThrottleSettingsPtr(v *UsagePlanThrottleSettingsArgs) UsagePlanThrottleSettingsPtrInput {
+	return (*usagePlanThrottleSettingsPtrType)(v)
+}
+
+func (*usagePlanThrottleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return i.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsPtrOutput)
+}
+
+// UsagePlanThrottleSettingsMapInput is an input type that accepts UsagePlanThrottleSettingsMap and UsagePlanThrottleSettingsMapOutput values.
+// You can construct a concrete instance of `UsagePlanThrottleSettingsMapInput` via:
+//
+//          UsagePlanThrottleSettingsMap{ "key": UsagePlanThrottleSettingsArgs{...} }
+type UsagePlanThrottleSettingsMapInput interface {
+	pulumi.Input
+
+	ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput
+	ToUsagePlanThrottleSettingsMapOutputWithContext(context.Context) UsagePlanThrottleSettingsMapOutput
+}
+
+type UsagePlanThrottleSettingsMap map[string]UsagePlanThrottleSettingsInput
+
+func (UsagePlanThrottleSettingsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return i.ToUsagePlanThrottleSettingsMapOutputWithContext(context.Background())
+}
+
+func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsMapOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutput() UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return o.ToUsagePlanThrottleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanThrottleSettings) *UsagePlanThrottleSettings {
+		return &v
+	}).(UsagePlanThrottleSettingsPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutput() UsagePlanThrottleSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) UsagePlanThrottleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanThrottleSettings
+		return ret
+	}).(UsagePlanThrottleSettingsOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BurstLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanThrottleSettingsMapOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanThrottleSettingsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
+	return o
+}
+
+func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) UsagePlanThrottleSettingsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsagePlanThrottleSettings {
+		return vs[0].(map[string]UsagePlanThrottleSettings)[vs[1].(string)]
+	}).(UsagePlanThrottleSettingsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
@@ -425,4 +925,11 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
+	pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{})
+	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanThrottleSettingsMapOutput{})
 }

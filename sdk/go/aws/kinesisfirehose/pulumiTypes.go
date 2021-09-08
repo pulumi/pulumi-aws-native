@@ -1046,6 +1046,167 @@ func (o DeliveryStreamDeserializerPtrOutput) OpenXJsonSerDe() DeliveryStreamOpen
 	}).(DeliveryStreamOpenXJsonSerDePtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html
+type DeliveryStreamDynamicPartitioningConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+	Enabled *bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+	RetryOptions *DeliveryStreamRetryOptions `pulumi:"retryOptions"`
+}
+
+// DeliveryStreamDynamicPartitioningConfigurationInput is an input type that accepts DeliveryStreamDynamicPartitioningConfigurationArgs and DeliveryStreamDynamicPartitioningConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDynamicPartitioningConfigurationInput` via:
+//
+//          DeliveryStreamDynamicPartitioningConfigurationArgs{...}
+type DeliveryStreamDynamicPartitioningConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDynamicPartitioningConfigurationOutput() DeliveryStreamDynamicPartitioningConfigurationOutput
+	ToDeliveryStreamDynamicPartitioningConfigurationOutputWithContext(context.Context) DeliveryStreamDynamicPartitioningConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html
+type DeliveryStreamDynamicPartitioningConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+	RetryOptions DeliveryStreamRetryOptionsPtrInput `pulumi:"retryOptions"`
+}
+
+func (DeliveryStreamDynamicPartitioningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDynamicPartitioningConfigurationOutput() DeliveryStreamDynamicPartitioningConfigurationOutput {
+	return i.ToDeliveryStreamDynamicPartitioningConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDynamicPartitioningConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDynamicPartitioningConfigurationOutput)
+}
+
+func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return i.ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDynamicPartitioningConfigurationArgs) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDynamicPartitioningConfigurationOutput).ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDynamicPartitioningConfigurationPtrInput is an input type that accepts DeliveryStreamDynamicPartitioningConfigurationArgs, DeliveryStreamDynamicPartitioningConfigurationPtr and DeliveryStreamDynamicPartitioningConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDynamicPartitioningConfigurationPtrInput` via:
+//
+//          DeliveryStreamDynamicPartitioningConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DeliveryStreamDynamicPartitioningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput
+	ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput
+}
+
+type deliveryStreamDynamicPartitioningConfigurationPtrType DeliveryStreamDynamicPartitioningConfigurationArgs
+
+func DeliveryStreamDynamicPartitioningConfigurationPtr(v *DeliveryStreamDynamicPartitioningConfigurationArgs) DeliveryStreamDynamicPartitioningConfigurationPtrInput {
+	return (*deliveryStreamDynamicPartitioningConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamDynamicPartitioningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamDynamicPartitioningConfigurationPtrType) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return i.ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDynamicPartitioningConfigurationPtrType) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html
+type DeliveryStreamDynamicPartitioningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDynamicPartitioningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToDeliveryStreamDynamicPartitioningConfigurationOutput() DeliveryStreamDynamicPartitioningConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToDeliveryStreamDynamicPartitioningConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o.ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDynamicPartitioningConfiguration) *DeliveryStreamDynamicPartitioningConfiguration {
+		return &v
+	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDynamicPartitioningConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+func (o DeliveryStreamDynamicPartitioningConfigurationOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDynamicPartitioningConfiguration) *DeliveryStreamRetryOptions {
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
+type DeliveryStreamDynamicPartitioningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutput() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) ToDeliveryStreamDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) Elem() DeliveryStreamDynamicPartitioningConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamDynamicPartitioningConfiguration) DeliveryStreamDynamicPartitioningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDynamicPartitioningConfiguration
+		return ret
+	}).(DeliveryStreamDynamicPartitioningConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDynamicPartitioningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDynamicPartitioningConfiguration) *DeliveryStreamRetryOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RetryOptions
+	}).(DeliveryStreamRetryOptionsPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html
 type DeliveryStreamElasticsearchBufferingHints struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
@@ -1898,6 +2059,8 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
 	DataFormatConversionConfiguration *DeliveryStreamDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+	DynamicPartitioningConfiguration *DeliveryStreamDynamicPartitioningConfiguration `pulumi:"dynamicPartitioningConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 	EncryptionConfiguration *DeliveryStreamEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
@@ -1937,6 +2100,8 @@ type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
 	DataFormatConversionConfiguration DeliveryStreamDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+	DynamicPartitioningConfiguration DeliveryStreamDynamicPartitioningConfigurationPtrInput `pulumi:"dynamicPartitioningConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 	EncryptionConfiguration DeliveryStreamEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
@@ -2062,6 +2227,13 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DataFormatConver
 	}).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DynamicPartitioningConfiguration() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDynamicPartitioningConfiguration {
+		return v.DynamicPartitioningConfiguration
+	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamEncryptionConfiguration {
@@ -2175,6 +2347,16 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DataFormatCon
 		}
 		return v.DataFormatConversionConfiguration
 	}).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DynamicPartitioningConfiguration() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDynamicPartitioningConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPartitioningConfiguration
+	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
@@ -6745,6 +6927,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDynamicPartitioningConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDynamicPartitioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchBufferingHintsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationOutput{})

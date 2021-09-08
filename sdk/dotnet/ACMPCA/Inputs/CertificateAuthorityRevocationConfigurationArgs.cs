@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
         [Input("crlConfiguration")]
         public Input<Inputs.CertificateAuthorityCrlConfigurationArgs>? CrlConfiguration { get; set; }
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+        /// </summary>
+        [Input("ocspConfiguration")]
+        public Input<Inputs.CertificateAuthorityOcspConfigurationArgs>? OcspConfiguration { get; set; }
+
         public CertificateAuthorityRevocationConfigurationArgs()
         {
         }

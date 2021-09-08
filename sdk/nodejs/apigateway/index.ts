@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./account";
 export * from "./apiKey";
 export * from "./clientCertificate";
 export * from "./documentationVersion";
@@ -12,9 +13,11 @@ export * from "./domainName";
 export * from "./model";
 export * from "./requestValidator";
 export * from "./resource";
+export * from "./usagePlan";
 export * from "./usagePlanKey";
 
 // Import resources to register:
+import { Account } from "./account";
 import { ApiKey } from "./apiKey";
 import { ClientCertificate } from "./clientCertificate";
 import { DocumentationVersion } from "./documentationVersion";
@@ -22,12 +25,15 @@ import { DomainName } from "./domainName";
 import { Model } from "./model";
 import { RequestValidator } from "./requestValidator";
 import { Resource } from "./resource";
+import { UsagePlan } from "./usagePlan";
 import { UsagePlanKey } from "./usagePlanKey";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:apigateway:Account":
+                return new Account(name, <any>undefined, { urn })
             case "aws-native:apigateway:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "aws-native:apigateway:ClientCertificate":
@@ -42,6 +48,8 @@ const _module = {
                 return new RequestValidator(name, <any>undefined, { urn })
             case "aws-native:apigateway:Resource":
                 return new Resource(name, <any>undefined, { urn })
+            case "aws-native:apigateway:UsagePlan":
+                return new UsagePlan(name, <any>undefined, { urn })
             case "aws-native:apigateway:UsagePlanKey":
                 return new UsagePlanKey(name, <any>undefined, { urn })
             default:

@@ -14,6 +14,7 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs',
     'AccountAuditConfigurationAuditNotificationTargetArgs',
     'DomainConfigurationAuthorizerConfigArgs',
+    'FleetMetricAggregationTypeArgs',
     'MitigationActionActionParamsArgs',
     'MitigationActionAddThingsToThingGroupParamsArgs',
     'MitigationActionEnableIoTLoggingParamsArgs',
@@ -440,6 +441,44 @@ class DomainConfigurationAuthorizerConfigArgs:
     @default_authorizer_name.setter
     def default_authorizer_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_authorizer_name", value)
+
+
+@pulumi.input_type
+class FleetMetricAggregationTypeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

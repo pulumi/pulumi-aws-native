@@ -5,6 +5,7 @@ AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
 AWS::Amplify::Branch
 AWS::Amplify::Domain
+AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::DocumentationVersion
@@ -12,6 +13,7 @@ AWS::ApiGateway::DomainName
 AWS::ApiGateway::Model
 AWS::ApiGateway::RequestValidator
 AWS::ApiGateway::Resource
+AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
@@ -49,6 +51,7 @@ AWS::CloudFront::KeyGroup
 AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
+AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
@@ -56,6 +59,7 @@ AWS::CodeArtifact::Repository
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodeStarConnections::Connection
+AWS::CodeStarNotifications::NotificationRule
 AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
@@ -83,11 +87,13 @@ AWS::DevOpsGuru::NotificationChannel
 AWS::DevOpsGuru::ResourceCollection
 AWS::DynamoDB::GlobalTable
 AWS::EC2::CarrierGateway
+AWS::EC2::DHCPOptions
 AWS::EC2::EC2Fleet
 AWS::EC2::EgressOnlyInternetGateway
 AWS::EC2::EnclaveCertificateIamRoleAssociation
 AWS::EC2::FlowLog
 AWS::EC2::GatewayRouteTableAssociation
+AWS::EC2::InternetGateway
 AWS::EC2::LocalGatewayRoute
 AWS::EC2::LocalGatewayRouteTableVPCAssociation
 AWS::EC2::NetworkInsightsAnalysis
@@ -113,6 +119,7 @@ AWS::ECS::TaskDefinition
 AWS::ECS::TaskSet
 AWS::EFS::AccessPoint
 AWS::EFS::FileSystem
+AWS::EFS::MountTarget
 AWS::EKS::Addon
 AWS::EKS::FargateProfile
 AWS::EMR::Studio
@@ -172,6 +179,7 @@ AWS::IoT::Certificate
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
+AWS::IoT::FleetMetric
 AWS::IoT::MitigationAction
 AWS::IoT::ProvisioningTemplate
 AWS::IoT::ScheduledAudit
@@ -263,6 +271,11 @@ AWS::RDS::DBProxyTargetGroup
 AWS::RDS::GlobalCluster
 AWS::Redshift::Cluster
 AWS::ResourceGroups::Group
+AWS::RoboMaker::Fleet
+AWS::RoboMaker::Robot
+AWS::RoboMaker::RobotApplicationVersion
+AWS::RoboMaker::SimulationApplication
+AWS::RoboMaker::SimulationApplicationVersion
 AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
@@ -282,6 +295,8 @@ AWS::Route53Resolver::ResolverDNSSECConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::S3::AccessPoint
+AWS::S3::MultiRegionAccessPoint
+AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
 AWS::S3ObjectLambda::AccessPoint
 AWS::S3ObjectLambda::AccessPointPolicy

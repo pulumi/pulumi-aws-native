@@ -18,8 +18,14 @@ namespace Pulumi.AwsNative.EFS.Inputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         /// </summary>
-        [Input("transitionToIA", required: true)]
-        public Input<string> TransitionToIA { get; set; } = null!;
+        [Input("transitionToIA")]
+        public Input<string>? TransitionToIA { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+        /// </summary>
+        [Input("transitionToPrimaryStorageClass")]
+        public Input<string>? TransitionToPrimaryStorageClass { get; set; }
 
         public FileSystemLifecyclePolicyArgs()
         {

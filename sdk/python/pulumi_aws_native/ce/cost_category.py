@@ -16,19 +16,23 @@ class CostCategoryArgs:
                  name: pulumi.Input[str],
                  rule_version: pulumi.Input[str],
                  rules: pulumi.Input[str],
-                 default_value: Optional[pulumi.Input[str]] = None):
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 split_charge_rules: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
         :param pulumi.Input[str] rule_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
         :param pulumi.Input[str] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
         :param pulumi.Input[str] default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+        :param pulumi.Input[str] split_charge_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_version", rule_version)
         pulumi.set(__self__, "rules", rules)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
+        if split_charge_rules is not None:
+            pulumi.set(__self__, "split_charge_rules", split_charge_rules)
 
     @property
     @pulumi.getter
@@ -78,6 +82,18 @@ class CostCategoryArgs:
     def default_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_value", value)
 
+    @property
+    @pulumi.getter(name="splitChargeRules")
+    def split_charge_rules(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        """
+        return pulumi.get(self, "split_charge_rules")
+
+    @split_charge_rules.setter
+    def split_charge_rules(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "split_charge_rules", value)
+
 
 class CostCategory(pulumi.CustomResource):
     @overload
@@ -88,6 +104,7 @@ class CostCategory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rule_version: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
+                 split_charge_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
@@ -98,6 +115,7 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
         :param pulumi.Input[str] rule_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
         :param pulumi.Input[str] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+        :param pulumi.Input[str] split_charge_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
         """
         ...
     @overload
@@ -127,6 +145,7 @@ class CostCategory(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rule_version: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
+                 split_charge_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -149,6 +168,7 @@ class CostCategory(pulumi.CustomResource):
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
+            __props__.__dict__["split_charge_rules"] = split_charge_rules
             __props__.__dict__["arn"] = None
             __props__.__dict__["effective_start"] = None
         super(CostCategory, __self__).__init__(
@@ -179,6 +199,7 @@ class CostCategory(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["rule_version"] = None
         __props__.__dict__["rules"] = None
+        __props__.__dict__["split_charge_rules"] = None
         return CostCategory(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -222,4 +243,12 @@ class CostCategory(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
         """
         return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter(name="splitChargeRules")
+    def split_charge_rules(self) -> pulumi.Output[Optional[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        """
+        return pulumi.get(self, "split_charge_rules")
 

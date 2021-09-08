@@ -52,6 +52,10 @@ export class CostCategory extends pulumi.CustomResource {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
      */
     public readonly rules!: pulumi.Output<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+     */
+    public readonly splitChargeRules!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CostCategory resource with the given unique name, arguments, and options.
@@ -77,6 +81,7 @@ export class CostCategory extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["ruleVersion"] = args ? args.ruleVersion : undefined;
             inputs["rules"] = args ? args.rules : undefined;
+            inputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["effectiveStart"] = undefined /*out*/;
         } else {
@@ -86,6 +91,7 @@ export class CostCategory extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["ruleVersion"] = undefined /*out*/;
             inputs["rules"] = undefined /*out*/;
+            inputs["splitChargeRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -114,4 +120,8 @@ export interface CostCategoryArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
      */
     rules: pulumi.Input<string>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+     */
+    splitChargeRules?: pulumi.Input<string>;
 }

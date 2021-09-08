@@ -296,6 +296,8 @@ class FileSystemLifecyclePolicy(dict):
         suggest = None
         if key == "transitionToIA":
             suggest = "transition_to_ia"
+        elif key == "transitionToPrimaryStorageClass":
+            suggest = "transition_to_primary_storage_class"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FileSystemLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
@@ -309,19 +311,32 @@ class FileSystemLifecyclePolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 transition_to_ia: str):
+                 transition_to_ia: Optional[str] = None,
+                 transition_to_primary_storage_class: Optional[str] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
         :param str transition_to_ia: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
+        :param str transition_to_primary_storage_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
         """
-        pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_ia is not None:
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_primary_storage_class is not None:
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIA")
-    def transition_to_ia(self) -> str:
+    def transition_to_ia(self) -> Optional[str]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         """
         return pulumi.get(self, "transition_to_ia")
+
+    @property
+    @pulumi.getter(name="transitionToPrimaryStorageClass")
+    def transition_to_primary_storage_class(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+        """
+        return pulumi.get(self, "transition_to_primary_storage_class")
 
 

@@ -15,6 +15,7 @@ __all__ = [
     'DeliveryStreamDataFormatConversionConfigurationArgs',
     'DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs',
     'DeliveryStreamDeserializerArgs',
+    'DeliveryStreamDynamicPartitioningConfigurationArgs',
     'DeliveryStreamElasticsearchBufferingHintsArgs',
     'DeliveryStreamElasticsearchDestinationConfigurationArgs',
     'DeliveryStreamElasticsearchRetryOptionsArgs',
@@ -349,6 +350,46 @@ class DeliveryStreamDeserializerArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamDynamicPartitioningConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+        :param pulumi.Input['DeliveryStreamRetryOptionsArgs'] retry_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retry_options is not None:
+            pulumi.set(__self__, "retry_options", retry_options)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="retryOptions")
+    def retry_options(self) -> Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration.html#cfn-kinesisfirehose-deliverystream-dynamicpartitioningconfiguration-retryoptions
+        """
+        return pulumi.get(self, "retry_options")
+
+    @retry_options.setter
+    def retry_options(self, value: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']]):
+        pulumi.set(self, "retry_options", value)
+
+
+@pulumi.input_type
 class DeliveryStreamElasticsearchBufferingHintsArgs:
     def __init__(__self__, *,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -674,6 +715,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  data_format_conversion_configuration: Optional[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs']] = None,
+                 dynamic_partitioning_configuration: Optional[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs']] = None,
                  encryption_configuration: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationArgs']] = None,
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
@@ -688,6 +730,7 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
         :param pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs'] cloud_watch_logging_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
         :param pulumi.Input[str] compression_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
         :param pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs'] data_format_conversion_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
+        :param pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs'] dynamic_partitioning_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
         :param pulumi.Input['DeliveryStreamEncryptionConfigurationArgs'] encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
         :param pulumi.Input[str] error_output_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
         :param pulumi.Input[str] prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
@@ -705,6 +748,8 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
             pulumi.set(__self__, "compression_format", compression_format)
         if data_format_conversion_configuration is not None:
             pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
+        if dynamic_partitioning_configuration is not None:
+            pulumi.set(__self__, "dynamic_partitioning_configuration", dynamic_partitioning_configuration)
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if error_output_prefix is not None:
@@ -789,6 +834,18 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
     @data_format_conversion_configuration.setter
     def data_format_conversion_configuration(self, value: Optional[pulumi.Input['DeliveryStreamDataFormatConversionConfigurationArgs']]):
         pulumi.set(self, "data_format_conversion_configuration", value)
+
+    @property
+    @pulumi.getter(name="dynamicPartitioningConfiguration")
+    def dynamic_partitioning_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+        """
+        return pulumi.get(self, "dynamic_partitioning_configuration")
+
+    @dynamic_partitioning_configuration.setter
+    def dynamic_partitioning_configuration(self, value: Optional[pulumi.Input['DeliveryStreamDynamicPartitioningConfigurationArgs']]):
+        pulumi.set(self, "dynamic_partitioning_configuration", value)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")

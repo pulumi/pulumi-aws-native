@@ -269,23 +269,40 @@ class FileSystemElasticFileSystemTagArgs:
 @pulumi.input_type
 class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
-                 transition_to_ia: pulumi.Input[str]):
+                 transition_to_ia: Optional[pulumi.Input[str]] = None,
+                 transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
         :param pulumi.Input[str] transition_to_ia: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
+        :param pulumi.Input[str] transition_to_primary_storage_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
         """
-        pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_ia is not None:
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_primary_storage_class is not None:
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIA")
-    def transition_to_ia(self) -> pulumi.Input[str]:
+    def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
         """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
-    def transition_to_ia(self, value: pulumi.Input[str]):
+    def transition_to_ia(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transition_to_ia", value)
+
+    @property
+    @pulumi.getter(name="transitionToPrimaryStorageClass")
+    def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+        """
+        return pulumi.get(self, "transition_to_primary_storage_class")
+
+    @transition_to_primary_storage_class.setter
+    def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_to_primary_storage_class", value)
 
 

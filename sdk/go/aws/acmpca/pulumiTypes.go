@@ -1288,6 +1288,165 @@ func (o CertificateAuthorityKeyUsagePtrOutput) NonRepudiation() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
+type CertificateAuthorityOcspConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+	Enabled *bool `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+	OcspCustomCname *string `pulumi:"ocspCustomCname"`
+}
+
+// CertificateAuthorityOcspConfigurationInput is an input type that accepts CertificateAuthorityOcspConfigurationArgs and CertificateAuthorityOcspConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityOcspConfigurationInput` via:
+//
+//          CertificateAuthorityOcspConfigurationArgs{...}
+type CertificateAuthorityOcspConfigurationInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityOcspConfigurationOutput() CertificateAuthorityOcspConfigurationOutput
+	ToCertificateAuthorityOcspConfigurationOutputWithContext(context.Context) CertificateAuthorityOcspConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
+type CertificateAuthorityOcspConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
+}
+
+func (CertificateAuthorityOcspConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityOcspConfiguration)(nil)).Elem()
+}
+
+func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspConfigurationOutput() CertificateAuthorityOcspConfigurationOutput {
+	return i.ToCertificateAuthorityOcspConfigurationOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOcspConfigurationOutput)
+}
+
+func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput {
+	return i.ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOcspConfigurationOutput).ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityOcspConfigurationPtrInput is an input type that accepts CertificateAuthorityOcspConfigurationArgs, CertificateAuthorityOcspConfigurationPtr and CertificateAuthorityOcspConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityOcspConfigurationPtrInput` via:
+//
+//          CertificateAuthorityOcspConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityOcspConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput
+	ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(context.Context) CertificateAuthorityOcspConfigurationPtrOutput
+}
+
+type certificateAuthorityOcspConfigurationPtrType CertificateAuthorityOcspConfigurationArgs
+
+func CertificateAuthorityOcspConfigurationPtr(v *CertificateAuthorityOcspConfigurationArgs) CertificateAuthorityOcspConfigurationPtrInput {
+	return (*certificateAuthorityOcspConfigurationPtrType)(v)
+}
+
+func (*certificateAuthorityOcspConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityOcspConfiguration)(nil)).Elem()
+}
+
+func (i *certificateAuthorityOcspConfigurationPtrType) ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput {
+	return i.ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityOcspConfigurationPtrType) ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOcspConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
+type CertificateAuthorityOcspConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityOcspConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityOcspConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspConfigurationOutput() CertificateAuthorityOcspConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput {
+	return o.ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityOcspConfiguration) *CertificateAuthorityOcspConfiguration {
+		return &v
+	}).(CertificateAuthorityOcspConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+func (o CertificateAuthorityOcspConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+func (o CertificateAuthorityOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) *string { return v.OcspCustomCname }).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityOcspConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityOcspConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityOcspConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityOcspConfigurationPtrOutput) ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityOcspConfigurationPtrOutput) ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityOcspConfigurationPtrOutput) Elem() CertificateAuthorityOcspConfigurationOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOcspConfiguration) CertificateAuthorityOcspConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityOcspConfiguration
+		return ret
+	}).(CertificateAuthorityOcspConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+func (o CertificateAuthorityOcspConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOcspConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+func (o CertificateAuthorityOcspConfigurationPtrOutput) OcspCustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityOcspConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcspCustomCname
+	}).(pulumi.StringPtrOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
 type CertificateAuthorityOtherName struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
@@ -1451,6 +1610,8 @@ func (o CertificateAuthorityOtherNamePtrOutput) Value() pulumi.StringPtrOutput {
 type CertificateAuthorityRevocationConfiguration struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
 	CrlConfiguration *CertificateAuthorityCrlConfiguration `pulumi:"crlConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+	OcspConfiguration *CertificateAuthorityOcspConfiguration `pulumi:"ocspConfiguration"`
 }
 
 // CertificateAuthorityRevocationConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs and CertificateAuthorityRevocationConfigurationOutput values.
@@ -1468,6 +1629,8 @@ type CertificateAuthorityRevocationConfigurationInput interface {
 type CertificateAuthorityRevocationConfigurationArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
 	CrlConfiguration CertificateAuthorityCrlConfigurationPtrInput `pulumi:"crlConfiguration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+	OcspConfiguration CertificateAuthorityOcspConfigurationPtrInput `pulumi:"ocspConfiguration"`
 }
 
 func (CertificateAuthorityRevocationConfigurationArgs) ElementType() reflect.Type {
@@ -1555,6 +1718,13 @@ func (o CertificateAuthorityRevocationConfigurationOutput) CrlConfiguration() Ce
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+func (o CertificateAuthorityRevocationConfigurationOutput) OcspConfiguration() CertificateAuthorityOcspConfigurationPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityOcspConfiguration {
+		return v.OcspConfiguration
+	}).(CertificateAuthorityOcspConfigurationPtrOutput)
+}
+
 type CertificateAuthorityRevocationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationPtrOutput) ElementType() reflect.Type {
@@ -1587,6 +1757,16 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration()
 		}
 		return v.CrlConfiguration
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration() CertificateAuthorityOcspConfigurationPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) *CertificateAuthorityOcspConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OcspConfiguration
+	}).(CertificateAuthorityOcspConfigurationPtrOutput)
 }
 
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html
@@ -3889,6 +4069,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityGeneralNameOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityKeyUsageOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityKeyUsagePtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityOcspConfigurationOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityOcspConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityOtherNameOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityOtherNamePtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationOutput{})

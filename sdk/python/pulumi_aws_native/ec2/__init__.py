@@ -6,11 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .carrier_gateway import *
+from .dhcp_options import *
 from .ec2_fleet import *
 from .egress_only_internet_gateway import *
 from .enclave_certificate_iam_role_association import *
 from .flow_log import *
 from .gateway_route_table_association import *
+from .internet_gateway import *
 from .local_gateway_route import *
 from .local_gateway_route_table_vpcassociation import *
 from .network_insights_analysis import *

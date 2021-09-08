@@ -34,6 +34,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === GeofenceCollection.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly collectionArn!: pulumi.Output<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
@@ -80,10 +81,12 @@ export class GeofenceCollection extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["pricingPlan"] = args ? args.pricingPlan : undefined;
             inputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["collectionArn"] = undefined /*out*/;
             inputs["createTime"] = undefined /*out*/;
             inputs["updateTime"] = undefined /*out*/;
         } else {
+            inputs["arn"] = undefined /*out*/;
             inputs["collectionArn"] = undefined /*out*/;
             inputs["collectionName"] = undefined /*out*/;
             inputs["createTime"] = undefined /*out*/;

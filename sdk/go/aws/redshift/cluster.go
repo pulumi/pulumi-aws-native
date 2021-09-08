@@ -18,10 +18,18 @@ type Cluster struct {
 
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
 	AllowVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowVersionUpgrade"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+	AquaConfigurationStatus pulumi.StringPtrOutput `pulumi:"aquaConfigurationStatus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"automatedSnapshotRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+	AvailabilityZoneRelocation pulumi.BoolPtrOutput `pulumi:"availabilityZoneRelocation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+	AvailabilityZoneRelocationStatus pulumi.StringPtrOutput `pulumi:"availabilityZoneRelocationStatus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+	Classic pulumi.BoolPtrOutput `pulumi:"classic"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
 	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
@@ -36,6 +44,17 @@ type Cluster struct {
 	ClusterVersion pulumi.StringPtrOutput `pulumi:"clusterVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
 	DBName pulumi.StringOutput `pulumi:"dBName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+	DeferMaintenance pulumi.BoolPtrOutput `pulumi:"deferMaintenance"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+	DeferMaintenanceDuration pulumi.IntPtrOutput `pulumi:"deferMaintenanceDuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+	DeferMaintenanceEndTime    pulumi.StringPtrOutput `pulumi:"deferMaintenanceEndTime"`
+	DeferMaintenanceIdentifier pulumi.StringOutput    `pulumi:"deferMaintenanceIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+	DeferMaintenanceStartTime pulumi.StringPtrOutput `pulumi:"deferMaintenanceStartTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+	DestinationRegion pulumi.StringPtrOutput `pulumi:"destinationRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
 	ElasticIp pulumi.StringPtrOutput `pulumi:"elasticIp"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
@@ -44,6 +63,8 @@ type Cluster struct {
 	Endpoint        ClusterEndpointPtrOutput `pulumi:"endpoint"`
 	EndpointAddress pulumi.StringOutput      `pulumi:"endpointAddress"`
 	EndpointPort    pulumi.StringOutput      `pulumi:"endpointPort"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+	EnhancedVpcRouting pulumi.BoolPtrOutput `pulumi:"enhancedVpcRouting"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
 	HsmClientCertificateIdentifier pulumi.StringPtrOutput `pulumi:"hsmClientCertificateIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
@@ -55,6 +76,10 @@ type Cluster struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
 	LoggingProperties ClusterLoggingPropertiesPtrOutput `pulumi:"loggingProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
 	MasterUserPassword pulumi.StringOutput `pulumi:"masterUserPassword"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
@@ -71,8 +96,20 @@ type Cluster struct {
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+	ResourceAction pulumi.StringPtrOutput `pulumi:"resourceAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+	RevisionTarget pulumi.StringPtrOutput `pulumi:"revisionTarget"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+	RotateEncryptionKey pulumi.BoolPtrOutput `pulumi:"rotateEncryptionKey"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
 	SnapshotClusterIdentifier pulumi.StringPtrOutput `pulumi:"snapshotClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+	SnapshotCopyGrantName pulumi.StringPtrOutput `pulumi:"snapshotCopyGrantName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+	SnapshotCopyManual pulumi.BoolPtrOutput `pulumi:"snapshotCopyManual"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+	SnapshotCopyRetentionPeriod pulumi.IntPtrOutput `pulumi:"snapshotCopyRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
@@ -137,10 +174,18 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+	AvailabilityZoneRelocation *bool `pulumi:"availabilityZoneRelocation"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+	AvailabilityZoneRelocationStatus *string `pulumi:"availabilityZoneRelocationStatus"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+	Classic *bool `pulumi:"classic"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
@@ -155,12 +200,24 @@ type clusterArgs struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
 	DBName string `pulumi:"dBName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+	DeferMaintenance *bool `pulumi:"deferMaintenance"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+	DeferMaintenanceDuration *int `pulumi:"deferMaintenanceDuration"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+	DeferMaintenanceEndTime *string `pulumi:"deferMaintenanceEndTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+	DeferMaintenanceStartTime *string `pulumi:"deferMaintenanceStartTime"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+	DestinationRegion *string `pulumi:"destinationRegion"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
 	ElasticIp *string `pulumi:"elasticIp"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
 	Encrypted *bool `pulumi:"encrypted"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
 	Endpoint *ClusterEndpoint `pulumi:"endpoint"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
@@ -171,6 +228,10 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
 	LoggingProperties *ClusterLoggingProperties `pulumi:"loggingProperties"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
 	MasterUserPassword string `pulumi:"masterUserPassword"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
@@ -187,8 +248,20 @@ type clusterArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+	ResourceAction *string `pulumi:"resourceAction"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+	RevisionTarget *string `pulumi:"revisionTarget"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+	RotateEncryptionKey *bool `pulumi:"rotateEncryptionKey"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+	SnapshotCopyGrantName *string `pulumi:"snapshotCopyGrantName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+	SnapshotCopyManual *bool `pulumi:"snapshotCopyManual"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+	SnapshotCopyRetentionPeriod *int `pulumi:"snapshotCopyRetentionPeriod"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
@@ -201,10 +274,18 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
 	AllowVersionUpgrade pulumi.BoolPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+	AquaConfigurationStatus pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
 	AvailabilityZone pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+	AvailabilityZoneRelocation pulumi.BoolPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+	AvailabilityZoneRelocationStatus pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+	Classic pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
 	ClusterIdentifier pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
@@ -219,12 +300,24 @@ type ClusterArgs struct {
 	ClusterVersion pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
 	DBName pulumi.StringInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+	DeferMaintenance pulumi.BoolPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+	DeferMaintenanceDuration pulumi.IntPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+	DeferMaintenanceEndTime pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+	DeferMaintenanceStartTime pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+	DestinationRegion pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
 	ElasticIp pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
 	Encrypted pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
 	Endpoint ClusterEndpointPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+	EnhancedVpcRouting pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
@@ -235,6 +328,10 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
 	LoggingProperties ClusterLoggingPropertiesPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+	MaintenanceTrackName pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
 	MasterUserPassword pulumi.StringInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
@@ -251,8 +348,20 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
 	PubliclyAccessible pulumi.BoolPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+	ResourceAction pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+	RevisionTarget pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+	RotateEncryptionKey pulumi.BoolPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
 	SnapshotClusterIdentifier pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+	SnapshotCopyGrantName pulumi.StringPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+	SnapshotCopyManual pulumi.BoolPtrInput
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+	SnapshotCopyRetentionPeriod pulumi.IntPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
 	SnapshotIdentifier pulumi.StringPtrInput
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags

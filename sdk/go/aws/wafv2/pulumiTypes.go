@@ -10,6 +10,142 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+type LoggingConfigurationFieldToMatch struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+	JsonBody interface{} `pulumi:"jsonBody"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+	Method interface{} `pulumi:"method"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+	QueryString interface{} `pulumi:"queryString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+	SingleHeader interface{} `pulumi:"singleHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+	UriPath interface{} `pulumi:"uriPath"`
+}
+
+// LoggingConfigurationFieldToMatchInput is an input type that accepts LoggingConfigurationFieldToMatchArgs and LoggingConfigurationFieldToMatchOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchInput` via:
+//
+//          LoggingConfigurationFieldToMatchArgs{...}
+type LoggingConfigurationFieldToMatchInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchOutput() LoggingConfigurationFieldToMatchOutput
+	ToLoggingConfigurationFieldToMatchOutputWithContext(context.Context) LoggingConfigurationFieldToMatchOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+type LoggingConfigurationFieldToMatchArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+	JsonBody pulumi.Input `pulumi:"jsonBody"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+	Method pulumi.Input `pulumi:"method"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+	QueryString pulumi.Input `pulumi:"queryString"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+	SingleHeader pulumi.Input `pulumi:"singleHeader"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+	UriPath pulumi.Input `pulumi:"uriPath"`
+}
+
+func (LoggingConfigurationFieldToMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatch)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFieldToMatchArgs) ToLoggingConfigurationFieldToMatchOutput() LoggingConfigurationFieldToMatchOutput {
+	return i.ToLoggingConfigurationFieldToMatchOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchArgs) ToLoggingConfigurationFieldToMatchOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchOutput)
+}
+
+// LoggingConfigurationFieldToMatchArrayInput is an input type that accepts LoggingConfigurationFieldToMatchArray and LoggingConfigurationFieldToMatchArrayOutput values.
+// You can construct a concrete instance of `LoggingConfigurationFieldToMatchArrayInput` via:
+//
+//          LoggingConfigurationFieldToMatchArray{ LoggingConfigurationFieldToMatchArgs{...} }
+type LoggingConfigurationFieldToMatchArrayInput interface {
+	pulumi.Input
+
+	ToLoggingConfigurationFieldToMatchArrayOutput() LoggingConfigurationFieldToMatchArrayOutput
+	ToLoggingConfigurationFieldToMatchArrayOutputWithContext(context.Context) LoggingConfigurationFieldToMatchArrayOutput
+}
+
+type LoggingConfigurationFieldToMatchArray []LoggingConfigurationFieldToMatchInput
+
+func (LoggingConfigurationFieldToMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationFieldToMatch)(nil)).Elem()
+}
+
+func (i LoggingConfigurationFieldToMatchArray) ToLoggingConfigurationFieldToMatchArrayOutput() LoggingConfigurationFieldToMatchArrayOutput {
+	return i.ToLoggingConfigurationFieldToMatchArrayOutputWithContext(context.Background())
+}
+
+func (i LoggingConfigurationFieldToMatchArray) ToLoggingConfigurationFieldToMatchArrayOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+type LoggingConfigurationFieldToMatchOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingConfigurationFieldToMatch)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchOutput) ToLoggingConfigurationFieldToMatchOutput() LoggingConfigurationFieldToMatchOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchOutput) ToLoggingConfigurationFieldToMatchOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+func (o LoggingConfigurationFieldToMatchOutput) JsonBody() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.JsonBody }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+func (o LoggingConfigurationFieldToMatchOutput) Method() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+func (o LoggingConfigurationFieldToMatchOutput) QueryString() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+func (o LoggingConfigurationFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+func (o LoggingConfigurationFieldToMatchOutput) UriPath() pulumi.AnyOutput {
+	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
+}
+
+type LoggingConfigurationFieldToMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingConfigurationFieldToMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingConfigurationFieldToMatch)(nil)).Elem()
+}
+
+func (o LoggingConfigurationFieldToMatchArrayOutput) ToLoggingConfigurationFieldToMatchArrayOutput() LoggingConfigurationFieldToMatchArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchArrayOutput) ToLoggingConfigurationFieldToMatchArrayOutputWithContext(ctx context.Context) LoggingConfigurationFieldToMatchArrayOutput {
+	return o
+}
+
+func (o LoggingConfigurationFieldToMatchArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationFieldToMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingConfigurationFieldToMatch {
+		return vs[0].([]LoggingConfigurationFieldToMatch)[vs[1].(int)]
+	}).(LoggingConfigurationFieldToMatchOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
 type RuleGroupAndStatement struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
@@ -7386,6 +7522,8 @@ type WebACLManagedRuleGroupStatement struct {
 	ScopeDownStatement *WebACLStatement `pulumi:"scopeDownStatement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 	VendorName string `pulumi:"vendorName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+	Version *string `pulumi:"version"`
 }
 
 // WebACLManagedRuleGroupStatementInput is an input type that accepts WebACLManagedRuleGroupStatementArgs and WebACLManagedRuleGroupStatementOutput values.
@@ -7409,6 +7547,8 @@ type WebACLManagedRuleGroupStatementArgs struct {
 	ScopeDownStatement WebACLStatementPtrInput `pulumi:"scopeDownStatement"`
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 	VendorName pulumi.StringInput `pulumi:"vendorName"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (WebACLManagedRuleGroupStatementArgs) ElementType() reflect.Type {
@@ -7509,6 +7649,11 @@ func (o WebACLManagedRuleGroupStatementOutput) VendorName() pulumi.StringOutput 
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.VendorName }).(pulumi.StringOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+func (o WebACLManagedRuleGroupStatementOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 type WebACLManagedRuleGroupStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (WebACLManagedRuleGroupStatementPtrOutput) ElementType() reflect.Type {
@@ -7570,6 +7715,16 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrO
 			return nil
 		}
 		return &v.VendorName
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
+func (o WebACLManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10117,6 +10272,8 @@ func (o WebACLXssMatchStatementPtrOutput) TextTransformations() WebACLTextTransf
 }
 
 func init() {
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchOutput{})
+	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})

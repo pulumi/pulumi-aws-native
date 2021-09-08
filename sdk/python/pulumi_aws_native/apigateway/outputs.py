@@ -7,11 +7,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ApiKeyStageKey',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
+    'UsagePlanApiStage',
+    'UsagePlanQuotaSettings',
+    'UsagePlanThrottleSettings',
 ]
 
 @pulumi.output_type
@@ -143,5 +147,170 @@ class DomainNameMutualTlsAuthentication(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
         """
         return pulumi.get(self, "truststore_version")
+
+
+@pulumi.output_type
+class UsagePlanApiStage(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiId":
+            suggest = "api_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsagePlanApiStage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsagePlanApiStage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsagePlanApiStage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_id: Optional[str] = None,
+                 stage: Optional[str] = None,
+                 throttle: Optional[Mapping[str, 'outputs.UsagePlanThrottleSettings']] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+        :param str api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        :param str stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        :param Mapping[str, 'UsagePlanThrottleSettings'] throttle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        """
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if throttle is not None:
+            pulumi.set(__self__, "throttle", throttle)
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        """
+        return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def throttle(self) -> Optional[Mapping[str, 'outputs.UsagePlanThrottleSettings']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        """
+        return pulumi.get(self, "throttle")
+
+
+@pulumi.output_type
+class UsagePlanQuotaSettings(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+    """
+    def __init__(__self__, *,
+                 limit: Optional[int] = None,
+                 offset: Optional[int] = None,
+                 period: Optional[str] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
+        :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+        :param int offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+        :param str period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        """
+        if limit is not None:
+            pulumi.set(__self__, "limit", limit)
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+        """
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+        """
+        return pulumi.get(self, "offset")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        """
+        return pulumi.get(self, "period")
+
+
+@pulumi.output_type
+class UsagePlanThrottleSettings(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "burstLimit":
+            suggest = "burst_limit"
+        elif key == "rateLimit":
+            suggest = "rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UsagePlanThrottleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UsagePlanThrottleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UsagePlanThrottleSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 burst_limit: Optional[int] = None,
+                 rate_limit: Optional[float] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+        :param int burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+        :param float rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        """
+        if burst_limit is not None:
+            pulumi.set(__self__, "burst_limit", burst_limit)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="burstLimit")
+    def burst_limit(self) -> Optional[int]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+        """
+        return pulumi.get(self, "burst_limit")
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[float]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        """
+        return pulumi.get(self, "rate_limit")
 
 

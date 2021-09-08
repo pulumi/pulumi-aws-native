@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ec2:CarrierGateway":
 		r = &CarrierGateway{}
+	case "aws-native:ec2:DHCPOptions":
+		r = &DHCPOptions{}
 	case "aws-native:ec2:EC2Fleet":
 		r = &EC2Fleet{}
 	case "aws-native:ec2:EgressOnlyInternetGateway":
@@ -33,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlowLog{}
 	case "aws-native:ec2:GatewayRouteTableAssociation":
 		r = &GatewayRouteTableAssociation{}
+	case "aws-native:ec2:InternetGateway":
+		r = &InternetGateway{}
 	case "aws-native:ec2:LocalGatewayRoute":
 		r = &LocalGatewayRoute{}
 	case "aws-native:ec2:LocalGatewayRouteTableVPCAssociation":

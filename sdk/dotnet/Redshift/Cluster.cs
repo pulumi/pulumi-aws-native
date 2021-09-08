@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> AllowVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        /// </summary>
+        [Output("aquaConfigurationStatus")]
+        public Output<string?> AquaConfigurationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
         /// </summary>
         [Output("automatedSnapshotRetentionPeriod")]
@@ -32,6 +38,24 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        /// </summary>
+        [Output("availabilityZoneRelocation")]
+        public Output<bool?> AvailabilityZoneRelocation { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        /// </summary>
+        [Output("availabilityZoneRelocationStatus")]
+        public Output<string?> AvailabilityZoneRelocationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        /// </summary>
+        [Output("classic")]
+        public Output<bool?> Classic { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
@@ -76,6 +100,39 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string> DBName { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        /// </summary>
+        [Output("deferMaintenance")]
+        public Output<bool?> DeferMaintenance { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        /// </summary>
+        [Output("deferMaintenanceDuration")]
+        public Output<int?> DeferMaintenanceDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        /// </summary>
+        [Output("deferMaintenanceEndTime")]
+        public Output<string?> DeferMaintenanceEndTime { get; private set; } = null!;
+
+        [Output("deferMaintenanceIdentifier")]
+        public Output<string> DeferMaintenanceIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        /// </summary>
+        [Output("deferMaintenanceStartTime")]
+        public Output<string?> DeferMaintenanceStartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        /// </summary>
+        [Output("destinationRegion")]
+        public Output<string?> DestinationRegion { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         /// </summary>
         [Output("elasticIp")]
@@ -98,6 +155,12 @@ namespace Pulumi.AwsNative.Redshift
 
         [Output("endpointPort")]
         public Output<string> EndpointPort { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        /// </summary>
+        [Output("enhancedVpcRouting")]
+        public Output<bool?> EnhancedVpcRouting { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
@@ -131,6 +194,18 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Output("loggingProperties")]
         public Output<Outputs.ClusterLoggingProperties?> LoggingProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        /// </summary>
+        [Output("maintenanceTrackName")]
+        public Output<string?> MaintenanceTrackName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        /// </summary>
+        [Output("manualSnapshotRetentionPeriod")]
+        public Output<int?> ManualSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
@@ -181,10 +256,46 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        /// </summary>
+        [Output("resourceAction")]
+        public Output<string?> ResourceAction { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        /// </summary>
+        [Output("revisionTarget")]
+        public Output<string?> RevisionTarget { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        /// </summary>
+        [Output("rotateEncryptionKey")]
+        public Output<bool?> RotateEncryptionKey { get; private set; } = null!;
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
         /// </summary>
         [Output("snapshotClusterIdentifier")]
         public Output<string?> SnapshotClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        /// </summary>
+        [Output("snapshotCopyGrantName")]
+        public Output<string?> SnapshotCopyGrantName { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        /// </summary>
+        [Output("snapshotCopyManual")]
+        public Output<bool?> SnapshotCopyManual { get; private set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        /// </summary>
+        [Output("snapshotCopyRetentionPeriod")]
+        public Output<int?> SnapshotCopyRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
@@ -256,6 +367,12 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? AllowVersionUpgrade { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        /// </summary>
+        [Input("aquaConfigurationStatus")]
+        public Input<string>? AquaConfigurationStatus { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
         /// </summary>
         [Input("automatedSnapshotRetentionPeriod")]
@@ -266,6 +383,24 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        /// </summary>
+        [Input("availabilityZoneRelocation")]
+        public Input<bool>? AvailabilityZoneRelocation { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        /// </summary>
+        [Input("availabilityZoneRelocationStatus")]
+        public Input<string>? AvailabilityZoneRelocationStatus { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        /// </summary>
+        [Input("classic")]
+        public Input<bool>? Classic { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
@@ -316,6 +451,36 @@ namespace Pulumi.AwsNative.Redshift
         public Input<string> DBName { get; set; } = null!;
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        /// </summary>
+        [Input("deferMaintenance")]
+        public Input<bool>? DeferMaintenance { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        /// </summary>
+        [Input("deferMaintenanceDuration")]
+        public Input<int>? DeferMaintenanceDuration { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        /// </summary>
+        [Input("deferMaintenanceEndTime")]
+        public Input<string>? DeferMaintenanceEndTime { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        /// </summary>
+        [Input("deferMaintenanceStartTime")]
+        public Input<string>? DeferMaintenanceStartTime { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        /// </summary>
+        [Input("destinationRegion")]
+        public Input<string>? DestinationRegion { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
         /// </summary>
         [Input("elasticIp")]
@@ -332,6 +497,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Input("endpoint")]
         public Input<Inputs.ClusterEndpointArgs>? Endpoint { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        /// </summary>
+        [Input("enhancedVpcRouting")]
+        public Input<bool>? EnhancedVpcRouting { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
@@ -368,6 +539,18 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         [Input("loggingProperties")]
         public Input<Inputs.ClusterLoggingPropertiesArgs>? LoggingProperties { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        /// </summary>
+        [Input("maintenanceTrackName")]
+        public Input<string>? MaintenanceTrackName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        /// </summary>
+        [Input("manualSnapshotRetentionPeriod")]
+        public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
@@ -418,10 +601,46 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        /// </summary>
+        [Input("resourceAction")]
+        public Input<string>? ResourceAction { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        /// </summary>
+        [Input("revisionTarget")]
+        public Input<string>? RevisionTarget { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        /// </summary>
+        [Input("rotateEncryptionKey")]
+        public Input<bool>? RotateEncryptionKey { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
         /// </summary>
         [Input("snapshotClusterIdentifier")]
         public Input<string>? SnapshotClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        /// </summary>
+        [Input("snapshotCopyGrantName")]
+        public Input<string>? SnapshotCopyGrantName { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        /// </summary>
+        [Input("snapshotCopyManual")]
+        public Input<bool>? SnapshotCopyManual { get; set; }
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        /// </summary>
+        [Input("snapshotCopyRetentionPeriod")]
+        public Input<int>? SnapshotCopyRetentionPeriod { get; set; }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier

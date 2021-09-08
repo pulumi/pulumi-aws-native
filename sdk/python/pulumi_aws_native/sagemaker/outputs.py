@@ -20,7 +20,6 @@ __all__ = [
     'DataQualityJobDefinitionDataQualityBaselineConfig',
     'DataQualityJobDefinitionDataQualityJobInput',
     'DataQualityJobDefinitionEndpointInput',
-    'DataQualityJobDefinitionEnvironment',
     'DataQualityJobDefinitionMonitoringOutput',
     'DataQualityJobDefinitionMonitoringOutputConfig',
     'DataQualityJobDefinitionMonitoringResources',
@@ -40,7 +39,6 @@ __all__ = [
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
     'ModelBiasJobDefinitionEndpointInput',
-    'ModelBiasJobDefinitionEnvironment',
     'ModelBiasJobDefinitionModelBiasAppSpecification',
     'ModelBiasJobDefinitionModelBiasBaselineConfig',
     'ModelBiasJobDefinitionModelBiasJobInput',
@@ -55,7 +53,6 @@ __all__ = [
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
     'ModelExplainabilityJobDefinitionEndpointInput',
-    'ModelExplainabilityJobDefinitionEnvironment',
     'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification',
     'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig',
     'ModelExplainabilityJobDefinitionModelExplainabilityJobInput',
@@ -69,7 +66,6 @@ __all__ = [
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
     'ModelQualityJobDefinitionEndpointInput',
-    'ModelQualityJobDefinitionEnvironment',
     'ModelQualityJobDefinitionModelQualityAppSpecification',
     'ModelQualityJobDefinitionModelQualityBaselineConfig',
     'ModelQualityJobDefinitionModelQualityJobInput',
@@ -85,7 +81,6 @@ __all__ = [
     'MonitoringScheduleClusterConfig',
     'MonitoringScheduleConstraintsResource',
     'MonitoringScheduleEndpointInput',
-    'MonitoringScheduleEnvironment',
     'MonitoringScheduleMonitoringAppSpecification',
     'MonitoringScheduleMonitoringExecutionSummary',
     'MonitoringScheduleMonitoringInput',
@@ -501,7 +496,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
                  image_uri: str,
                  container_arguments: Optional[Sequence[str]] = None,
                  container_entrypoint: Optional[Sequence[str]] = None,
-                 environment: Optional['outputs.DataQualityJobDefinitionEnvironment'] = None,
+                 environment: Optional[Mapping[str, str]] = None,
                  post_analytics_processor_source_uri: Optional[str] = None,
                  record_preprocessor_source_uri: Optional[str] = None):
         """
@@ -509,7 +504,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
         :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
         :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
-        :param 'DataQualityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
+        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
         :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
         :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
         """
@@ -551,7 +546,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.DataQualityJobDefinitionEnvironment']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
         """
@@ -759,18 +754,6 @@ class DataQualityJobDefinitionEndpointInput(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
         """
         return pulumi.get(self, "s3_input_mode")
-
-
-@pulumi.output_type
-class DataQualityJobDefinitionEnvironment(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-environment.html
-        """
-        pass
 
 
 @pulumi.output_type
@@ -1948,18 +1931,6 @@ class ModelBiasJobDefinitionEndpointInput(dict):
 
 
 @pulumi.output_type
-class ModelBiasJobDefinitionEnvironment(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-environment.html
-        """
-        pass
-
-
-@pulumi.output_type
 class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
@@ -1986,12 +1957,12 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
-                 environment: Optional['outputs.ModelBiasJobDefinitionEnvironment'] = None):
+                 environment: Optional[Mapping[str, str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
         :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
-        :param 'ModelBiasJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
+        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -2016,7 +1987,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.ModelBiasJobDefinitionEnvironment']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
         """
@@ -2764,18 +2735,6 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
 
 
 @pulumi.output_type
-class ModelExplainabilityJobDefinitionEnvironment(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-environment.html
-        """
-        pass
-
-
-@pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
@@ -2802,12 +2761,12 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
-                 environment: Optional['outputs.ModelExplainabilityJobDefinitionEnvironment'] = None):
+                 environment: Optional[Mapping[str, str]] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
         :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
         :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
-        :param 'ModelExplainabilityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
+        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -2832,7 +2791,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.ModelExplainabilityJobDefinitionEnvironment']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         """
@@ -3556,18 +3515,6 @@ class ModelQualityJobDefinitionEndpointInput(dict):
 
 
 @pulumi.output_type
-class ModelQualityJobDefinitionEnvironment(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-environment.html
-        """
-        pass
-
-
-@pulumi.output_type
 class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
@@ -3604,7 +3551,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
                  problem_type: str,
                  container_arguments: Optional[Sequence[str]] = None,
                  container_entrypoint: Optional[Sequence[str]] = None,
-                 environment: Optional['outputs.ModelQualityJobDefinitionEnvironment'] = None,
+                 environment: Optional[Mapping[str, str]] = None,
                  post_analytics_processor_source_uri: Optional[str] = None,
                  record_preprocessor_source_uri: Optional[str] = None):
         """
@@ -3613,7 +3560,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
         :param str problem_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
         :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
         :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
-        :param 'ModelQualityJobDefinitionEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
+        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
         :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
         :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
         """
@@ -3664,7 +3611,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.ModelQualityJobDefinitionEnvironment']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
         """
@@ -4440,18 +4387,6 @@ class MonitoringScheduleEndpointInput(dict):
 
 
 @pulumi.output_type
-class MonitoringScheduleEnvironment(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
-    """
-    def __init__(__self__):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-environment.html
-        """
-        pass
-
-
-@pulumi.output_type
 class MonitoringScheduleMonitoringAppSpecification(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
@@ -4761,7 +4696,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
                  monitoring_resources: 'outputs.MonitoringScheduleMonitoringResources',
                  role_arn: str,
                  baseline_config: Optional['outputs.MonitoringScheduleBaselineConfig'] = None,
-                 environment: Optional['outputs.MonitoringScheduleEnvironment'] = None,
+                 environment: Optional[Mapping[str, str]] = None,
                  network_config: Optional['outputs.MonitoringScheduleNetworkConfig'] = None,
                  stopping_condition: Optional['outputs.MonitoringScheduleStoppingCondition'] = None):
         """
@@ -4772,7 +4707,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
         :param 'MonitoringScheduleMonitoringResources' monitoring_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
         :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
         :param 'MonitoringScheduleBaselineConfig' baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        :param 'MonitoringScheduleEnvironment' environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
+        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
         :param 'MonitoringScheduleNetworkConfig' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
         :param 'MonitoringScheduleStoppingCondition' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
         """
@@ -4840,7 +4775,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional['outputs.MonitoringScheduleEnvironment']:
+    def environment(self) -> Optional[Mapping[str, str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
         """

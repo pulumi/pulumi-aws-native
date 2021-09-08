@@ -12,6 +12,8 @@ from . import outputs
 __all__ = [
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
+    'MultiRegionAccessPointPublicAccessBlockConfiguration',
+    'MultiRegionAccessPointRegion',
     'StorageLensAccountLevel',
     'StorageLensActivityMetrics',
     'StorageLensAwsOrg',
@@ -146,6 +148,110 @@ class AccessPointVpcConfiguration(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockPublicAcls":
+            suggest = "block_public_acls"
+        elif key == "blockPublicPolicy":
+            suggest = "block_public_policy"
+        elif key == "ignorePublicAcls":
+            suggest = "ignore_public_acls"
+        elif key == "restrictPublicBuckets":
+            suggest = "restrict_public_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiRegionAccessPointPublicAccessBlockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiRegionAccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiRegionAccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_public_acls: Optional[bool] = None,
+                 block_public_policy: Optional[bool] = None,
+                 ignore_public_acls: Optional[bool] = None,
+                 restrict_public_buckets: Optional[bool] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+        :param bool block_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+        :param bool block_public_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        :param bool ignore_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+        :param bool restrict_public_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        """
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+
+@pulumi.output_type
+class MultiRegionAccessPointRegion(dict):
+    """
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+    """
+    def __init__(__self__, *,
+                 bucket: str):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+        :param str bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+        """
+        pulumi.set(__self__, "bucket", bucket)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+        """
+        return pulumi.get(self, "bucket")
 
 
 @pulumi.output_type

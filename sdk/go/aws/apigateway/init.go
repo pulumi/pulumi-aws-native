@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:apigateway:Account":
+		r = &Account{}
 	case "aws-native:apigateway:ApiKey":
 		r = &ApiKey{}
 	case "aws-native:apigateway:ClientCertificate":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RequestValidator{}
 	case "aws-native:apigateway:Resource":
 		r = &Resource{}
+	case "aws-native:apigateway:UsagePlan":
+		r = &UsagePlan{}
 	case "aws-native:apigateway:UsagePlanKey":
 		r = &UsagePlanKey{}
 	default:

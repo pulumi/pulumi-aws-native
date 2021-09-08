@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.CE
         [Output("rules")]
         public Output<string> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        /// </summary>
+        [Output("splitChargeRules")]
+        public Output<string?> SplitChargeRules { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CostCategory resource with the given unique name, arguments, and options.
@@ -113,6 +119,12 @@ namespace Pulumi.AwsNative.CE
         /// </summary>
         [Input("rules", required: true)]
         public Input<string> Rules { get; set; } = null!;
+
+        /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        /// </summary>
+        [Input("splitChargeRules")]
+        public Input<string>? SplitChargeRules { get; set; }
 
         public CostCategoryArgs()
         {

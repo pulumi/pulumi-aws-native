@@ -3188,6 +3188,8 @@ class FlowScheduledTriggerProperties(dict):
             suggest = "data_pull_mode"
         elif key == "scheduleEndTime":
             suggest = "schedule_end_time"
+        elif key == "scheduleOffset":
+            suggest = "schedule_offset"
         elif key == "scheduleStartTime":
             suggest = "schedule_start_time"
         elif key == "timeZone":
@@ -3208,6 +3210,7 @@ class FlowScheduledTriggerProperties(dict):
                  schedule_expression: str,
                  data_pull_mode: Optional[str] = None,
                  schedule_end_time: Optional[float] = None,
+                 schedule_offset: Optional[float] = None,
                  schedule_start_time: Optional[float] = None,
                  time_zone: Optional[str] = None):
         """
@@ -3215,6 +3218,7 @@ class FlowScheduledTriggerProperties(dict):
         :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
         :param str data_pull_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
         :param float schedule_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
+        :param float schedule_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
         :param float schedule_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
         :param str time_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
         """
@@ -3223,6 +3227,8 @@ class FlowScheduledTriggerProperties(dict):
             pulumi.set(__self__, "data_pull_mode", data_pull_mode)
         if schedule_end_time is not None:
             pulumi.set(__self__, "schedule_end_time", schedule_end_time)
+        if schedule_offset is not None:
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
         if schedule_start_time is not None:
             pulumi.set(__self__, "schedule_start_time", schedule_start_time)
         if time_zone is not None:
@@ -3251,6 +3257,14 @@ class FlowScheduledTriggerProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
         """
         return pulumi.get(self, "schedule_end_time")
+
+    @property
+    @pulumi.getter(name="scheduleOffset")
+    def schedule_offset(self) -> Optional[float]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
+        """
+        return pulumi.get(self, "schedule_offset")
 
     @property
     @pulumi.getter(name="scheduleStartTime")
@@ -4033,13 +4047,52 @@ class FlowVeevaSourceProperties(dict):
     """
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentType":
+            suggest = "document_type"
+        elif key == "includeAllVersions":
+            suggest = "include_all_versions"
+        elif key == "includeRenditions":
+            suggest = "include_renditions"
+        elif key == "includeSourceFiles":
+            suggest = "include_source_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVeevaSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVeevaSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVeevaSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 object: str):
+                 object: str,
+                 document_type: Optional[str] = None,
+                 include_all_versions: Optional[bool] = None,
+                 include_renditions: Optional[bool] = None,
+                 include_source_files: Optional[bool] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
         :param str object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
+        :param str document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+        :param bool include_all_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+        :param bool include_renditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+        :param bool include_source_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
         """
         pulumi.set(__self__, "object", object)
+        if document_type is not None:
+            pulumi.set(__self__, "document_type", document_type)
+        if include_all_versions is not None:
+            pulumi.set(__self__, "include_all_versions", include_all_versions)
+        if include_renditions is not None:
+            pulumi.set(__self__, "include_renditions", include_renditions)
+        if include_source_files is not None:
+            pulumi.set(__self__, "include_source_files", include_source_files)
 
     @property
     @pulumi.getter
@@ -4048,6 +4101,38 @@ class FlowVeevaSourceProperties(dict):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
         """
         return pulumi.get(self, "object")
+
+    @property
+    @pulumi.getter(name="documentType")
+    def document_type(self) -> Optional[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
+        """
+        return pulumi.get(self, "document_type")
+
+    @property
+    @pulumi.getter(name="includeAllVersions")
+    def include_all_versions(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
+        """
+        return pulumi.get(self, "include_all_versions")
+
+    @property
+    @pulumi.getter(name="includeRenditions")
+    def include_renditions(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
+        """
+        return pulumi.get(self, "include_renditions")
+
+    @property
+    @pulumi.getter(name="includeSourceFiles")
+    def include_source_files(self) -> Optional[bool]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
+        """
+        return pulumi.get(self, "include_source_files")
 
 
 @pulumi.output_type

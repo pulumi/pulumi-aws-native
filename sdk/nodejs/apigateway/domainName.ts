@@ -54,6 +54,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
     /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+     */
+    public readonly ownershipVerificationCertificateArn!: pulumi.Output<string | undefined>;
+    /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
@@ -83,6 +87,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
             inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            inputs["ownershipVerificationCertificateArn"] = args ? args.ownershipVerificationCertificateArn : undefined;
             inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
             inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -97,6 +102,7 @@ export class DomainName extends pulumi.CustomResource {
             inputs["domainName"] = undefined /*out*/;
             inputs["endpointConfiguration"] = undefined /*out*/;
             inputs["mutualTlsAuthentication"] = undefined /*out*/;
+            inputs["ownershipVerificationCertificateArn"] = undefined /*out*/;
             inputs["regionalCertificateArn"] = undefined /*out*/;
             inputs["regionalDomainName"] = undefined /*out*/;
             inputs["regionalHostedZoneId"] = undefined /*out*/;
@@ -130,6 +136,10 @@ export interface DomainNameArgs {
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
      */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthenticationArgs>;
+    /**
+     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+     */
+    ownershipVerificationCertificateArn?: pulumi.Input<string>;
     /**
      * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
      */

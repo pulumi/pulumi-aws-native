@@ -11,6 +11,8 @@ from .. import _utilities
 __all__ = [
     'AccessPointPublicAccessBlockConfigurationArgs',
     'AccessPointVpcConfigurationArgs',
+    'MultiRegionAccessPointPublicAccessBlockConfigurationArgs',
+    'MultiRegionAccessPointRegionArgs',
     'StorageLensAccountLevelArgs',
     'StorageLensActivityMetricsArgs',
     'StorageLensAwsOrgArgs',
@@ -119,6 +121,101 @@ class AccessPointVpcConfigurationArgs:
     @vpc_id.setter
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointPublicAccessBlockConfigurationArgs:
+    def __init__(__self__, *,
+                 block_public_acls: Optional[pulumi.Input[bool]] = None,
+                 block_public_policy: Optional[pulumi.Input[bool]] = None,
+                 ignore_public_acls: Optional[pulumi.Input[bool]] = None,
+                 restrict_public_buckets: Optional[pulumi.Input[bool]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+        :param pulumi.Input[bool] block_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+        :param pulumi.Input[bool] block_public_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        :param pulumi.Input[bool] ignore_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+        :param pulumi.Input[bool] restrict_public_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        """
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @block_public_acls.setter
+    def block_public_acls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_public_acls", value)
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @block_public_policy.setter
+    def block_public_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_public_policy", value)
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @ignore_public_acls.setter
+    def ignore_public_acls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_public_acls", value)
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+    @restrict_public_buckets.setter
+    def restrict_public_buckets(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restrict_public_buckets", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointRegionArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str]):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+        """
+        pulumi.set(__self__, "bucket", bucket)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
 
 
 @pulumi.input_type

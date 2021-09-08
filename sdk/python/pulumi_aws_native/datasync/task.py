@@ -21,6 +21,7 @@ class TaskArgs:
                  source_location_arn: pulumi.Input[str],
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskTaskScheduleArgs']] = None,
@@ -31,6 +32,7 @@ class TaskArgs:
         :param pulumi.Input[str] source_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
         :param pulumi.Input[str] cloud_watch_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
         :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] excludes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
+        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
         :param pulumi.Input['TaskOptionsArgs'] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
         :param pulumi.Input['TaskTaskScheduleArgs'] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
@@ -42,6 +44,8 @@ class TaskArgs:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if options is not None:
@@ -101,6 +105,18 @@ class TaskArgs:
 
     @property
     @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]):
+        pulumi.set(self, "includes", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
@@ -156,6 +172,7 @@ class Task(pulumi.CustomResource):
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
@@ -170,6 +187,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_watch_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
         :param pulumi.Input[str] destination_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] excludes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] includes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
         :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
         :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
         :param pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
@@ -203,6 +221,7 @@ class Task(pulumi.CustomResource):
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
@@ -225,6 +244,7 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_location_arn'")
             __props__.__dict__["destination_location_arn"] = destination_location_arn
             __props__.__dict__["excludes"] = excludes
+            __props__.__dict__["includes"] = includes
             __props__.__dict__["name"] = name
             __props__.__dict__["options"] = options
             __props__.__dict__["schedule"] = schedule
@@ -266,6 +286,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["error_code"] = None
         __props__.__dict__["error_detail"] = None
         __props__.__dict__["excludes"] = None
+        __props__.__dict__["includes"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["options"] = None
         __props__.__dict__["schedule"] = None
@@ -314,6 +335,14 @@ class Task(pulumi.CustomResource):
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
         """
         return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
+        """
+        return pulumi.get(self, "includes")
 
     @property
     @pulumi.getter

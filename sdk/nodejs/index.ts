@@ -36,11 +36,13 @@ import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
+import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codestarconnections from "./codestarconnections";
+import * as codestarnotifications from "./codestarnotifications";
 import * as config from "./config";
 import * as configuration from "./configuration";
 import * as connect from "./connect";
@@ -102,6 +104,7 @@ import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
+import * as robomaker from "./robomaker";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
@@ -146,11 +149,13 @@ export {
     chatbot,
     cloudformation,
     cloudfront,
+    cloudtrail,
     cloudwatch,
     codeartifact,
     codeguruprofiler,
     codegurureviewer,
     codestarconnections,
+    codestarnotifications,
     config,
     configuration,
     connect,
@@ -212,6 +217,7 @@ export {
     rds,
     redshift,
     resourcegroups,
+    robomaker,
     route53,
     route53recoverycontrol,
     route53recoveryreadiness,

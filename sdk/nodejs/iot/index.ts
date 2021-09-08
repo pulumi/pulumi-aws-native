@@ -11,6 +11,7 @@ export * from "./certificate";
 export * from "./customMetric";
 export * from "./dimension";
 export * from "./domainConfiguration";
+export * from "./fleetMetric";
 export * from "./mitigationAction";
 export * from "./provisioningTemplate";
 export * from "./scheduledAudit";
@@ -25,6 +26,7 @@ import { Certificate } from "./certificate";
 import { CustomMetric } from "./customMetric";
 import { Dimension } from "./dimension";
 import { DomainConfiguration } from "./domainConfiguration";
+import { FleetMetric } from "./fleetMetric";
 import { MitigationAction } from "./mitigationAction";
 import { ProvisioningTemplate } from "./provisioningTemplate";
 import { ScheduledAudit } from "./scheduledAudit";
@@ -48,6 +50,8 @@ const _module = {
                 return new Dimension(name, <any>undefined, { urn })
             case "aws-native:iot:DomainConfiguration":
                 return new DomainConfiguration(name, <any>undefined, { urn })
+            case "aws-native:iot:FleetMetric":
+                return new FleetMetric(name, <any>undefined, { urn })
             case "aws-native:iot:MitigationAction":
                 return new MitigationAction(name, <any>undefined, { urn })
             case "aws-native:iot:ProvisioningTemplate":

@@ -1162,6 +1162,165 @@ func (o DomainConfigurationServerCertificateSummaryArrayOutput) Index(i pulumi.I
 	}).(DomainConfigurationServerCertificateSummaryOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+type FleetMetricAggregationType struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+	Name string `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+	Values []string `pulumi:"values"`
+}
+
+// FleetMetricAggregationTypeInput is an input type that accepts FleetMetricAggregationTypeArgs and FleetMetricAggregationTypeOutput values.
+// You can construct a concrete instance of `FleetMetricAggregationTypeInput` via:
+//
+//          FleetMetricAggregationTypeArgs{...}
+type FleetMetricAggregationTypeInput interface {
+	pulumi.Input
+
+	ToFleetMetricAggregationTypeOutput() FleetMetricAggregationTypeOutput
+	ToFleetMetricAggregationTypeOutputWithContext(context.Context) FleetMetricAggregationTypeOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+type FleetMetricAggregationTypeArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+	Name pulumi.StringInput `pulumi:"name"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (FleetMetricAggregationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMetricAggregationType)(nil)).Elem()
+}
+
+func (i FleetMetricAggregationTypeArgs) ToFleetMetricAggregationTypeOutput() FleetMetricAggregationTypeOutput {
+	return i.ToFleetMetricAggregationTypeOutputWithContext(context.Background())
+}
+
+func (i FleetMetricAggregationTypeArgs) ToFleetMetricAggregationTypeOutputWithContext(ctx context.Context) FleetMetricAggregationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricAggregationTypeOutput)
+}
+
+func (i FleetMetricAggregationTypeArgs) ToFleetMetricAggregationTypePtrOutput() FleetMetricAggregationTypePtrOutput {
+	return i.ToFleetMetricAggregationTypePtrOutputWithContext(context.Background())
+}
+
+func (i FleetMetricAggregationTypeArgs) ToFleetMetricAggregationTypePtrOutputWithContext(ctx context.Context) FleetMetricAggregationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricAggregationTypeOutput).ToFleetMetricAggregationTypePtrOutputWithContext(ctx)
+}
+
+// FleetMetricAggregationTypePtrInput is an input type that accepts FleetMetricAggregationTypeArgs, FleetMetricAggregationTypePtr and FleetMetricAggregationTypePtrOutput values.
+// You can construct a concrete instance of `FleetMetricAggregationTypePtrInput` via:
+//
+//          FleetMetricAggregationTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetMetricAggregationTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetMetricAggregationTypePtrOutput() FleetMetricAggregationTypePtrOutput
+	ToFleetMetricAggregationTypePtrOutputWithContext(context.Context) FleetMetricAggregationTypePtrOutput
+}
+
+type fleetMetricAggregationTypePtrType FleetMetricAggregationTypeArgs
+
+func FleetMetricAggregationTypePtr(v *FleetMetricAggregationTypeArgs) FleetMetricAggregationTypePtrInput {
+	return (*fleetMetricAggregationTypePtrType)(v)
+}
+
+func (*fleetMetricAggregationTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetMetricAggregationType)(nil)).Elem()
+}
+
+func (i *fleetMetricAggregationTypePtrType) ToFleetMetricAggregationTypePtrOutput() FleetMetricAggregationTypePtrOutput {
+	return i.ToFleetMetricAggregationTypePtrOutputWithContext(context.Background())
+}
+
+func (i *fleetMetricAggregationTypePtrType) ToFleetMetricAggregationTypePtrOutputWithContext(ctx context.Context) FleetMetricAggregationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricAggregationTypePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+type FleetMetricAggregationTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetMetricAggregationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMetricAggregationType)(nil)).Elem()
+}
+
+func (o FleetMetricAggregationTypeOutput) ToFleetMetricAggregationTypeOutput() FleetMetricAggregationTypeOutput {
+	return o
+}
+
+func (o FleetMetricAggregationTypeOutput) ToFleetMetricAggregationTypeOutputWithContext(ctx context.Context) FleetMetricAggregationTypeOutput {
+	return o
+}
+
+func (o FleetMetricAggregationTypeOutput) ToFleetMetricAggregationTypePtrOutput() FleetMetricAggregationTypePtrOutput {
+	return o.ToFleetMetricAggregationTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetMetricAggregationTypeOutput) ToFleetMetricAggregationTypePtrOutputWithContext(ctx context.Context) FleetMetricAggregationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetMetricAggregationType) *FleetMetricAggregationType {
+		return &v
+	}).(FleetMetricAggregationTypePtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+func (o FleetMetricAggregationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetMetricAggregationType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+func (o FleetMetricAggregationTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetMetricAggregationType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type FleetMetricAggregationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetMetricAggregationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetMetricAggregationType)(nil)).Elem()
+}
+
+func (o FleetMetricAggregationTypePtrOutput) ToFleetMetricAggregationTypePtrOutput() FleetMetricAggregationTypePtrOutput {
+	return o
+}
+
+func (o FleetMetricAggregationTypePtrOutput) ToFleetMetricAggregationTypePtrOutputWithContext(ctx context.Context) FleetMetricAggregationTypePtrOutput {
+	return o
+}
+
+func (o FleetMetricAggregationTypePtrOutput) Elem() FleetMetricAggregationTypeOutput {
+	return o.ApplyT(func(v *FleetMetricAggregationType) FleetMetricAggregationType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetMetricAggregationType
+		return ret
+	}).(FleetMetricAggregationTypeOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+func (o FleetMetricAggregationTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetMetricAggregationType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+func (o FleetMetricAggregationTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetMetricAggregationType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
 type MitigationActionActionParams struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
@@ -9964,6 +10123,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryArrayOutput{})
+	pulumi.RegisterOutputType(FleetMetricAggregationTypeOutput{})
+	pulumi.RegisterOutputType(FleetMetricAggregationTypePtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsOutput{})

@@ -21,11 +21,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("configUri", required: true)]
         public Input<string> ConfigUri { get; set; } = null!;
 
+        [Input("environment")]
+        private InputMap<string>? _environment;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
         /// </summary>
-        [Input("environment")]
-        public Input<Inputs.ModelExplainabilityJobDefinitionEnvironmentArgs>? Environment { get; set; }
+        public InputMap<string> Environment
+        {
+            get => _environment ?? (_environment = new InputMap<string>());
+            set => _environment = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri

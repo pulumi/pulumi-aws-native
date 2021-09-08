@@ -347,6 +347,303 @@ func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+type MultiRegionAccessPointPublicAccessBlockConfiguration struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+// MultiRegionAccessPointPublicAccessBlockConfigurationInput is an input type that accepts MultiRegionAccessPointPublicAccessBlockConfigurationArgs and MultiRegionAccessPointPublicAccessBlockConfigurationOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointPublicAccessBlockConfigurationInput` via:
+//
+//          MultiRegionAccessPointPublicAccessBlockConfigurationArgs{...}
+type MultiRegionAccessPointPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointPublicAccessBlockConfigurationOutput() MultiRegionAccessPointPublicAccessBlockConfigurationOutput
+	ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+type MultiRegionAccessPointPublicAccessBlockConfigurationArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionAccessPointPublicAccessBlockConfigurationOutput() MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
+	return i.ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationOutput)
+}
+
+func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationOutput).ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx)
+}
+
+// MultiRegionAccessPointPublicAccessBlockConfigurationPtrInput is an input type that accepts MultiRegionAccessPointPublicAccessBlockConfigurationArgs, MultiRegionAccessPointPublicAccessBlockConfigurationPtr and MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointPublicAccessBlockConfigurationPtrInput` via:
+//
+//          MultiRegionAccessPointPublicAccessBlockConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type MultiRegionAccessPointPublicAccessBlockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput
+	ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput
+}
+
+type multiRegionAccessPointPublicAccessBlockConfigurationPtrType MultiRegionAccessPointPublicAccessBlockConfigurationArgs
+
+func MultiRegionAccessPointPublicAccessBlockConfigurationPtr(v *MultiRegionAccessPointPublicAccessBlockConfigurationArgs) MultiRegionAccessPointPublicAccessBlockConfigurationPtrInput {
+	return (*multiRegionAccessPointPublicAccessBlockConfigurationPtrType)(v)
+}
+
+func (*multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i *multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
+type MultiRegionAccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationOutput() MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointPublicAccessBlockConfiguration) *MultiRegionAccessPointPublicAccessBlockConfiguration {
+		return &v
+	}).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) Elem() MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) MultiRegionAccessPointPublicAccessBlockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionAccessPointPublicAccessBlockConfiguration
+		return ret
+	}).(MultiRegionAccessPointPublicAccessBlockConfigurationOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictPublicBuckets
+	}).(pulumi.BoolPtrOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+type MultiRegionAccessPointRegion struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+	Bucket string `pulumi:"bucket"`
+}
+
+// MultiRegionAccessPointRegionInput is an input type that accepts MultiRegionAccessPointRegionArgs and MultiRegionAccessPointRegionOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointRegionInput` via:
+//
+//          MultiRegionAccessPointRegionArgs{...}
+type MultiRegionAccessPointRegionInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointRegionOutput() MultiRegionAccessPointRegionOutput
+	ToMultiRegionAccessPointRegionOutputWithContext(context.Context) MultiRegionAccessPointRegionOutput
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+type MultiRegionAccessPointRegionArgs struct {
+	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+}
+
+func (MultiRegionAccessPointRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointRegion)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointRegionArgs) ToMultiRegionAccessPointRegionOutput() MultiRegionAccessPointRegionOutput {
+	return i.ToMultiRegionAccessPointRegionOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointRegionArgs) ToMultiRegionAccessPointRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRegionOutput)
+}
+
+// MultiRegionAccessPointRegionArrayInput is an input type that accepts MultiRegionAccessPointRegionArray and MultiRegionAccessPointRegionArrayOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointRegionArrayInput` via:
+//
+//          MultiRegionAccessPointRegionArray{ MultiRegionAccessPointRegionArgs{...} }
+type MultiRegionAccessPointRegionArrayInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointRegionArrayOutput() MultiRegionAccessPointRegionArrayOutput
+	ToMultiRegionAccessPointRegionArrayOutputWithContext(context.Context) MultiRegionAccessPointRegionArrayOutput
+}
+
+type MultiRegionAccessPointRegionArray []MultiRegionAccessPointRegionInput
+
+func (MultiRegionAccessPointRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointRegion)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointRegionArray) ToMultiRegionAccessPointRegionArrayOutput() MultiRegionAccessPointRegionArrayOutput {
+	return i.ToMultiRegionAccessPointRegionArrayOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointRegionArray) ToMultiRegionAccessPointRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRegionArrayOutput)
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
+type MultiRegionAccessPointRegionOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointRegion)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutput() MultiRegionAccessPointRegionOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionOutput {
+	return o
+}
+
+// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
+func (o MultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+type MultiRegionAccessPointRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointRegion)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointRegionArrayOutput) ToMultiRegionAccessPointRegionArrayOutput() MultiRegionAccessPointRegionArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRegionArrayOutput) ToMultiRegionAccessPointRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionAccessPointRegion {
+		return vs[0].([]MultiRegionAccessPointRegion)[vs[1].(int)]
+	}).(MultiRegionAccessPointRegionOutput)
+}
+
 // http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
 type StorageLensAccountLevel struct {
 	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
@@ -2355,6 +2652,10 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointRegionOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointRegionArrayOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensAccountLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensActivityMetricsOutput{})

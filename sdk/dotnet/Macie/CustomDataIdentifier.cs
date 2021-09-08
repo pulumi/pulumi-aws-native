@@ -18,12 +18,6 @@ namespace Pulumi.AwsNative.Macie
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("createdAt")]
-        public Output<string> CreatedAt { get; private set; } = null!;
-
-        [Output("deleted")]
-        public Output<bool> Deleted { get; private set; } = null!;
-
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
         /// </summary>

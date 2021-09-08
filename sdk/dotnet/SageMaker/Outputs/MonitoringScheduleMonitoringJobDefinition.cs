@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
         /// </summary>
-        public readonly Outputs.MonitoringScheduleEnvironment? Environment;
+        public readonly ImmutableDictionary<string, string>? Environment;
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private MonitoringScheduleMonitoringJobDefinition(
             Outputs.MonitoringScheduleBaselineConfig? baselineConfig,
 
-            Outputs.MonitoringScheduleEnvironment? environment,
+            ImmutableDictionary<string, string>? environment,
 
             Outputs.MonitoringScheduleMonitoringAppSpecification monitoringAppSpecification,
 

@@ -17,6 +17,7 @@ __all__ = [
     'CertificateAuthorityEdiPartyNameArgs',
     'CertificateAuthorityGeneralNameArgs',
     'CertificateAuthorityKeyUsageArgs',
+    'CertificateAuthorityOcspConfigurationArgs',
     'CertificateAuthorityOtherNameArgs',
     'CertificateAuthorityRevocationConfigurationArgs',
     'CertificateAuthoritySubjectArgs',
@@ -606,6 +607,46 @@ class CertificateAuthorityKeyUsageArgs:
 
 
 @pulumi.input_type
+class CertificateAuthorityOcspConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
+        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+        :param pulumi.Input[str] ocsp_custom_cname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if ocsp_custom_cname is not None:
+            pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ocspCustomCname")
+    def ocsp_custom_cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+        """
+        return pulumi.get(self, "ocsp_custom_cname")
+
+    @ocsp_custom_cname.setter
+    def ocsp_custom_cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_custom_cname", value)
+
+
+@pulumi.input_type
 class CertificateAuthorityOtherNameArgs:
     def __init__(__self__, *,
                  type_id: pulumi.Input[str],
@@ -646,13 +687,17 @@ class CertificateAuthorityOtherNameArgs:
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']] = None):
+                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']] = None,
+                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None):
         """
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
         :param pulumi.Input['CertificateAuthorityCrlConfigurationArgs'] crl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
+        :param pulumi.Input['CertificateAuthorityOcspConfigurationArgs'] ocsp_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
+        if ocsp_configuration is not None:
+            pulumi.set(__self__, "ocsp_configuration", ocsp_configuration)
 
     @property
     @pulumi.getter(name="crlConfiguration")
@@ -665,6 +710,18 @@ class CertificateAuthorityRevocationConfigurationArgs:
     @crl_configuration.setter
     def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']]):
         pulumi.set(self, "crl_configuration", value)
+
+    @property
+    @pulumi.getter(name="ocspConfiguration")
+    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]:
+        """
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+        """
+        return pulumi.get(self, "ocsp_configuration")
+
+    @ocsp_configuration.setter
+    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]):
+        pulumi.set(self, "ocsp_configuration", value)
 
 
 @pulumi.input_type

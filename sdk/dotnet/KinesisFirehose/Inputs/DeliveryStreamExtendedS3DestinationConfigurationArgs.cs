@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
 
         /// <summary>
+        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dynamicpartitioningconfiguration
+        /// </summary>
+        [Input("dynamicPartitioningConfiguration")]
+        public Input<Inputs.DeliveryStreamDynamicPartitioningConfigurationArgs>? DynamicPartitioningConfiguration { get; set; }
+
+        /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
         /// </summary>
         [Input("encryptionConfiguration")]

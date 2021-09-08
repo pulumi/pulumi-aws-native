@@ -39,11 +39,17 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _containerEntrypoint = value;
         }
 
+        [Input("environment")]
+        private InputMap<string>? _environment;
+
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
         /// </summary>
-        [Input("environment")]
-        public Input<Inputs.ModelQualityJobDefinitionEnvironmentArgs>? Environment { get; set; }
+        public InputMap<string> Environment
+        {
+            get => _environment ?? (_environment = new InputMap<string>());
+            set => _environment = value;
+        }
 
         /// <summary>
         /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
