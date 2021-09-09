@@ -1,8 +1,12 @@
+// Copyright 2016-2021, Pulumi Corporation.
+
 package main
 
 import (
+	"bytes"
+	"compress/gzip"
+	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
 	"log"
 	"os"
 	"strings"
@@ -13,6 +17,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
 )
 
 func main() {
@@ -42,7 +50,20 @@ func main() {
 		os.Exit(-1)
 	}
 
-	program, diags, err := hcl2.BindProgram(parser.Files)
+	pkgSpec, err := loadSchema()
+	if err != nil {
+		log.Fatalf("failed to load schema: %v", err)
+	}
+	hcl2Cache := hcl2.Cache(hcl2.NewPackageCache())
+	pkg, err := schema.ImportSpec(*pkgSpec, nil)
+	if err != nil {
+		log.Fatalf("failed to parse import the spec: %v", err)
+	}
+	loaderOption := hcl2.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
+		"aws-native": pkg,
+	}))
+
+	program, diags, err := hcl2.BindProgram(parser.Files, hcl2Cache, loaderOption)
 	if err != nil {
 		log.Fatalf("failed to bind program: %v", err)
 	}
@@ -76,4 +97,25 @@ func main() {
 	for _, f := range files {
 		fmt.Print(string(f))
 	}
+}
+
+// loadSchema loads the serialized/compressed schema generated during generation from schema.go.
+func loadSchema() (*schema.PackageSpec, error) {
+	var pkgSpec schema.PackageSpec
+	uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
+	if err != nil {
+		return nil, fmt.Errorf("loading schema: %w", err)
+	}
+
+	if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
+		return nil, fmt.Errorf("deserializing schema: %w", err)
+	}
+	if err = uncompressed.Close(); err != nil {
+		return nil, fmt.Errorf("closing uncompress stream for schema: %w", err)
+	}
+	// embed version because go codegen is particularly sensitive to this.
+	if pkgSpec.Version == "" {
+		pkgSpec.Version = version.Version
+	}
+	return &pkgSpec, nil
 }

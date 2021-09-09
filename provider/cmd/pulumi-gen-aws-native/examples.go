@@ -6,10 +6,10 @@ import (
 	"bufio"
 	"bytes"
 	"fmt"
-	"github.com/blang/semver"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2"
@@ -38,7 +38,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, languages []string) error {
 	if err != nil {
 		return err
 	}
-	loaderOption := hcl2.Loader(inMemoryPackageLoader(map[string]*schema.Package{
+	loaderOption := hcl2.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
 		"aws-native": pkg,
 	}))
 
@@ -285,22 +285,4 @@ func renderExampleToSchema(pkgSpec *schema.PackageSpec, resourceName string,
 	res.Description += b.String()
 	pkgSpec.Resources[resourceName] = res
 	return nil
-}
-
-// inMemoryPackageLoader prevents having to fetch the schema from
-// the provider every time which significantly speeds up codegen.
-func inMemoryPackageLoader(pkgs map[string]*schema.Package) schema.Loader {
-	return &inMemoryLoader{pkgs: pkgs}
-}
-
-type inMemoryLoader struct {
-	pkgs map[string]*schema.Package
-}
-
-func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Package, error) {
-	if p, ok := l.pkgs[pkg]; ok {
-		return p, nil
-	}
-
-	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
 }
