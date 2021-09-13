@@ -4,9 +4,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Pulumi Corp.</Authors>
     <Company>Pulumi Corp.</Company>
-    <Description>A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.</Description>
+    <Description>A Pulumi package for creating and managing Amazon Web Services (AWS) resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
+    <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-aws-native</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 

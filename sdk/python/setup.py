@@ -39,14 +39,14 @@ def readme():
 
 setup(name='pulumi_aws_native',
       version=VERSION,
-      description="A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
+      description="A Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={
           'install': InstallPluginCommand,
       },
       keywords='pulumi aws aws-native',
-      url='https://pulumi.io',
+      url='https://pulumi.com',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws-native'
       },

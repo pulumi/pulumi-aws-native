@@ -1,12 +1,12 @@
 {
     "name": "aws-native",
-    "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
+    "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
     "keywords": [
         "pulumi",
         "aws",
         "aws-native"
     ],
-    "homepage": "https://pulumi.io",
+    "homepage": "https://pulumi.com",
     "license": "Apache-2.0",
     "repository": "https://github.com/pulumi/pulumi-aws-native",
     "config": {
