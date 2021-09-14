@@ -246,13 +246,13 @@ func (ctx *context) gatherResourceType(pkg *pschema.PackageSpec, resourceName st
 func gatherPackage(schema schema.CloudFormationSchema, supportedResourceTypes []string) pschema.PackageSpec {
 	p := pschema.PackageSpec{
 		Name:        packageName,
-		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) resources via CloudFormation.",
+		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
 		Keywords: []string{
 			"pulumi",
 			"aws",
 			"aws-native",
 		},
-		Homepage:   "https://pulumi.io",
+		Homepage:   "https://pulumi.com",
 		License:    "Apache-2.0",
 		Repository: "https://github.com/pulumi/pulumi-aws-native",
 		Config: pschema.ConfigSpec{
