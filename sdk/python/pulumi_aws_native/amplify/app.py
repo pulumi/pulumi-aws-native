@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AppArgs', 'App']
@@ -30,23 +28,9 @@ class AppArgs:
                  i_am_service_role: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-        :param pulumi.Input[str] access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
-        :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-        :param pulumi.Input[str] build_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-        :param pulumi.Input[str] custom_headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-        :param pulumi.Input[bool] enable_branch_auto_deletion: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-        :param pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-        :param pulumi.Input[str] i_am_service_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-        :param pulumi.Input[str] oauth_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-        :param pulumi.Input[str] repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
         """
         pulumi.set(__self__, "name", name)
         if access_token is not None:
@@ -79,9 +63,6 @@ class AppArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +72,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-        """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
@@ -103,9 +81,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
-        """
         return pulumi.get(self, "auto_branch_creation_config")
 
     @auto_branch_creation_config.setter
@@ -115,9 +90,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['AppBasicAuthConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-        """
         return pulumi.get(self, "basic_auth_config")
 
     @basic_auth_config.setter
@@ -127,9 +99,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -139,9 +108,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-        """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
@@ -151,9 +117,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-        """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
@@ -163,9 +126,6 @@ class AppArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -175,9 +135,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="enableBranchAutoDeletion")
     def enable_branch_auto_deletion(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-        """
         return pulumi.get(self, "enable_branch_auto_deletion")
 
     @enable_branch_auto_deletion.setter
@@ -187,9 +144,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -199,9 +153,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="iAMServiceRole")
     def i_am_service_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-        """
         return pulumi.get(self, "i_am_service_role")
 
     @i_am_service_role.setter
@@ -211,9 +162,6 @@ class AppArgs:
     @property
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-        """
         return pulumi.get(self, "oauth_token")
 
     @oauth_token.setter
@@ -223,9 +171,6 @@ class AppArgs:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -234,14 +179,11 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -263,27 +205,13 @@ class App(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+        The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
-        :param pulumi.Input[pulumi.InputType['AppBasicAuthConfigArgs']] basic_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-        :param pulumi.Input[str] build_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-        :param pulumi.Input[str] custom_headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-        :param pulumi.Input[bool] enable_branch_auto_deletion: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEnvironmentVariableArgs']]]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-        :param pulumi.Input[str] i_am_service_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-        :param pulumi.Input[str] oauth_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-        :param pulumi.Input[str] repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
         """
         ...
     @overload
@@ -292,7 +220,7 @@ class App(pulumi.CustomResource):
                  args: AppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+        The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
@@ -322,7 +250,7 @@ class App(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
                  repository: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -400,9 +328,6 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-        """
         return pulumi.get(self, "access_token")
 
     @property
@@ -423,41 +348,26 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> pulumi.Output[Optional['outputs.AppAutoBranchCreationConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
-        """
         return pulumi.get(self, "auto_branch_creation_config")
 
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> pulumi.Output[Optional['outputs.AppBasicAuthConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-        """
         return pulumi.get(self, "basic_auth_config")
 
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-        """
         return pulumi.get(self, "build_spec")
 
     @property
     @pulumi.getter(name="customHeaders")
     def custom_headers(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-        """
         return pulumi.get(self, "custom_headers")
 
     @property
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AppCustomRule']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-        """
         return pulumi.get(self, "custom_rules")
 
     @property
@@ -468,64 +378,40 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enableBranchAutoDeletion")
     def enable_branch_auto_deletion(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-        """
         return pulumi.get(self, "enable_branch_auto_deletion")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.AppEnvironmentVariable']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="iAMServiceRole")
     def i_am_service_role(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-        """
         return pulumi.get(self, "i_am_service_role")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-        """
         return pulumi.get(self, "oauth_token")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-        """
         return pulumi.get(self, "repository")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AppTag']]]:
         return pulumi.get(self, "tags")
 

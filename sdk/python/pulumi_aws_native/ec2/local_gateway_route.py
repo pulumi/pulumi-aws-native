@@ -18,9 +18,9 @@ class LocalGatewayRouteArgs:
                  local_gateway_virtual_interface_group_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a LocalGatewayRoute resource.
-        :param pulumi.Input[str] destination_cidr_block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
-        :param pulumi.Input[str] local_gateway_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
-        :param pulumi.Input[str] local_gateway_virtual_interface_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block used for destination matches.
+        :param pulumi.Input[str] local_gateway_route_table_id: The ID of the local gateway route table.
+        :param pulumi.Input[str] local_gateway_virtual_interface_group_id: The ID of the virtual interface group.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
@@ -30,7 +30,7 @@ class LocalGatewayRouteArgs:
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+        The CIDR block used for destination matches.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -42,7 +42,7 @@ class LocalGatewayRouteArgs:
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+        The ID of the local gateway route table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
@@ -54,7 +54,7 @@ class LocalGatewayRouteArgs:
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        The ID of the virtual interface group.
         """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
@@ -73,13 +73,13 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
+        Describes a route for a local gateway route table.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination_cidr_block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
-        :param pulumi.Input[str] local_gateway_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
-        :param pulumi.Input[str] local_gateway_virtual_interface_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block used for destination matches.
+        :param pulumi.Input[str] local_gateway_route_table_id: The ID of the local gateway route table.
+        :param pulumi.Input[str] local_gateway_virtual_interface_group_id: The ID of the virtual interface group.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
                  args: LocalGatewayRouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
+        Describes a route for a local gateway route table.
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +164,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+        The CIDR block used for destination matches.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -172,7 +172,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+        The ID of the local gateway route table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
@@ -180,17 +180,23 @@ class LocalGatewayRoute(pulumi.CustomResource):
     @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
     def local_gateway_virtual_interface_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        The ID of the virtual interface group.
         """
         return pulumi.get(self, "local_gateway_virtual_interface_group_id")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the route.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The route type.
+        """
         return pulumi.get(self, "type")
 

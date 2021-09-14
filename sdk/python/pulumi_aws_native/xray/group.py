@@ -18,13 +18,11 @@ class GroupArgs:
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input['GroupInsightsConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[str] filter_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
-        :param pulumi.Input[str] group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-        :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
+        :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
+        :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
         """
         if filter_expression is not None:
             pulumi.set(__self__, "filter_expression", filter_expression)
@@ -39,7 +37,7 @@ class GroupArgs:
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+        The filter expression defining criteria by which to group traces.
         """
         return pulumi.get(self, "filter_expression")
 
@@ -51,7 +49,7 @@ class GroupArgs:
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+        The case-sensitive name of the new group. Names must be unique.
         """
         return pulumi.get(self, "group_name")
 
@@ -62,9 +60,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="insightsConfiguration")
     def insights_configuration(self) -> Optional[pulumi.Input['GroupInsightsConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        """
         return pulumi.get(self, "insights_configuration")
 
     @insights_configuration.setter
@@ -73,14 +68,11 @@ class GroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +84,15 @@ class Group(pulumi.CustomResource):
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+        This schema provides construct and validation rules for AWS-XRay Group resource parameters.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] filter_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
-        :param pulumi.Input[str] group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-        :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
+        :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
+        :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
         """
         ...
     @overload
@@ -111,7 +101,7 @@ class Group(pulumi.CustomResource):
                  args: Optional[GroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+        This schema provides construct and validation rules for AWS-XRay Group resource parameters.
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +121,7 @@ class Group(pulumi.CustomResource):
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -182,36 +172,33 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+        The filter expression defining criteria by which to group traces.
         """
         return pulumi.get(self, "filter_expression")
 
     @property
     @pulumi.getter(name="groupARN")
     def group_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the group that was generated on creation.
+        """
         return pulumi.get(self, "group_arn")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+        The case-sensitive name of the new group. Names must be unique.
         """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="insightsConfiguration")
     def insights_configuration(self) -> pulumi.Output[Optional['outputs.GroupInsightsConfiguration']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        """
         return pulumi.get(self, "insights_configuration")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         return pulumi.get(self, "tags")
 

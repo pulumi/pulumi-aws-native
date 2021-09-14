@@ -22,11 +22,6 @@ class ServiceActionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]] definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-        :param pulumi.Input[str] definition_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-        :param pulumi.Input[str] accept_language: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "definition_type", definition_type)
@@ -39,9 +34,6 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -51,9 +43,6 @@ class ServiceActionArgs:
     @property
     @pulumi.getter(name="definitionType")
     def definition_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-        """
         return pulumi.get(self, "definition_type")
 
     @definition_type.setter
@@ -63,9 +52,6 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,9 +61,6 @@ class ServiceActionArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -87,9 +70,6 @@ class ServiceActionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -109,15 +89,10 @@ class ServiceAction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
+        Resource Schema for AWS::ServiceCatalog::ServiceAction
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accept_language: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]] definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-        :param pulumi.Input[str] definition_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
         """
         ...
     @overload
@@ -126,7 +101,7 @@ class ServiceAction(pulumi.CustomResource):
                  args: ServiceActionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
+        Resource Schema for AWS::ServiceCatalog::ServiceAction
 
         :param str resource_name: The name of the resource.
         :param ServiceActionArgs args: The arguments to use to populate this resource's properties.
@@ -171,7 +146,6 @@ class ServiceAction(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            __props__.__dict__["id"] = None
         super(ServiceAction, __self__).__init__(
             'aws-native:servicecatalog:ServiceAction',
             resource_name,
@@ -198,52 +172,31 @@ class ServiceAction(pulumi.CustomResource):
         __props__.__dict__["definition"] = None
         __props__.__dict__["definition_type"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         return ServiceAction(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-        """
         return pulumi.get(self, "accept_language")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Sequence['outputs.ServiceActionDefinitionParameter']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="definitionType")
     def definition_type(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-        """
         return pulumi.get(self, "definition_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-        """
         return pulumi.get(self, "name")
 

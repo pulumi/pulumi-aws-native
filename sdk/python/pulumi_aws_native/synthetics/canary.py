@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CanaryArgs', 'Canary']
@@ -27,24 +25,23 @@ class CanaryArgs:
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]] = None,
                  v_pc_config: Optional[pulumi.Input['CanaryVPCConfigArgs']] = None,
                  visual_reference: Optional[pulumi.Input['CanaryVisualReferenceArgs']] = None):
         """
         The set of arguments for constructing a Canary resource.
-        :param pulumi.Input[str] artifact_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
-        :param pulumi.Input['CanaryCodeArgs'] code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
-        :param pulumi.Input[str] runtime_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
-        :param pulumi.Input['CanaryScheduleArgs'] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
-        :param pulumi.Input[bool] start_canary_after_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-        :param pulumi.Input[int] failure_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
-        :param pulumi.Input['CanaryRunConfigArgs'] run_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-        :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        :param pulumi.Input['CanaryVPCConfigArgs'] v_pc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
-        :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
+        :param pulumi.Input['CanaryCodeArgs'] code: Provide the canary script source
+        :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
+        :param pulumi.Input[str] name: Name of the canary.
+        :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
+        :param pulumi.Input['CanaryScheduleArgs'] schedule: Frequency to run your canaries
+        :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
+        :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
+        :param pulumi.Input['CanaryRunConfigArgs'] run_config: Provide canary run configuration
+        :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
+        :param pulumi.Input['CanaryVPCConfigArgs'] v_pc_config: Provide VPC Configuration if enabled.
+        :param pulumi.Input['CanaryVisualReferenceArgs'] visual_reference: Visual reference configuration for visual testing
         """
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
         pulumi.set(__self__, "code", code)
@@ -70,7 +67,7 @@ class CanaryArgs:
     @pulumi.getter(name="artifactS3Location")
     def artifact_s3_location(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+        Provide the s3 bucket output location for test results
         """
         return pulumi.get(self, "artifact_s3_location")
 
@@ -82,7 +79,7 @@ class CanaryArgs:
     @pulumi.getter
     def code(self) -> pulumi.Input['CanaryCodeArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+        Provide the canary script source
         """
         return pulumi.get(self, "code")
 
@@ -94,7 +91,7 @@ class CanaryArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+        Lambda Execution role used to run your canaries
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -106,7 +103,7 @@ class CanaryArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+        Name of the canary.
         """
         return pulumi.get(self, "name")
 
@@ -118,7 +115,7 @@ class CanaryArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+        Runtime version of Synthetics Library
         """
         return pulumi.get(self, "runtime_version")
 
@@ -130,7 +127,7 @@ class CanaryArgs:
     @pulumi.getter
     def schedule(self) -> pulumi.Input['CanaryScheduleArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+        Frequency to run your canaries
         """
         return pulumi.get(self, "schedule")
 
@@ -142,7 +139,7 @@ class CanaryArgs:
     @pulumi.getter(name="startCanaryAfterCreation")
     def start_canary_after_creation(self) -> pulumi.Input[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+        Runs canary if set to True. Default is False
         """
         return pulumi.get(self, "start_canary_after_creation")
 
@@ -154,7 +151,7 @@ class CanaryArgs:
     @pulumi.getter(name="failureRetentionPeriod")
     def failure_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+        Retention period of failed canary runs represented in number of days
         """
         return pulumi.get(self, "failure_retention_period")
 
@@ -166,7 +163,7 @@ class CanaryArgs:
     @pulumi.getter(name="runConfig")
     def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+        Provide canary run configuration
         """
         return pulumi.get(self, "run_config")
 
@@ -178,7 +175,7 @@ class CanaryArgs:
     @pulumi.getter(name="successRetentionPeriod")
     def success_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+        Retention period of successful canary runs represented in number of days
         """
         return pulumi.get(self, "success_retention_period")
 
@@ -188,21 +185,18 @@ class CanaryArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vPCConfig")
     def v_pc_config(self) -> Optional[pulumi.Input['CanaryVPCConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        Provide VPC Configuration if enabled.
         """
         return pulumi.get(self, "v_pc_config")
 
@@ -214,7 +208,7 @@ class CanaryArgs:
     @pulumi.getter(name="visualReference")
     def visual_reference(self) -> Optional[pulumi.Input['CanaryVisualReferenceArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        Visual reference configuration for visual testing
         """
         return pulumi.get(self, "visual_reference")
 
@@ -238,28 +232,27 @@ class Canary(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTagArgs']]]]] = None,
                  v_pc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
                  visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
+        Resource Type definition for AWS::Synthetics::Canary
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] artifact_s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
-        :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
-        :param pulumi.Input[int] failure_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
-        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-        :param pulumi.Input[str] runtime_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
-        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
-        :param pulumi.Input[bool] start_canary_after_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
-        :param pulumi.Input[int] success_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] v_pc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
-        :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        :param pulumi.Input[str] artifact_s3_location: Provide the s3 bucket output location for test results
+        :param pulumi.Input[pulumi.InputType['CanaryCodeArgs']] code: Provide the canary script source
+        :param pulumi.Input[str] execution_role_arn: Lambda Execution role used to run your canaries
+        :param pulumi.Input[int] failure_retention_period: Retention period of failed canary runs represented in number of days
+        :param pulumi.Input[str] name: Name of the canary.
+        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: Provide canary run configuration
+        :param pulumi.Input[str] runtime_version: Runtime version of Synthetics Library
+        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Frequency to run your canaries
+        :param pulumi.Input[bool] start_canary_after_creation: Runs canary if set to True. Default is False
+        :param pulumi.Input[int] success_retention_period: Retention period of successful canary runs represented in number of days
+        :param pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']] v_pc_config: Provide VPC Configuration if enabled.
+        :param pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']] visual_reference: Visual reference configuration for visual testing
         """
         ...
     @overload
@@ -268,7 +261,7 @@ class Canary(pulumi.CustomResource):
                  args: CanaryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
+        Resource Type definition for AWS::Synthetics::Canary
 
         :param str resource_name: The name of the resource.
         :param CanaryArgs args: The arguments to use to populate this resource's properties.
@@ -295,7 +288,7 @@ class Canary(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
                  start_canary_after_creation: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTagArgs']]]]] = None,
                  v_pc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVPCConfigArgs']]] = None,
                  visual_reference: Optional[pulumi.Input[pulumi.InputType['CanaryVisualReferenceArgs']]] = None,
                  __props__=None):
@@ -337,7 +330,6 @@ class Canary(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_pc_config"] = v_pc_config
             __props__.__dict__["visual_reference"] = visual_reference
-            __props__.__dict__["id"] = None
             __props__.__dict__["state"] = None
         super(Canary, __self__).__init__(
             'aws-native:synthetics:Canary',
@@ -365,7 +357,6 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["code"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["failure_retention_period"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["run_config"] = None
         __props__.__dict__["runtime_version"] = None
@@ -382,7 +373,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="artifactS3Location")
     def artifact_s3_location(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+        Provide the s3 bucket output location for test results
         """
         return pulumi.get(self, "artifact_s3_location")
 
@@ -390,7 +381,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter
     def code(self) -> pulumi.Output['outputs.CanaryCode']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+        Provide the canary script source
         """
         return pulumi.get(self, "code")
 
@@ -398,7 +389,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+        Lambda Execution role used to run your canaries
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -406,20 +397,15 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="failureRetentionPeriod")
     def failure_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+        Retention period of failed canary runs represented in number of days
         """
         return pulumi.get(self, "failure_retention_period")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+        Name of the canary.
         """
         return pulumi.get(self, "name")
 
@@ -427,7 +413,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="runConfig")
     def run_config(self) -> pulumi.Output[Optional['outputs.CanaryRunConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+        Provide canary run configuration
         """
         return pulumi.get(self, "run_config")
 
@@ -435,7 +421,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+        Runtime version of Synthetics Library
         """
         return pulumi.get(self, "runtime_version")
 
@@ -443,7 +429,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output['outputs.CanarySchedule']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+        Frequency to run your canaries
         """
         return pulumi.get(self, "schedule")
 
@@ -451,36 +437,36 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="startCanaryAfterCreation")
     def start_canary_after_creation(self) -> pulumi.Output[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+        Runs canary if set to True. Default is False
         """
         return pulumi.get(self, "start_canary_after_creation")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        State of the canary
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="successRetentionPeriod")
     def success_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+        Retention period of successful canary runs represented in number of days
         """
         return pulumi.get(self, "success_retention_period")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CanaryTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vPCConfig")
     def v_pc_config(self) -> pulumi.Output[Optional['outputs.CanaryVPCConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+        Provide VPC Configuration if enabled.
         """
         return pulumi.get(self, "v_pc_config")
 
@@ -488,7 +474,7 @@ class Canary(pulumi.CustomResource):
     @pulumi.getter(name="visualReference")
     def visual_reference(self) -> pulumi.Output[Optional['outputs.CanaryVisualReference']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+        Visual reference configuration for visual testing
         """
         return pulumi.get(self, "visual_reference")
 

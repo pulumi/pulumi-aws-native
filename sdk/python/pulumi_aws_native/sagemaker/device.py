@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DeviceArgs', 'Device']
 
@@ -16,13 +16,13 @@ __all__ = ['DeviceArgs', 'Device']
 class DeviceArgs:
     def __init__(__self__, *,
                  device_fleet_name: pulumi.Input[str],
-                 device: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 device: Optional[pulumi.Input['DeviceDeviceArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Device resource.
-        :param pulumi.Input[str] device_fleet_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
-        :param pulumi.Input[Union[Any, str]] device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
+        :param pulumi.Input['DeviceDeviceArgs'] device: The Edge Device you want to register against a device fleet
+        :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: Associate tags with the resource
         """
         pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         if device is not None:
@@ -34,7 +34,7 @@ class DeviceArgs:
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        The name of the edge device fleet
         """
         return pulumi.get(self, "device_fleet_name")
 
@@ -44,26 +44,26 @@ class DeviceArgs:
 
     @property
     @pulumi.getter
-    def device(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def device(self) -> Optional[pulumi.Input['DeviceDeviceArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        The Edge Device you want to register against a device fleet
         """
         return pulumi.get(self, "device")
 
     @device.setter
-    def device(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def device(self, value: Optional[pulumi.Input['DeviceDeviceArgs']]):
         pulumi.set(self, "device", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        Associate tags with the resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -72,18 +72,18 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 device: Optional[pulumi.Input[pulumi.InputType['DeviceDeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+        Resource schema for AWS::SageMaker::Device
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-        :param pulumi.Input[str] device_fleet_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        :param pulumi.Input[pulumi.InputType['DeviceDeviceArgs']] device: The Edge Device you want to register against a device fleet
+        :param pulumi.Input[str] device_fleet_name: The name of the edge device fleet
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]] tags: Associate tags with the resource
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class Device(pulumi.CustomResource):
                  args: DeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+        Resource schema for AWS::SageMaker::Device
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -109,9 +109,9 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 device: Optional[pulumi.Input[pulumi.InputType['DeviceDeviceArgs']]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -158,9 +158,9 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def device(self) -> pulumi.Output[Optional[str]]:
+    def device(self) -> pulumi.Output[Optional['outputs.DeviceDevice']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        The Edge Device you want to register against a device fleet
         """
         return pulumi.get(self, "device")
 
@@ -168,15 +168,15 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="deviceFleetName")
     def device_fleet_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        The name of the edge device fleet
         """
         return pulumi.get(self, "device_fleet_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        Associate tags with the resource
         """
         return pulumi.get(self, "tags")
 

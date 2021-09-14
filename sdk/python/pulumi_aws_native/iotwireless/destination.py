@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DestinationArgs', 'Destination']
 
@@ -20,15 +20,15 @@ class DestinationArgs:
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
-        :param pulumi.Input[str] expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expression
-        :param pulumi.Input[str] expression_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expressiontype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-tags
+        :param pulumi.Input[str] expression: Destination expression
+        :param pulumi.Input[str] expression_type: Must be RuleName
+        :param pulumi.Input[str] name: Unique name of destination
+        :param pulumi.Input[str] role_arn: AWS role ARN that grants access
+        :param pulumi.Input[str] description: Destination description
+        :param pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "expression_type", expression_type)
@@ -43,7 +43,7 @@ class DestinationArgs:
     @pulumi.getter
     def expression(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expression
+        Destination expression
         """
         return pulumi.get(self, "expression")
 
@@ -55,7 +55,7 @@ class DestinationArgs:
     @pulumi.getter(name="expressionType")
     def expression_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expressiontype
+        Must be RuleName
         """
         return pulumi.get(self, "expression_type")
 
@@ -67,7 +67,7 @@ class DestinationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-name
+        Unique name of destination
         """
         return pulumi.get(self, "name")
 
@@ -79,7 +79,7 @@ class DestinationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
+        AWS role ARN that grants access
         """
         return pulumi.get(self, "role_arn")
 
@@ -91,7 +91,7 @@ class DestinationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-description
+        Destination description
         """
         return pulumi.get(self, "description")
 
@@ -101,14 +101,14 @@ class DestinationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-tags
+        A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,19 +122,19 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html
+        Destination's resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-description
-        :param pulumi.Input[str] expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expression
-        :param pulumi.Input[str] expression_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expressiontype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-tags
+        :param pulumi.Input[str] description: Destination description
+        :param pulumi.Input[str] expression: Destination expression
+        :param pulumi.Input[str] expression_type: Must be RuleName
+        :param pulumi.Input[str] name: Unique name of destination
+        :param pulumi.Input[str] role_arn: AWS role ARN that grants access
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         ...
     @overload
@@ -143,7 +143,7 @@ class Destination(pulumi.CustomResource):
                  args: DestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html
+        Destination's resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param DestinationArgs args: The arguments to use to populate this resource's properties.
@@ -165,7 +165,7 @@ class Destination(pulumi.CustomResource):
                  expression_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DestinationTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -227,13 +227,16 @@ class Destination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Destination arn. Returned after successful create.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-description
+        Destination description
         """
         return pulumi.get(self, "description")
 
@@ -241,7 +244,7 @@ class Destination(pulumi.CustomResource):
     @pulumi.getter
     def expression(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expression
+        Destination expression
         """
         return pulumi.get(self, "expression")
 
@@ -249,7 +252,7 @@ class Destination(pulumi.CustomResource):
     @pulumi.getter(name="expressionType")
     def expression_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-expressiontype
+        Must be RuleName
         """
         return pulumi.get(self, "expression_type")
 
@@ -257,7 +260,7 @@ class Destination(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-name
+        Unique name of destination
         """
         return pulumi.get(self, "name")
 
@@ -265,15 +268,15 @@ class Destination(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-rolearn
+        AWS role ARN that grants access
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DestinationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-destination.html#cfn-iotwireless-destination-tags
+        A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 

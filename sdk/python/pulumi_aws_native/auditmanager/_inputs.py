@@ -14,6 +14,7 @@ __all__ = [
     'AssessmentAssessmentReportsDestinationArgs',
     'AssessmentRoleArgs',
     'AssessmentScopeArgs',
+    'AssessmentTagArgs',
 ]
 
 @pulumi.input_type
@@ -23,10 +24,7 @@ class AssessmentAWSAccountArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
-        :param pulumi.Input[str] email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
+        The AWS account associated with the assessment.
         """
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -38,9 +36,6 @@ class AssessmentAWSAccountArgs:
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -50,9 +45,6 @@ class AssessmentAWSAccountArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -62,9 +54,6 @@ class AssessmentAWSAccountArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,8 +66,7 @@ class AssessmentAWSServiceArgs:
     def __init__(__self__, *,
                  service_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
-        :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
+        An AWS service such as Amazon S3, AWS CloudTrail, and so on.
         """
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
@@ -86,9 +74,6 @@ class AssessmentAWSServiceArgs:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -102,9 +87,7 @@ class AssessmentAssessmentReportsDestinationArgs:
                  destination: Optional[pulumi.Input[str]] = None,
                  destination_type: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-        :param pulumi.Input[str] destination_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
+        The destination in which evidence reports are stored for the specified assessment.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -114,9 +97,6 @@ class AssessmentAssessmentReportsDestinationArgs:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -126,9 +106,6 @@ class AssessmentAssessmentReportsDestinationArgs:
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
-        """
         return pulumi.get(self, "destination_type")
 
     @destination_type.setter
@@ -142,9 +119,7 @@ class AssessmentRoleArgs:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  role_type: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-        :param pulumi.Input[str] role_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+        The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
         """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -154,9 +129,6 @@ class AssessmentRoleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -166,9 +138,6 @@ class AssessmentRoleArgs:
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
-        """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
@@ -182,9 +151,9 @@ class AssessmentScopeArgs:
                  aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]] = None,
                  aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]] aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]] aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]] aws_accounts: The AWS accounts included in scope.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]] aws_services: The AWS services included in scope.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -195,7 +164,7 @@ class AssessmentScopeArgs:
     @pulumi.getter(name="awsAccounts")
     def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSAccountArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+        The AWS accounts included in scope.
         """
         return pulumi.get(self, "aws_accounts")
 
@@ -207,12 +176,50 @@ class AssessmentScopeArgs:
     @pulumi.getter(name="awsServices")
     def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        The AWS services included in scope.
         """
         return pulumi.get(self, "aws_services")
 
     @aws_services.setter
     def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentAWSServiceArgs']]]]):
         pulumi.set(self, "aws_services", value)
+
+
+@pulumi.input_type
+class AssessmentTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

@@ -9,3 +9,5 @@ from .application import *
 from .attribute_group import *
 from .attribute_group_association import *
 from .resource_association import *
+from ._inputs import *
+from . import outputs

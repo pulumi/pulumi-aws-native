@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FirewallRuleGroupArgs', 'FirewallRuleGroup']
@@ -19,12 +17,12 @@ class FirewallRuleGroupArgs:
     def __init__(__self__, *,
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallRuleGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]] firewall_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]] firewall_rules: FirewallRules
+        :param pulumi.Input[str] name: FirewallRuleGroupName
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupTagArgs']]] tags: Tags
         """
         if firewall_rules is not None:
             pulumi.set(__self__, "firewall_rules", firewall_rules)
@@ -37,7 +35,7 @@ class FirewallRuleGroupArgs:
     @pulumi.getter(name="firewallRules")
     def firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+        FirewallRules
         """
         return pulumi.get(self, "firewall_rules")
 
@@ -49,7 +47,7 @@ class FirewallRuleGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+        FirewallRuleGroupName
         """
         return pulumi.get(self, "name")
 
@@ -59,14 +57,14 @@ class FirewallRuleGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -77,16 +75,16 @@ class FirewallRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+        Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]] firewall_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]] firewall_rules: FirewallRules
+        :param pulumi.Input[str] name: FirewallRuleGroupName
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupTagArgs']]]] tags: Tags
         """
         ...
     @overload
@@ -95,7 +93,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
                  args: Optional[FirewallRuleGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+        Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleGroupArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +112,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupFirewallRuleArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -133,7 +131,6 @@ class FirewallRuleGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["modification_time"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["rule_count"] = None
@@ -166,7 +163,6 @@ class FirewallRuleGroup(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["firewall_rules"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["modification_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner_id"] = None
@@ -180,74 +176,96 @@ class FirewallRuleGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Arn
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> pulumi.Output[str]:
+        """
+        The id of the creator request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
     @pulumi.getter(name="firewallRules")
     def firewall_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallRuleGroupFirewallRule']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+        FirewallRules
         """
         return pulumi.get(self, "firewall_rules")
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+        FirewallRuleGroupName
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        AccountId
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="ruleCount")
     def rule_count(self) -> pulumi.Output[int]:
+        """
+        Count
+        """
         return pulumi.get(self, "rule_count")
 
     @property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[str]:
+        """
+        ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+        """
         return pulumi.get(self, "share_status")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        FirewallRuleGroupStatus
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallRuleGroupTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 

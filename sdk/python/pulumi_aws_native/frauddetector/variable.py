@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VariableArgs', 'Variable']
 
@@ -20,17 +20,17 @@ class VariableArgs:
                  default_value: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Variable resource.
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datasource
-        :param pulumi.Input[str] data_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datatype
-        :param pulumi.Input[str] default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-defaultvalue
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-tags
-        :param pulumi.Input[str] variable_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-variabletype
+        :param pulumi.Input[str] data_source: The source of the data.
+        :param pulumi.Input[str] data_type: The data type.
+        :param pulumi.Input[str] default_value: The default value for the variable when no value is received.
+        :param pulumi.Input[str] name: The name of the variable.
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]] tags: Tags associated with this variable.
+        :param pulumi.Input[str] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "data_type", data_type)
@@ -47,7 +47,7 @@ class VariableArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datasource
+        The source of the data.
         """
         return pulumi.get(self, "data_source")
 
@@ -59,7 +59,7 @@ class VariableArgs:
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datatype
+        The data type.
         """
         return pulumi.get(self, "data_type")
 
@@ -71,7 +71,7 @@ class VariableArgs:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-defaultvalue
+        The default value for the variable when no value is received.
         """
         return pulumi.get(self, "default_value")
 
@@ -83,7 +83,7 @@ class VariableArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-name
+        The name of the variable.
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +95,7 @@ class VariableArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-description
+        The description.
         """
         return pulumi.get(self, "description")
 
@@ -105,21 +105,21 @@ class VariableArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-tags
+        Tags associated with this variable.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="variableType")
     def variable_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-variabletype
+        The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         return pulumi.get(self, "variable_type")
 
@@ -138,21 +138,21 @@ class Variable(pulumi.CustomResource):
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html
+        A resource schema for a Variable in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datasource
-        :param pulumi.Input[str] data_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datatype
-        :param pulumi.Input[str] default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-defaultvalue
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-tags
-        :param pulumi.Input[str] variable_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-variabletype
+        :param pulumi.Input[str] data_source: The source of the data.
+        :param pulumi.Input[str] data_type: The data type.
+        :param pulumi.Input[str] default_value: The default value for the variable when no value is received.
+        :param pulumi.Input[str] description: The description.
+        :param pulumi.Input[str] name: The name of the variable.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]] tags: Tags associated with this variable.
+        :param pulumi.Input[str] variable_type: The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         ...
     @overload
@@ -161,7 +161,7 @@ class Variable(pulumi.CustomResource):
                  args: VariableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html
+        A resource schema for a Variable in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class Variable(pulumi.CustomResource):
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableTagArgs']]]]] = None,
                  variable_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -252,18 +252,24 @@ class Variable(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the variable.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the variable was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datasource
+        The source of the data.
         """
         return pulumi.get(self, "data_source")
 
@@ -271,7 +277,7 @@ class Variable(pulumi.CustomResource):
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-datatype
+        The data type.
         """
         return pulumi.get(self, "data_type")
 
@@ -279,7 +285,7 @@ class Variable(pulumi.CustomResource):
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-defaultvalue
+        The default value for the variable when no value is received.
         """
         return pulumi.get(self, "default_value")
 
@@ -287,28 +293,31 @@ class Variable(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        The time when the variable was last updated.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-name
+        The name of the variable.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VariableTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-tags
+        Tags associated with this variable.
         """
         return pulumi.get(self, "tags")
 
@@ -316,7 +325,7 @@ class Variable(pulumi.CustomResource):
     @pulumi.getter(name="variableType")
     def variable_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-variable.html#cfn-frauddetector-variable-variabletype
+        The variable type. For more information see https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types
         """
         return pulumi.get(self, "variable_type")
 

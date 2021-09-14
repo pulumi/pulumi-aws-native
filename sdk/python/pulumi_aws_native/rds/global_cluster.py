@@ -21,12 +21,14 @@ class GlobalClusterArgs:
                  storage_encrypted: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GlobalCluster resource.
-        :param pulumi.Input[bool] deletion_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
-        :param pulumi.Input[str] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
-        :param pulumi.Input[str] global_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
-        :param pulumi.Input[str] source_db_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
-        :param pulumi.Input[bool] storage_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+               If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
+        :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
+        :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
+               If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -45,7 +47,7 @@ class GlobalClusterArgs:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+        The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -57,7 +59,8 @@ class GlobalClusterArgs:
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+        The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "engine")
 
@@ -69,7 +72,7 @@ class GlobalClusterArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+        The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "engine_version")
 
@@ -81,7 +84,7 @@ class GlobalClusterArgs:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+        The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -93,7 +96,7 @@ class GlobalClusterArgs:
     @pulumi.getter(name="sourceDBClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+        The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "source_db_cluster_identifier")
 
@@ -105,7 +108,8 @@ class GlobalClusterArgs:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+         The storage encryption setting for the new global database cluster.
+        If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -127,16 +131,18 @@ class GlobalCluster(pulumi.CustomResource):
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+        Resource Type definition for AWS::RDS::GlobalCluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] deletion_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
-        :param pulumi.Input[str] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
-        :param pulumi.Input[str] global_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
-        :param pulumi.Input[str] source_db_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
-        :param pulumi.Input[bool] storage_encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        :param pulumi.Input[bool] deletion_protection: The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
+        :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+               If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] engine_version: The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
+        :param pulumi.Input[str] global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
+        :param pulumi.Input[str] source_db_cluster_identifier: The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
+        :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
+               If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         ...
     @overload
@@ -145,7 +151,7 @@ class GlobalCluster(pulumi.CustomResource):
                  args: Optional[GlobalClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+        Resource Type definition for AWS::RDS::GlobalCluster
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +226,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+        The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -228,7 +234,8 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+        The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "engine")
 
@@ -236,7 +243,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+        The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "engine_version")
 
@@ -244,7 +251,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+        The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -252,7 +259,7 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="sourceDBClusterIdentifier")
     def source_db_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+        The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "source_db_cluster_identifier")
 
@@ -260,7 +267,8 @@ class GlobalCluster(pulumi.CustomResource):
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+         The storage encryption setting for the new global database cluster.
+        If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
         return pulumi.get(self, "storage_encrypted")
 

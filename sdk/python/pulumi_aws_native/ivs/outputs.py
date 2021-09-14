@@ -10,36 +10,74 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ChannelTag',
+    'PlaybackKeyPairTag',
     'RecordingConfigurationDestinationConfiguration',
     'RecordingConfigurationS3DestinationConfiguration',
+    'RecordingConfigurationTag',
+    'StreamKeyTag',
 ]
+
+@pulumi.output_type
+class ChannelTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PlaybackKeyPairTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class RecordingConfigurationDestinationConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+    Recording Destination Configuration.
     """
     def __init__(__self__, *,
                  s3: 'outputs.RecordingConfigurationS3DestinationConfiguration'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
-        :param 'RecordingConfigurationS3DestinationConfiguration' s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
+        Recording Destination Configuration.
         """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> 'outputs.RecordingConfigurationS3DestinationConfiguration':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
-        """
         return pulumi.get(self, "s3")
 
 
 @pulumi.output_type
 class RecordingConfigurationS3DestinationConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+    Recording S3 Destination Configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -61,17 +99,51 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
     def __init__(__self__, *,
                  bucket_name: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
-        :param str bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
+        Recording S3 Destination Configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
-        """
         return pulumi.get(self, "bucket_name")
+
+
+@pulumi.output_type
+class RecordingConfigurationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class StreamKeyTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

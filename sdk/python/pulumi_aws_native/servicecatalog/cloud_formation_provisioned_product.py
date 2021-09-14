@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CloudFormationProvisionedProductArgs', 'CloudFormationProvisionedProduct']
@@ -28,21 +26,9 @@ class CloudFormationProvisionedProductArgs:
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]] = None,
                  provisioning_preferences: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductTagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudFormationProvisionedProduct resource.
-        :param pulumi.Input[str] accept_language: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-        :param pulumi.Input[str] path_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-        :param pulumi.Input[str] path_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-        :param pulumi.Input[str] product_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-        :param pulumi.Input[str] product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-        :param pulumi.Input[str] provisioned_product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-        :param pulumi.Input[str] provisioning_artifact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-        :param pulumi.Input[str] provisioning_artifact_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-        :param pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-        :param pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs'] provisioning_preferences: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -72,9 +58,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -84,9 +67,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-        """
         return pulumi.get(self, "notification_arns")
 
     @notification_arns.setter
@@ -96,9 +76,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-        """
         return pulumi.get(self, "path_id")
 
     @path_id.setter
@@ -108,9 +85,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="pathName")
     def path_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-        """
         return pulumi.get(self, "path_name")
 
     @path_name.setter
@@ -120,9 +94,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -132,9 +103,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="productName")
     def product_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-        """
         return pulumi.get(self, "product_name")
 
     @product_name.setter
@@ -144,9 +112,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisionedProductName")
     def provisioned_product_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-        """
         return pulumi.get(self, "provisioned_product_name")
 
     @provisioned_product_name.setter
@@ -156,9 +121,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -168,9 +130,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @provisioning_artifact_name.setter
@@ -180,9 +139,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-        """
         return pulumi.get(self, "provisioning_parameters")
 
     @provisioning_parameters.setter
@@ -192,9 +148,6 @@ class CloudFormationProvisionedProductArgs:
     @property
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-        """
         return pulumi.get(self, "provisioning_preferences")
 
     @provisioning_preferences.setter
@@ -203,14 +156,11 @@ class CloudFormationProvisionedProductArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -230,25 +180,13 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]]] = None,
                  provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
+        Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accept_language: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-        :param pulumi.Input[str] path_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-        :param pulumi.Input[str] path_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-        :param pulumi.Input[str] product_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-        :param pulumi.Input[str] product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-        :param pulumi.Input[str] provisioned_product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-        :param pulumi.Input[str] provisioning_artifact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-        :param pulumi.Input[str] provisioning_artifact_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-        :param pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']] provisioning_preferences: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
         """
         ...
     @overload
@@ -257,7 +195,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  args: Optional[CloudFormationProvisionedProductArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
+        Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
         :param str resource_name: The name of the resource.
         :param CloudFormationProvisionedProductArgs args: The arguments to use to populate this resource's properties.
@@ -285,7 +223,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
                  provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]]] = None,
                  provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -311,6 +249,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_preferences"] = provisioning_preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloudformation_stack_arn"] = None
+            __props__.__dict__["outputs"] = None
             __props__.__dict__["provisioned_product_id"] = None
             __props__.__dict__["record_id"] = None
         super(CloudFormationProvisionedProduct, __self__).__init__(
@@ -338,6 +277,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         __props__.__dict__["accept_language"] = None
         __props__.__dict__["cloudformation_stack_arn"] = None
         __props__.__dict__["notification_arns"] = None
+        __props__.__dict__["outputs"] = None
         __props__.__dict__["path_id"] = None
         __props__.__dict__["path_name"] = None
         __props__.__dict__["product_id"] = None
@@ -355,9 +295,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-        """
         return pulumi.get(self, "accept_language")
 
     @property
@@ -368,41 +305,34 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-        """
         return pulumi.get(self, "notification_arns")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> pulumi.Output[Any]:
+        """
+        List of key-value pair outputs.
+        """
+        return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter(name="pathId")
     def path_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-        """
         return pulumi.get(self, "path_id")
 
     @property
     @pulumi.getter(name="pathName")
     def path_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-        """
         return pulumi.get(self, "path_name")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-        """
         return pulumi.get(self, "product_name")
 
     @property
@@ -413,41 +343,26 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisionedProductName")
     def provisioned_product_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-        """
         return pulumi.get(self, "provisioned_product_name")
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactName")
     def provisioning_artifact_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-        """
         return pulumi.get(self, "provisioning_artifact_name")
 
     @property
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-        """
         return pulumi.get(self, "provisioning_parameters")
 
     @property
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> pulumi.Output[Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-        """
         return pulumi.get(self, "provisioning_preferences")
 
     @property
@@ -457,9 +372,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProvisionedProductTag']]]:
         return pulumi.get(self, "tags")
 

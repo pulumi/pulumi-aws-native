@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['IPSetArgs', 'IPSet']
 
@@ -20,15 +20,10 @@ class IPSetArgs:
                  scope: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a IPSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-        :param pulumi.Input[str] i_p_address_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        :param pulumi.Input[str] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
         """
         pulumi.set(__self__, "addresses", addresses)
         pulumi.set(__self__, "i_p_address_version", i_p_address_version)
@@ -44,7 +39,7 @@ class IPSetArgs:
     @pulumi.getter
     def addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
+        List of IPAddresses.
         """
         return pulumi.get(self, "addresses")
 
@@ -55,9 +50,6 @@ class IPSetArgs:
     @property
     @pulumi.getter(name="iPAddressVersion")
     def i_p_address_version(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        """
         return pulumi.get(self, "i_p_address_version")
 
     @i_p_address_version.setter
@@ -67,9 +59,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        """
         return pulumi.get(self, "scope")
 
     @scope.setter
@@ -79,9 +68,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,9 +77,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,14 +85,11 @@ class IPSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPSetTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPSetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -123,19 +103,14 @@ class IPSet(pulumi.CustomResource):
                  i_p_address_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
+        Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        :param pulumi.Input[str] i_p_address_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        :param pulumi.Input[str] scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of IPAddresses.
         """
         ...
     @overload
@@ -144,7 +119,7 @@ class IPSet(pulumi.CustomResource):
                  args: IPSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
+        Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 
         :param str resource_name: The name of the resource.
         :param IPSetArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +141,7 @@ class IPSet(pulumi.CustomResource):
                  i_p_address_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IPSetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -192,7 +167,6 @@ class IPSet(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(IPSet, __self__).__init__(
             'aws-native:wafv2:IPSet',
             resource_name,
@@ -219,7 +193,6 @@ class IPSet(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["i_p_address_version"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
@@ -229,7 +202,7 @@ class IPSet(pulumi.CustomResource):
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
+        List of IPAddresses.
         """
         return pulumi.get(self, "addresses")
 
@@ -241,45 +214,25 @@ class IPSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="iPAddressVersion")
     def i_p_address_version(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-        """
         return pulumi.get(self, "i_p_address_version")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def scope(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-        """
         return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IPSetTag']]]:
         return pulumi.get(self, "tags")
 

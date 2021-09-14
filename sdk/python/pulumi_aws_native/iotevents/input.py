@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['InputArgs', 'Input']
@@ -20,13 +18,14 @@ class InputArgs:
                  input_definition: pulumi.Input['InputInputDefinitionArgs'],
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]] = None):
         """
         The set of arguments for constructing a Input resource.
-        :param pulumi.Input['InputInputDefinitionArgs'] input_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-        :param pulumi.Input[str] input_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
-        :param pulumi.Input[str] input_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
+        :param pulumi.Input[str] input_description: A brief description of the input.
+        :param pulumi.Input[str] input_name: The name of the input.
+        :param pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         pulumi.set(__self__, "input_definition", input_definition)
         if input_description is not None:
@@ -39,9 +38,6 @@ class InputArgs:
     @property
     @pulumi.getter(name="inputDefinition")
     def input_definition(self) -> pulumi.Input['InputInputDefinitionArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-        """
         return pulumi.get(self, "input_definition")
 
     @input_definition.setter
@@ -52,7 +48,7 @@ class InputArgs:
     @pulumi.getter(name="inputDescription")
     def input_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
+        A brief description of the input.
         """
         return pulumi.get(self, "input_description")
 
@@ -64,7 +60,7 @@ class InputArgs:
     @pulumi.getter(name="inputName")
     def input_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
+        The name of the input.
         """
         return pulumi.get(self, "input_name")
 
@@ -74,14 +70,16 @@ class InputArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,17 +91,18 @@ class Input(pulumi.CustomResource):
                  input_definition: Optional[pulumi.Input[pulumi.InputType['InputInputDefinitionArgs']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
+        The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InputInputDefinitionArgs']] input_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-        :param pulumi.Input[str] input_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
-        :param pulumi.Input[str] input_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
+        :param pulumi.Input[str] input_description: A brief description of the input.
+        :param pulumi.Input[str] input_name: The name of the input.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         ...
     @overload
@@ -112,7 +111,7 @@ class Input(pulumi.CustomResource):
                  args: InputArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html
+        The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param InputArgs args: The arguments to use to populate this resource's properties.
@@ -132,7 +131,7 @@ class Input(pulumi.CustomResource):
                  input_definition: Optional[pulumi.Input[pulumi.InputType['InputInputDefinitionArgs']]] = None,
                  input_description: Optional[pulumi.Input[str]] = None,
                  input_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -182,16 +181,13 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inputDefinition")
     def input_definition(self) -> pulumi.Output['outputs.InputInputDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdefinition
-        """
         return pulumi.get(self, "input_definition")
 
     @property
     @pulumi.getter(name="inputDescription")
     def input_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputdescription
+        A brief description of the input.
         """
         return pulumi.get(self, "input_description")
 
@@ -199,15 +195,17 @@ class Input(pulumi.CustomResource):
     @pulumi.getter(name="inputName")
     def input_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-inputname
+        The name of the input.
         """
         return pulumi.get(self, "input_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InputTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html#cfn-iotevents-input-tags
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         return pulumi.get(self, "tags")
 

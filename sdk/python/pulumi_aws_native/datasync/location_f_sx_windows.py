@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LocationFSxWindowsArgs', 'LocationFSxWindows']
 
@@ -21,16 +21,16 @@ class LocationFSxWindowsArgs:
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxWindows resource.
-        :param pulumi.Input[str] fsx_filesystem_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
-        :param pulumi.Input[str] user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
-        :param pulumi.Input[str] domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
+        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
+        :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
+        :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         pulumi.set(__self__, "password", password)
@@ -47,7 +47,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
+        The Amazon Resource Name (ARN) for the FSx for Windows file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
@@ -59,7 +59,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
+        The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "password")
 
@@ -71,7 +71,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
+        The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -83,7 +83,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter
     def user(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
+        The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "user")
 
@@ -95,7 +95,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
+        The name of the Windows domain that the FSx for Windows server belongs to.
         """
         return pulumi.get(self, "domain")
 
@@ -107,7 +107,7 @@ class LocationFSxWindowsArgs:
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
+        A subdirectory in the location's path.
         """
         return pulumi.get(self, "subdirectory")
 
@@ -117,14 +117,14 @@ class LocationFSxWindowsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -138,21 +138,21 @@ class LocationFSxWindows(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
+        Resource schema for AWS::DataSync::LocationFSxWindows.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
-        :param pulumi.Input[str] fsx_filesystem_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
-        :param pulumi.Input[str] user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
+        :param pulumi.Input[str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
+        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
+        :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         ...
     @overload
@@ -161,7 +161,7 @@ class LocationFSxWindows(pulumi.CustomResource):
                  args: LocationFSxWindowsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
+        Resource schema for AWS::DataSync::LocationFSxWindows.
 
         :param str resource_name: The name of the resource.
         :param LocationFSxWindowsArgs args: The arguments to use to populate this resource's properties.
@@ -183,7 +183,7 @@ class LocationFSxWindows(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationFSxWindowsTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -251,7 +251,7 @@ class LocationFSxWindows(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
+        The name of the Windows domain that the FSx for Windows server belongs to.
         """
         return pulumi.get(self, "domain")
 
@@ -259,25 +259,31 @@ class LocationFSxWindows(pulumi.CustomResource):
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
+        The Amazon Resource Name (ARN) for the FSx for Windows file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
+        """
+        The URL of the FSx for Windows location that was described.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
+        The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "password")
 
@@ -285,7 +291,7 @@ class LocationFSxWindows(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
+        The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -293,15 +299,15 @@ class LocationFSxWindows(pulumi.CustomResource):
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
+        A subdirectory in the location's path.
         """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationFSxWindowsTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -309,7 +315,7 @@ class LocationFSxWindows(pulumi.CustomResource):
     @pulumi.getter
     def user(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
+        The user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "user")
 

@@ -22,7 +22,7 @@ __all__ = [
 @pulumi.output_type
 class FlowEncryption(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html
+    Information about the encryption of the flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -62,16 +62,16 @@ class FlowEncryption(dict):
                  secret_arn: Optional[str] = None,
                  url: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html
-        :param str algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-algorithm
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-rolearn
-        :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-constantinitializationvector
-        :param str device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-deviceid
-        :param str key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-keytype
-        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-region
-        :param str resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-resourceid
-        :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-secretarn
-        :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-url
+        Information about the encryption of the flow.
+        :param str algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        :param str device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param str region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param str url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -94,7 +94,7 @@ class FlowEncryption(dict):
     @pulumi.getter
     def algorithm(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-algorithm
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
@@ -102,7 +102,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-rolearn
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
 
@@ -110,7 +110,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-constantinitializationvector
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -118,7 +118,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-deviceid
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "device_id")
 
@@ -126,7 +126,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-keytype
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
@@ -134,7 +134,7 @@ class FlowEncryption(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-region
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "region")
 
@@ -142,7 +142,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-resourceid
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "resource_id")
 
@@ -150,7 +150,7 @@ class FlowEncryption(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-secretarn
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -158,7 +158,7 @@ class FlowEncryption(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html#cfn-mediaconnect-flow-encryption-url
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
 
@@ -166,7 +166,7 @@ class FlowEncryption(dict):
 @pulumi.output_type
 class FlowEntitlementEncryption(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html
+    Information about the encryption of the flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -206,16 +206,16 @@ class FlowEntitlementEncryption(dict):
                  secret_arn: Optional[str] = None,
                  url: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html
-        :param str algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-algorithm
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-rolearn
-        :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-constantinitializationvector
-        :param str device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-deviceid
-        :param str key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-keytype
-        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-region
-        :param str resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-resourceid
-        :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-secretarn
-        :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-url
+        Information about the encryption of the flow.
+        :param str algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        :param str device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param str region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param str url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -238,7 +238,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter
     def algorithm(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-algorithm
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
@@ -246,7 +246,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-rolearn
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
 
@@ -254,7 +254,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-constantinitializationvector
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -262,7 +262,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-deviceid
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "device_id")
 
@@ -270,7 +270,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-keytype
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
@@ -278,7 +278,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-region
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "region")
 
@@ -286,7 +286,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-resourceid
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "resource_id")
 
@@ -294,7 +294,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-secretarn
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -302,7 +302,7 @@ class FlowEntitlementEncryption(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-encryption.html#cfn-mediaconnect-flowentitlement-encryption-url
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
 
@@ -310,7 +310,7 @@ class FlowEntitlementEncryption(dict):
 @pulumi.output_type
 class FlowFailoverConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html
+    The settings for source failover
     """
     @staticmethod
     def __key_warning(key: str):
@@ -333,9 +333,8 @@ class FlowFailoverConfig(dict):
                  recovery_window: Optional[int] = None,
                  state: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html
-        :param int recovery_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow
-        :param str state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-state
+        The settings for source failover
+        :param int recovery_window: Search window time to look for dash-7 packets
         """
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
@@ -346,23 +345,20 @@ class FlowFailoverConfig(dict):
     @pulumi.getter(name="recoveryWindow")
     def recovery_window(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow
+        Search window time to look for dash-7 packets
         """
         return pulumi.get(self, "recovery_window")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-state
-        """
         return pulumi.get(self, "state")
 
 
 @pulumi.output_type
 class FlowOutputEncryption(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html
+    Information about the encryption of the flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -391,11 +387,11 @@ class FlowOutputEncryption(dict):
                  secret_arn: str,
                  key_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html
-        :param str algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-algorithm
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-rolearn
-        :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-secretarn
-        :param str key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-keytype
+        Information about the encryption of the flow.
+        :param str algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param str key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -407,7 +403,7 @@ class FlowOutputEncryption(dict):
     @pulumi.getter
     def algorithm(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-algorithm
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
@@ -415,7 +411,7 @@ class FlowOutputEncryption(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-rolearn
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
 
@@ -423,7 +419,7 @@ class FlowOutputEncryption(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-secretarn
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -431,7 +427,7 @@ class FlowOutputEncryption(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html#cfn-mediaconnect-flowoutput-encryption-keytype
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
@@ -439,7 +435,7 @@ class FlowOutputEncryption(dict):
 @pulumi.output_type
 class FlowOutputVpcInterfaceAttachment(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
+    The settings for attaching a VPC interface to an output.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -461,8 +457,8 @@ class FlowOutputVpcInterfaceAttachment(dict):
     def __init__(__self__, *,
                  vpc_interface_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
-        :param str vpc_interface_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
+        The settings for attaching a VPC interface to an output.
+        :param str vpc_interface_name: The name of the VPC interface to use for this output.
         """
         if vpc_interface_name is not None:
             pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
@@ -471,7 +467,7 @@ class FlowOutputVpcInterfaceAttachment(dict):
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
+        The name of the VPC interface to use for this output.
         """
         return pulumi.get(self, "vpc_interface_name")
 
@@ -479,7 +475,7 @@ class FlowOutputVpcInterfaceAttachment(dict):
 @pulumi.output_type
 class FlowSource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html
+    The settings for the source of the flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -529,20 +525,20 @@ class FlowSource(dict):
                  vpc_interface_name: Optional[str] = None,
                  whitelist_cidr: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html
-        :param 'FlowEncryption' decryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-decryption
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-description
-        :param str entitlement_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-entitlementarn
-        :param str ingest_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ingestip
-        :param int ingest_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ingestport
-        :param int max_bitrate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxbitrate
-        :param int max_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxlatency
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-name
-        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-protocol
-        :param str source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sourcearn
-        :param str stream_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-streamid
-        :param str vpc_interface_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-vpcinterfacename
-        :param str whitelist_cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-whitelistcidr
+        The settings for the source of the flow.
+        :param 'FlowEncryption' decryption: The type of encryption that is used on the content ingested from this source.
+        :param str description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+        :param str entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+        :param str ingest_ip: The IP address that the flow will be listening on for incoming content.
+        :param int ingest_port: The port that the flow will be listening on for incoming content.
+        :param int max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+        :param int max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param str name: The name of the source.
+        :param str protocol: The protocol that is used by the source or output.
+        :param str source_arn: The ARN of the source.
+        :param str stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param str vpc_interface_name: The name of the VPC Interface this Source is configured with.
+        :param str whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         if decryption is not None:
             pulumi.set(__self__, "decryption", decryption)
@@ -575,7 +571,7 @@ class FlowSource(dict):
     @pulumi.getter
     def decryption(self) -> Optional['outputs.FlowEncryption']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-decryption
+        The type of encryption that is used on the content ingested from this source.
         """
         return pulumi.get(self, "decryption")
 
@@ -583,7 +579,7 @@ class FlowSource(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-description
+        A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         """
         return pulumi.get(self, "description")
 
@@ -591,7 +587,7 @@ class FlowSource(dict):
     @pulumi.getter(name="entitlementArn")
     def entitlement_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-entitlementarn
+        The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         """
         return pulumi.get(self, "entitlement_arn")
 
@@ -599,7 +595,7 @@ class FlowSource(dict):
     @pulumi.getter(name="ingestIp")
     def ingest_ip(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ingestip
+        The IP address that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_ip")
 
@@ -607,7 +603,7 @@ class FlowSource(dict):
     @pulumi.getter(name="ingestPort")
     def ingest_port(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-ingestport
+        The port that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_port")
 
@@ -615,7 +611,7 @@ class FlowSource(dict):
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxbitrate
+        The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -623,7 +619,7 @@ class FlowSource(dict):
     @pulumi.getter(name="maxLatency")
     def max_latency(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-maxlatency
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
@@ -631,7 +627,7 @@ class FlowSource(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-name
+        The name of the source.
         """
         return pulumi.get(self, "name")
 
@@ -639,7 +635,7 @@ class FlowSource(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-protocol
+        The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
@@ -647,7 +643,7 @@ class FlowSource(dict):
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-sourcearn
+        The ARN of the source.
         """
         return pulumi.get(self, "source_arn")
 
@@ -655,7 +651,7 @@ class FlowSource(dict):
     @pulumi.getter(name="streamId")
     def stream_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-streamid
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
@@ -663,7 +659,7 @@ class FlowSource(dict):
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-vpcinterfacename
+        The name of the VPC Interface this Source is configured with.
         """
         return pulumi.get(self, "vpc_interface_name")
 
@@ -671,7 +667,7 @@ class FlowSource(dict):
     @pulumi.getter(name="whitelistCidr")
     def whitelist_cidr(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-whitelistcidr
+        The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "whitelist_cidr")
 
@@ -679,7 +675,7 @@ class FlowSource(dict):
 @pulumi.output_type
 class FlowSourceEncryption(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html
+    Information about the encryption of the flow.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -719,16 +715,16 @@ class FlowSourceEncryption(dict):
                  secret_arn: Optional[str] = None,
                  url: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html
-        :param str algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-algorithm
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-rolearn
-        :param str constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-constantinitializationvector
-        :param str device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-deviceid
-        :param str key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-keytype
-        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-region
-        :param str resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-resourceid
-        :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-secretarn
-        :param str url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-url
+        Information about the encryption of the flow.
+        :param str algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param str role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param str constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        :param str device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param str region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param str secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param str url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -751,7 +747,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter
     def algorithm(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-algorithm
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
@@ -759,7 +755,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-rolearn
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         """
         return pulumi.get(self, "role_arn")
 
@@ -767,7 +763,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-constantinitializationvector
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -775,7 +771,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-deviceid
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "device_id")
 
@@ -783,7 +779,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="keyType")
     def key_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-keytype
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
@@ -791,7 +787,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-region
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "region")
 
@@ -799,7 +795,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-resourceid
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "resource_id")
 
@@ -807,7 +803,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-secretarn
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -815,7 +811,7 @@ class FlowSourceEncryption(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html#cfn-mediaconnect-flowsource-encryption-url
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
 

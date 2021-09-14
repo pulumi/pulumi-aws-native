@@ -20,9 +20,7 @@ class PolicyIEMapArgs:
                  a_ccount: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  o_rgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] a_ccount: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_rgunit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
+        An FMS includeMap or excludeMap.
         """
         if a_ccount is not None:
             pulumi.set(__self__, "a_ccount", a_ccount)
@@ -32,9 +30,6 @@ class PolicyIEMapArgs:
     @property
     @pulumi.getter(name="aCCOUNT")
     def a_ccount(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        """
         return pulumi.get(self, "a_ccount")
 
     @a_ccount.setter
@@ -44,9 +39,6 @@ class PolicyIEMapArgs:
     @property
     @pulumi.getter(name="oRGUNIT")
     def o_rgunit(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
-        """
         return pulumi.get(self, "o_rgunit")
 
     @o_rgunit.setter
@@ -60,9 +52,7 @@ class PolicyPolicyTagArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+        A policy tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -70,9 +60,6 @@ class PolicyPolicyTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -82,9 +69,6 @@ class PolicyPolicyTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -98,9 +82,7 @@ class PolicyResourceTagArgs:
                  key: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+        A resource tag.
         """
         pulumi.set(__self__, "key", key)
         if value is not None:
@@ -109,9 +91,6 @@ class PolicyResourceTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -121,9 +100,6 @@ class PolicyResourceTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -13,13 +13,14 @@ __all__ = [
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectQuickConnectConfig',
+    'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
 ]
 
 @pulumi.output_type
 class QuickConnectPhoneNumberQuickConnectConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
+    The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -41,24 +42,20 @@ class QuickConnectPhoneNumberQuickConnectConfig(dict):
     def __init__(__self__, *,
                  phone_number: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
-        :param str phone_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
+        The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         """
         pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
-        """
         return pulumi.get(self, "phone_number")
 
 
 @pulumi.output_type
 class QuickConnectQueueQuickConnectConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
+    The queue configuration. This is required only if QuickConnectType is QUEUE.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -83,9 +80,7 @@ class QuickConnectQueueQuickConnectConfig(dict):
                  contact_flow_arn: str,
                  queue_arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
-        :param str contact_flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
-        :param str queue_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
+        The queue configuration. This is required only if QuickConnectType is QUEUE.
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "queue_arn", queue_arn)
@@ -93,24 +88,18 @@ class QuickConnectQueueQuickConnectConfig(dict):
     @property
     @pulumi.getter(name="contactFlowArn")
     def contact_flow_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
-        """
         return pulumi.get(self, "contact_flow_arn")
 
     @property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
-        """
         return pulumi.get(self, "queue_arn")
 
 
 @pulumi.output_type
 class QuickConnectQuickConnectConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
+    Configuration settings for the quick connect.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -141,11 +130,7 @@ class QuickConnectQuickConnectConfig(dict):
                  queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
                  user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
-        :param str quick_connect_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
-        :param 'QuickConnectPhoneNumberQuickConnectConfig' phone_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
-        :param 'QuickConnectQueueQuickConnectConfig' queue_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
-        :param 'QuickConnectUserQuickConnectConfig' user_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
+        Configuration settings for the quick connect.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_config is not None:
@@ -158,40 +143,61 @@ class QuickConnectQuickConnectConfig(dict):
     @property
     @pulumi.getter(name="quickConnectType")
     def quick_connect_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
-        """
         return pulumi.get(self, "quick_connect_type")
 
     @property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
-        """
         return pulumi.get(self, "phone_config")
 
     @property
     @pulumi.getter(name="queueConfig")
     def queue_config(self) -> Optional['outputs.QuickConnectQueueQuickConnectConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
-        """
         return pulumi.get(self, "queue_config")
 
     @property
     @pulumi.getter(name="userConfig")
     def user_config(self) -> Optional['outputs.QuickConnectUserQuickConnectConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
-        """
         return pulumi.get(self, "user_config")
+
+
+@pulumi.output_type
+class QuickConnectTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class QuickConnectUserQuickConnectConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+    The user configuration. This is required only if QuickConnectType is USER.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -216,9 +222,7 @@ class QuickConnectUserQuickConnectConfig(dict):
                  contact_flow_arn: str,
                  user_arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
-        :param str contact_flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
-        :param str user_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
+        The user configuration. This is required only if QuickConnectType is USER.
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "user_arn", user_arn)
@@ -226,17 +230,11 @@ class QuickConnectUserQuickConnectConfig(dict):
     @property
     @pulumi.getter(name="contactFlowArn")
     def contact_flow_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
-        """
         return pulumi.get(self, "contact_flow_arn")
 
     @property
     @pulumi.getter(name="userArn")
     def user_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
-        """
         return pulumi.get(self, "user_arn")
 
 

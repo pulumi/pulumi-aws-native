@@ -14,6 +14,7 @@ __all__ = [
     'GroupQueryArgs',
     'GroupResourceQueryArgs',
     'GroupTagFilterArgs',
+    'GroupTagArgs',
 ]
 
 @pulumi.input_type
@@ -21,11 +22,6 @@ class GroupConfigurationItemArgs:
     def __init__(__self__, *,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
-        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-        """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if type is not None:
@@ -34,9 +30,6 @@ class GroupConfigurationItemArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -46,9 +39,6 @@ class GroupConfigurationItemArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -61,11 +51,6 @@ class GroupConfigurationParameterArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if values is not None:
@@ -74,9 +59,6 @@ class GroupConfigurationParameterArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -86,9 +68,6 @@ class GroupConfigurationParameterArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -102,12 +81,6 @@ class GroupQueryArgs:
                  resource_type_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stack_identifier: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        :param pulumi.Input[str] stack_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]] tag_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        """
         if resource_type_filters is not None:
             pulumi.set(__self__, "resource_type_filters", resource_type_filters)
         if stack_identifier is not None:
@@ -118,9 +91,6 @@ class GroupQueryArgs:
     @property
     @pulumi.getter(name="resourceTypeFilters")
     def resource_type_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        """
         return pulumi.get(self, "resource_type_filters")
 
     @resource_type_filters.setter
@@ -130,9 +100,6 @@ class GroupQueryArgs:
     @property
     @pulumi.getter(name="stackIdentifier")
     def stack_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        """
         return pulumi.get(self, "stack_identifier")
 
     @stack_identifier.setter
@@ -142,9 +109,6 @@ class GroupQueryArgs:
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagFilterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
@@ -157,11 +121,6 @@ class GroupResourceQueryArgs:
     def __init__(__self__, *,
                  query: Optional[pulumi.Input['GroupQueryArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
-        :param pulumi.Input['GroupQueryArgs'] query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-        """
         if query is not None:
             pulumi.set(__self__, "query", query)
         if type is not None:
@@ -170,9 +129,6 @@ class GroupResourceQueryArgs:
     @property
     @pulumi.getter
     def query(self) -> Optional[pulumi.Input['GroupQueryArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -182,9 +138,6 @@ class GroupResourceQueryArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -197,11 +150,6 @@ class GroupTagFilterArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -210,9 +158,6 @@ class GroupTagFilterArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -222,13 +167,39 @@ class GroupTagFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
-        """
         return pulumi.get(self, "values")
 
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GroupTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

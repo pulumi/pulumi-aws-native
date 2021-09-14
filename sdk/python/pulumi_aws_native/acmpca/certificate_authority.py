@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['CertificateAuthorityArgs', 'CertificateAuthority']
@@ -24,17 +22,16 @@ class CertificateAuthorityArgs:
                  csr_extensions: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
-        :param pulumi.Input[str] key_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
-        :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
-        :param pulumi.Input['CertificateAuthoritySubjectArgs'] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
-        :param pulumi.Input['CertificateAuthorityCsrExtensionsArgs'] csr_extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
-        :param pulumi.Input[str] key_storage_security_standard: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
-        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
+        :param pulumi.Input[str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
+        :param pulumi.Input[str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
+        :param pulumi.Input['CertificateAuthoritySubjectArgs'] subject: Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[str] type: The type of the certificate authority.
+        :param pulumi.Input['CertificateAuthorityCsrExtensionsArgs'] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
+        :param pulumi.Input[str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
@@ -53,7 +50,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+        Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
         """
         return pulumi.get(self, "key_algorithm")
 
@@ -65,7 +62,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+        Algorithm your CA uses to sign certificate requests.
         """
         return pulumi.get(self, "signing_algorithm")
 
@@ -77,7 +74,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input['CertificateAuthoritySubjectArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+        Structure that contains X.500 distinguished name information for your CA.
         """
         return pulumi.get(self, "subject")
 
@@ -89,7 +86,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        The type of the certificate authority.
         """
         return pulumi.get(self, "type")
 
@@ -101,7 +98,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="csrExtensions")
     def csr_extensions(self) -> Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         """
         return pulumi.get(self, "csr_extensions")
 
@@ -113,7 +110,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="keyStorageSecurityStandard")
     def key_storage_security_standard(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
         """
         return pulumi.get(self, "key_storage_security_standard")
 
@@ -125,7 +122,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter(name="revocationConfiguration")
     def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+        Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         """
         return pulumi.get(self, "revocation_configuration")
 
@@ -135,14 +132,11 @@ class CertificateAuthorityArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -157,22 +151,21 @@ class CertificateAuthority(pulumi.CustomResource):
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateAuthorityTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
+        Private certificate authority.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']] csr_extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
-        :param pulumi.Input[str] key_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
-        :param pulumi.Input[str] key_storage_security_standard: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-        :param pulumi.Input[str] signing_algorithm: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
-        :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCsrExtensionsArgs']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
+        :param pulumi.Input[str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
+        :param pulumi.Input[str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+        :param pulumi.Input[str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[str] type: The type of the certificate authority.
         """
         ...
     @overload
@@ -181,7 +174,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  args: CertificateAuthorityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
+        Private certificate authority.
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +197,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateAuthorityTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -273,18 +266,24 @@ class CertificateAuthority(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the certificate authority.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateSigningRequest")
     def certificate_signing_request(self) -> pulumi.Output[str]:
+        """
+        The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
+        """
         return pulumi.get(self, "certificate_signing_request")
 
     @property
     @pulumi.getter(name="csrExtensions")
     def csr_extensions(self) -> pulumi.Output[Optional['outputs.CertificateAuthorityCsrExtensions']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+        Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         """
         return pulumi.get(self, "csr_extensions")
 
@@ -292,7 +291,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+        Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
         """
         return pulumi.get(self, "key_algorithm")
 
@@ -300,7 +299,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="keyStorageSecurityStandard")
     def key_storage_security_standard(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+        KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
         """
         return pulumi.get(self, "key_storage_security_standard")
 
@@ -308,7 +307,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="revocationConfiguration")
     def revocation_configuration(self) -> pulumi.Output[Optional['outputs.CertificateAuthorityRevocationConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+        Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         """
         return pulumi.get(self, "revocation_configuration")
 
@@ -316,7 +315,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+        Algorithm your CA uses to sign certificate requests.
         """
         return pulumi.get(self, "signing_algorithm")
 
@@ -324,23 +323,20 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def subject(self) -> pulumi.Output['outputs.CertificateAuthoritySubject']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+        Structure that contains X.500 distinguished name information for your CA.
         """
         return pulumi.get(self, "subject")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateAuthorityTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+        The type of the certificate authority.
         """
         return pulumi.get(self, "type")
 

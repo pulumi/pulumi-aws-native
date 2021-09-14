@@ -20,11 +20,9 @@ class CostCategoryArgs:
                  split_charge_rules: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CostCategory resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        :param pulumi.Input[str] rule_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        :param pulumi.Input[str] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
-        :param pulumi.Input[str] default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
-        :param pulumi.Input[str] split_charge_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        :param pulumi.Input[str] rules: JSON array format of Expression in Billing and Cost Management API
+        :param pulumi.Input[str] default_value: The default value for the cost category
+        :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_version", rule_version)
@@ -37,9 +35,6 @@ class CostCategoryArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,9 +44,6 @@ class CostCategoryArgs:
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        """
         return pulumi.get(self, "rule_version")
 
     @rule_version.setter
@@ -62,7 +54,7 @@ class CostCategoryArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+        JSON array format of Expression in Billing and Cost Management API
         """
         return pulumi.get(self, "rules")
 
@@ -74,7 +66,7 @@ class CostCategoryArgs:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+        The default value for the cost category
         """
         return pulumi.get(self, "default_value")
 
@@ -86,7 +78,7 @@ class CostCategoryArgs:
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         return pulumi.get(self, "split_charge_rules")
 
@@ -107,15 +99,13 @@ class CostCategory(pulumi.CustomResource):
                  split_charge_rules: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
+        Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        :param pulumi.Input[str] rule_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        :param pulumi.Input[str] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
-        :param pulumi.Input[str] split_charge_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        :param pulumi.Input[str] default_value: The default value for the cost category
+        :param pulumi.Input[str] rules: JSON array format of Expression in Billing and Cost Management API
+        :param pulumi.Input[str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         ...
     @overload
@@ -124,7 +114,7 @@ class CostCategory(pulumi.CustomResource):
                  args: CostCategoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
+        Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
         :param str resource_name: The name of the resource.
         :param CostCategoryArgs args: The arguments to use to populate this resource's properties.
@@ -205,13 +195,16 @@ class CostCategory(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Cost category ARN
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+        The default value for the cost category
         """
         return pulumi.get(self, "default_value")
 
@@ -223,24 +216,18 @@ class CostCategory(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        """
         return pulumi.get(self, "rule_version")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+        JSON array format of Expression in Billing and Cost Management API
         """
         return pulumi.get(self, "rules")
 
@@ -248,7 +235,7 @@ class CostCategory(pulumi.CustomResource):
     @pulumi.getter(name="splitChargeRules")
     def split_charge_rules(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         """
         return pulumi.get(self, "split_charge_rules")
 

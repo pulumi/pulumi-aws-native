@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['InfrastructureConfigurationArgs', 'InfrastructureConfiguration']
 
@@ -18,27 +20,27 @@ class InfrastructureConfigurationArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
+                 resource_tags: Optional[Any] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
-        :param pulumi.Input[str] instance_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
-        :param pulumi.Input[str] key_pair: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
-        :param pulumi.Input[Union[Any, str]] logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-        :param pulumi.Input[bool] terminate_instance_on_failure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
+        :param pulumi.Input[str] name: The name of the infrastructure configuration.
+        :param pulumi.Input[str] description: The description of the infrastructure configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
+        :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
+        :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
+        :param Any resource_tags: The tags attached to the resource created by Image Builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
+        :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
+        :param pulumi.Input[str] subnet_id: The subnet ID of the infrastructure configuration.
+        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
         pulumi.set(__self__, "name", name)
@@ -67,7 +69,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+        The instance profile of the infrastructure configuration.
         """
         return pulumi.get(self, "instance_profile_name")
 
@@ -79,7 +81,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+        The name of the infrastructure configuration.
         """
         return pulumi.get(self, "name")
 
@@ -91,7 +93,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+        The description of the infrastructure configuration.
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +105,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+        The instance types of the infrastructure configuration.
         """
         return pulumi.get(self, "instance_types")
 
@@ -115,7 +117,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+        The EC2 key pair of the infrastructure configuration..
         """
         return pulumi.get(self, "key_pair")
 
@@ -125,33 +127,33 @@ class InfrastructureConfigurationArgs:
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def logging(self) -> Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+        The logging configuration of the infrastructure configuration.
         """
         return pulumi.get(self, "logging")
 
     @logging.setter
-    def logging(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def logging(self, value: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']]):
         pulumi.set(self, "logging", value)
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def resource_tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        The tags attached to the resource created by Image Builder.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def resource_tags(self, value: Optional[Any]):
         pulumi.set(self, "resource_tags", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+        The security group IDs of the infrastructure configuration.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -163,7 +165,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+        The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -175,7 +177,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+        The subnet ID of the infrastructure configuration.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -185,21 +187,21 @@ class InfrastructureConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+        The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        The terminate instance on failure configuration of the infrastructure configuration.
         """
         return pulumi.get(self, "terminate_instance_on_failure")
 
@@ -217,32 +219,32 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_tags: Optional[Any] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
+        Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
-        :param pulumi.Input[str] instance_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
-        :param pulumi.Input[str] key_pair: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
-        :param pulumi.Input[Union[Any, str]] logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-        :param pulumi.Input[bool] terminate_instance_on_failure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        :param pulumi.Input[str] description: The description of the infrastructure configuration.
+        :param pulumi.Input[str] instance_profile_name: The instance profile of the infrastructure configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the infrastructure configuration.
+        :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']] logging: The logging configuration of the infrastructure configuration.
+        :param pulumi.Input[str] name: The name of the infrastructure configuration.
+        :param Any resource_tags: The tags attached to the resource created by Image Builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
+        :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
+        :param pulumi.Input[str] subnet_id: The subnet ID of the infrastructure configuration.
+        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
         ...
     @overload
@@ -251,7 +253,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  args: InfrastructureConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
+        Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -272,13 +274,13 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 logging: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_tags: Optional[Any] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -349,13 +351,16 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the infrastructure configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+        The description of the infrastructure configuration.
         """
         return pulumi.get(self, "description")
 
@@ -363,7 +368,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="instanceProfileName")
     def instance_profile_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+        The instance profile of the infrastructure configuration.
         """
         return pulumi.get(self, "instance_profile_name")
 
@@ -371,7 +376,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+        The instance types of the infrastructure configuration.
         """
         return pulumi.get(self, "instance_types")
 
@@ -379,28 +384,31 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+        The EC2 key pair of the infrastructure configuration..
         """
         return pulumi.get(self, "key_pair")
 
     @property
     @pulumi.getter
-    def logging(self) -> pulumi.Output[Optional[str]]:
+    def logging(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationLogging']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+        The logging configuration of the infrastructure configuration.
         """
         return pulumi.get(self, "logging")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the infrastructure configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def resource_tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        The tags attached to the resource created by Image Builder.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -408,7 +416,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+        The security group IDs of the infrastructure configuration.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -416,7 +424,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+        The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -424,15 +432,15 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+        The subnet ID of the infrastructure configuration.
         """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+        The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
@@ -440,7 +448,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        The terminate instance on failure configuration of the infrastructure configuration.
         """
         return pulumi.get(self, "terminate_instance_on_failure")
 

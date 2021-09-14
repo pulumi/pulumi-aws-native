@@ -25,14 +25,6 @@ class BudgetsActionArgs:
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
-        :param pulumi.Input['BudgetsActionActionThresholdArgs'] action_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        :param pulumi.Input[str] action_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        :param pulumi.Input[str] budget_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        :param pulumi.Input['BudgetsActionDefinitionArgs'] definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        :param pulumi.Input[str] notification_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        :param pulumi.Input[str] approval_model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]] subscribers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
         """
         pulumi.set(__self__, "action_threshold", action_threshold)
         pulumi.set(__self__, "action_type", action_type)
@@ -48,9 +40,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Input['BudgetsActionActionThresholdArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        """
         return pulumi.get(self, "action_threshold")
 
     @action_threshold.setter
@@ -60,9 +49,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
@@ -72,9 +58,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -84,9 +67,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input['BudgetsActionDefinitionArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -96,9 +76,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
@@ -108,9 +85,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
@@ -120,9 +94,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        """
         return pulumi.get(self, "approval_model")
 
     @approval_model.setter
@@ -132,9 +103,6 @@ class BudgetsActionArgs:
     @property
     @pulumi.getter
     def subscribers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-        """
         return pulumi.get(self, "subscribers")
 
     @subscribers.setter
@@ -157,18 +125,10 @@ class BudgetsAction(pulumi.CustomResource):
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BudgetsActionActionThresholdArgs']] action_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        :param pulumi.Input[str] action_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        :param pulumi.Input[str] approval_model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        :param pulumi.Input[str] budget_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        :param pulumi.Input[pulumi.InputType['BudgetsActionDefinitionArgs']] definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        :param pulumi.Input[str] notification_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetsActionSubscriberArgs']]]] subscribers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
         """
         ...
     @overload
@@ -177,7 +137,7 @@ class BudgetsAction(pulumi.CustomResource):
                  args: BudgetsActionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param BudgetsActionArgs args: The arguments to use to populate this resource's properties.
@@ -276,64 +236,40 @@ class BudgetsAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionThreshold")
     def action_threshold(self) -> pulumi.Output['outputs.BudgetsActionActionThreshold']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        """
         return pulumi.get(self, "action_threshold")
 
     @property
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        """
         return pulumi.get(self, "action_type")
 
     @property
     @pulumi.getter(name="approvalModel")
     def approval_model(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        """
         return pulumi.get(self, "approval_model")
 
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        """
         return pulumi.get(self, "budget_name")
 
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output['outputs.BudgetsActionDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter
     def subscribers(self) -> pulumi.Output[Optional[Sequence['outputs.BudgetsActionSubscriber']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-        """
         return pulumi.get(self, "subscribers")
 

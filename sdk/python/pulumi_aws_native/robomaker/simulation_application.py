@@ -21,16 +21,15 @@ class SimulationApplicationArgs:
                  sources: pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]],
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None):
         """
         The set of arguments for constructing a SimulationApplication resource.
-        :param pulumi.Input['SimulationApplicationRenderingEngineArgs'] rendering_engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
-        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'] robot_software_suite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
-        :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'] simulation_software_suite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
-        :param pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]] sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
-        :param pulumi.Input[str] current_revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
+        :param pulumi.Input['SimulationApplicationRenderingEngineArgs'] rendering_engine: The rendering engine for the simulation application.
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'] robot_software_suite: The robot software suite (ROS distribution) used by the simulation application.
+        :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'] simulation_software_suite: The simulation software suite used by the simulation application.
+        :param pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]] sources: The sources of the simulation application.
+        :param pulumi.Input[str] current_revision_id: The current revision id.
+        :param pulumi.Input[str] name: The name of the simulation application.
         """
         pulumi.set(__self__, "rendering_engine", rendering_engine)
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
@@ -47,7 +46,7 @@ class SimulationApplicationArgs:
     @pulumi.getter(name="renderingEngine")
     def rendering_engine(self) -> pulumi.Input['SimulationApplicationRenderingEngineArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+        The rendering engine for the simulation application.
         """
         return pulumi.get(self, "rendering_engine")
 
@@ -59,7 +58,7 @@ class SimulationApplicationArgs:
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+        The robot software suite (ROS distribution) used by the simulation application.
         """
         return pulumi.get(self, "robot_software_suite")
 
@@ -71,7 +70,7 @@ class SimulationApplicationArgs:
     @pulumi.getter(name="simulationSoftwareSuite")
     def simulation_software_suite(self) -> pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+        The simulation software suite used by the simulation application.
         """
         return pulumi.get(self, "simulation_software_suite")
 
@@ -83,7 +82,7 @@ class SimulationApplicationArgs:
     @pulumi.getter
     def sources(self) -> pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+        The sources of the simulation application.
         """
         return pulumi.get(self, "sources")
 
@@ -95,7 +94,7 @@ class SimulationApplicationArgs:
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+        The current revision id.
         """
         return pulumi.get(self, "current_revision_id")
 
@@ -107,7 +106,7 @@ class SimulationApplicationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+        The name of the simulation application.
         """
         return pulumi.get(self, "name")
 
@@ -117,14 +116,11 @@ class SimulationApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-        """
+    def tags(self) -> Optional[pulumi.Input['SimulationApplicationTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[pulumi.Input['SimulationApplicationTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -139,20 +135,19 @@ class SimulationApplication(pulumi.CustomResource):
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
                  simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationTagsArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] current_revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']] rendering_engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
-        :param pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']] simulation_software_suite: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]] sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
+        :param pulumi.Input[str] current_revision_id: The current revision id.
+        :param pulumi.Input[str] name: The name of the simulation application.
+        :param pulumi.Input[pulumi.InputType['SimulationApplicationRenderingEngineArgs']] rendering_engine: The rendering engine for the simulation application.
+        :param pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']] robot_software_suite: The robot software suite (ROS distribution) used by the simulation application.
+        :param pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']] simulation_software_suite: The simulation software suite used by the simulation application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]] sources: The sources of the simulation application.
         """
         ...
     @overload
@@ -161,7 +156,7 @@ class SimulationApplication(pulumi.CustomResource):
                  args: SimulationApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param SimulationApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +179,7 @@ class SimulationApplication(pulumi.CustomResource):
                  robot_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationRobotSoftwareSuiteArgs']]] = None,
                  simulation_software_suite: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationSimulationSoftwareSuiteArgs']]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimulationApplicationSourceConfigArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['SimulationApplicationTagsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -252,14 +247,17 @@ class SimulationApplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="currentRevisionId")
-    def current_revision_id(self) -> pulumi.Output[str]:
+    def current_revision_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The current revision id.
+        """
         return pulumi.get(self, "current_revision_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+        The name of the simulation application.
         """
         return pulumi.get(self, "name")
 
@@ -267,7 +265,7 @@ class SimulationApplication(pulumi.CustomResource):
     @pulumi.getter(name="renderingEngine")
     def rendering_engine(self) -> pulumi.Output['outputs.SimulationApplicationRenderingEngine']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+        The rendering engine for the simulation application.
         """
         return pulumi.get(self, "rendering_engine")
 
@@ -275,7 +273,7 @@ class SimulationApplication(pulumi.CustomResource):
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> pulumi.Output['outputs.SimulationApplicationRobotSoftwareSuite']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+        The robot software suite (ROS distribution) used by the simulation application.
         """
         return pulumi.get(self, "robot_software_suite")
 
@@ -283,7 +281,7 @@ class SimulationApplication(pulumi.CustomResource):
     @pulumi.getter(name="simulationSoftwareSuite")
     def simulation_software_suite(self) -> pulumi.Output['outputs.SimulationApplicationSimulationSoftwareSuite']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+        The simulation software suite used by the simulation application.
         """
         return pulumi.get(self, "simulation_software_suite")
 
@@ -291,15 +289,12 @@ class SimulationApplication(pulumi.CustomResource):
     @pulumi.getter
     def sources(self) -> pulumi.Output[Sequence['outputs.SimulationApplicationSourceConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+        The sources of the simulation application.
         """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-        """
+    def tags(self) -> pulumi.Output[Optional['outputs.SimulationApplicationTags']]:
         return pulumi.get(self, "tags")
 

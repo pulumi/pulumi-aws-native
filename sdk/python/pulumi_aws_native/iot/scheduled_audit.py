@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ScheduledAuditArgs', 'ScheduledAudit']
 
@@ -20,15 +20,15 @@ class ScheduledAuditArgs:
                  day_of_month: Optional[pulumi.Input[str]] = None,
                  day_of_week: Optional[pulumi.Input[str]] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduledAudit resource.
-        :param pulumi.Input[str] frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
-        :param pulumi.Input[str] day_of_month: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
-        :param pulumi.Input[str] day_of_week: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
-        :param pulumi.Input[str] scheduled_audit_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
+        :param pulumi.Input[str] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: Which checks are performed during the scheduled audit. Checks must be enabled for your account.
+        :param pulumi.Input[str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
+        :param pulumi.Input[str] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
+        :param pulumi.Input[str] scheduled_audit_name: The name you want to give to the scheduled audit.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "target_check_names", target_check_names)
@@ -45,7 +45,7 @@ class ScheduledAuditArgs:
     @pulumi.getter
     def frequency(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
+        How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         """
         return pulumi.get(self, "frequency")
 
@@ -57,7 +57,7 @@ class ScheduledAuditArgs:
     @pulumi.getter(name="targetCheckNames")
     def target_check_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
+        Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         """
         return pulumi.get(self, "target_check_names")
 
@@ -69,7 +69,7 @@ class ScheduledAuditArgs:
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
+        The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
         """
         return pulumi.get(self, "day_of_month")
 
@@ -81,7 +81,7 @@ class ScheduledAuditArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
+        The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -93,7 +93,7 @@ class ScheduledAuditArgs:
     @pulumi.getter(name="scheduledAuditName")
     def scheduled_audit_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
+        The name you want to give to the scheduled audit.
         """
         return pulumi.get(self, "scheduled_audit_name")
 
@@ -103,14 +103,14 @@ class ScheduledAuditArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -123,20 +123,20 @@ class ScheduledAudit(pulumi.CustomResource):
                  day_of_week: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]]] = None,
                  target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
+        Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] day_of_month: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
-        :param pulumi.Input[str] day_of_week: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
-        :param pulumi.Input[str] frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
-        :param pulumi.Input[str] scheduled_audit_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
+        :param pulumi.Input[str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
+        :param pulumi.Input[str] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
+        :param pulumi.Input[str] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
+        :param pulumi.Input[str] scheduled_audit_name: The name you want to give to the scheduled audit.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         """
         ...
     @overload
@@ -145,7 +145,7 @@ class ScheduledAudit(pulumi.CustomResource):
                  args: ScheduledAuditArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html
+        Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 
         :param str resource_name: The name of the resource.
         :param ScheduledAuditArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +166,7 @@ class ScheduledAudit(pulumi.CustomResource):
                  day_of_week: Optional[pulumi.Input[str]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]]] = None,
                  target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -226,7 +226,7 @@ class ScheduledAudit(pulumi.CustomResource):
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofmonth
+        The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
         """
         return pulumi.get(self, "day_of_month")
 
@@ -234,7 +234,7 @@ class ScheduledAudit(pulumi.CustomResource):
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-dayofweek
+        The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -242,28 +242,31 @@ class ScheduledAudit(pulumi.CustomResource):
     @pulumi.getter
     def frequency(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-frequency
+        How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         """
         return pulumi.get(self, "frequency")
 
     @property
     @pulumi.getter(name="scheduledAuditArn")
     def scheduled_audit_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN (Amazon resource name) of the scheduled audit.
+        """
         return pulumi.get(self, "scheduled_audit_arn")
 
     @property
     @pulumi.getter(name="scheduledAuditName")
     def scheduled_audit_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-scheduledauditname
+        The name you want to give to the scheduled audit.
         """
         return pulumi.get(self, "scheduled_audit_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ScheduledAuditTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -271,7 +274,7 @@ class ScheduledAudit(pulumi.CustomResource):
     @pulumi.getter(name="targetCheckNames")
     def target_check_names(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html#cfn-iot-scheduledaudit-targetchecknames
+        Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         """
         return pulumi.get(self, "target_check_names")
 

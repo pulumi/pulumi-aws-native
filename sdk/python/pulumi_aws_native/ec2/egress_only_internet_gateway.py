@@ -16,7 +16,7 @@ class EgressOnlyInternetGatewayArgs:
                  vpc_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a EgressOnlyInternetGateway resource.
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for which to create the egress-only internet gateway.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -24,7 +24,7 @@ class EgressOnlyInternetGatewayArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        The ID of the VPC for which to create the egress-only internet gateway.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -41,11 +41,11 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
+        Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        :param pulumi.Input[str] vpc_id: The ID of the VPC for which to create the egress-only internet gateway.
         """
         ...
     @overload
@@ -54,7 +54,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                  args: EgressOnlyInternetGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
+        Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
 
         :param str resource_name: The name of the resource.
         :param EgressOnlyInternetGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -87,7 +87,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
-            __props__.__dict__["id"] = None
         super(EgressOnlyInternetGateway, __self__).__init__(
             'aws-native:ec2:EgressOnlyInternetGateway',
             resource_name,
@@ -110,20 +109,14 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         __props__ = EgressOnlyInternetGatewayArgs.__new__(EgressOnlyInternetGatewayArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["vpc_id"] = None
         return EgressOnlyInternetGateway(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        The ID of the VPC for which to create the egress-only internet gateway.
         """
         return pulumi.get(self, "vpc_id")
 

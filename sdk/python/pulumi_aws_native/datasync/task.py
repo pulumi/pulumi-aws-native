@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TaskArgs', 'Task']
@@ -25,18 +23,14 @@ class TaskArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskTaskScheduleArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None):
         """
         The set of arguments for constructing a Task resource.
-        :param pulumi.Input[str] destination_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-        :param pulumi.Input[str] source_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
-        :param pulumi.Input[str] cloud_watch_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
-        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] excludes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-        :param pulumi.Input['TaskOptionsArgs'] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        :param pulumi.Input['TaskTaskScheduleArgs'] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
+        :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
+        :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
+        :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
         pulumi.set(__self__, "source_location_arn", source_location_arn)
@@ -59,7 +53,7 @@ class TaskArgs:
     @pulumi.getter(name="destinationLocationArn")
     def destination_location_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+        The ARN of an AWS storage resource's location.
         """
         return pulumi.get(self, "destination_location_arn")
 
@@ -71,7 +65,7 @@ class TaskArgs:
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+        The ARN of the source location for the task.
         """
         return pulumi.get(self, "source_location_arn")
 
@@ -83,7 +77,7 @@ class TaskArgs:
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+        The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
@@ -94,9 +88,6 @@ class TaskArgs:
     @property
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
@@ -106,9 +97,6 @@ class TaskArgs:
     @property
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        """
         return pulumi.get(self, "includes")
 
     @includes.setter
@@ -119,7 +107,7 @@ class TaskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+        The name of a task. This value is a text reference that is used to identify the task in the console.
         """
         return pulumi.get(self, "name")
 
@@ -130,9 +118,6 @@ class TaskArgs:
     @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -142,9 +127,6 @@ class TaskArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskTaskScheduleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -153,14 +135,14 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,22 +159,18 @@ class Task(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+        Resource schema for AWS::DataSync::Task.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_watch_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
-        :param pulumi.Input[str] destination_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] excludes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] includes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        :param pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        :param pulumi.Input[str] source_location_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
+        :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
+        :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
+        :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -201,7 +179,7 @@ class Task(pulumi.CustomResource):
                  args: TaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+        Resource schema for AWS::DataSync::Task.
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +204,7 @@ class Task(pulumi.CustomResource):
                  options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskTaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -301,7 +279,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+        The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
@@ -309,7 +287,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="destinationLocationArn")
     def destination_location_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+        The ARN of an AWS storage resource's location.
         """
         return pulumi.get(self, "destination_location_arn")
 
@@ -321,58 +299,52 @@ class Task(pulumi.CustomResource):
     @property
     @pulumi.getter(name="errorCode")
     def error_code(self) -> pulumi.Output[str]:
+        """
+        Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
+        """
         return pulumi.get(self, "error_code")
 
     @property
     @pulumi.getter(name="errorDetail")
     def error_detail(self) -> pulumi.Output[str]:
+        """
+        Detailed description of an error that was encountered during the task execution.
+        """
         return pulumi.get(self, "error_detail")
 
     @property
     @pulumi.getter
     def excludes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        """
         return pulumi.get(self, "includes")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+        The name of a task. This value is a text reference that is used to identify the task in the console.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional['outputs.TaskOptions']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        """
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.TaskTaskSchedule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter(name="sourceLocationArn")
     def source_location_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+        The ARN of the source location for the task.
         """
         return pulumi.get(self, "source_location_arn")
 
@@ -384,18 +356,24 @@ class Task(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the task that was described.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TaskTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="taskArn")
     def task_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the task.
+        """
         return pulumi.get(self, "task_arn")
 

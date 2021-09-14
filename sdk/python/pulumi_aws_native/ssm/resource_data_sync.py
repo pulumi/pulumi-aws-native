@@ -15,7 +15,6 @@ __all__ = ['ResourceDataSyncArgs', 'ResourceDataSync']
 @pulumi.input_type
 class ResourceDataSyncArgs:
     def __init__(__self__, *,
-                 sync_name: pulumi.Input[str],
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
@@ -26,17 +25,7 @@ class ResourceDataSyncArgs:
                  sync_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceDataSync resource.
-        :param pulumi.Input[str] sync_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        :param pulumi.Input[str] bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        :param pulumi.Input[str] bucket_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        :param pulumi.Input[str] k_ms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        :param pulumi.Input['ResourceDataSyncS3DestinationArgs'] s3_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        :param pulumi.Input[str] sync_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        :param pulumi.Input['ResourceDataSyncSyncSourceArgs'] sync_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        :param pulumi.Input[str] sync_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
         """
-        pulumi.set(__self__, "sync_name", sync_name)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -55,23 +44,8 @@ class ResourceDataSyncArgs:
             pulumi.set(__self__, "sync_type", sync_type)
 
     @property
-    @pulumi.getter(name="syncName")
-    def sync_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        """
-        return pulumi.get(self, "sync_name")
-
-    @sync_name.setter
-    def sync_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sync_name", value)
-
-    @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -81,9 +55,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -93,9 +64,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
@@ -105,9 +73,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="kMSKeyArn")
     def k_ms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        """
         return pulumi.get(self, "k_ms_key_arn")
 
     @k_ms_key_arn.setter
@@ -117,9 +82,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ResourceDataSyncS3DestinationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -129,9 +91,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        """
         return pulumi.get(self, "sync_format")
 
     @sync_format.setter
@@ -141,9 +100,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        """
         return pulumi.get(self, "sync_source")
 
     @sync_source.setter
@@ -153,9 +109,6 @@ class ResourceDataSyncArgs:
     @property
     @pulumi.getter(name="syncType")
     def sync_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-        """
         return pulumi.get(self, "sync_type")
 
     @sync_type.setter
@@ -174,33 +127,23 @@ class ResourceDataSync(pulumi.CustomResource):
                  k_ms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
-                 sync_name: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']]] = None,
                  sync_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+        Resource Type definition for AWS::SSM::ResourceDataSync
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        :param pulumi.Input[str] bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        :param pulumi.Input[str] bucket_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        :param pulumi.Input[str] k_ms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        :param pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']] s3_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        :param pulumi.Input[str] sync_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        :param pulumi.Input[str] sync_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        :param pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']] sync_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        :param pulumi.Input[str] sync_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceDataSyncArgs,
+                 args: Optional[ResourceDataSyncArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+        Resource Type definition for AWS::SSM::ResourceDataSync
 
         :param str resource_name: The name of the resource.
         :param ResourceDataSyncArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +166,6 @@ class ResourceDataSync(pulumi.CustomResource):
                  k_ms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_destination: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncS3DestinationArgs']]] = None,
                  sync_format: Optional[pulumi.Input[str]] = None,
-                 sync_name: Optional[pulumi.Input[str]] = None,
                  sync_source: Optional[pulumi.Input[pulumi.InputType['ResourceDataSyncSyncSourceArgs']]] = None,
                  sync_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -244,11 +186,9 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["k_ms_key_arn"] = k_ms_key_arn
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["sync_format"] = sync_format
-            if sync_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sync_name'")
-            __props__.__dict__["sync_name"] = sync_name
             __props__.__dict__["sync_source"] = sync_source
             __props__.__dict__["sync_type"] = sync_type
+            __props__.__dict__["sync_name"] = None
         super(ResourceDataSync, __self__).__init__(
             'aws-native:ssm:ResourceDataSync',
             resource_name,
@@ -285,49 +225,31 @@ class ResourceDataSync(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        """
         return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="kMSKeyArn")
     def k_ms_key_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        """
         return pulumi.get(self, "k_ms_key_arn")
 
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> pulumi.Output[Optional['outputs.ResourceDataSyncS3Destination']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        """
         return pulumi.get(self, "s3_destination")
 
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        """
         return pulumi.get(self, "sync_format")
 
     @property
@@ -338,16 +260,10 @@ class ResourceDataSync(pulumi.CustomResource):
     @property
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> pulumi.Output[Optional['outputs.ResourceDataSyncSyncSource']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        """
         return pulumi.get(self, "sync_source")
 
     @property
     @pulumi.getter(name="syncType")
     def sync_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-        """
         return pulumi.get(self, "sync_type")
 

@@ -16,7 +16,7 @@ class ResolverDNSSECConfigArgs:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverDNSSECConfig resource.
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        :param pulumi.Input[str] resource_id: ResourceId
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -25,7 +25,7 @@ class ResolverDNSSECConfigArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        ResourceId
         """
         return pulumi.get(self, "resource_id")
 
@@ -42,11 +42,11 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
+        Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        :param pulumi.Input[str] resource_id: ResourceId
         """
         ...
     @overload
@@ -55,7 +55,7 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
                  args: Optional[ResolverDNSSECConfigArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
+        Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 
         :param str resource_name: The name of the resource.
         :param ResolverDNSSECConfigArgs args: The arguments to use to populate this resource's properties.
@@ -86,7 +86,6 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
             __props__ = ResolverDNSSECConfigArgs.__new__(ResolverDNSSECConfigArgs)
 
             __props__.__dict__["resource_id"] = resource_id
-            __props__.__dict__["id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["validation_status"] = None
         super(ResolverDNSSECConfig, __self__).__init__(
@@ -111,32 +110,32 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
 
         __props__ = ResolverDNSSECConfigArgs.__new__(ResolverDNSSECConfigArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["validation_status"] = None
         return ResolverDNSSECConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        AccountId
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        ResourceId
         """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="validationStatus")
     def validation_status(self) -> pulumi.Output[str]:
+        """
+        ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+        """
         return pulumi.get(self, "validation_status")
 

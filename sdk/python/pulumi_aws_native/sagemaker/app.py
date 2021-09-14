@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AppArgs', 'App']
@@ -22,15 +20,15 @@ class AppArgs:
                  domain_id: pulumi.Input[str],
                  user_profile_name: pulumi.Input[str],
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
         """
         The set of arguments for constructing a App resource.
-        :param pulumi.Input[str] app_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
-        :param pulumi.Input[str] app_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
-        :param pulumi.Input[str] domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
-        :param pulumi.Input[str] user_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
-        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+        :param pulumi.Input[str] app_name: The name of the app.
+        :param pulumi.Input[str] app_type: The type of app.
+        :param pulumi.Input[str] domain_id: The domain ID.
+        :param pulumi.Input[str] user_profile_name: The user profile name.
+        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]] tags: A list of tags to apply to the app.
         """
         pulumi.set(__self__, "app_name", app_name)
         pulumi.set(__self__, "app_type", app_type)
@@ -45,7 +43,7 @@ class AppArgs:
     @pulumi.getter(name="appName")
     def app_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+        The name of the app.
         """
         return pulumi.get(self, "app_name")
 
@@ -57,7 +55,7 @@ class AppArgs:
     @pulumi.getter(name="appType")
     def app_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+        The type of app.
         """
         return pulumi.get(self, "app_type")
 
@@ -69,7 +67,7 @@ class AppArgs:
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+        The domain ID.
         """
         return pulumi.get(self, "domain_id")
 
@@ -81,7 +79,7 @@ class AppArgs:
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+        The user profile name.
         """
         return pulumi.get(self, "user_profile_name")
 
@@ -93,7 +91,7 @@ class AppArgs:
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+        The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         """
         return pulumi.get(self, "resource_spec")
 
@@ -103,14 +101,14 @@ class AppArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+        A list of tags to apply to the app.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -123,20 +121,20 @@ class App(pulumi.CustomResource):
                  app_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
+        Resource Type definition for AWS::SageMaker::App
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
-        :param pulumi.Input[str] app_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
-        :param pulumi.Input[str] domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
-        :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
-        :param pulumi.Input[str] user_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+        :param pulumi.Input[str] app_name: The name of the app.
+        :param pulumi.Input[str] app_type: The type of app.
+        :param pulumi.Input[str] domain_id: The domain ID.
+        :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]] tags: A list of tags to apply to the app.
+        :param pulumi.Input[str] user_profile_name: The user profile name.
         """
         ...
     @overload
@@ -145,7 +143,7 @@ class App(pulumi.CustomResource):
                  args: AppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
+        Resource Type definition for AWS::SageMaker::App
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
@@ -166,7 +164,7 @@ class App(pulumi.CustomResource):
                  app_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -229,13 +227,16 @@ class App(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appArn")
     def app_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the app.
+        """
         return pulumi.get(self, "app_arn")
 
     @property
     @pulumi.getter(name="appName")
     def app_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+        The name of the app.
         """
         return pulumi.get(self, "app_name")
 
@@ -243,7 +244,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="appType")
     def app_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+        The type of app.
         """
         return pulumi.get(self, "app_type")
 
@@ -251,7 +252,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+        The domain ID.
         """
         return pulumi.get(self, "domain_id")
 
@@ -259,15 +260,15 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="resourceSpec")
     def resource_spec(self) -> pulumi.Output[Optional['outputs.AppResourceSpec']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+        The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         """
         return pulumi.get(self, "resource_spec")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AppTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+        A list of tags to apply to the app.
         """
         return pulumi.get(self, "tags")
 
@@ -275,7 +276,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+        The user profile name.
         """
         return pulumi.get(self, "user_profile_name")
 

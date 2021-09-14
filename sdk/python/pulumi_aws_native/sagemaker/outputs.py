@@ -13,7 +13,9 @@ __all__ = [
     'AppImageConfigFileSystemConfig',
     'AppImageConfigKernelGatewayImageConfig',
     'AppImageConfigKernelSpec',
+    'AppImageConfigTag',
     'AppResourceSpec',
+    'AppTag',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
     'DataQualityJobDefinitionDataQualityAppSpecification',
@@ -27,15 +29,22 @@ __all__ = [
     'DataQualityJobDefinitionS3Output',
     'DataQualityJobDefinitionStatisticsResource',
     'DataQualityJobDefinitionStoppingCondition',
+    'DataQualityJobDefinitionTag',
     'DataQualityJobDefinitionVpcConfig',
+    'DeviceDevice',
     'DeviceFleetEdgeOutputConfig',
+    'DeviceFleetTag',
+    'DeviceTag',
     'DomainCustomImage',
     'DomainJupyterServerAppSettings',
     'DomainKernelGatewayAppSettings',
     'DomainResourceSpec',
     'DomainSharingSettings',
+    'DomainTag',
     'DomainUserSettings',
     'FeatureGroupFeatureDefinition',
+    'FeatureGroupTag',
+    'ImageTag',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
     'ModelBiasJobDefinitionEndpointInput',
@@ -49,6 +58,7 @@ __all__ = [
     'ModelBiasJobDefinitionNetworkConfig',
     'ModelBiasJobDefinitionS3Output',
     'ModelBiasJobDefinitionStoppingCondition',
+    'ModelBiasJobDefinitionTag',
     'ModelBiasJobDefinitionVpcConfig',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
@@ -62,7 +72,9 @@ __all__ = [
     'ModelExplainabilityJobDefinitionNetworkConfig',
     'ModelExplainabilityJobDefinitionS3Output',
     'ModelExplainabilityJobDefinitionStoppingCondition',
+    'ModelExplainabilityJobDefinitionTag',
     'ModelExplainabilityJobDefinitionVpcConfig',
+    'ModelPackageGroupTag',
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
     'ModelQualityJobDefinitionEndpointInput',
@@ -76,6 +88,7 @@ __all__ = [
     'ModelQualityJobDefinitionNetworkConfig',
     'ModelQualityJobDefinitionS3Output',
     'ModelQualityJobDefinitionStoppingCondition',
+    'ModelQualityJobDefinitionTag',
     'ModelQualityJobDefinitionVpcConfig',
     'MonitoringScheduleBaselineConfig',
     'MonitoringScheduleClusterConfig',
@@ -94,19 +107,23 @@ __all__ = [
     'MonitoringScheduleScheduleConfig',
     'MonitoringScheduleStatisticsResource',
     'MonitoringScheduleStoppingCondition',
+    'MonitoringScheduleTag',
     'MonitoringScheduleVpcConfig',
+    'PipelineTag',
+    'ProjectTag',
     'UserProfileCustomImage',
     'UserProfileJupyterServerAppSettings',
     'UserProfileKernelGatewayAppSettings',
     'UserProfileResourceSpec',
     'UserProfileSharingSettings',
+    'UserProfileTag',
     'UserProfileUserSettings',
 ]
 
 @pulumi.output_type
 class AppImageConfigFileSystemConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+    The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -134,10 +151,10 @@ class AppImageConfigFileSystemConfig(dict):
                  default_uid: Optional[int] = None,
                  mount_path: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
-        :param int default_gid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
-        :param int default_uid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
-        :param str mount_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+        The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
+        :param int default_gid: The default POSIX group ID (GID). If not specified, defaults to 100.
+        :param int default_uid: The default POSIX user ID (UID). If not specified, defaults to 1000.
+        :param str mount_path: The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
         """
         if default_gid is not None:
             pulumi.set(__self__, "default_gid", default_gid)
@@ -150,7 +167,7 @@ class AppImageConfigFileSystemConfig(dict):
     @pulumi.getter(name="defaultGid")
     def default_gid(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+        The default POSIX group ID (GID). If not specified, defaults to 100.
         """
         return pulumi.get(self, "default_gid")
 
@@ -158,7 +175,7 @@ class AppImageConfigFileSystemConfig(dict):
     @pulumi.getter(name="defaultUid")
     def default_uid(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+        The default POSIX user ID (UID). If not specified, defaults to 1000.
         """
         return pulumi.get(self, "default_uid")
 
@@ -166,7 +183,7 @@ class AppImageConfigFileSystemConfig(dict):
     @pulumi.getter(name="mountPath")
     def mount_path(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+        The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
         """
         return pulumi.get(self, "mount_path")
 
@@ -174,7 +191,7 @@ class AppImageConfigFileSystemConfig(dict):
 @pulumi.output_type
 class AppImageConfigKernelGatewayImageConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+    The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -199,9 +216,9 @@ class AppImageConfigKernelGatewayImageConfig(dict):
                  kernel_specs: Sequence['outputs.AppImageConfigKernelSpec'],
                  file_system_config: Optional['outputs.AppImageConfigFileSystemConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
-        :param Sequence['AppImageConfigKernelSpec'] kernel_specs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
-        :param 'AppImageConfigFileSystemConfig' file_system_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+        The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
+        :param Sequence['AppImageConfigKernelSpec'] kernel_specs: The specification of the Jupyter kernels in the image.
+        :param 'AppImageConfigFileSystemConfig' file_system_config: The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
         """
         pulumi.set(__self__, "kernel_specs", kernel_specs)
         if file_system_config is not None:
@@ -211,7 +228,7 @@ class AppImageConfigKernelGatewayImageConfig(dict):
     @pulumi.getter(name="kernelSpecs")
     def kernel_specs(self) -> Sequence['outputs.AppImageConfigKernelSpec']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+        The specification of the Jupyter kernels in the image.
         """
         return pulumi.get(self, "kernel_specs")
 
@@ -219,16 +236,13 @@ class AppImageConfigKernelGatewayImageConfig(dict):
     @pulumi.getter(name="fileSystemConfig")
     def file_system_config(self) -> Optional['outputs.AppImageConfigFileSystemConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+        The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
         """
         return pulumi.get(self, "file_system_config")
 
 
 @pulumi.output_type
 class AppImageConfigKernelSpec(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -250,9 +264,8 @@ class AppImageConfigKernelSpec(dict):
                  name: str,
                  display_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
-        :param str display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+        :param str name: The name of the kernel.
+        :param str display_name: The display name of the kernel.
         """
         pulumi.set(__self__, "name", name)
         if display_name is not None:
@@ -262,7 +275,7 @@ class AppImageConfigKernelSpec(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+        The name of the kernel.
         """
         return pulumi.get(self, "name")
 
@@ -270,16 +283,32 @@ class AppImageConfigKernelSpec(dict):
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+        The display name of the kernel.
         """
         return pulumi.get(self, "display_name")
 
 
 @pulumi.output_type
+class AppImageConfigTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class AppResourceSpec(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -306,10 +335,9 @@ class AppResourceSpec(dict):
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
-        :param str sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
-        :param str sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+        :param str instance_type: The instance type that the image version runs on.
+        :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -322,7 +350,7 @@ class AppResourceSpec(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+        The instance type that the image version runs on.
         """
         return pulumi.get(self, "instance_type")
 
@@ -330,7 +358,7 @@ class AppResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageArn")
     def sage_maker_image_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sage_maker_image_arn")
 
@@ -338,15 +366,34 @@ class AppResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageVersionArn")
     def sage_maker_image_version_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+        The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
 
 
 @pulumi.output_type
+class AppTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DataQualityJobDefinitionClusterConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
+    Configuration for the cluster used to run model monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -377,11 +424,11 @@ class DataQualityJobDefinitionClusterConfig(dict):
                  volume_size_in_gb: int,
                  volume_kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
-        :param int instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
-        :param int volume_size_in_gb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
-        :param str volume_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+        Configuration for the cluster used to run model monitoring jobs.
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -393,7 +440,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -401,7 +448,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
+        The ML compute instance type for the processing job.
         """
         return pulumi.get(self, "instance_type")
 
@@ -409,7 +456,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeSizeInGB")
     def volume_size_in_gb(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -417,7 +464,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -425,7 +472,7 @@ class DataQualityJobDefinitionClusterConfig(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionConstraintsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
+    The baseline constraints resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -447,8 +494,8 @@ class DataQualityJobDefinitionConstraintsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+        The baseline constraints resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -457,7 +504,7 @@ class DataQualityJobDefinitionConstraintsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -465,7 +512,7 @@ class DataQualityJobDefinitionConstraintsResource(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
+    Container image configuration object for the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -496,17 +543,17 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
                  image_uri: str,
                  container_arguments: Optional[Sequence[str]] = None,
                  container_entrypoint: Optional[Sequence[str]] = None,
-                 environment: Optional[Mapping[str, str]] = None,
+                 environment: Optional[Any] = None,
                  post_analytics_processor_source_uri: Optional[str] = None,
                  record_preprocessor_source_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
-        :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
-        :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
-        :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
-        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-        :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
-        :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+        Container image configuration object for the monitoring job.
+        :param str image_uri: The container image to be run by the monitoring job.
+        :param Sequence[str] container_arguments: An array of arguments for the container used to run the monitoring job.
+        :param Sequence[str] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
+        :param Any environment: Sets the environment variables in the Docker container
+        :param str post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        :param str record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         pulumi.set(__self__, "image_uri", image_uri)
         if container_arguments is not None:
@@ -524,7 +571,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+        The container image to be run by the monitoring job.
         """
         return pulumi.get(self, "image_uri")
 
@@ -532,7 +579,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @pulumi.getter(name="containerArguments")
     def container_arguments(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+        An array of arguments for the container used to run the monitoring job.
         """
         return pulumi.get(self, "container_arguments")
 
@@ -540,15 +587,15 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @pulumi.getter(name="containerEntrypoint")
     def container_entrypoint(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+        Specifies the entrypoint for a container used to run the monitoring job.
         """
         return pulumi.get(self, "container_entrypoint")
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
+    def environment(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
+        Sets the environment variables in the Docker container
         """
         return pulumi.get(self, "environment")
 
@@ -556,7 +603,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @pulumi.getter(name="postAnalyticsProcessorSourceUri")
     def post_analytics_processor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         """
         return pulumi.get(self, "post_analytics_processor_source_uri")
 
@@ -564,7 +611,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @pulumi.getter(name="recordPreprocessorSourceUri")
     def record_preprocessor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
@@ -572,7 +619,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
+    Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -600,10 +647,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
                  constraints_resource: Optional['outputs.DataQualityJobDefinitionConstraintsResource'] = None,
                  statistics_resource: Optional['outputs.DataQualityJobDefinitionStatisticsResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
-        :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-        :param 'DataQualityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
-        :param 'DataQualityJobDefinitionStatisticsResource' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -615,32 +659,23 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-        """
         return pulumi.get(self, "baselining_job_name")
 
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional['outputs.DataQualityJobDefinitionConstraintsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
-        """
         return pulumi.get(self, "constraints_resource")
 
     @property
     @pulumi.getter(name="statisticsResource")
     def statistics_resource(self) -> Optional['outputs.DataQualityJobDefinitionStatisticsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
-        """
         return pulumi.get(self, "statistics_resource")
 
 
 @pulumi.output_type
 class DataQualityJobDefinitionDataQualityJobInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
+    The inputs for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -662,24 +697,20 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
     def __init__(__self__, *,
                  endpoint_input: 'outputs.DataQualityJobDefinitionEndpointInput'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
-        :param 'DataQualityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
+        The inputs for a monitoring job.
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> 'outputs.DataQualityJobDefinitionEndpointInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
-        """
         return pulumi.get(self, "endpoint_input")
 
 
 @pulumi.output_type
 class DataQualityJobDefinitionEndpointInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
+    The endpoint for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -710,11 +741,10 @@ class DataQualityJobDefinitionEndpointInput(dict):
                  s3_data_distribution_type: Optional[str] = None,
                  s3_input_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
-        :param str s3_data_distribution_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
-        :param str s3_input_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+        The endpoint for a monitoring job.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -726,16 +756,13 @@ class DataQualityJobDefinitionEndpointInput(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
+        Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
 
@@ -743,7 +770,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3DataDistributionType")
     def s3_data_distribution_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
         return pulumi.get(self, "s3_data_distribution_type")
 
@@ -751,7 +778,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3InputMode")
     def s3_input_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
 
@@ -759,7 +786,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringOutput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
+    The output object for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -781,24 +808,20 @@ class DataQualityJobDefinitionMonitoringOutput(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.DataQualityJobDefinitionS3Output'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
-        :param 'DataQualityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
+        The output object for a monitoring job.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> 'outputs.DataQualityJobDefinitionS3Output':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
-        """
         return pulumi.get(self, "s3_output")
 
 
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringOutputConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
+    The output configuration for monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -823,9 +846,9 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
                  monitoring_outputs: Sequence['outputs.DataQualityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['DataQualityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+        The output configuration for monitoring jobs.
+        :param Sequence['DataQualityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -835,7 +858,7 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="monitoringOutputs")
     def monitoring_outputs(self) -> Sequence['outputs.DataQualityJobDefinitionMonitoringOutput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         """
         return pulumi.get(self, "monitoring_outputs")
 
@@ -843,7 +866,7 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -851,7 +874,7 @@ class DataQualityJobDefinitionMonitoringOutputConfig(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionMonitoringResources(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
+    Identifies the resources to deploy for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -873,24 +896,20 @@ class DataQualityJobDefinitionMonitoringResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.DataQualityJobDefinitionClusterConfig'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
-        :param 'DataQualityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
+        Identifies the resources to deploy for a monitoring job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.DataQualityJobDefinitionClusterConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
-        """
         return pulumi.get(self, "cluster_config")
 
 
 @pulumi.output_type
 class DataQualityJobDefinitionNetworkConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -918,10 +937,9 @@ class DataQualityJobDefinitionNetworkConfig(dict):
                  enable_network_isolation: Optional[bool] = None,
                  vpc_config: Optional['outputs.DataQualityJobDefinitionVpcConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
-        :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
-        :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'DataQualityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -934,7 +952,7 @@ class DataQualityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
     def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
@@ -942,23 +960,20 @@ class DataQualityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableNetworkIsolation")
     def enable_network_isolation(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.DataQualityJobDefinitionVpcConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
-        """
         return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
 class DataQualityJobDefinitionS3Output(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
+    Information about where and how to store the results of a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -986,10 +1001,10 @@ class DataQualityJobDefinitionS3Output(dict):
                  s3_uri: str,
                  s3_upload_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
-        :param str s3_upload_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
+        Information about where and how to store the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1000,7 +1015,7 @@ class DataQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         """
         return pulumi.get(self, "local_path")
 
@@ -1008,7 +1023,7 @@ class DataQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -1016,7 +1031,7 @@ class DataQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3UploadMode")
     def s3_upload_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
+        Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         return pulumi.get(self, "s3_upload_mode")
 
@@ -1024,7 +1039,7 @@ class DataQualityJobDefinitionS3Output(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionStatisticsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
+    The baseline statistics resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1046,8 +1061,8 @@ class DataQualityJobDefinitionStatisticsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+        The baseline statistics resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1056,7 +1071,7 @@ class DataQualityJobDefinitionStatisticsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+        The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -1064,7 +1079,7 @@ class DataQualityJobDefinitionStatisticsResource(dict):
 @pulumi.output_type
 class DataQualityJobDefinitionStoppingCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
+    Specifies a time limit for how long the monitoring job is allowed to run.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1086,8 +1101,8 @@ class DataQualityJobDefinitionStoppingCondition(dict):
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
-        :param int max_runtime_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
 
@@ -1095,15 +1110,48 @@ class DataQualityJobDefinitionStoppingCondition(dict):
     @pulumi.getter(name="maxRuntimeInSeconds")
     def max_runtime_in_seconds(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+        The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
+class DataQualityJobDefinitionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DataQualityJobDefinitionVpcConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
+    Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1126,9 +1174,9 @@ class DataQualityJobDefinitionVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
@@ -1137,7 +1185,7 @@ class DataQualityJobDefinitionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1145,16 +1193,78 @@ class DataQualityJobDefinitionVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
+class DeviceDevice(dict):
+    """
+    Edge device you want to create
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceName":
+            suggest = "device_name"
+        elif key == "iotThingName":
+            suggest = "iot_thing_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceDevice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_name: str,
+                 description: Optional[str] = None,
+                 iot_thing_name: Optional[str] = None):
+        """
+        Edge device you want to create
+        :param str device_name: The name of the device
+        :param str description: Description of the device
+        :param str iot_thing_name: AWS Internet of Things (IoT) object name.
+        """
+        pulumi.set(__self__, "device_name", device_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if iot_thing_name is not None:
+            pulumi.set(__self__, "iot_thing_name", iot_thing_name)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> str:
+        """
+        The name of the device
+        """
+        return pulumi.get(self, "device_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the device
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iotThingName")
+    def iot_thing_name(self) -> Optional[str]:
+        """
+        AWS Internet of Things (IoT) object name.
+        """
+        return pulumi.get(self, "iot_thing_name")
+
+
+@pulumi.output_type
 class DeviceFleetEdgeOutputConfig(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1178,9 +1288,8 @@ class DeviceFleetEdgeOutputConfig(dict):
                  s3_output_location: str,
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
-        :param str s3_output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+        :param str s3_output_location: The Amazon Simple Storage (S3) bucket URI
+        :param str kms_key_id: The KMS key id used for encryption on the S3 bucket
         """
         pulumi.set(__self__, "s3_output_location", s3_output_location)
         if kms_key_id is not None:
@@ -1190,7 +1299,7 @@ class DeviceFleetEdgeOutputConfig(dict):
     @pulumi.getter(name="s3OutputLocation")
     def s3_output_location(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
+        The Amazon Simple Storage (S3) bucket URI
         """
         return pulumi.get(self, "s3_output_location")
 
@@ -1198,15 +1307,77 @@ class DeviceFleetEdgeOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+        The KMS key id used for encryption on the S3 bucket
         """
         return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type
+class DeviceFleetTag(dict):
+    """
+    Key-value pair to associate as a tag for the resource
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Key-value pair to associate as a tag for the resource
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DeviceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DomainCustomImage(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+    A custom SageMaker image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1234,10 +1405,10 @@ class DomainCustomImage(dict):
                  image_name: str,
                  image_version_number: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
-        :param str app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
-        :param str image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
-        :param int image_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+        A custom SageMaker image.
+        :param str app_image_config_name: The Name of the AppImageConfig.
+        :param str image_name: The name of the CustomImage. Must be unique to your account.
+        :param int image_version_number: The version number of the CustomImage.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         pulumi.set(__self__, "image_name", image_name)
@@ -1248,7 +1419,7 @@ class DomainCustomImage(dict):
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+        The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
 
@@ -1256,7 +1427,7 @@ class DomainCustomImage(dict):
     @pulumi.getter(name="imageName")
     def image_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+        The name of the CustomImage. Must be unique to your account.
         """
         return pulumi.get(self, "image_name")
 
@@ -1264,7 +1435,7 @@ class DomainCustomImage(dict):
     @pulumi.getter(name="imageVersionNumber")
     def image_version_number(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+        The version number of the CustomImage.
         """
         return pulumi.get(self, "image_version_number")
 
@@ -1272,7 +1443,7 @@ class DomainCustomImage(dict):
 @pulumi.output_type
 class DomainJupyterServerAppSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+    The JupyterServer app settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1294,8 +1465,7 @@ class DomainJupyterServerAppSettings(dict):
     def __init__(__self__, *,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
-        :param 'DomainResourceSpec' default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
+        The JupyterServer app settings.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -1303,16 +1473,13 @@ class DomainJupyterServerAppSettings(dict):
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional['outputs.DomainResourceSpec']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
-        """
         return pulumi.get(self, "default_resource_spec")
 
 
 @pulumi.output_type
 class DomainKernelGatewayAppSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+    The kernel gateway app settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1337,9 +1504,9 @@ class DomainKernelGatewayAppSettings(dict):
                  custom_images: Optional[Sequence['outputs.DomainCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainResourceSpec'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
-        :param Sequence['DomainCustomImage'] custom_images: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
-        :param 'DomainResourceSpec' default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        The kernel gateway app settings.
+        :param Sequence['DomainCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        :param 'DomainResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -1350,7 +1517,7 @@ class DomainKernelGatewayAppSettings(dict):
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[Sequence['outputs.DomainCustomImage']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+        A list of custom SageMaker images that are configured to run as a KernelGateway app.
         """
         return pulumi.get(self, "custom_images")
 
@@ -1358,16 +1525,13 @@ class DomainKernelGatewayAppSettings(dict):
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional['outputs.DomainResourceSpec']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         """
         return pulumi.get(self, "default_resource_spec")
 
 
 @pulumi.output_type
 class DomainResourceSpec(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1394,10 +1558,9 @@ class DomainResourceSpec(dict):
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
-        :param str sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
-        :param str sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+        :param str instance_type: The instance type that the image version runs on.
+        :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -1410,7 +1573,7 @@ class DomainResourceSpec(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+        The instance type that the image version runs on.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1418,7 +1581,7 @@ class DomainResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageArn")
     def sage_maker_image_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sage_maker_image_arn")
 
@@ -1426,7 +1589,7 @@ class DomainResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageVersionArn")
     def sage_maker_image_version_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+        The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
 
@@ -1434,7 +1597,7 @@ class DomainResourceSpec(dict):
 @pulumi.output_type
 class DomainSharingSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+    Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1462,10 +1625,10 @@ class DomainSharingSettings(dict):
                  s3_kms_key_id: Optional[str] = None,
                  s3_output_path: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
-        :param str notebook_output_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
-        :param str s3_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
-        :param str s3_output_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+        Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+        :param str notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
+        :param str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+        :param str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         if notebook_output_option is not None:
             pulumi.set(__self__, "notebook_output_option", notebook_output_option)
@@ -1478,7 +1641,7 @@ class DomainSharingSettings(dict):
     @pulumi.getter(name="notebookOutputOption")
     def notebook_output_option(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+        Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         """
         return pulumi.get(self, "notebook_output_option")
 
@@ -1486,7 +1649,7 @@ class DomainSharingSettings(dict):
     @pulumi.getter(name="s3KmsKeyId")
     def s3_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+        When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_id")
 
@@ -1494,15 +1657,34 @@ class DomainSharingSettings(dict):
     @pulumi.getter(name="s3OutputPath")
     def s3_output_path(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+        When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         return pulumi.get(self, "s3_output_path")
 
 
 @pulumi.output_type
+class DomainTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class DomainUserSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+    A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1536,12 +1718,12 @@ class DomainUserSettings(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.DomainSharingSettings'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
-        :param str execution_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
-        :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
-        :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
-        :param Sequence[str] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
-        :param 'DomainSharingSettings' sharing_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+        A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param str execution_role: The user profile Amazon Resource Name (ARN).
+        :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
+        :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param 'DomainSharingSettings' sharing_settings: The sharing settings.
         """
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
@@ -1558,7 +1740,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+        The user profile Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "execution_role")
 
@@ -1566,7 +1748,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional['outputs.DomainJupyterServerAppSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+        The Jupyter server's app settings.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -1574,7 +1756,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional['outputs.DomainKernelGatewayAppSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+        The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -1582,7 +1764,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1590,16 +1772,13 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="sharingSettings")
     def sharing_settings(self) -> Optional['outputs.DomainSharingSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+        The sharing settings.
         """
         return pulumi.get(self, "sharing_settings")
 
 
 @pulumi.output_type
 class FeatureGroupFeatureDefinition(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1622,35 +1801,82 @@ class FeatureGroupFeatureDefinition(dict):
     def __init__(__self__, *,
                  feature_name: str,
                  feature_type: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
-        :param str feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
-        :param str feature_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
-        """
         pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "feature_type", feature_type)
 
     @property
     @pulumi.getter(name="featureName")
     def feature_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
-        """
         return pulumi.get(self, "feature_name")
 
     @property
     @pulumi.getter(name="featureType")
     def feature_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
-        """
         return pulumi.get(self, "feature_type")
+
+
+@pulumi.output_type
+class FeatureGroupTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ImageTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionClusterConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
+    Configuration for the cluster used to run model monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1681,11 +1907,11 @@ class ModelBiasJobDefinitionClusterConfig(dict):
                  volume_size_in_gb: int,
                  volume_kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
-        :param int instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
-        :param int volume_size_in_gb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
-        :param str volume_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+        Configuration for the cluster used to run model monitoring jobs.
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1697,7 +1923,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -1705,7 +1931,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+        The ML compute instance type for the processing job.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1713,7 +1939,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeSizeInGB")
     def volume_size_in_gb(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -1721,7 +1947,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -1729,7 +1955,7 @@ class ModelBiasJobDefinitionClusterConfig(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionConstraintsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
+    The baseline constraints resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1751,8 +1977,8 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+        The baseline constraints resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1761,7 +1987,7 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -1769,7 +1995,7 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionEndpointInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
+    The endpoint for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1818,17 +2044,15 @@ class ModelBiasJobDefinitionEndpointInput(dict):
                  s3_input_mode: Optional[str] = None,
                  start_time_offset: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
-        :param str end_time_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
-        :param str features_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
-        :param str inference_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
-        :param str probability_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
-        :param float probability_threshold_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
-        :param str s3_data_distribution_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
-        :param str s3_input_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
-        :param str start_time_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+        The endpoint for a monitoring job.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str end_time_offset: Monitoring end time offset, e.g. PT0H
+        :param str features_attribute: JSONpath to locate features in JSONlines dataset
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -1852,16 +2076,13 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
+        Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
 
@@ -1869,7 +2090,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="endTimeOffset")
     def end_time_offset(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
+        Monitoring end time offset, e.g. PT0H
         """
         return pulumi.get(self, "end_time_offset")
 
@@ -1877,7 +2098,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="featuresAttribute")
     def features_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
+        JSONpath to locate features in JSONlines dataset
         """
         return pulumi.get(self, "features_attribute")
 
@@ -1885,7 +2106,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="inferenceAttribute")
     def inference_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
+        Index or JSONpath to locate predicted label(s)
         """
         return pulumi.get(self, "inference_attribute")
 
@@ -1893,23 +2114,20 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="probabilityAttribute")
     def probability_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
+        Index or JSONpath to locate probabilities
         """
         return pulumi.get(self, "probability_attribute")
 
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
-        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
     def s3_data_distribution_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
         return pulumi.get(self, "s3_data_distribution_type")
 
@@ -1917,7 +2135,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3InputMode")
     def s3_input_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
 
@@ -1925,7 +2143,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="startTimeOffset")
     def start_time_offset(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+        Monitoring start time offset, e.g. -PT1H
         """
         return pulumi.get(self, "start_time_offset")
 
@@ -1933,7 +2151,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
+    Container image configuration object for the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1957,12 +2175,12 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
-                 environment: Optional[Mapping[str, str]] = None):
+                 environment: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
-        :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
-        :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
-        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
+        Container image configuration object for the monitoring job.
+        :param str config_uri: The S3 URI to an analysis configuration file
+        :param str image_uri: The container image to be run by the monitoring job.
+        :param Any environment: Sets the environment variables in the Docker container
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -1973,7 +2191,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     @pulumi.getter(name="configUri")
     def config_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+        The S3 URI to an analysis configuration file
         """
         return pulumi.get(self, "config_uri")
 
@@ -1981,15 +2199,15 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+        The container image to be run by the monitoring job.
         """
         return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
+    def environment(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
+        Sets the environment variables in the Docker container
         """
         return pulumi.get(self, "environment")
 
@@ -1997,7 +2215,7 @@ class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
+    Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2022,9 +2240,7 @@ class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelBiasJobDefinitionConstraintsResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
-        :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-        :param 'ModelBiasJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -2034,24 +2250,18 @@ class ModelBiasJobDefinitionModelBiasBaselineConfig(dict):
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-        """
         return pulumi.get(self, "baselining_job_name")
 
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional['outputs.ModelBiasJobDefinitionConstraintsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
-        """
         return pulumi.get(self, "constraints_resource")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionModelBiasJobInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
+    The inputs for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2076,9 +2286,7 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
                  endpoint_input: 'outputs.ModelBiasJobDefinitionEndpointInput',
                  ground_truth_s3_input: 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
-        :param 'ModelBiasJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-        :param 'ModelBiasJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
+        The inputs for a monitoring job.
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
@@ -2086,24 +2294,18 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> 'outputs.ModelBiasJobDefinitionEndpointInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-        """
         return pulumi.get(self, "endpoint_input")
 
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
-        """
         return pulumi.get(self, "ground_truth_s3_input")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
+    Ground truth input provided in S3 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2125,8 +2327,8 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     def __init__(__self__, *,
                  s3_uri: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+        Ground truth input provided in S3 
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -2134,7 +2336,7 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -2142,7 +2344,7 @@ class ModelBiasJobDefinitionMonitoringGroundTruthS3Input(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringOutput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+    The output object for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2164,24 +2366,20 @@ class ModelBiasJobDefinitionMonitoringOutput(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelBiasJobDefinitionS3Output'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
-        :param 'ModelBiasJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
+        The output object for a monitoring job.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> 'outputs.ModelBiasJobDefinitionS3Output':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
-        """
         return pulumi.get(self, "s3_output")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
+    The output configuration for monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2206,9 +2404,9 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
                  monitoring_outputs: Sequence['outputs.ModelBiasJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelBiasJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+        The output configuration for monitoring jobs.
+        :param Sequence['ModelBiasJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -2218,7 +2416,7 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="monitoringOutputs")
     def monitoring_outputs(self) -> Sequence['outputs.ModelBiasJobDefinitionMonitoringOutput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         """
         return pulumi.get(self, "monitoring_outputs")
 
@@ -2226,7 +2424,7 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2234,7 +2432,7 @@ class ModelBiasJobDefinitionMonitoringOutputConfig(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionMonitoringResources(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+    Identifies the resources to deploy for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2256,24 +2454,20 @@ class ModelBiasJobDefinitionMonitoringResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelBiasJobDefinitionClusterConfig'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
-        :param 'ModelBiasJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
+        Identifies the resources to deploy for a monitoring job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.ModelBiasJobDefinitionClusterConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
-        """
         return pulumi.get(self, "cluster_config")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionNetworkConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2301,10 +2495,9 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
                  enable_network_isolation: Optional[bool] = None,
                  vpc_config: Optional['outputs.ModelBiasJobDefinitionVpcConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
-        :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
-        :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelBiasJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -2317,7 +2510,7 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
     def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
@@ -2325,23 +2518,20 @@ class ModelBiasJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableNetworkIsolation")
     def enable_network_isolation(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.ModelBiasJobDefinitionVpcConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
-        """
         return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
 class ModelBiasJobDefinitionS3Output(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
+    Information about where and how to store the results of a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2369,10 +2559,10 @@ class ModelBiasJobDefinitionS3Output(dict):
                  s3_uri: str,
                  s3_upload_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uri
-        :param str s3_upload_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uploadmode
+        Information about where and how to store the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -2383,7 +2573,7 @@ class ModelBiasJobDefinitionS3Output(dict):
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         """
         return pulumi.get(self, "local_path")
 
@@ -2391,7 +2581,7 @@ class ModelBiasJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -2399,7 +2589,7 @@ class ModelBiasJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3UploadMode")
     def s3_upload_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uploadmode
+        Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         return pulumi.get(self, "s3_upload_mode")
 
@@ -2407,7 +2597,7 @@ class ModelBiasJobDefinitionS3Output(dict):
 @pulumi.output_type
 class ModelBiasJobDefinitionStoppingCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
+    Specifies a time limit for how long the monitoring job is allowed to run.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2429,8 +2619,8 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
-        :param int max_runtime_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
 
@@ -2438,15 +2628,48 @@ class ModelBiasJobDefinitionStoppingCondition(dict):
     @pulumi.getter(name="maxRuntimeInSeconds")
     def max_runtime_in_seconds(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+        The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
+class ModelBiasJobDefinitionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ModelBiasJobDefinitionVpcConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
+    Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2469,9 +2692,9 @@ class ModelBiasJobDefinitionVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
@@ -2480,7 +2703,7 @@ class ModelBiasJobDefinitionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -2488,7 +2711,7 @@ class ModelBiasJobDefinitionVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
 
@@ -2496,7 +2719,7 @@ class ModelBiasJobDefinitionVpcConfig(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionClusterConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
+    Configuration for the cluster used to run model monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2527,11 +2750,11 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
                  volume_size_in_gb: int,
                  volume_kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
-        :param int instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
-        :param int volume_size_in_gb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
-        :param str volume_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+        Configuration for the cluster used to run model monitoring jobs.
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -2543,7 +2766,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -2551,7 +2774,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+        The ML compute instance type for the processing job.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2559,7 +2782,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeSizeInGB")
     def volume_size_in_gb(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -2567,7 +2790,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -2575,7 +2798,7 @@ class ModelExplainabilityJobDefinitionClusterConfig(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionConstraintsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
+    The baseline constraints resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2597,8 +2820,8 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+        The baseline constraints resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -2607,7 +2830,7 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -2615,7 +2838,7 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionEndpointInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
+    The endpoint for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2655,14 +2878,13 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
                  s3_data_distribution_type: Optional[str] = None,
                  s3_input_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
-        :param str features_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
-        :param str inference_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
-        :param str probability_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
-        :param str s3_data_distribution_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
-        :param str s3_input_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+        The endpoint for a monitoring job.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str features_attribute: JSONpath to locate features in JSONlines dataset
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -2680,16 +2902,13 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
+        Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
 
@@ -2697,7 +2916,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="featuresAttribute")
     def features_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
+        JSONpath to locate features in JSONlines dataset
         """
         return pulumi.get(self, "features_attribute")
 
@@ -2705,7 +2924,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="inferenceAttribute")
     def inference_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
+        Index or JSONpath to locate predicted label(s)
         """
         return pulumi.get(self, "inference_attribute")
 
@@ -2713,7 +2932,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="probabilityAttribute")
     def probability_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
+        Index or JSONpath to locate probabilities
         """
         return pulumi.get(self, "probability_attribute")
 
@@ -2721,7 +2940,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3DataDistributionType")
     def s3_data_distribution_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
         return pulumi.get(self, "s3_data_distribution_type")
 
@@ -2729,7 +2948,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3InputMode")
     def s3_input_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
 
@@ -2737,7 +2956,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
+    Container image configuration object for the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2761,12 +2980,12 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     def __init__(__self__, *,
                  config_uri: str,
                  image_uri: str,
-                 environment: Optional[Mapping[str, str]] = None):
+                 environment: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
-        :param str config_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
-        :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
-        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
+        Container image configuration object for the monitoring job.
+        :param str config_uri: The S3 URI to an analysis configuration file
+        :param str image_uri: The container image to be run by the monitoring job.
+        :param Any environment: Sets the environment variables in the Docker container
         """
         pulumi.set(__self__, "config_uri", config_uri)
         pulumi.set(__self__, "image_uri", image_uri)
@@ -2777,7 +2996,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     @pulumi.getter(name="configUri")
     def config_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+        The S3 URI to an analysis configuration file
         """
         return pulumi.get(self, "config_uri")
 
@@ -2785,15 +3004,15 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+        The container image to be run by the monitoring job.
         """
         return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
+    def environment(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
+        Sets the environment variables in the Docker container
         """
         return pulumi.get(self, "environment")
 
@@ -2801,7 +3020,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
+    Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2826,9 +3045,7 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelExplainabilityJobDefinitionConstraintsResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
-        :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-        :param 'ModelExplainabilityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -2838,24 +3055,18 @@ class ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig(dict):
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-        """
         return pulumi.get(self, "baselining_job_name")
 
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional['outputs.ModelExplainabilityJobDefinitionConstraintsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
-        """
         return pulumi.get(self, "constraints_resource")
 
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
+    The inputs for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2877,24 +3088,20 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
     def __init__(__self__, *,
                  endpoint_input: 'outputs.ModelExplainabilityJobDefinitionEndpointInput'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
-        :param 'ModelExplainabilityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
+        The inputs for a monitoring job.
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> 'outputs.ModelExplainabilityJobDefinitionEndpointInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
-        """
         return pulumi.get(self, "endpoint_input")
 
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
+    The output object for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2916,24 +3123,20 @@ class ModelExplainabilityJobDefinitionMonitoringOutput(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelExplainabilityJobDefinitionS3Output'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
-        :param 'ModelExplainabilityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
+        The output object for a monitoring job.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> 'outputs.ModelExplainabilityJobDefinitionS3Output':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
-        """
         return pulumi.get(self, "s3_output")
 
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
+    The output configuration for monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2958,9 +3161,9 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
                  monitoring_outputs: Sequence['outputs.ModelExplainabilityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelExplainabilityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+        The output configuration for monitoring jobs.
+        :param Sequence['ModelExplainabilityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -2970,7 +3173,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="monitoringOutputs")
     def monitoring_outputs(self) -> Sequence['outputs.ModelExplainabilityJobDefinitionMonitoringOutput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         """
         return pulumi.get(self, "monitoring_outputs")
 
@@ -2978,7 +3181,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2986,7 +3189,7 @@ class ModelExplainabilityJobDefinitionMonitoringOutputConfig(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionMonitoringResources(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
+    Identifies the resources to deploy for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3008,24 +3211,20 @@ class ModelExplainabilityJobDefinitionMonitoringResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelExplainabilityJobDefinitionClusterConfig'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
-        :param 'ModelExplainabilityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
+        Identifies the resources to deploy for a monitoring job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.ModelExplainabilityJobDefinitionClusterConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
-        """
         return pulumi.get(self, "cluster_config")
 
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionNetworkConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3053,10 +3252,9 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
                  enable_network_isolation: Optional[bool] = None,
                  vpc_config: Optional['outputs.ModelExplainabilityJobDefinitionVpcConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
-        :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
-        :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelExplainabilityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -3069,7 +3267,7 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
     def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
@@ -3077,23 +3275,20 @@ class ModelExplainabilityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableNetworkIsolation")
     def enable_network_isolation(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.ModelExplainabilityJobDefinitionVpcConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
-        """
         return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionS3Output(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
+    Information about where and how to store the results of a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3121,10 +3316,10 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
                  s3_uri: str,
                  s3_upload_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uri
-        :param str s3_upload_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uploadmode
+        Information about where and how to store the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -3135,7 +3330,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         """
         return pulumi.get(self, "local_path")
 
@@ -3143,7 +3338,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -3151,7 +3346,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3UploadMode")
     def s3_upload_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uploadmode
+        Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         return pulumi.get(self, "s3_upload_mode")
 
@@ -3159,7 +3354,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
 @pulumi.output_type
 class ModelExplainabilityJobDefinitionStoppingCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
+    Specifies a time limit for how long the monitoring job is allowed to run.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3181,8 +3376,8 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
-        :param int max_runtime_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
 
@@ -3190,15 +3385,48 @@ class ModelExplainabilityJobDefinitionStoppingCondition(dict):
     @pulumi.getter(name="maxRuntimeInSeconds")
     def max_runtime_in_seconds(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+        The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
+class ModelExplainabilityJobDefinitionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ModelExplainabilityJobDefinitionVpcConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
+    Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3221,9 +3449,9 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
@@ -3232,7 +3460,7 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -3240,15 +3468,48 @@ class ModelExplainabilityJobDefinitionVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
+class ModelPackageGroupTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ModelQualityJobDefinitionClusterConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
+    Configuration for the cluster used to run model monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3279,11 +3540,11 @@ class ModelQualityJobDefinitionClusterConfig(dict):
                  volume_size_in_gb: int,
                  volume_kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
-        :param int instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
-        :param int volume_size_in_gb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
-        :param str volume_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+        Configuration for the cluster used to run model monitoring jobs.
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -3295,7 +3556,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -3303,7 +3564,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
+        The ML compute instance type for the processing job.
         """
         return pulumi.get(self, "instance_type")
 
@@ -3311,7 +3572,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeSizeInGB")
     def volume_size_in_gb(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -3319,7 +3580,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -3327,7 +3588,7 @@ class ModelQualityJobDefinitionClusterConfig(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionConstraintsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
+    The baseline constraints resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3349,8 +3610,8 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+        The baseline constraints resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -3359,7 +3620,7 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -3367,7 +3628,7 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionEndpointInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
+    The endpoint for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3413,16 +3674,14 @@ class ModelQualityJobDefinitionEndpointInput(dict):
                  s3_input_mode: Optional[str] = None,
                  start_time_offset: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
-        :param str end_time_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
-        :param str inference_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
-        :param str probability_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
-        :param float probability_threshold_attribute: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
-        :param str s3_data_distribution_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
-        :param str s3_input_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
-        :param str start_time_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+        The endpoint for a monitoring job.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str end_time_offset: Monitoring end time offset, e.g. PT0H
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -3444,16 +3703,13 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
+        Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
 
@@ -3461,7 +3717,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="endTimeOffset")
     def end_time_offset(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
+        Monitoring end time offset, e.g. PT0H
         """
         return pulumi.get(self, "end_time_offset")
 
@@ -3469,7 +3725,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="inferenceAttribute")
     def inference_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
+        Index or JSONpath to locate predicted label(s)
         """
         return pulumi.get(self, "inference_attribute")
 
@@ -3477,23 +3733,20 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="probabilityAttribute")
     def probability_attribute(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
+        Index or JSONpath to locate probabilities
         """
         return pulumi.get(self, "probability_attribute")
 
     @property
     @pulumi.getter(name="probabilityThresholdAttribute")
     def probability_threshold_attribute(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
-        """
         return pulumi.get(self, "probability_threshold_attribute")
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
     def s3_data_distribution_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
         return pulumi.get(self, "s3_data_distribution_type")
 
@@ -3501,7 +3754,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="s3InputMode")
     def s3_input_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
 
@@ -3509,7 +3762,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
     @pulumi.getter(name="startTimeOffset")
     def start_time_offset(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+        Monitoring start time offset, e.g. -PT1H
         """
         return pulumi.get(self, "start_time_offset")
 
@@ -3517,7 +3770,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
+    Container image configuration object for the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3551,18 +3804,17 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
                  problem_type: str,
                  container_arguments: Optional[Sequence[str]] = None,
                  container_entrypoint: Optional[Sequence[str]] = None,
-                 environment: Optional[Mapping[str, str]] = None,
+                 environment: Optional[Any] = None,
                  post_analytics_processor_source_uri: Optional[str] = None,
                  record_preprocessor_source_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
-        :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
-        :param str problem_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
-        :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
-        :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
-        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-        :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
-        :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+        Container image configuration object for the monitoring job.
+        :param str image_uri: The container image to be run by the monitoring job.
+        :param Sequence[str] container_arguments: An array of arguments for the container used to run the monitoring job.
+        :param Sequence[str] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
+        :param Any environment: Sets the environment variables in the Docker container
+        :param str post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        :param str record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         pulumi.set(__self__, "image_uri", image_uri)
         pulumi.set(__self__, "problem_type", problem_type)
@@ -3581,23 +3833,20 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+        The container image to be run by the monitoring job.
         """
         return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter(name="problemType")
     def problem_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
-        """
         return pulumi.get(self, "problem_type")
 
     @property
     @pulumi.getter(name="containerArguments")
     def container_arguments(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+        An array of arguments for the container used to run the monitoring job.
         """
         return pulumi.get(self, "container_arguments")
 
@@ -3605,15 +3854,15 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     @pulumi.getter(name="containerEntrypoint")
     def container_entrypoint(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+        Specifies the entrypoint for a container used to run the monitoring job.
         """
         return pulumi.get(self, "container_entrypoint")
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
+    def environment(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
+        Sets the environment variables in the Docker container
         """
         return pulumi.get(self, "environment")
 
@@ -3621,7 +3870,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     @pulumi.getter(name="postAnalyticsProcessorSourceUri")
     def post_analytics_processor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         """
         return pulumi.get(self, "post_analytics_processor_source_uri")
 
@@ -3629,7 +3878,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
     @pulumi.getter(name="recordPreprocessorSourceUri")
     def record_preprocessor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
@@ -3637,7 +3886,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+    Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3662,9 +3911,7 @@ class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
                  baselining_job_name: Optional[str] = None,
                  constraints_resource: Optional['outputs.ModelQualityJobDefinitionConstraintsResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
-        :param str baselining_job_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-        :param 'ModelQualityJobDefinitionConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
         """
         if baselining_job_name is not None:
             pulumi.set(__self__, "baselining_job_name", baselining_job_name)
@@ -3674,24 +3921,18 @@ class ModelQualityJobDefinitionModelQualityBaselineConfig(dict):
     @property
     @pulumi.getter(name="baseliningJobName")
     def baselining_job_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-        """
         return pulumi.get(self, "baselining_job_name")
 
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional['outputs.ModelQualityJobDefinitionConstraintsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
-        """
         return pulumi.get(self, "constraints_resource")
 
 
 @pulumi.output_type
 class ModelQualityJobDefinitionModelQualityJobInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
+    The inputs for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3716,9 +3957,7 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
                  endpoint_input: 'outputs.ModelQualityJobDefinitionEndpointInput',
                  ground_truth_s3_input: 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
-        :param 'ModelQualityJobDefinitionEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-        :param 'ModelQualityJobDefinitionMonitoringGroundTruthS3Input' ground_truth_s3_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
+        The inputs for a monitoring job.
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
@@ -3726,24 +3965,18 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> 'outputs.ModelQualityJobDefinitionEndpointInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-        """
         return pulumi.get(self, "endpoint_input")
 
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
-        """
         return pulumi.get(self, "ground_truth_s3_input")
 
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
+    Ground truth input provided in S3 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3765,8 +3998,8 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     def __init__(__self__, *,
                  s3_uri: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+        Ground truth input provided in S3 
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
 
@@ -3774,7 +4007,7 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -3782,7 +4015,7 @@ class ModelQualityJobDefinitionMonitoringGroundTruthS3Input(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringOutput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+    The output object for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3804,24 +4037,20 @@ class ModelQualityJobDefinitionMonitoringOutput(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.ModelQualityJobDefinitionS3Output'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
-        :param 'ModelQualityJobDefinitionS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
+        The output object for a monitoring job.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> 'outputs.ModelQualityJobDefinitionS3Output':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
-        """
         return pulumi.get(self, "s3_output")
 
 
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
+    The output configuration for monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3846,9 +4075,9 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
                  monitoring_outputs: Sequence['outputs.ModelQualityJobDefinitionMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
-        :param Sequence['ModelQualityJobDefinitionMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+        The output configuration for monitoring jobs.
+        :param Sequence['ModelQualityJobDefinitionMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -3858,7 +4087,7 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="monitoringOutputs")
     def monitoring_outputs(self) -> Sequence['outputs.ModelQualityJobDefinitionMonitoringOutput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         """
         return pulumi.get(self, "monitoring_outputs")
 
@@ -3866,7 +4095,7 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -3874,7 +4103,7 @@ class ModelQualityJobDefinitionMonitoringOutputConfig(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionMonitoringResources(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
+    Identifies the resources to deploy for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3896,24 +4125,20 @@ class ModelQualityJobDefinitionMonitoringResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.ModelQualityJobDefinitionClusterConfig'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
-        :param 'ModelQualityJobDefinitionClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
+        Identifies the resources to deploy for a monitoring job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.ModelQualityJobDefinitionClusterConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
-        """
         return pulumi.get(self, "cluster_config")
 
 
 @pulumi.output_type
 class ModelQualityJobDefinitionNetworkConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3941,10 +4166,9 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
                  enable_network_isolation: Optional[bool] = None,
                  vpc_config: Optional['outputs.ModelQualityJobDefinitionVpcConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
-        :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
-        :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
-        :param 'ModelQualityJobDefinitionVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -3957,7 +4181,7 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
     def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
@@ -3965,23 +4189,20 @@ class ModelQualityJobDefinitionNetworkConfig(dict):
     @pulumi.getter(name="enableNetworkIsolation")
     def enable_network_isolation(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.ModelQualityJobDefinitionVpcConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
-        """
         return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
 class ModelQualityJobDefinitionS3Output(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
+    Information about where and how to store the results of a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4009,10 +4230,10 @@ class ModelQualityJobDefinitionS3Output(dict):
                  s3_uri: str,
                  s3_upload_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
-        :param str s3_upload_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+        Information about where and how to store the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -4023,7 +4244,7 @@ class ModelQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         """
         return pulumi.get(self, "local_path")
 
@@ -4031,7 +4252,7 @@ class ModelQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -4039,7 +4260,7 @@ class ModelQualityJobDefinitionS3Output(dict):
     @pulumi.getter(name="s3UploadMode")
     def s3_upload_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+        Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         return pulumi.get(self, "s3_upload_mode")
 
@@ -4047,7 +4268,7 @@ class ModelQualityJobDefinitionS3Output(dict):
 @pulumi.output_type
 class ModelQualityJobDefinitionStoppingCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
+    Specifies a time limit for how long the monitoring job is allowed to run.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4069,8 +4290,8 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
-        :param int max_runtime_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
 
@@ -4078,15 +4299,48 @@ class ModelQualityJobDefinitionStoppingCondition(dict):
     @pulumi.getter(name="maxRuntimeInSeconds")
     def max_runtime_in_seconds(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+        The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
+class ModelQualityJobDefinitionTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ModelQualityJobDefinitionVpcConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
+    Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4109,9 +4363,9 @@ class ModelQualityJobDefinitionVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
@@ -4120,7 +4374,7 @@ class ModelQualityJobDefinitionVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -4128,7 +4382,7 @@ class ModelQualityJobDefinitionVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
 
@@ -4136,7 +4390,7 @@ class ModelQualityJobDefinitionVpcConfig(dict):
 @pulumi.output_type
 class MonitoringScheduleBaselineConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
+    Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4161,9 +4415,7 @@ class MonitoringScheduleBaselineConfig(dict):
                  constraints_resource: Optional['outputs.MonitoringScheduleConstraintsResource'] = None,
                  statistics_resource: Optional['outputs.MonitoringScheduleStatisticsResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
-        :param 'MonitoringScheduleConstraintsResource' constraints_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
-        :param 'MonitoringScheduleStatisticsResource' statistics_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
         """
         if constraints_resource is not None:
             pulumi.set(__self__, "constraints_resource", constraints_resource)
@@ -4173,24 +4425,18 @@ class MonitoringScheduleBaselineConfig(dict):
     @property
     @pulumi.getter(name="constraintsResource")
     def constraints_resource(self) -> Optional['outputs.MonitoringScheduleConstraintsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
-        """
         return pulumi.get(self, "constraints_resource")
 
     @property
     @pulumi.getter(name="statisticsResource")
     def statistics_resource(self) -> Optional['outputs.MonitoringScheduleStatisticsResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
-        """
         return pulumi.get(self, "statistics_resource")
 
 
 @pulumi.output_type
 class MonitoringScheduleClusterConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
+    Configuration for the cluster used to run model monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4221,11 +4467,11 @@ class MonitoringScheduleClusterConfig(dict):
                  volume_size_in_gb: int,
                  volume_kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
-        :param int instance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
-        :param int volume_size_in_gb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
-        :param str volume_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+        Configuration for the cluster used to run model monitoring jobs.
+        :param int instance_count: The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
+        :param str instance_type: The ML compute instance type for the processing job.
+        :param int volume_size_in_gb: The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
+        :param str volume_kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -4237,7 +4483,7 @@ class MonitoringScheduleClusterConfig(dict):
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
+        The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
         """
         return pulumi.get(self, "instance_count")
 
@@ -4245,7 +4491,7 @@ class MonitoringScheduleClusterConfig(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+        The ML compute instance type for the processing job.
         """
         return pulumi.get(self, "instance_type")
 
@@ -4253,7 +4499,7 @@ class MonitoringScheduleClusterConfig(dict):
     @pulumi.getter(name="volumeSizeInGB")
     def volume_size_in_gb(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+        The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
         """
         return pulumi.get(self, "volume_size_in_gb")
 
@@ -4261,7 +4507,7 @@ class MonitoringScheduleClusterConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
         """
         return pulumi.get(self, "volume_kms_key_id")
 
@@ -4269,7 +4515,7 @@ class MonitoringScheduleClusterConfig(dict):
 @pulumi.output_type
 class MonitoringScheduleConstraintsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
+    The baseline constraints resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4291,8 +4537,8 @@ class MonitoringScheduleConstraintsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+        The baseline constraints resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -4301,7 +4547,7 @@ class MonitoringScheduleConstraintsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+        The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -4309,7 +4555,7 @@ class MonitoringScheduleConstraintsResource(dict):
 @pulumi.output_type
 class MonitoringScheduleEndpointInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
+    The endpoint for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4340,11 +4586,10 @@ class MonitoringScheduleEndpointInput(dict):
                  s3_data_distribution_type: Optional[str] = None,
                  s3_input_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
-        :param str s3_data_distribution_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
-        :param str s3_input_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
+        The endpoint for a monitoring job.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -4356,16 +4601,13 @@ class MonitoringScheduleEndpointInput(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
+        Path to the filesystem where the endpoint data is available to the container.
         """
         return pulumi.get(self, "local_path")
 
@@ -4373,7 +4615,7 @@ class MonitoringScheduleEndpointInput(dict):
     @pulumi.getter(name="s3DataDistributionType")
     def s3_data_distribution_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
         return pulumi.get(self, "s3_data_distribution_type")
 
@@ -4381,7 +4623,7 @@ class MonitoringScheduleEndpointInput(dict):
     @pulumi.getter(name="s3InputMode")
     def s3_input_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
 
@@ -4389,7 +4631,7 @@ class MonitoringScheduleEndpointInput(dict):
 @pulumi.output_type
 class MonitoringScheduleMonitoringAppSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
+    Container image configuration object for the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4423,12 +4665,12 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
                  post_analytics_processor_source_uri: Optional[str] = None,
                  record_preprocessor_source_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
-        :param str image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
-        :param Sequence[str] container_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
-        :param Sequence[str] container_entrypoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
-        :param str post_analytics_processor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
-        :param str record_preprocessor_source_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+        Container image configuration object for the monitoring job.
+        :param str image_uri: The container image to be run by the monitoring job.
+        :param Sequence[str] container_arguments: An array of arguments for the container used to run the monitoring job.
+        :param Sequence[str] container_entrypoint: Specifies the entrypoint for a container used to run the monitoring job.
+        :param str post_analytics_processor_source_uri: An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
+        :param str record_preprocessor_source_uri: An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         pulumi.set(__self__, "image_uri", image_uri)
         if container_arguments is not None:
@@ -4444,7 +4686,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+        The container image to be run by the monitoring job.
         """
         return pulumi.get(self, "image_uri")
 
@@ -4452,7 +4694,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
     @pulumi.getter(name="containerArguments")
     def container_arguments(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+        An array of arguments for the container used to run the monitoring job.
         """
         return pulumi.get(self, "container_arguments")
 
@@ -4460,7 +4702,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
     @pulumi.getter(name="containerEntrypoint")
     def container_entrypoint(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+        Specifies the entrypoint for a container used to run the monitoring job.
         """
         return pulumi.get(self, "container_entrypoint")
 
@@ -4468,7 +4710,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
     @pulumi.getter(name="postAnalyticsProcessorSourceUri")
     def post_analytics_processor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+        An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         """
         return pulumi.get(self, "post_analytics_processor_source_uri")
 
@@ -4476,7 +4718,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
     @pulumi.getter(name="recordPreprocessorSourceUri")
     def record_preprocessor_source_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+        An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         """
         return pulumi.get(self, "record_preprocessor_source_uri")
 
@@ -4484,7 +4726,7 @@ class MonitoringScheduleMonitoringAppSpecification(dict):
 @pulumi.output_type
 class MonitoringScheduleMonitoringExecutionSummary(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
+    Summary of information about monitoring job
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4527,15 +4769,13 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
                  failure_reason: Optional[str] = None,
                  processing_job_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
-        :param str creation_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
-        :param str last_modified_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
-        :param str monitoring_execution_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
-        :param str monitoring_schedule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
-        :param str scheduled_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
-        :param str endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
-        :param str failure_reason: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
-        :param str processing_job_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+        Summary of information about monitoring job
+        :param str creation_time: The time at which the monitoring job was created.
+        :param str last_modified_time: A timestamp that indicates the last time the monitoring job was modified.
+        :param str monitoring_execution_status: The status of the monitoring job.
+        :param str scheduled_time: The time the monitoring job was scheduled.
+        :param str failure_reason: Contains the reason a monitoring job failed, if it failed.
+        :param str processing_job_arn: The Amazon Resource Name (ARN) of the monitoring job.
         """
         pulumi.set(__self__, "creation_time", creation_time)
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -4553,7 +4793,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
+        The time at which the monitoring job was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -4561,7 +4801,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
+        A timestamp that indicates the last time the monitoring job was modified.
         """
         return pulumi.get(self, "last_modified_time")
 
@@ -4569,39 +4809,33 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
     @pulumi.getter(name="monitoringExecutionStatus")
     def monitoring_execution_status(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
+        The status of the monitoring job.
         """
         return pulumi.get(self, "monitoring_execution_status")
 
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
-        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @property
     @pulumi.getter(name="scheduledTime")
     def scheduled_time(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
+        The time the monitoring job was scheduled.
         """
         return pulumi.get(self, "scheduled_time")
 
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
+        Contains the reason a monitoring job failed, if it failed.
         """
         return pulumi.get(self, "failure_reason")
 
@@ -4609,7 +4843,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
     @pulumi.getter(name="processingJobArn")
     def processing_job_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+        The Amazon Resource Name (ARN) of the monitoring job.
         """
         return pulumi.get(self, "processing_job_arn")
 
@@ -4617,7 +4851,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
 @pulumi.output_type
 class MonitoringScheduleMonitoringInput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
+    The inputs for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4639,24 +4873,20 @@ class MonitoringScheduleMonitoringInput(dict):
     def __init__(__self__, *,
                  endpoint_input: 'outputs.MonitoringScheduleEndpointInput'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
-        :param 'MonitoringScheduleEndpointInput' endpoint_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
+        The inputs for a monitoring job.
         """
         pulumi.set(__self__, "endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="endpointInput")
     def endpoint_input(self) -> 'outputs.MonitoringScheduleEndpointInput':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
-        """
         return pulumi.get(self, "endpoint_input")
 
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringJobDefinition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+    Defines the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4696,20 +4926,13 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
                  monitoring_resources: 'outputs.MonitoringScheduleMonitoringResources',
                  role_arn: str,
                  baseline_config: Optional['outputs.MonitoringScheduleBaselineConfig'] = None,
-                 environment: Optional[Mapping[str, str]] = None,
+                 environment: Optional[Any] = None,
                  network_config: Optional['outputs.MonitoringScheduleNetworkConfig'] = None,
                  stopping_condition: Optional['outputs.MonitoringScheduleStoppingCondition'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
-        :param 'MonitoringScheduleMonitoringAppSpecification' monitoring_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        :param Sequence['MonitoringScheduleMonitoringInput'] monitoring_inputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-        :param 'MonitoringScheduleMonitoringOutputConfig' monitoring_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-        :param 'MonitoringScheduleMonitoringResources' monitoring_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
-        :param 'MonitoringScheduleBaselineConfig' baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        :param Mapping[str, str] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-        :param 'MonitoringScheduleNetworkConfig' network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-        :param 'MonitoringScheduleStoppingCondition' stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
+        Defines the monitoring job.
+        :param str role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param Any environment: Sets the environment variables in the Docker container
         """
         pulumi.set(__self__, "monitoring_app_specification", monitoring_app_specification)
         pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
@@ -4728,80 +4951,59 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
     @property
     @pulumi.getter(name="monitoringAppSpecification")
     def monitoring_app_specification(self) -> 'outputs.MonitoringScheduleMonitoringAppSpecification':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        """
         return pulumi.get(self, "monitoring_app_specification")
 
     @property
     @pulumi.getter(name="monitoringInputs")
     def monitoring_inputs(self) -> Sequence['outputs.MonitoringScheduleMonitoringInput']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-        """
         return pulumi.get(self, "monitoring_inputs")
 
     @property
     @pulumi.getter(name="monitoringOutputConfig")
     def monitoring_output_config(self) -> 'outputs.MonitoringScheduleMonitoringOutputConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-        """
         return pulumi.get(self, "monitoring_output_config")
 
     @property
     @pulumi.getter(name="monitoringResources")
     def monitoring_resources(self) -> 'outputs.MonitoringScheduleMonitoringResources':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-        """
         return pulumi.get(self, "monitoring_resources")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
+        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="baselineConfig")
     def baseline_config(self) -> Optional['outputs.MonitoringScheduleBaselineConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        """
         return pulumi.get(self, "baseline_config")
 
     @property
     @pulumi.getter
-    def environment(self) -> Optional[Mapping[str, str]]:
+    def environment(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
+        Sets the environment variables in the Docker container
         """
         return pulumi.get(self, "environment")
 
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional['outputs.MonitoringScheduleNetworkConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-        """
         return pulumi.get(self, "network_config")
 
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional['outputs.MonitoringScheduleStoppingCondition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
-        """
         return pulumi.get(self, "stopping_condition")
 
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringOutput(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
+    The output object for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4823,24 +5025,20 @@ class MonitoringScheduleMonitoringOutput(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.MonitoringScheduleS3Output'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
-        :param 'MonitoringScheduleS3Output' s3_output: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
+        The output object for a monitoring job.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
     @property
     @pulumi.getter(name="s3Output")
     def s3_output(self) -> 'outputs.MonitoringScheduleS3Output':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
-        """
         return pulumi.get(self, "s3_output")
 
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringOutputConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
+    The output configuration for monitoring jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4865,9 +5063,9 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
                  monitoring_outputs: Sequence['outputs.MonitoringScheduleMonitoringOutput'],
                  kms_key_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
-        :param Sequence['MonitoringScheduleMonitoringOutput'] monitoring_outputs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+        The output configuration for monitoring jobs.
+        :param Sequence['MonitoringScheduleMonitoringOutput'] monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
         if kms_key_id is not None:
@@ -4877,7 +5075,7 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
     @pulumi.getter(name="monitoringOutputs")
     def monitoring_outputs(self) -> Sequence['outputs.MonitoringScheduleMonitoringOutput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+        Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         """
         return pulumi.get(self, "monitoring_outputs")
 
@@ -4885,7 +5083,7 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -4893,7 +5091,7 @@ class MonitoringScheduleMonitoringOutputConfig(dict):
 @pulumi.output_type
 class MonitoringScheduleMonitoringResources(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
+    Identifies the resources to deploy for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4915,24 +5113,20 @@ class MonitoringScheduleMonitoringResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.MonitoringScheduleClusterConfig'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
-        :param 'MonitoringScheduleClusterConfig' cluster_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
+        Identifies the resources to deploy for a monitoring job.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
     @property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> 'outputs.MonitoringScheduleClusterConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
-        """
         return pulumi.get(self, "cluster_config")
 
 
 @pulumi.output_type
 class MonitoringScheduleMonitoringScheduleConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
+    The configuration object that specifies the monitoring schedule and defines the monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4963,11 +5157,8 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
                  monitoring_type: Optional[str] = None,
                  schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
-        :param 'MonitoringScheduleMonitoringJobDefinition' monitoring_job_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
-        :param str monitoring_job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
-        :param str monitoring_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
-        :param 'MonitoringScheduleScheduleConfig' schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
+        :param str monitoring_job_definition_name: Name of the job definition
         """
         if monitoring_job_definition is not None:
             pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
@@ -4981,40 +5172,31 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
     @property
     @pulumi.getter(name="monitoringJobDefinition")
     def monitoring_job_definition(self) -> Optional['outputs.MonitoringScheduleMonitoringJobDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
-        """
         return pulumi.get(self, "monitoring_job_definition")
 
     @property
     @pulumi.getter(name="monitoringJobDefinitionName")
     def monitoring_job_definition_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
+        Name of the job definition
         """
         return pulumi.get(self, "monitoring_job_definition_name")
 
     @property
     @pulumi.getter(name="monitoringType")
     def monitoring_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
-        """
         return pulumi.get(self, "monitoring_type")
 
     @property
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> Optional['outputs.MonitoringScheduleScheduleConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
-        """
         return pulumi.get(self, "schedule_config")
 
 
 @pulumi.output_type
 class MonitoringScheduleNetworkConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
+    Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5042,10 +5224,9 @@ class MonitoringScheduleNetworkConfig(dict):
                  enable_network_isolation: Optional[bool] = None,
                  vpc_config: Optional['outputs.MonitoringScheduleVpcConfig'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
-        :param bool enable_inter_container_traffic_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
-        :param bool enable_network_isolation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
-        :param 'MonitoringScheduleVpcConfig' vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
+        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
+        :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -5058,7 +5239,7 @@ class MonitoringScheduleNetworkConfig(dict):
     @pulumi.getter(name="enableInterContainerTrafficEncryption")
     def enable_inter_container_traffic_encryption(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
+        Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
         """
         return pulumi.get(self, "enable_inter_container_traffic_encryption")
 
@@ -5066,23 +5247,20 @@ class MonitoringScheduleNetworkConfig(dict):
     @pulumi.getter(name="enableNetworkIsolation")
     def enable_network_isolation(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
         """
         return pulumi.get(self, "enable_network_isolation")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.MonitoringScheduleVpcConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
-        """
         return pulumi.get(self, "vpc_config")
 
 
 @pulumi.output_type
 class MonitoringScheduleS3Output(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
+    Information about where and how to store the results of a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5110,10 +5288,10 @@ class MonitoringScheduleS3Output(dict):
                  s3_uri: str,
                  s3_upload_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
-        :param str local_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
-        :param str s3_upload_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
+        Information about where and how to store the results of a monitoring job.
+        :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
+        :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
+        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -5124,7 +5302,7 @@ class MonitoringScheduleS3Output(dict):
     @pulumi.getter(name="localPath")
     def local_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
+        The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         """
         return pulumi.get(self, "local_path")
 
@@ -5132,7 +5310,7 @@ class MonitoringScheduleS3Output(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
+        A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -5140,7 +5318,7 @@ class MonitoringScheduleS3Output(dict):
     @pulumi.getter(name="s3UploadMode")
     def s3_upload_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
+        Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         return pulumi.get(self, "s3_upload_mode")
 
@@ -5148,7 +5326,7 @@ class MonitoringScheduleS3Output(dict):
 @pulumi.output_type
 class MonitoringScheduleScheduleConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+    Configuration details about the monitoring schedule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5170,8 +5348,8 @@ class MonitoringScheduleScheduleConfig(dict):
     def __init__(__self__, *,
                  schedule_expression: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
-        :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+        Configuration details about the monitoring schedule.
+        :param str schedule_expression: A cron expression that describes details about the monitoring schedule.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
@@ -5179,7 +5357,7 @@ class MonitoringScheduleScheduleConfig(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+        A cron expression that describes details about the monitoring schedule.
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -5187,7 +5365,7 @@ class MonitoringScheduleScheduleConfig(dict):
 @pulumi.output_type
 class MonitoringScheduleStatisticsResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+    The baseline statistics resource for a monitoring job.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5209,8 +5387,8 @@ class MonitoringScheduleStatisticsResource(dict):
     def __init__(__self__, *,
                  s3_uri: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
-        :param str s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+        The baseline statistics resource for a monitoring job.
+        :param str s3_uri: The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         if s3_uri is not None:
             pulumi.set(__self__, "s3_uri", s3_uri)
@@ -5219,7 +5397,7 @@ class MonitoringScheduleStatisticsResource(dict):
     @pulumi.getter(name="s3Uri")
     def s3_uri(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+        The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         """
         return pulumi.get(self, "s3_uri")
 
@@ -5227,7 +5405,7 @@ class MonitoringScheduleStatisticsResource(dict):
 @pulumi.output_type
 class MonitoringScheduleStoppingCondition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
+    Specifies a time limit for how long the monitoring job is allowed to run.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5249,8 +5427,8 @@ class MonitoringScheduleStoppingCondition(dict):
     def __init__(__self__, *,
                  max_runtime_in_seconds: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
-        :param int max_runtime_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+        Specifies a time limit for how long the monitoring job is allowed to run.
+        :param int max_runtime_in_seconds: The maximum runtime allowed in seconds.
         """
         pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
 
@@ -5258,15 +5436,48 @@ class MonitoringScheduleStoppingCondition(dict):
     @pulumi.getter(name="maxRuntimeInSeconds")
     def max_runtime_in_seconds(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+        The maximum runtime allowed in seconds.
         """
         return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type
+class MonitoringScheduleTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class MonitoringScheduleVpcConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
+    Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5289,9 +5500,9 @@ class MonitoringScheduleVpcConfig(dict):
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
-        :param Sequence[str] subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+        Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
+        :param Sequence[str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[str] subnets: The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
@@ -5300,7 +5511,7 @@ class MonitoringScheduleVpcConfig(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -5308,15 +5519,67 @@ class MonitoringScheduleVpcConfig(dict):
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+        The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
+class PipelineTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class UserProfileCustomImage(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+    A custom SageMaker image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5344,10 +5607,10 @@ class UserProfileCustomImage(dict):
                  image_name: str,
                  image_version_number: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
-        :param str app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
-        :param str image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
-        :param int image_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+        A custom SageMaker image.
+        :param str app_image_config_name: The Name of the AppImageConfig.
+        :param str image_name: The name of the CustomImage. Must be unique to your account.
+        :param int image_version_number: The version number of the CustomImage.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         pulumi.set(__self__, "image_name", image_name)
@@ -5358,7 +5621,7 @@ class UserProfileCustomImage(dict):
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+        The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
 
@@ -5366,7 +5629,7 @@ class UserProfileCustomImage(dict):
     @pulumi.getter(name="imageName")
     def image_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+        The name of the CustomImage. Must be unique to your account.
         """
         return pulumi.get(self, "image_name")
 
@@ -5374,7 +5637,7 @@ class UserProfileCustomImage(dict):
     @pulumi.getter(name="imageVersionNumber")
     def image_version_number(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+        The version number of the CustomImage.
         """
         return pulumi.get(self, "image_version_number")
 
@@ -5382,7 +5645,7 @@ class UserProfileCustomImage(dict):
 @pulumi.output_type
 class UserProfileJupyterServerAppSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+    The JupyterServer app settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5404,8 +5667,7 @@ class UserProfileJupyterServerAppSettings(dict):
     def __init__(__self__, *,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
-        :param 'UserProfileResourceSpec' default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
+        The JupyterServer app settings.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -5413,16 +5675,13 @@ class UserProfileJupyterServerAppSettings(dict):
     @property
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional['outputs.UserProfileResourceSpec']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
-        """
         return pulumi.get(self, "default_resource_spec")
 
 
 @pulumi.output_type
 class UserProfileKernelGatewayAppSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+    The kernel gateway app settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5447,9 +5706,9 @@ class UserProfileKernelGatewayAppSettings(dict):
                  custom_images: Optional[Sequence['outputs.UserProfileCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileResourceSpec'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
-        :param Sequence['UserProfileCustomImage'] custom_images: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
-        :param 'UserProfileResourceSpec' default_resource_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+        The kernel gateway app settings.
+        :param Sequence['UserProfileCustomImage'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app.
+        :param 'UserProfileResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -5460,7 +5719,7 @@ class UserProfileKernelGatewayAppSettings(dict):
     @pulumi.getter(name="customImages")
     def custom_images(self) -> Optional[Sequence['outputs.UserProfileCustomImage']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+        A list of custom SageMaker images that are configured to run as a KernelGateway app.
         """
         return pulumi.get(self, "custom_images")
 
@@ -5468,16 +5727,13 @@ class UserProfileKernelGatewayAppSettings(dict):
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional['outputs.UserProfileResourceSpec']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         """
         return pulumi.get(self, "default_resource_spec")
 
 
 @pulumi.output_type
 class UserProfileResourceSpec(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5504,10 +5760,9 @@ class UserProfileResourceSpec(dict):
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
-        :param str sage_maker_image_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
-        :param str sage_maker_image_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+        :param str instance_type: The instance type that the image version runs on.
+        :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
+        :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
@@ -5520,7 +5775,7 @@ class UserProfileResourceSpec(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+        The instance type that the image version runs on.
         """
         return pulumi.get(self, "instance_type")
 
@@ -5528,7 +5783,7 @@ class UserProfileResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageArn")
     def sage_maker_image_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+        The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sage_maker_image_arn")
 
@@ -5536,7 +5791,7 @@ class UserProfileResourceSpec(dict):
     @pulumi.getter(name="sageMakerImageVersionArn")
     def sage_maker_image_version_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+        The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sage_maker_image_version_arn")
 
@@ -5544,7 +5799,7 @@ class UserProfileResourceSpec(dict):
 @pulumi.output_type
 class UserProfileSharingSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+    Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5572,10 +5827,10 @@ class UserProfileSharingSettings(dict):
                  s3_kms_key_id: Optional[str] = None,
                  s3_output_path: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
-        :param str notebook_output_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
-        :param str s3_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
-        :param str s3_output_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+        Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
+        :param str notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
+        :param str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+        :param str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         if notebook_output_option is not None:
             pulumi.set(__self__, "notebook_output_option", notebook_output_option)
@@ -5588,7 +5843,7 @@ class UserProfileSharingSettings(dict):
     @pulumi.getter(name="notebookOutputOption")
     def notebook_output_option(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+        Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         """
         return pulumi.get(self, "notebook_output_option")
 
@@ -5596,7 +5851,7 @@ class UserProfileSharingSettings(dict):
     @pulumi.getter(name="s3KmsKeyId")
     def s3_kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+        When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_id")
 
@@ -5604,15 +5859,34 @@ class UserProfileSharingSettings(dict):
     @pulumi.getter(name="s3OutputPath")
     def s3_output_path(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+        When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
         return pulumi.get(self, "s3_output_path")
 
 
 @pulumi.output_type
+class UserProfileTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class UserProfileUserSettings(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+    A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5646,12 +5920,12 @@ class UserProfileUserSettings(dict):
                  security_groups: Optional[Sequence[str]] = None,
                  sharing_settings: Optional['outputs.UserProfileSharingSettings'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
-        :param str execution_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
-        :param 'UserProfileJupyterServerAppSettings' jupyter_server_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
-        :param 'UserProfileKernelGatewayAppSettings' kernel_gateway_app_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
-        :param Sequence[str] security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
-        :param 'UserProfileSharingSettings' sharing_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+        A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param str execution_role: The user profile Amazon Resource Name (ARN).
+        :param 'UserProfileJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
+        :param 'UserProfileKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param 'UserProfileSharingSettings' sharing_settings: The sharing settings.
         """
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
@@ -5668,7 +5942,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+        The user profile Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "execution_role")
 
@@ -5676,7 +5950,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="jupyterServerAppSettings")
     def jupyter_server_app_settings(self) -> Optional['outputs.UserProfileJupyterServerAppSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+        The Jupyter server's app settings.
         """
         return pulumi.get(self, "jupyter_server_app_settings")
 
@@ -5684,7 +5958,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="kernelGatewayAppSettings")
     def kernel_gateway_app_settings(self) -> Optional['outputs.UserProfileKernelGatewayAppSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+        The kernel gateway app settings.
         """
         return pulumi.get(self, "kernel_gateway_app_settings")
 
@@ -5692,7 +5966,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         return pulumi.get(self, "security_groups")
 
@@ -5700,7 +5974,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="sharingSettings")
     def sharing_settings(self) -> Optional['outputs.UserProfileSharingSettings']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+        The sharing settings.
         """
         return pulumi.get(self, "sharing_settings")
 

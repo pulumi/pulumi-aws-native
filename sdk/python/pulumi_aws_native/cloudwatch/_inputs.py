@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'MetricStreamMetricStreamFilterArgs',
+    'MetricStreamTagArgs',
 ]
 
 @pulumi.input_type
@@ -17,8 +18,8 @@ class MetricStreamMetricStreamFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
-        :param pulumi.Input[str] namespace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+        This structure defines the metrics that will be streamed.
+        :param pulumi.Input[str] namespace: Only metrics with Namespace matching this value will be streamed.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -26,12 +27,51 @@ class MetricStreamMetricStreamFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+        Only metrics with Namespace matching this value will be streamed.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class MetricStreamTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
+        :param pulumi.Input[str] key: A unique identifier for the tag.
+        :param pulumi.Input[str] value: An optional string, which you can use to describe or define the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional string, which you can use to describe or define the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

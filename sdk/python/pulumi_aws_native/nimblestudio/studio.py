@@ -20,15 +20,9 @@ class StudioArgs:
                  studio_name: pulumi.Input[str],
                  user_role_arn: pulumi.Input[str],
                  studio_encryption_configuration: Optional[pulumi.Input['StudioStudioEncryptionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Studio resource.
-        :param pulumi.Input[str] admin_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        :param pulumi.Input[str] studio_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        :param pulumi.Input[str] user_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        :param pulumi.Input['StudioStudioEncryptionConfigurationArgs'] studio_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
         """
         pulumi.set(__self__, "admin_role_arn", admin_role_arn)
         pulumi.set(__self__, "display_name", display_name)
@@ -42,9 +36,6 @@ class StudioArgs:
     @property
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        """
         return pulumi.get(self, "admin_role_arn")
 
     @admin_role_arn.setter
@@ -54,9 +45,6 @@ class StudioArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -66,9 +54,6 @@ class StudioArgs:
     @property
     @pulumi.getter(name="studioName")
     def studio_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        """
         return pulumi.get(self, "studio_name")
 
     @studio_name.setter
@@ -78,9 +63,6 @@ class StudioArgs:
     @property
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        """
         return pulumi.get(self, "user_role_arn")
 
     @user_role_arn.setter
@@ -90,9 +72,6 @@ class StudioArgs:
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> Optional[pulumi.Input['StudioStudioEncryptionConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @studio_encryption_configuration.setter
@@ -101,14 +80,11 @@ class StudioArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-        """
+    def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
 
@@ -121,20 +97,14 @@ class Studio(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioStudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+        Resource schema for AWS::NimbleStudio::Studio.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        :param pulumi.Input[pulumi.InputType['StudioStudioEncryptionConfigurationArgs']] studio_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        :param pulumi.Input[str] studio_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-        :param pulumi.Input[str] user_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
         """
         ...
     @overload
@@ -143,7 +113,7 @@ class Studio(pulumi.CustomResource):
                  args: StudioArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+        Resource schema for AWS::NimbleStudio::Studio.
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +134,7 @@ class Studio(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  studio_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['StudioStudioEncryptionConfigurationArgs']]] = None,
                  studio_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  user_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -233,17 +203,11 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        """
         return pulumi.get(self, "admin_role_arn")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        """
         return pulumi.get(self, "display_name")
 
     @property
@@ -259,9 +223,6 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioEncryptionConfiguration")
     def studio_encryption_configuration(self) -> pulumi.Output[Optional['outputs.StudioStudioEncryptionConfiguration']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        """
         return pulumi.get(self, "studio_encryption_configuration")
 
     @property
@@ -272,9 +233,6 @@ class Studio(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioName")
     def studio_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        """
         return pulumi.get(self, "studio_name")
 
     @property
@@ -284,17 +242,11 @@ class Studio(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        """
         return pulumi.get(self, "user_role_arn")
 

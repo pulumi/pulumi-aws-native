@@ -26,29 +26,20 @@ class AssociationArgs:
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]]] = None,
+                 parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Association resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-        :param pulumi.Input[bool] apply_only_at_cron_interval: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        :param pulumi.Input[str] association_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-        :param pulumi.Input[str] automation_target_parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        :param pulumi.Input[str] compliance_severity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        :param pulumi.Input[str] document_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
-        :param pulumi.Input[str] instance_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-        :param pulumi.Input[str] max_concurrency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        :param pulumi.Input[str] max_errors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        :param pulumi.Input['AssociationInstanceAssociationOutputLocationArgs'] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-        :param pulumi.Input[str] schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
-        :param pulumi.Input[str] sync_compliance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-        :param pulumi.Input[int] wait_for_success_timeout_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+        :param pulumi.Input[str] name: The name of the SSM document.
+        :param pulumi.Input[str] association_name: The name of the association.
+        :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
+        :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
+        :param Any parameters: Parameter values that the SSM document uses at runtime.
+        :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: The targets that the SSM document sends commands to.
         """
         pulumi.set(__self__, "name", name)
         if apply_only_at_cron_interval is not None:
@@ -86,7 +77,7 @@ class AssociationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        The name of the SSM document.
         """
         return pulumi.get(self, "name")
 
@@ -97,9 +88,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
     def apply_only_at_cron_interval(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        """
         return pulumi.get(self, "apply_only_at_cron_interval")
 
     @apply_only_at_cron_interval.setter
@@ -110,7 +98,7 @@ class AssociationArgs:
     @pulumi.getter(name="associationName")
     def association_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+        The name of the association.
         """
         return pulumi.get(self, "association_name")
 
@@ -121,9 +109,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        """
         return pulumi.get(self, "automation_target_parameter_name")
 
     @automation_target_parameter_name.setter
@@ -133,9 +118,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="calendarNames")
     def calendar_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        """
         return pulumi.get(self, "calendar_names")
 
     @calendar_names.setter
@@ -145,9 +127,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="complianceSeverity")
     def compliance_severity(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        """
         return pulumi.get(self, "compliance_severity")
 
     @compliance_severity.setter
@@ -158,7 +137,7 @@ class AssociationArgs:
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+        The version of the SSM document to associate with the target.
         """
         return pulumi.get(self, "document_version")
 
@@ -170,7 +149,7 @@ class AssociationArgs:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        The ID of the instance that the SSM document is associated with.
         """
         return pulumi.get(self, "instance_id")
 
@@ -181,9 +160,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
@@ -193,9 +169,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        """
         return pulumi.get(self, "max_errors")
 
     @max_errors.setter
@@ -205,9 +178,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
@@ -216,21 +186,21 @@ class AssociationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]]]:
+    def parameters(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        Parameter values that the SSM document uses at runtime.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]]]):
+    def parameters(self, value: Optional[Any]):
         pulumi.set(self, "parameters", value)
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        A Cron or Rate expression that specifies when the association is applied to the target.
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -241,9 +211,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        """
         return pulumi.get(self, "sync_compliance")
 
     @sync_compliance.setter
@@ -254,7 +221,7 @@ class AssociationArgs:
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        The targets that the SSM document sends commands to.
         """
         return pulumi.get(self, "targets")
 
@@ -265,9 +232,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-        """
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 
     @wait_for_success_timeout_seconds.setter
@@ -291,33 +255,24 @@ class Association(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]]] = None,
+                 parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
+        The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] apply_only_at_cron_interval: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        :param pulumi.Input[str] association_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-        :param pulumi.Input[str] automation_target_parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        :param pulumi.Input[str] compliance_severity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        :param pulumi.Input[str] document_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
-        :param pulumi.Input[str] instance_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-        :param pulumi.Input[str] max_concurrency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        :param pulumi.Input[str] max_errors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-        :param pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-        :param pulumi.Input[str] schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
-        :param pulumi.Input[str] sync_compliance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-        :param pulumi.Input[int] wait_for_success_timeout_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+        :param pulumi.Input[str] association_name: The name of the association.
+        :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
+        :param pulumi.Input[str] instance_id: The ID of the instance that the SSM document is associated with.
+        :param pulumi.Input[str] name: The name of the SSM document.
+        :param Any parameters: Parameter values that the SSM document uses at runtime.
+        :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: The targets that the SSM document sends commands to.
         """
         ...
     @overload
@@ -326,7 +281,7 @@ class Association(pulumi.CustomResource):
                  args: AssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
+        The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.
@@ -354,7 +309,7 @@ class Association(pulumi.CustomResource):
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[Any, str]]]]] = None,
+                 parameters: Optional[Any] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
@@ -434,53 +389,44 @@ class Association(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
     def apply_only_at_cron_interval(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        """
         return pulumi.get(self, "apply_only_at_cron_interval")
 
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier of the association.
+        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="associationName")
     def association_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+        The name of the association.
         """
         return pulumi.get(self, "association_name")
 
     @property
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        """
         return pulumi.get(self, "automation_target_parameter_name")
 
     @property
     @pulumi.getter(name="calendarNames")
     def calendar_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        """
         return pulumi.get(self, "calendar_names")
 
     @property
     @pulumi.getter(name="complianceSeverity")
     def compliance_severity(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        """
         return pulumi.get(self, "compliance_severity")
 
     @property
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+        The version of the SSM document to associate with the target.
         """
         return pulumi.get(self, "document_version")
 
@@ -488,47 +434,38 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        The ID of the instance that the SSM document is associated with.
         """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        """
         return pulumi.get(self, "max_concurrency")
 
     @property
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        """
         return pulumi.get(self, "max_errors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        The name of the SSM document.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> pulumi.Output[Optional['outputs.AssociationInstanceAssociationOutputLocation']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        """
         return pulumi.get(self, "output_location")
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def parameters(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        Parameter values that the SSM document uses at runtime.
         """
         return pulumi.get(self, "parameters")
 
@@ -536,31 +473,25 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        A Cron or Rate expression that specifies when the association is applied to the target.
         """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter(name="syncCompliance")
     def sync_compliance(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        """
         return pulumi.get(self, "sync_compliance")
 
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.AssociationTarget']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        The targets that the SSM document sends commands to.
         """
         return pulumi.get(self, "targets")
 
     @property
     @pulumi.getter(name="waitForSuccessTimeoutSeconds")
     def wait_for_success_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-        """
         return pulumi.get(self, "wait_for_success_timeout_seconds")
 

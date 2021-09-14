@@ -20,11 +20,11 @@ class FlowVpcInterfaceArgs:
                  subnet_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a FlowVpcInterface resource.
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security Group IDs to be used on ENI.
+        :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
         pulumi.set(__self__, "name", name)
@@ -36,7 +36,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+        The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -48,7 +48,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+        Immutable and has to be a unique against other VpcInterfaces in this Flow.
         """
         return pulumi.get(self, "name")
 
@@ -60,7 +60,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+        Role Arn MediaConnect can assumes to create ENIs in customer's account.
         """
         return pulumi.get(self, "role_arn")
 
@@ -72,7 +72,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+        Security Group IDs to be used on ENI.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -84,7 +84,7 @@ class FlowVpcInterfaceArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        Subnet must be in the AZ of the Flow
         """
         return pulumi.get(self, "subnet_id")
 
@@ -105,15 +105,15 @@ class FlowVpcInterface(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
+        Resource schema for AWS::MediaConnect::FlowVpcInterface
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        :param pulumi.Input[str] name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
+        :param pulumi.Input[str] role_arn: Role Arn MediaConnect can assumes to create ENIs in customer's account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security Group IDs to be used on ENI.
+        :param pulumi.Input[str] subnet_id: Subnet must be in the AZ of the Flow
         """
         ...
     @overload
@@ -122,7 +122,7 @@ class FlowVpcInterface(pulumi.CustomResource):
                  args: FlowVpcInterfaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
+        Resource schema for AWS::MediaConnect::FlowVpcInterface
 
         :param str resource_name: The name of the resource.
         :param FlowVpcInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -206,7 +206,7 @@ class FlowVpcInterface(pulumi.CustomResource):
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+        The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -214,20 +214,23 @@ class FlowVpcInterface(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+        Immutable and has to be a unique against other VpcInterfaces in this Flow.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        IDs of the network interfaces created in customer's account by MediaConnect.
+        """
         return pulumi.get(self, "network_interface_ids")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+        Role Arn MediaConnect can assumes to create ENIs in customer's account.
         """
         return pulumi.get(self, "role_arn")
 
@@ -235,7 +238,7 @@ class FlowVpcInterface(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+        Security Group IDs to be used on ENI.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -243,7 +246,7 @@ class FlowVpcInterface(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        Subnet must be in the AZ of the Flow
         """
         return pulumi.get(self, "subnet_id")
 

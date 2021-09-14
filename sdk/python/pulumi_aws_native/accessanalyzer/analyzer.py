@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AnalyzerArgs', 'Analyzer']
@@ -20,13 +18,12 @@ class AnalyzerArgs:
                  type: pulumi.Input[str],
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
-        :param pulumi.Input[str] analyzer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        :param pulumi.Input[str] type: The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        :param pulumi.Input[str] analyzer_name: Analyzer name
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "type", type)
         if analyzer_name is not None:
@@ -40,7 +37,7 @@ class AnalyzerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        The type of the analyzer, must be ACCOUNT or ORGANIZATION
         """
         return pulumi.get(self, "type")
 
@@ -52,7 +49,7 @@ class AnalyzerArgs:
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        Analyzer name
         """
         return pulumi.get(self, "analyzer_name")
 
@@ -63,9 +60,6 @@ class AnalyzerArgs:
     @property
     @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        """
         return pulumi.get(self, "archive_rules")
 
     @archive_rules.setter
@@ -74,14 +68,14 @@ class AnalyzerArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,18 +86,17 @@ class Analyzer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+        The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] analyzer_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]] archive_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        :param pulumi.Input[str] analyzer_name: Analyzer name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] type: The type of the analyzer, must be ACCOUNT or ORGANIZATION
         """
         ...
     @overload
@@ -112,7 +105,7 @@ class Analyzer(pulumi.CustomResource):
                  args: AnalyzerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+        The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
 
         :param str resource_name: The name of the resource.
         :param AnalyzerArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +124,7 @@ class Analyzer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -185,28 +178,28 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        Analyzer name
         """
         return pulumi.get(self, "analyzer_name")
 
     @property
     @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyzerArchiveRule']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        """
         return pulumi.get(self, "archive_rules")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the analyzer
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyzerTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -214,7 +207,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        The type of the analyzer, must be ACCOUNT or ORGANIZATION
         """
         return pulumi.get(self, "type")
 

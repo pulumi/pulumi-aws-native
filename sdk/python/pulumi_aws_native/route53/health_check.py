@@ -15,12 +15,12 @@ __all__ = ['HealthCheckArgs', 'HealthCheck']
 @pulumi.input_type
 class HealthCheckArgs:
     def __init__(__self__, *,
-                 health_check_config: pulumi.Input[Union[Any, str]],
+                 health_check_config: Any,
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
-        :param pulumi.Input[Union[Any, str]] health_check_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]] health_check_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        :param Any health_check_config: A complex type that contains information about the health check.
+        :param pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "health_check_config", health_check_config)
         if health_check_tags is not None:
@@ -28,21 +28,21 @@ class HealthCheckArgs:
 
     @property
     @pulumi.getter(name="healthCheckConfig")
-    def health_check_config(self) -> pulumi.Input[Union[Any, str]]:
+    def health_check_config(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+        A complex type that contains information about the health check.
         """
         return pulumi.get(self, "health_check_config")
 
     @health_check_config.setter
-    def health_check_config(self, value: pulumi.Input[Union[Any, str]]):
+    def health_check_config(self, value: Any):
         pulumi.set(self, "health_check_config", value)
 
     @property
     @pulumi.getter(name="healthCheckTags")
     def health_check_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckHealthCheckTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "health_check_tags")
 
@@ -56,16 +56,16 @@ class HealthCheck(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 health_check_config: Optional[Any] = None,
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckHealthCheckTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+        Resource schema for AWS::Route53::HealthCheck.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] health_check_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckHealthCheckTagArgs']]]] health_check_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        :param Any health_check_config: A complex type that contains information about the health check.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckHealthCheckTagArgs']]]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class HealthCheck(pulumi.CustomResource):
                  args: HealthCheckArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+        Resource schema for AWS::Route53::HealthCheck.
 
         :param str resource_name: The name of the resource.
         :param HealthCheckArgs args: The arguments to use to populate this resource's properties.
@@ -91,7 +91,7 @@ class HealthCheck(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 health_check_config: Optional[Any] = None,
                  health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HealthCheckHealthCheckTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -139,9 +139,9 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckConfig")
-    def health_check_config(self) -> pulumi.Output[str]:
+    def health_check_config(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+        A complex type that contains information about the health check.
         """
         return pulumi.get(self, "health_check_config")
 
@@ -154,7 +154,7 @@ class HealthCheck(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckTags")
     def health_check_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HealthCheckHealthCheckTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "health_check_tags")
 

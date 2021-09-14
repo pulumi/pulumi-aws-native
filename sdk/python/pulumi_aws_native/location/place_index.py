@@ -22,11 +22,6 @@ class PlaceIndexArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-        :param pulumi.Input['PlaceIndexDataSourceConfigurationArgs'] data_source_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "index_name", index_name)
@@ -39,9 +34,6 @@ class PlaceIndexArgs:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -51,9 +43,6 @@ class PlaceIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -63,9 +52,6 @@ class PlaceIndexArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -75,9 +61,6 @@ class PlaceIndexArgs:
     @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        """
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
@@ -87,9 +70,6 @@ class PlaceIndexArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -109,15 +89,10 @@ class PlaceIndex(pulumi.CustomResource):
                  pricing_plan: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+        Definition of AWS::Location::PlaceIndex Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        :param pulumi.Input[pulumi.InputType['PlaceIndexDataSourceConfigurationArgs']] data_source_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
         """
         ...
     @overload
@@ -126,7 +101,7 @@ class PlaceIndex(pulumi.CustomResource):
                  args: PlaceIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+        Definition of AWS::Location::PlaceIndex Resource Type
 
         :param str resource_name: The name of the resource.
         :param PlaceIndexArgs args: The arguments to use to populate this resource's properties.
@@ -221,25 +196,16 @@ class PlaceIndex(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Output[Optional['outputs.PlaceIndexDataSourceConfiguration']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        """
         return pulumi.get(self, "data_source_configuration")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -250,17 +216,11 @@ class PlaceIndex(pulumi.CustomResource):
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        """
         return pulumi.get(self, "index_name")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @property

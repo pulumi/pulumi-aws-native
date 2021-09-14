@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['VirtualClusterArgs', 'VirtualCluster']
@@ -19,12 +17,12 @@ class VirtualClusterArgs:
     def __init__(__self__, *,
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
                  name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
-        :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
+        :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Container provider of the virtual cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         pulumi.set(__self__, "container_provider", container_provider)
         pulumi.set(__self__, "name", name)
@@ -35,7 +33,7 @@ class VirtualClusterArgs:
     @pulumi.getter(name="containerProvider")
     def container_provider(self) -> pulumi.Input['VirtualClusterContainerProviderArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
+        Container provider of the virtual cluster.
         """
         return pulumi.get(self, "container_provider")
 
@@ -47,7 +45,7 @@ class VirtualClusterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
+        Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
 
@@ -57,14 +55,14 @@ class VirtualClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
+        An array of key-value pairs to apply to this virtual cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -75,16 +73,16 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualClusterTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html
+        Resource Schema of AWS::EMRContainers::VirtualCluster Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
+        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Container provider of the virtual cluster.
+        :param pulumi.Input[str] name: Name of the virtual cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualClusterTagArgs']]]] tags: An array of key-value pairs to apply to this virtual cluster.
         """
         ...
     @overload
@@ -93,7 +91,7 @@ class VirtualCluster(pulumi.CustomResource):
                  args: VirtualClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html
+        Resource Schema of AWS::EMRContainers::VirtualCluster Type
 
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.
@@ -112,7 +110,7 @@ class VirtualCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualClusterTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -133,7 +131,6 @@ class VirtualCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(VirtualCluster, __self__).__init__(
             'aws-native:emrcontainers:VirtualCluster',
             resource_name,
@@ -158,7 +155,6 @@ class VirtualCluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["container_provider"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return VirtualCluster(resource_name, opts=opts, __props__=__props__)
@@ -172,28 +168,23 @@ class VirtualCluster(pulumi.CustomResource):
     @pulumi.getter(name="containerProvider")
     def container_provider(self) -> pulumi.Output['outputs.VirtualClusterContainerProvider']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
+        Container provider of the virtual cluster.
         """
         return pulumi.get(self, "container_provider")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
+        Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualClusterTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
+        An array of key-value pairs to apply to this virtual cluster.
         """
         return pulumi.get(self, "tags")
 

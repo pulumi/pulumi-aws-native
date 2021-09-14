@@ -21,10 +21,10 @@ class FlowArgs:
                  source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None):
         """
         The set of arguments for constructing a Flow resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
-        :param pulumi.Input['FlowSourceArgs'] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
-        :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
-        :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        :param pulumi.Input[str] name: The name of the flow.
+        :param pulumi.Input['FlowSourceArgs'] source: The source of the flow.
+        :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input['FlowFailoverConfigArgs'] source_failover_config: The source failover config of the flow.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
@@ -37,7 +37,7 @@ class FlowArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+        The name of the flow.
         """
         return pulumi.get(self, "name")
 
@@ -49,7 +49,7 @@ class FlowArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['FlowSourceArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+        The source of the flow.
         """
         return pulumi.get(self, "source")
 
@@ -61,7 +61,7 @@ class FlowArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+        The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -73,7 +73,7 @@ class FlowArgs:
     @pulumi.getter(name="sourceFailoverConfig")
     def source_failover_config(self) -> Optional[pulumi.Input['FlowFailoverConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        The source failover config of the flow.
         """
         return pulumi.get(self, "source_failover_config")
 
@@ -93,14 +93,14 @@ class Flow(pulumi.CustomResource):
                  source_failover_config: Optional[pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+        Resource schema for AWS::MediaConnect::Flow
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
-        :param pulumi.Input[pulumi.InputType['FlowSourceArgs']] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
-        :param pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']] source_failover_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        :param pulumi.Input[str] availability_zone: The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+        :param pulumi.Input[str] name: The name of the flow.
+        :param pulumi.Input[pulumi.InputType['FlowSourceArgs']] source: The source of the flow.
+        :param pulumi.Input[pulumi.InputType['FlowFailoverConfigArgs']] source_failover_config: The source failover config of the flow.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Flow(pulumi.CustomResource):
                  args: FlowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+        Resource schema for AWS::MediaConnect::Flow
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.
@@ -152,8 +152,6 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["source_failover_config"] = source_failover_config
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None
-            __props__.__dict__["source_ingest_ip"] = None
-            __props__.__dict__["source_source_arn"] = None
         super(Flow, __self__).__init__(
             'aws-native:mediaconnect:Flow',
             resource_name,
@@ -182,33 +180,37 @@ class Flow(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["source_failover_config"] = None
-        __props__.__dict__["source_ingest_ip"] = None
-        __props__.__dict__["source_source_arn"] = None
         return Flow(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+        The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        """
         return pulumi.get(self, "flow_arn")
 
     @property
     @pulumi.getter(name="flowAvailabilityZone")
     def flow_availability_zone(self) -> pulumi.Output[str]:
+        """
+        The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
+        """
         return pulumi.get(self, "flow_availability_zone")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+        The name of the flow.
         """
         return pulumi.get(self, "name")
 
@@ -216,7 +218,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.FlowSource']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+        The source of the flow.
         """
         return pulumi.get(self, "source")
 
@@ -224,17 +226,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="sourceFailoverConfig")
     def source_failover_config(self) -> pulumi.Output[Optional['outputs.FlowFailoverConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        The source failover config of the flow.
         """
         return pulumi.get(self, "source_failover_config")
-
-    @property
-    @pulumi.getter(name="sourceIngestIp")
-    def source_ingest_ip(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "source_ingest_ip")
-
-    @property
-    @pulumi.getter(name="sourceSourceArn")
-    def source_source_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "source_source_arn")
 

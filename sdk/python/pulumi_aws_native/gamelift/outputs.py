@@ -21,14 +21,12 @@ __all__ = [
     'GameServerGroupAutoScalingPolicy',
     'GameServerGroupInstanceDefinition',
     'GameServerGroupLaunchTemplate',
+    'GameServerGroupTag',
     'GameServerGroupTargetTrackingConfiguration',
 ]
 
 @pulumi.output_type
 class AliasRoutingStrategy(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -51,10 +49,9 @@ class AliasRoutingStrategy(dict):
                  fleet_id: Optional[str] = None,
                  message: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-        :param str fleet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
-        :param str message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+        :param str type: Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
+        :param str fleet_id: A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
+        :param str message: The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
         """
         pulumi.set(__self__, "type", type)
         if fleet_id is not None:
@@ -66,7 +63,7 @@ class AliasRoutingStrategy(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+        Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         """
         return pulumi.get(self, "type")
 
@@ -74,7 +71,7 @@ class AliasRoutingStrategy(dict):
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+        A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
         """
         return pulumi.get(self, "fleet_id")
 
@@ -82,7 +79,7 @@ class AliasRoutingStrategy(dict):
     @pulumi.getter
     def message(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+        The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
         """
         return pulumi.get(self, "message")
 
@@ -90,7 +87,7 @@ class AliasRoutingStrategy(dict):
 @pulumi.output_type
 class FleetCertificateConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+    Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -112,24 +109,20 @@ class FleetCertificateConfiguration(dict):
     def __init__(__self__, *,
                  certificate_type: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
-        :param str certificate_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
+        Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
 
     @property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
-        """
         return pulumi.get(self, "certificate_type")
 
 
 @pulumi.output_type
 class FleetIpPermission(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
+    A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -158,11 +151,11 @@ class FleetIpPermission(dict):
                  protocol: str,
                  to_port: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
-        :param int from_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
-        :param str ip_range: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
-        :param str protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
-        :param int to_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
+        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+        :param int from_port: A starting value for a range of allowed port numbers.
+        :param str ip_range: A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+        :param str protocol: The network communication protocol used by the fleet.
+        :param int to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "ip_range", ip_range)
@@ -173,7 +166,7 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="fromPort")
     def from_port(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
+        A starting value for a range of allowed port numbers.
         """
         return pulumi.get(self, "from_port")
 
@@ -181,7 +174,7 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="ipRange")
     def ip_range(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
+        A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
         """
         return pulumi.get(self, "ip_range")
 
@@ -189,7 +182,7 @@ class FleetIpPermission(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
+        The network communication protocol used by the fleet.
         """
         return pulumi.get(self, "protocol")
 
@@ -197,7 +190,7 @@ class FleetIpPermission(dict):
     @pulumi.getter(name="toPort")
     def to_port(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
+        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
         """
         return pulumi.get(self, "to_port")
 
@@ -205,7 +198,7 @@ class FleetIpPermission(dict):
 @pulumi.output_type
 class FleetLocationCapacity(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+    Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -233,10 +226,10 @@ class FleetLocationCapacity(dict):
                  max_size: int,
                  min_size: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
-        :param int desired_ec2_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
-        :param int max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
-        :param int min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+        Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+        :param int desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        :param int max_size: The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+        :param int min_size: The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
         pulumi.set(__self__, "max_size", max_size)
@@ -246,7 +239,7 @@ class FleetLocationCapacity(dict):
     @pulumi.getter(name="desiredEC2Instances")
     def desired_ec2_instances(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         """
         return pulumi.get(self, "desired_ec2_instances")
 
@@ -254,7 +247,7 @@ class FleetLocationCapacity(dict):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+        The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         """
         return pulumi.get(self, "max_size")
 
@@ -262,7 +255,7 @@ class FleetLocationCapacity(dict):
     @pulumi.getter(name="minSize")
     def min_size(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+        The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         return pulumi.get(self, "min_size")
 
@@ -270,7 +263,7 @@ class FleetLocationCapacity(dict):
 @pulumi.output_type
 class FleetLocationConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+    A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -293,9 +286,7 @@ class FleetLocationConfiguration(dict):
                  location: str,
                  location_capacity: Optional['outputs.FleetLocationCapacity'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
-        :param str location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-        :param 'FleetLocationCapacity' location_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+        A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
@@ -304,24 +295,20 @@ class FleetLocationConfiguration(dict):
     @property
     @pulumi.getter
     def location(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="locationCapacity")
     def location_capacity(self) -> Optional['outputs.FleetLocationCapacity']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
-        """
         return pulumi.get(self, "location_capacity")
 
 
 @pulumi.output_type
 class FleetResourceCreationLimitPolicy(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+    A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+
+    The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -346,9 +333,11 @@ class FleetResourceCreationLimitPolicy(dict):
                  new_game_sessions_per_creator: Optional[int] = None,
                  policy_period_in_minutes: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
-        :param int new_game_sessions_per_creator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
-        :param int policy_period_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+        A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+
+        The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+        :param int new_game_sessions_per_creator: The maximum number of game sessions that an individual can create during the policy period.
+        :param int policy_period_in_minutes: The time span used in evaluating the resource creation limit policy.
         """
         if new_game_sessions_per_creator is not None:
             pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
@@ -359,7 +348,7 @@ class FleetResourceCreationLimitPolicy(dict):
     @pulumi.getter(name="newGameSessionsPerCreator")
     def new_game_sessions_per_creator(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+        The maximum number of game sessions that an individual can create during the policy period.
         """
         return pulumi.get(self, "new_game_sessions_per_creator")
 
@@ -367,7 +356,7 @@ class FleetResourceCreationLimitPolicy(dict):
     @pulumi.getter(name="policyPeriodInMinutes")
     def policy_period_in_minutes(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+        The time span used in evaluating the resource creation limit policy.
         """
         return pulumi.get(self, "policy_period_in_minutes")
 
@@ -375,7 +364,11 @@ class FleetResourceCreationLimitPolicy(dict):
 @pulumi.output_type
 class FleetRuntimeConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+    A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+
+    The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+
+    An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -403,10 +396,14 @@ class FleetRuntimeConfiguration(dict):
                  max_concurrent_game_session_activations: Optional[int] = None,
                  server_processes: Optional[Sequence['outputs.FleetServerProcess']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
-        :param int game_session_activation_timeout_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
-        :param int max_concurrent_game_session_activations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
-        :param Sequence['FleetServerProcess'] server_processes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+        A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+
+        The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+
+        An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
+        :param int game_session_activation_timeout_seconds: The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
+        :param int max_concurrent_game_session_activations: The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
+        :param Sequence['FleetServerProcess'] server_processes: A collection of server process configurations that describe which server processes to run on each instance in a fleet.
         """
         if game_session_activation_timeout_seconds is not None:
             pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
@@ -419,7 +416,7 @@ class FleetRuntimeConfiguration(dict):
     @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
     def game_session_activation_timeout_seconds(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+        The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
         """
         return pulumi.get(self, "game_session_activation_timeout_seconds")
 
@@ -427,7 +424,7 @@ class FleetRuntimeConfiguration(dict):
     @pulumi.getter(name="maxConcurrentGameSessionActivations")
     def max_concurrent_game_session_activations(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+        The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
         """
         return pulumi.get(self, "max_concurrent_game_session_activations")
 
@@ -435,7 +432,7 @@ class FleetRuntimeConfiguration(dict):
     @pulumi.getter(name="serverProcesses")
     def server_processes(self) -> Optional[Sequence['outputs.FleetServerProcess']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+        A collection of server process configurations that describe which server processes to run on each instance in a fleet.
         """
         return pulumi.get(self, "server_processes")
 
@@ -443,7 +440,7 @@ class FleetRuntimeConfiguration(dict):
 @pulumi.output_type
 class FleetServerProcess(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+    A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -469,10 +466,14 @@ class FleetServerProcess(dict):
                  launch_path: str,
                  parameters: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
-        :param int concurrent_executions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
-        :param str launch_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
-        :param str parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+        A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
+        :param int concurrent_executions: The number of server processes that use this configuration to run concurrently on an instance.
+        :param str launch_path: The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+               
+               Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+               
+               Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
+        :param str parameters: An optional list of parameters to pass to the server executable or Realtime script on launch.
         """
         pulumi.set(__self__, "concurrent_executions", concurrent_executions)
         pulumi.set(__self__, "launch_path", launch_path)
@@ -483,7 +484,7 @@ class FleetServerProcess(dict):
     @pulumi.getter(name="concurrentExecutions")
     def concurrent_executions(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+        The number of server processes that use this configuration to run concurrently on an instance.
         """
         return pulumi.get(self, "concurrent_executions")
 
@@ -491,7 +492,11 @@ class FleetServerProcess(dict):
     @pulumi.getter(name="launchPath")
     def launch_path(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+        The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+
+        Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+
+        Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
         """
         return pulumi.get(self, "launch_path")
 
@@ -499,7 +504,7 @@ class FleetServerProcess(dict):
     @pulumi.getter
     def parameters(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+        An optional list of parameters to pass to the server executable or Realtime script on launch.
         """
         return pulumi.get(self, "parameters")
 
@@ -507,7 +512,7 @@ class FleetServerProcess(dict):
 @pulumi.output_type
 class GameServerGroupAutoScalingPolicy(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+    Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
     """
     @staticmethod
     def __key_warning(key: str):
@@ -532,9 +537,7 @@ class GameServerGroupAutoScalingPolicy(dict):
                  target_tracking_configuration: 'outputs.GameServerGroupTargetTrackingConfiguration',
                  estimated_instance_warmup: Optional[float] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
-        :param 'GameServerGroupTargetTrackingConfiguration' target_tracking_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
-        :param float estimated_instance_warmup: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         """
         pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
@@ -543,24 +546,18 @@ class GameServerGroupAutoScalingPolicy(dict):
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
     def target_tracking_configuration(self) -> 'outputs.GameServerGroupTargetTrackingConfiguration':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
-        """
         return pulumi.get(self, "target_tracking_configuration")
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
     def estimated_instance_warmup(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
-        """
         return pulumi.get(self, "estimated_instance_warmup")
 
 
 @pulumi.output_type
 class GameServerGroupInstanceDefinition(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+    An allowed instance type for your game server group.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -585,9 +582,7 @@ class GameServerGroupInstanceDefinition(dict):
                  instance_type: str,
                  weighted_capacity: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
-        :param str instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
-        :param str weighted_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+        An allowed instance type for your game server group.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if weighted_capacity is not None:
@@ -596,24 +591,18 @@ class GameServerGroupInstanceDefinition(dict):
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
-        """
         return pulumi.get(self, "weighted_capacity")
 
 
 @pulumi.output_type
 class GameServerGroupLaunchTemplate(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+    The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -639,10 +628,7 @@ class GameServerGroupLaunchTemplate(dict):
                  launch_template_name: Optional[str] = None,
                  version: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
-        :param str launch_template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
-        :param str launch_template_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
@@ -654,32 +640,54 @@ class GameServerGroupLaunchTemplate(dict):
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
-        """
         return pulumi.get(self, "launch_template_id")
 
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
-        """
         return pulumi.get(self, "launch_template_name")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
-        """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class GameServerGroupTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str key: The key for a developer-defined key:value pair for tagging an AWS resource.
+        :param str value: The value for a developer-defined key:value pair for tagging an AWS resource.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The key for a developer-defined key:value pair for tagging an AWS resource.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for a developer-defined key:value pair for tagging an AWS resource.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class GameServerGroupTargetTrackingConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+    Settings for a target-based scaling policy applied to Auto Scaling group.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -701,17 +709,13 @@ class GameServerGroupTargetTrackingConfiguration(dict):
     def __init__(__self__, *,
                  target_value: float):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
-        :param float target_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
+        Settings for a target-based scaling policy applied to Auto Scaling group.
         """
         pulumi.set(__self__, "target_value", target_value)
 
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> float:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
-        """
         return pulumi.get(self, "target_value")
 
 

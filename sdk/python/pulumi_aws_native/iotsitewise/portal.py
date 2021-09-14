@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PortalArgs', 'Portal']
 
@@ -18,21 +18,21 @@ class PortalArgs:
                  portal_contact_email: pulumi.Input[str],
                  portal_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 alarms: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 alarms: Optional[Any] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
-        :param pulumi.Input[str] portal_contact_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-        :param pulumi.Input[str] portal_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-        :param pulumi.Input[Union[Any, str]] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
-        :param pulumi.Input[str] notification_sender_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
-        :param pulumi.Input[str] portal_auth_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
-        :param pulumi.Input[str] portal_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
+        :param pulumi.Input[str] portal_name: A friendly name for the portal.
+        :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
+        :param Any alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param pulumi.Input[str] notification_sender_email: The email address that sends alarm notifications.
+        :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
+        :param pulumi.Input[str] portal_description: A description for the portal.
+        :param pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         pulumi.set(__self__, "portal_contact_email", portal_contact_email)
         pulumi.set(__self__, "portal_name", portal_name)
@@ -52,7 +52,7 @@ class PortalArgs:
     @pulumi.getter(name="portalContactEmail")
     def portal_contact_email(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        The AWS administrator's contact email address.
         """
         return pulumi.get(self, "portal_contact_email")
 
@@ -64,7 +64,7 @@ class PortalArgs:
     @pulumi.getter(name="portalName")
     def portal_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        A friendly name for the portal.
         """
         return pulumi.get(self, "portal_name")
 
@@ -76,7 +76,7 @@ class PortalArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -86,21 +86,21 @@ class PortalArgs:
 
     @property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def alarms(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def alarms(self, value: Optional[Any]):
         pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="notificationSenderEmail")
     def notification_sender_email(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        The email address that sends alarm notifications.
         """
         return pulumi.get(self, "notification_sender_email")
 
@@ -112,7 +112,7 @@ class PortalArgs:
     @pulumi.getter(name="portalAuthMode")
     def portal_auth_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         """
         return pulumi.get(self, "portal_auth_mode")
 
@@ -124,7 +124,7 @@ class PortalArgs:
     @pulumi.getter(name="portalDescription")
     def portal_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        A description for the portal.
         """
         return pulumi.get(self, "portal_description")
 
@@ -134,14 +134,14 @@ class PortalArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        A list of key-value pairs that contain metadata for the portal.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -150,28 +150,28 @@ class Portal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 alarms: Optional[Any] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+        Resource schema for AWS::IoTSiteWise::Portal
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
-        :param pulumi.Input[str] notification_sender_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
-        :param pulumi.Input[str] portal_auth_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
-        :param pulumi.Input[str] portal_contact_email: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
-        :param pulumi.Input[str] portal_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
-        :param pulumi.Input[str] portal_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        :param Any alarms: Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
+        :param pulumi.Input[str] notification_sender_email: The email address that sends alarm notifications.
+        :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
+        :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
+        :param pulumi.Input[str] portal_description: A description for the portal.
+        :param pulumi.Input[str] portal_name: A friendly name for the portal.
+        :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         ...
     @overload
@@ -180,7 +180,7 @@ class Portal(pulumi.CustomResource):
                  args: PortalArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+        Resource schema for AWS::IoTSiteWise::Portal
 
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.
@@ -197,14 +197,14 @@ class Portal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 alarms: Optional[Any] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PortalTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -273,9 +273,9 @@ class Portal(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def alarms(self) -> pulumi.Output[Optional[str]]:
+    def alarms(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         """
         return pulumi.get(self, "alarms")
 
@@ -283,33 +283,39 @@ class Portal(pulumi.CustomResource):
     @pulumi.getter(name="notificationSenderEmail")
     def notification_sender_email(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        The email address that sends alarm notifications.
         """
         return pulumi.get(self, "notification_sender_email")
 
     @property
     @pulumi.getter(name="portalArn")
     def portal_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the portal, which has the following format.
+        """
         return pulumi.get(self, "portal_arn")
 
     @property
     @pulumi.getter(name="portalAuthMode")
     def portal_auth_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         """
         return pulumi.get(self, "portal_auth_mode")
 
     @property
     @pulumi.getter(name="portalClientId")
     def portal_client_id(self) -> pulumi.Output[str]:
+        """
+        The AWS SSO application generated client ID (used with AWS SSO APIs).
+        """
         return pulumi.get(self, "portal_client_id")
 
     @property
     @pulumi.getter(name="portalContactEmail")
     def portal_contact_email(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        The AWS administrator's contact email address.
         """
         return pulumi.get(self, "portal_contact_email")
 
@@ -317,41 +323,47 @@ class Portal(pulumi.CustomResource):
     @pulumi.getter(name="portalDescription")
     def portal_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        A description for the portal.
         """
         return pulumi.get(self, "portal_description")
 
     @property
     @pulumi.getter(name="portalId")
     def portal_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the portal.
+        """
         return pulumi.get(self, "portal_id")
 
     @property
     @pulumi.getter(name="portalName")
     def portal_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        A friendly name for the portal.
         """
         return pulumi.get(self, "portal_name")
 
     @property
     @pulumi.getter(name="portalStartUrl")
     def portal_start_url(self) -> pulumi.Output[str]:
+        """
+        The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
+        """
         return pulumi.get(self, "portal_start_url")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PortalTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        A list of key-value pairs that contain metadata for the portal.
         """
         return pulumi.get(self, "tags")
 

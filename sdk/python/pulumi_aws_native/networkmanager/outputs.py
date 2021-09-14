@@ -10,24 +10,28 @@ from .. import _utilities
 
 __all__ = [
     'DeviceLocation',
+    'DeviceTag',
+    'GlobalNetworkTag',
     'LinkBandwidth',
+    'LinkTag',
     'SiteLocation',
+    'SiteTag',
 ]
 
 @pulumi.output_type
 class DeviceLocation(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
+    The site location.
     """
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  latitude: Optional[str] = None,
                  longitude: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
-        :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
-        :param str latitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
-        :param str longitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+        The site location.
+        :param str address: The physical address.
+        :param str latitude: The latitude.
+        :param str longitude: The longitude.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -40,7 +44,7 @@ class DeviceLocation(dict):
     @pulumi.getter
     def address(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+        The physical address.
         """
         return pulumi.get(self, "address")
 
@@ -48,7 +52,7 @@ class DeviceLocation(dict):
     @pulumi.getter
     def latitude(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+        The latitude.
         """
         return pulumi.get(self, "latitude")
 
@@ -56,15 +60,69 @@ class DeviceLocation(dict):
     @pulumi.getter
     def longitude(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+        The longitude.
         """
         return pulumi.get(self, "longitude")
 
 
 @pulumi.output_type
+class DeviceTag(dict):
+    """
+    A key-value pair to associate with a device resource.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a device resource.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GlobalNetworkTag(dict):
+    """
+    A key-value pair to associate with a global network resource.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a global network resource.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LinkBandwidth(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+    The bandwidth for the link.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -89,9 +147,9 @@ class LinkBandwidth(dict):
                  download_speed: Optional[int] = None,
                  upload_speed: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
-        :param int download_speed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
-        :param int upload_speed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+        The bandwidth for the link.
+        :param int download_speed: Download speed in Mbps.
+        :param int upload_speed: Upload speed in Mbps.
         """
         if download_speed is not None:
             pulumi.set(__self__, "download_speed", download_speed)
@@ -102,7 +160,7 @@ class LinkBandwidth(dict):
     @pulumi.getter(name="downloadSpeed")
     def download_speed(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+        Download speed in Mbps.
         """
         return pulumi.get(self, "download_speed")
 
@@ -110,25 +168,52 @@ class LinkBandwidth(dict):
     @pulumi.getter(name="uploadSpeed")
     def upload_speed(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+        Upload speed in Mbps.
         """
         return pulumi.get(self, "upload_speed")
 
 
 @pulumi.output_type
+class LinkTag(dict):
+    """
+    A key-value pair to associate with a link resource.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a link resource.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SiteLocation(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+    The location of the site
     """
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  latitude: Optional[str] = None,
                  longitude: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
-        :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
-        :param str latitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
-        :param str longitude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+        The location of the site
+        :param str address: The physical address.
+        :param str latitude: The latitude.
+        :param str longitude: The longitude.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -141,7 +226,7 @@ class SiteLocation(dict):
     @pulumi.getter
     def address(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+        The physical address.
         """
         return pulumi.get(self, "address")
 
@@ -149,7 +234,7 @@ class SiteLocation(dict):
     @pulumi.getter
     def latitude(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+        The latitude.
         """
         return pulumi.get(self, "latitude")
 
@@ -157,8 +242,35 @@ class SiteLocation(dict):
     @pulumi.getter
     def longitude(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+        The longitude.
         """
         return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class SiteTag(dict):
+    """
+    A key-value pair to associate with a site resource.
+    """
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a site resource.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 

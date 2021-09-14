@@ -28,13 +28,6 @@ class LaunchProfileStreamConfigurationArgs:
                  ec2_instance_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  max_session_length_in_minutes: Optional[pulumi.Input[float]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
-        :param pulumi.Input[str] clipboard_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_instance_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_image_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-        :param pulumi.Input[float] max_session_length_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
-        """
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
         pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
@@ -44,9 +37,6 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="clipboardMode")
     def clipboard_mode(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-        """
         return pulumi.get(self, "clipboard_mode")
 
     @clipboard_mode.setter
@@ -56,9 +46,6 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="ec2InstanceTypes")
     def ec2_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-        """
         return pulumi.get(self, "ec2_instance_types")
 
     @ec2_instance_types.setter
@@ -68,9 +55,6 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="streamingImageIds")
     def streaming_image_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-        """
         return pulumi.get(self, "streaming_image_ids")
 
     @streaming_image_ids.setter
@@ -80,9 +64,6 @@ class LaunchProfileStreamConfigurationArgs:
     @property
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
-        """
         return pulumi.get(self, "max_session_length_in_minutes")
 
     @max_session_length_in_minutes.setter
@@ -95,11 +76,6 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -108,9 +84,6 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -120,9 +93,6 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -136,12 +106,6 @@ class StudioComponentActiveDirectoryConfigurationArgs:
                  computer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]] computer_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-        :param pulumi.Input[str] directory_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
-        :param pulumi.Input[str] organizational_unit_distinguished_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
-        """
         if computer_attributes is not None:
             pulumi.set(__self__, "computer_attributes", computer_attributes)
         if directory_id is not None:
@@ -152,9 +116,6 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @property
     @pulumi.getter(name="computerAttributes")
     def computer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-        """
         return pulumi.get(self, "computer_attributes")
 
     @computer_attributes.setter
@@ -164,9 +125,6 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -176,9 +134,6 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
@@ -191,11 +146,6 @@ class StudioComponentComputeFarmConfigurationArgs:
     def __init__(__self__, *,
                  active_directory_user: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html
-        :param pulumi.Input[str] active_directory_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
-        :param pulumi.Input[str] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
-        """
         if active_directory_user is not None:
             pulumi.set(__self__, "active_directory_user", active_directory_user)
         if endpoint is not None:
@@ -204,9 +154,6 @@ class StudioComponentComputeFarmConfigurationArgs:
     @property
     @pulumi.getter(name="activeDirectoryUser")
     def active_directory_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
-        """
         return pulumi.get(self, "active_directory_user")
 
     @active_directory_user.setter
@@ -216,9 +163,6 @@ class StudioComponentComputeFarmConfigurationArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -230,19 +174,12 @@ class StudioComponentComputeFarmConfigurationArgs:
 class StudioComponentLicenseServiceConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
-        :param pulumi.Input[str] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -255,11 +192,6 @@ class StudioComponentScriptParameterKeyValueArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -268,9 +200,6 @@ class StudioComponentScriptParameterKeyValueArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -280,9 +209,6 @@ class StudioComponentScriptParameterKeyValueArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -298,14 +224,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
                  linux_mount_point: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  windows_mount_drive: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html
-        :param pulumi.Input[str] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
-        :param pulumi.Input[str] file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
-        :param pulumi.Input[str] linux_mount_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
-        :param pulumi.Input[str] share_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
-        :param pulumi.Input[str] windows_mount_drive: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
-        """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if file_system_id is not None:
@@ -320,9 +238,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -332,9 +247,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
-        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -344,9 +256,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @property
     @pulumi.getter(name="linuxMountPoint")
     def linux_mount_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
-        """
         return pulumi.get(self, "linux_mount_point")
 
     @linux_mount_point.setter
@@ -356,9 +265,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @property
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
-        """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
@@ -368,9 +274,6 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @property
     @pulumi.getter(name="windowsMountDrive")
     def windows_mount_drive(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
-        """
         return pulumi.get(self, "windows_mount_drive")
 
     @windows_mount_drive.setter
@@ -385,13 +288,6 @@ class StudioComponentStudioComponentConfigurationArgs:
                  compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
                  license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
                  shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
-        :param pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs'] active_directory_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
-        :param pulumi.Input['StudioComponentComputeFarmConfigurationArgs'] compute_farm_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
-        :param pulumi.Input['StudioComponentLicenseServiceConfigurationArgs'] license_service_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
-        :param pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs'] shared_file_system_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
-        """
         if active_directory_configuration is not None:
             pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if compute_farm_configuration is not None:
@@ -404,9 +300,6 @@ class StudioComponentStudioComponentConfigurationArgs:
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
     def active_directory_configuration(self) -> Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
-        """
         return pulumi.get(self, "active_directory_configuration")
 
     @active_directory_configuration.setter
@@ -416,9 +309,6 @@ class StudioComponentStudioComponentConfigurationArgs:
     @property
     @pulumi.getter(name="computeFarmConfiguration")
     def compute_farm_configuration(self) -> Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
-        """
         return pulumi.get(self, "compute_farm_configuration")
 
     @compute_farm_configuration.setter
@@ -428,9 +318,6 @@ class StudioComponentStudioComponentConfigurationArgs:
     @property
     @pulumi.getter(name="licenseServiceConfiguration")
     def license_service_configuration(self) -> Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
-        """
         return pulumi.get(self, "license_service_configuration")
 
     @license_service_configuration.setter
@@ -440,9 +327,6 @@ class StudioComponentStudioComponentConfigurationArgs:
     @property
     @pulumi.getter(name="sharedFileSystemConfiguration")
     def shared_file_system_configuration(self) -> Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
-        """
         return pulumi.get(self, "shared_file_system_configuration")
 
     @shared_file_system_configuration.setter
@@ -457,13 +341,6 @@ class StudioComponentStudioComponentInitializationScriptArgs:
                  platform: Optional[pulumi.Input[str]] = None,
                  run_context: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html
-        :param pulumi.Input[str] launch_profile_protocol_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
-        :param pulumi.Input[str] platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
-        :param pulumi.Input[str] run_context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
-        :param pulumi.Input[str] script: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
-        """
         if launch_profile_protocol_version is not None:
             pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
         if platform is not None:
@@ -476,9 +353,6 @@ class StudioComponentStudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
-        """
         return pulumi.get(self, "launch_profile_protocol_version")
 
     @launch_profile_protocol_version.setter
@@ -488,9 +362,6 @@ class StudioComponentStudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -500,9 +371,6 @@ class StudioComponentStudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter(name="runContext")
     def run_context(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
-        """
         return pulumi.get(self, "run_context")
 
     @run_context.setter
@@ -512,9 +380,6 @@ class StudioComponentStudioComponentInitializationScriptArgs:
     @property
     @pulumi.getter
     def script(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
-        """
         return pulumi.get(self, "script")
 
     @script.setter
@@ -527,11 +392,6 @@ class StudioStudioEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  key_type: pulumi.Input[str],
                  key_arn: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html
-        :param pulumi.Input[str] key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
-        :param pulumi.Input[str] key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
-        """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -539,9 +399,6 @@ class StudioStudioEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
-        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -551,9 +408,6 @@ class StudioStudioEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
-        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter

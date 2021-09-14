@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SigningProfileArgs', 'SigningProfile']
@@ -19,12 +17,12 @@ class SigningProfileArgs:
     def __init__(__self__, *,
                  platform_id: pulumi.Input[str],
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
-        :param pulumi.Input[str] platform_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
-        :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        :param pulumi.Input[str] platform_id: The ID of the target signing platform.
+        :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
+        :param pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]] tags: A list of tags associated with the signing profile.
         """
         pulumi.set(__self__, "platform_id", platform_id)
         if signature_validity_period is not None:
@@ -36,7 +34,7 @@ class SigningProfileArgs:
     @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        The ID of the target signing platform.
         """
         return pulumi.get(self, "platform_id")
 
@@ -48,7 +46,7 @@ class SigningProfileArgs:
     @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        Signature validity period of the profile.
         """
         return pulumi.get(self, "signature_validity_period")
 
@@ -58,14 +56,14 @@ class SigningProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        A list of tags associated with the signing profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,16 +74,16 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+        A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] platform_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
-        :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        :param pulumi.Input[str] platform_id: The ID of the target signing platform.
+        :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: Signature validity period of the profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]] tags: A list of tags associated with the signing profile.
         """
         ...
     @overload
@@ -94,7 +92,7 @@ class SigningProfile(pulumi.CustomResource):
                  args: SigningProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+        A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 
         :param str resource_name: The name of the resource.
         :param SigningProfileArgs args: The arguments to use to populate this resource's properties.
@@ -113,7 +111,7 @@ class SigningProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -169,44 +167,56 @@ class SigningProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified signing profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        The ID of the target signing platform.
         """
         return pulumi.get(self, "platform_id")
 
     @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
+        """
+        A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        """
         return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[str]:
+        """
+        A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
+        """
         return pulumi.get(self, "profile_version")
 
     @property
     @pulumi.getter(name="profileVersionArn")
     def profile_version_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified signing profile version.
+        """
         return pulumi.get(self, "profile_version_arn")
 
     @property
     @pulumi.getter(name="signatureValidityPeriod")
     def signature_validity_period(self) -> pulumi.Output[Optional['outputs.SigningProfileSignatureValidityPeriod']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        Signature validity period of the profile.
         """
         return pulumi.get(self, "signature_validity_period")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SigningProfileTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        A list of tags associated with the signing profile.
         """
         return pulumi.get(self, "tags")
 

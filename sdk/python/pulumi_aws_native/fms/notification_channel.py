@@ -17,8 +17,6 @@ class NotificationChannelArgs:
                  sns_topic_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a NotificationChannel resource.
-        :param pulumi.Input[str] sns_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         """
         pulumi.set(__self__, "sns_role_name", sns_role_name)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -26,9 +24,6 @@ class NotificationChannelArgs:
     @property
     @pulumi.getter(name="snsRoleName")
     def sns_role_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        """
         return pulumi.get(self, "sns_role_name")
 
     @sns_role_name.setter
@@ -38,9 +33,6 @@ class NotificationChannelArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -57,12 +49,10 @@ class NotificationChannel(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
+        Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] sns_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
         """
         ...
     @overload
@@ -71,7 +61,7 @@ class NotificationChannel(pulumi.CustomResource):
                  args: NotificationChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
+        Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.
@@ -137,16 +127,10 @@ class NotificationChannel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="snsRoleName")
     def sns_role_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        """
         return pulumi.get(self, "sns_role_name")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-        """
         return pulumi.get(self, "sns_topic_arn")
 

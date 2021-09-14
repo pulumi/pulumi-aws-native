@@ -14,9 +14,6 @@ __all__ = [
 
 @pulumi.output_type
 class NotificationRuleTarget(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39,28 +36,17 @@ class NotificationRuleTarget(dict):
     def __init__(__self__, *,
                  target_address: str,
                  target_type: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
-        :param str target_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
-        :param str target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
-        """
         pulumi.set(__self__, "target_address", target_address)
         pulumi.set(__self__, "target_type", target_type)
 
     @property
     @pulumi.getter(name="targetAddress")
     def target_address(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
-        """
         return pulumi.get(self, "target_address")
 
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
-        """
         return pulumi.get(self, "target_type")
 
 

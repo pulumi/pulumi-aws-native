@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StreamArgs', 'Stream']
@@ -21,14 +19,14 @@ class StreamArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input['StreamStreamEncryptionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
-        :param pulumi.Input[int] shard_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        :param pulumi.Input[int] retention_period_hours: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        :param pulumi.Input['StreamStreamEncryptionArgs'] stream_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
+        :param pulumi.Input[str] name: The name of the Kinesis stream.
+        :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
+        :param pulumi.Input['StreamStreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         pulumi.set(__self__, "shard_count", shard_count)
         if name is not None:
@@ -44,7 +42,7 @@ class StreamArgs:
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Input[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+        The number of shards that the stream uses.
         """
         return pulumi.get(self, "shard_count")
 
@@ -56,7 +54,7 @@ class StreamArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+        The name of the Kinesis stream.
         """
         return pulumi.get(self, "name")
 
@@ -68,7 +66,7 @@ class StreamArgs:
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+        The number of hours for the data records that are stored in shards to remain accessible.
         """
         return pulumi.get(self, "retention_period_hours")
 
@@ -80,7 +78,7 @@ class StreamArgs:
     @pulumi.getter(name="streamEncryption")
     def stream_encryption(self) -> Optional[pulumi.Input['StreamStreamEncryptionArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+        When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """
         return pulumi.get(self, "stream_encryption")
 
@@ -90,14 +88,14 @@ class StreamArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,18 +108,18 @@ class Stream(pulumi.CustomResource):
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+        Resource Type definition for AWS::Kinesis::Stream
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
-        :param pulumi.Input[int] retention_period_hours: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-        :param pulumi.Input[int] shard_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-        :param pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']] stream_encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        :param pulumi.Input[str] name: The name of the Kinesis stream.
+        :param pulumi.Input[int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
+        :param pulumi.Input[int] shard_count: The number of shards that the stream uses.
+        :param pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         ...
     @overload
@@ -130,7 +128,7 @@ class Stream(pulumi.CustomResource):
                  args: StreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+        Resource Type definition for AWS::Kinesis::Stream
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.
@@ -151,7 +149,7 @@ class Stream(pulumi.CustomResource):
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  stream_encryption: Optional[pulumi.Input[pulumi.InputType['StreamStreamEncryptionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -205,13 +203,16 @@ class Stream(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon resource name (ARN) of the Kinesis stream
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+        The name of the Kinesis stream.
         """
         return pulumi.get(self, "name")
 
@@ -219,7 +220,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+        The number of hours for the data records that are stored in shards to remain accessible.
         """
         return pulumi.get(self, "retention_period_hours")
 
@@ -227,7 +228,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="shardCount")
     def shard_count(self) -> pulumi.Output[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+        The number of shards that the stream uses.
         """
         return pulumi.get(self, "shard_count")
 
@@ -235,15 +236,15 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="streamEncryption")
     def stream_encryption(self) -> pulumi.Output[Optional['outputs.StreamStreamEncryption']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+        When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """
         return pulumi.get(self, "stream_encryption")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StreamTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
 

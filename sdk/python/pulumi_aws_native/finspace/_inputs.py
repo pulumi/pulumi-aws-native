@@ -16,19 +16,19 @@ __all__ = [
 class EnvironmentFederationParametersArgs:
     def __init__(__self__, *,
                  application_call_back_url: Optional[pulumi.Input[str]] = None,
-                 attribute_map: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 attribute_map: Optional[Any] = None,
                  federation_provider_name: Optional[pulumi.Input[str]] = None,
                  federation_urn: Optional[pulumi.Input[str]] = None,
                  saml_metadata_document: Optional[pulumi.Input[str]] = None,
                  saml_metadata_url: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
-        :param pulumi.Input[str] application_call_back_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
-        :param pulumi.Input[Union[Any, str]] attribute_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
-        :param pulumi.Input[str] federation_provider_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
-        :param pulumi.Input[str] federation_urn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
-        :param pulumi.Input[str] saml_metadata_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
-        :param pulumi.Input[str] saml_metadata_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        Additional parameters to identify Federation mode
+        :param pulumi.Input[str] application_call_back_url: SAML metadata URL to link with the Environment
+        :param Any attribute_map: Attribute map for SAML configuration
+        :param pulumi.Input[str] federation_provider_name: Federation provider name to link with the Environment
+        :param pulumi.Input[str] federation_urn: SAML metadata URL to link with the Environment
+        :param pulumi.Input[str] saml_metadata_document: SAML metadata document to link the federation provider to the Environment
+        :param pulumi.Input[str] saml_metadata_url: SAML metadata URL to link with the Environment
         """
         if application_call_back_url is not None:
             pulumi.set(__self__, "application_call_back_url", application_call_back_url)
@@ -47,7 +47,7 @@ class EnvironmentFederationParametersArgs:
     @pulumi.getter(name="applicationCallBackURL")
     def application_call_back_url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "application_call_back_url")
 
@@ -57,21 +57,21 @@ class EnvironmentFederationParametersArgs:
 
     @property
     @pulumi.getter(name="attributeMap")
-    def attribute_map(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def attribute_map(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+        Attribute map for SAML configuration
         """
         return pulumi.get(self, "attribute_map")
 
     @attribute_map.setter
-    def attribute_map(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def attribute_map(self, value: Optional[Any]):
         pulumi.set(self, "attribute_map", value)
 
     @property
     @pulumi.getter(name="federationProviderName")
     def federation_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+        Federation provider name to link with the Environment
         """
         return pulumi.get(self, "federation_provider_name")
 
@@ -83,7 +83,7 @@ class EnvironmentFederationParametersArgs:
     @pulumi.getter(name="federationURN")
     def federation_urn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "federation_urn")
 
@@ -95,7 +95,7 @@ class EnvironmentFederationParametersArgs:
     @pulumi.getter(name="samlMetadataDocument")
     def saml_metadata_document(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+        SAML metadata document to link the federation provider to the Environment
         """
         return pulumi.get(self, "saml_metadata_document")
 
@@ -107,7 +107,7 @@ class EnvironmentFederationParametersArgs:
     @pulumi.getter(name="samlMetadataURL")
     def saml_metadata_url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "saml_metadata_url")
 

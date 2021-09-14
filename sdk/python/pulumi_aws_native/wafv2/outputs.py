@@ -10,10 +10,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'IPSetTag',
     'LoggingConfigurationFieldToMatch',
+    'RegexPatternSetTag',
     'RuleGroupAndStatement',
     'RuleGroupByteMatchStatement',
-    'RuleGroupCustomResponseBody',
+    'RuleGroupCustomResponseBodies',
     'RuleGroupFieldToMatch',
     'RuleGroupForwardedIPConfiguration',
     'RuleGroupGeoMatchStatement',
@@ -33,6 +35,7 @@ __all__ = [
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
     'RuleGroupStatement',
+    'RuleGroupTag',
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
@@ -44,7 +47,7 @@ __all__ = [
     'WebACLCustomHTTPHeader',
     'WebACLCustomRequestHandling',
     'WebACLCustomResponse',
-    'WebACLCustomResponseBody',
+    'WebACLCustomResponseBodies',
     'WebACLDefaultAction',
     'WebACLExcludedRule',
     'WebACLFieldToMatch',
@@ -68,15 +71,37 @@ __all__ = [
     'WebACLSizeConstraintStatement',
     'WebACLSqliMatchStatement',
     'WebACLStatement',
+    'WebACLTag',
     'WebACLTextTransformation',
     'WebACLVisibilityConfig',
     'WebACLXssMatchStatement',
 ]
 
 @pulumi.output_type
+class IPSetTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LoggingConfigurationFieldToMatch(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+    A key-value pair to associate with a resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -102,18 +127,18 @@ class LoggingConfigurationFieldToMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 json_body: Optional[str] = None,
-                 method: Optional[str] = None,
-                 query_string: Optional[str] = None,
-                 single_header: Optional[str] = None,
-                 uri_path: Optional[str] = None):
+                 json_body: Optional[Any] = None,
+                 method: Optional[Any] = None,
+                 query_string: Optional[Any] = None,
+                 single_header: Optional[Any] = None,
+                 uri_path: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
-        :param Union[Any, str] json_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
-        :param Union[Any, str] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
-        :param Union[Any, str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
-        :param Union[Any, str] single_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
-        :param Union[Any, str] uri_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        A key-value pair to associate with a resource.
+        :param Any json_body: Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
+        :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
+        :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+        :param Any single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
+        :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         if json_body is not None:
             pulumi.set(__self__, "json_body", json_body)
@@ -128,71 +153,82 @@ class LoggingConfigurationFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="jsonBody")
-    def json_body(self) -> Optional[str]:
+    def json_body(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         """
         return pulumi.get(self, "json_body")
 
     @property
     @pulumi.getter
-    def method(self) -> Optional[str]:
+    def method(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[str]:
+    def query_string(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         """
         return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[str]:
+    def single_header(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         """
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="uriPath")
-    def uri_path(self) -> Optional[str]:
+    def uri_path(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
         return pulumi.get(self, "uri_path")
 
 
 @pulumi.output_type
+class RegexPatternSetTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class RuleGroupAndStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
-    """
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupStatement']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
-        :param Sequence['RuleGroupStatement'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
-        """
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
-        """
         return pulumi.get(self, "statements")
 
 
 @pulumi.output_type
 class RuleGroupByteMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
+    Byte Match statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -226,12 +262,7 @@ class RuleGroupByteMatchStatement(dict):
                  search_string: Optional[str] = None,
                  search_string_base64: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
-        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
-        :param str positional_constraint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-        :param str search_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
-        :param str search_string_base64: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
+        Byte Match statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -244,98 +275,45 @@ class RuleGroupByteMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="positionalConstraint")
     def positional_constraint(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-        """
         return pulumi.get(self, "positional_constraint")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
     @property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
-        """
         return pulumi.get(self, "search_string")
 
     @property
     @pulumi.getter(name="searchStringBase64")
     def search_string_base64(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
-        """
         return pulumi.get(self, "search_string_base64")
 
 
 @pulumi.output_type
-class RuleGroupCustomResponseBody(dict):
+class RuleGroupCustomResponseBodies(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
+    Custom response key and body map.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "contentType":
-            suggest = "content_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RuleGroupCustomResponseBody. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RuleGroupCustomResponseBody.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RuleGroupCustomResponseBody.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content: str,
-                 content_type: str):
+    def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
-        :param str content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
-        :param str content_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
+        Custom response key and body map.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-
-    @property
-    @pulumi.getter
-    def content(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
-        """
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
-        """
-        return pulumi.get(self, "content_type")
+        pass
 
 
 @pulumi.output_type
 class RuleGroupFieldToMatch(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
+    Field of the request to match.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -365,24 +343,22 @@ class RuleGroupFieldToMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 all_query_arguments: Optional[str] = None,
-                 body: Optional[str] = None,
+                 all_query_arguments: Optional[Any] = None,
+                 body: Optional[Any] = None,
                  json_body: Optional['outputs.RuleGroupJsonBody'] = None,
-                 method: Optional[str] = None,
-                 query_string: Optional[str] = None,
-                 single_header: Optional[str] = None,
-                 single_query_argument: Optional[str] = None,
-                 uri_path: Optional[str] = None):
+                 method: Optional[Any] = None,
+                 query_string: Optional[Any] = None,
+                 single_header: Optional[Any] = None,
+                 single_query_argument: Optional[Any] = None,
+                 uri_path: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
-        :param Union[Any, str] all_query_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
-        :param Union[Any, str] body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-        :param 'RuleGroupJsonBody' json_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
-        :param Union[Any, str] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
-        :param Union[Any, str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
-        :param Union[Any, str] single_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
-        :param Union[Any, str] single_query_argument: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
-        :param Union[Any, str] uri_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+        Field of the request to match.
+        :param Any all_query_arguments: All query arguments of a web request.
+        :param Any body: The body of a web request. This immediately follows the request headers.
+        :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
+        :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -403,74 +379,65 @@ class RuleGroupFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="allQueryArguments")
-    def all_query_arguments(self) -> Optional[str]:
+    def all_query_arguments(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+        All query arguments of a web request.
         """
         return pulumi.get(self, "all_query_arguments")
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[str]:
+    def body(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
+        The body of a web request. This immediately follows the request headers.
         """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="jsonBody")
     def json_body(self) -> Optional['outputs.RuleGroupJsonBody']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
-        """
         return pulumi.get(self, "json_body")
 
     @property
     @pulumi.getter
-    def method(self) -> Optional[str]:
+    def method(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+        The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[str]:
+    def query_string(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
+        The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         """
         return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
-        """
+    def single_header(self) -> Optional[Any]:
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[str]:
+    def single_query_argument(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
 
     @property
     @pulumi.getter(name="uriPath")
-    def uri_path(self) -> Optional[str]:
+    def uri_path(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+        The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         return pulumi.get(self, "uri_path")
 
 
 @pulumi.output_type
 class RuleGroupForwardedIPConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -493,36 +460,22 @@ class RuleGroupForwardedIPConfiguration(dict):
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
-        :param str fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
-        :param str header_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
-        """
         return pulumi.get(self, "fallback_behavior")
 
     @property
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
-        """
         return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
 class RuleGroupGeoMatchStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -545,11 +498,6 @@ class RuleGroupGeoMatchStatement(dict):
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
-        :param Sequence[str] country_codes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-        :param 'RuleGroupForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
-        """
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -558,25 +506,16 @@ class RuleGroupGeoMatchStatement(dict):
     @property
     @pulumi.getter(name="countryCodes")
     def country_codes(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-        """
         return pulumi.get(self, "country_codes")
 
     @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
-        """
         return pulumi.get(self, "forwarded_ip_config")
 
 
 @pulumi.output_type
 class RuleGroupIPSetForwardedIPConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -600,12 +539,6 @@ class RuleGroupIPSetForwardedIPConfiguration(dict):
                  fallback_behavior: str,
                  header_name: str,
                  position: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
-        :param str fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
-        :param str header_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
-        :param str position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "position", position)
@@ -613,33 +546,21 @@ class RuleGroupIPSetForwardedIPConfiguration(dict):
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
-        """
         return pulumi.get(self, "fallback_behavior")
 
     @property
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
-        """
         return pulumi.get(self, "header_name")
 
     @property
     @pulumi.getter
     def position(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
-        """
         return pulumi.get(self, "position")
 
 
 @pulumi.output_type
 class RuleGroupIPSetReferenceStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,11 +581,6 @@ class RuleGroupIPSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: str,
                  i_p_set_forwarded_ip_config: Optional['outputs.RuleGroupIPSetForwardedIPConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-        :param 'RuleGroupIPSetForwardedIPConfiguration' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
-        """
         pulumi.set(__self__, "arn", arn)
         if i_p_set_forwarded_ip_config is not None:
             pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
@@ -672,24 +588,18 @@ class RuleGroupIPSetReferenceStatement(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="iPSetForwardedIPConfig")
     def i_p_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupIPSetForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
-        """
         return pulumi.get(self, "i_p_set_forwarded_ip_config")
 
 
 @pulumi.output_type
 class RuleGroupJsonBody(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+    Inspect the request body as JSON. The request body immediately follows the request headers.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -717,10 +627,7 @@ class RuleGroupJsonBody(dict):
                  match_scope: str,
                  invalid_fallback_behavior: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
-        :param 'RuleGroupJsonMatchPattern' match_pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
-        :param str match_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
-        :param str invalid_fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
+        Inspect the request body as JSON. The request body immediately follows the request headers.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
         pulumi.set(__self__, "match_scope", match_scope)
@@ -730,32 +637,23 @@ class RuleGroupJsonBody(dict):
     @property
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupJsonMatchPattern':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
-        """
         return pulumi.get(self, "match_pattern")
 
     @property
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
-        """
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
     def invalid_fallback_behavior(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
-        """
         return pulumi.get(self, "invalid_fallback_behavior")
 
 
 @pulumi.output_type
 class RuleGroupJsonMatchPattern(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+    The pattern to look for in the JSON body.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -775,12 +673,11 @@ class RuleGroupJsonMatchPattern(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 all: Optional[str] = None,
+                 all: Optional[Any] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
-        :param Union[Any, str] all: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
-        :param Sequence[str] included_paths: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+        The pattern to look for in the JSON body.
+        :param Any all: Inspect all parts of the web request's JSON body.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -789,148 +686,88 @@ class RuleGroupJsonMatchPattern(dict):
 
     @property
     @pulumi.getter
-    def all(self) -> Optional[str]:
+    def all(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+        Inspect all parts of the web request's JSON body.
         """
         return pulumi.get(self, "all")
 
     @property
     @pulumi.getter(name="includedPaths")
     def included_paths(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
-        """
         return pulumi.get(self, "included_paths")
 
 
 @pulumi.output_type
 class RuleGroupLabel(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
-    """
     def __init__(__self__, *,
                  name: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
-        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class RuleGroupLabelMatchStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
-    """
     def __init__(__self__, *,
                  key: str,
                  scope: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
-        """
         return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
 class RuleGroupLabelSummary(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
-    """
     def __init__(__self__, *,
                  name: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class RuleGroupNotStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
-    """
     def __init__(__self__, *,
                  statement: 'outputs.RuleGroupStatement'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
-        :param 'RuleGroupStatement' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
-        """
         pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
     def statement(self) -> 'outputs.RuleGroupStatement':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
-        """
         return pulumi.get(self, "statement")
 
 
 @pulumi.output_type
 class RuleGroupOrStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
-    """
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupStatement']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
-        :param Sequence['RuleGroupStatement'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
-        """
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
-        """
         return pulumi.get(self, "statements")
 
 
 @pulumi.output_type
 class RuleGroupRateBasedStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -957,13 +794,6 @@ class RuleGroupRateBasedStatement(dict):
                  limit: int,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupStatement'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
-        :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
-        :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
-        :param 'RuleGroupForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
-        :param 'RuleGroupStatement' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
-        """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
         if forwarded_ip_config is not None:
@@ -974,41 +804,26 @@ class RuleGroupRateBasedStatement(dict):
     @property
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
-        """
         return pulumi.get(self, "aggregate_key_type")
 
     @property
     @pulumi.getter
     def limit(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
-        """
         return pulumi.get(self, "forwarded_ip_config")
 
     @property
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.RuleGroupStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
-        """
         return pulumi.get(self, "scope_down_statement")
 
 
 @pulumi.output_type
 class RuleGroupRegexPatternSetReferenceStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1032,12 +847,6 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
                  arn: str,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -1045,32 +854,23 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class RuleGroupRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+    Rule of RuleGroup that contains condition and action.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1099,13 +899,8 @@ class RuleGroupRule(dict):
                  action: Optional['outputs.RuleGroupRuleAction'] = None,
                  rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-        :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-        :param 'RuleGroupStatement' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-        :param 'RuleGroupVisibilityConfig' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-        :param 'RuleGroupRuleAction' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
-        :param Sequence['RuleGroupLabel'] rule_labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+        Rule of RuleGroup that contains condition and action.
+        :param Sequence['RuleGroupLabel'] rule_labels: Collection of Rule Labels.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -1119,48 +914,33 @@ class RuleGroupRule(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def statement(self) -> 'outputs.RuleGroupStatement':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-        """
         return pulumi.get(self, "statement")
 
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> 'outputs.RuleGroupVisibilityConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-        """
         return pulumi.get(self, "visibility_config")
 
     @property
     @pulumi.getter
     def action(self) -> Optional['outputs.RuleGroupRuleAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="ruleLabels")
     def rule_labels(self) -> Optional[Sequence['outputs.RuleGroupLabel']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+        Collection of Rule Labels.
         """
         return pulumi.get(self, "rule_labels")
 
@@ -1168,17 +948,17 @@ class RuleGroupRule(dict):
 @pulumi.output_type
 class RuleGroupRuleAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+    Action taken when Rule matches its condition.
     """
     def __init__(__self__, *,
-                 allow: Optional[str] = None,
-                 block: Optional[str] = None,
-                 count: Optional[str] = None):
+                 allow: Optional[Any] = None,
+                 block: Optional[Any] = None,
+                 count: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
-        :param Union[Any, str] allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
-        :param Union[Any, str] block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
-        :param Union[Any, str] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        Action taken when Rule matches its condition.
+        :param Any allow: Allow traffic towards application.
+        :param Any block: Block traffic towards application.
+        :param Any count: Count traffic towards application.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -1189,25 +969,25 @@ class RuleGroupRuleAction(dict):
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[str]:
+    def allow(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+        Allow traffic towards application.
         """
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
-    def block(self) -> Optional[str]:
+    def block(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+        Block traffic towards application.
         """
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[str]:
+    def count(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        Count traffic towards application.
         """
         return pulumi.get(self, "count")
 
@@ -1215,7 +995,7 @@ class RuleGroupRuleAction(dict):
 @pulumi.output_type
 class RuleGroupSizeConstraintStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
+    Size Constraint statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1244,11 +1024,7 @@ class RuleGroupSizeConstraintStatement(dict):
                  size: float,
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
-        :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-        :param float size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
+        Size Constraint statement.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -1258,40 +1034,28 @@ class RuleGroupSizeConstraintStatement(dict):
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter
     def size(self) -> float:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class RuleGroupSqliMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
+    Sqli Match Statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1316,9 +1080,7 @@ class RuleGroupSqliMatchStatement(dict):
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
-        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
+        Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -1326,24 +1088,18 @@ class RuleGroupSqliMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class RuleGroupStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+    First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1398,19 +1154,7 @@ class RuleGroupStatement(dict):
                  sqli_match_statement: Optional['outputs.RuleGroupSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
-        :param 'RuleGroupAndStatement' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
-        :param 'RuleGroupByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
-        :param 'RuleGroupGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
-        :param 'RuleGroupIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
-        :param 'RuleGroupLabelMatchStatement' label_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
-        :param 'RuleGroupNotStatement' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
-        :param 'RuleGroupOrStatement' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
-        :param 'RuleGroupRateBasedStatement' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
-        :param 'RuleGroupRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
-        :param 'RuleGroupSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
-        :param 'RuleGroupSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
-        :param 'RuleGroupXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
+        First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -1440,112 +1184,95 @@ class RuleGroupStatement(dict):
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.RuleGroupAndStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
-        """
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.RuleGroupByteMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
-        """
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.RuleGroupGeoMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
-        """
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="iPSetReferenceStatement")
     def i_p_set_reference_statement(self) -> Optional['outputs.RuleGroupIPSetReferenceStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
-        """
         return pulumi.get(self, "i_p_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.RuleGroupLabelMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
-        """
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.RuleGroupNotStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
-        """
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.RuleGroupOrStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
-        """
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.RuleGroupRateBasedStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
-        """
         return pulumi.get(self, "rate_based_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.RuleGroupRegexPatternSetReferenceStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
-        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.RuleGroupSizeConstraintStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
-        """
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.RuleGroupSqliMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
-        """
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.RuleGroupXssMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
-        """
         return pulumi.get(self, "xss_match_statement")
+
+
+@pulumi.output_type
+class RuleGroupTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class RuleGroupTextTransformation(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
+    Text Transformation on the Search String before match.
     """
     def __init__(__self__, *,
                  priority: int,
                  type: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
-        :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
+        Text Transformation on the Search String before match.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -1553,24 +1280,18 @@ class RuleGroupTextTransformation(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
-        """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class RuleGroupVisibilityConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
+    Visibility Metric of the RuleGroup.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1598,10 +1319,7 @@ class RuleGroupVisibilityConfig(dict):
                  metric_name: str,
                  sampled_requests_enabled: bool):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
-        :param bool cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-        :param str metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
-        :param bool sampled_requests_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
+        Visibility Metric of the RuleGroup.
         """
         pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -1610,32 +1328,23 @@ class RuleGroupVisibilityConfig(dict):
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
-        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter(name="sampledRequestsEnabled")
     def sampled_requests_enabled(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
-        """
         return pulumi.get(self, "sampled_requests_enabled")
 
 
 @pulumi.output_type
 class RuleGroupXssMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
+    Xss Match Statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1660,9 +1369,7 @@ class RuleGroupXssMatchStatement(dict):
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
-        :param 'RuleGroupFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-        :param Sequence['RuleGroupTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
+        Xss Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -1670,24 +1377,18 @@ class RuleGroupXssMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.RuleGroupFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class WebACLAllowAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+    Allow traffic towards application.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1709,8 +1410,7 @@ class WebACLAllowAction(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
-        :param 'WebACLCustomRequestHandling' custom_request_handling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
+        Allow traffic towards application.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1718,38 +1418,25 @@ class WebACLAllowAction(dict):
     @property
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
-        """
         return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
 class WebACLAndStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
-    """
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebACLStatement']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
-        :param Sequence['WebACLStatement'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
-        """
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
     def statements(self) -> Sequence['outputs.WebACLStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
-        """
         return pulumi.get(self, "statements")
 
 
 @pulumi.output_type
 class WebACLBlockAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+    Block traffic towards application.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1771,8 +1458,7 @@ class WebACLBlockAction(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebACLCustomResponse'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
-        :param 'WebACLCustomResponse' custom_response: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
+        Block traffic towards application.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -1780,16 +1466,13 @@ class WebACLBlockAction(dict):
     @property
     @pulumi.getter(name="customResponse")
     def custom_response(self) -> Optional['outputs.WebACLCustomResponse']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
-        """
         return pulumi.get(self, "custom_response")
 
 
 @pulumi.output_type
 class WebACLByteMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
+    Byte Match statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1823,12 +1506,7 @@ class WebACLByteMatchStatement(dict):
                  search_string: Optional[str] = None,
                  search_string_base64: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
-        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
-        :param str positional_constraint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
-        :param str search_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
-        :param str search_string_base64: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
+        Byte Match statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -1841,48 +1519,33 @@ class WebACLByteMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="positionalConstraint")
     def positional_constraint(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-        """
         return pulumi.get(self, "positional_constraint")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
     @property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
-        """
         return pulumi.get(self, "search_string")
 
     @property
     @pulumi.getter(name="searchStringBase64")
     def search_string_base64(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
-        """
         return pulumi.get(self, "search_string_base64")
 
 
 @pulumi.output_type
 class WebACLCountAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+    Allow traffic towards application.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1904,8 +1567,7 @@ class WebACLCountAction(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
-        :param 'WebACLCustomRequestHandling' custom_request_handling: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
+        Allow traffic towards application.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1913,24 +1575,19 @@ class WebACLCountAction(dict):
     @property
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
-        """
         return pulumi.get(self, "custom_request_handling")
 
 
 @pulumi.output_type
 class WebACLCustomHTTPHeader(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+    HTTP header.
     """
     def __init__(__self__, *,
                  name: str,
                  value: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+        HTTP header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1938,24 +1595,18 @@ class WebACLCustomHTTPHeader(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class WebACLCustomRequestHandling(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+    Custom request handling.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1977,8 +1628,8 @@ class WebACLCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebACLCustomHTTPHeader']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
-        :param Sequence['WebACLCustomHTTPHeader'] insert_headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+        Custom request handling.
+        :param Sequence['WebACLCustomHTTPHeader'] insert_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1986,7 +1637,7 @@ class WebACLCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.WebACLCustomHTTPHeader']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+        Collection of HTTP headers.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -1994,7 +1645,7 @@ class WebACLCustomRequestHandling(dict):
 @pulumi.output_type
 class WebACLCustomResponse(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+    Custom response.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2022,10 +1673,9 @@ class WebACLCustomResponse(dict):
                  custom_response_body_key: Optional[str] = None,
                  response_headers: Optional[Sequence['outputs.WebACLCustomHTTPHeader']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
-        :param int response_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-        :param str custom_response_body_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
-        :param Sequence['WebACLCustomHTTPHeader'] response_headers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+        Custom response.
+        :param str custom_response_body_key: Custom response body key.
+        :param Sequence['WebACLCustomHTTPHeader'] response_headers: Collection of HTTP headers.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -2036,16 +1686,13 @@ class WebACLCustomResponse(dict):
     @property
     @pulumi.getter(name="responseCode")
     def response_code(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-        """
         return pulumi.get(self, "response_code")
 
     @property
     @pulumi.getter(name="customResponseBodyKey")
     def custom_response_body_key(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+        Custom response body key.
         """
         return pulumi.get(self, "custom_response_body_key")
 
@@ -2053,73 +1700,33 @@ class WebACLCustomResponse(dict):
     @pulumi.getter(name="responseHeaders")
     def response_headers(self) -> Optional[Sequence['outputs.WebACLCustomHTTPHeader']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+        Collection of HTTP headers.
         """
         return pulumi.get(self, "response_headers")
 
 
 @pulumi.output_type
-class WebACLCustomResponseBody(dict):
+class WebACLCustomResponseBodies(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
+    Custom response key and body map.
     """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "contentType":
-            suggest = "content_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WebACLCustomResponseBody. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        WebACLCustomResponseBody.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        WebACLCustomResponseBody.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 content: str,
-                 content_type: str):
+    def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
-        :param str content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
-        :param str content_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
+        Custom response key and body map.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-
-    @property
-    @pulumi.getter
-    def content(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
-        """
-        return pulumi.get(self, "content")
-
-    @property
-    @pulumi.getter(name="contentType")
-    def content_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
-        """
-        return pulumi.get(self, "content_type")
+        pass
 
 
 @pulumi.output_type
 class WebACLDefaultAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+    Default Action WebACL will take against ingress traffic when there is no matching Rule.
     """
     def __init__(__self__, *,
                  allow: Optional['outputs.WebACLAllowAction'] = None,
                  block: Optional['outputs.WebACLBlockAction'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
-        :param 'WebACLAllowAction' allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-        :param 'WebACLBlockAction' block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
+        Default Action WebACL will take against ingress traffic when there is no matching Rule.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -2129,46 +1736,36 @@ class WebACLDefaultAction(dict):
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebACLAllowAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-        """
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
     def block(self) -> Optional['outputs.WebACLBlockAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-        """
         return pulumi.get(self, "block")
 
 
 @pulumi.output_type
 class WebACLExcludedRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+    Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
     """
     def __init__(__self__, *,
                  name: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
+        Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class WebACLFieldToMatch(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
+    Field of the request to match.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2198,24 +1795,22 @@ class WebACLFieldToMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 all_query_arguments: Optional[str] = None,
-                 body: Optional[str] = None,
+                 all_query_arguments: Optional[Any] = None,
+                 body: Optional[Any] = None,
                  json_body: Optional['outputs.WebACLJsonBody'] = None,
-                 method: Optional[str] = None,
-                 query_string: Optional[str] = None,
-                 single_header: Optional[str] = None,
-                 single_query_argument: Optional[str] = None,
-                 uri_path: Optional[str] = None):
+                 method: Optional[Any] = None,
+                 query_string: Optional[Any] = None,
+                 single_header: Optional[Any] = None,
+                 single_query_argument: Optional[Any] = None,
+                 uri_path: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
-        :param Union[Any, str] all_query_arguments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
-        :param Union[Any, str] body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
-        :param 'WebACLJsonBody' json_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
-        :param Union[Any, str] method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
-        :param Union[Any, str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
-        :param Union[Any, str] single_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-        :param Union[Any, str] single_query_argument: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
-        :param Union[Any, str] uri_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+        Field of the request to match.
+        :param Any all_query_arguments: All query arguments of a web request.
+        :param Any body: The body of a web request. This immediately follows the request headers.
+        :param Any method: The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
+        :param Any query_string: The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+        :param Any single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
+        :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -2236,74 +1831,65 @@ class WebACLFieldToMatch(dict):
 
     @property
     @pulumi.getter(name="allQueryArguments")
-    def all_query_arguments(self) -> Optional[str]:
+    def all_query_arguments(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+        All query arguments of a web request.
         """
         return pulumi.get(self, "all_query_arguments")
 
     @property
     @pulumi.getter
-    def body(self) -> Optional[str]:
+    def body(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
+        The body of a web request. This immediately follows the request headers.
         """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="jsonBody")
     def json_body(self) -> Optional['outputs.WebACLJsonBody']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
-        """
         return pulumi.get(self, "json_body")
 
     @property
     @pulumi.getter
-    def method(self) -> Optional[str]:
+    def method(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+        The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[str]:
+    def query_string(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
+        The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         """
         return pulumi.get(self, "query_string")
 
     @property
     @pulumi.getter(name="singleHeader")
-    def single_header(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-        """
+    def single_header(self) -> Optional[Any]:
         return pulumi.get(self, "single_header")
 
     @property
     @pulumi.getter(name="singleQueryArgument")
-    def single_query_argument(self) -> Optional[str]:
+    def single_query_argument(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+        One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
         return pulumi.get(self, "single_query_argument")
 
     @property
     @pulumi.getter(name="uriPath")
-    def uri_path(self) -> Optional[str]:
+    def uri_path(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+        The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         return pulumi.get(self, "uri_path")
 
 
 @pulumi.output_type
 class WebACLForwardedIPConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2326,36 +1912,22 @@ class WebACLForwardedIPConfiguration(dict):
     def __init__(__self__, *,
                  fallback_behavior: str,
                  header_name: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
-        :param str fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
-        :param str header_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
-        """
         return pulumi.get(self, "fallback_behavior")
 
     @property
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
-        """
         return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type
 class WebACLGeoMatchStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2378,11 +1950,6 @@ class WebACLGeoMatchStatement(dict):
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
-        :param Sequence[str] country_codes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-        :param 'WebACLForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
-        """
         if country_codes is not None:
             pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -2391,25 +1958,16 @@ class WebACLGeoMatchStatement(dict):
     @property
     @pulumi.getter(name="countryCodes")
     def country_codes(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-        """
         return pulumi.get(self, "country_codes")
 
     @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
-        """
         return pulumi.get(self, "forwarded_ip_config")
 
 
 @pulumi.output_type
 class WebACLIPSetForwardedIPConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2433,12 +1991,6 @@ class WebACLIPSetForwardedIPConfiguration(dict):
                  fallback_behavior: str,
                  header_name: str,
                  position: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
-        :param str fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
-        :param str header_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
-        :param str position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
-        """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
         pulumi.set(__self__, "header_name", header_name)
         pulumi.set(__self__, "position", position)
@@ -2446,33 +1998,21 @@ class WebACLIPSetForwardedIPConfiguration(dict):
     @property
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
-        """
         return pulumi.get(self, "fallback_behavior")
 
     @property
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
-        """
         return pulumi.get(self, "header_name")
 
     @property
     @pulumi.getter
     def position(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
-        """
         return pulumi.get(self, "position")
 
 
 @pulumi.output_type
 class WebACLIPSetReferenceStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2493,11 +2033,6 @@ class WebACLIPSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: str,
                  i_p_set_forwarded_ip_config: Optional['outputs.WebACLIPSetForwardedIPConfiguration'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-        :param 'WebACLIPSetForwardedIPConfiguration' i_p_set_forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
-        """
         pulumi.set(__self__, "arn", arn)
         if i_p_set_forwarded_ip_config is not None:
             pulumi.set(__self__, "i_p_set_forwarded_ip_config", i_p_set_forwarded_ip_config)
@@ -2505,24 +2040,18 @@ class WebACLIPSetReferenceStatement(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="iPSetForwardedIPConfig")
     def i_p_set_forwarded_ip_config(self) -> Optional['outputs.WebACLIPSetForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
-        """
         return pulumi.get(self, "i_p_set_forwarded_ip_config")
 
 
 @pulumi.output_type
 class WebACLJsonBody(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+    Inspect the request body as JSON. The request body immediately follows the request headers.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2550,10 +2079,7 @@ class WebACLJsonBody(dict):
                  match_scope: str,
                  invalid_fallback_behavior: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
-        :param 'WebACLJsonMatchPattern' match_pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
-        :param str match_scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
-        :param str invalid_fallback_behavior: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
+        Inspect the request body as JSON. The request body immediately follows the request headers.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
         pulumi.set(__self__, "match_scope", match_scope)
@@ -2563,32 +2089,23 @@ class WebACLJsonBody(dict):
     @property
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.WebACLJsonMatchPattern':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
-        """
         return pulumi.get(self, "match_pattern")
 
     @property
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
-        """
         return pulumi.get(self, "match_scope")
 
     @property
     @pulumi.getter(name="invalidFallbackBehavior")
     def invalid_fallback_behavior(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
-        """
         return pulumi.get(self, "invalid_fallback_behavior")
 
 
 @pulumi.output_type
 class WebACLJsonMatchPattern(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+    The pattern to look for in the JSON body.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2608,12 +2125,11 @@ class WebACLJsonMatchPattern(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 all: Optional[str] = None,
+                 all: Optional[Any] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
-        :param Union[Any, str] all: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
-        :param Sequence[str] included_paths: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+        The pattern to look for in the JSON body.
+        :param Any all: Inspect all parts of the web request's JSON body.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -2622,81 +2138,51 @@ class WebACLJsonMatchPattern(dict):
 
     @property
     @pulumi.getter
-    def all(self) -> Optional[str]:
+    def all(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+        Inspect all parts of the web request's JSON body.
         """
         return pulumi.get(self, "all")
 
     @property
     @pulumi.getter(name="includedPaths")
     def included_paths(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
-        """
         return pulumi.get(self, "included_paths")
 
 
 @pulumi.output_type
 class WebACLLabel(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
-    """
     def __init__(__self__, *,
                  name: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
-        """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class WebACLLabelMatchStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
-    """
     def __init__(__self__, *,
                  key: str,
                  scope: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
-        :param str scope: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def scope(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
-        """
         return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
 class WebACLManagedRuleGroupStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2724,14 +2210,6 @@ class WebACLManagedRuleGroupStatement(dict):
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None,
                  version: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
-        :param str vendor_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-        :param Sequence['WebACLExcludedRule'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
-        :param 'WebACLStatement' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
         if excluded_rules is not None:
@@ -2744,100 +2222,65 @@ class WebACLManagedRuleGroupStatement(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="vendorName")
     def vendor_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-        """
         return pulumi.get(self, "vendor_name")
 
     @property
     @pulumi.getter(name="excludedRules")
     def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
-        """
         return pulumi.get(self, "excluded_rules")
 
     @property
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.WebACLStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
-        """
         return pulumi.get(self, "scope_down_statement")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
-        """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
 class WebACLNotStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
-    """
     def __init__(__self__, *,
                  statement: 'outputs.WebACLStatement'):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
-        :param 'WebACLStatement' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
-        """
         pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
     def statement(self) -> 'outputs.WebACLStatement':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
-        """
         return pulumi.get(self, "statement")
 
 
 @pulumi.output_type
 class WebACLOrStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
-    """
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebACLStatement']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
-        :param Sequence['WebACLStatement'] statements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
-        """
         pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
     def statements(self) -> Sequence['outputs.WebACLStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
-        """
         return pulumi.get(self, "statements")
 
 
 @pulumi.output_type
 class WebACLOverrideAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+    Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
     """
     def __init__(__self__, *,
-                 count: Optional[str] = None,
-                 none: Optional[str] = None):
+                 count: Optional[Any] = None,
+                 none: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
-        :param Union[Any, str] count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
-        :param Union[Any, str] none: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+        Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
+        :param Any count: Count traffic towards application.
+        :param Any none: Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -2846,26 +2289,23 @@ class WebACLOverrideAction(dict):
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[str]:
+    def count(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+        Count traffic towards application.
         """
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
-    def none(self) -> Optional[str]:
+    def none(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+        Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
         return pulumi.get(self, "none")
 
 
 @pulumi.output_type
 class WebACLRateBasedStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2892,13 +2332,6 @@ class WebACLRateBasedStatement(dict):
                  limit: int,
                  forwarded_ip_config: Optional['outputs.WebACLForwardedIPConfiguration'] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
-        :param str aggregate_key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
-        :param int limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
-        :param 'WebACLForwardedIPConfiguration' forwarded_ip_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
-        :param 'WebACLStatement' scope_down_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
-        """
         pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         pulumi.set(__self__, "limit", limit)
         if forwarded_ip_config is not None:
@@ -2909,41 +2342,26 @@ class WebACLRateBasedStatement(dict):
     @property
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
-        """
         return pulumi.get(self, "aggregate_key_type")
 
     @property
     @pulumi.getter
     def limit(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="forwardedIPConfig")
     def forwarded_ip_config(self) -> Optional['outputs.WebACLForwardedIPConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
-        """
         return pulumi.get(self, "forwarded_ip_config")
 
     @property
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.WebACLStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
-        """
         return pulumi.get(self, "scope_down_statement")
 
 
 @pulumi.output_type
 class WebACLRegexPatternSetReferenceStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2967,12 +2385,6 @@ class WebACLRegexPatternSetReferenceStatement(dict):
                  arn: str,
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -2980,32 +2392,23 @@ class WebACLRegexPatternSetReferenceStatement(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class WebACLRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
+    Rule of WebACL that contains condition and action.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3037,14 +2440,8 @@ class WebACLRule(dict):
                  override_action: Optional['outputs.WebACLOverrideAction'] = None,
                  rule_labels: Optional[Sequence['outputs.WebACLLabel']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-        :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-        :param 'WebACLStatement' statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-        :param 'WebACLVisibilityConfig' visibility_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
-        :param 'WebACLRuleAction' action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-        :param 'WebACLOverrideAction' override_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
-        :param Sequence['WebACLLabel'] rule_labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+        Rule of WebACL that contains condition and action.
+        :param Sequence['WebACLLabel'] rule_labels: Collection of Rule Labels.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -3060,56 +2457,38 @@ class WebACLRule(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def statement(self) -> 'outputs.WebACLStatement':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-        """
         return pulumi.get(self, "statement")
 
     @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> 'outputs.WebACLVisibilityConfig':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
-        """
         return pulumi.get(self, "visibility_config")
 
     @property
     @pulumi.getter
     def action(self) -> Optional['outputs.WebACLRuleAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="overrideAction")
     def override_action(self) -> Optional['outputs.WebACLOverrideAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
-        """
         return pulumi.get(self, "override_action")
 
     @property
     @pulumi.getter(name="ruleLabels")
     def rule_labels(self) -> Optional[Sequence['outputs.WebACLLabel']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+        Collection of Rule Labels.
         """
         return pulumi.get(self, "rule_labels")
 
@@ -3117,17 +2496,14 @@ class WebACLRule(dict):
 @pulumi.output_type
 class WebACLRuleAction(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+    Action taken when Rule matches its condition.
     """
     def __init__(__self__, *,
                  allow: Optional['outputs.WebACLAllowAction'] = None,
                  block: Optional['outputs.WebACLBlockAction'] = None,
                  count: Optional['outputs.WebACLCountAction'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
-        :param 'WebACLAllowAction' allow: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-        :param 'WebACLBlockAction' block: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-        :param 'WebACLCountAction' count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
+        Action taken when Rule matches its condition.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -3139,33 +2515,21 @@ class WebACLRuleAction(dict):
     @property
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebACLAllowAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-        """
         return pulumi.get(self, "allow")
 
     @property
     @pulumi.getter
     def block(self) -> Optional['outputs.WebACLBlockAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-        """
         return pulumi.get(self, "block")
 
     @property
     @pulumi.getter
     def count(self) -> Optional['outputs.WebACLCountAction']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-        """
         return pulumi.get(self, "count")
 
 
 @pulumi.output_type
 class WebACLRuleGroupReferenceStatement(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3186,11 +2550,6 @@ class WebACLRuleGroupReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: str,
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-        :param Sequence['WebACLExcludedRule'] excluded_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-        """
         pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
             pulumi.set(__self__, "excluded_rules", excluded_rules)
@@ -3198,24 +2557,18 @@ class WebACLRuleGroupReferenceStatement(dict):
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="excludedRules")
     def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
-        """
         return pulumi.get(self, "excluded_rules")
 
 
 @pulumi.output_type
 class WebACLSizeConstraintStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
+    Size Constraint statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3244,11 +2597,7 @@ class WebACLSizeConstraintStatement(dict):
                  size: float,
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
-        :param str comparison_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
-        :param float size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
+        Size Constraint statement.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -3258,40 +2607,28 @@ class WebACLSizeConstraintStatement(dict):
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter
     def size(self) -> float:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class WebACLSqliMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
+    Sqli Match Statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3316,9 +2653,7 @@ class WebACLSqliMatchStatement(dict):
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
-        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
+        Sqli Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3326,24 +2661,18 @@ class WebACLSqliMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 
 @pulumi.output_type
 class WebACLStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+    First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3404,21 +2733,7 @@ class WebACLStatement(dict):
                  sqli_match_statement: Optional['outputs.WebACLSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebACLXssMatchStatement'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
-        :param 'WebACLAndStatement' and_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
-        :param 'WebACLByteMatchStatement' byte_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
-        :param 'WebACLGeoMatchStatement' geo_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
-        :param 'WebACLIPSetReferenceStatement' i_p_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
-        :param 'WebACLLabelMatchStatement' label_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
-        :param 'WebACLManagedRuleGroupStatement' managed_rule_group_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
-        :param 'WebACLNotStatement' not_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
-        :param 'WebACLOrStatement' or_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
-        :param 'WebACLRateBasedStatement' rate_based_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
-        :param 'WebACLRegexPatternSetReferenceStatement' regex_pattern_set_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
-        :param 'WebACLRuleGroupReferenceStatement' rule_group_reference_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
-        :param 'WebACLSizeConstraintStatement' size_constraint_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
-        :param 'WebACLSqliMatchStatement' sqli_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
-        :param 'WebACLXssMatchStatement' xss_match_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
+        First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -3452,128 +2767,105 @@ class WebACLStatement(dict):
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.WebACLAndStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
-        """
         return pulumi.get(self, "and_statement")
 
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.WebACLByteMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
-        """
         return pulumi.get(self, "byte_match_statement")
 
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.WebACLGeoMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
-        """
         return pulumi.get(self, "geo_match_statement")
 
     @property
     @pulumi.getter(name="iPSetReferenceStatement")
     def i_p_set_reference_statement(self) -> Optional['outputs.WebACLIPSetReferenceStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
-        """
         return pulumi.get(self, "i_p_set_reference_statement")
 
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.WebACLLabelMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
-        """
         return pulumi.get(self, "label_match_statement")
 
     @property
     @pulumi.getter(name="managedRuleGroupStatement")
     def managed_rule_group_statement(self) -> Optional['outputs.WebACLManagedRuleGroupStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
-        """
         return pulumi.get(self, "managed_rule_group_statement")
 
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.WebACLNotStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
-        """
         return pulumi.get(self, "not_statement")
 
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.WebACLOrStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
-        """
         return pulumi.get(self, "or_statement")
 
     @property
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.WebACLRateBasedStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
-        """
         return pulumi.get(self, "rate_based_statement")
 
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebACLRegexPatternSetReferenceStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
-        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @property
     @pulumi.getter(name="ruleGroupReferenceStatement")
     def rule_group_reference_statement(self) -> Optional['outputs.WebACLRuleGroupReferenceStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
-        """
         return pulumi.get(self, "rule_group_reference_statement")
 
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.WebACLSizeConstraintStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
-        """
         return pulumi.get(self, "size_constraint_statement")
 
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.WebACLSqliMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
-        """
         return pulumi.get(self, "sqli_match_statement")
 
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.WebACLXssMatchStatement']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
-        """
         return pulumi.get(self, "xss_match_statement")
+
+
+@pulumi.output_type
+class WebACLTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class WebACLTextTransformation(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
+    Text Transformation on the Search String before match.
     """
     def __init__(__self__, *,
                  priority: int,
                  type: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
-        :param int priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
+        Text Transformation on the Search String before match.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -3581,24 +2873,18 @@ class WebACLTextTransformation(dict):
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
-        """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class WebACLVisibilityConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
+    Visibility Metric of the WebACL.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3626,10 +2912,7 @@ class WebACLVisibilityConfig(dict):
                  metric_name: str,
                  sampled_requests_enabled: bool):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
-        :param bool cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
-        :param str metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-        :param bool sampled_requests_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
+        Visibility Metric of the WebACL.
         """
         pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -3638,32 +2921,23 @@ class WebACLVisibilityConfig(dict):
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
-        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter(name="sampledRequestsEnabled")
     def sampled_requests_enabled(self) -> bool:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
-        """
         return pulumi.get(self, "sampled_requests_enabled")
 
 
 @pulumi.output_type
 class WebACLXssMatchStatement(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
+    Xss Match Statement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3688,9 +2962,7 @@ class WebACLXssMatchStatement(dict):
                  field_to_match: 'outputs.WebACLFieldToMatch',
                  text_transformations: Sequence['outputs.WebACLTextTransformation']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
-        :param 'WebACLFieldToMatch' field_to_match: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-        :param Sequence['WebACLTextTransformation'] text_transformations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
+        Xss Match Statement.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3698,17 +2970,11 @@ class WebACLXssMatchStatement(dict):
     @property
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> 'outputs.WebACLFieldToMatch':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-        """
         return pulumi.get(self, "field_to_match")
 
     @property
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebACLTextTransformation']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
-        """
         return pulumi.get(self, "text_transformations")
 
 

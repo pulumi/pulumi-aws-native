@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ResponsePlanArgs', 'ResponsePlan']
@@ -23,16 +21,14 @@ class ResponsePlanArgs:
                  chat_channel: Optional[pulumi.Input['ResponsePlanChatChannelArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
-        :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-        :param pulumi.Input['ResponsePlanChatChannelArgs'] chat_channel: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        :param pulumi.Input[str] name: The name of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
+        :param pulumi.Input[str] display_name: The display name of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]] tags: The tags to apply to the response plan.
         """
         pulumi.set(__self__, "incident_template", incident_template)
         pulumi.set(__self__, "name", name)
@@ -50,9 +46,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Input['ResponsePlanIncidentTemplateArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        """
         return pulumi.get(self, "incident_template")
 
     @incident_template.setter
@@ -63,7 +56,7 @@ class ResponsePlanArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+        The name of the response plan.
         """
         return pulumi.get(self, "name")
 
@@ -75,7 +68,7 @@ class ResponsePlanArgs:
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+        The list of actions.
         """
         return pulumi.get(self, "actions")
 
@@ -86,9 +79,6 @@ class ResponsePlanArgs:
     @property
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> Optional[pulumi.Input['ResponsePlanChatChannelArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        """
         return pulumi.get(self, "chat_channel")
 
     @chat_channel.setter
@@ -99,7 +89,7 @@ class ResponsePlanArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+        The display name of the response plan.
         """
         return pulumi.get(self, "display_name")
 
@@ -111,7 +101,7 @@ class ResponsePlanArgs:
     @pulumi.getter
     def engagements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
+        The list of engagements to use.
         """
         return pulumi.get(self, "engagements")
 
@@ -121,14 +111,14 @@ class ResponsePlanArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        The tags to apply to the response plan.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,20 +133,18 @@ class ResponsePlan(pulumi.CustomResource):
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_template: Optional[pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+        Resource type definition for AWS::SSMIncidents::ResponsePlan
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanActionArgs']]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-        :param pulumi.Input[pulumi.InputType['ResponsePlanChatChannelArgs']] chat_channel: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-        :param pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']] incident_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanActionArgs']]]] actions: The list of actions.
+        :param pulumi.Input[str] display_name: The display name of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
+        :param pulumi.Input[str] name: The name of the response plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]] tags: The tags to apply to the response plan.
         """
         ...
     @overload
@@ -165,7 +153,7 @@ class ResponsePlan(pulumi.CustomResource):
                  args: ResponsePlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+        Resource type definition for AWS::SSMIncidents::ResponsePlan
 
         :param str resource_name: The name of the resource.
         :param ResponsePlanArgs args: The arguments to use to populate this resource's properties.
@@ -188,7 +176,7 @@ class ResponsePlan(pulumi.CustomResource):
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_template: Optional[pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -249,28 +237,28 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.ResponsePlanAction']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+        The list of actions.
         """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the response plan.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="chatChannel")
     def chat_channel(self) -> pulumi.Output[Optional['outputs.ResponsePlanChatChannel']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        """
         return pulumi.get(self, "chat_channel")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+        The display name of the response plan.
         """
         return pulumi.get(self, "display_name")
 
@@ -278,31 +266,28 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter
     def engagements(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
+        The list of engagements to use.
         """
         return pulumi.get(self, "engagements")
 
     @property
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Output['outputs.ResponsePlanIncidentTemplate']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        """
         return pulumi.get(self, "incident_template")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+        The name of the response plan.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ResponsePlanTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        The tags to apply to the response plan.
         """
         return pulumi.get(self, "tags")
 

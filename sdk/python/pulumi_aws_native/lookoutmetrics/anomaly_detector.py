@@ -22,11 +22,11 @@ class AnomalyDetectorArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AnomalyDetector resource.
-        :param pulumi.Input['AnomalyDetectorAnomalyDetectorConfigArgs'] anomaly_detector_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]] metric_set_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
-        :param pulumi.Input[str] anomaly_detector_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
-        :param pulumi.Input[str] anomaly_detector_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
-        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+        :param pulumi.Input['AnomalyDetectorAnomalyDetectorConfigArgs'] anomaly_detector_config: Configuration options for the AnomalyDetector
+        :param pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]] metric_set_list: List of metric sets for anomaly detection
+        :param pulumi.Input[str] anomaly_detector_description: A description for the AnomalyDetector.
+        :param pulumi.Input[str] anomaly_detector_name: Name for the Amazon Lookout for Metrics Anomaly Detector
+        :param pulumi.Input[str] kms_key_arn: KMS key used to encrypt the AnomalyDetector data
         """
         pulumi.set(__self__, "anomaly_detector_config", anomaly_detector_config)
         pulumi.set(__self__, "metric_set_list", metric_set_list)
@@ -41,7 +41,7 @@ class AnomalyDetectorArgs:
     @pulumi.getter(name="anomalyDetectorConfig")
     def anomaly_detector_config(self) -> pulumi.Input['AnomalyDetectorAnomalyDetectorConfigArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+        Configuration options for the AnomalyDetector
         """
         return pulumi.get(self, "anomaly_detector_config")
 
@@ -53,7 +53,7 @@ class AnomalyDetectorArgs:
     @pulumi.getter(name="metricSetList")
     def metric_set_list(self) -> pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+        List of metric sets for anomaly detection
         """
         return pulumi.get(self, "metric_set_list")
 
@@ -65,7 +65,7 @@ class AnomalyDetectorArgs:
     @pulumi.getter(name="anomalyDetectorDescription")
     def anomaly_detector_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+        A description for the AnomalyDetector.
         """
         return pulumi.get(self, "anomaly_detector_description")
 
@@ -77,7 +77,7 @@ class AnomalyDetectorArgs:
     @pulumi.getter(name="anomalyDetectorName")
     def anomaly_detector_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+        Name for the Amazon Lookout for Metrics Anomaly Detector
         """
         return pulumi.get(self, "anomaly_detector_name")
 
@@ -89,7 +89,7 @@ class AnomalyDetectorArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+        KMS key used to encrypt the AnomalyDetector data
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -110,15 +110,15 @@ class AnomalyDetector(pulumi.CustomResource):
                  metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
+        An Amazon Lookout for Metrics Detector
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnomalyDetectorAnomalyDetectorConfigArgs']] anomaly_detector_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
-        :param pulumi.Input[str] anomaly_detector_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
-        :param pulumi.Input[str] anomaly_detector_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
-        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]] metric_set_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+        :param pulumi.Input[pulumi.InputType['AnomalyDetectorAnomalyDetectorConfigArgs']] anomaly_detector_config: Configuration options for the AnomalyDetector
+        :param pulumi.Input[str] anomaly_detector_description: A description for the AnomalyDetector.
+        :param pulumi.Input[str] anomaly_detector_name: Name for the Amazon Lookout for Metrics Anomaly Detector
+        :param pulumi.Input[str] kms_key_arn: KMS key used to encrypt the AnomalyDetector data
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnomalyDetectorMetricSetArgs']]]] metric_set_list: List of metric sets for anomaly detection
         """
         ...
     @overload
@@ -127,7 +127,7 @@ class AnomalyDetector(pulumi.CustomResource):
                  args: AnomalyDetectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
+        An Amazon Lookout for Metrics Detector
 
         :param str resource_name: The name of the resource.
         :param AnomalyDetectorArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter(name="anomalyDetectorConfig")
     def anomaly_detector_config(self) -> pulumi.Output['outputs.AnomalyDetectorAnomalyDetectorConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+        Configuration options for the AnomalyDetector
         """
         return pulumi.get(self, "anomaly_detector_config")
 
@@ -213,7 +213,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter(name="anomalyDetectorDescription")
     def anomaly_detector_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+        A description for the AnomalyDetector.
         """
         return pulumi.get(self, "anomaly_detector_description")
 
@@ -221,7 +221,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter(name="anomalyDetectorName")
     def anomaly_detector_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+        Name for the Amazon Lookout for Metrics Anomaly Detector
         """
         return pulumi.get(self, "anomaly_detector_name")
 
@@ -234,7 +234,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+        KMS key used to encrypt the AnomalyDetector data
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -242,7 +242,7 @@ class AnomalyDetector(pulumi.CustomResource):
     @pulumi.getter(name="metricSetList")
     def metric_set_list(self) -> pulumi.Output[Sequence['outputs.AnomalyDetectorMetricSet']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+        List of metric sets for anomaly detection
         """
         return pulumi.get(self, "metric_set_list")
 

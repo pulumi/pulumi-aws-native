@@ -18,9 +18,9 @@ class ResourceArgs:
                  rest_api_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Resource resource.
-        :param pulumi.Input[str] parent_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
-        :param pulumi.Input[str] path_part: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        :param pulumi.Input[str] parent_id: The parent resource's identifier.
+        :param pulumi.Input[str] path_part: The last path segment for this resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which you want to create this resource..
         """
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "path_part", path_part)
@@ -30,7 +30,7 @@ class ResourceArgs:
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+        The parent resource's identifier.
         """
         return pulumi.get(self, "parent_id")
 
@@ -42,7 +42,7 @@ class ResourceArgs:
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+        The last path segment for this resource.
         """
         return pulumi.get(self, "path_part")
 
@@ -54,7 +54,7 @@ class ResourceArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        The ID of the RestApi resource in which you want to create this resource..
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -73,13 +73,13 @@ class Resource(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+        Resource Type definition for AWS::ApiGateway::Resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] parent_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
-        :param pulumi.Input[str] path_part: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        :param pulumi.Input[str] parent_id: The parent resource's identifier.
+        :param pulumi.Input[str] path_part: The last path segment for this resource.
+        :param pulumi.Input[str] rest_api_id: The ID of the RestApi resource in which you want to create this resource..
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class Resource(pulumi.CustomResource):
                  args: ResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+        Resource Type definition for AWS::ApiGateway::Resource
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
@@ -162,7 +162,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="parentId")
     def parent_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+        The parent resource's identifier.
         """
         return pulumi.get(self, "parent_id")
 
@@ -170,20 +170,23 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter(name="pathPart")
     def path_part(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+        The last path segment for this resource.
         """
         return pulumi.get(self, "path_part")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        A unique primary identifier for a Resource
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        The ID of the RestApi resource in which you want to create this resource..
         """
         return pulumi.get(self, "rest_api_id")
 

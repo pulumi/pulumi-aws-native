@@ -19,10 +19,6 @@ class RouteCalculatorArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
-        :param pulumi.Input[str] calculator_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
         """
         pulumi.set(__self__, "calculator_name", calculator_name)
         pulumi.set(__self__, "data_source", data_source)
@@ -33,9 +29,6 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="calculatorName")
     def calculator_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        """
         return pulumi.get(self, "calculator_name")
 
     @calculator_name.setter
@@ -45,9 +38,6 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
@@ -57,9 +47,6 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -69,9 +56,6 @@ class RouteCalculatorArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -90,14 +74,10 @@ class RouteCalculator(pulumi.CustomResource):
                  pricing_plan: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
+        Definition of AWS::Location::RouteCalculator Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] calculator_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        :param pulumi.Input[str] data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
         """
         ...
     @overload
@@ -106,7 +86,7 @@ class RouteCalculator(pulumi.CustomResource):
                  args: RouteCalculatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
+        Definition of AWS::Location::RouteCalculator Resource Type
 
         :param str resource_name: The name of the resource.
         :param RouteCalculatorArgs args: The arguments to use to populate this resource's properties.
@@ -198,9 +178,6 @@ class RouteCalculator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="calculatorName")
     def calculator_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        """
         return pulumi.get(self, "calculator_name")
 
     @property
@@ -211,25 +188,16 @@ class RouteCalculator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @property

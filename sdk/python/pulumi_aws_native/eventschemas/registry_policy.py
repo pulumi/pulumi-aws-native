@@ -13,14 +13,11 @@ __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
 @pulumi.input_type
 class RegistryPolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[Union[Any, str]],
+                 policy: Any,
                  registry_name: pulumi.Input[str],
                  revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        :param pulumi.Input[str] registry_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        :param pulumi.Input[str] revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -29,22 +26,16 @@ class RegistryPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        """
+    def policy(self) -> Any:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[Union[Any, str]]):
+    def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -54,9 +45,6 @@ class RegistryPolicyArgs:
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-        """
         return pulumi.get(self, "revision_id")
 
     @revision_id.setter
@@ -69,18 +57,15 @@ class RegistryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  revision_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
+        Resource Type definition for AWS::EventSchemas::RegistryPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        :param pulumi.Input[str] registry_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        :param pulumi.Input[str] revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
         """
         ...
     @overload
@@ -89,7 +74,7 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
+        Resource Type definition for AWS::EventSchemas::RegistryPolicy
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -106,7 +91,7 @@ class RegistryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  revision_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -128,7 +113,6 @@ class RegistryPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
             __props__.__dict__["revision_id"] = revision_id
-            __props__.__dict__["id"] = None
         super(RegistryPolicy, __self__).__init__(
             'aws-native:eventschemas:RegistryPolicy',
             resource_name,
@@ -151,7 +135,6 @@ class RegistryPolicy(pulumi.CustomResource):
 
         __props__ = RegistryPolicyArgs.__new__(RegistryPolicyArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["registry_name"] = None
         __props__.__dict__["revision_id"] = None
@@ -159,30 +142,16 @@ class RegistryPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        """
+    def policy(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        """
         return pulumi.get(self, "registry_name")
 
     @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-        """
         return pulumi.get(self, "revision_id")
 

@@ -15,33 +15,31 @@ __all__ = ['ImagePipelineArgs', 'ImagePipeline']
 @pulumi.input_type
 class ImagePipelineArgs:
     def __init__(__self__, *,
-                 infrastructure_configuration_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
+                 infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
-        :param pulumi.Input[str] infrastructure_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-        :param pulumi.Input[str] container_recipe_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
-        :param pulumi.Input[str] distribution_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
-        :param pulumi.Input[bool] enhanced_image_metadata_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
-        :param pulumi.Input[str] image_recipe_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
-        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
-        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        :param pulumi.Input[str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+        :param pulumi.Input[str] description: The description of the image pipeline.
+        :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
+        :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+        :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration of the image pipeline.
+        :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+        :param pulumi.Input[str] name: The name of the image pipeline.
+        :param pulumi.Input['ImagePipelineScheduleArgs'] schedule: The schedule of the image pipeline.
+        :param pulumi.Input[str] status: The status of the image pipeline.
+        :param Any tags: The tags of this image pipeline.
         """
-        pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
-        pulumi.set(__self__, "name", name)
         if container_recipe_arn is not None:
             pulumi.set(__self__, "container_recipe_arn", container_recipe_arn)
         if description is not None:
@@ -54,6 +52,10 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_tests_configuration is not None:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
+        if infrastructure_configuration_arn is not None:
+            pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if status is not None:
@@ -62,34 +64,10 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="infrastructureConfigurationArn")
-    def infrastructure_configuration_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
-        """
-        return pulumi.get(self, "infrastructure_configuration_arn")
-
-    @infrastructure_configuration_arn.setter
-    def infrastructure_configuration_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "infrastructure_configuration_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -101,7 +79,7 @@ class ImagePipelineArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
+        The description of the image pipeline.
         """
         return pulumi.get(self, "description")
 
@@ -113,7 +91,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
+        The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -125,7 +103,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+        Collects additional information about the image being created, including the operating system (OS) version and package list.
         """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
@@ -137,7 +115,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+        The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -149,7 +127,7 @@ class ImagePipelineArgs:
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+        The image tests configuration of the image pipeline.
         """
         return pulumi.get(self, "image_tests_configuration")
 
@@ -158,10 +136,34 @@ class ImagePipelineArgs:
         pulumi.set(self, "image_tests_configuration", value)
 
     @property
+    @pulumi.getter(name="infrastructureConfigurationArn")
+    def infrastructure_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+        """
+        return pulumi.get(self, "infrastructure_configuration_arn")
+
+    @infrastructure_configuration_arn.setter
+    def infrastructure_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure_configuration_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the image pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+        The schedule of the image pipeline.
         """
         return pulumi.get(self, "schedule")
 
@@ -173,7 +175,7 @@ class ImagePipelineArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+        The status of the image pipeline.
         """
         return pulumi.get(self, "status")
 
@@ -183,14 +185,14 @@ class ImagePipelineArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        The tags of this image pipeline.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
 
@@ -209,33 +211,33 @@ class ImagePipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
+        Resource schema for AWS::ImageBuilder::ImagePipeline
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] container_recipe_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
-        :param pulumi.Input[str] distribution_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
-        :param pulumi.Input[bool] enhanced_image_metadata_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
-        :param pulumi.Input[str] image_recipe_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
-        :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
-        :param pulumi.Input[str] infrastructure_configuration_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
-        :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        :param pulumi.Input[str] container_recipe_arn: The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
+        :param pulumi.Input[str] description: The description of the image pipeline.
+        :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
+        :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
+        :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+        :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: The image tests configuration of the image pipeline.
+        :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
+        :param pulumi.Input[str] name: The name of the image pipeline.
+        :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: The schedule of the image pipeline.
+        :param pulumi.Input[str] status: The status of the image pipeline.
+        :param Any tags: The tags of this image pipeline.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ImagePipelineArgs,
+                 args: Optional[ImagePipelineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
+        Resource schema for AWS::ImageBuilder::ImagePipeline
 
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.
@@ -262,7 +264,7 @@ class ImagePipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -281,11 +283,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
-            if infrastructure_configuration_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'infrastructure_configuration_arn'")
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
@@ -330,13 +328,16 @@ class ImagePipeline(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the image pipeline.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="containerRecipeArn")
     def container_recipe_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
 
@@ -344,7 +345,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
+        The description of the image pipeline.
         """
         return pulumi.get(self, "description")
 
@@ -352,7 +353,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="distributionConfigurationArn")
     def distribution_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
+        The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
@@ -360,7 +361,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="enhancedImageMetadataEnabled")
     def enhanced_image_metadata_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+        Collects additional information about the image being created, including the operating system (OS) version and package list.
         """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
@@ -368,7 +369,7 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="imageRecipeArn")
     def image_recipe_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+        The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         """
         return pulumi.get(self, "image_recipe_arn")
 
@@ -376,28 +377,31 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> pulumi.Output[Optional['outputs.ImagePipelineImageTestsConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+        The image tests configuration of the image pipeline.
         """
         return pulumi.get(self, "image_tests_configuration")
 
     @property
     @pulumi.getter(name="infrastructureConfigurationArn")
-    def infrastructure_configuration_arn(self) -> pulumi.Output[str]:
+    def infrastructure_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+        The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the image pipeline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.ImagePipelineSchedule']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+        The schedule of the image pipeline.
         """
         return pulumi.get(self, "schedule")
 
@@ -405,15 +409,15 @@ class ImagePipeline(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+        The status of the image pipeline.
         """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        The tags of this image pipeline.
         """
         return pulumi.get(self, "tags")
 

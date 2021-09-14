@@ -17,8 +17,8 @@ class TransitGatewayRegistrationArgs:
                  transit_gateway_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayRegistration resource.
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
-        :param pulumi.Input[str] transit_gateway_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] transit_gateway_arn: The Amazon Resource Name (ARN) of the transit gateway.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
@@ -27,7 +27,7 @@ class TransitGatewayRegistrationArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -39,7 +39,7 @@ class TransitGatewayRegistrationArgs:
     @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        The Amazon Resource Name (ARN) of the transit gateway.
         """
         return pulumi.get(self, "transit_gateway_arn")
 
@@ -57,12 +57,12 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
+        The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
-        :param pulumi.Input[str] transit_gateway_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] transit_gateway_arn: The Amazon Resource Name (ARN) of the transit gateway.
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
                  args: TransitGatewayRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
+        The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -138,7 +138,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -146,7 +146,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayArn")
     def transit_gateway_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        The Amazon Resource Name (ARN) of the transit gateway.
         """
         return pulumi.get(self, "transit_gateway_arn")
 

@@ -19,10 +19,10 @@ class StudioSessionMappingArgs:
                  studio_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a StudioSessionMapping resource.
-        :param pulumi.Input[str] identity_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
-        :param pulumi.Input[str] identity_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
-        :param pulumi.Input[str] session_policy_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        :param pulumi.Input[str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
+        :param pulumi.Input[str] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
+        :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
+        :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         pulumi.set(__self__, "identity_name", identity_name)
         pulumi.set(__self__, "identity_type", identity_type)
@@ -33,7 +33,7 @@ class StudioSessionMappingArgs:
     @pulumi.getter(name="identityName")
     def identity_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
+        The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         """
         return pulumi.get(self, "identity_name")
 
@@ -45,7 +45,7 @@ class StudioSessionMappingArgs:
     @pulumi.getter(name="identityType")
     def identity_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
+        Specifies whether the identity to map to the Studio is a user or a group.
         """
         return pulumi.get(self, "identity_type")
 
@@ -57,7 +57,7 @@ class StudioSessionMappingArgs:
     @pulumi.getter(name="sessionPolicyArn")
     def session_policy_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
+        The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         """
         return pulumi.get(self, "session_policy_arn")
 
@@ -69,7 +69,7 @@ class StudioSessionMappingArgs:
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         return pulumi.get(self, "studio_id")
 
@@ -89,14 +89,14 @@ class StudioSessionMapping(pulumi.CustomResource):
                  studio_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identity_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
-        :param pulumi.Input[str] identity_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
-        :param pulumi.Input[str] session_policy_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        :param pulumi.Input[str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
+        :param pulumi.Input[str] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
+        :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
+        :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         ...
     @overload
@@ -105,7 +105,7 @@ class StudioSessionMapping(pulumi.CustomResource):
                  args: StudioSessionMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param StudioSessionMappingArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @pulumi.getter(name="identityName")
     def identity_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
+        The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         """
         return pulumi.get(self, "identity_name")
 
@@ -190,7 +190,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @pulumi.getter(name="identityType")
     def identity_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
+        Specifies whether the identity to map to the Studio is a user or a group.
         """
         return pulumi.get(self, "identity_type")
 
@@ -198,7 +198,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @pulumi.getter(name="sessionPolicyArn")
     def session_policy_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
+        The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         """
         return pulumi.get(self, "session_policy_arn")
 
@@ -206,7 +206,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
         return pulumi.get(self, "studio_id")
 

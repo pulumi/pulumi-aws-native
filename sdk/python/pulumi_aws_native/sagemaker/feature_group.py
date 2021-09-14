@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FeatureGroupArgs', 'FeatureGroup']
@@ -22,21 +20,19 @@ class FeatureGroupArgs:
                  feature_group_name: pulumi.Input[str],
                  record_identifier_feature_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 online_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 offline_store_config: Optional[Any] = None,
+                 online_store_config: Optional[Any] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a FeatureGroup resource.
-        :param pulumi.Input[str] event_time_feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
-        :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
-        :param pulumi.Input[str] feature_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-        :param pulumi.Input[str] record_identifier_feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
-        :param pulumi.Input[Union[Any, str]] offline_store_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        :param pulumi.Input[Union[Any, str]] online_store_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        :param pulumi.Input[str] event_time_feature_name: The Event Time Feature Name.
+        :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: An Array of Feature Definition
+        :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
+        :param pulumi.Input[str] record_identifier_feature_name: The Record Identifier Feature Name.
+        :param pulumi.Input[str] description: Description about the FeatureGroup.
+        :param pulumi.Input[str] role_arn: Role Arn
+        :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]] tags: An array of key-value pair to apply to this resource.
         """
         pulumi.set(__self__, "event_time_feature_name", event_time_feature_name)
         pulumi.set(__self__, "feature_definitions", feature_definitions)
@@ -57,7 +53,7 @@ class FeatureGroupArgs:
     @pulumi.getter(name="eventTimeFeatureName")
     def event_time_feature_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+        The Event Time Feature Name.
         """
         return pulumi.get(self, "event_time_feature_name")
 
@@ -69,7 +65,7 @@ class FeatureGroupArgs:
     @pulumi.getter(name="featureDefinitions")
     def feature_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+        An Array of Feature Definition
         """
         return pulumi.get(self, "feature_definitions")
 
@@ -81,7 +77,7 @@ class FeatureGroupArgs:
     @pulumi.getter(name="featureGroupName")
     def feature_group_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
+        The Name of the FeatureGroup.
         """
         return pulumi.get(self, "feature_group_name")
 
@@ -93,7 +89,7 @@ class FeatureGroupArgs:
     @pulumi.getter(name="recordIdentifierFeatureName")
     def record_identifier_feature_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+        The Record Identifier Feature Name.
         """
         return pulumi.get(self, "record_identifier_feature_name")
 
@@ -105,7 +101,7 @@ class FeatureGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+        Description about the FeatureGroup.
         """
         return pulumi.get(self, "description")
 
@@ -115,33 +111,27 @@ class FeatureGroupArgs:
 
     @property
     @pulumi.getter(name="offlineStoreConfig")
-    def offline_store_config(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        """
+    def offline_store_config(self) -> Optional[Any]:
         return pulumi.get(self, "offline_store_config")
 
     @offline_store_config.setter
-    def offline_store_config(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def offline_store_config(self, value: Optional[Any]):
         pulumi.set(self, "offline_store_config", value)
 
     @property
     @pulumi.getter(name="onlineStoreConfig")
-    def online_store_config(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        """
+    def online_store_config(self) -> Optional[Any]:
         return pulumi.get(self, "online_store_config")
 
     @online_store_config.setter
-    def online_store_config(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def online_store_config(self, value: Optional[Any]):
         pulumi.set(self, "online_store_config", value)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+        Role Arn
         """
         return pulumi.get(self, "role_arn")
 
@@ -151,14 +141,14 @@ class FeatureGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        An array of key-value pair to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -171,26 +161,24 @@ class FeatureGroup(pulumi.CustomResource):
                  event_time_feature_name: Optional[pulumi.Input[str]] = None,
                  feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]]] = None,
                  feature_group_name: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 online_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 offline_store_config: Optional[Any] = None,
+                 online_store_config: Optional[Any] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
+        Resource Type definition for AWS::SageMaker::FeatureGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
-        :param pulumi.Input[str] event_time_feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]] feature_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
-        :param pulumi.Input[str] feature_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-        :param pulumi.Input[Union[Any, str]] offline_store_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        :param pulumi.Input[Union[Any, str]] online_store_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        :param pulumi.Input[str] record_identifier_feature_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        :param pulumi.Input[str] description: Description about the FeatureGroup.
+        :param pulumi.Input[str] event_time_feature_name: The Event Time Feature Name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]] feature_definitions: An Array of Feature Definition
+        :param pulumi.Input[str] feature_group_name: The Name of the FeatureGroup.
+        :param pulumi.Input[str] record_identifier_feature_name: The Record Identifier Feature Name.
+        :param pulumi.Input[str] role_arn: Role Arn
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]] tags: An array of key-value pair to apply to this resource.
         """
         ...
     @overload
@@ -199,7 +187,7 @@ class FeatureGroup(pulumi.CustomResource):
                  args: FeatureGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
+        Resource Type definition for AWS::SageMaker::FeatureGroup
 
         :param str resource_name: The name of the resource.
         :param FeatureGroupArgs args: The arguments to use to populate this resource's properties.
@@ -220,11 +208,11 @@ class FeatureGroup(pulumi.CustomResource):
                  event_time_feature_name: Optional[pulumi.Input[str]] = None,
                  feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupFeatureDefinitionArgs']]]]] = None,
                  feature_group_name: Optional[pulumi.Input[str]] = None,
-                 offline_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 online_store_config: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 offline_store_config: Optional[Any] = None,
+                 online_store_config: Optional[Any] = None,
                  record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -291,7 +279,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+        Description about the FeatureGroup.
         """
         return pulumi.get(self, "description")
 
@@ -299,7 +287,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter(name="eventTimeFeatureName")
     def event_time_feature_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+        The Event Time Feature Name.
         """
         return pulumi.get(self, "event_time_feature_name")
 
@@ -307,7 +295,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter(name="featureDefinitions")
     def feature_definitions(self) -> pulumi.Output[Sequence['outputs.FeatureGroupFeatureDefinition']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+        An Array of Feature Definition
         """
         return pulumi.get(self, "feature_definitions")
 
@@ -315,31 +303,25 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter(name="featureGroupName")
     def feature_group_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
+        The Name of the FeatureGroup.
         """
         return pulumi.get(self, "feature_group_name")
 
     @property
     @pulumi.getter(name="offlineStoreConfig")
-    def offline_store_config(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        """
+    def offline_store_config(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "offline_store_config")
 
     @property
     @pulumi.getter(name="onlineStoreConfig")
-    def online_store_config(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        """
+    def online_store_config(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "online_store_config")
 
     @property
     @pulumi.getter(name="recordIdentifierFeatureName")
     def record_identifier_feature_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+        The Record Identifier Feature Name.
         """
         return pulumi.get(self, "record_identifier_feature_name")
 
@@ -347,15 +329,15 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+        Role Arn
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FeatureGroupTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        An array of key-value pair to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

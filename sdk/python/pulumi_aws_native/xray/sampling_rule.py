@@ -19,14 +19,9 @@ class SamplingRuleArgs:
                  sampling_rule: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']] = None,
                  sampling_rule_record: Optional[pulumi.Input['SamplingRuleSamplingRuleRecordArgs']] = None,
                  sampling_rule_update: Optional[pulumi.Input['SamplingRuleSamplingRuleUpdateArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        :param pulumi.Input['SamplingRuleSamplingRuleArgs'] sampling_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        :param pulumi.Input['SamplingRuleSamplingRuleRecordArgs'] sampling_rule_record: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        :param pulumi.Input['SamplingRuleSamplingRuleUpdateArgs'] sampling_rule_update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
         """
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
@@ -42,9 +37,6 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -54,9 +46,6 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        """
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
@@ -66,9 +55,6 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="samplingRuleRecord")
     def sampling_rule_record(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleRecordArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        """
         return pulumi.get(self, "sampling_rule_record")
 
     @sampling_rule_record.setter
@@ -78,9 +64,6 @@ class SamplingRuleArgs:
     @property
     @pulumi.getter(name="samplingRuleUpdate")
     def sampling_rule_update(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleUpdateArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        """
         return pulumi.get(self, "sampling_rule_update")
 
     @sampling_rule_update.setter
@@ -89,14 +72,11 @@ class SamplingRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,18 +89,13 @@ class SamplingRule(pulumi.CustomResource):
                  sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleArgs']]] = None,
                  sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleRecordArgs']]] = None,
                  sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
+        This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        :param pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleArgs']] sampling_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        :param pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleRecordArgs']] sampling_rule_record: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        :param pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleUpdateArgs']] sampling_rule_update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
         """
         ...
     @overload
@@ -129,7 +104,7 @@ class SamplingRule(pulumi.CustomResource):
                  args: Optional[SamplingRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
+        This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
         :param str resource_name: The name of the resource.
         :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.
@@ -150,7 +125,7 @@ class SamplingRule(pulumi.CustomResource):
                  sampling_rule: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleArgs']]] = None,
                  sampling_rule_record: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleRecordArgs']]] = None,
                  sampling_rule_update: Optional[pulumi.Input[pulumi.InputType['SamplingRuleSamplingRuleUpdateArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Any, str]]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[Any]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -207,40 +182,25 @@ class SamplingRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        """
         return pulumi.get(self, "sampling_rule")
 
     @property
     @pulumi.getter(name="samplingRuleRecord")
     def sampling_rule_record(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRuleRecord']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        """
         return pulumi.get(self, "sampling_rule_record")
 
     @property
     @pulumi.getter(name="samplingRuleUpdate")
     def sampling_rule_update(self) -> pulumi.Output[Optional['outputs.SamplingRuleSamplingRuleUpdate']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        """
         return pulumi.get(self, "sampling_rule_update")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         return pulumi.get(self, "tags")
 

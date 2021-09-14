@@ -20,11 +20,11 @@ class MemberInvitationArgs:
                  message: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MemberInvitation resource.
-        :param pulumi.Input[str] graph_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
-        :param pulumi.Input[str] member_email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
-        :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
-        :param pulumi.Input[bool] disable_email_notification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
-        :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        :param pulumi.Input[str] graph_arn: The ARN of the graph to which the member account will be invited
+        :param pulumi.Input[str] member_email_address: The root email address for the account to be invited, for validation. Updating this field has no effect.
+        :param pulumi.Input[str] member_id: The AWS account ID to be invited to join the graph as a member
+        :param pulumi.Input[bool] disable_email_notification: When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
+        :param pulumi.Input[str] message: A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
         pulumi.set(__self__, "graph_arn", graph_arn)
         pulumi.set(__self__, "member_email_address", member_email_address)
@@ -38,7 +38,7 @@ class MemberInvitationArgs:
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        The ARN of the graph to which the member account will be invited
         """
         return pulumi.get(self, "graph_arn")
 
@@ -50,7 +50,7 @@ class MemberInvitationArgs:
     @pulumi.getter(name="memberEmailAddress")
     def member_email_address(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        The root email address for the account to be invited, for validation. Updating this field has no effect.
         """
         return pulumi.get(self, "member_email_address")
 
@@ -62,7 +62,7 @@ class MemberInvitationArgs:
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        The AWS account ID to be invited to join the graph as a member
         """
         return pulumi.get(self, "member_id")
 
@@ -74,7 +74,7 @@ class MemberInvitationArgs:
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         """
         return pulumi.get(self, "disable_email_notification")
 
@@ -86,7 +86,7 @@ class MemberInvitationArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
         return pulumi.get(self, "message")
 
@@ -107,15 +107,15 @@ class MemberInvitation(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
+        Resource schema for AWS::Detective::MemberInvitation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disable_email_notification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
-        :param pulumi.Input[str] graph_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
-        :param pulumi.Input[str] member_email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
-        :param pulumi.Input[str] member_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
-        :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        :param pulumi.Input[bool] disable_email_notification: When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
+        :param pulumi.Input[str] graph_arn: The ARN of the graph to which the member account will be invited
+        :param pulumi.Input[str] member_email_address: The root email address for the account to be invited, for validation. Updating this field has no effect.
+        :param pulumi.Input[str] member_id: The AWS account ID to be invited to join the graph as a member
+        :param pulumi.Input[str] message: A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
         ...
     @overload
@@ -124,7 +124,7 @@ class MemberInvitation(pulumi.CustomResource):
                  args: MemberInvitationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
+        Resource schema for AWS::Detective::MemberInvitation
 
         :param str resource_name: The name of the resource.
         :param MemberInvitationArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +202,7 @@ class MemberInvitation(pulumi.CustomResource):
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         """
         return pulumi.get(self, "disable_email_notification")
 
@@ -210,7 +210,7 @@ class MemberInvitation(pulumi.CustomResource):
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        The ARN of the graph to which the member account will be invited
         """
         return pulumi.get(self, "graph_arn")
 
@@ -218,7 +218,7 @@ class MemberInvitation(pulumi.CustomResource):
     @pulumi.getter(name="memberEmailAddress")
     def member_email_address(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        The root email address for the account to be invited, for validation. Updating this field has no effect.
         """
         return pulumi.get(self, "member_email_address")
 
@@ -226,7 +226,7 @@ class MemberInvitation(pulumi.CustomResource):
     @pulumi.getter(name="memberId")
     def member_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        The AWS account ID to be invited to join the graph as a member
         """
         return pulumi.get(self, "member_id")
 
@@ -234,7 +234,7 @@ class MemberInvitation(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         """
         return pulumi.get(self, "message")
 

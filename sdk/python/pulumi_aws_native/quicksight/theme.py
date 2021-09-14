@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ThemeArgs', 'Theme']
@@ -23,18 +21,23 @@ class ThemeArgs:
                  configuration: Optional[pulumi.Input['ThemeThemeConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Theme resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        :param pulumi.Input[str] theme_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        :param pulumi.Input[str] base_theme_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-        :param pulumi.Input['ThemeThemeConfigurationArgs'] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        :param pulumi.Input[str] base_theme_id: <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+               			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+               				<code>ListThemes</code> or choose <b>Themes</b> from
+               			within a QuickSight analysis. </p>
+        :param pulumi.Input[str] name: <p>A display name for the theme.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]] permissions: <p>A valid grouping of resource permissions to apply to the new theme.
+               			</p>
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]] tags: <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+               			resource.</p>
+        :param pulumi.Input[str] version_description: <p>A description of the first version of the theme that you're creating. Every time
+               				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+               			theme has a description of the version in the <code>VersionDescription</code>
+               			field.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "theme_id", theme_id)
@@ -54,9 +57,6 @@ class ThemeArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -66,9 +66,6 @@ class ThemeArgs:
     @property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        """
         return pulumi.get(self, "theme_id")
 
     @theme_id.setter
@@ -79,7 +76,10 @@ class ThemeArgs:
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
+        <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+        			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+        				<code>ListThemes</code> or choose <b>Themes</b> from
+        			within a QuickSight analysis. </p>
         """
         return pulumi.get(self, "base_theme_id")
 
@@ -90,9 +90,6 @@ class ThemeArgs:
     @property
     @pulumi.getter
     def configuration(self) -> Optional[pulumi.Input['ThemeThemeConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -103,7 +100,7 @@ class ThemeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+        <p>A display name for the theme.</p>
         """
         return pulumi.get(self, "name")
 
@@ -115,7 +112,8 @@ class ThemeArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+        <p>A valid grouping of resource permissions to apply to the new theme.
+        			</p>
         """
         return pulumi.get(self, "permissions")
 
@@ -125,21 +123,25 @@ class ThemeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
+        <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+        			resource.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        <p>A description of the first version of the theme that you're creating. Every time
+        				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+        			theme has a description of the version in the <code>VersionDescription</code>
+        			field.</p>
         """
         return pulumi.get(self, "version_description")
 
@@ -158,23 +160,28 @@ class Theme(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ThemeThemeConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
+        Definition of the AWS::QuickSight::Theme Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        :param pulumi.Input[str] base_theme_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-        :param pulumi.Input[pulumi.InputType['ThemeThemeConfigurationArgs']] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
-        :param pulumi.Input[str] theme_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        :param pulumi.Input[str] base_theme_id: <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+               			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+               				<code>ListThemes</code> or choose <b>Themes</b> from
+               			within a QuickSight analysis. </p>
+        :param pulumi.Input[str] name: <p>A display name for the theme.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]] permissions: <p>A valid grouping of resource permissions to apply to the new theme.
+               			</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]] tags: <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+               			resource.</p>
+        :param pulumi.Input[str] version_description: <p>A description of the first version of the theme that you're creating. Every time
+               				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+               			theme has a description of the version in the <code>VersionDescription</code>
+               			field.</p>
         """
         ...
     @overload
@@ -183,7 +190,7 @@ class Theme(pulumi.CustomResource):
                  args: ThemeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
+        Definition of the AWS::QuickSight::Theme Resource Type.
 
         :param str resource_name: The name of the resource.
         :param ThemeArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +212,7 @@ class Theme(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[pulumi.InputType['ThemeThemeConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeResourcePermissionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeTagArgs']]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -236,6 +243,7 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["version"] = None
         super(Theme, __self__).__init__(
             'aws-native:quicksight:Theme',
             resource_name,
@@ -269,53 +277,60 @@ class Theme(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["theme_id"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["version"] = None
         __props__.__dict__["version_description"] = None
         return Theme(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the theme.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
+        <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+        			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+        				<code>ListThemes</code> or choose <b>Themes</b> from
+        			within a QuickSight analysis. </p>
         """
         return pulumi.get(self, "base_theme_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.ThemeThemeConfiguration']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time that the theme was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The date and time that the theme was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+        <p>A display name for the theme.</p>
         """
         return pulumi.get(self, "name")
 
@@ -323,24 +338,23 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+        <p>A valid grouping of resource permissions to apply to the new theme.
+        			</p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
+        <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+        			resource.</p>
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="themeId")
     def theme_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        """
         return pulumi.get(self, "theme_id")
 
     @property
@@ -349,10 +363,18 @@ class Theme(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output['outputs.ThemeThemeVersion']:
+        return pulumi.get(self, "version")
+
+    @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        <p>A description of the first version of the theme that you're creating. Every time
+        				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+        			theme has a description of the version in the <code>VersionDescription</code>
+        			field.</p>
         """
         return pulumi.get(self, "version_description")
 

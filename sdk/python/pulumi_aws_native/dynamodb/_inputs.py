@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
 
 __all__ = [
     'GlobalTableAttributeDefinitionArgs',
@@ -24,6 +23,7 @@ __all__ = [
     'GlobalTableReplicaSpecificationArgs',
     'GlobalTableSSESpecificationArgs',
     'GlobalTableStreamSpecificationArgs',
+    'GlobalTableTagArgs',
     'GlobalTableTargetTrackingScalingPolicyConfigurationArgs',
     'GlobalTableTimeToLiveSpecificationArgs',
     'GlobalTableWriteProvisionedThroughputSettingsArgs',
@@ -34,20 +34,12 @@ class GlobalTableAttributeDefinitionArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  attribute_type: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html
-        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
-        :param pulumi.Input[str] attribute_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
-        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "attribute_type", attribute_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
-        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -57,9 +49,6 @@ class GlobalTableAttributeDefinitionArgs:
     @property
     @pulumi.getter(name="attributeType")
     def attribute_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
-        """
         return pulumi.get(self, "attribute_type")
 
     @attribute_type.setter
@@ -74,13 +63,6 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
                  min_capacity: pulumi.Input[int],
                  target_tracking_scaling_policy_configuration: pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'],
                  seed_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html
-        :param pulumi.Input[int] max_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
-        :param pulumi.Input[int] min_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
-        :param pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
-        :param pulumi.Input[int] seed_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
-        """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
         pulumi.set(__self__, "target_tracking_scaling_policy_configuration", target_tracking_scaling_policy_configuration)
@@ -90,9 +72,6 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
-        """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
@@ -102,9 +81,6 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
-        """
         return pulumi.get(self, "min_capacity")
 
     @min_capacity.setter
@@ -114,9 +90,6 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
     def target_tracking_scaling_policy_configuration(self) -> pulumi.Input['GlobalTableTargetTrackingScalingPolicyConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
-        """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
@@ -126,9 +99,6 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
     @property
     @pulumi.getter(name="seedCapacity")
     def seed_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
-        """
         return pulumi.get(self, "seed_capacity")
 
     @seed_capacity.setter
@@ -140,18 +110,11 @@ class GlobalTableCapacityAutoScalingSettingsArgs:
 class GlobalTableContributorInsightsSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -166,13 +129,6 @@ class GlobalTableGlobalSecondaryIndexArgs:
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs'],
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
-        :param pulumi.Input['GlobalTableProjectionArgs'] projection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
-        :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
-        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -182,9 +138,6 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -194,9 +147,6 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
-        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -206,9 +156,6 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['GlobalTableProjectionArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
-        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -218,9 +165,6 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
-        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
@@ -233,20 +177,12 @@ class GlobalTableKeySchemaArgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  key_type: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html
-        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
-        :param pulumi.Input[str] key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
-        """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
-        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -256,9 +192,6 @@ class GlobalTableKeySchemaArgs:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
-        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -272,12 +205,6 @@ class GlobalTableLocalSecondaryIndexArgs:
                  index_name: pulumi.Input[str],
                  key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
                  projection: pulumi.Input['GlobalTableProjectionArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema
-        :param pulumi.Input['GlobalTableProjectionArgs'] projection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection
-        """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
@@ -285,9 +212,6 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -297,9 +221,6 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema
-        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -309,9 +230,6 @@ class GlobalTableLocalSecondaryIndexArgs:
     @property
     @pulumi.getter
     def projection(self) -> pulumi.Input['GlobalTableProjectionArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection
-        """
         return pulumi.get(self, "projection")
 
     @projection.setter
@@ -323,19 +241,12 @@ class GlobalTableLocalSecondaryIndexArgs:
 class GlobalTablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html
-        :param pulumi.Input[bool] point_in_time_recovery_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
-        """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
     def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
-        """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
     @point_in_time_recovery_enabled.setter
@@ -348,11 +259,6 @@ class GlobalTableProjectionArgs:
     def __init__(__self__, *,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  projection_type: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] non_key_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
-        :param pulumi.Input[str] projection_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
-        """
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if projection_type is not None:
@@ -361,9 +267,6 @@ class GlobalTableProjectionArgs:
     @property
     @pulumi.getter(name="nonKeyAttributes")
     def non_key_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
-        """
         return pulumi.get(self, "non_key_attributes")
 
     @non_key_attributes.setter
@@ -373,9 +276,6 @@ class GlobalTableProjectionArgs:
     @property
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
-        """
         return pulumi.get(self, "projection_type")
 
     @projection_type.setter
@@ -388,11 +288,6 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  read_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None,
                  read_capacity_units: Optional[pulumi.Input[int]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
-        :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] read_capacity_auto_scaling_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
-        :param pulumi.Input[int] read_capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
-        """
         if read_capacity_auto_scaling_settings is not None:
             pulumi.set(__self__, "read_capacity_auto_scaling_settings", read_capacity_auto_scaling_settings)
         if read_capacity_units is not None:
@@ -401,9 +296,6 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     @property
     @pulumi.getter(name="readCapacityAutoScalingSettings")
     def read_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
-        """
         return pulumi.get(self, "read_capacity_auto_scaling_settings")
 
     @read_capacity_auto_scaling_settings.setter
@@ -413,9 +305,6 @@ class GlobalTableReadProvisionedThroughputSettingsArgs:
     @property
     @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
-        """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
@@ -429,12 +318,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
                  index_name: pulumi.Input[str],
                  contributor_insights_specification: Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
-        :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
-        :param pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs'] read_provisioned_throughput_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
-        """
         pulumi.set(__self__, "index_name", index_name)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
@@ -444,9 +327,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
-        """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
@@ -456,9 +336,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
-        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -468,9 +345,6 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
-        """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
@@ -482,18 +356,11 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
 class GlobalTableReplicaSSESpecificationArgs:
     def __init__(__self__, *,
                  k_ms_master_key_id: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html
-        :param pulumi.Input[str] k_ms_master_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
-        """
         pulumi.set(__self__, "k_ms_master_key_id", k_ms_master_key_id)
 
     @property
     @pulumi.getter(name="kMSMasterKeyId")
     def k_ms_master_key_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
-        """
         return pulumi.get(self, "k_ms_master_key_id")
 
     @k_ms_master_key_id.setter
@@ -510,17 +377,7 @@ class GlobalTableReplicaSpecificationArgs:
                  point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  read_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']] = None,
                  s_se_specification: Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
-        :param pulumi.Input[str] region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
-        :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]] global_secondary_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-        :param pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs'] point_in_time_recovery_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
-        :param pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs'] read_provisioned_throughput_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-        :param pulumi.Input['GlobalTableReplicaSSESpecificationArgs'] s_se_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-        """
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         pulumi.set(__self__, "region", region)
         if contributor_insights_specification is not None:
             pulumi.set(__self__, "contributor_insights_specification", contributor_insights_specification)
@@ -538,9 +395,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -550,9 +404,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="contributorInsightsSpecification")
     def contributor_insights_specification(self) -> Optional[pulumi.Input['GlobalTableContributorInsightsSpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
-        """
         return pulumi.get(self, "contributor_insights_specification")
 
     @contributor_insights_specification.setter
@@ -562,9 +413,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -574,9 +422,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
-        """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @point_in_time_recovery_specification.setter
@@ -586,9 +431,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="readProvisionedThroughputSettings")
     def read_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-        """
         return pulumi.get(self, "read_provisioned_throughput_settings")
 
     @read_provisioned_throughput_settings.setter
@@ -598,9 +440,6 @@ class GlobalTableReplicaSpecificationArgs:
     @property
     @pulumi.getter(name="sSESpecification")
     def s_se_specification(self) -> Optional[pulumi.Input['GlobalTableReplicaSSESpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
-        """
         return pulumi.get(self, "s_se_specification")
 
     @s_se_specification.setter
@@ -609,14 +448,11 @@ class GlobalTableReplicaSpecificationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -625,11 +461,6 @@ class GlobalTableSSESpecificationArgs:
     def __init__(__self__, *,
                  s_se_enabled: pulumi.Input[bool],
                  s_se_type: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html
-        :param pulumi.Input[bool] s_se_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
-        :param pulumi.Input[str] s_se_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
-        """
         pulumi.set(__self__, "s_se_enabled", s_se_enabled)
         if s_se_type is not None:
             pulumi.set(__self__, "s_se_type", s_se_type)
@@ -637,9 +468,6 @@ class GlobalTableSSESpecificationArgs:
     @property
     @pulumi.getter(name="sSEEnabled")
     def s_se_enabled(self) -> pulumi.Input[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
-        """
         return pulumi.get(self, "s_se_enabled")
 
     @s_se_enabled.setter
@@ -649,9 +477,6 @@ class GlobalTableSSESpecificationArgs:
     @property
     @pulumi.getter(name="sSEType")
     def s_se_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
-        """
         return pulumi.get(self, "s_se_type")
 
     @s_se_type.setter
@@ -663,23 +488,43 @@ class GlobalTableSSESpecificationArgs:
 class GlobalTableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html
-        :param pulumi.Input[str] stream_view_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
-        """
         pulumi.set(__self__, "stream_view_type", stream_view_type)
 
     @property
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
-        """
         return pulumi.get(self, "stream_view_type")
 
     @stream_view_type.setter
     def stream_view_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_view_type", value)
+
+
+@pulumi.input_type
+class GlobalTableTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -689,13 +534,6 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
                  disable_scale_in: Optional[pulumi.Input[bool]] = None,
                  scale_in_cooldown: Optional[pulumi.Input[int]] = None,
                  scale_out_cooldown: Optional[pulumi.Input[int]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html
-        :param pulumi.Input[float] target_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
-        :param pulumi.Input[bool] disable_scale_in: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
-        :param pulumi.Input[int] scale_in_cooldown: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
-        :param pulumi.Input[int] scale_out_cooldown: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-        """
         pulumi.set(__self__, "target_value", target_value)
         if disable_scale_in is not None:
             pulumi.set(__self__, "disable_scale_in", disable_scale_in)
@@ -707,9 +545,6 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
-        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -719,9 +554,6 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="disableScaleIn")
     def disable_scale_in(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
-        """
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
@@ -731,9 +563,6 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="scaleInCooldown")
     def scale_in_cooldown(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
-        """
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
@@ -743,9 +572,6 @@ class GlobalTableTargetTrackingScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="scaleOutCooldown")
     def scale_out_cooldown(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-        """
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
@@ -758,11 +584,6 @@ class GlobalTableTimeToLiveSpecificationArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  attribute_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
-        :param pulumi.Input[str] attribute_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
-        """
         pulumi.set(__self__, "enabled", enabled)
         if attribute_name is not None:
             pulumi.set(__self__, "attribute_name", attribute_name)
@@ -770,9 +591,6 @@ class GlobalTableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -782,9 +600,6 @@ class GlobalTableTimeToLiveSpecificationArgs:
     @property
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
-        """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
@@ -796,19 +611,12 @@ class GlobalTableTimeToLiveSpecificationArgs:
 class GlobalTableWriteProvisionedThroughputSettingsArgs:
     def __init__(__self__, *,
                  write_capacity_auto_scaling_settings: Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html
-        :param pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs'] write_capacity_auto_scaling_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
-        """
         if write_capacity_auto_scaling_settings is not None:
             pulumi.set(__self__, "write_capacity_auto_scaling_settings", write_capacity_auto_scaling_settings)
 
     @property
     @pulumi.getter(name="writeCapacityAutoScalingSettings")
     def write_capacity_auto_scaling_settings(self) -> Optional[pulumi.Input['GlobalTableCapacityAutoScalingSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
-        """
         return pulumi.get(self, "write_capacity_auto_scaling_settings")
 
     @write_capacity_auto_scaling_settings.setter

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DeviceArgs', 'Device']
@@ -23,20 +21,20 @@ class DeviceArgs:
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Device resource.
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
-        :param pulumi.Input['DeviceLocationArgs'] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
-        :param pulumi.Input[str] model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
-        :param pulumi.Input[str] serial_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
-        :param pulumi.Input[str] site_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
-        :param pulumi.Input[str] vendor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] description: The description of the device.
+        :param pulumi.Input['DeviceLocationArgs'] location: The site location.
+        :param pulumi.Input[str] model: The device model
+        :param pulumi.Input[str] serial_number: The device serial number.
+        :param pulumi.Input[str] site_id: The site ID.
+        :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: The tags for the device.
+        :param pulumi.Input[str] type: The device type.
+        :param pulumi.Input[str] vendor: The device vendor.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -60,7 +58,7 @@ class DeviceArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -72,7 +70,7 @@ class DeviceArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
+        The description of the device.
         """
         return pulumi.get(self, "description")
 
@@ -84,7 +82,7 @@ class DeviceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['DeviceLocationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
+        The site location.
         """
         return pulumi.get(self, "location")
 
@@ -96,7 +94,7 @@ class DeviceArgs:
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
+        The device model
         """
         return pulumi.get(self, "model")
 
@@ -108,7 +106,7 @@ class DeviceArgs:
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
+        The device serial number.
         """
         return pulumi.get(self, "serial_number")
 
@@ -120,7 +118,7 @@ class DeviceArgs:
     @pulumi.getter(name="siteId")
     def site_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+        The site ID.
         """
         return pulumi.get(self, "site_id")
 
@@ -130,21 +128,21 @@ class DeviceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+        The tags for the device.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+        The device type.
         """
         return pulumi.get(self, "type")
 
@@ -156,7 +154,7 @@ class DeviceArgs:
     @pulumi.getter
     def vendor(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+        The device vendor.
         """
         return pulumi.get(self, "vendor")
 
@@ -176,24 +174,24 @@ class Device(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
+        The AWS::NetworkManager::Device type describes a device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
-        :param pulumi.Input[pulumi.InputType['DeviceLocationArgs']] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
-        :param pulumi.Input[str] model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
-        :param pulumi.Input[str] serial_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
-        :param pulumi.Input[str] site_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
-        :param pulumi.Input[str] vendor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+        :param pulumi.Input[str] description: The description of the device.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[pulumi.InputType['DeviceLocationArgs']] location: The site location.
+        :param pulumi.Input[str] model: The device model
+        :param pulumi.Input[str] serial_number: The device serial number.
+        :param pulumi.Input[str] site_id: The site ID.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]] tags: The tags for the device.
+        :param pulumi.Input[str] type: The device type.
+        :param pulumi.Input[str] vendor: The device vendor.
         """
         ...
     @overload
@@ -202,7 +200,7 @@ class Device(pulumi.CustomResource):
                  args: DeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html
+        The AWS::NetworkManager::Device type describes a device.
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -225,7 +223,7 @@ class Device(pulumi.CustomResource):
                  model: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vendor: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -292,25 +290,31 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-description
+        The description of the device.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="deviceArn")
     def device_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the device.
+        """
         return pulumi.get(self, "device_arn")
 
     @property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the device.
+        """
         return pulumi.get(self, "device_id")
 
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -318,7 +322,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.DeviceLocation']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-location
+        The site location.
         """
         return pulumi.get(self, "location")
 
@@ -326,7 +330,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def model(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-model
+        The device model
         """
         return pulumi.get(self, "model")
 
@@ -334,7 +338,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-serialnumber
+        The device serial number.
         """
         return pulumi.get(self, "serial_number")
 
@@ -342,15 +346,15 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-siteid
+        The site ID.
         """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-tags
+        The tags for the device.
         """
         return pulumi.get(self, "tags")
 
@@ -358,7 +362,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-type
+        The device type.
         """
         return pulumi.get(self, "type")
 
@@ -366,7 +370,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter
     def vendor(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html#cfn-networkmanager-device-vendor
+        The device vendor.
         """
         return pulumi.get(self, "vendor")
 

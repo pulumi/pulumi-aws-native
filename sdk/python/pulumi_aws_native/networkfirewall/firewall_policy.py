@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
@@ -20,13 +18,9 @@ class FirewallPolicyArgs:
                  firewall_policy: pulumi.Input['FirewallPolicyFirewallPolicyArgs'],
                  firewall_policy_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
-        :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        :param pulumi.Input[str] firewall_policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
         """
         pulumi.set(__self__, "firewall_policy", firewall_policy)
         pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
@@ -38,9 +32,6 @@ class FirewallPolicyArgs:
     @property
     @pulumi.getter(name="firewallPolicy")
     def firewall_policy(self) -> pulumi.Input['FirewallPolicyFirewallPolicyArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        """
         return pulumi.get(self, "firewall_policy")
 
     @firewall_policy.setter
@@ -50,9 +41,6 @@ class FirewallPolicyArgs:
     @property
     @pulumi.getter(name="firewallPolicyName")
     def firewall_policy_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        """
         return pulumi.get(self, "firewall_policy_name")
 
     @firewall_policy_name.setter
@@ -62,9 +50,6 @@ class FirewallPolicyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,14 +58,11 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +74,13 @@ class FirewallPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+        Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']] firewall_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        :param pulumi.Input[str] firewall_policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
         """
         ...
     @overload
@@ -111,7 +89,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  args: FirewallPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+        Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +109,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
                  firewall_policy_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -187,17 +165,11 @@ class FirewallPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="firewallPolicy")
     def firewall_policy(self) -> pulumi.Output['outputs.FirewallPolicyFirewallPolicy']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        """
         return pulumi.get(self, "firewall_policy")
 
     @property
@@ -213,16 +185,10 @@ class FirewallPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firewallPolicyName")
     def firewall_policy_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        """
         return pulumi.get(self, "firewall_policy_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallPolicyTag']]]:
         return pulumi.get(self, "tags")
 

@@ -7,20 +7,19 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['SuiteDefinitionArgs', 'SuiteDefinition']
 
 @pulumi.input_type
 class SuiteDefinitionArgs:
     def __init__(__self__, *,
-                 suite_definition_configuration: pulumi.Input[Union[Any, str]],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 suite_definition_configuration: Any,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]] = None):
         """
         The set of arguments for constructing a SuiteDefinition resource.
-        :param pulumi.Input[Union[Any, str]] suite_definition_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        :param pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "suite_definition_configuration", suite_definition_configuration)
         if tags is not None:
@@ -28,26 +27,23 @@ class SuiteDefinitionArgs:
 
     @property
     @pulumi.getter(name="suiteDefinitionConfiguration")
-    def suite_definition_configuration(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        """
+    def suite_definition_configuration(self) -> Any:
         return pulumi.get(self, "suite_definition_configuration")
 
     @suite_definition_configuration.setter
-    def suite_definition_configuration(self, value: pulumi.Input[Union[Any, str]]):
+    def suite_definition_configuration(self, value: Any):
         pulumi.set(self, "suite_definition_configuration", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -56,16 +52,15 @@ class SuiteDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 suite_definition_configuration: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SuiteDefinitionTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] suite_definition_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SuiteDefinitionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -74,7 +69,7 @@ class SuiteDefinition(pulumi.CustomResource):
                  args: SuiteDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param SuiteDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -91,8 +86,8 @@ class SuiteDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 suite_definition_configuration: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 suite_definition_configuration: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SuiteDefinitionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -144,31 +139,37 @@ class SuiteDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="suiteDefinitionArn")
     def suite_definition_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource name for the suite definition.
+        """
         return pulumi.get(self, "suite_definition_arn")
 
     @property
     @pulumi.getter(name="suiteDefinitionConfiguration")
-    def suite_definition_configuration(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        """
+    def suite_definition_configuration(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "suite_definition_configuration")
 
     @property
     @pulumi.getter(name="suiteDefinitionId")
     def suite_definition_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for the suite definition.
+        """
         return pulumi.get(self, "suite_definition_id")
 
     @property
     @pulumi.getter(name="suiteDefinitionVersion")
     def suite_definition_version(self) -> pulumi.Output[str]:
+        """
+        The suite definition version of a test suite.
+        """
         return pulumi.get(self, "suite_definition_version")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SuiteDefinitionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

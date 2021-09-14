@@ -18,16 +18,12 @@ class NotificationChannelArgs:
                  config: pulumi.Input['NotificationChannelNotificationChannelConfigArgs']):
         """
         The set of arguments for constructing a NotificationChannel resource.
-        :param pulumi.Input['NotificationChannelNotificationChannelConfigArgs'] config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
         """
         pulumi.set(__self__, "config", config)
 
     @property
     @pulumi.getter
     def config(self) -> pulumi.Input['NotificationChannelNotificationChannelConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
         return pulumi.get(self, "config")
 
     @config.setter
@@ -43,11 +39,10 @@ class NotificationChannel(pulumi.CustomResource):
                  config: Optional[pulumi.Input[pulumi.InputType['NotificationChannelNotificationChannelConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+        This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelNotificationChannelConfigArgs']] config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class NotificationChannel(pulumi.CustomResource):
                  args: NotificationChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+        This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +84,6 @@ class NotificationChannel(pulumi.CustomResource):
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
-            __props__.__dict__["id"] = None
         super(NotificationChannel, __self__).__init__(
             'aws-native:devopsguru:NotificationChannel',
             resource_name,
@@ -113,19 +107,10 @@ class NotificationChannel(pulumi.CustomResource):
         __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
         __props__.__dict__["config"] = None
-        __props__.__dict__["id"] = None
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def config(self) -> pulumi.Output['outputs.NotificationChannelNotificationChannelConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        """
         return pulumi.get(self, "config")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 

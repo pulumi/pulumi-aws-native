@@ -10,10 +10,14 @@ from .. import _utilities
 
 __all__ = [
     'ApiKeyStageKeyArgs',
+    'ApiKeyTagArgs',
+    'ClientCertificateTagArgs',
     'DomainNameEndpointConfigurationArgs',
     'DomainNameMutualTlsAuthenticationArgs',
+    'DomainNameTagArgs',
     'UsagePlanApiStageArgs',
     'UsagePlanQuotaSettingsArgs',
+    'UsagePlanTagArgs',
     'UsagePlanThrottleSettingsArgs',
 ]
 
@@ -23,9 +27,8 @@ class ApiKeyStageKeyArgs:
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
-        :param pulumi.Input[str] stage_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+        :param pulumi.Input[str] rest_api_id: The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+        :param pulumi.Input[str] stage_name: The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
         """
         if rest_api_id is not None:
             pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -36,7 +39,7 @@ class ApiKeyStageKeyArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+        The ID of a RestApi resource that includes the stage with which you want to associate the API key.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -48,7 +51,7 @@ class ApiKeyStageKeyArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+        The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
         """
         return pulumi.get(self, "stage_name")
 
@@ -58,22 +61,79 @@ class ApiKeyStageKeyArgs:
 
 
 @pulumi.input_type
+class ApiKeyTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClientCertificateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
                  types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
-        """
         if types is not None:
             pulumi.set(__self__, "types", types)
 
     @property
     @pulumi.getter
     def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
-        """
         return pulumi.get(self, "types")
 
     @types.setter
@@ -86,11 +146,6 @@ class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
                  truststore_uri: Optional[pulumi.Input[str]] = None,
                  truststore_version: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
-        :param pulumi.Input[str] truststore_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
-        :param pulumi.Input[str] truststore_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
-        """
         if truststore_uri is not None:
             pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -99,9 +154,6 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreUri")
     def truststore_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
-        """
         return pulumi.get(self, "truststore_uri")
 
     @truststore_uri.setter
@@ -111,9 +163,6 @@ class DomainNameMutualTlsAuthenticationArgs:
     @property
     @pulumi.getter(name="truststoreVersion")
     def truststore_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
-        """
         return pulumi.get(self, "truststore_version")
 
     @truststore_version.setter
@@ -122,16 +171,44 @@ class DomainNameMutualTlsAuthenticationArgs:
 
 
 @pulumi.input_type
+class DomainNameTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class UsagePlanApiStageArgs:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
-                 throttle: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]] = None):
+                 throttle: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
-        :param pulumi.Input[str] api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
-        :param pulumi.Input[str] stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
-        :param pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]] throttle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        :param pulumi.Input[str] api_id: The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+        :param pulumi.Input[str] stage: The name of the stage to associate with the usage plan.
+        :param Any throttle: Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -144,7 +221,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
         """
         return pulumi.get(self, "api_id")
 
@@ -156,7 +233,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        The name of the stage to associate with the usage plan.
         """
         return pulumi.get(self, "stage")
 
@@ -166,14 +243,14 @@ class UsagePlanApiStageArgs:
 
     @property
     @pulumi.getter
-    def throttle(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]:
+    def throttle(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
         """
         return pulumi.get(self, "throttle")
 
     @throttle.setter
-    def throttle(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UsagePlanThrottleSettingsArgs']]]]):
+    def throttle(self, value: Optional[Any]):
         pulumi.set(self, "throttle", value)
 
 
@@ -184,10 +261,9 @@ class UsagePlanQuotaSettingsArgs:
                  offset: Optional[pulumi.Input[int]] = None,
                  period: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
-        :param pulumi.Input[int] limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
-        :param pulumi.Input[int] offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
-        :param pulumi.Input[str] period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        :param pulumi.Input[int] limit: The maximum number of requests that users can make within the specified time period.
+        :param pulumi.Input[int] offset: For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+        :param pulumi.Input[str] period: The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
         """
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
@@ -200,7 +276,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def limit(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+        The maximum number of requests that users can make within the specified time period.
         """
         return pulumi.get(self, "limit")
 
@@ -212,7 +288,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+        For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
         """
         return pulumi.get(self, "offset")
 
@@ -224,7 +300,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+        The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
         """
         return pulumi.get(self, "period")
 
@@ -234,14 +310,50 @@ class UsagePlanQuotaSettingsArgs:
 
 
 @pulumi.input_type
+class UsagePlanTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
-        :param pulumi.Input[int] burst_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
-        :param pulumi.Input[float] rate_limit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        :param pulumi.Input[int] burst_limit: The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit (average requests per second over an extended period of time).
         """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
@@ -252,7 +364,7 @@ class UsagePlanThrottleSettingsArgs:
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+        The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
         """
         return pulumi.get(self, "burst_limit")
 
@@ -264,7 +376,7 @@ class UsagePlanThrottleSettingsArgs:
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+        The API request steady-state rate limit (average requests per second over an extended period of time).
         """
         return pulumi.get(self, "rate_limit")
 

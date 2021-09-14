@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
 
@@ -18,13 +18,13 @@ class ProjectArgs:
                  portal_id: pulumi.Input[str],
                  project_name: pulumi.Input[str],
                  project_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] portal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-        :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-        :param pulumi.Input[str] project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
+        :param pulumi.Input[str] project_name: A friendly name for the project.
+        :param pulumi.Input[str] project_description: A description for the project.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: A list of key-value pairs that contain metadata for the project.
         """
         pulumi.set(__self__, "portal_id", portal_id)
         pulumi.set(__self__, "project_name", project_name)
@@ -37,7 +37,7 @@ class ProjectArgs:
     @pulumi.getter(name="portalId")
     def portal_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+        The ID of the portal in which to create the project.
         """
         return pulumi.get(self, "portal_id")
 
@@ -49,7 +49,7 @@ class ProjectArgs:
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+        A friendly name for the project.
         """
         return pulumi.get(self, "project_name")
 
@@ -61,7 +61,7 @@ class ProjectArgs:
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+        A description for the project.
         """
         return pulumi.get(self, "project_description")
 
@@ -71,14 +71,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        A list of key-value pairs that contain metadata for the project.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -90,17 +90,17 @@ class Project(pulumi.CustomResource):
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
+        Resource schema for AWS::IoTSiteWise::Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] portal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-        :param pulumi.Input[str] project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
-        :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        :param pulumi.Input[str] portal_id: The ID of the portal in which to create the project.
+        :param pulumi.Input[str] project_description: A description for the project.
+        :param pulumi.Input[str] project_name: A friendly name for the project.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]] tags: A list of key-value pairs that contain metadata for the project.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
+        Resource schema for AWS::IoTSiteWise::Project
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +129,7 @@ class Project(pulumi.CustomResource):
                  portal_id: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -186,41 +186,47 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="portalId")
     def portal_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+        The ID of the portal in which to create the project.
         """
         return pulumi.get(self, "portal_id")
 
     @property
     @pulumi.getter(name="projectArn")
     def project_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the project.
+        """
         return pulumi.get(self, "project_arn")
 
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+        A description for the project.
         """
         return pulumi.get(self, "project_description")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the project.
+        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+        A friendly name for the project.
         """
         return pulumi.get(self, "project_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        A list of key-value pairs that contain metadata for the project.
         """
         return pulumi.get(self, "tags")
 

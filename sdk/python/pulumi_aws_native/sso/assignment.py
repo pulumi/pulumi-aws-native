@@ -21,12 +21,12 @@ class AssignmentArgs:
                  target_type: pulumi.Input[str]):
         """
         The set of arguments for constructing a Assignment resource.
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
-        :param pulumi.Input[str] permission_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
-        :param pulumi.Input[str] principal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
-        :param pulumi.Input[str] principal_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
-        :param pulumi.Input[str] target_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
-        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        :param pulumi.Input[str] instance_arn: The sso instance that the permission set is owned.
+        :param pulumi.Input[str] permission_set_arn: The permission set that the assignemt will be assigned
+        :param pulumi.Input[str] principal_id: The assignee's identifier, user id/group id
+        :param pulumi.Input[str] principal_type: The assignee's type, user/group
+        :param pulumi.Input[str] target_id: The account id to be provisioned.
+        :param pulumi.Input[str] target_type: The type of resource to be provsioned to, only aws account now
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
@@ -39,7 +39,7 @@ class AssignmentArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        The sso instance that the permission set is owned.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -51,7 +51,7 @@ class AssignmentArgs:
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        The permission set that the assignemt will be assigned
         """
         return pulumi.get(self, "permission_set_arn")
 
@@ -63,7 +63,7 @@ class AssignmentArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        The assignee's identifier, user id/group id
         """
         return pulumi.get(self, "principal_id")
 
@@ -75,7 +75,7 @@ class AssignmentArgs:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        The assignee's type, user/group
         """
         return pulumi.get(self, "principal_type")
 
@@ -87,7 +87,7 @@ class AssignmentArgs:
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        The account id to be provisioned.
         """
         return pulumi.get(self, "target_id")
 
@@ -99,7 +99,7 @@ class AssignmentArgs:
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        The type of resource to be provsioned to, only aws account now
         """
         return pulumi.get(self, "target_type")
 
@@ -121,16 +121,16 @@ class Assignment(pulumi.CustomResource):
                  target_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+        Resource Type definition for SSO assignmet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
-        :param pulumi.Input[str] permission_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
-        :param pulumi.Input[str] principal_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
-        :param pulumi.Input[str] principal_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
-        :param pulumi.Input[str] target_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
-        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        :param pulumi.Input[str] instance_arn: The sso instance that the permission set is owned.
+        :param pulumi.Input[str] permission_set_arn: The permission set that the assignemt will be assigned
+        :param pulumi.Input[str] principal_id: The assignee's identifier, user id/group id
+        :param pulumi.Input[str] principal_type: The assignee's type, user/group
+        :param pulumi.Input[str] target_id: The account id to be provisioned.
+        :param pulumi.Input[str] target_type: The type of resource to be provsioned to, only aws account now
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class Assignment(pulumi.CustomResource):
                  args: AssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+        Resource Type definition for SSO assignmet
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +226,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        The sso instance that the permission set is owned.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -234,7 +234,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        The permission set that the assignemt will be assigned
         """
         return pulumi.get(self, "permission_set_arn")
 
@@ -242,7 +242,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        The assignee's identifier, user id/group id
         """
         return pulumi.get(self, "principal_id")
 
@@ -250,7 +250,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        The assignee's type, user/group
         """
         return pulumi.get(self, "principal_type")
 
@@ -258,7 +258,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        The account id to be provisioned.
         """
         return pulumi.get(self, "target_id")
 
@@ -266,7 +266,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        The type of resource to be provsioned to, only aws account now
         """
         return pulumi.get(self, "target_type")
 

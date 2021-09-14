@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['OriginEndpointArgs', 'OriginEndpoint']
@@ -18,7 +16,6 @@ __all__ = ['OriginEndpointArgs', 'OriginEndpoint']
 class OriginEndpointArgs:
     def __init__(__self__, *,
                  channel_id: pulumi.Input[str],
-                 id: pulumi.Input[str],
                  authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
                  cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
                  dash_package: Optional[pulumi.Input['OriginEndpointDashPackageArgs']] = None,
@@ -28,28 +25,21 @@ class OriginEndpointArgs:
                  mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
                  origination: Optional[pulumi.Input[str]] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OriginEndpoint resource.
-        :param pulumi.Input[str] channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        :param pulumi.Input['OriginEndpointCmafPackageArgs'] cmaf_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        :param pulumi.Input['OriginEndpointDashPackageArgs'] dash_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-        :param pulumi.Input['OriginEndpointHlsPackageArgs'] hls_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-        :param pulumi.Input['OriginEndpointMssPackageArgs'] mss_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        :param pulumi.Input[str] origination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-        :param pulumi.Input[int] startover_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-        :param pulumi.Input[int] time_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
+        :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
+        :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
+        :param pulumi.Input[str] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+        :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
         pulumi.set(__self__, "channel_id", channel_id)
-        pulumi.set(__self__, "id", id)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if cmaf_package is not None:
@@ -79,7 +69,7 @@ class OriginEndpointArgs:
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+        The ID of the Channel the OriginEndpoint is associated with.
         """
         return pulumi.get(self, "channel_id")
 
@@ -89,22 +79,7 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def authorization(self) -> Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        """
         return pulumi.get(self, "authorization")
 
     @authorization.setter
@@ -114,9 +89,6 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> Optional[pulumi.Input['OriginEndpointCmafPackageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        """
         return pulumi.get(self, "cmaf_package")
 
     @cmaf_package.setter
@@ -126,9 +98,6 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="dashPackage")
     def dash_package(self) -> Optional[pulumi.Input['OriginEndpointDashPackageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        """
         return pulumi.get(self, "dash_package")
 
     @dash_package.setter
@@ -139,7 +108,7 @@ class OriginEndpointArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+        A short text description of the OriginEndpoint.
         """
         return pulumi.get(self, "description")
 
@@ -150,9 +119,6 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> Optional[pulumi.Input['OriginEndpointHlsPackageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        """
         return pulumi.get(self, "hls_package")
 
     @hls_package.setter
@@ -163,7 +129,7 @@ class OriginEndpointArgs:
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+        A short string appended to the end of the OriginEndpoint URL.
         """
         return pulumi.get(self, "manifest_name")
 
@@ -174,9 +140,6 @@ class OriginEndpointArgs:
     @property
     @pulumi.getter(name="mssPackage")
     def mss_package(self) -> Optional[pulumi.Input['OriginEndpointMssPackageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        """
         return pulumi.get(self, "mss_package")
 
     @mss_package.setter
@@ -187,7 +150,7 @@ class OriginEndpointArgs:
     @pulumi.getter
     def origination(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+        Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         """
         return pulumi.get(self, "origination")
 
@@ -199,7 +162,7 @@ class OriginEndpointArgs:
     @pulumi.getter(name="startoverWindowSeconds")
     def startover_window_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+        Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         """
         return pulumi.get(self, "startover_window_seconds")
 
@@ -209,21 +172,21 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="timeDelaySeconds")
     def time_delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+        Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         """
         return pulumi.get(self, "time_delay_seconds")
 
@@ -235,7 +198,7 @@ class OriginEndpointArgs:
     @pulumi.getter
     def whitelist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
         return pulumi.get(self, "whitelist")
 
@@ -255,34 +218,27 @@ class OriginEndpoint(pulumi.CustomResource):
                  dash_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
                  origination: Optional[pulumi.Input[str]] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+        Resource schema for AWS::MediaPackage::OriginEndpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']] authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        :param pulumi.Input[str] channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
-        :param pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']] cmaf_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        :param pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']] dash_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
-        :param pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']] hls_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
-        :param pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']] mss_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        :param pulumi.Input[str] origination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
-        :param pulumi.Input[int] startover_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
-        :param pulumi.Input[int] time_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
+        :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
+        :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
+        :param pulumi.Input[str] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+        :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
         ...
     @overload
@@ -291,7 +247,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  args: OriginEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+        Resource schema for AWS::MediaPackage::OriginEndpoint
 
         :param str resource_name: The name of the resource.
         :param OriginEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -314,12 +270,11 @@ class OriginEndpoint(pulumi.CustomResource):
                  dash_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointDashPackageArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hls_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
                  origination: Optional[pulumi.Input[str]] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
                  whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -342,9 +297,6 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["dash_package"] = dash_package
             __props__.__dict__["description"] = description
             __props__.__dict__["hls_package"] = hls_package
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
-            __props__.__dict__["id"] = id
             __props__.__dict__["manifest_name"] = manifest_name
             __props__.__dict__["mss_package"] = mss_package
             __props__.__dict__["origination"] = origination
@@ -383,7 +335,6 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["dash_package"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hls_package"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["manifest_name"] = None
         __props__.__dict__["mss_package"] = None
         __props__.__dict__["origination"] = None
@@ -397,85 +348,65 @@ class OriginEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.OriginEndpointAuthorization']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-        """
         return pulumi.get(self, "authorization")
 
     @property
     @pulumi.getter(name="channelId")
     def channel_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+        The ID of the Channel the OriginEndpoint is associated with.
         """
         return pulumi.get(self, "channel_id")
 
     @property
     @pulumi.getter(name="cmafPackage")
     def cmaf_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointCmafPackage']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-        """
         return pulumi.get(self, "cmaf_package")
 
     @property
     @pulumi.getter(name="dashPackage")
     def dash_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointDashPackage']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-        """
         return pulumi.get(self, "dash_package")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+        A short text description of the OriginEndpoint.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="hlsPackage")
     def hls_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointHlsPackage']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-        """
         return pulumi.get(self, "hls_package")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+        A short string appended to the end of the OriginEndpoint URL.
         """
         return pulumi.get(self, "manifest_name")
 
     @property
     @pulumi.getter(name="mssPackage")
     def mss_package(self) -> pulumi.Output[Optional['outputs.OriginEndpointMssPackage']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-        """
         return pulumi.get(self, "mss_package")
 
     @property
     @pulumi.getter
     def origination(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+        Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         """
         return pulumi.get(self, "origination")
 
@@ -483,15 +414,15 @@ class OriginEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="startoverWindowSeconds")
     def startover_window_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+        Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         """
         return pulumi.get(self, "startover_window_seconds")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.OriginEndpointTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
@@ -499,20 +430,23 @@ class OriginEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="timeDelaySeconds")
     def time_delay_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+        Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         """
         return pulumi.get(self, "time_delay_seconds")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        The URL of the packaged OriginEndpoint for consumption.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def whitelist(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+        A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
         return pulumi.get(self, "whitelist")
 

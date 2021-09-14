@@ -21,12 +21,12 @@ class SlackChannelConfigurationArgs:
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SlackChannelConfiguration resource.
-        :param pulumi.Input[str] configuration_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
-        :param pulumi.Input[str] iam_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
-        :param pulumi.Input[str] slack_channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
-        :param pulumi.Input[str] slack_workspace_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
-        :param pulumi.Input[str] logging_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        :param pulumi.Input[str] configuration_name: The name of the configuration
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
+        :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
+        :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
+        :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -41,7 +41,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
+        The name of the configuration
         """
         return pulumi.get(self, "configuration_name")
 
@@ -53,7 +53,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
+        The ARN of the IAM role that defines the permissions for AWS Chatbot
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -65,7 +65,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
+        The id of the Slack channel
         """
         return pulumi.get(self, "slack_channel_id")
 
@@ -77,7 +77,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="slackWorkspaceId")
     def slack_workspace_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
+        The id of the Slack workspace
         """
         return pulumi.get(self, "slack_workspace_id")
 
@@ -89,7 +89,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
+        Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         """
         return pulumi.get(self, "logging_level")
 
@@ -101,7 +101,7 @@ class SlackChannelConfigurationArgs:
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
 
@@ -123,16 +123,16 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
+        Resource schema for AWS::Chatbot::SlackChannelConfiguration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
-        :param pulumi.Input[str] iam_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
-        :param pulumi.Input[str] logging_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
-        :param pulumi.Input[str] slack_channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
-        :param pulumi.Input[str] slack_workspace_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        :param pulumi.Input[str] configuration_name: The name of the configuration
+        :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
+        :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
+        :param pulumi.Input[str] slack_channel_id: The id of the Slack channel
+        :param pulumi.Input[str] slack_workspace_id: The id of the Slack workspace
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         ...
     @overload
@@ -141,7 +141,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
                  args: SlackChannelConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html
+        Resource schema for AWS::Chatbot::SlackChannelConfiguration.
 
         :param str resource_name: The name of the resource.
         :param SlackChannelConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -225,13 +225,16 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the configuration
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
+        The name of the configuration
         """
         return pulumi.get(self, "configuration_name")
 
@@ -239,7 +242,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-iamrolearn
+        The ARN of the IAM role that defines the permissions for AWS Chatbot
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -247,7 +250,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
+        Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         """
         return pulumi.get(self, "logging_level")
 
@@ -255,7 +258,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="slackChannelId")
     def slack_channel_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid
+        The id of the Slack channel
         """
         return pulumi.get(self, "slack_channel_id")
 
@@ -263,7 +266,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="slackWorkspaceId")
     def slack_workspace_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackworkspaceid
+        The id of the Slack workspace
         """
         return pulumi.get(self, "slack_workspace_id")
 
@@ -271,7 +274,7 @@ class SlackChannelConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArns")
     def sns_topic_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-snstopicarns
+        ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
 

@@ -17,8 +17,8 @@ class ResolverQueryLoggingConfigAssociationArgs:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLoggingConfigAssociation resource.
-        :param pulumi.Input[str] resolver_query_log_config_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        :param pulumi.Input[str] resolver_query_log_config_id: ResolverQueryLogConfigId
+        :param pulumi.Input[str] resource_id: ResourceId
         """
         if resolver_query_log_config_id is not None:
             pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
@@ -29,7 +29,7 @@ class ResolverQueryLoggingConfigAssociationArgs:
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        ResolverQueryLogConfigId
         """
         return pulumi.get(self, "resolver_query_log_config_id")
 
@@ -41,7 +41,7 @@ class ResolverQueryLoggingConfigAssociationArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        ResourceId
         """
         return pulumi.get(self, "resource_id")
 
@@ -59,12 +59,12 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+        Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resolver_query_log_config_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        :param pulumi.Input[str] resolver_query_log_config_id: ResolverQueryLogConfigId
+        :param pulumi.Input[str] resource_id: ResourceId
         """
         ...
     @overload
@@ -73,7 +73,7 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
                  args: Optional[ResolverQueryLoggingConfigAssociationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+        Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLoggingConfigAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -109,7 +109,6 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["error"] = None
             __props__.__dict__["error_message"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["status"] = None
         super(ResolverQueryLoggingConfigAssociation, __self__).__init__(
             'aws-native:route53resolver:ResolverQueryLoggingConfigAssociation',
@@ -136,7 +135,6 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["error"] = None
         __props__.__dict__["error_message"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["resolver_query_log_config_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["status"] = None
@@ -145,28 +143,32 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def error(self) -> pulumi.Output[str]:
+        """
+        ResolverQueryLogConfigAssociationError
+        """
         return pulumi.get(self, "error")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[str]:
+        """
+        ResolverQueryLogConfigAssociationErrorMessage
+        """
         return pulumi.get(self, "error_message")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        ResolverQueryLogConfigId
         """
         return pulumi.get(self, "resolver_query_log_config_id")
 
@@ -174,12 +176,15 @@ class ResolverQueryLoggingConfigAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        ResourceId
         """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        ResolverQueryLogConfigAssociationStatus
+        """
         return pulumi.get(self, "status")
 

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TransitGatewayConnectArgs', 'TransitGatewayConnect']
@@ -19,12 +17,12 @@ class TransitGatewayConnectArgs:
     def __init__(__self__, *,
                  options: pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs'],
                  transport_transit_gateway_attachment_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnect resource.
-        :param pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs'] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
-        :param pulumi.Input[str] transport_transit_gateway_attachment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+        :param pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs'] options: The Connect attachment options.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]] tags: The tags for the attachment.
         """
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
@@ -35,7 +33,7 @@ class TransitGatewayConnectArgs:
     @pulumi.getter
     def options(self) -> pulumi.Input['TransitGatewayConnectTransitGatewayConnectOptionsArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+        The Connect attachment options.
         """
         return pulumi.get(self, "options")
 
@@ -47,7 +45,7 @@ class TransitGatewayConnectArgs:
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
     def transport_transit_gateway_attachment_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+        The ID of the attachment from which the Connect attachment was created.
         """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
@@ -57,14 +55,14 @@ class TransitGatewayConnectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+        The tags for the attachment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -74,17 +72,17 @@ class TransitGatewayConnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+        The AWS::EC2::TransitGatewayConnect type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']] options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
-        :param pulumi.Input[str] transport_transit_gateway_attachment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+        :param pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']] options: The Connect attachment options.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]] tags: The tags for the attachment.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: The ID of the attachment from which the Connect attachment was created.
         """
         ...
     @overload
@@ -93,7 +91,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
                  args: TransitGatewayConnectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+        The AWS::EC2::TransitGatewayConnect type
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayConnectArgs args: The arguments to use to populate this resource's properties.
@@ -111,7 +109,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  options: Optional[pulumi.Input[pulumi.InputType['TransitGatewayConnectTransitGatewayConnectOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayConnectTagArgs']]]]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -170,44 +168,56 @@ class TransitGatewayConnect(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The creation time.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def options(self) -> pulumi.Output['outputs.TransitGatewayConnectTransitGatewayConnectOptions']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+        The Connect attachment options.
         """
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the attachment.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayConnectTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+        The tags for the attachment.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Connect attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway.
+        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
     def transport_transit_gateway_attachment_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+        The ID of the attachment from which the Connect attachment was created.
         """
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 

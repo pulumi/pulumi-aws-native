@@ -21,12 +21,9 @@ class GrantArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Grant resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        :param pulumi.Input[str] grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
-        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
-        :param pulumi.Input[str] license_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        :param pulumi.Input[str] grant_name: Name for the created Grant.
+        :param pulumi.Input[str] home_region: Home region for the created grant.
+        :param pulumi.Input[str] license_arn: License Arn for the grant.
         """
         if allowed_operations is not None:
             pulumi.set(__self__, "allowed_operations", allowed_operations)
@@ -44,9 +41,6 @@ class GrantArgs:
     @property
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        """
         return pulumi.get(self, "allowed_operations")
 
     @allowed_operations.setter
@@ -57,7 +51,7 @@ class GrantArgs:
     @pulumi.getter(name="grantName")
     def grant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        Name for the created Grant.
         """
         return pulumi.get(self, "grant_name")
 
@@ -69,7 +63,7 @@ class GrantArgs:
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        Home region for the created grant.
         """
         return pulumi.get(self, "home_region")
 
@@ -81,7 +75,7 @@ class GrantArgs:
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        License Arn for the grant.
         """
         return pulumi.get(self, "license_arn")
 
@@ -92,9 +86,6 @@ class GrantArgs:
     @property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -104,9 +95,6 @@ class GrantArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -127,16 +115,13 @@ class Grant(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_operations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        :param pulumi.Input[str] grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
-        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
-        :param pulumi.Input[str] license_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
+        :param pulumi.Input[str] grant_name: Name for the created Grant.
+        :param pulumi.Input[str] home_region: Home region for the created grant.
+        :param pulumi.Input[str] license_arn: License Arn for the grant.
         """
         ...
     @overload
@@ -145,7 +130,7 @@ class Grant(pulumi.CustomResource):
                  args: Optional[GrantArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param GrantArgs args: The arguments to use to populate this resource's properties.
@@ -223,21 +208,21 @@ class Grant(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        """
         return pulumi.get(self, "allowed_operations")
 
     @property
     @pulumi.getter(name="grantArn")
     def grant_arn(self) -> pulumi.Output[str]:
+        """
+        Arn of the grant.
+        """
         return pulumi.get(self, "grant_arn")
 
     @property
     @pulumi.getter(name="grantName")
     def grant_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        Name for the created Grant.
         """
         return pulumi.get(self, "grant_name")
 
@@ -245,7 +230,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        Home region for the created grant.
         """
         return pulumi.get(self, "home_region")
 
@@ -253,28 +238,25 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        License Arn for the grant.
         """
         return pulumi.get(self, "license_arn")
 
     @property
     @pulumi.getter
     def principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        """
         return pulumi.get(self, "principals")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
+        """
+        The version of the grant.
+        """
         return pulumi.get(self, "version")
 

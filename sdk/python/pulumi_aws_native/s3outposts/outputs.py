@@ -14,14 +14,12 @@ __all__ = [
     'BucketAbortIncompleteMultipartUpload',
     'BucketLifecycleConfiguration',
     'BucketRule',
+    'BucketTag',
     'EndpointNetworkInterface',
 ]
 
 @pulumi.output_type
 class AccessPointVpcConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42,8 +40,7 @@ class AccessPointVpcConfiguration(dict):
     def __init__(__self__, *,
                  vpc_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
-        :param str vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+        :param str vpc_id: Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
         """
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
@@ -52,7 +49,7 @@ class AccessPointVpcConfiguration(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+        Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -60,7 +57,7 @@ class AccessPointVpcConfiguration(dict):
 @pulumi.output_type
 class BucketAbortIncompleteMultipartUpload(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+    Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -82,8 +79,8 @@ class BucketAbortIncompleteMultipartUpload(dict):
     def __init__(__self__, *,
                  days_after_initiation: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
-        :param int days_after_initiation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
+        :param int days_after_initiation: Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
         pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
@@ -91,21 +88,17 @@ class BucketAbortIncompleteMultipartUpload(dict):
     @pulumi.getter(name="daysAfterInitiation")
     def days_after_initiation(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+        Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
         return pulumi.get(self, "days_after_initiation")
 
 
 @pulumi.output_type
 class BucketLifecycleConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
-    """
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketRule']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
-        :param Sequence['BucketRule'] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+        :param Sequence['BucketRule'] rules: A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -113,7 +106,7 @@ class BucketLifecycleConfiguration(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.BucketRule']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+        A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
         """
         return pulumi.get(self, "rules")
 
@@ -121,7 +114,7 @@ class BucketLifecycleConfiguration(dict):
 @pulumi.output_type
 class BucketRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+    Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -148,17 +141,16 @@ class BucketRule(dict):
                  abort_incomplete_multipart_upload: Optional['outputs.BucketAbortIncompleteMultipartUpload'] = None,
                  expiration_date: Optional[str] = None,
                  expiration_in_days: Optional[int] = None,
-                 filter: Optional[str] = None,
+                 filter: Optional[Any] = None,
                  id: Optional[str] = None,
                  status: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
-        :param 'BucketAbortIncompleteMultipartUpload' abort_incomplete_multipart_upload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
-        :param str expiration_date: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
-        :param int expiration_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
-        :param Union[Any, str] filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
-        :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
+        Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
+        :param 'BucketAbortIncompleteMultipartUpload' abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
+        :param str expiration_date: Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
+        :param int expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
+        :param Any filter: The container for the filter of the lifecycle rule.
+        :param str id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         """
         if abort_incomplete_multipart_upload is not None:
             pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
@@ -177,7 +169,7 @@ class BucketRule(dict):
     @pulumi.getter(name="abortIncompleteMultipartUpload")
     def abort_incomplete_multipart_upload(self) -> Optional['outputs.BucketAbortIncompleteMultipartUpload']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+        Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
@@ -185,7 +177,7 @@ class BucketRule(dict):
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+        Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         """
         return pulumi.get(self, "expiration_date")
 
@@ -193,15 +185,15 @@ class BucketRule(dict):
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+        Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
         """
         return pulumi.get(self, "expiration_in_days")
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[str]:
+    def filter(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+        The container for the filter of the lifecycle rule.
         """
         return pulumi.get(self, "filter")
 
@@ -209,23 +201,39 @@ class BucketRule(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
+        Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
-        """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class EndpointNetworkInterface(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+    The container for the network interface.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -247,17 +255,13 @@ class EndpointNetworkInterface(dict):
     def __init__(__self__, *,
                  network_interface_id: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
-        :param str network_interface_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
+        The container for the network interface.
         """
         pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
-        """
         return pulumi.get(self, "network_interface_id")
 
 

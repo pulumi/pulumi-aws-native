@@ -17,7 +17,7 @@ __all__ = [
 class FindingsFilterCriterionArgs:
     def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
+        Map of filter criteria.
         """
         pass
 
@@ -26,19 +26,12 @@ class FindingsFilterCriterionArgs:
 class FindingsFilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterion: Optional[pulumi.Input['FindingsFilterCriterionArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
-        :param pulumi.Input['FindingsFilterCriterionArgs'] criterion: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
-        """
         if criterion is not None:
             pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
     def criterion(self) -> Optional[pulumi.Input['FindingsFilterCriterionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
-        """
         return pulumi.get(self, "criterion")
 
     @criterion.setter

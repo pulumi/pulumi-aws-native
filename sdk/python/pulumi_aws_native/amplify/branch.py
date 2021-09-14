@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['BranchArgs', 'Branch']
@@ -28,21 +26,9 @@ class BranchArgs:
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None):
         """
         The set of arguments for constructing a Branch resource.
-        :param pulumi.Input[str] app_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        :param pulumi.Input[str] branch_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-        :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        :param pulumi.Input[str] build_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        :param pulumi.Input[bool] enable_auto_build: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        :param pulumi.Input[bool] enable_performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        :param pulumi.Input[bool] enable_pull_request_preview: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        :param pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        :param pulumi.Input[str] pull_request_environment_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        :param pulumi.Input[str] stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -70,9 +56,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -82,9 +65,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -94,9 +74,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['BranchBasicAuthConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        """
         return pulumi.get(self, "basic_auth_config")
 
     @basic_auth_config.setter
@@ -106,9 +83,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -118,9 +92,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -130,9 +101,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -142,9 +110,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -154,9 +119,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -166,9 +128,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -178,9 +137,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -190,9 +146,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -201,14 +154,11 @@ class BranchArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -228,25 +178,13 @@ class Branch(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+        The AWS::Amplify::Branch resource creates a new branch within an app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        :param pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']] basic_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        :param pulumi.Input[str] branch_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-        :param pulumi.Input[str] build_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        :param pulumi.Input[bool] enable_auto_build: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        :param pulumi.Input[bool] enable_performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        :param pulumi.Input[bool] enable_pull_request_preview: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        :param pulumi.Input[str] pull_request_environment_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        :param pulumi.Input[str] stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
         """
         ...
     @overload
@@ -255,7 +193,7 @@ class Branch(pulumi.CustomResource):
                  args: BranchArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+        The AWS::Amplify::Branch resource creates a new branch within an app.
 
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.
@@ -283,7 +221,7 @@ class Branch(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -353,9 +291,6 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        """
         return pulumi.get(self, "app_id")
 
     @property
@@ -366,9 +301,6 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> pulumi.Output[Optional['outputs.BranchBasicAuthConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        """
         return pulumi.get(self, "basic_auth_config")
 
     @property
@@ -379,72 +311,45 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        """
         return pulumi.get(self, "build_spec")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.BranchEnvironmentVariable']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BranchTag']]]:
         return pulumi.get(self, "tags")
 

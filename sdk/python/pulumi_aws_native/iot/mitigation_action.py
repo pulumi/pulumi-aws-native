@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MitigationActionArgs', 'MitigationAction']
@@ -20,13 +18,11 @@ class MitigationActionArgs:
                  action_params: pulumi.Input['MitigationActionActionParamsArgs'],
                  role_arn: pulumi.Input[str],
                  action_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]] = None):
         """
         The set of arguments for constructing a MitigationAction resource.
-        :param pulumi.Input['MitigationActionActionParamsArgs'] action_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-        :param pulumi.Input[str] action_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
+        :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
+        :param pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "action_params", action_params)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -38,9 +34,6 @@ class MitigationActionArgs:
     @property
     @pulumi.getter(name="actionParams")
     def action_params(self) -> pulumi.Input['MitigationActionActionParamsArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
-        """
         return pulumi.get(self, "action_params")
 
     @action_params.setter
@@ -50,9 +43,6 @@ class MitigationActionArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -63,7 +53,7 @@ class MitigationActionArgs:
     @pulumi.getter(name="actionName")
     def action_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
+        A unique identifier for the mitigation action.
         """
         return pulumi.get(self, "action_name")
 
@@ -73,14 +63,14 @@ class MitigationActionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +82,15 @@ class MitigationAction(pulumi.CustomResource):
                  action_name: Optional[pulumi.Input[str]] = None,
                  action_params: Optional[pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
+        Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
-        :param pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']] action_params: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
+        :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -111,7 +99,7 @@ class MitigationAction(pulumi.CustomResource):
                  args: MitigationActionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
+        Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 
         :param str resource_name: The name of the resource.
         :param MitigationActionArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +119,7 @@ class MitigationAction(pulumi.CustomResource):
                  action_name: Optional[pulumi.Input[str]] = None,
                  action_params: Optional[pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MitigationActionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -188,16 +176,13 @@ class MitigationAction(pulumi.CustomResource):
     @pulumi.getter(name="actionName")
     def action_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
+        A unique identifier for the mitigation action.
         """
         return pulumi.get(self, "action_name")
 
     @property
     @pulumi.getter(name="actionParams")
     def action_params(self) -> pulumi.Output['outputs.MitigationActionActionParams']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
-        """
         return pulumi.get(self, "action_params")
 
     @property
@@ -213,16 +198,13 @@ class MitigationAction(pulumi.CustomResource):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MitigationActionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

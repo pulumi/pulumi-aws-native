@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SecurityProfileArgs', 'SecurityProfile']
@@ -18,21 +16,21 @@ __all__ = ['SecurityProfileArgs', 'SecurityProfile']
 class SecurityProfileArgs:
     def __init__(__self__, *,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]]] = None,
-                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]] = None,
+                 alert_targets: Optional[Any] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]] additional_metrics_to_retain_v2: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
-        :param pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]] alert_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
-        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]] behaviors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
-        :param pulumi.Input[str] security_profile_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
-        :param pulumi.Input[str] security_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+        :param Any alert_targets: Specifies the destinations to which alerts are sent.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
+        :param pulumi.Input[str] security_profile_description: A description of the security profile.
+        :param pulumi.Input[str] security_profile_name: A unique identifier for the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] tags: Metadata that can be used to manage the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
         if additional_metrics_to_retain_v2 is not None:
             pulumi.set(__self__, "additional_metrics_to_retain_v2", additional_metrics_to_retain_v2)
@@ -53,7 +51,7 @@ class SecurityProfileArgs:
     @pulumi.getter(name="additionalMetricsToRetainV2")
     def additional_metrics_to_retain_v2(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileMetricToRetainArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
+        A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
         """
         return pulumi.get(self, "additional_metrics_to_retain_v2")
 
@@ -63,21 +61,21 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="alertTargets")
-    def alert_targets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]]:
+    def alert_targets(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+        Specifies the destinations to which alerts are sent.
         """
         return pulumi.get(self, "alert_targets")
 
     @alert_targets.setter
-    def alert_targets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SecurityProfileAlertTargetArgs']]]]):
+    def alert_targets(self, value: Optional[Any]):
         pulumi.set(self, "alert_targets", value)
 
     @property
     @pulumi.getter
     def behaviors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileBehaviorArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
+        Specifies the behaviors that, when violated by a device (thing), cause an alert.
         """
         return pulumi.get(self, "behaviors")
 
@@ -89,7 +87,7 @@ class SecurityProfileArgs:
     @pulumi.getter(name="securityProfileDescription")
     def security_profile_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+        A description of the security profile.
         """
         return pulumi.get(self, "security_profile_description")
 
@@ -101,7 +99,7 @@ class SecurityProfileArgs:
     @pulumi.getter(name="securityProfileName")
     def security_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+        A unique identifier for the security profile.
         """
         return pulumi.get(self, "security_profile_name")
 
@@ -111,21 +109,21 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+        Metadata that can be used to manage the security profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+        A set of target ARNs that the security profile is attached to.
         """
         return pulumi.get(self, "target_arns")
 
@@ -140,25 +138,25 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]]] = None,
-                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]]] = None,
+                 alert_targets: Optional[Any] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
+        A security profile defines a set of expected behaviors for devices in your account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]] additional_metrics_to_retain_v2: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]] alert_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]] behaviors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
-        :param pulumi.Input[str] security_profile_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
-        :param pulumi.Input[str] security_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+        :param Any alert_targets: Specifies the destinations to which alerts are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
+        :param pulumi.Input[str] security_profile_description: A description of the security profile.
+        :param pulumi.Input[str] security_profile_name: A unique identifier for the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]] tags: Metadata that can be used to manage the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
         ...
     @overload
@@ -167,7 +165,7 @@ class SecurityProfile(pulumi.CustomResource):
                  args: Optional[SecurityProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
+        A security profile defines a set of expected behaviors for devices in your account.
 
         :param str resource_name: The name of the resource.
         :param SecurityProfileArgs args: The arguments to use to populate this resource's properties.
@@ -185,11 +183,11 @@ class SecurityProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_metrics_to_retain_v2: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileMetricToRetainArgs']]]]] = None,
-                 alert_targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['SecurityProfileAlertTargetArgs']]]]] = None,
+                 alert_targets: Optional[Any] = None,
                  behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileBehaviorArgs']]]]] = None,
                  security_profile_description: Optional[pulumi.Input[str]] = None,
                  security_profile_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityProfileTagArgs']]]]] = None,
                  target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -247,15 +245,15 @@ class SecurityProfile(pulumi.CustomResource):
     @pulumi.getter(name="additionalMetricsToRetainV2")
     def additional_metrics_to_retain_v2(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileMetricToRetain']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
+        A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
         """
         return pulumi.get(self, "additional_metrics_to_retain_v2")
 
     @property
     @pulumi.getter(name="alertTargets")
-    def alert_targets(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.SecurityProfileAlertTarget']]]:
+    def alert_targets(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+        Specifies the destinations to which alerts are sent.
         """
         return pulumi.get(self, "alert_targets")
 
@@ -263,20 +261,23 @@ class SecurityProfile(pulumi.CustomResource):
     @pulumi.getter
     def behaviors(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileBehavior']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
+        Specifies the behaviors that, when violated by a device (thing), cause an alert.
         """
         return pulumi.get(self, "behaviors")
 
     @property
     @pulumi.getter(name="securityProfileArn")
     def security_profile_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN (Amazon resource name) of the created security profile.
+        """
         return pulumi.get(self, "security_profile_arn")
 
     @property
     @pulumi.getter(name="securityProfileDescription")
     def security_profile_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+        A description of the security profile.
         """
         return pulumi.get(self, "security_profile_description")
 
@@ -284,15 +285,15 @@ class SecurityProfile(pulumi.CustomResource):
     @pulumi.getter(name="securityProfileName")
     def security_profile_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+        A unique identifier for the security profile.
         """
         return pulumi.get(self, "security_profile_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecurityProfileTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+        Metadata that can be used to manage the security profile.
         """
         return pulumi.get(self, "tags")
 
@@ -300,7 +301,7 @@ class SecurityProfile(pulumi.CustomResource):
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+        A set of target ARNs that the security profile is attached to.
         """
         return pulumi.get(self, "target_arns")
 

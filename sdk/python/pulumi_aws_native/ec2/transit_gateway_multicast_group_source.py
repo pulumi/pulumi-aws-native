@@ -18,9 +18,9 @@ class TransitGatewayMulticastGroupSourceArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayMulticastGroupSource resource.
-        :param pulumi.Input[str] group_ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
-        :param pulumi.Input[str] network_interface_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
+        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
+        :param pulumi.Input[str] network_interface_id: The ID of the transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -30,7 +30,7 @@ class TransitGatewayMulticastGroupSourceArgs:
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
+        The IP address assigned to the transit gateway multicast group.
         """
         return pulumi.get(self, "group_ip_address")
 
@@ -42,7 +42,7 @@ class TransitGatewayMulticastGroupSourceArgs:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
+        The ID of the transit gateway attachment.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -54,7 +54,7 @@ class TransitGatewayMulticastGroupSourceArgs:
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
+        The ID of the transit gateway multicast domain.
         """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
@@ -73,13 +73,13 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html
+        The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
-        :param pulumi.Input[str] network_interface_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
+        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
+        :param pulumi.Input[str] network_interface_id: The ID of the transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
                  args: TransitGatewayMulticastGroupSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html
+        The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.
@@ -176,63 +176,87 @@ class TransitGatewayMulticastGroupSource(pulumi.CustomResource):
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-groupipaddress
+        The IP address assigned to the transit gateway multicast group.
         """
         return pulumi.get(self, "group_ip_address")
 
     @property
     @pulumi.getter(name="groupMember")
     def group_member(self) -> pulumi.Output[bool]:
+        """
+        Indicates that the resource is a transit gateway multicast group member.
+        """
         return pulumi.get(self, "group_member")
 
     @property
     @pulumi.getter(name="groupSource")
     def group_source(self) -> pulumi.Output[bool]:
+        """
+        Indicates that the resource is a transit gateway multicast group member.
+        """
         return pulumi.get(self, "group_source")
 
     @property
     @pulumi.getter(name="memberType")
     def member_type(self) -> pulumi.Output[str]:
+        """
+        The member type (for example, static).
+        """
         return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-networkinterfaceid
+        The ID of the transit gateway attachment.
         """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the resource.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
+        """
+        The type of resource, for example a VPC attachment.
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[str]:
+        """
+        The source type.
+        """
         return pulumi.get(self, "source_type")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the subnet.
+        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupsource.html#cfn-ec2-transitgatewaymulticastgroupsource-transitgatewaymulticastdomainid
+        The ID of the transit gateway multicast domain.
         """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 

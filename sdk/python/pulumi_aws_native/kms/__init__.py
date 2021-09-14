@@ -8,3 +8,5 @@ import typing
 from .alias import *
 from .key import *
 from .replica_key import *
+from ._inputs import *
+from . import outputs

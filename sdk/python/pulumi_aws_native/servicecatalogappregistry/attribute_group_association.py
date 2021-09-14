@@ -17,8 +17,8 @@ class AttributeGroupAssociationArgs:
                  attribute_group: pulumi.Input[str]):
         """
         The set of arguments for constructing a AttributeGroupAssociation resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
-        :param pulumi.Input[str] attribute_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        :param pulumi.Input[str] application: The name or the Id of the Application.
+        :param pulumi.Input[str] attribute_group: The name or the Id of the AttributeGroup.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "attribute_group", attribute_group)
@@ -27,7 +27,7 @@ class AttributeGroupAssociationArgs:
     @pulumi.getter
     def application(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+        The name or the Id of the Application.
         """
         return pulumi.get(self, "application")
 
@@ -39,7 +39,7 @@ class AttributeGroupAssociationArgs:
     @pulumi.getter(name="attributeGroup")
     def attribute_group(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        The name or the Id of the AttributeGroup.
         """
         return pulumi.get(self, "attribute_group")
 
@@ -57,12 +57,12 @@ class AttributeGroupAssociation(pulumi.CustomResource):
                  attribute_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
+        Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
-        :param pulumi.Input[str] attribute_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        :param pulumi.Input[str] application: The name or the Id of the Application.
+        :param pulumi.Input[str] attribute_group: The name or the Id of the AttributeGroup.
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class AttributeGroupAssociation(pulumi.CustomResource):
                  args: AttributeGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
+        Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
 
         :param str resource_name: The name of the resource.
         :param AttributeGroupAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -110,7 +110,6 @@ class AttributeGroupAssociation(pulumi.CustomResource):
             __props__.__dict__["attribute_group"] = attribute_group
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["attribute_group_arn"] = None
-            __props__.__dict__["id"] = None
         super(AttributeGroupAssociation, __self__).__init__(
             'aws-native:servicecatalogappregistry:AttributeGroupAssociation',
             resource_name,
@@ -137,14 +136,13 @@ class AttributeGroupAssociation(pulumi.CustomResource):
         __props__.__dict__["application_arn"] = None
         __props__.__dict__["attribute_group"] = None
         __props__.__dict__["attribute_group_arn"] = None
-        __props__.__dict__["id"] = None
         return AttributeGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def application(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+        The name or the Id of the Application.
         """
         return pulumi.get(self, "application")
 
@@ -157,7 +155,7 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     @pulumi.getter(name="attributeGroup")
     def attribute_group(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        The name or the Id of the AttributeGroup.
         """
         return pulumi.get(self, "attribute_group")
 
@@ -165,9 +163,4 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     @pulumi.getter(name="attributeGroupArn")
     def attribute_group_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "attribute_group_arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 

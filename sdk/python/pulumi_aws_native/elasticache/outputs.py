@@ -17,9 +17,6 @@ __all__ = [
 
 @pulumi.output_type
 class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -44,10 +41,9 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
                  replication_group_region: Optional[str] = None,
                  role: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
-        :param str replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
-        :param str replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
-        :param str role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+        :param str replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
+        :param str replication_group_region: The AWS region of the Global Datastore member.
+        :param str role: Indicates the role of the member, primary or secondary.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -60,7 +56,7 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
     @pulumi.getter(name="replicationGroupId")
     def replication_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+        Regionally unique identifier for the member i.e. ReplicationGroupId.
         """
         return pulumi.get(self, "replication_group_id")
 
@@ -68,7 +64,7 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
     @pulumi.getter(name="replicationGroupRegion")
     def replication_group_region(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+        The AWS region of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_region")
 
@@ -76,16 +72,13 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
     @pulumi.getter
     def role(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+        Indicates the role of the member, primary or secondary.
         """
         return pulumi.get(self, "role")
 
 
 @pulumi.output_type
 class GlobalReplicationGroupRegionalConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -112,10 +105,9 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
                  replication_group_region: Optional[str] = None,
                  resharding_configurations: Optional[Sequence['outputs.GlobalReplicationGroupReshardingConfiguration']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
-        :param str replication_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
-        :param str replication_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
-        :param Sequence['GlobalReplicationGroupReshardingConfiguration'] resharding_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+        :param str replication_group_id: The replication group id of the Global Datastore member.
+        :param str replication_group_region: The AWS region of the Global Datastore member.
+        :param Sequence['GlobalReplicationGroupReshardingConfiguration'] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -128,7 +120,7 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
     @pulumi.getter(name="replicationGroupId")
     def replication_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+        The replication group id of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_id")
 
@@ -136,7 +128,7 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
     @pulumi.getter(name="replicationGroupRegion")
     def replication_group_region(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        The AWS region of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_region")
 
@@ -144,16 +136,13 @@ class GlobalReplicationGroupRegionalConfiguration(dict):
     @pulumi.getter(name="reshardingConfigurations")
     def resharding_configurations(self) -> Optional[Sequence['outputs.GlobalReplicationGroupReshardingConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+        A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
         """
         return pulumi.get(self, "resharding_configurations")
 
 
 @pulumi.output_type
 class GlobalReplicationGroupReshardingConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -177,9 +166,8 @@ class GlobalReplicationGroupReshardingConfiguration(dict):
                  node_group_id: Optional[str] = None,
                  preferred_availability_zones: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
-        :param str node_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
-        :param Sequence[str] preferred_availability_zones: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+        :param str node_group_id: Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
+        :param Sequence[str] preferred_availability_zones: A list of preferred availability zones for the nodes of new node groups.
         """
         if node_group_id is not None:
             pulumi.set(__self__, "node_group_id", node_group_id)
@@ -190,7 +178,7 @@ class GlobalReplicationGroupReshardingConfiguration(dict):
     @pulumi.getter(name="nodeGroupId")
     def node_group_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+        Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
         """
         return pulumi.get(self, "node_group_id")
 
@@ -198,7 +186,7 @@ class GlobalReplicationGroupReshardingConfiguration(dict):
     @pulumi.getter(name="preferredAvailabilityZones")
     def preferred_availability_zones(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+        A list of preferred availability zones for the nodes of new node groups.
         """
         return pulumi.get(self, "preferred_availability_zones")
 

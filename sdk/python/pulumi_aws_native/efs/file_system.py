@@ -19,7 +19,7 @@ class FileSystemArgs:
                  backup_policy: Optional[pulumi.Input['FileSystemBackupPolicyArgs']] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 file_system_policy: Optional[Any] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
@@ -28,17 +28,7 @@ class FileSystemArgs:
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
-        :param pulumi.Input[str] availability_zone_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        :param pulumi.Input['FileSystemBackupPolicyArgs'] backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
-        :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        :param pulumi.Input[Union[Any, str]] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        :param pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        :param pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]] lifecycle_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        :param pulumi.Input[str] performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        :param pulumi.Input[float] provisioned_throughput_in_mibps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        :param pulumi.Input[str] throughput_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
@@ -66,9 +56,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @availability_zone_name.setter
@@ -78,9 +65,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> Optional[pulumi.Input['FileSystemBackupPolicyArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
@@ -91,7 +75,7 @@ class FileSystemArgs:
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
@@ -102,9 +86,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -113,22 +94,16 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter(name="fileSystemPolicy")
-    def file_system_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        """
+    def file_system_policy(self) -> Optional[Any]:
         return pulumi.get(self, "file_system_policy")
 
     @file_system_policy.setter
-    def file_system_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def file_system_policy(self, value: Optional[Any]):
         pulumi.set(self, "file_system_policy", value)
 
     @property
     @pulumi.getter(name="fileSystemTags")
     def file_system_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        """
         return pulumi.get(self, "file_system_tags")
 
     @file_system_tags.setter
@@ -138,9 +113,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -150,9 +122,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        """
         return pulumi.get(self, "lifecycle_policies")
 
     @lifecycle_policies.setter
@@ -162,9 +131,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        """
         return pulumi.get(self, "performance_mode")
 
     @performance_mode.setter
@@ -174,9 +140,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @provisioned_throughput_in_mibps.setter
@@ -186,9 +149,6 @@ class FileSystemArgs:
     @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        """
         return pulumi.get(self, "throughput_mode")
 
     @throughput_mode.setter
@@ -205,7 +165,7 @@ class FileSystem(pulumi.CustomResource):
                  backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 file_system_policy: Optional[Any] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
@@ -214,21 +174,11 @@ class FileSystem(pulumi.CustomResource):
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
+        Resource Type definition for AWS::EFS::FileSystem
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] availability_zone_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        :param pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']] backup_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
-        :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        :param pulumi.Input[Union[Any, str]] file_system_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]] file_system_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]] lifecycle_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        :param pulumi.Input[str] performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        :param pulumi.Input[float] provisioned_throughput_in_mibps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        :param pulumi.Input[str] throughput_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         """
         ...
     @overload
@@ -237,7 +187,7 @@ class FileSystem(pulumi.CustomResource):
                  args: Optional[FileSystemArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
+        Resource Type definition for AWS::EFS::FileSystem
 
         :param str resource_name: The name of the resource.
         :param FileSystemArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +208,7 @@ class FileSystem(pulumi.CustomResource):
                  backup_policy: Optional[pulumi.Input[pulumi.InputType['FileSystemBackupPolicyArgs']]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 file_system_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 file_system_policy: Optional[Any] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
@@ -335,33 +285,24 @@ class FileSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @property
     @pulumi.getter(name="backupPolicy")
     def backup_policy(self) -> pulumi.Output[Optional['outputs.FileSystemBackupPolicy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        """
         return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        """
         return pulumi.get(self, "encrypted")
 
     @property
@@ -371,57 +312,36 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemPolicy")
-    def file_system_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        """
+    def file_system_policy(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "file_system_policy")
 
     @property
     @pulumi.getter(name="fileSystemTags")
     def file_system_tags(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        """
         return pulumi.get(self, "file_system_tags")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FileSystemLifecyclePolicy']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        """
         return pulumi.get(self, "lifecycle_policies")
 
     @property
     @pulumi.getter(name="performanceMode")
     def performance_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        """
         return pulumi.get(self, "performance_mode")
 
     @property
     @pulumi.getter(name="provisionedThroughputInMibps")
     def provisioned_throughput_in_mibps(self) -> pulumi.Output[Optional[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @property
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        """
         return pulumi.get(self, "throughput_mode")
 

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DataflowEndpointGroupArgs', 'DataflowEndpointGroup']
@@ -18,11 +16,9 @@ __all__ = ['DataflowEndpointGroupArgs', 'DataflowEndpointGroup']
 class DataflowEndpointGroupArgs:
     def __init__(__self__, *,
                  endpoint_details: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]] endpoint_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         """
         pulumi.set(__self__, "endpoint_details", endpoint_details)
         if tags is not None:
@@ -31,9 +27,6 @@ class DataflowEndpointGroupArgs:
     @property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        """
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
@@ -42,14 +35,11 @@ class DataflowEndpointGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -59,15 +49,13 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
+        AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]] endpoint_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
         """
         ...
     @overload
@@ -76,7 +64,7 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  args: DataflowEndpointGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
+        AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 
         :param str resource_name: The name of the resource.
         :param DataflowEndpointGroupArgs args: The arguments to use to populate this resource's properties.
@@ -94,7 +82,7 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -112,7 +100,6 @@ class DataflowEndpointGroup(pulumi.CustomResource):
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(DataflowEndpointGroup, __self__).__init__(
             'aws-native:groundstation:DataflowEndpointGroup',
             resource_name,
@@ -137,7 +124,6 @@ class DataflowEndpointGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["endpoint_details"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["tags"] = None
         return DataflowEndpointGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -149,21 +135,10 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> pulumi.Output[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-        """
         return pulumi.get(self, "endpoint_details")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataflowEndpointGroupTag']]]:
         return pulumi.get(self, "tags")
 

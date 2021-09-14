@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DetectorArgs', 'Detector']
@@ -24,17 +22,15 @@ class DetectorArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  detector_version_status: Optional[pulumi.Input[str]] = None,
                  rule_execution_mode: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Detector resource.
-        :param pulumi.Input[str] detector_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
-        :param pulumi.Input['DetectorEventTypeArgs'] event_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
-        :param pulumi.Input[str] detector_version_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
-        :param pulumi.Input[str] rule_execution_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        :param pulumi.Input[str] detector_id: The ID of the detector
+        :param pulumi.Input['DetectorEventTypeArgs'] event_type: The event type to associate this detector with.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: The models to associate with this detector.
+        :param pulumi.Input[str] description: The description of the detector.
+        :param pulumi.Input[str] detector_version_status: The desired detector version status for the detector
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this detector.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "event_type", event_type)
@@ -54,7 +50,7 @@ class DetectorArgs:
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+        The ID of the detector
         """
         return pulumi.get(self, "detector_id")
 
@@ -66,7 +62,7 @@ class DetectorArgs:
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Input['DetectorEventTypeArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+        The event type to associate this detector with.
         """
         return pulumi.get(self, "event_type")
 
@@ -77,9 +73,6 @@ class DetectorArgs:
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -90,7 +83,7 @@ class DetectorArgs:
     @pulumi.getter(name="associatedModels")
     def associated_models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+        The models to associate with this detector.
         """
         return pulumi.get(self, "associated_models")
 
@@ -102,7 +95,7 @@ class DetectorArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+        The description of the detector.
         """
         return pulumi.get(self, "description")
 
@@ -114,7 +107,7 @@ class DetectorArgs:
     @pulumi.getter(name="detectorVersionStatus")
     def detector_version_status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+        The desired detector version status for the detector
         """
         return pulumi.get(self, "detector_version_status")
 
@@ -125,9 +118,6 @@ class DetectorArgs:
     @property
     @pulumi.getter(name="ruleExecutionMode")
     def rule_execution_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        """
         return pulumi.get(self, "rule_execution_mode")
 
     @rule_execution_mode.setter
@@ -136,14 +126,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        Tags associated with this detector.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,21 +149,19 @@ class Detector(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
                  rule_execution_mode: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+        A resource schema for a Detector in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]] associated_models: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
-        :param pulumi.Input[str] detector_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
-        :param pulumi.Input[str] detector_version_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
-        :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
-        :param pulumi.Input[str] rule_execution_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorModelArgs']]]] associated_models: The models to associate with this detector.
+        :param pulumi.Input[str] description: The description of the detector.
+        :param pulumi.Input[str] detector_id: The ID of the detector
+        :param pulumi.Input[str] detector_version_status: The desired detector version status for the detector
+        :param pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']] event_type: The event type to associate this detector with.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]] tags: Tags associated with this detector.
         """
         ...
     @overload
@@ -182,7 +170,7 @@ class Detector(pulumi.CustomResource):
                  args: DetectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+        A resource schema for a Detector in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param DetectorArgs args: The arguments to use to populate this resource's properties.
@@ -206,7 +194,7 @@ class Detector(pulumi.CustomResource):
                  event_type: Optional[pulumi.Input[pulumi.InputType['DetectorEventTypeArgs']]] = None,
                  rule_execution_mode: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -236,9 +224,6 @@ class Detector(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["detector_version_id"] = None
-            __props__.__dict__["event_type_arn"] = None
-            __props__.__dict__["event_type_created_time"] = None
-            __props__.__dict__["event_type_last_updated_time"] = None
             __props__.__dict__["last_updated_time"] = None
         super(Detector, __self__).__init__(
             'aws-native:frauddetector:Detector',
@@ -270,9 +255,6 @@ class Detector(pulumi.CustomResource):
         __props__.__dict__["detector_version_id"] = None
         __props__.__dict__["detector_version_status"] = None
         __props__.__dict__["event_type"] = None
-        __props__.__dict__["event_type_arn"] = None
-        __props__.__dict__["event_type_created_time"] = None
-        __props__.__dict__["event_type_last_updated_time"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["rule_execution_mode"] = None
         __props__.__dict__["rules"] = None
@@ -282,26 +264,32 @@ class Detector(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the detector.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associatedModels")
     def associated_models(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorModel']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+        The models to associate with this detector.
         """
         return pulumi.get(self, "associated_models")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the detector was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+        The description of the detector.
         """
         return pulumi.get(self, "description")
 
@@ -309,20 +297,23 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+        The ID of the detector
         """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter(name="detectorVersionId")
     def detector_version_id(self) -> pulumi.Output[str]:
+        """
+        The active version ID of the detector
+        """
         return pulumi.get(self, "detector_version_id")
 
     @property
     @pulumi.getter(name="detectorVersionStatus")
     def detector_version_status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+        The desired detector version status for the detector
         """
         return pulumi.get(self, "detector_version_status")
 
@@ -330,51 +321,33 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Output['outputs.DetectorEventType']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+        The event type to associate this detector with.
         """
         return pulumi.get(self, "event_type")
 
     @property
-    @pulumi.getter(name="eventTypeArn")
-    def event_type_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "event_type_arn")
-
-    @property
-    @pulumi.getter(name="eventTypeCreatedTime")
-    def event_type_created_time(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "event_type_created_time")
-
-    @property
-    @pulumi.getter(name="eventTypeLastUpdatedTime")
-    def event_type_last_updated_time(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "event_type_last_updated_time")
-
-    @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        The time when the detector was last updated.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter(name="ruleExecutionMode")
     def rule_execution_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        """
         return pulumi.get(self, "rule_execution_mode")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.DetectorRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        """
         return pulumi.get(self, "rules")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        Tags associated with this detector.
         """
         return pulumi.get(self, "tags")
 

@@ -20,9 +20,9 @@ class MultiRegionAccessPointArgs:
                  public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None):
         """
         The set of arguments for constructing a MultiRegionAccessPoint resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
-        :param pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]] regions: The list of buckets that you want to associate this Multi Region Access Point with.
+        :param pulumi.Input[str] name: The name you want to assign to this Multi Region Access Point.
+        :param pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
         pulumi.set(__self__, "regions", regions)
         if name is not None:
@@ -34,7 +34,7 @@ class MultiRegionAccessPointArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+        The list of buckets that you want to associate this Multi Region Access Point with.
         """
         return pulumi.get(self, "regions")
 
@@ -46,7 +46,7 @@ class MultiRegionAccessPointArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+        The name you want to assign to this Multi Region Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -58,7 +58,7 @@ class MultiRegionAccessPointArgs:
     @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+        The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
         return pulumi.get(self, "public_access_block_configuration")
 
@@ -77,13 +77,13 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiRegionAccessPointRegionArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
+        AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
-        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] public_access_block_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiRegionAccessPointRegionArgs']]]] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+        :param pulumi.Input[str] name: The name you want to assign to this Multi Region Access Point.
+        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MultiRegionAccessPointRegionArgs']]]] regions: The list of buckets that you want to associate this Multi Region Access Point with.
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                  args: MultiRegionAccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
+        AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
 
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointArgs args: The arguments to use to populate this resource's properties.
@@ -163,18 +163,24 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
+        """
+        The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
+        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp of the when the Multi Region Access Point is created
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+        The name you want to assign to this Multi Region Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -182,7 +188,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="publicAccessBlockConfiguration")
     def public_access_block_configuration(self) -> pulumi.Output[Optional['outputs.MultiRegionAccessPointPublicAccessBlockConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+        The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
         return pulumi.get(self, "public_access_block_configuration")
 
@@ -190,7 +196,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence['outputs.MultiRegionAccessPointRegion']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+        The list of buckets that you want to associate this Multi Region Access Point with.
         """
         return pulumi.get(self, "regions")
 

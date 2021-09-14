@@ -15,31 +15,18 @@ __all__ = [
 
 @pulumi.output_type
 class MapMapConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
-    """
     def __init__(__self__, *,
                  style: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
-        :param str style: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
-        """
         pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
     def style(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
-        """
         return pulumi.get(self, "style")
 
 
 @pulumi.output_type
 class PlaceIndexDataSourceConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -59,19 +46,12 @@ class PlaceIndexDataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  intended_use: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
-        :param str intended_use: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
-        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
-        """
         return pulumi.get(self, "intended_use")
 
 

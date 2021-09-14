@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['BucketArgs', 'Bucket']
@@ -20,13 +18,13 @@ class BucketArgs:
                  bucket_name: pulumi.Input[str],
                  outpost_id: pulumi.Input[str],
                  lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None):
         """
         The set of arguments for constructing a Bucket resource.
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
-        :param pulumi.Input[str] outpost_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
-        :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        :param pulumi.Input[str] bucket_name: A name for the bucket.
+        :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
+        :param pulumi.Input['BucketLifecycleConfigurationArgs'] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "outpost_id", outpost_id)
@@ -39,7 +37,7 @@ class BucketArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+        A name for the bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -51,7 +49,7 @@ class BucketArgs:
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+        The id of the customer outpost on which the bucket resides.
         """
         return pulumi.get(self, "outpost_id")
 
@@ -63,7 +61,7 @@ class BucketArgs:
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> Optional[pulumi.Input['BucketLifecycleConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+        Rules that define how Amazon S3Outposts manages objects during their lifetime.
         """
         return pulumi.get(self, "lifecycle_configuration")
 
@@ -73,14 +71,14 @@ class BucketArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +90,17 @@ class Bucket(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
+        Resource Type Definition for AWS::S3Outposts::Bucket
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
-        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
-        :param pulumi.Input[str] outpost_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        :param pulumi.Input[str] bucket_name: A name for the bucket.
+        :param pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']] lifecycle_configuration: Rules that define how Amazon S3Outposts manages objects during their lifetime.
+        :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         ...
     @overload
@@ -111,7 +109,7 @@ class Bucket(pulumi.CustomResource):
                  args: BucketArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
+        Resource Type Definition for AWS::S3Outposts::Bucket
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +129,7 @@ class Bucket(pulumi.CustomResource):
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationArgs']]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -185,13 +183,16 @@ class Bucket(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified bucket.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+        A name for the bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -199,7 +200,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="lifecycleConfiguration")
     def lifecycle_configuration(self) -> pulumi.Output[Optional['outputs.BucketLifecycleConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+        Rules that define how Amazon S3Outposts manages objects during their lifetime.
         """
         return pulumi.get(self, "lifecycle_configuration")
 
@@ -207,15 +208,15 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+        The id of the customer outpost on which the bucket resides.
         """
         return pulumi.get(self, "outpost_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.BucketTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         """
         return pulumi.get(self, "tags")
 

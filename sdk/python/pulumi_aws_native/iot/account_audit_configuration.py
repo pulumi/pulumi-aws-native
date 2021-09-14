@@ -21,10 +21,8 @@ class AccountAuditConfigurationArgs:
                  audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None):
         """
         The set of arguments for constructing a AccountAuditConfiguration resource.
-        :param pulumi.Input[str] account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'] audit_check_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
-        :param pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs'] audit_notification_target_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
+        :param pulumi.Input[str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "audit_check_configurations", audit_check_configurations)
@@ -36,7 +34,7 @@ class AccountAuditConfigurationArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
+        Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         """
         return pulumi.get(self, "account_id")
 
@@ -47,9 +45,6 @@ class AccountAuditConfigurationArgs:
     @property
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-        """
         return pulumi.get(self, "audit_check_configurations")
 
     @audit_check_configurations.setter
@@ -60,7 +55,7 @@ class AccountAuditConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+        The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         return pulumi.get(self, "role_arn")
 
@@ -71,9 +66,6 @@ class AccountAuditConfigurationArgs:
     @property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
-        """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @audit_notification_target_configurations.setter
@@ -92,14 +84,12 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
+        Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-        :param pulumi.Input[pulumi.InputType['AccountAuditConfigurationAuditCheckConfigurationsArgs']] audit_check_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-        :param pulumi.Input[pulumi.InputType['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] audit_notification_target_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+        :param pulumi.Input[str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         ...
     @overload
@@ -108,7 +98,7 @@ class AccountAuditConfiguration(pulumi.CustomResource):
                  args: AccountAuditConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
+        Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 
         :param str resource_name: The name of the resource.
         :param AccountAuditConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -183,31 +173,25 @@ class AccountAuditConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
+        Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> pulumi.Output['outputs.AccountAuditConfigurationAuditCheckConfigurations']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-        """
         return pulumi.get(self, "audit_check_configurations")
 
     @property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> pulumi.Output[Optional['outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
-        """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+        The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
         return pulumi.get(self, "role_arn")
 

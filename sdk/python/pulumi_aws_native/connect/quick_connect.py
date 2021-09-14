@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['QuickConnectArgs', 'QuickConnect']
@@ -21,14 +19,14 @@ class QuickConnectArgs:
                  name: pulumi.Input[str],
                  quick_connect_config: pulumi.Input['QuickConnectQuickConnectConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickConnect resource.
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
-        :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+        :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[str] name: The name of the quick connect.
+        :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input[str] description: The description of the quick connect.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "name", name)
@@ -42,7 +40,7 @@ class QuickConnectArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+        The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -54,7 +52,7 @@ class QuickConnectArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+        The name of the quick connect.
         """
         return pulumi.get(self, "name")
 
@@ -66,7 +64,7 @@ class QuickConnectArgs:
     @pulumi.getter(name="quickConnectConfig")
     def quick_connect_config(self) -> pulumi.Input['QuickConnectQuickConnectConfigArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+        Configuration settings for the quick connect.
         """
         return pulumi.get(self, "quick_connect_config")
 
@@ -78,7 +76,7 @@ class QuickConnectArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+        The description of the quick connect.
         """
         return pulumi.get(self, "description")
 
@@ -88,14 +86,14 @@ class QuickConnectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+        One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,18 +106,18 @@ class QuickConnect(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+        Resource Type definition for AWS::Connect::QuickConnect
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
-        :param pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']] quick_connect_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+        :param pulumi.Input[str] description: The description of the quick connect.
+        :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
+        :param pulumi.Input[str] name: The name of the quick connect.
+        :param pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']] quick_connect_config: Configuration settings for the quick connect.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -128,7 +126,7 @@ class QuickConnect(pulumi.CustomResource):
                  args: QuickConnectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+        Resource Type definition for AWS::Connect::QuickConnect
 
         :param str resource_name: The name of the resource.
         :param QuickConnectArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +147,7 @@ class QuickConnect(pulumi.CustomResource):
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  quick_connect_config: Optional[pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QuickConnectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -208,7 +206,7 @@ class QuickConnect(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+        The description of the quick connect.
         """
         return pulumi.get(self, "description")
 
@@ -216,7 +214,7 @@ class QuickConnect(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+        The identifier of the Amazon Connect instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -224,28 +222,31 @@ class QuickConnect(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+        The name of the quick connect.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="quickConnectArn")
     def quick_connect_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the quick connect.
+        """
         return pulumi.get(self, "quick_connect_arn")
 
     @property
     @pulumi.getter(name="quickConnectConfig")
     def quick_connect_config(self) -> pulumi.Output['outputs.QuickConnectQuickConnectConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+        Configuration settings for the quick connect.
         """
         return pulumi.get(self, "quick_connect_config")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.QuickConnectTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+        One or more tags.
         """
         return pulumi.get(self, "tags")
 

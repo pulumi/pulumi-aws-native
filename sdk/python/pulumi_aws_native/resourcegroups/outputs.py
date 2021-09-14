@@ -14,22 +14,15 @@ __all__ = [
     'GroupConfigurationParameter',
     'GroupQuery',
     'GroupResourceQuery',
+    'GroupTag',
     'GroupTagFilter',
 ]
 
 @pulumi.output_type
 class GroupConfigurationItem(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
-    """
     def __init__(__self__, *,
                  parameters: Optional[Sequence['outputs.GroupConfigurationParameter']] = None,
                  type: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
-        :param Sequence['GroupConfigurationParameter'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-        """
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if type is not None:
@@ -38,33 +31,19 @@ class GroupConfigurationItem(dict):
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.GroupConfigurationParameter']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-        """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
 class GroupConfigurationParameter(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
-    """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if values is not None:
@@ -73,25 +52,16 @@ class GroupConfigurationParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
-        """
         return pulumi.get(self, "values")
 
 
 @pulumi.output_type
 class GroupQuery(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -117,12 +87,6 @@ class GroupQuery(dict):
                  resource_type_filters: Optional[Sequence[str]] = None,
                  stack_identifier: Optional[str] = None,
                  tag_filters: Optional[Sequence['outputs.GroupTagFilter']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
-        :param Sequence[str] resource_type_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        :param str stack_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        :param Sequence['GroupTagFilter'] tag_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        """
         if resource_type_filters is not None:
             pulumi.set(__self__, "resource_type_filters", resource_type_filters)
         if stack_identifier is not None:
@@ -133,41 +97,24 @@ class GroupQuery(dict):
     @property
     @pulumi.getter(name="resourceTypeFilters")
     def resource_type_filters(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        """
         return pulumi.get(self, "resource_type_filters")
 
     @property
     @pulumi.getter(name="stackIdentifier")
     def stack_identifier(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        """
         return pulumi.get(self, "stack_identifier")
 
     @property
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.GroupTagFilter']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        """
         return pulumi.get(self, "tag_filters")
 
 
 @pulumi.output_type
 class GroupResourceQuery(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
-    """
     def __init__(__self__, *,
                  query: Optional['outputs.GroupQuery'] = None,
                  type: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
-        :param 'GroupQuery' query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-        """
         if query is not None:
             pulumi.set(__self__, "query", query)
         if type is not None:
@@ -176,33 +123,40 @@ class GroupResourceQuery(dict):
     @property
     @pulumi.getter
     def query(self) -> Optional['outputs.GroupQuery']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
-        """
         return pulumi.get(self, "query")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-        """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
+class GroupTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class GroupTagFilter(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
-    """
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if values is not None:
@@ -211,17 +165,11 @@ class GroupTagFilter(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
-        """
         return pulumi.get(self, "values")
 
 

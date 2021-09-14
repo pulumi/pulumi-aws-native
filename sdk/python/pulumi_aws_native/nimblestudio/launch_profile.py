@@ -22,17 +22,9 @@ class LaunchProfileArgs:
                  studio_component_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[Any] = None):
         """
         The set of arguments for constructing a LaunchProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-        :param pulumi.Input['LaunchProfileStreamConfigurationArgs'] stream_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
         """
         pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         pulumi.set(__self__, "launch_profile_protocol_versions", launch_profile_protocol_versions)
@@ -48,9 +40,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @ec2_subnet_ids.setter
@@ -60,9 +49,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @launch_profile_protocol_versions.setter
@@ -72,9 +58,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -84,9 +67,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Input['LaunchProfileStreamConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-        """
         return pulumi.get(self, "stream_configuration")
 
     @stream_configuration.setter
@@ -96,9 +76,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-        """
         return pulumi.get(self, "studio_component_ids")
 
     @studio_component_ids.setter
@@ -108,9 +85,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -120,9 +94,6 @@ class LaunchProfileArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -131,14 +102,11 @@ class LaunchProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
-        """
+    def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
 
@@ -154,21 +122,13 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
+        Resource schema for AWS::NimbleStudio::LaunchProfile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] launch_profile_protocol_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-        :param pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']] stream_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] studio_component_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
         """
         ...
     @overload
@@ -177,7 +137,7 @@ class LaunchProfile(pulumi.CustomResource):
                  args: LaunchProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
+        Resource schema for AWS::NimbleStudio::LaunchProfile
 
         :param str resource_name: The name of the resource.
         :param LaunchProfileArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +161,7 @@ class LaunchProfile(pulumi.CustomResource):
                  stream_configuration: Optional[pulumi.Input[pulumi.InputType['LaunchProfileStreamConfigurationArgs']]] = None,
                  studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -271,17 +231,11 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2SubnetIds")
     def ec2_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-        """
         return pulumi.get(self, "ec2_subnet_ids")
 
     @property
@@ -292,48 +246,30 @@ class LaunchProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-        """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="streamConfiguration")
     def stream_configuration(self) -> pulumi.Output['outputs.LaunchProfileStreamConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-        """
         return pulumi.get(self, "stream_configuration")
 
     @property
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-        """
         return pulumi.get(self, "studio_component_ids")
 
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "tags")
 

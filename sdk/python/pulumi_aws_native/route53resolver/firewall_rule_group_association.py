@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FirewallRuleGroupAssociationArgs', 'FirewallRuleGroupAssociation']
 
@@ -20,15 +20,15 @@ class FirewallRuleGroupAssociationArgs:
                  vpc_id: pulumi.Input[str],
                  mutation_protection: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallRuleGroupAssociation resource.
-        :param pulumi.Input[str] firewall_rule_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
-        :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
-        :param pulumi.Input[str] mutation_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
+        :param pulumi.Input[str] firewall_rule_group_id: FirewallRuleGroupId
+        :param pulumi.Input[int] priority: Priority
+        :param pulumi.Input[str] vpc_id: VpcId
+        :param pulumi.Input[str] mutation_protection: MutationProtectionStatus
+        :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]] tags: Tags
         """
         pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
         pulumi.set(__self__, "priority", priority)
@@ -44,7 +44,7 @@ class FirewallRuleGroupAssociationArgs:
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+        FirewallRuleGroupId
         """
         return pulumi.get(self, "firewall_rule_group_id")
 
@@ -56,7 +56,7 @@ class FirewallRuleGroupAssociationArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+        Priority
         """
         return pulumi.get(self, "priority")
 
@@ -68,7 +68,7 @@ class FirewallRuleGroupAssociationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+        VpcId
         """
         return pulumi.get(self, "vpc_id")
 
@@ -80,7 +80,7 @@ class FirewallRuleGroupAssociationArgs:
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+        MutationProtectionStatus
         """
         return pulumi.get(self, "mutation_protection")
 
@@ -92,7 +92,7 @@ class FirewallRuleGroupAssociationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+        FirewallRuleGroupAssociationName
         """
         return pulumi.get(self, "name")
 
@@ -102,14 +102,14 @@ class FirewallRuleGroupAssociationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,20 +122,20 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  mutation_protection: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
+        Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] firewall_rule_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
-        :param pulumi.Input[str] mutation_protection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
-        :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+        :param pulumi.Input[str] firewall_rule_group_id: FirewallRuleGroupId
+        :param pulumi.Input[str] mutation_protection: MutationProtectionStatus
+        :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
+        :param pulumi.Input[int] priority: Priority
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]] tags: Tags
+        :param pulumi.Input[str] vpc_id: VpcId
         """
         ...
     @overload
@@ -144,7 +144,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  args: FirewallRuleGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
+        Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -165,7 +165,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
                  mutation_protection: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleGroupAssociationTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -194,7 +194,6 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["managed_owner_name"] = None
             __props__.__dict__["modification_time"] = None
             __props__.__dict__["status"] = None
@@ -225,7 +224,6 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["firewall_rule_group_id"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["managed_owner_name"] = None
         __props__.__dict__["modification_time"] = None
         __props__.__dict__["mutation_protection"] = None
@@ -240,46 +238,56 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Arn
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> pulumi.Output[str]:
+        """
+        The id of the creator request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+        FirewallRuleGroupId
         """
         return pulumi.get(self, "firewall_rule_group_id")
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> pulumi.Output[str]:
+        """
+        ServicePrincipal
+        """
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter(name="mutationProtection")
     def mutation_protection(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+        MutationProtectionStatus
         """
         return pulumi.get(self, "mutation_protection")
 
@@ -287,7 +295,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+        FirewallRuleGroupAssociationName
         """
         return pulumi.get(self, "name")
 
@@ -295,25 +303,31 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+        Priority
         """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        FirewallDomainListAssociationStatus
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallRuleGroupAssociationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 
@@ -321,7 +335,7 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+        VpcId
         """
         return pulumi.get(self, "vpc_id")
 

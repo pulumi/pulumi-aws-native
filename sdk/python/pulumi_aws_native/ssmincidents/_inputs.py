@@ -17,6 +17,7 @@ __all__ = [
     'ResponsePlanNotificationTargetItemArgs',
     'ResponsePlanSsmAutomationArgs',
     'ResponsePlanSsmParameterArgs',
+    'ResponsePlanTagArgs',
 ]
 
 @pulumi.input_type
@@ -24,17 +25,13 @@ class ReplicationSetRegionConfigurationArgs:
     def __init__(__self__, *,
                  sse_kms_key_id: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
-        :param pulumi.Input[str] sse_kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
+        The ReplicationSet regional configuration.
         """
         pulumi.set(__self__, "sse_kms_key_id", sse_kms_key_id)
 
     @property
     @pulumi.getter(name="sseKmsKeyId")
     def sse_kms_key_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
-        """
         return pulumi.get(self, "sse_kms_key_id")
 
     @sse_kms_key_id.setter
@@ -48,9 +45,7 @@ class ReplicationSetReplicationRegionArgs:
                  region_configuration: Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']] = None,
                  region_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
-        :param pulumi.Input['ReplicationSetRegionConfigurationArgs'] region_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
-        :param pulumi.Input[str] region_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
+        The ReplicationSet regional configuration.
         """
         if region_configuration is not None:
             pulumi.set(__self__, "region_configuration", region_configuration)
@@ -60,9 +55,6 @@ class ReplicationSetReplicationRegionArgs:
     @property
     @pulumi.getter(name="regionConfiguration")
     def region_configuration(self) -> Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
-        """
         return pulumi.get(self, "region_configuration")
 
     @region_configuration.setter
@@ -72,9 +64,6 @@ class ReplicationSetReplicationRegionArgs:
     @property
     @pulumi.getter(name="regionName")
     def region_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
-        """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
@@ -87,8 +76,7 @@ class ResponsePlanActionArgs:
     def __init__(__self__, *,
                  ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
-        :param pulumi.Input['ResponsePlanSsmAutomationArgs'] ssm_automation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
+        The automation configuration to launch.
         """
         if ssm_automation is not None:
             pulumi.set(__self__, "ssm_automation", ssm_automation)
@@ -96,9 +84,6 @@ class ResponsePlanActionArgs:
     @property
     @pulumi.getter(name="ssmAutomation")
     def ssm_automation(self) -> Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
-        """
         return pulumi.get(self, "ssm_automation")
 
     @ssm_automation.setter
@@ -111,8 +96,7 @@ class ResponsePlanChatChannelArgs:
     def __init__(__self__, *,
                  chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] chatbot_sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
+        The chat channel configuration.
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -120,9 +104,6 @@ class ResponsePlanChatChannelArgs:
     @property
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
-        """
         return pulumi.get(self, "chatbot_sns")
 
     @chatbot_sns.setter
@@ -139,12 +120,12 @@ class ResponsePlanIncidentTemplateArgs:
                  notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]] = None,
                  summary: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html
-        :param pulumi.Input[int] impact: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
-        :param pulumi.Input[str] title: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
-        :param pulumi.Input[str] dedupe_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]] notification_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
-        :param pulumi.Input[str] summary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+        The incident template configuration.
+        :param pulumi.Input[int] impact: The impact value.
+        :param pulumi.Input[str] title: The title string.
+        :param pulumi.Input[str] dedupe_string: The deduplication string.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]] notification_targets: The list of notification targets.
+        :param pulumi.Input[str] summary: The summary string.
         """
         pulumi.set(__self__, "impact", impact)
         pulumi.set(__self__, "title", title)
@@ -159,7 +140,7 @@ class ResponsePlanIncidentTemplateArgs:
     @pulumi.getter
     def impact(self) -> pulumi.Input[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+        The impact value.
         """
         return pulumi.get(self, "impact")
 
@@ -171,7 +152,7 @@ class ResponsePlanIncidentTemplateArgs:
     @pulumi.getter
     def title(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+        The title string.
         """
         return pulumi.get(self, "title")
 
@@ -183,7 +164,7 @@ class ResponsePlanIncidentTemplateArgs:
     @pulumi.getter(name="dedupeString")
     def dedupe_string(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+        The deduplication string.
         """
         return pulumi.get(self, "dedupe_string")
 
@@ -195,7 +176,7 @@ class ResponsePlanIncidentTemplateArgs:
     @pulumi.getter(name="notificationTargets")
     def notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+        The list of notification targets.
         """
         return pulumi.get(self, "notification_targets")
 
@@ -207,7 +188,7 @@ class ResponsePlanIncidentTemplateArgs:
     @pulumi.getter
     def summary(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+        The summary string.
         """
         return pulumi.get(self, "summary")
 
@@ -221,8 +202,7 @@ class ResponsePlanNotificationTargetItemArgs:
     def __init__(__self__, *,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
+        A notification target.
         """
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -230,9 +210,6 @@ class ResponsePlanNotificationTargetItemArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -249,12 +226,12 @@ class ResponsePlanSsmAutomationArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
                  target_account: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
-        :param pulumi.Input[str] document_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
-        :param pulumi.Input[str] document_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
-        :param pulumi.Input[str] target_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+        The configuration to use when starting the SSM automation document.
+        :param pulumi.Input[str] document_name: The document name to use when starting the SSM automation document.
+        :param pulumi.Input[str] role_arn: The role ARN to use when starting the SSM automation document.
+        :param pulumi.Input[str] document_version: The version of the document to use when starting the SSM automation document.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]] parameters: The parameters to set when starting the SSM automation document.
+        :param pulumi.Input[str] target_account: The account type to use when starting the SSM automation document.
         """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -269,7 +246,7 @@ class ResponsePlanSsmAutomationArgs:
     @pulumi.getter(name="documentName")
     def document_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+        The document name to use when starting the SSM automation document.
         """
         return pulumi.get(self, "document_name")
 
@@ -281,7 +258,7 @@ class ResponsePlanSsmAutomationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+        The role ARN to use when starting the SSM automation document.
         """
         return pulumi.get(self, "role_arn")
 
@@ -293,7 +270,7 @@ class ResponsePlanSsmAutomationArgs:
     @pulumi.getter(name="documentVersion")
     def document_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+        The version of the document to use when starting the SSM automation document.
         """
         return pulumi.get(self, "document_version")
 
@@ -305,7 +282,7 @@ class ResponsePlanSsmAutomationArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+        The parameters to set when starting the SSM automation document.
         """
         return pulumi.get(self, "parameters")
 
@@ -317,7 +294,7 @@ class ResponsePlanSsmAutomationArgs:
     @pulumi.getter(name="targetAccount")
     def target_account(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+        The account type to use when starting the SSM automation document.
         """
         return pulumi.get(self, "target_account")
 
@@ -332,9 +309,7 @@ class ResponsePlanSsmParameterArgs:
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
+        A parameter to set when starting the SSM automation document.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -342,9 +317,6 @@ class ResponsePlanSsmParameterArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -354,13 +326,40 @@ class ResponsePlanSsmParameterArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
-        """
         return pulumi.get(self, "values")
 
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ResponsePlanTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to tag a resource.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

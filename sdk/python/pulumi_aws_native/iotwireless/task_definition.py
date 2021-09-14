@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TaskDefinitionArgs', 'TaskDefinition']
@@ -20,17 +18,17 @@ class TaskDefinitionArgs:
                  auto_create_tasks: pulumi.Input[bool],
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
                  task_definition_type: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None):
         """
         The set of arguments for constructing a TaskDefinition resource.
-        :param pulumi.Input[bool] auto_create_tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
-        :param pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs'] lo_ra_wan_update_gateway_task_entry: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
-        :param pulumi.Input[str] task_definition_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
-        :param pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs'] update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        :param pulumi.Input[bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
+        :param pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs'] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
+        :param pulumi.Input[str] name: The name of the new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[str] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
+        :param pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs'] update: Information about the gateways to update.
         """
         pulumi.set(__self__, "auto_create_tasks", auto_create_tasks)
         if lo_ra_wan_update_gateway_task_entry is not None:
@@ -48,7 +46,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="autoCreateTasks")
     def auto_create_tasks(self) -> pulumi.Input[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+        Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         """
         return pulumi.get(self, "auto_create_tasks")
 
@@ -60,7 +58,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="loRaWANUpdateGatewayTaskEntry")
     def lo_ra_wan_update_gateway_task_entry(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+        The list of task definitions.
         """
         return pulumi.get(self, "lo_ra_wan_update_gateway_task_entry")
 
@@ -72,7 +70,7 @@ class TaskDefinitionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+        The name of the new resource.
         """
         return pulumi.get(self, "name")
 
@@ -82,21 +80,21 @@ class TaskDefinitionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+        A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="taskDefinitionType")
     def task_definition_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+        A filter to list only the wireless gateway task definitions that use this task definition type
         """
         return pulumi.get(self, "task_definition_type")
 
@@ -108,7 +106,7 @@ class TaskDefinitionArgs:
     @pulumi.getter
     def update(self) -> Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        Information about the gateways to update.
         """
         return pulumi.get(self, "update")
 
@@ -125,21 +123,21 @@ class TaskDefinition(pulumi.CustomResource):
                  auto_create_tasks: Optional[pulumi.Input[bool]] = None,
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
                  task_definition_type: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
+        Creates a gateway task definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_create_tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']] lo_ra_wan_update_gateway_task_entry: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
-        :param pulumi.Input[str] task_definition_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
-        :param pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        :param pulumi.Input[bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
+        :param pulumi.Input[str] name: The name of the new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[str] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] update: Information about the gateways to update.
         """
         ...
     @overload
@@ -148,7 +146,7 @@ class TaskDefinition(pulumi.CustomResource):
                  args: TaskDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
+        Creates a gateway task definition.
 
         :param str resource_name: The name of the resource.
         :param TaskDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -168,7 +166,7 @@ class TaskDefinition(pulumi.CustomResource):
                  auto_create_tasks: Optional[pulumi.Input[bool]] = None,
                  lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionTagArgs']]]]] = None,
                  task_definition_type: Optional[pulumi.Input[str]] = None,
                  update: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']]] = None,
                  __props__=None):
@@ -192,7 +190,6 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["task_definition_type"] = task_definition_type
             __props__.__dict__["update"] = update
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(TaskDefinition, __self__).__init__(
             'aws-native:iotwireless:TaskDefinition',
             resource_name,
@@ -217,7 +214,6 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_create_tasks"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["lo_ra_wan_update_gateway_task_entry"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -228,26 +224,24 @@ class TaskDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        TaskDefinition arn. Returned after successful create.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoCreateTasks")
     def auto_create_tasks(self) -> pulumi.Output[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+        Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         """
         return pulumi.get(self, "auto_create_tasks")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loRaWANUpdateGatewayTaskEntry")
     def lo_ra_wan_update_gateway_task_entry(self) -> pulumi.Output[Optional['outputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntry']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+        The list of task definitions.
         """
         return pulumi.get(self, "lo_ra_wan_update_gateway_task_entry")
 
@@ -255,15 +249,15 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+        The name of the new resource.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+        A list of key-value pairs that contain metadata for the destination.
         """
         return pulumi.get(self, "tags")
 
@@ -271,7 +265,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="taskDefinitionType")
     def task_definition_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+        A filter to list only the wireless gateway task definitions that use this task definition type
         """
         return pulumi.get(self, "task_definition_type")
 
@@ -279,7 +273,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter
     def update(self) -> pulumi.Output[Optional['outputs.TaskDefinitionUpdateWirelessGatewayTaskCreate']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        Information about the gateways to update.
         """
         return pulumi.get(self, "update")
 

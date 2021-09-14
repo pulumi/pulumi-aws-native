@@ -26,13 +26,11 @@ __all__ = [
     'StorageLensS3BucketDestination',
     'StorageLensSelectionCriteria',
     'StorageLensStorageLensConfiguration',
+    'StorageLensTag',
 ]
 
 @pulumi.output_type
 class AccessPointPublicAccessBlockConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -62,11 +60,15 @@ class AccessPointPublicAccessBlockConfiguration(dict):
                  ignore_public_acls: Optional[bool] = None,
                  restrict_public_buckets: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
-        :param bool block_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
-        :param bool block_public_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
-        :param bool ignore_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
-        :param bool restrict_public_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        :param bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+               - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+                - PUT Object calls fail if the request includes a public ACL.
+               . - PUT Bucket calls fail if the request includes a public ACL.
+               Enabling this setting doesn't affect existing policies or ACLs.
+        :param bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        :param bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+               Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -81,7 +83,11 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         - PUT Object calls fail if the request includes a public ACL.
+        . - PUT Bucket calls fail if the request includes a public ACL.
+        Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -89,7 +95,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         """
         return pulumi.get(self, "block_public_policy")
 
@@ -97,7 +103,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         """
         return pulumi.get(self, "ignore_public_acls")
 
@@ -105,7 +111,8 @@ class AccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         return pulumi.get(self, "restrict_public_buckets")
 
@@ -113,7 +120,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
 @pulumi.output_type
 class AccessPointVpcConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
+    The Virtual Private Cloud (VPC) configuration for a bucket access point.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -135,8 +142,8 @@ class AccessPointVpcConfiguration(dict):
     def __init__(__self__, *,
                  vpc_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
-        :param str vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+        The Virtual Private Cloud (VPC) configuration for a bucket access point.
+        :param str vpc_id: If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
@@ -145,16 +152,13 @@ class AccessPointVpcConfiguration(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+        If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type
 class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,11 +188,15 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
                  ignore_public_acls: Optional[bool] = None,
                  restrict_public_buckets: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
-        :param bool block_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
-        :param bool block_public_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
-        :param bool ignore_public_acls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
-        :param bool restrict_public_buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        :param bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+               - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+                - PUT Object calls fail if the request includes a public ACL.
+               . - PUT Bucket calls fail if the request includes a public ACL.
+               Enabling this setting doesn't affect existing policies or ACLs.
+        :param bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        :param bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+               Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -203,7 +211,11 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+        Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         - PUT Object calls fail if the request includes a public ACL.
+        . - PUT Bucket calls fail if the request includes a public ACL.
+        Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -211,7 +223,7 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         """
         return pulumi.get(self, "block_public_policy")
 
@@ -219,7 +231,7 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         """
         return pulumi.get(self, "ignore_public_acls")
 
@@ -227,37 +239,28 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
         return pulumi.get(self, "restrict_public_buckets")
 
 
 @pulumi.output_type
 class MultiRegionAccessPointRegion(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
-    """
     def __init__(__self__, *,
                  bucket: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
-        :param str bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
-        """
         pulumi.set(__self__, "bucket", bucket)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
-        """
         return pulumi.get(self, "bucket")
 
 
 @pulumi.output_type
 class StorageLensAccountLevel(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+    Account-level metrics configurations.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -282,9 +285,7 @@ class StorageLensAccountLevel(dict):
                  bucket_level: 'outputs.StorageLensBucketLevel',
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
-        :param 'StorageLensBucketLevel' bucket_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-        :param 'StorageLensActivityMetrics' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
+        Account-level metrics configurations.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -293,24 +294,18 @@ class StorageLensAccountLevel(dict):
     @property
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> 'outputs.StorageLensBucketLevel':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-        """
         return pulumi.get(self, "bucket_level")
 
     @property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
-        """
         return pulumi.get(self, "activity_metrics")
 
 
 @pulumi.output_type
 class StorageLensActivityMetrics(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+    Enables activity metrics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -332,8 +327,8 @@ class StorageLensActivityMetrics(dict):
     def __init__(__self__, *,
                  is_enabled: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
-        :param bool is_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+        Enables activity metrics.
+        :param bool is_enabled: Specifies whether activity metrics are enabled or disabled.
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -342,7 +337,7 @@ class StorageLensActivityMetrics(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+        Specifies whether activity metrics are enabled or disabled.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -350,29 +345,25 @@ class StorageLensActivityMetrics(dict):
 @pulumi.output_type
 class StorageLensAwsOrg(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+    The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
     """
     def __init__(__self__, *,
                  arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
+        The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
-        """
         return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
 class StorageLensBucketLevel(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+    Bucket-level metrics configurations.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -397,9 +388,7 @@ class StorageLensBucketLevel(dict):
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None,
                  prefix_level: Optional['outputs.StorageLensPrefixLevel'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
-        :param 'StorageLensActivityMetrics' activity_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
-        :param 'StorageLensPrefixLevel' prefix_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
+        Bucket-level metrics configurations.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -409,32 +398,24 @@ class StorageLensBucketLevel(dict):
     @property
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
-        """
         return pulumi.get(self, "activity_metrics")
 
     @property
     @pulumi.getter(name="prefixLevel")
     def prefix_level(self) -> Optional['outputs.StorageLensPrefixLevel']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
-        """
         return pulumi.get(self, "prefix_level")
 
 
 @pulumi.output_type
 class StorageLensBucketsAndRegions(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+    S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
     """
     def __init__(__self__, *,
                  buckets: Optional[Sequence[str]] = None,
                  regions: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
-        :param Sequence[str] buckets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
-        :param Sequence[str] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
+        S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
         """
         if buckets is not None:
             pulumi.set(__self__, "buckets", buckets)
@@ -444,24 +425,18 @@ class StorageLensBucketsAndRegions(dict):
     @property
     @pulumi.getter
     def buckets(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
-        """
         return pulumi.get(self, "buckets")
 
     @property
     @pulumi.getter
     def regions(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
-        """
         return pulumi.get(self, "regions")
 
 
 @pulumi.output_type
 class StorageLensDataExport(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+    Specifies how Amazon S3 Storage Lens metrics should be exported.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -483,28 +458,24 @@ class StorageLensDataExport(dict):
     def __init__(__self__, *,
                  s3_bucket_destination: 'outputs.StorageLensS3BucketDestination'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
-        :param 'StorageLensS3BucketDestination' s3_bucket_destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
+        Specifies how Amazon S3 Storage Lens metrics should be exported.
         """
         pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
     @property
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> 'outputs.StorageLensS3BucketDestination':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
-        """
         return pulumi.get(self, "s3_bucket_destination")
 
 
 @pulumi.output_type
 class StorageLensEncryption(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+    Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
     """
     def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+        Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
         """
         pass
 
@@ -512,7 +483,7 @@ class StorageLensEncryption(dict):
 @pulumi.output_type
 class StorageLensPrefixLevel(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+    Prefix-level metrics configurations.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -534,25 +505,18 @@ class StorageLensPrefixLevel(dict):
     def __init__(__self__, *,
                  storage_metrics: 'outputs.StorageLensPrefixLevelStorageMetrics'):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
-        :param 'StorageLensPrefixLevelStorageMetrics' storage_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
+        Prefix-level metrics configurations.
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
     @property
     @pulumi.getter(name="storageMetrics")
     def storage_metrics(self) -> 'outputs.StorageLensPrefixLevelStorageMetrics':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
-        """
         return pulumi.get(self, "storage_metrics")
 
 
 @pulumi.output_type
 class StorageLensPrefixLevelStorageMetrics(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -576,9 +540,7 @@ class StorageLensPrefixLevelStorageMetrics(dict):
                  is_enabled: Optional[bool] = None,
                  selection_criteria: Optional['outputs.StorageLensSelectionCriteria'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
-        :param bool is_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
-        :param 'StorageLensSelectionCriteria' selection_criteria: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+        :param bool is_enabled: Specifies whether prefix-level storage metrics are enabled or disabled.
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -589,23 +551,20 @@ class StorageLensPrefixLevelStorageMetrics(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+        Specifies whether prefix-level storage metrics are enabled or disabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional['outputs.StorageLensSelectionCriteria']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
-        """
         return pulumi.get(self, "selection_criteria")
 
 
 @pulumi.output_type
 class StorageLensS3BucketDestination(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+    S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -634,13 +593,12 @@ class StorageLensS3BucketDestination(dict):
                  encryption: Optional['outputs.StorageLensEncryption'] = None,
                  prefix: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
-        :param str account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
-        :param str format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
-        :param str output_schema_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
-        :param 'StorageLensEncryption' encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
-        :param str prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+        S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
+        :param str account_id: The AWS account ID that owns the destination S3 bucket.
+        :param str arn: The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
+        :param str format: Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
+        :param str output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
+        :param str prefix: The prefix to use for Amazon S3 Storage Lens export.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "arn", arn)
@@ -655,7 +613,7 @@ class StorageLensS3BucketDestination(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+        The AWS account ID that owns the destination S3 bucket.
         """
         return pulumi.get(self, "account_id")
 
@@ -663,7 +621,7 @@ class StorageLensS3BucketDestination(dict):
     @pulumi.getter
     def arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+        The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
         """
         return pulumi.get(self, "arn")
 
@@ -671,7 +629,7 @@ class StorageLensS3BucketDestination(dict):
     @pulumi.getter
     def format(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+        Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         """
         return pulumi.get(self, "format")
 
@@ -679,23 +637,20 @@ class StorageLensS3BucketDestination(dict):
     @pulumi.getter(name="outputSchemaVersion")
     def output_schema_version(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+        The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         """
         return pulumi.get(self, "output_schema_version")
 
     @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.StorageLensEncryption']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+        The prefix to use for Amazon S3 Storage Lens export.
         """
         return pulumi.get(self, "prefix")
 
@@ -703,7 +658,7 @@ class StorageLensS3BucketDestination(dict):
 @pulumi.output_type
 class StorageLensSelectionCriteria(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+    Selection criteria for prefix-level metrics.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -729,10 +684,10 @@ class StorageLensSelectionCriteria(dict):
                  max_depth: Optional[int] = None,
                  min_storage_bytes_percentage: Optional[float] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
-        :param str delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
-        :param int max_depth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
-        :param float min_storage_bytes_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+        Selection criteria for prefix-level metrics.
+        :param str delimiter: Delimiter to divide S3 key into hierarchy of prefixes.
+        :param int max_depth: Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
+        :param float min_storage_bytes_percentage: The minimum storage bytes threshold for the prefixes to be included in the analysis.
         """
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
@@ -745,7 +700,7 @@ class StorageLensSelectionCriteria(dict):
     @pulumi.getter
     def delimiter(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+        Delimiter to divide S3 key into hierarchy of prefixes.
         """
         return pulumi.get(self, "delimiter")
 
@@ -753,7 +708,7 @@ class StorageLensSelectionCriteria(dict):
     @pulumi.getter(name="maxDepth")
     def max_depth(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+        Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
         """
         return pulumi.get(self, "max_depth")
 
@@ -761,7 +716,7 @@ class StorageLensSelectionCriteria(dict):
     @pulumi.getter(name="minStorageBytesPercentage")
     def min_storage_bytes_percentage(self) -> Optional[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+        The minimum storage bytes threshold for the prefixes to be included in the analysis.
         """
         return pulumi.get(self, "min_storage_bytes_percentage")
 
@@ -769,7 +724,7 @@ class StorageLensSelectionCriteria(dict):
 @pulumi.output_type
 class StorageLensStorageLensConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+    Specifies the details of Amazon S3 Storage Lens configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -806,15 +761,9 @@ class StorageLensStorageLensConfiguration(dict):
                  include: Optional['outputs.StorageLensBucketsAndRegions'] = None,
                  storage_lens_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
-        :param 'StorageLensAccountLevel' account_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-        :param bool is_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
-        :param 'StorageLensAwsOrg' aws_org: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-        :param 'StorageLensDataExport' data_export: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-        :param 'StorageLensBucketsAndRegions' exclude: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-        :param 'StorageLensBucketsAndRegions' include: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
-        :param str storage_lens_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+        Specifies the details of Amazon S3 Storage Lens configuration.
+        :param bool is_enabled: Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
+        :param str storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
         pulumi.set(__self__, "id", id)
@@ -833,65 +782,66 @@ class StorageLensStorageLensConfiguration(dict):
     @property
     @pulumi.getter(name="accountLevel")
     def account_level(self) -> 'outputs.StorageLensAccountLevel':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-        """
         return pulumi.get(self, "account_level")
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> bool:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+        Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
         """
         return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter(name="awsOrg")
     def aws_org(self) -> Optional['outputs.StorageLensAwsOrg']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-        """
         return pulumi.get(self, "aws_org")
 
     @property
     @pulumi.getter(name="dataExport")
     def data_export(self) -> Optional['outputs.StorageLensDataExport']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-        """
         return pulumi.get(self, "data_export")
 
     @property
     @pulumi.getter
     def exclude(self) -> Optional['outputs.StorageLensBucketsAndRegions']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-        """
         return pulumi.get(self, "exclude")
 
     @property
     @pulumi.getter
     def include(self) -> Optional['outputs.StorageLensBucketsAndRegions']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
-        """
         return pulumi.get(self, "include")
 
     @property
     @pulumi.getter(name="storageLensArn")
     def storage_lens_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+        The ARN for the Amazon S3 Storage Lens configuration.
         """
         return pulumi.get(self, "storage_lens_arn")
+
+
+@pulumi.output_type
+class StorageLensTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

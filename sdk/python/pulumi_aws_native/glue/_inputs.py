@@ -9,10 +9,49 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'RegistryTagArgs',
     'SchemaRegistryArgs',
     'SchemaSchemaVersionArgs',
+    'SchemaTagArgs',
     'SchemaVersionSchemaArgs',
 ]
+
+@pulumi.input_type
+class RegistryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: A key to identify the tag.
+        :param pulumi.Input[str] value: Corresponding tag value for the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A key to identify the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Corresponding tag value for the key.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class SchemaRegistryArgs:
@@ -20,9 +59,9 @@ class SchemaRegistryArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+        Identifier for the registry which the schema is part of.
+        :param pulumi.Input[str] arn: Amazon Resource Name for the Registry.
+        :param pulumi.Input[str] name: Name of the registry in which the schema will be created.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -33,7 +72,7 @@ class SchemaRegistryArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+        Amazon Resource Name for the Registry.
         """
         return pulumi.get(self, "arn")
 
@@ -45,7 +84,7 @@ class SchemaRegistryArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+        Name of the registry in which the schema will be created.
         """
         return pulumi.get(self, "name")
 
@@ -60,9 +99,9 @@ class SchemaSchemaVersionArgs:
                  is_latest: Optional[pulumi.Input[bool]] = None,
                  version_number: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
-        :param pulumi.Input[bool] is_latest: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
-        :param pulumi.Input[int] version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+        Specify checkpoint version for update. This is only required to update the Compatibility.
+        :param pulumi.Input[bool] is_latest: Indicates if the latest version needs to be updated.
+        :param pulumi.Input[int] version_number: Indicates the version number in the schema to update.
         """
         if is_latest is not None:
             pulumi.set(__self__, "is_latest", is_latest)
@@ -73,7 +112,7 @@ class SchemaSchemaVersionArgs:
     @pulumi.getter(name="isLatest")
     def is_latest(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+        Indicates if the latest version needs to be updated.
         """
         return pulumi.get(self, "is_latest")
 
@@ -85,7 +124,7 @@ class SchemaSchemaVersionArgs:
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+        Indicates the version number in the schema to update.
         """
         return pulumi.get(self, "version_number")
 
@@ -95,16 +134,53 @@ class SchemaSchemaVersionArgs:
 
 
 @pulumi.input_type
+class SchemaTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: A key to identify the tag.
+        :param pulumi.Input[str] value: Corresponding tag value for the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A key to identify the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Corresponding tag value for the key.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class SchemaVersionSchemaArgs:
     def __init__(__self__, *,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  schema_arn: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
-        :param pulumi.Input[str] registry_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
-        :param pulumi.Input[str] schema_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
-        :param pulumi.Input[str] schema_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+        Identifier for the schema where the schema version will be created.
+        :param pulumi.Input[str] registry_name: Name of the registry to identify where the Schema is located.
+        :param pulumi.Input[str] schema_arn: Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
+        :param pulumi.Input[str] schema_name: Name of the schema. This parameter requires RegistryName to be provided.
         """
         if registry_name is not None:
             pulumi.set(__self__, "registry_name", registry_name)
@@ -117,7 +193,7 @@ class SchemaVersionSchemaArgs:
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+        Name of the registry to identify where the Schema is located.
         """
         return pulumi.get(self, "registry_name")
 
@@ -129,7 +205,7 @@ class SchemaVersionSchemaArgs:
     @pulumi.getter(name="schemaArn")
     def schema_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+        Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
         """
         return pulumi.get(self, "schema_arn")
 
@@ -141,7 +217,7 @@ class SchemaVersionSchemaArgs:
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+        Name of the schema. This parameter requires RegistryName to be provided.
         """
         return pulumi.get(self, "schema_name")
 

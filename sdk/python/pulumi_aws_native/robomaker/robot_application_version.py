@@ -17,8 +17,7 @@ class RobotApplicationVersionArgs:
                  current_revision_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RobotApplicationVersion resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-        :param pulumi.Input[str] current_revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+        :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         """
         pulumi.set(__self__, "application", application)
         if current_revision_id is not None:
@@ -27,9 +26,6 @@ class RobotApplicationVersionArgs:
     @property
     @pulumi.getter
     def application(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-        """
         return pulumi.get(self, "application")
 
     @application.setter
@@ -40,7 +36,7 @@ class RobotApplicationVersionArgs:
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+        The revision ID of robot application.
         """
         return pulumi.get(self, "current_revision_id")
 
@@ -58,12 +54,11 @@ class RobotApplicationVersion(pulumi.CustomResource):
                  current_revision_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-        :param pulumi.Input[str] current_revision_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+        :param pulumi.Input[str] current_revision_id: The revision ID of robot application.
         """
         ...
     @overload
@@ -72,7 +67,7 @@ class RobotApplicationVersion(pulumi.CustomResource):
                  args: RobotApplicationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param RobotApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -140,9 +135,6 @@ class RobotApplicationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def application(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-        """
         return pulumi.get(self, "application")
 
     @property
@@ -159,7 +151,7 @@ class RobotApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="currentRevisionId")
     def current_revision_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+        The revision ID of robot application.
         """
         return pulumi.get(self, "current_revision_id")
 

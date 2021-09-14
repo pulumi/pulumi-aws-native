@@ -27,16 +27,14 @@ class TaskSetArgs:
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None):
         """
         The set of arguments for constructing a TaskSet resource.
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
-        :param pulumi.Input[str] service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
-        :param pulumi.Input[str] task_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
-        :param pulumi.Input[str] external_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
-        :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        :param pulumi.Input[str] platform_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
-        :param pulumi.Input['TaskSetScaleArgs'] scale: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+        :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+        :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
+        :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
+        :param pulumi.Input[str] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
+        :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "service", service)
@@ -60,7 +58,7 @@ class TaskSetArgs:
     @pulumi.getter
     def cluster(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         """
         return pulumi.get(self, "cluster")
 
@@ -72,7 +70,7 @@ class TaskSetArgs:
     @pulumi.getter
     def service(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         """
         return pulumi.get(self, "service")
 
@@ -84,7 +82,7 @@ class TaskSetArgs:
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         """
         return pulumi.get(self, "task_definition")
 
@@ -96,7 +94,7 @@ class TaskSetArgs:
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         """
         return pulumi.get(self, "external_id")
 
@@ -108,7 +106,7 @@ class TaskSetArgs:
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
+        The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         """
         return pulumi.get(self, "launch_type")
 
@@ -119,9 +117,6 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
@@ -131,9 +126,6 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -144,7 +136,7 @@ class TaskSetArgs:
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         """
         return pulumi.get(self, "platform_version")
 
@@ -156,7 +148,7 @@ class TaskSetArgs:
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         """
         return pulumi.get(self, "scale")
 
@@ -168,7 +160,7 @@ class TaskSetArgs:
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
         return pulumi.get(self, "service_registries")
 
@@ -194,20 +186,18 @@ class TaskSet(pulumi.CustomResource):
                  task_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
+        Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
-        :param pulumi.Input[str] external_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
-        :param pulumi.Input[str] launch_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        :param pulumi.Input[str] platform_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
-        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
-        :param pulumi.Input[str] service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]] service_registries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
-        :param pulumi.Input[str] task_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+        :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
+        :param pulumi.Input[str] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+        :param pulumi.Input[str] platform_version: The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
+        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set.
+        :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetServiceRegistryArgs']]]] service_registries: The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
+        :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         """
         ...
     @overload
@@ -216,7 +206,7 @@ class TaskSet(pulumi.CustomResource):
                  args: TaskSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
+        Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 
         :param str resource_name: The name of the resource.
         :param TaskSetArgs args: The arguments to use to populate this resource's properties.
@@ -271,7 +261,6 @@ class TaskSet(pulumi.CustomResource):
             if task_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
-            __props__.__dict__["id"] = None
         super(TaskSet, __self__).__init__(
             'aws-native:ecs:TaskSet',
             resource_name,
@@ -296,7 +285,6 @@ class TaskSet(pulumi.CustomResource):
 
         __props__.__dict__["cluster"] = None
         __props__.__dict__["external_id"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["launch_type"] = None
         __props__.__dict__["load_balancers"] = None
         __props__.__dict__["network_configuration"] = None
@@ -311,7 +299,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         """
         return pulumi.get(self, "cluster")
 
@@ -319,44 +307,33 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter(name="externalId")
     def external_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         """
         return pulumi.get(self, "external_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
+        The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         """
         return pulumi.get(self, "launch_type")
 
     @property
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetLoadBalancer']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        """
         return pulumi.get(self, "load_balancers")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.TaskSetNetworkConfiguration']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         """
         return pulumi.get(self, "platform_version")
 
@@ -364,7 +341,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter
     def scale(self) -> pulumi.Output[Optional['outputs.TaskSetScale']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         """
         return pulumi.get(self, "scale")
 
@@ -372,7 +349,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter
     def service(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         """
         return pulumi.get(self, "service")
 
@@ -380,7 +357,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter(name="serviceRegistries")
     def service_registries(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetServiceRegistry']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         """
         return pulumi.get(self, "service_registries")
 
@@ -388,7 +365,7 @@ class TaskSet(pulumi.CustomResource):
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         """
         return pulumi.get(self, "task_definition")
 

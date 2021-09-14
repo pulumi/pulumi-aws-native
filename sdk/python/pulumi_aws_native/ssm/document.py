@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DocumentArgs', 'Document']
@@ -17,26 +15,26 @@ __all__ = ['DocumentArgs', 'Document']
 @pulumi.input_type
 class DocumentArgs:
     def __init__(__self__, *,
-                 content: pulumi.Input[Union[Any, str]],
+                 content: Any,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
                  document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Document resource.
-        :param pulumi.Input[Union[Any, str]] content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
-        :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
-        :param pulumi.Input[str] document_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
-        :param pulumi.Input[str] document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
-        :param pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]] requires: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
-        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
-        :param pulumi.Input[str] version_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments: A list of key and value pairs that describe attachments to a version of a document.
+        :param pulumi.Input[str] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+        :param pulumi.Input[str] document_type: The type of document to create.
+        :param pulumi.Input[str] name: A name for the Systems Manager document.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
+        :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
+        :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         pulumi.set(__self__, "content", content)
         if attachments is not None:
@@ -58,21 +56,21 @@ class DocumentArgs:
 
     @property
     @pulumi.getter
-    def content(self) -> pulumi.Input[Union[Any, str]]:
+    def content(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        The content for the Systems Manager document in JSON, YAML or String format.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: pulumi.Input[Union[Any, str]]):
+    def content(self, value: Any):
         pulumi.set(self, "content", value)
 
     @property
     @pulumi.getter
     def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        A list of key and value pairs that describe attachments to a version of a document.
         """
         return pulumi.get(self, "attachments")
 
@@ -84,7 +82,7 @@ class DocumentArgs:
     @pulumi.getter(name="documentFormat")
     def document_format(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         """
         return pulumi.get(self, "document_format")
 
@@ -96,7 +94,7 @@ class DocumentArgs:
     @pulumi.getter(name="documentType")
     def document_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
+        The type of document to create.
         """
         return pulumi.get(self, "document_type")
 
@@ -108,7 +106,7 @@ class DocumentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        A name for the Systems Manager document.
         """
         return pulumi.get(self, "name")
 
@@ -120,7 +118,7 @@ class DocumentArgs:
     @pulumi.getter
     def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentDocumentRequiresArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         """
         return pulumi.get(self, "requires")
 
@@ -130,21 +128,21 @@ class DocumentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        Specify a target type to define the kinds of resources the document can run on.
         """
         return pulumi.get(self, "target_type")
 
@@ -156,7 +154,7 @@ class DocumentArgs:
     @pulumi.getter(name="versionName")
     def version_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         return pulumi.get(self, "version_name")
 
@@ -171,29 +169,29 @@ class Document(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
-                 content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 content: Optional[Any] = None,
                  document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
+        The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
-        :param pulumi.Input[Union[Any, str]] content: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
-        :param pulumi.Input[str] document_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
-        :param pulumi.Input[str] document_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]] requires: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
-        :param pulumi.Input[str] target_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
-        :param pulumi.Input[str] version_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
+        :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
+        :param pulumi.Input[str] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
+        :param pulumi.Input[str] document_type: The type of document to create.
+        :param pulumi.Input[str] name: A name for the Systems Manager document.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
+        :param pulumi.Input[str] target_type: Specify a target type to define the kinds of resources the document can run on.
+        :param pulumi.Input[str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         ...
     @overload
@@ -202,7 +200,7 @@ class Document(pulumi.CustomResource):
                  args: DocumentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
+        The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
 
         :param str resource_name: The name of the resource.
         :param DocumentArgs args: The arguments to use to populate this resource's properties.
@@ -220,12 +218,12 @@ class Document(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
-                 content: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 content: Optional[Any] = None,
                  document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentDocumentRequiresArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentTagArgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -288,15 +286,15 @@ class Document(pulumi.CustomResource):
     @pulumi.getter
     def attachments(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentAttachmentsSource']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        A list of key and value pairs that describe attachments to a version of a document.
         """
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter
-    def content(self) -> pulumi.Output[str]:
+    def content(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        The content for the Systems Manager document in JSON, YAML or String format.
         """
         return pulumi.get(self, "content")
 
@@ -304,7 +302,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter(name="documentFormat")
     def document_format(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         """
         return pulumi.get(self, "document_format")
 
@@ -312,7 +310,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter(name="documentType")
     def document_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
+        The type of document to create.
         """
         return pulumi.get(self, "document_type")
 
@@ -320,7 +318,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        A name for the Systems Manager document.
         """
         return pulumi.get(self, "name")
 
@@ -328,15 +326,15 @@ class Document(pulumi.CustomResource):
     @pulumi.getter
     def requires(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentDocumentRequires']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         """
         return pulumi.get(self, "requires")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DocumentTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         """
         return pulumi.get(self, "tags")
 
@@ -344,7 +342,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        Specify a target type to define the kinds of resources the document can run on.
         """
         return pulumi.get(self, "target_type")
 
@@ -352,7 +350,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter(name="versionName")
     def version_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         return pulumi.get(self, "version_name")
 

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LocationNFSArgs', 'LocationNFS']
@@ -21,14 +19,12 @@ class LocationNFSArgs:
                  server_hostname: pulumi.Input[str],
                  subdirectory: pulumi.Input[str],
                  mount_options: Optional[pulumi.Input['LocationNFSMountOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNFS resource.
-        :param pulumi.Input['LocationNFSOnPremConfigArgs'] on_prem_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
-        :param pulumi.Input['LocationNFSMountOptionsArgs'] mount_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+        :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "on_prem_config", on_prem_config)
         pulumi.set(__self__, "server_hostname", server_hostname)
@@ -41,9 +37,6 @@ class LocationNFSArgs:
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Input['LocationNFSOnPremConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-        """
         return pulumi.get(self, "on_prem_config")
 
     @on_prem_config.setter
@@ -54,7 +47,7 @@ class LocationNFSArgs:
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+        The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -66,7 +59,7 @@ class LocationNFSArgs:
     @pulumi.getter
     def subdirectory(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+        The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         """
         return pulumi.get(self, "subdirectory")
 
@@ -77,9 +70,6 @@ class LocationNFSArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['LocationNFSMountOptionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -88,14 +78,14 @@ class LocationNFSArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,18 +98,16 @@ class LocationNFS(pulumi.CustomResource):
                  on_prem_config: Optional[pulumi.Input[pulumi.InputType['LocationNFSOnPremConfigArgs']]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationNFSTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
+        Resource schema for AWS::DataSync::LocationNFS
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LocationNFSMountOptionsArgs']] mount_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-        :param pulumi.Input[pulumi.InputType['LocationNFSOnPremConfigArgs']] on_prem_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+        :param pulumi.Input[str] server_hostname: The name of the NFS server. This value is the IP address or DNS name of the NFS server.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationNFSTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -128,7 +116,7 @@ class LocationNFS(pulumi.CustomResource):
                  args: LocationNFSArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
+        Resource schema for AWS::DataSync::LocationNFS
 
         :param str resource_name: The name of the resource.
         :param LocationNFSArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +137,7 @@ class LocationNFS(pulumi.CustomResource):
                  on_prem_config: Optional[pulumi.Input[pulumi.InputType['LocationNFSOnPremConfigArgs']]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationNFSTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -209,34 +197,34 @@ class LocationNFS(pulumi.CustomResource):
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the NFS location.
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
+        """
+        The URL of the NFS location that was described.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Output[Optional['outputs.LocationNFSMountOptions']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-        """
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> pulumi.Output['outputs.LocationNFSOnPremConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-        """
         return pulumi.get(self, "on_prem_config")
 
     @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+        The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -244,15 +232,15 @@ class LocationNFS(pulumi.CustomResource):
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+        The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationNFSTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

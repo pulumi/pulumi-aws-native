@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TopicRuleArgs', 'TopicRule']
@@ -19,12 +17,9 @@ class TopicRuleArgs:
     def __init__(__self__, *,
                  topic_rule_payload: pulumi.Input['TopicRuleTopicRulePayloadArgs'],
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
-        :param pulumi.Input['TopicRuleTopicRulePayloadArgs'] topic_rule_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
         """
         pulumi.set(__self__, "topic_rule_payload", topic_rule_payload)
         if rule_name is not None:
@@ -35,9 +30,6 @@ class TopicRuleArgs:
     @property
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Input['TopicRuleTopicRulePayloadArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-        """
         return pulumi.get(self, "topic_rule_payload")
 
     @topic_rule_payload.setter
@@ -47,9 +39,6 @@ class TopicRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -58,14 +47,11 @@ class TopicRuleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -75,17 +61,14 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTagArgs']]]]] = None,
                  topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+        Resource Type definition for AWS::IoT::TopicRule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-        :param pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']] topic_rule_payload: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
         """
         ...
     @overload
@@ -94,7 +77,7 @@ class TopicRule(pulumi.CustomResource):
                  args: TopicRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+        Resource Type definition for AWS::IoT::TopicRule
 
         :param str resource_name: The name of the resource.
         :param TopicRuleArgs args: The arguments to use to populate this resource's properties.
@@ -112,7 +95,7 @@ class TopicRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTagArgs']]]]] = None,
                  topic_rule_payload: Optional[pulumi.Input[pulumi.InputType['TopicRuleTopicRulePayloadArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -168,24 +151,15 @@ class TopicRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRuleTopicRulePayload']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-        """
         return pulumi.get(self, "topic_rule_payload")
 

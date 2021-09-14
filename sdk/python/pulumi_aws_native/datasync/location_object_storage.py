@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 
@@ -23,18 +23,18 @@ class LocationObjectStorageArgs:
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
-        :param pulumi.Input[str] access_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
-        :param pulumi.Input[str] secret_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
-        :param pulumi.Input[int] server_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
-        :param pulumi.Input[str] server_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
+        :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
+        :param pulumi.Input[str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
+        :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -56,7 +56,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
+        The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -68,7 +68,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
+        The name of the bucket on the self-managed object storage server.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -80,7 +80,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -92,7 +92,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+        Optional. The access key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "access_key")
 
@@ -104,7 +104,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
+        Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "secret_key")
 
@@ -116,7 +116,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="serverPort")
     def server_port(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
+        The port that your self-managed server accepts inbound network traffic on.
         """
         return pulumi.get(self, "server_port")
 
@@ -128,7 +128,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
+        The protocol that the object storage server uses to communicate.
         """
         return pulumi.get(self, "server_protocol")
 
@@ -140,7 +140,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
+        The subdirectory in the self-managed object storage server that is used to read data from.
         """
         return pulumi.get(self, "subdirectory")
 
@@ -150,14 +150,14 @@ class LocationObjectStorageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,22 +174,22 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
+        Resource schema for AWS::DataSync::LocationObjectStorage.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
-        :param pulumi.Input[str] secret_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
-        :param pulumi.Input[int] server_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
-        :param pulumi.Input[str] server_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+        :param pulumi.Input[str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+        :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
+        :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
+        :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
+        :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -198,7 +198,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  args: LocationObjectStorageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
+        Resource schema for AWS::DataSync::LocationObjectStorage.
 
         :param str resource_name: The name of the resource.
         :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +223,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -292,7 +292,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="accessKey")
     def access_key(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+        Optional. The access key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "access_key")
 
@@ -300,7 +300,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
+        The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -308,25 +308,31 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
+        The name of the bucket on the self-managed object storage server.
         """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the location that is created.
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
+        """
+        The URL of the object storage location that was described.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
+        Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "secret_key")
 
@@ -334,7 +340,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -342,7 +348,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="serverPort")
     def server_port(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
+        The port that your self-managed server accepts inbound network traffic on.
         """
         return pulumi.get(self, "server_port")
 
@@ -350,7 +356,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
+        The protocol that the object storage server uses to communicate.
         """
         return pulumi.get(self, "server_protocol")
 
@@ -358,15 +364,15 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
+        The subdirectory in the self-managed object storage server that is used to read data from.
         """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationObjectStorageTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

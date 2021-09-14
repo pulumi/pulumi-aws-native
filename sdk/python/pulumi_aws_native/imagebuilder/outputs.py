@@ -26,12 +26,14 @@ __all__ = [
     'ImageRecipeEbsInstanceBlockDeviceSpecification',
     'ImageRecipeInstanceBlockDeviceMapping',
     'ImageRecipeSystemsManagerAgent',
+    'InfrastructureConfigurationLogging',
+    'InfrastructureConfigurationS3Logs',
 ]
 
 @pulumi.output_type
 class ContainerRecipeComponentConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+    Configuration details of the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -53,8 +55,8 @@ class ContainerRecipeComponentConfiguration(dict):
     def __init__(__self__, *,
                  component_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
-        :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+        Configuration details of the component.
+        :param str component_arn: The Amazon Resource Name (ARN) of the component.
         """
         if component_arn is not None:
             pulumi.set(__self__, "component_arn", component_arn)
@@ -63,7 +65,7 @@ class ContainerRecipeComponentConfiguration(dict):
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+        The Amazon Resource Name (ARN) of the component.
         """
         return pulumi.get(self, "component_arn")
 
@@ -71,7 +73,7 @@ class ContainerRecipeComponentConfiguration(dict):
 @pulumi.output_type
 class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+    Amazon EBS-specific block device mapping specifications. 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -107,14 +109,14 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
-        :param bool delete_on_termination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
-        :param bool encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
-        :param int iops: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
-        :param str snapshot_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
-        :param int volume_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
-        :param str volume_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+        Amazon EBS-specific block device mapping specifications. 
+        :param bool delete_on_termination: Use to configure delete on termination of the associated device.
+        :param bool encrypted: Use to configure device encryption.
+        :param int iops: Use to configure device IOPS.
+        :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
+        :param str snapshot_id: The snapshot that defines the device contents.
+        :param int volume_size: Use to override the device's volume size.
+        :param str volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -135,7 +137,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+        Use to configure delete on termination of the associated device.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -143,7 +145,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter
     def encrypted(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+        Use to configure device encryption.
         """
         return pulumi.get(self, "encrypted")
 
@@ -151,7 +153,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+        Use to configure device IOPS.
         """
         return pulumi.get(self, "iops")
 
@@ -159,7 +161,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+        Use to configure the KMS key to use when encrypting the device.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -167,7 +169,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+        The snapshot that defines the device contents.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -175,7 +177,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+        Use to override the device's volume size.
         """
         return pulumi.get(self, "volume_size")
 
@@ -183,7 +185,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+        Use to override the device's volume type.
         """
         return pulumi.get(self, "volume_type")
 
@@ -191,7 +193,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
 @pulumi.output_type
 class ContainerRecipeInstanceBlockDeviceMapping(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+    Defines block device mappings for the instance used to configure your image. 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -220,11 +222,11 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
                  no_device: Optional[str] = None,
                  virtual_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
-        :param str device_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
-        :param 'ContainerRecipeEbsInstanceBlockDeviceSpecification' ebs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
-        :param str no_device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
-        :param str virtual_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+        Defines block device mappings for the instance used to configure your image. 
+        :param str device_name: The device to which these mappings apply.
+        :param 'ContainerRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
+        :param str no_device: Use to remove a mapping from the parent image.
+        :param str virtual_name: Use to manage instance ephemeral devices.
         """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
@@ -239,7 +241,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+        The device to which these mappings apply.
         """
         return pulumi.get(self, "device_name")
 
@@ -247,7 +249,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter
     def ebs(self) -> Optional['outputs.ContainerRecipeEbsInstanceBlockDeviceSpecification']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+        Use to manage Amazon EBS-specific configuration for this mapping.
         """
         return pulumi.get(self, "ebs")
 
@@ -255,7 +257,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+        Use to remove a mapping from the parent image.
         """
         return pulumi.get(self, "no_device")
 
@@ -263,7 +265,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+        Use to manage instance ephemeral devices.
         """
         return pulumi.get(self, "virtual_name")
 
@@ -271,7 +273,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
 @pulumi.output_type
 class ContainerRecipeInstanceConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+    A group of options that can be used to configure an instance for building and testing container images.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -294,9 +296,9 @@ class ContainerRecipeInstanceConfiguration(dict):
                  block_device_mappings: Optional[Sequence['outputs.ContainerRecipeInstanceBlockDeviceMapping']] = None,
                  image: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
-        :param Sequence['ContainerRecipeInstanceBlockDeviceMapping'] block_device_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
-        :param str image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+        A group of options that can be used to configure an instance for building and testing container images.
+        :param Sequence['ContainerRecipeInstanceBlockDeviceMapping'] block_device_mappings: Defines the block devices to attach for building an instance from this Image Builder AMI.
+        :param str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
@@ -307,7 +309,7 @@ class ContainerRecipeInstanceConfiguration(dict):
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[Sequence['outputs.ContainerRecipeInstanceBlockDeviceMapping']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+        Defines the block devices to attach for building an instance from this Image Builder AMI.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -315,7 +317,7 @@ class ContainerRecipeInstanceConfiguration(dict):
     @pulumi.getter
     def image(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+        The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
         return pulumi.get(self, "image")
 
@@ -323,7 +325,7 @@ class ContainerRecipeInstanceConfiguration(dict):
 @pulumi.output_type
 class ContainerRecipeTargetContainerRepository(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+    The container repository where the output container image is stored.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -346,9 +348,9 @@ class ContainerRecipeTargetContainerRepository(dict):
                  repository_name: Optional[str] = None,
                  service: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
-        :param str repository_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
-        :param str service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+        The container repository where the output container image is stored.
+        :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+        :param str service: Specifies the service in which this image was registered.
         """
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
@@ -359,7 +361,7 @@ class ContainerRecipeTargetContainerRepository(dict):
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         """
         return pulumi.get(self, "repository_name")
 
@@ -367,7 +369,7 @@ class ContainerRecipeTargetContainerRepository(dict):
     @pulumi.getter
     def service(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+        Specifies the service in which this image was registered.
         """
         return pulumi.get(self, "service")
 
@@ -375,7 +377,7 @@ class ContainerRecipeTargetContainerRepository(dict):
 @pulumi.output_type
 class DistributionConfigurationDistribution(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+    The distributions of the distribution configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -402,17 +404,17 @@ class DistributionConfigurationDistribution(dict):
 
     def __init__(__self__, *,
                  region: str,
-                 ami_distribution_configuration: Optional[str] = None,
-                 container_distribution_configuration: Optional[str] = None,
+                 ami_distribution_configuration: Optional[Any] = None,
+                 container_distribution_configuration: Optional[Any] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']] = None,
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
-        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
-        :param Union[Any, str] ami_distribution_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
-        :param Union[Any, str] container_distribution_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
-        :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
-        :param Sequence[str] license_configuration_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+        The distributions of the distribution configuration.
+        :param str region: region
+        :param Any ami_distribution_configuration: The specific AMI settings (for example, launch permissions, AMI tags).
+        :param Any container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
+        :param Sequence[str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
         """
         pulumi.set(__self__, "region", region)
         if ami_distribution_configuration is not None:
@@ -428,23 +430,23 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter
     def region(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+        region
         """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="amiDistributionConfiguration")
-    def ami_distribution_configuration(self) -> Optional[str]:
+    def ami_distribution_configuration(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+        The specific AMI settings (for example, launch permissions, AMI tags).
         """
         return pulumi.get(self, "ami_distribution_configuration")
 
     @property
     @pulumi.getter(name="containerDistributionConfiguration")
-    def container_distribution_configuration(self) -> Optional[str]:
+    def container_distribution_configuration(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        Container distribution settings for encryption, licensing, and sharing in a specific Region.
         """
         return pulumi.get(self, "container_distribution_configuration")
 
@@ -452,7 +454,7 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter(name="launchTemplateConfigurations")
     def launch_template_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationLaunchTemplateConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        A group of launchTemplateConfiguration settings that apply to image distribution.
         """
         return pulumi.get(self, "launch_template_configurations")
 
@@ -460,7 +462,7 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter(name="licenseConfigurationArns")
     def license_configuration_arns(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+        The License Manager Configuration to associate with the AMI in the specified Region.
         """
         return pulumi.get(self, "license_configuration_arns")
 
@@ -468,7 +470,7 @@ class DistributionConfigurationDistribution(dict):
 @pulumi.output_type
 class DistributionConfigurationLaunchTemplateConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+    launchTemplateConfiguration settings that apply to image distribution.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -496,10 +498,10 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
                  launch_template_id: Optional[str] = None,
                  set_default_version: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
-        :param str account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
-        :param str launch_template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
-        :param bool set_default_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+        launchTemplateConfiguration settings that apply to image distribution.
+        :param str account_id: The account ID that this configuration applies to.
+        :param str launch_template_id: Identifies the EC2 launch template to use.
+        :param bool set_default_version: Set the specified EC2 launch template as the default launch template for the specified account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -512,7 +514,7 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+        The account ID that this configuration applies to.
         """
         return pulumi.get(self, "account_id")
 
@@ -520,7 +522,7 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+        Identifies the EC2 launch template to use.
         """
         return pulumi.get(self, "launch_template_id")
 
@@ -528,7 +530,7 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
     @pulumi.getter(name="setDefaultVersion")
     def set_default_version(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+        Set the specified EC2 launch template as the default launch template for the specified account.
         """
         return pulumi.get(self, "set_default_version")
 
@@ -536,7 +538,7 @@ class DistributionConfigurationLaunchTemplateConfiguration(dict):
 @pulumi.output_type
 class ImageImageTestsConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
+    The image tests configuration used when creating this image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -561,9 +563,9 @@ class ImageImageTestsConfiguration(dict):
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
-        :param bool image_tests_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
-        :param int timeout_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+        The image tests configuration used when creating this image.
+        :param bool image_tests_enabled: ImageTestsEnabled
+        :param int timeout_minutes: TimeoutMinutes
         """
         if image_tests_enabled is not None:
             pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
@@ -574,7 +576,7 @@ class ImageImageTestsConfiguration(dict):
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+        ImageTestsEnabled
         """
         return pulumi.get(self, "image_tests_enabled")
 
@@ -582,7 +584,7 @@ class ImageImageTestsConfiguration(dict):
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+        TimeoutMinutes
         """
         return pulumi.get(self, "timeout_minutes")
 
@@ -590,7 +592,7 @@ class ImageImageTestsConfiguration(dict):
 @pulumi.output_type
 class ImagePipelineImageTestsConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
+    Image tests configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -615,9 +617,9 @@ class ImagePipelineImageTestsConfiguration(dict):
                  image_tests_enabled: Optional[bool] = None,
                  timeout_minutes: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
-        :param bool image_tests_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
-        :param int timeout_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+        Image tests configuration.
+        :param bool image_tests_enabled: Defines if tests should be executed when building this image.
+        :param int timeout_minutes: The maximum time in minutes that tests are permitted to run.
         """
         if image_tests_enabled is not None:
             pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
@@ -628,7 +630,7 @@ class ImagePipelineImageTestsConfiguration(dict):
     @pulumi.getter(name="imageTestsEnabled")
     def image_tests_enabled(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+        Defines if tests should be executed when building this image.
         """
         return pulumi.get(self, "image_tests_enabled")
 
@@ -636,7 +638,7 @@ class ImagePipelineImageTestsConfiguration(dict):
     @pulumi.getter(name="timeoutMinutes")
     def timeout_minutes(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+        The maximum time in minutes that tests are permitted to run.
         """
         return pulumi.get(self, "timeout_minutes")
 
@@ -644,7 +646,7 @@ class ImagePipelineImageTestsConfiguration(dict):
 @pulumi.output_type
 class ImagePipelineSchedule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
+    The schedule of the image pipeline.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -669,9 +671,9 @@ class ImagePipelineSchedule(dict):
                  pipeline_execution_start_condition: Optional[str] = None,
                  schedule_expression: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
-        :param str pipeline_execution_start_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
-        :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+        The schedule of the image pipeline.
+        :param str pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
+        :param str schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
         if pipeline_execution_start_condition is not None:
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
@@ -682,7 +684,7 @@ class ImagePipelineSchedule(dict):
     @pulumi.getter(name="pipelineExecutionStartCondition")
     def pipeline_execution_start_condition(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+        The condition configures when the pipeline should trigger a new image build.
         """
         return pulumi.get(self, "pipeline_execution_start_condition")
 
@@ -690,7 +692,7 @@ class ImagePipelineSchedule(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+        The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
         return pulumi.get(self, "schedule_expression")
 
@@ -698,7 +700,7 @@ class ImagePipelineSchedule(dict):
 @pulumi.output_type
 class ImageRecipeAdditionalInstanceConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+    Specify additional settings and launch scripts for your build instances.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -723,9 +725,9 @@ class ImageRecipeAdditionalInstanceConfiguration(dict):
                  user_data_override: str,
                  systems_manager_agent: Optional['outputs.ImageRecipeSystemsManagerAgent'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
-        :param str user_data_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
-        :param 'ImageRecipeSystemsManagerAgent' systems_manager_agent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+        Specify additional settings and launch scripts for your build instances.
+        :param str user_data_override: Use this property to provide commands or a command script to run when you launch your build instance.
+        :param 'ImageRecipeSystemsManagerAgent' systems_manager_agent: Contains settings for the SSM agent on your build instance.
         """
         pulumi.set(__self__, "user_data_override", user_data_override)
         if systems_manager_agent is not None:
@@ -735,7 +737,7 @@ class ImageRecipeAdditionalInstanceConfiguration(dict):
     @pulumi.getter(name="userDataOverride")
     def user_data_override(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+        Use this property to provide commands or a command script to run when you launch your build instance.
         """
         return pulumi.get(self, "user_data_override")
 
@@ -743,7 +745,7 @@ class ImageRecipeAdditionalInstanceConfiguration(dict):
     @pulumi.getter(name="systemsManagerAgent")
     def systems_manager_agent(self) -> Optional['outputs.ImageRecipeSystemsManagerAgent']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+        Contains settings for the SSM agent on your build instance.
         """
         return pulumi.get(self, "systems_manager_agent")
 
@@ -751,7 +753,7 @@ class ImageRecipeAdditionalInstanceConfiguration(dict):
 @pulumi.output_type
 class ImageRecipeComponentConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
+    Configuration details of the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -774,9 +776,9 @@ class ImageRecipeComponentConfiguration(dict):
                  component_arn: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
-        :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
-        :param Sequence['ImageRecipeComponentParameter'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+        Configuration details of the component.
+        :param str component_arn: The Amazon Resource Name (ARN) of the component.
+        :param Sequence['ImageRecipeComponentParameter'] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
         if component_arn is not None:
             pulumi.set(__self__, "component_arn", component_arn)
@@ -787,7 +789,7 @@ class ImageRecipeComponentConfiguration(dict):
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+        The Amazon Resource Name (ARN) of the component.
         """
         return pulumi.get(self, "component_arn")
 
@@ -795,7 +797,7 @@ class ImageRecipeComponentConfiguration(dict):
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.ImageRecipeComponentParameter']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+        A group of parameter settings that are used to configure the component for a specific recipe.
         """
         return pulumi.get(self, "parameters")
 
@@ -803,15 +805,15 @@ class ImageRecipeComponentConfiguration(dict):
 @pulumi.output_type
 class ImageRecipeComponentParameter(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+    Contains a key/value pair that sets the named component parameter.
     """
     def __init__(__self__, *,
                  name: str,
                  value: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
-        :param Sequence[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+        Contains a key/value pair that sets the named component parameter.
+        :param str name: The name of the component parameter to set.
+        :param Sequence[str] value: Sets the value for the named component parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -820,7 +822,7 @@ class ImageRecipeComponentParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+        The name of the component parameter to set.
         """
         return pulumi.get(self, "name")
 
@@ -828,7 +830,7 @@ class ImageRecipeComponentParameter(dict):
     @pulumi.getter
     def value(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+        Sets the value for the named component parameter.
         """
         return pulumi.get(self, "value")
 
@@ -836,7 +838,7 @@ class ImageRecipeComponentParameter(dict):
 @pulumi.output_type
 class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
+    Amazon EBS-specific block device mapping specifications. 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -872,14 +874,14 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
-        :param bool delete_on_termination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
-        :param bool encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
-        :param int iops: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
-        :param str kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
-        :param str snapshot_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
-        :param int volume_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
-        :param str volume_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+        Amazon EBS-specific block device mapping specifications. 
+        :param bool delete_on_termination: Use to configure delete on termination of the associated device.
+        :param bool encrypted: Use to configure device encryption.
+        :param int iops: Use to configure device IOPS.
+        :param str kms_key_id: Use to configure the KMS key to use when encrypting the device.
+        :param str snapshot_id: The snapshot that defines the device contents.
+        :param int volume_size: Use to override the device's volume size.
+        :param str volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -900,7 +902,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+        Use to configure delete on termination of the associated device.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -908,7 +910,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter
     def encrypted(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+        Use to configure device encryption.
         """
         return pulumi.get(self, "encrypted")
 
@@ -916,7 +918,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter
     def iops(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+        Use to configure device IOPS.
         """
         return pulumi.get(self, "iops")
 
@@ -924,7 +926,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+        Use to configure the KMS key to use when encrypting the device.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -932,7 +934,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+        The snapshot that defines the device contents.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -940,7 +942,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+        Use to override the device's volume size.
         """
         return pulumi.get(self, "volume_size")
 
@@ -948,7 +950,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+        Use to override the device's volume type.
         """
         return pulumi.get(self, "volume_type")
 
@@ -956,7 +958,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
 @pulumi.output_type
 class ImageRecipeInstanceBlockDeviceMapping(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
+    Defines block device mappings for the instance used to configure your image. 
     """
     @staticmethod
     def __key_warning(key: str):
@@ -985,11 +987,11 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
                  no_device: Optional[str] = None,
                  virtual_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
-        :param str device_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
-        :param 'ImageRecipeEbsInstanceBlockDeviceSpecification' ebs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
-        :param str no_device: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
-        :param str virtual_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+        Defines block device mappings for the instance used to configure your image. 
+        :param str device_name: The device to which these mappings apply.
+        :param 'ImageRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
+        :param str no_device: Use to remove a mapping from the parent image.
+        :param str virtual_name: Use to manage instance ephemeral devices.
         """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
@@ -1004,7 +1006,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="deviceName")
     def device_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+        The device to which these mappings apply.
         """
         return pulumi.get(self, "device_name")
 
@@ -1012,7 +1014,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter
     def ebs(self) -> Optional['outputs.ImageRecipeEbsInstanceBlockDeviceSpecification']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+        Use to manage Amazon EBS-specific configuration for this mapping.
         """
         return pulumi.get(self, "ebs")
 
@@ -1020,7 +1022,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="noDevice")
     def no_device(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+        Use to remove a mapping from the parent image.
         """
         return pulumi.get(self, "no_device")
 
@@ -1028,7 +1030,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+        Use to manage instance ephemeral devices.
         """
         return pulumi.get(self, "virtual_name")
 
@@ -1036,7 +1038,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
 @pulumi.output_type
 class ImageRecipeSystemsManagerAgent(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+    Contains settings for the SSM agent on your build instance.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1058,8 +1060,8 @@ class ImageRecipeSystemsManagerAgent(dict):
     def __init__(__self__, *,
                  uninstall_after_build: bool):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
-        :param bool uninstall_after_build: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+        Contains settings for the SSM agent on your build instance.
+        :param bool uninstall_after_build: This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
         """
         pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
 
@@ -1067,8 +1069,98 @@ class ImageRecipeSystemsManagerAgent(dict):
     @pulumi.getter(name="uninstallAfterBuild")
     def uninstall_after_build(self) -> bool:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+        This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
         """
         return pulumi.get(self, "uninstall_after_build")
+
+
+@pulumi.output_type
+class InfrastructureConfigurationLogging(dict):
+    """
+    The logging configuration of the infrastructure configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Logs":
+            suggest = "s3_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationLogging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_logs: Optional['outputs.InfrastructureConfigurationS3Logs'] = None):
+        """
+        The logging configuration of the infrastructure configuration.
+        """
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional['outputs.InfrastructureConfigurationS3Logs']:
+        return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class InfrastructureConfigurationS3Logs(dict):
+    """
+    The S3 path in which to store the logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3BucketName":
+            suggest = "s3_bucket_name"
+        elif key == "s3KeyPrefix":
+            suggest = "s3_key_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationS3Logs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationS3Logs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationS3Logs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket_name: Optional[str] = None,
+                 s3_key_prefix: Optional[str] = None):
+        """
+        The S3 path in which to store the logs.
+        :param str s3_bucket_name: S3BucketName
+        :param str s3_key_prefix: S3KeyPrefix
+        """
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[str]:
+        """
+        S3BucketName
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[str]:
+        """
+        S3KeyPrefix
+        """
+        return pulumi.get(self, "s3_key_prefix")
 
 

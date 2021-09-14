@@ -16,12 +16,13 @@ __all__ = [
     'AssessmentDelegation',
     'AssessmentRole',
     'AssessmentScope',
+    'AssessmentTag',
 ]
 
 @pulumi.output_type
 class AssessmentAWSAccount(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
+    The AWS account associated with the assessment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -45,10 +46,7 @@ class AssessmentAWSAccount(dict):
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
-        :param str email_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
+        The AWS account associated with the assessment.
         """
         if email_address is not None:
             pulumi.set(__self__, "email_address", email_address)
@@ -60,32 +58,23 @@ class AssessmentAWSAccount(dict):
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
-        """
         return pulumi.get(self, "email_address")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-        """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class AssessmentAWSService(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+    An AWS service such as Amazon S3, AWS CloudTrail, and so on.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -107,8 +96,7 @@ class AssessmentAWSService(dict):
     def __init__(__self__, *,
                  service_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
-        :param str service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
+        An AWS service such as Amazon S3, AWS CloudTrail, and so on.
         """
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
@@ -116,16 +104,13 @@ class AssessmentAWSService(dict):
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
-        """
         return pulumi.get(self, "service_name")
 
 
 @pulumi.output_type
 class AssessmentAssessmentReportsDestination(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
+    The destination in which evidence reports are stored for the specified assessment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -148,9 +133,7 @@ class AssessmentAssessmentReportsDestination(dict):
                  destination: Optional[str] = None,
                  destination_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
-        :param str destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-        :param str destination_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
+        The destination in which evidence reports are stored for the specified assessment.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -160,24 +143,18 @@ class AssessmentAssessmentReportsDestination(dict):
     @property
     @pulumi.getter
     def destination(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
-        """
         return pulumi.get(self, "destination_type")
 
 
 @pulumi.output_type
 class AssessmentDelegation(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
+    The assignment of a control set to a delegate for review.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -223,18 +200,7 @@ class AssessmentDelegation(dict):
                  role_type: Optional[str] = None,
                  status: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
-        :param str assessment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
-        :param str assessment_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
-        :param str comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
-        :param str control_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
-        :param str created_by: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
-        :param float creation_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
-        :param str id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
-        :param float last_updated: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
-        :param str role_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
-        :param str status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
+        The assignment of a control set to a delegate for review.
         """
         if assessment_id is not None:
             pulumi.set(__self__, "assessment_id", assessment_id)
@@ -262,96 +228,63 @@ class AssessmentDelegation(dict):
     @property
     @pulumi.getter(name="assessmentId")
     def assessment_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
-        """
         return pulumi.get(self, "assessment_id")
 
     @property
     @pulumi.getter(name="assessmentName")
     def assessment_name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
-        """
         return pulumi.get(self, "assessment_name")
 
     @property
     @pulumi.getter
     def comment(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="controlSetId")
     def control_set_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
-        """
         return pulumi.get(self, "control_set_id")
 
     @property
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
-        """
         return pulumi.get(self, "created_by")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
-        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdated")
     def last_updated(self) -> Optional[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
-        """
         return pulumi.get(self, "last_updated")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
-        """
         return pulumi.get(self, "role_type")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
-        """
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
 class AssessmentRole(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+    The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -376,9 +309,7 @@ class AssessmentRole(dict):
                  role_arn: Optional[str] = None,
                  role_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
-        :param str role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-        :param str role_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+        The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
         """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -388,24 +319,18 @@ class AssessmentRole(dict):
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="roleType")
     def role_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
-        """
         return pulumi.get(self, "role_type")
 
 
 @pulumi.output_type
 class AssessmentScope(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+    The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -430,9 +355,9 @@ class AssessmentScope(dict):
                  aws_accounts: Optional[Sequence['outputs.AssessmentAWSAccount']] = None,
                  aws_services: Optional[Sequence['outputs.AssessmentAWSService']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
-        :param Sequence['AssessmentAWSAccount'] aws_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
-        :param Sequence['AssessmentAWSService'] aws_services: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
+        :param Sequence['AssessmentAWSAccount'] aws_accounts: The AWS accounts included in scope.
+        :param Sequence['AssessmentAWSService'] aws_services: The AWS services included in scope.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -443,7 +368,7 @@ class AssessmentScope(dict):
     @pulumi.getter(name="awsAccounts")
     def aws_accounts(self) -> Optional[Sequence['outputs.AssessmentAWSAccount']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+        The AWS accounts included in scope.
         """
         return pulumi.get(self, "aws_accounts")
 
@@ -451,8 +376,41 @@ class AssessmentScope(dict):
     @pulumi.getter(name="awsServices")
     def aws_services(self) -> Optional[Sequence['outputs.AssessmentAWSService']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        The AWS services included in scope.
         """
         return pulumi.get(self, "aws_services")
+
+
+@pulumi.output_type
+class AssessmentTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
 
 

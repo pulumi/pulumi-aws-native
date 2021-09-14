@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LocalGatewayRouteTableVPCAssociationArgs', 'LocalGatewayRouteTableVPCAssociation']
 
@@ -17,12 +17,12 @@ class LocalGatewayRouteTableVPCAssociationArgs:
     def __init__(__self__, *,
                  local_gateway_route_table_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVPCAssociationTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayRouteTableVPCAssociation resource.
-        :param pulumi.Input[str] local_gateway_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+        :param pulumi.Input[str] local_gateway_route_table_id: The ID of the local gateway route table.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVPCAssociationTagArgs']]] tags: The tags for the association.
         """
         pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -33,7 +33,7 @@ class LocalGatewayRouteTableVPCAssociationArgs:
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+        The ID of the local gateway route table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
@@ -45,7 +45,7 @@ class LocalGatewayRouteTableVPCAssociationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+        The ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -55,14 +55,14 @@ class LocalGatewayRouteTableVPCAssociationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVPCAssociationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVPCAssociationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -72,17 +72,17 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableVPCAssociationTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
+        Describes an association between a local gateway route table and a VPC.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] local_gateway_route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-        :param pulumi.Input[str] vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+        :param pulumi.Input[str] local_gateway_route_table_id: The ID of the local gateway route table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableVPCAssociationTagArgs']]]] tags: The tags for the association.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
         ...
     @overload
@@ -91,7 +91,7 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
                  args: LocalGatewayRouteTableVPCAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
+        Describes an association between a local gateway route table and a VPC.
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVPCAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -109,7 +109,7 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalGatewayRouteTableVPCAssociationTagArgs']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -166,31 +166,40 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="localGatewayId")
     def local_gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the local gateway.
+        """
         return pulumi.get(self, "local_gateway_id")
 
     @property
     @pulumi.getter(name="localGatewayRouteTableId")
     def local_gateway_route_table_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+        The ID of the local gateway route table.
         """
         return pulumi.get(self, "local_gateway_route_table_id")
 
     @property
     @pulumi.getter(name="localGatewayRouteTableVpcAssociationId")
     def local_gateway_route_table_vpc_association_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the association.
+        """
         return pulumi.get(self, "local_gateway_route_table_vpc_association_id")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the association.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocalGatewayRouteTableVPCAssociationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 
@@ -198,7 +207,7 @@ class LocalGatewayRouteTableVPCAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+        The ID of the VPC.
         """
         return pulumi.get(self, "vpc_id")
 

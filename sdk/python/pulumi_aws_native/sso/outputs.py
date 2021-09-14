@@ -12,20 +12,50 @@ from . import outputs
 __all__ = [
     'InstanceAccessControlAttributeConfigurationAccessControlAttribute',
     'InstanceAccessControlAttributeConfigurationAccessControlAttributeValue',
+    'PermissionSetTag',
 ]
 
 @pulumi.output_type
 class InstanceAccessControlAttributeConfigurationAccessControlAttribute(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
-    """
     def __init__(__self__, *,
                  key: str,
                  value: 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeValue'):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeValue':
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InstanceAccessControlAttributeConfigurationAccessControlAttributeValue(dict):
+    def __init__(__self__, *,
+                 source: Sequence[str]):
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Sequence[str]:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class PermissionSetTag(dict):
+    """
+    The metadata that you apply to the permission set to help you categorize and organize them.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
-        :param 'InstanceAccessControlAttributeConfigurationAccessControlAttributeValue' value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
+        The metadata that you apply to the permission set to help you categorize and organize them.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -33,39 +63,11 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttribute(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> 'outputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeValue':
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
-        """
+    def value(self) -> str:
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InstanceAccessControlAttributeConfigurationAccessControlAttributeValue(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
-    """
-    def __init__(__self__, *,
-                 source: Sequence[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
-        :param Sequence[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
-        """
-        pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter
-    def source(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
-        """
-        return pulumi.get(self, "source")
 
 

@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
 
@@ -21,16 +21,9 @@ class NetworkInsightsPathArgs:
                  destination_ip: Optional[pulumi.Input[str]] = None,
                  destination_port: Optional[pulumi.Input[int]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsPath resource.
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        :param pulumi.Input[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        :param pulumi.Input[str] destination_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        :param pulumi.Input[int] destination_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        :param pulumi.Input[str] source_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "protocol", protocol)
@@ -47,9 +40,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -59,9 +49,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -71,9 +58,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -83,9 +67,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        """
         return pulumi.get(self, "destination_ip")
 
     @destination_ip.setter
@@ -95,9 +76,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        """
         return pulumi.get(self, "destination_port")
 
     @destination_port.setter
@@ -107,9 +85,6 @@ class NetworkInsightsPathArgs:
     @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        """
         return pulumi.get(self, "source_ip")
 
     @source_ip.setter
@@ -118,14 +93,11 @@ class NetworkInsightsPathArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsPathTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -140,20 +112,13 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsPathTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+        Resource schema for AWS::EC2::NetworkInsightsPath
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        :param pulumi.Input[str] destination_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        :param pulumi.Input[int] destination_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        :param pulumi.Input[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        :param pulumi.Input[str] source_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
         """
         ...
     @overload
@@ -162,7 +127,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  args: NetworkInsightsPathArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+        Resource schema for AWS::EC2::NetworkInsightsPath
 
         :param str resource_name: The name of the resource.
         :param NetworkInsightsPathArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +150,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_ip: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsPathTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -256,25 +221,16 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        """
         return pulumi.get(self, "destination_ip")
 
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> pulumi.Output[Optional[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        """
         return pulumi.get(self, "destination_port")
 
     @property
@@ -290,32 +246,20 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        """
         return pulumi.get(self, "source_ip")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsPathTag']]]:
         return pulumi.get(self, "tags")
 

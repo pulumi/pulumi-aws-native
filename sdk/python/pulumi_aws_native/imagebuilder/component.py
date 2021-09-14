@@ -21,20 +21,20 @@ class ComponentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Component resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
-        :param pulumi.Input[str] platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
-        :param pulumi.Input[str] change_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
-        :param pulumi.Input[str] data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+        :param pulumi.Input[str] name: The name of the component.
+        :param pulumi.Input[str] platform: The platform of the component.
+        :param pulumi.Input[str] version: The version of the component.
+        :param pulumi.Input[str] change_description: The change description of the component.
+        :param pulumi.Input[str] data: The data of the component.
+        :param pulumi.Input[str] description: The description of the component.
+        :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the component.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
+        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[str] uri: The uri of the component.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "platform", platform)
@@ -58,7 +58,7 @@ class ComponentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
+        The name of the component.
         """
         return pulumi.get(self, "name")
 
@@ -70,7 +70,7 @@ class ComponentArgs:
     @pulumi.getter
     def platform(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+        The platform of the component.
         """
         return pulumi.get(self, "platform")
 
@@ -82,7 +82,7 @@ class ComponentArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+        The version of the component.
         """
         return pulumi.get(self, "version")
 
@@ -94,7 +94,7 @@ class ComponentArgs:
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+        The change description of the component.
         """
         return pulumi.get(self, "change_description")
 
@@ -106,7 +106,7 @@ class ComponentArgs:
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+        The data of the component.
         """
         return pulumi.get(self, "data")
 
@@ -118,7 +118,7 @@ class ComponentArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+        The description of the component.
         """
         return pulumi.get(self, "description")
 
@@ -130,7 +130,7 @@ class ComponentArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+        The KMS key identifier used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -142,7 +142,7 @@ class ComponentArgs:
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+        The operating system (OS) version supported by the component.
         """
         return pulumi.get(self, "supported_os_versions")
 
@@ -152,21 +152,21 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
+        The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+        The uri of the component.
         """
         return pulumi.get(self, "uri")
 
@@ -187,25 +187,25 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
+        Resource schema for AWS::ImageBuilder::Component
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] change_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
-        :param pulumi.Input[str] data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
-        :param pulumi.Input[str] platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+        :param pulumi.Input[str] change_description: The change description of the component.
+        :param pulumi.Input[str] data: The data of the component.
+        :param pulumi.Input[str] description: The description of the component.
+        :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the component.
+        :param pulumi.Input[str] name: The name of the component.
+        :param pulumi.Input[str] platform: The platform of the component.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
+        :param Any tags: The tags associated with the component.
+        :param pulumi.Input[str] uri: The uri of the component.
+        :param pulumi.Input[str] version: The version of the component.
         """
         ...
     @overload
@@ -214,7 +214,7 @@ class Component(pulumi.CustomResource):
                  args: ComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
+        Resource schema for AWS::ImageBuilder::Component
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.
@@ -238,7 +238,7 @@ class Component(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -312,13 +312,16 @@ class Component(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the component.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+        The change description of the component.
         """
         return pulumi.get(self, "change_description")
 
@@ -326,7 +329,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def data(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+        The data of the component.
         """
         return pulumi.get(self, "data")
 
@@ -334,33 +337,39 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+        The description of the component.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[bool]:
+        """
+        The encryption status of the component.
+        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+        The KMS key identifier used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the component.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+        The platform of the component.
         """
         return pulumi.get(self, "platform")
 
@@ -368,28 +377,31 @@ class Component(pulumi.CustomResource):
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+        The operating system (OS) version supported by the component.
         """
         return pulumi.get(self, "supported_os_versions")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
+        The tags associated with the component.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of the component denotes whether the component is used to build the image or only to test it. 
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+        The uri of the component.
         """
         return pulumi.get(self, "uri")
 
@@ -397,7 +409,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+        The version of the component.
         """
         return pulumi.get(self, "version")
 

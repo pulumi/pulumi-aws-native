@@ -17,7 +17,7 @@ __all__ = [
 @pulumi.output_type
 class PolicyIEMap(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+    An FMS includeMap or excludeMap.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -42,9 +42,7 @@ class PolicyIEMap(dict):
                  a_ccount: Optional[Sequence[str]] = None,
                  o_rgunit: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
-        :param Sequence[str] a_ccount: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        :param Sequence[str] o_rgunit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
+        An FMS includeMap or excludeMap.
         """
         if a_ccount is not None:
             pulumi.set(__self__, "a_ccount", a_ccount)
@@ -54,32 +52,24 @@ class PolicyIEMap(dict):
     @property
     @pulumi.getter(name="aCCOUNT")
     def a_ccount(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        """
         return pulumi.get(self, "a_ccount")
 
     @property
     @pulumi.getter(name="oRGUNIT")
     def o_rgunit(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
-        """
         return pulumi.get(self, "o_rgunit")
 
 
 @pulumi.output_type
 class PolicyPolicyTag(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
+    A policy tag.
     """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+        A policy tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -87,32 +77,24 @@ class PolicyPolicyTag(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class PolicyResourceTag(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
+    A resource tag.
     """
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+        A resource tag.
         """
         pulumi.set(__self__, "key", key)
         if value is not None:
@@ -121,17 +103,11 @@ class PolicyResourceTag(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
-        """
         return pulumi.get(self, "value")
 
 

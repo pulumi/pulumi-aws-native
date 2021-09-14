@@ -20,8 +20,7 @@ class NotificationChannelNotificationChannelConfigArgs:
     def __init__(__self__, *,
                  sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
-        :param pulumi.Input['NotificationChannelSnsChannelConfigArgs'] sns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
+        Information about notification channels you have configured with DevOps Guru.
         """
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
@@ -29,9 +28,6 @@ class NotificationChannelNotificationChannelConfigArgs:
     @property
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
-        """
         return pulumi.get(self, "sns")
 
     @sns.setter
@@ -44,8 +40,7 @@ class NotificationChannelSnsChannelConfigArgs:
     def __init__(__self__, *,
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
-        :param pulumi.Input[str] topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
+        Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
         """
         if topic_arn is not None:
             pulumi.set(__self__, "topic_arn", topic_arn)
@@ -53,9 +48,6 @@ class NotificationChannelSnsChannelConfigArgs:
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
-        """
         return pulumi.get(self, "topic_arn")
 
     @topic_arn.setter
@@ -68,8 +60,8 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
     def __init__(__self__, *,
                  stack_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] stack_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+        CloudFormation resource for DevOps Guru to monitor
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stack_names: An array of CloudFormation stack names.
         """
         if stack_names is not None:
             pulumi.set(__self__, "stack_names", stack_names)
@@ -78,7 +70,7 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
     @pulumi.getter(name="stackNames")
     def stack_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+        An array of CloudFormation stack names.
         """
         return pulumi.get(self, "stack_names")
 
@@ -92,8 +84,7 @@ class ResourceCollectionResourceCollectionFilterArgs:
     def __init__(__self__, *,
                  cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
-        :param pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs'] cloud_formation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
+        Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         if cloud_formation is not None:
             pulumi.set(__self__, "cloud_formation", cloud_formation)
@@ -101,9 +92,6 @@ class ResourceCollectionResourceCollectionFilterArgs:
     @property
     @pulumi.getter(name="cloudFormation")
     def cloud_formation(self) -> Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
-        """
         return pulumi.get(self, "cloud_formation")
 
     @cloud_formation.setter

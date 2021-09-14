@@ -9,24 +9,51 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FleetTags',
+    'RobotTags',
     'SimulationApplicationRenderingEngine',
     'SimulationApplicationRobotSoftwareSuite',
     'SimulationApplicationSimulationSoftwareSuite',
     'SimulationApplicationSourceConfig',
+    'SimulationApplicationTags',
 ]
+
+@pulumi.output_type
+class FleetTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
+
+
+@pulumi.output_type
+class RobotTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
+
 
 @pulumi.output_type
 class SimulationApplicationRenderingEngine(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+    Information about a rendering engine.
     """
     def __init__(__self__, *,
                  name: str,
                  version: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+        Information about a rendering engine.
+        :param str name: The name of the rendering engine.
+        :param str version: The version of the rendering engine.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -35,7 +62,7 @@ class SimulationApplicationRenderingEngine(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+        The name of the rendering engine.
         """
         return pulumi.get(self, "name")
 
@@ -43,7 +70,7 @@ class SimulationApplicationRenderingEngine(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+        The version of the rendering engine.
         """
         return pulumi.get(self, "version")
 
@@ -51,15 +78,15 @@ class SimulationApplicationRenderingEngine(dict):
 @pulumi.output_type
 class SimulationApplicationRobotSoftwareSuite(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
+    Information about a robot software suite (ROS distribution).
     """
     def __init__(__self__, *,
                  name: str,
                  version: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+        Information about a robot software suite (ROS distribution).
+        :param str name: The name of the robot software suite (ROS distribution).
+        :param str version: The version of the robot software suite (ROS distribution).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -68,7 +95,7 @@ class SimulationApplicationRobotSoftwareSuite(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+        The name of the robot software suite (ROS distribution).
         """
         return pulumi.get(self, "name")
 
@@ -76,7 +103,7 @@ class SimulationApplicationRobotSoftwareSuite(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+        The version of the robot software suite (ROS distribution).
         """
         return pulumi.get(self, "version")
 
@@ -84,15 +111,15 @@ class SimulationApplicationRobotSoftwareSuite(dict):
 @pulumi.output_type
 class SimulationApplicationSimulationSoftwareSuite(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
+    Information about a simulation software suite.
     """
     def __init__(__self__, *,
                  name: str,
                  version: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+        Information about a simulation software suite.
+        :param str name: The name of the simulation software suite.
+        :param str version: The version of the simulation software suite.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -101,7 +128,7 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+        The name of the simulation software suite.
         """
         return pulumi.get(self, "name")
 
@@ -109,7 +136,7 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+        The version of the simulation software suite.
         """
         return pulumi.get(self, "version")
 
@@ -117,7 +144,7 @@ class SimulationApplicationSimulationSoftwareSuite(dict):
 @pulumi.output_type
 class SimulationApplicationSourceConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
+    Information about a source configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -143,10 +170,10 @@ class SimulationApplicationSourceConfig(dict):
                  s3_bucket: str,
                  s3_key: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
-        :param str architecture: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
-        :param str s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
-        :param str s3_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+        Information about a source configuration.
+        :param str architecture: The target processor architecture for the application.
+        :param str s3_bucket: The Amazon S3 bucket name.
+        :param str s3_key: The s3 object key.
         """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -156,7 +183,7 @@ class SimulationApplicationSourceConfig(dict):
     @pulumi.getter
     def architecture(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+        The target processor architecture for the application.
         """
         return pulumi.get(self, "architecture")
 
@@ -164,7 +191,7 @@ class SimulationApplicationSourceConfig(dict):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+        The Amazon S3 bucket name.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -172,8 +199,20 @@ class SimulationApplicationSourceConfig(dict):
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+        The s3 object key.
         """
         return pulumi.get(self, "s3_key")
+
+
+@pulumi.output_type
+class SimulationApplicationTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 

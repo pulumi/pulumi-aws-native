@@ -27,16 +27,16 @@ class DBProxyArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBProxy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]] auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
-        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
-        :param pulumi.Input[str] engine_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
-        :param pulumi.Input[bool] debug_logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
-        :param pulumi.Input[int] idle_client_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
-        :param pulumi.Input[bool] require_tls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
-        :param pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        :param pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]] auth: The authorization mechanism that the proxy uses.
+        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
+        :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
+        :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
+        :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
         """
         pulumi.set(__self__, "auth", auth)
         pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
@@ -58,7 +58,7 @@ class DBProxyArgs:
     @pulumi.getter
     def auth(self) -> pulumi.Input[Sequence[pulumi.Input['DBProxyAuthFormatArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+        The authorization mechanism that the proxy uses.
         """
         return pulumi.get(self, "auth")
 
@@ -70,7 +70,7 @@ class DBProxyArgs:
     @pulumi.getter(name="dBProxyName")
     def d_b_proxy_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+        The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_name")
 
@@ -82,7 +82,7 @@ class DBProxyArgs:
     @pulumi.getter(name="engineFamily")
     def engine_family(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+        The kinds of databases that the proxy can connect to.
         """
         return pulumi.get(self, "engine_family")
 
@@ -94,7 +94,7 @@ class DBProxyArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 
@@ -106,7 +106,7 @@ class DBProxyArgs:
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        VPC subnet IDs to associate with the new proxy.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 
@@ -118,7 +118,7 @@ class DBProxyArgs:
     @pulumi.getter(name="debugLogging")
     def debug_logging(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+        Whether the proxy includes detailed information about SQL statements in its logs.
         """
         return pulumi.get(self, "debug_logging")
 
@@ -130,7 +130,7 @@ class DBProxyArgs:
     @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         """
         return pulumi.get(self, "idle_client_timeout")
 
@@ -142,7 +142,7 @@ class DBProxyArgs:
     @pulumi.getter(name="requireTLS")
     def require_tls(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -154,7 +154,7 @@ class DBProxyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyTagFormatArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
 
@@ -166,7 +166,7 @@ class DBProxyArgs:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        VPC security group IDs to associate with the new proxy.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -192,20 +192,20 @@ class DBProxy(pulumi.CustomResource):
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+        Resource schema for AWS::RDS::DBProxy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
-        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
-        :param pulumi.Input[bool] debug_logging: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
-        :param pulumi.Input[str] engine_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
-        :param pulumi.Input[int] idle_client_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
-        :param pulumi.Input[bool] require_tls: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyAuthFormatArgs']]]] auth: The authorization mechanism that the proxy uses.
+        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs.
+        :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to.
+        :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
+        :param pulumi.Input[bool] require_tls: A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new proxy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new proxy.
         """
         ...
     @overload
@@ -214,7 +214,7 @@ class DBProxy(pulumi.CustomResource):
                  args: DBProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+        Resource schema for AWS::RDS::DBProxy
 
         :param str resource_name: The name of the resource.
         :param DBProxyArgs args: The arguments to use to populate this resource's properties.
@@ -317,20 +317,23 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter
     def auth(self) -> pulumi.Output[Sequence['outputs.DBProxyAuthFormat']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+        The authorization mechanism that the proxy uses.
         """
         return pulumi.get(self, "auth")
 
     @property
     @pulumi.getter(name="dBProxyArn")
     def d_b_proxy_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the proxy.
+        """
         return pulumi.get(self, "d_b_proxy_arn")
 
     @property
     @pulumi.getter(name="dBProxyName")
     def d_b_proxy_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+        The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_name")
 
@@ -338,20 +341,23 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter(name="debugLogging")
     def debug_logging(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+        Whether the proxy includes detailed information about SQL statements in its logs.
         """
         return pulumi.get(self, "debug_logging")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="engineFamily")
     def engine_family(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+        The kinds of databases that the proxy can connect to.
         """
         return pulumi.get(self, "engine_family")
 
@@ -359,7 +365,7 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+        The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
         """
         return pulumi.get(self, "idle_client_timeout")
 
@@ -367,7 +373,7 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter(name="requireTLS")
     def require_tls(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+        A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 
@@ -375,7 +381,7 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+        The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         """
         return pulumi.get(self, "role_arn")
 
@@ -383,20 +389,23 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBProxyTagFormat']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        VPC ID to associate with the new DB proxy.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+        VPC security group IDs to associate with the new proxy.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -404,7 +413,7 @@ class DBProxy(pulumi.CustomResource):
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+        VPC subnet IDs to associate with the new proxy.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 

@@ -22,9 +22,9 @@ class HealthCheckHealthCheckTagArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag.
+        :param pulumi.Input[str] value: The value for the tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -33,7 +33,7 @@ class HealthCheckHealthCheckTagArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+        The key name of the tag.
         """
         return pulumi.get(self, "key")
 
@@ -45,7 +45,7 @@ class HealthCheckHealthCheckTagArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+        The value for the tag.
         """
         return pulumi.get(self, "value")
 
@@ -59,8 +59,10 @@ class HostedZoneHostedZoneConfigArgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
-        :param pulumi.Input[str] comment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+        A complex type that contains an optional comment.
+
+        If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
+        :param pulumi.Input[str] comment: Any comments that you want to include about the hosted zone.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -69,7 +71,7 @@ class HostedZoneHostedZoneConfigArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+        Any comments that you want to include about the hosted zone.
         """
         return pulumi.get(self, "comment")
 
@@ -84,9 +86,9 @@ class HostedZoneHostedZoneTagArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+        A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
+        :param pulumi.Input[str] key: The key name of the tag.
+        :param pulumi.Input[str] value: The value for the tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -95,7 +97,7 @@ class HostedZoneHostedZoneTagArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
+        The key name of the tag.
         """
         return pulumi.get(self, "key")
 
@@ -107,7 +109,7 @@ class HostedZoneHostedZoneTagArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+        The value for the tag.
         """
         return pulumi.get(self, "value")
 
@@ -121,8 +123,8 @@ class HostedZoneQueryLoggingConfigArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_log_group_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
-        :param pulumi.Input[str] cloud_watch_logs_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+        A complex type that contains information about a configuration for DNS query logging.
+        :param pulumi.Input[str] cloud_watch_logs_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
         pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
@@ -130,7 +132,7 @@ class HostedZoneQueryLoggingConfigArgs:
     @pulumi.getter(name="cloudWatchLogsLogGroupArn")
     def cloud_watch_logs_log_group_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+        The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         """
         return pulumi.get(self, "cloud_watch_logs_log_group_arn")
 
@@ -145,9 +147,9 @@ class HostedZoneVPCArgs:
                  v_pc_id: pulumi.Input[str],
                  v_pc_region: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
-        :param pulumi.Input[str] v_pc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
-        :param pulumi.Input[str] v_pc_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+        A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
+        :param pulumi.Input[str] v_pc_id: The ID of an Amazon VPC.
+        :param pulumi.Input[str] v_pc_region: The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
         pulumi.set(__self__, "v_pc_id", v_pc_id)
         pulumi.set(__self__, "v_pc_region", v_pc_region)
@@ -156,7 +158,7 @@ class HostedZoneVPCArgs:
     @pulumi.getter(name="vPCId")
     def v_pc_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+        The ID of an Amazon VPC.
         """
         return pulumi.get(self, "v_pc_id")
 
@@ -168,7 +170,7 @@ class HostedZoneVPCArgs:
     @pulumi.getter(name="vPCRegion")
     def v_pc_region(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+        The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
         """
         return pulumi.get(self, "v_pc_region")
 

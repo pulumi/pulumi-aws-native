@@ -14,15 +14,13 @@ __all__ = [
     'CanaryCode',
     'CanaryRunConfig',
     'CanarySchedule',
+    'CanaryTag',
     'CanaryVPCConfig',
     'CanaryVisualReference',
 ]
 
 @pulumi.output_type
 class CanaryBaseScreenshot(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -46,9 +44,8 @@ class CanaryBaseScreenshot(dict):
                  screenshot_name: str,
                  ignore_coordinates: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
-        :param str screenshot_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
-        :param Sequence[str] ignore_coordinates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        :param str screenshot_name: Name of the screenshot to be used as base reference for visual testing
+        :param Sequence[str] ignore_coordinates: List of coordinates of rectangles to be ignored during visual testing
         """
         pulumi.set(__self__, "screenshot_name", screenshot_name)
         if ignore_coordinates is not None:
@@ -58,7 +55,7 @@ class CanaryBaseScreenshot(dict):
     @pulumi.getter(name="screenshotName")
     def screenshot_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+        Name of the screenshot to be used as base reference for visual testing
         """
         return pulumi.get(self, "screenshot_name")
 
@@ -66,16 +63,13 @@ class CanaryBaseScreenshot(dict):
     @pulumi.getter(name="ignoreCoordinates")
     def ignore_coordinates(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        List of coordinates of rectangles to be ignored during visual testing
         """
         return pulumi.get(self, "ignore_coordinates")
 
 
 @pulumi.output_type
 class CanaryCode(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -103,14 +97,6 @@ class CanaryCode(dict):
                  s3_key: Optional[str] = None,
                  s3_object_version: Optional[str] = None,
                  script: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
-        :param str handler: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-        :param str s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
-        :param str s3_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
-        :param str s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
-        :param str script: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
-        """
         pulumi.set(__self__, "handler", handler)
         if s3_bucket is not None:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -124,49 +110,31 @@ class CanaryCode(dict):
     @property
     @pulumi.getter
     def handler(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-        """
         return pulumi.get(self, "handler")
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
-        """
         return pulumi.get(self, "s3_bucket")
 
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
-        """
         return pulumi.get(self, "s3_key")
 
     @property
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
-        """
         return pulumi.get(self, "s3_object_version")
 
     @property
     @pulumi.getter
     def script(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
-        """
         return pulumi.get(self, "script")
 
 
 @pulumi.output_type
 class CanaryRunConfig(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -192,15 +160,14 @@ class CanaryRunConfig(dict):
 
     def __init__(__self__, *,
                  active_tracing: Optional[bool] = None,
-                 environment_variables: Optional[Mapping[str, str]] = None,
+                 environment_variables: Optional[Any] = None,
                  memory_in_mb: Optional[int] = None,
                  timeout_in_seconds: Optional[int] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
-        :param bool active_tracing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
-        :param Mapping[str, str] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-        :param int memory_in_mb: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
-        :param int timeout_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+        :param bool active_tracing: Enable active tracing if set to true
+        :param Any environment_variables: Environment variable key-value pairs.
+        :param int memory_in_mb: Provide maximum memory available for canary in MB
+        :param int timeout_in_seconds: Provide maximum canary timeout per run in seconds
         """
         if active_tracing is not None:
             pulumi.set(__self__, "active_tracing", active_tracing)
@@ -215,15 +182,15 @@ class CanaryRunConfig(dict):
     @pulumi.getter(name="activeTracing")
     def active_tracing(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+        Enable active tracing if set to true
         """
         return pulumi.get(self, "active_tracing")
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Mapping[str, str]]:
+    def environment_variables(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+        Environment variable key-value pairs.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -231,7 +198,7 @@ class CanaryRunConfig(dict):
     @pulumi.getter(name="memoryInMB")
     def memory_in_mb(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+        Provide maximum memory available for canary in MB
         """
         return pulumi.get(self, "memory_in_mb")
 
@@ -239,16 +206,13 @@ class CanaryRunConfig(dict):
     @pulumi.getter(name="timeoutInSeconds")
     def timeout_in_seconds(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+        Provide maximum canary timeout per run in seconds
         """
         return pulumi.get(self, "timeout_in_seconds")
 
 
 @pulumi.output_type
 class CanarySchedule(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -269,11 +233,6 @@ class CanarySchedule(dict):
     def __init__(__self__, *,
                  expression: str,
                  duration_in_seconds: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
-        :param str expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
-        :param str duration_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-        """
         pulumi.set(__self__, "expression", expression)
         if duration_in_seconds is not None:
             pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
@@ -281,25 +240,49 @@ class CanarySchedule(dict):
     @property
     @pulumi.getter
     def expression(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
-        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter(name="durationInSeconds")
     def duration_in_seconds(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-        """
         return pulumi.get(self, "duration_in_seconds")
 
 
 @pulumi.output_type
+class CanaryTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class CanaryVPCConfig(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -325,12 +308,6 @@ class CanaryVPCConfig(dict):
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
                  vpc_id: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
-        :param Sequence[str] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
-        :param str vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
@@ -339,33 +316,21 @@ class CanaryVPCConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
-        """
         return pulumi.get(self, "vpc_id")
 
 
 @pulumi.output_type
 class CanaryVisualReference(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -389,9 +354,8 @@ class CanaryVisualReference(dict):
                  base_canary_run_id: str,
                  base_screenshots: Optional[Sequence['outputs.CanaryBaseScreenshot']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
-        :param str base_canary_run_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
-        :param Sequence['CanaryBaseScreenshot'] base_screenshots: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        :param str base_canary_run_id: Canary run id to be used as base reference for visual testing
+        :param Sequence['CanaryBaseScreenshot'] base_screenshots: List of screenshots used as base reference for visual testing
         """
         pulumi.set(__self__, "base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
@@ -401,7 +365,7 @@ class CanaryVisualReference(dict):
     @pulumi.getter(name="baseCanaryRunId")
     def base_canary_run_id(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+        Canary run id to be used as base reference for visual testing
         """
         return pulumi.get(self, "base_canary_run_id")
 
@@ -409,7 +373,7 @@ class CanaryVisualReference(dict):
     @pulumi.getter(name="baseScreenshots")
     def base_screenshots(self) -> Optional[Sequence['outputs.CanaryBaseScreenshot']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        List of screenshots used as base reference for visual testing
         """
         return pulumi.get(self, "base_screenshots")
 

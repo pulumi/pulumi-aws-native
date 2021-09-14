@@ -20,9 +20,6 @@ class LoggingConfigurationArgs:
                  firewall_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
-        :param pulumi.Input[str] firewall_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        :param pulumi.Input['LoggingConfigurationLoggingConfigurationArgs'] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
         pulumi.set(__self__, "logging_configuration", logging_configuration)
@@ -32,9 +29,6 @@ class LoggingConfigurationArgs:
     @property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        """
         return pulumi.get(self, "firewall_arn")
 
     @firewall_arn.setter
@@ -44,9 +38,6 @@ class LoggingConfigurationArgs:
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Input['LoggingConfigurationLoggingConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
@@ -56,9 +47,6 @@ class LoggingConfigurationArgs:
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
@@ -76,13 +64,10 @@ class LoggingConfiguration(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
+        Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] firewall_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        :param pulumi.Input[str] firewall_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationLoggingConfigurationArgs']] logging_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
         """
         ...
     @overload
@@ -91,7 +76,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  args: LoggingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
+        Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -160,24 +145,15 @@ class LoggingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        """
         return pulumi.get(self, "firewall_arn")
 
     @property
     @pulumi.getter(name="firewallName")
     def firewall_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        """
         return pulumi.get(self, "firewall_name")
 
     @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.LoggingConfigurationLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        """
         return pulumi.get(self, "logging_configuration")
 

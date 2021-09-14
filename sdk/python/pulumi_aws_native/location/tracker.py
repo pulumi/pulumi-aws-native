@@ -20,11 +20,6 @@ class TrackerArgs:
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-        :param pulumi.Input[str] tracker_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-        :param pulumi.Input[str] pricing_plan_data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
         """
         pulumi.set(__self__, "pricing_plan", pricing_plan)
         pulumi.set(__self__, "tracker_name", tracker_name)
@@ -38,9 +33,6 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -50,9 +42,6 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -62,9 +51,6 @@ class TrackerArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,9 +60,6 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -86,9 +69,6 @@ class TrackerArgs:
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
-        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @pricing_plan_data_source.setter
@@ -108,15 +88,10 @@ class Tracker(pulumi.CustomResource):
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
+        Definition of AWS::Location::Tracker Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-        :param pulumi.Input[str] pricing_plan_data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
-        :param pulumi.Input[str] tracker_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
         """
         ...
     @overload
@@ -125,7 +100,7 @@ class Tracker(pulumi.CustomResource):
                  args: TrackerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
+        Definition of AWS::Location::Tracker Resource Type
 
         :param str resource_name: The name of the resource.
         :param TrackerArgs args: The arguments to use to populate this resource's properties.
@@ -218,33 +193,21 @@ class Tracker(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
-        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @property
@@ -255,9 +218,6 @@ class Tracker(pulumi.CustomResource):
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-        """
         return pulumi.get(self, "tracker_name")
 
     @property

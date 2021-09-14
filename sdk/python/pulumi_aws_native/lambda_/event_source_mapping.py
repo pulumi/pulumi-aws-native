@@ -35,24 +35,24 @@ class EventSourceMappingArgs:
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a EventSourceMapping resource.
-        :param pulumi.Input[str] function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
-        :param pulumi.Input[int] batch_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-        :param pulumi.Input[bool] bisect_batch_on_function_error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
-        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
-        :param pulumi.Input[str] event_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
-        :param pulumi.Input[int] maximum_batching_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
-        :param pulumi.Input[int] maximum_record_age_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
-        :param pulumi.Input[int] maximum_retry_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
-        :param pulumi.Input[int] parallelization_factor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
-        :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
-        :param pulumi.Input[str] starting_position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
-        :param pulumi.Input[float] starting_position_timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
-        :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[int] batch_size: The maximum number of items to retrieve in a single batch.
+        :param pulumi.Input[bool] bisect_batch_on_function_error: (Streams) If the function returns an error, split the batch in two and retry.
+        :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
+        :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: (Streams) A list of response types supported by the function.
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+        :param pulumi.Input[int] maximum_record_age_in_seconds: (Streams) The maximum age of a record that Lambda sends to a function for processing.
+        :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
+        :param pulumi.Input[int] parallelization_factor: (Streams) The number of batches to process from each shard concurrently.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (ActiveMQ) A list of ActiveMQ queues.
+        :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: Self-managed event source endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: A list of SourceAccessConfiguration.
+        :param pulumi.Input[str] starting_position: The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
+        :param pulumi.Input[float] starting_position_timestamp: With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: (Kafka) A list of Kafka topics.
+        :param pulumi.Input[int] tumbling_window_in_seconds: (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
         """
         pulumi.set(__self__, "function_name", function_name)
         if batch_size is not None:
@@ -94,7 +94,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+        The name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
@@ -106,7 +106,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+        The maximum number of items to retrieve in a single batch.
         """
         return pulumi.get(self, "batch_size")
 
@@ -118,7 +118,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="bisectBatchOnFunctionError")
     def bisect_batch_on_function_error(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+        (Streams) If the function returns an error, split the batch in two and retry.
         """
         return pulumi.get(self, "bisect_batch_on_function_error")
 
@@ -130,7 +130,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+        (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         """
         return pulumi.get(self, "destination_config")
 
@@ -142,7 +142,7 @@ class EventSourceMappingArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+        Disables the event source mapping to pause polling and invocation.
         """
         return pulumi.get(self, "enabled")
 
@@ -154,7 +154,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+        The Amazon Resource Name (ARN) of the event source.
         """
         return pulumi.get(self, "event_source_arn")
 
@@ -166,7 +166,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        (Streams) A list of response types supported by the function.
         """
         return pulumi.get(self, "function_response_types")
 
@@ -178,7 +178,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+        (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -190,7 +190,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+        (Streams) The maximum age of a record that Lambda sends to a function for processing.
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
@@ -202,7 +202,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+        (Streams) The maximum number of times to retry when the function returns an error.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
@@ -214,7 +214,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+        (Streams) The number of batches to process from each shard concurrently.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -226,7 +226,7 @@ class EventSourceMappingArgs:
     @pulumi.getter
     def queues(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        (ActiveMQ) A list of ActiveMQ queues.
         """
         return pulumi.get(self, "queues")
 
@@ -238,7 +238,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        Self-managed event source endpoints.
         """
         return pulumi.get(self, "self_managed_event_source")
 
@@ -250,7 +250,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        A list of SourceAccessConfiguration.
         """
         return pulumi.get(self, "source_access_configurations")
 
@@ -262,7 +262,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
         """
         return pulumi.get(self, "starting_position")
 
@@ -274,7 +274,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="startingPositionTimestamp")
     def starting_position_timestamp(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
         """
         return pulumi.get(self, "starting_position_timestamp")
 
@@ -286,7 +286,7 @@ class EventSourceMappingArgs:
     @pulumi.getter
     def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        (Kafka) A list of Kafka topics.
         """
         return pulumi.get(self, "topics")
 
@@ -298,7 +298,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="tumblingWindowInSeconds")
     def tumbling_window_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
         """
         return pulumi.get(self, "tumbling_window_in_seconds")
 
@@ -332,28 +332,28 @@ class EventSourceMapping(pulumi.CustomResource):
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
+        Resource Type definition for AWS::Lambda::EventSourceMapping
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] batch_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-        :param pulumi.Input[bool] bisect_batch_on_function_error: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
-        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
-        :param pulumi.Input[str] event_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
-        :param pulumi.Input[str] function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
-        :param pulumi.Input[int] maximum_batching_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
-        :param pulumi.Input[int] maximum_record_age_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
-        :param pulumi.Input[int] maximum_retry_attempts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
-        :param pulumi.Input[int] parallelization_factor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
-        :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
-        :param pulumi.Input[str] starting_position: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
-        :param pulumi.Input[float] starting_position_timestamp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
-        :param pulumi.Input[int] tumbling_window_in_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        :param pulumi.Input[int] batch_size: The maximum number of items to retrieve in a single batch.
+        :param pulumi.Input[bool] bisect_batch_on_function_error: (Streams) If the function returns an error, split the batch in two and retry.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
+        :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: (Streams) A list of response types supported by the function.
+        :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+        :param pulumi.Input[int] maximum_record_age_in_seconds: (Streams) The maximum age of a record that Lambda sends to a function for processing.
+        :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
+        :param pulumi.Input[int] parallelization_factor: (Streams) The number of batches to process from each shard concurrently.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (ActiveMQ) A list of ActiveMQ queues.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: Self-managed event source endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: A list of SourceAccessConfiguration.
+        :param pulumi.Input[str] starting_position: The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
+        :param pulumi.Input[float] starting_position_timestamp: With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: (Kafka) A list of Kafka topics.
+        :param pulumi.Input[int] tumbling_window_in_seconds: (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
         """
         ...
     @overload
@@ -362,7 +362,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  args: EventSourceMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
+        Resource Type definition for AWS::Lambda::EventSourceMapping
 
         :param str resource_name: The name of the resource.
         :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.
@@ -429,7 +429,6 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["starting_position_timestamp"] = starting_position_timestamp
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
-            __props__.__dict__["id"] = None
         super(EventSourceMapping, __self__).__init__(
             'aws-native:lambda:EventSourceMapping',
             resource_name,
@@ -459,7 +458,6 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["event_source_arn"] = None
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_response_types"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["maximum_batching_window_in_seconds"] = None
         __props__.__dict__["maximum_record_age_in_seconds"] = None
         __props__.__dict__["maximum_retry_attempts"] = None
@@ -477,7 +475,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+        The maximum number of items to retrieve in a single batch.
         """
         return pulumi.get(self, "batch_size")
 
@@ -485,7 +483,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="bisectBatchOnFunctionError")
     def bisect_batch_on_function_error(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+        (Streams) If the function returns an error, split the batch in two and retry.
         """
         return pulumi.get(self, "bisect_batch_on_function_error")
 
@@ -493,7 +491,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingDestinationConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+        (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         """
         return pulumi.get(self, "destination_config")
 
@@ -501,7 +499,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+        Disables the event source mapping to pause polling and invocation.
         """
         return pulumi.get(self, "enabled")
 
@@ -509,7 +507,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="eventSourceArn")
     def event_source_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+        The Amazon Resource Name (ARN) of the event source.
         """
         return pulumi.get(self, "event_source_arn")
 
@@ -517,7 +515,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+        The name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
@@ -525,20 +523,15 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="functionResponseTypes")
     def function_response_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+        (Streams) A list of response types supported by the function.
         """
         return pulumi.get(self, "function_response_types")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+        (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -546,7 +539,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+        (Streams) The maximum age of a record that Lambda sends to a function for processing.
         """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
@@ -554,7 +547,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+        (Streams) The maximum number of times to retry when the function returns an error.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
@@ -562,7 +555,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+        (Streams) The number of batches to process from each shard concurrently.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -570,7 +563,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter
     def queues(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+        (ActiveMQ) A list of ActiveMQ queues.
         """
         return pulumi.get(self, "queues")
 
@@ -578,7 +571,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> pulumi.Output[Optional['outputs.EventSourceMappingSelfManagedEventSource']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+        Self-managed event source endpoints.
         """
         return pulumi.get(self, "self_managed_event_source")
 
@@ -586,7 +579,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EventSourceMappingSourceAccessConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+        A list of SourceAccessConfiguration.
         """
         return pulumi.get(self, "source_access_configurations")
 
@@ -594,7 +587,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+        The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
         """
         return pulumi.get(self, "starting_position")
 
@@ -602,7 +595,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="startingPositionTimestamp")
     def starting_position_timestamp(self) -> pulumi.Output[Optional[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+        With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
         """
         return pulumi.get(self, "starting_position_timestamp")
 
@@ -610,7 +603,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter
     def topics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+        (Kafka) A list of Kafka topics.
         """
         return pulumi.get(self, "topics")
 
@@ -618,7 +611,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="tumblingWindowInSeconds")
     def tumbling_window_in_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+        (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
         """
         return pulumi.get(self, "tumbling_window_in_seconds")
 

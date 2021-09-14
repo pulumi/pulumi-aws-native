@@ -23,11 +23,6 @@ class AccessPointAccessPointTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -36,9 +31,6 @@ class AccessPointAccessPointTagArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -48,9 +40,6 @@ class AccessPointAccessPointTagArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -65,10 +54,9 @@ class AccessPointCreationInfoArgs:
                  owner_uid: pulumi.Input[str],
                  permissions: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
-        :param pulumi.Input[str] owner_gid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
-        :param pulumi.Input[str] owner_uid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
-        :param pulumi.Input[str] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+        :param pulumi.Input[str] owner_gid: Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+        :param pulumi.Input[str] owner_uid: Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
+        :param pulumi.Input[str] permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
@@ -78,7 +66,7 @@ class AccessPointCreationInfoArgs:
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+        Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
         """
         return pulumi.get(self, "owner_gid")
 
@@ -90,7 +78,7 @@ class AccessPointCreationInfoArgs:
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+        Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
         """
         return pulumi.get(self, "owner_uid")
 
@@ -102,7 +90,7 @@ class AccessPointCreationInfoArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+        Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         return pulumi.get(self, "permissions")
 
@@ -118,10 +106,9 @@ class AccessPointPosixUserArgs:
                  uid: pulumi.Input[str],
                  secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
-        :param pulumi.Input[str] gid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
-        :param pulumi.Input[str] uid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_gids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+        :param pulumi.Input[str] gid: The POSIX group ID used for all file system operations using this access point.
+        :param pulumi.Input[str] uid: The POSIX user ID used for all file system operations using this access point.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
@@ -132,7 +119,7 @@ class AccessPointPosixUserArgs:
     @pulumi.getter
     def gid(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+        The POSIX group ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "gid")
 
@@ -144,7 +131,7 @@ class AccessPointPosixUserArgs:
     @pulumi.getter
     def uid(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+        The POSIX user ID used for all file system operations using this access point.
         """
         return pulumi.get(self, "uid")
 
@@ -156,7 +143,7 @@ class AccessPointPosixUserArgs:
     @pulumi.getter(name="secondaryGids")
     def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+        Secondary POSIX group IDs used for all file system operations using this access point.
         """
         return pulumi.get(self, "secondary_gids")
 
@@ -171,9 +158,8 @@ class AccessPointRootDirectoryArgs:
                  creation_info: Optional[pulumi.Input['AccessPointCreationInfoArgs']] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
-        :param pulumi.Input['AccessPointCreationInfoArgs'] creation_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
-        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+        :param pulumi.Input['AccessPointCreationInfoArgs'] creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
+        :param pulumi.Input[str] path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
         """
         if creation_info is not None:
             pulumi.set(__self__, "creation_info", creation_info)
@@ -184,7 +170,7 @@ class AccessPointRootDirectoryArgs:
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional[pulumi.Input['AccessPointCreationInfoArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+        (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
         """
         return pulumi.get(self, "creation_info")
 
@@ -196,7 +182,7 @@ class AccessPointRootDirectoryArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+        Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
         """
         return pulumi.get(self, "path")
 
@@ -209,18 +195,11 @@ class AccessPointRootDirectoryArgs:
 class FileSystemBackupPolicyArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
-        """
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -233,20 +212,12 @@ class FileSystemElasticFileSystemTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -256,9 +227,6 @@ class FileSystemElasticFileSystemTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -271,11 +239,6 @@ class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
-        :param pulumi.Input[str] transition_to_ia: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-        :param pulumi.Input[str] transition_to_primary_storage_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
-        """
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
@@ -284,9 +247,6 @@ class FileSystemLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="transitionToIA")
     def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-        """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
@@ -296,9 +256,6 @@ class FileSystemLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
-        """
         return pulumi.get(self, "transition_to_primary_storage_class")
 
     @transition_to_primary_storage_class.setter

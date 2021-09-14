@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DataSetArgs', 'DataSet']
@@ -21,30 +19,21 @@ class DataSetArgs:
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]] = None,
+                 field_folders: Optional[pulumi.Input['DataSetFieldFolderMapArgs']] = None,
                  import_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
-                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]] = None,
+                 logical_table_map: Optional[pulumi.Input['DataSetLogicalTableMapArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]] = None,
-                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]] = None,
+                 physical_table_map: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataSet resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        :param pulumi.Input[str] data_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]] field_folders: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        :param pulumi.Input[str] import_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]] logical_table_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]] physical_table_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -76,9 +65,6 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -89,7 +75,7 @@ class DataSetArgs:
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+        <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
@@ -100,9 +86,6 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="columnLevelPermissionRules")
     def column_level_permission_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        """
         return pulumi.get(self, "column_level_permission_rules")
 
     @column_level_permission_rules.setter
@@ -112,9 +95,6 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        """
         return pulumi.get(self, "data_set_id")
 
     @data_set_id.setter
@@ -123,22 +103,16 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="fieldFolders")
-    def field_folders(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        """
+    def field_folders(self) -> Optional[pulumi.Input['DataSetFieldFolderMapArgs']]:
         return pulumi.get(self, "field_folders")
 
     @field_folders.setter
-    def field_folders(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]]]):
+    def field_folders(self, value: Optional[pulumi.Input['DataSetFieldFolderMapArgs']]):
         pulumi.set(self, "field_folders", value)
 
     @property
     @pulumi.getter(name="importMode")
     def import_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        """
         return pulumi.get(self, "import_mode")
 
     @import_mode.setter
@@ -148,9 +122,6 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="ingestionWaitPolicy")
     def ingestion_wait_policy(self) -> Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        """
         return pulumi.get(self, "ingestion_wait_policy")
 
     @ingestion_wait_policy.setter
@@ -159,21 +130,18 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="logicalTableMap")
-    def logical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        """
+    def logical_table_map(self) -> Optional[pulumi.Input['DataSetLogicalTableMapArgs']]:
         return pulumi.get(self, "logical_table_map")
 
     @logical_table_map.setter
-    def logical_table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]):
+    def logical_table_map(self, value: Optional[pulumi.Input['DataSetLogicalTableMapArgs']]):
         pulumi.set(self, "logical_table_map", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+        <p>The display name for the dataset.</p>
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +153,7 @@ class DataSetArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+        <p>A list of resource permissions on the dataset.</p>
         """
         return pulumi.get(self, "permissions")
 
@@ -195,22 +163,16 @@ class DataSetArgs:
 
     @property
     @pulumi.getter(name="physicalTableMap")
-    def physical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        """
+    def physical_table_map(self) -> Optional[pulumi.Input['DataSetPhysicalTableMapArgs']]:
         return pulumi.get(self, "physical_table_map")
 
     @physical_table_map.setter
-    def physical_table_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]]):
+    def physical_table_map(self, value: Optional[pulumi.Input['DataSetPhysicalTableMapArgs']]):
         pulumi.set(self, "physical_table_map", value)
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @row_level_permission_data_set.setter
@@ -219,14 +181,14 @@ class DataSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -239,34 +201,25 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
+                 field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
+                 logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
+                 physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+        Definition of the AWS::QuickSight::DataSet Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]] column_level_permission_rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        :param pulumi.Input[str] data_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]] field_folders: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        :param pulumi.Input[str] import_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        :param pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']] ingestion_wait_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]] logical_table_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]] physical_table_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        :param pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']] row_level_permission_data_set: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]] column_groups: <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the dataset.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         ...
     @overload
@@ -275,7 +228,7 @@ class DataSet(pulumi.CustomResource):
                  args: Optional[DataSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+        Definition of the AWS::QuickSight::DataSet Resource Type.
 
         :param str resource_name: The name of the resource.
         :param DataSetArgs args: The arguments to use to populate this resource's properties.
@@ -296,15 +249,15 @@ class DataSet(pulumi.CustomResource):
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnGroupArgs']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetColumnLevelPermissionRuleArgs']]]]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 field_folders: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetFieldFolderArgs']]]]] = None,
+                 field_folders: Optional[pulumi.Input[pulumi.InputType['DataSetFieldFolderMapArgs']]] = None,
                  import_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_wait_policy: Optional[pulumi.Input[pulumi.InputType['DataSetIngestionWaitPolicyArgs']]] = None,
-                 logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetLogicalTableArgs']]]]] = None,
+                 logical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetLogicalTableMapArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetResourcePermissionArgs']]]]] = None,
-                 physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DataSetPhysicalTableArgs']]]]] = None,
+                 physical_table_map: Optional[pulumi.Input[pulumi.InputType['DataSetPhysicalTableMapArgs']]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[pulumi.InputType['DataSetRowLevelPermissionDataSetArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -380,129 +333,119 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetColumnGroup']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+        <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
     @property
     @pulumi.getter(name="columnLevelPermissionRules")
     def column_level_permission_rules(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetColumnLevelPermissionRule']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        """
         return pulumi.get(self, "column_level_permission_rules")
 
     @property
     @pulumi.getter(name="consumedSpiceCapacityInBytes")
     def consumed_spice_capacity_in_bytes(self) -> pulumi.Output[float]:
+        """
+        <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+                    imported into SPICE.</p>
+        """
         return pulumi.get(self, "consumed_spice_capacity_in_bytes")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that this dataset was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetId")
     def data_set_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        """
         return pulumi.get(self, "data_set_id")
 
     @property
     @pulumi.getter(name="fieldFolders")
-    def field_folders(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetFieldFolder']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        """
+    def field_folders(self) -> pulumi.Output[Optional['outputs.DataSetFieldFolderMap']]:
         return pulumi.get(self, "field_folders")
 
     @property
     @pulumi.getter(name="importMode")
     def import_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        """
         return pulumi.get(self, "import_mode")
 
     @property
     @pulumi.getter(name="ingestionWaitPolicy")
     def ingestion_wait_policy(self) -> pulumi.Output[Optional['outputs.DataSetIngestionWaitPolicy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        """
         return pulumi.get(self, "ingestion_wait_policy")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this dataset was updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter(name="logicalTableMap")
-    def logical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetLogicalTable']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        """
+    def logical_table_map(self) -> pulumi.Output[Optional['outputs.DataSetLogicalTableMap']]:
         return pulumi.get(self, "logical_table_map")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+        <p>The display name for the dataset.</p>
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outputColumns")
     def output_columns(self) -> pulumi.Output[Sequence['outputs.DataSetOutputColumn']]:
+        """
+        <p>The list of columns after all transforms. These columns are available in templates,
+                    analyses, and dashboards.</p>
+        """
         return pulumi.get(self, "output_columns")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+        <p>A list of resource permissions on the dataset.</p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="physicalTableMap")
-    def physical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetPhysicalTable']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        """
+    def physical_table_map(self) -> pulumi.Output[Optional['outputs.DataSetPhysicalTableMap']]:
         return pulumi.get(self, "physical_table_map")
 
     @property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionDataSet']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         """
         return pulumi.get(self, "tags")
 

@@ -9,13 +9,42 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DataCatalogTagArgs',
     'WorkGroupEncryptionConfigurationArgs',
     'WorkGroupEngineVersionArgs',
     'WorkGroupResultConfigurationUpdatesArgs',
     'WorkGroupResultConfigurationArgs',
+    'WorkGroupTagArgs',
     'WorkGroupWorkGroupConfigurationUpdatesArgs',
     'WorkGroupWorkGroupConfigurationArgs',
 ]
+
+@pulumi.input_type
+class DataCatalogTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class WorkGroupEncryptionConfigurationArgs:
@@ -23,9 +52,7 @@ class WorkGroupEncryptionConfigurationArgs:
                  encryption_option: pulumi.Input[str],
                  kms_key: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
-        :param pulumi.Input[str] encryption_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
-        :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
+        If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
         """
         pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key is not None:
@@ -34,9 +61,6 @@ class WorkGroupEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
-        """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
@@ -46,9 +70,6 @@ class WorkGroupEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -62,9 +83,7 @@ class WorkGroupEngineVersionArgs:
                  effective_engine_version: Optional[pulumi.Input[str]] = None,
                  selected_engine_version: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
-        :param pulumi.Input[str] effective_engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
-        :param pulumi.Input[str] selected_engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
+        The Athena engine version for running queries.
         """
         if effective_engine_version is not None:
             pulumi.set(__self__, "effective_engine_version", effective_engine_version)
@@ -74,9 +93,6 @@ class WorkGroupEngineVersionArgs:
     @property
     @pulumi.getter(name="effectiveEngineVersion")
     def effective_engine_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
-        """
         return pulumi.get(self, "effective_engine_version")
 
     @effective_engine_version.setter
@@ -86,9 +102,6 @@ class WorkGroupEngineVersionArgs:
     @property
     @pulumi.getter(name="selectedEngineVersion")
     def selected_engine_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
-        """
         return pulumi.get(self, "selected_engine_version")
 
     @selected_engine_version.setter
@@ -104,11 +117,7 @@ class WorkGroupResultConfigurationUpdatesArgs:
                  remove_encryption_configuration: Optional[pulumi.Input[bool]] = None,
                  remove_output_location: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
-        :param pulumi.Input['WorkGroupEncryptionConfigurationArgs'] encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
-        :param pulumi.Input[str] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
-        :param pulumi.Input[bool] remove_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
-        :param pulumi.Input[bool] remove_output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
+        The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -122,9 +131,6 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -134,9 +140,6 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
-        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
@@ -146,9 +149,6 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeEncryptionConfiguration")
     def remove_encryption_configuration(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
-        """
         return pulumi.get(self, "remove_encryption_configuration")
 
     @remove_encryption_configuration.setter
@@ -158,9 +158,6 @@ class WorkGroupResultConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeOutputLocation")
     def remove_output_location(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
-        """
         return pulumi.get(self, "remove_output_location")
 
     @remove_output_location.setter
@@ -174,9 +171,7 @@ class WorkGroupResultConfigurationArgs:
                  encryption_configuration: Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']] = None,
                  output_location: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
-        :param pulumi.Input['WorkGroupEncryptionConfigurationArgs'] encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
-        :param pulumi.Input[str] output_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
+        The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -186,9 +181,6 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -198,14 +190,38 @@ class WorkGroupResultConfigurationArgs:
     @property
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
-        """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
     def output_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "output_location", value)
+
+
+@pulumi.input_type
+class WorkGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -219,14 +235,7 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration_updates: Optional[pulumi.Input['WorkGroupResultConfigurationUpdatesArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
-        :param pulumi.Input[int] bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
-        :param pulumi.Input[bool] enforce_work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
-        :param pulumi.Input['WorkGroupEngineVersionArgs'] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
-        :param pulumi.Input[bool] publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
-        :param pulumi.Input[bool] remove_bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
-        :param pulumi.Input[bool] requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
-        :param pulumi.Input['WorkGroupResultConfigurationUpdatesArgs'] result_configuration_updates: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
+        The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
         """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
@@ -246,9 +255,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
     def bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
-        """
         return pulumi.get(self, "bytes_scanned_cutoff_per_query")
 
     @bytes_scanned_cutoff_per_query.setter
@@ -258,9 +264,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="enforceWorkGroupConfiguration")
     def enforce_work_group_configuration(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
-        """
         return pulumi.get(self, "enforce_work_group_configuration")
 
     @enforce_work_group_configuration.setter
@@ -270,9 +273,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input['WorkGroupEngineVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -282,9 +282,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
     def publish_cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
-        """
         return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
 
     @publish_cloud_watch_metrics_enabled.setter
@@ -294,9 +291,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="removeBytesScannedCutoffPerQuery")
     def remove_bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
-        """
         return pulumi.get(self, "remove_bytes_scanned_cutoff_per_query")
 
     @remove_bytes_scanned_cutoff_per_query.setter
@@ -306,9 +300,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="requesterPaysEnabled")
     def requester_pays_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
-        """
         return pulumi.get(self, "requester_pays_enabled")
 
     @requester_pays_enabled.setter
@@ -318,9 +309,6 @@ class WorkGroupWorkGroupConfigurationUpdatesArgs:
     @property
     @pulumi.getter(name="resultConfigurationUpdates")
     def result_configuration_updates(self) -> Optional[pulumi.Input['WorkGroupResultConfigurationUpdatesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
-        """
         return pulumi.get(self, "result_configuration_updates")
 
     @result_configuration_updates.setter
@@ -337,15 +325,6 @@ class WorkGroupWorkGroupConfigurationArgs:
                  publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkGroupResultConfigurationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
-        :param pulumi.Input[int] bytes_scanned_cutoff_per_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
-        :param pulumi.Input[bool] enforce_work_group_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
-        :param pulumi.Input['WorkGroupEngineVersionArgs'] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
-        :param pulumi.Input[bool] publish_cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
-        :param pulumi.Input[bool] requester_pays_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-        :param pulumi.Input['WorkGroupResultConfigurationArgs'] result_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
-        """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if enforce_work_group_configuration is not None:
@@ -362,9 +341,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="bytesScannedCutoffPerQuery")
     def bytes_scanned_cutoff_per_query(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
-        """
         return pulumi.get(self, "bytes_scanned_cutoff_per_query")
 
     @bytes_scanned_cutoff_per_query.setter
@@ -374,9 +350,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="enforceWorkGroupConfiguration")
     def enforce_work_group_configuration(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
-        """
         return pulumi.get(self, "enforce_work_group_configuration")
 
     @enforce_work_group_configuration.setter
@@ -386,9 +359,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input['WorkGroupEngineVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
-        """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
@@ -398,9 +368,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
     def publish_cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
-        """
         return pulumi.get(self, "publish_cloud_watch_metrics_enabled")
 
     @publish_cloud_watch_metrics_enabled.setter
@@ -410,9 +377,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="requesterPaysEnabled")
     def requester_pays_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-        """
         return pulumi.get(self, "requester_pays_enabled")
 
     @requester_pays_enabled.setter
@@ -422,9 +386,6 @@ class WorkGroupWorkGroupConfigurationArgs:
     @property
     @pulumi.getter(name="resultConfiguration")
     def result_configuration(self) -> Optional[pulumi.Input['WorkGroupResultConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
-        """
         return pulumi.get(self, "result_configuration")
 
     @result_configuration.setter

@@ -17,8 +17,8 @@ class EnclaveCertificateIamRoleAssociationArgs:
                  role_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a EnclaveCertificateIamRoleAssociation resource.
-        :param pulumi.Input[str] certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -27,7 +27,7 @@ class EnclaveCertificateIamRoleAssociationArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+        The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -39,7 +39,7 @@ class EnclaveCertificateIamRoleAssociationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+        The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
         return pulumi.get(self, "role_arn")
 
@@ -57,12 +57,12 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
+        Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+        :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
                  args: EnclaveCertificateIamRoleAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
+        Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
 
         :param str resource_name: The name of the resource.
         :param EnclaveCertificateIamRoleAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -144,30 +144,39 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+        The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         """
         return pulumi.get(self, "certificate_arn")
 
     @property
     @pulumi.getter(name="certificateS3BucketName")
     def certificate_s3_bucket_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Amazon S3 bucket to which the certificate was uploaded.
+        """
         return pulumi.get(self, "certificate_s3_bucket_name")
 
     @property
     @pulumi.getter(name="certificateS3ObjectKey")
     def certificate_s3_object_key(self) -> pulumi.Output[str]:
+        """
+        The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.
+        """
         return pulumi.get(self, "certificate_s3_object_key")
 
     @property
     @pulumi.getter(name="encryptionKmsKeyId")
     def encryption_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS KMS CMK used to encrypt the private key of the certificate.
+        """
         return pulumi.get(self, "encryption_kms_key_id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+        The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
         return pulumi.get(self, "role_arn")
 

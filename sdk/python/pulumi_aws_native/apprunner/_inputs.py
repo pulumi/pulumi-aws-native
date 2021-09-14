@@ -21,6 +21,7 @@ __all__ = [
     'ServiceKeyValuePairArgs',
     'ServiceSourceCodeVersionArgs',
     'ServiceSourceConfigurationArgs',
+    'ServiceTagArgs',
 ]
 
 @pulumi.input_type
@@ -29,9 +30,9 @@ class ServiceAuthenticationConfigurationArgs:
                  access_role_arn: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
-        :param pulumi.Input[str] access_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
-        :param pulumi.Input[str] connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+        Authentication Configuration
+        :param pulumi.Input[str] access_role_arn: Access Role Arn
+        :param pulumi.Input[str] connection_arn: Connection Arn
         """
         if access_role_arn is not None:
             pulumi.set(__self__, "access_role_arn", access_role_arn)
@@ -42,7 +43,7 @@ class ServiceAuthenticationConfigurationArgs:
     @pulumi.getter(name="accessRoleArn")
     def access_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+        Access Role Arn
         """
         return pulumi.get(self, "access_role_arn")
 
@@ -54,7 +55,7 @@ class ServiceAuthenticationConfigurationArgs:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+        Connection Arn
         """
         return pulumi.get(self, "connection_arn")
 
@@ -72,12 +73,11 @@ class ServiceCodeConfigurationValuesArgs:
                  runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html
-        :param pulumi.Input[str] runtime: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
-        :param pulumi.Input[str] build_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
-        :param pulumi.Input[str] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
-        :param pulumi.Input[str] start_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+        Code Configuration Values
+        :param pulumi.Input[str] runtime: Runtime
+        :param pulumi.Input[str] build_command: Build Command
+        :param pulumi.Input[str] port: Port
+        :param pulumi.Input[str] start_command: Start Command
         """
         pulumi.set(__self__, "runtime", runtime)
         if build_command is not None:
@@ -93,7 +93,7 @@ class ServiceCodeConfigurationValuesArgs:
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
+        Runtime
         """
         return pulumi.get(self, "runtime")
 
@@ -105,7 +105,7 @@ class ServiceCodeConfigurationValuesArgs:
     @pulumi.getter(name="buildCommand")
     def build_command(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+        Build Command
         """
         return pulumi.get(self, "build_command")
 
@@ -117,7 +117,7 @@ class ServiceCodeConfigurationValuesArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+        Port
         """
         return pulumi.get(self, "port")
 
@@ -128,9 +128,6 @@ class ServiceCodeConfigurationValuesArgs:
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
     def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
-        """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
@@ -141,7 +138,7 @@ class ServiceCodeConfigurationValuesArgs:
     @pulumi.getter(name="startCommand")
     def start_command(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+        Start Command
         """
         return pulumi.get(self, "start_command")
 
@@ -156,9 +153,8 @@ class ServiceCodeConfigurationArgs:
                  configuration_source: pulumi.Input[str],
                  code_configuration_values: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
-        :param pulumi.Input[str] configuration_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
-        :param pulumi.Input['ServiceCodeConfigurationValuesArgs'] code_configuration_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
+        Code Configuration
+        :param pulumi.Input[str] configuration_source: Configuration Source
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -168,7 +164,7 @@ class ServiceCodeConfigurationArgs:
     @pulumi.getter(name="configurationSource")
     def configuration_source(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+        Configuration Source
         """
         return pulumi.get(self, "configuration_source")
 
@@ -179,9 +175,6 @@ class ServiceCodeConfigurationArgs:
     @property
     @pulumi.getter(name="codeConfigurationValues")
     def code_configuration_values(self) -> Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
-        """
         return pulumi.get(self, "code_configuration_values")
 
     @code_configuration_values.setter
@@ -196,10 +189,8 @@ class ServiceCodeRepositoryArgs:
                  source_code_version: pulumi.Input['ServiceSourceCodeVersionArgs'],
                  code_configuration: Optional[pulumi.Input['ServiceCodeConfigurationArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
-        :param pulumi.Input[str] repository_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
-        :param pulumi.Input['ServiceSourceCodeVersionArgs'] source_code_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
-        :param pulumi.Input['ServiceCodeConfigurationArgs'] code_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
+        Source Code Repository
+        :param pulumi.Input[str] repository_url: Repository Url
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
@@ -210,7 +201,7 @@ class ServiceCodeRepositoryArgs:
     @pulumi.getter(name="repositoryUrl")
     def repository_url(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
+        Repository Url
         """
         return pulumi.get(self, "repository_url")
 
@@ -221,9 +212,6 @@ class ServiceCodeRepositoryArgs:
     @property
     @pulumi.getter(name="sourceCodeVersion")
     def source_code_version(self) -> pulumi.Input['ServiceSourceCodeVersionArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
-        """
         return pulumi.get(self, "source_code_version")
 
     @source_code_version.setter
@@ -233,9 +221,6 @@ class ServiceCodeRepositoryArgs:
     @property
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> Optional[pulumi.Input['ServiceCodeConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
-        """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
@@ -248,8 +233,8 @@ class ServiceEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html
-        :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+        Encryption configuration (KMS key)
+        :param pulumi.Input[str] kms_key: The KMS Key
         """
         pulumi.set(__self__, "kms_key", kms_key)
 
@@ -257,7 +242,7 @@ class ServiceEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+        The KMS Key
         """
         return pulumi.get(self, "kms_key")
 
@@ -276,13 +261,13 @@ class ServiceHealthCheckConfigurationArgs:
                  timeout: Optional[pulumi.Input[int]] = None,
                  unhealthy_threshold: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html
-        :param pulumi.Input[int] healthy_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
-        :param pulumi.Input[int] interval: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
-        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
-        :param pulumi.Input[int] timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
-        :param pulumi.Input[int] unhealthy_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+        Health check configuration
+        :param pulumi.Input[int] healthy_threshold: Health check Healthy Threshold
+        :param pulumi.Input[int] interval: Health check Interval
+        :param pulumi.Input[str] path: Health check Path
+        :param pulumi.Input[str] protocol: Health Check Protocol
+        :param pulumi.Input[int] timeout: Health check Timeout
+        :param pulumi.Input[int] unhealthy_threshold: Health check Unhealthy Threshold
         """
         if healthy_threshold is not None:
             pulumi.set(__self__, "healthy_threshold", healthy_threshold)
@@ -301,7 +286,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter(name="healthyThreshold")
     def healthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
+        Health check Healthy Threshold
         """
         return pulumi.get(self, "healthy_threshold")
 
@@ -313,7 +298,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
+        Health check Interval
         """
         return pulumi.get(self, "interval")
 
@@ -325,7 +310,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
+        Health check Path
         """
         return pulumi.get(self, "path")
 
@@ -337,7 +322,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
+        Health Check Protocol
         """
         return pulumi.get(self, "protocol")
 
@@ -349,7 +334,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
+        Health check Timeout
         """
         return pulumi.get(self, "timeout")
 
@@ -361,7 +346,7 @@ class ServiceHealthCheckConfigurationArgs:
     @pulumi.getter(name="unhealthyThreshold")
     def unhealthy_threshold(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+        Health check Unhealthy Threshold
         """
         return pulumi.get(self, "unhealthy_threshold")
 
@@ -377,10 +362,9 @@ class ServiceImageConfigurationArgs:
                  runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
-        :param pulumi.Input[str] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
-        :param pulumi.Input[str] start_command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+        Image Configuration
+        :param pulumi.Input[str] port: Port
+        :param pulumi.Input[str] start_command: Start Command
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -393,7 +377,7 @@ class ServiceImageConfigurationArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+        Port
         """
         return pulumi.get(self, "port")
 
@@ -404,9 +388,6 @@ class ServiceImageConfigurationArgs:
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
     def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
-        """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
@@ -417,7 +398,7 @@ class ServiceImageConfigurationArgs:
     @pulumi.getter(name="startCommand")
     def start_command(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+        Start Command
         """
         return pulumi.get(self, "start_command")
 
@@ -433,10 +414,9 @@ class ServiceImageRepositoryArgs:
                  image_repository_type: pulumi.Input[str],
                  image_configuration: Optional[pulumi.Input['ServiceImageConfigurationArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
-        :param pulumi.Input[str] image_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
-        :param pulumi.Input[str] image_repository_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
-        :param pulumi.Input['ServiceImageConfigurationArgs'] image_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
+        Image Repository
+        :param pulumi.Input[str] image_identifier: Image Identifier
+        :param pulumi.Input[str] image_repository_type: Image Repository Type
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -447,7 +427,7 @@ class ServiceImageRepositoryArgs:
     @pulumi.getter(name="imageIdentifier")
     def image_identifier(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+        Image Identifier
         """
         return pulumi.get(self, "image_identifier")
 
@@ -459,7 +439,7 @@ class ServiceImageRepositoryArgs:
     @pulumi.getter(name="imageRepositoryType")
     def image_repository_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+        Image Repository Type
         """
         return pulumi.get(self, "image_repository_type")
 
@@ -470,9 +450,6 @@ class ServiceImageRepositoryArgs:
     @property
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional[pulumi.Input['ServiceImageConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
-        """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
@@ -487,10 +464,10 @@ class ServiceInstanceConfigurationArgs:
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html
-        :param pulumi.Input[str] cpu: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
-        :param pulumi.Input[str] instance_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
-        :param pulumi.Input[str] memory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+        Instance Configuration
+        :param pulumi.Input[str] cpu: CPU
+        :param pulumi.Input[str] instance_role_arn: Instance Role Arn
+        :param pulumi.Input[str] memory: Memory
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -503,7 +480,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+        CPU
         """
         return pulumi.get(self, "cpu")
 
@@ -515,7 +492,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter(name="instanceRoleArn")
     def instance_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+        Instance Role Arn
         """
         return pulumi.get(self, "instance_role_arn")
 
@@ -527,7 +504,7 @@ class ServiceInstanceConfigurationArgs:
     @pulumi.getter
     def memory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+        Memory
         """
         return pulumi.get(self, "memory")
 
@@ -541,11 +518,6 @@ class ServiceKeyValuePairArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if value is not None:
@@ -554,9 +526,6 @@ class ServiceKeyValuePairArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -566,9 +535,6 @@ class ServiceKeyValuePairArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -582,9 +548,9 @@ class ServiceSourceCodeVersionArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+        Source Code Version
+        :param pulumi.Input[str] type: Source Code Version Type
+        :param pulumi.Input[str] value: Source Code Version Value
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -593,7 +559,7 @@ class ServiceSourceCodeVersionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
+        Source Code Version Type
         """
         return pulumi.get(self, "type")
 
@@ -605,7 +571,7 @@ class ServiceSourceCodeVersionArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+        Source Code Version Value
         """
         return pulumi.get(self, "value")
 
@@ -622,11 +588,8 @@ class ServiceSourceConfigurationArgs:
                  code_repository: Optional[pulumi.Input['ServiceCodeRepositoryArgs']] = None,
                  image_repository: Optional[pulumi.Input['ServiceImageRepositoryArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html
-        :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
-        :param pulumi.Input[bool] auto_deployments_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
-        :param pulumi.Input['ServiceCodeRepositoryArgs'] code_repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
-        :param pulumi.Input['ServiceImageRepositoryArgs'] image_repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
+        Source Code configuration
+        :param pulumi.Input[bool] auto_deployments_enabled: Auto Deployment enabled
         """
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -640,9 +603,6 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
-        """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
@@ -653,7 +613,7 @@ class ServiceSourceConfigurationArgs:
     @pulumi.getter(name="autoDeploymentsEnabled")
     def auto_deployments_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
+        Auto Deployment enabled
         """
         return pulumi.get(self, "auto_deployments_enabled")
 
@@ -664,9 +624,6 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="codeRepository")
     def code_repository(self) -> Optional[pulumi.Input['ServiceCodeRepositoryArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
-        """
         return pulumi.get(self, "code_repository")
 
     @code_repository.setter
@@ -676,13 +633,39 @@ class ServiceSourceConfigurationArgs:
     @property
     @pulumi.getter(name="imageRepository")
     def image_repository(self) -> Optional[pulumi.Input['ServiceImageRepositoryArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
-        """
         return pulumi.get(self, "image_repository")
 
     @image_repository.setter
     def image_repository(self, value: Optional[pulumi.Input['ServiceImageRepositoryArgs']]):
         pulumi.set(self, "image_repository", value)
+
+
+@pulumi.input_type
+class ServiceTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

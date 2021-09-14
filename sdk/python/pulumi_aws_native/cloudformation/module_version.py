@@ -17,8 +17,10 @@ class ModuleVersionArgs:
                  module_package: pulumi.Input[str]):
         """
         The set of arguments for constructing a ModuleVersion resource.
-        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
-        :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        :param pulumi.Input[str] module_name: The name of the module being registered.
+               
+               Recommended module naming pattern: company_or_organization::service::type::MODULE.
+        :param pulumi.Input[str] module_package: The url to the S3 bucket containing the schema and template fragment for the module you want to register.
         """
         pulumi.set(__self__, "module_name", module_name)
         pulumi.set(__self__, "module_package", module_package)
@@ -27,7 +29,9 @@ class ModuleVersionArgs:
     @pulumi.getter(name="moduleName")
     def module_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+        The name of the module being registered.
+
+        Recommended module naming pattern: company_or_organization::service::type::MODULE.
         """
         return pulumi.get(self, "module_name")
 
@@ -39,7 +43,7 @@ class ModuleVersionArgs:
     @pulumi.getter(name="modulePackage")
     def module_package(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        The url to the S3 bucket containing the schema and template fragment for the module you want to register.
         """
         return pulumi.get(self, "module_package")
 
@@ -57,12 +61,14 @@ class ModuleVersion(pulumi.CustomResource):
                  module_package: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+        A module that has been registered in the CloudFormation registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
-        :param pulumi.Input[str] module_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        :param pulumi.Input[str] module_name: The name of the module being registered.
+               
+               Recommended module naming pattern: company_or_organization::service::type::MODULE.
+        :param pulumi.Input[str] module_package: The url to the S3 bucket containing the schema and template fragment for the module you want to register.
         """
         ...
     @overload
@@ -71,7 +77,7 @@ class ModuleVersion(pulumi.CustomResource):
                  args: ModuleVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html
+        A module that has been registered in the CloudFormation registry.
 
         :param str resource_name: The name of the resource.
         :param ModuleVersionArgs args: The arguments to use to populate this resource's properties.
@@ -153,28 +159,42 @@ class ModuleVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the module.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of the registered module.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="documentationUrl")
     def documentation_url(self) -> pulumi.Output[str]:
+        """
+        The URL of a page providing detailed documentation for this module.
+        """
         return pulumi.get(self, "documentation_url")
 
     @property
     @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> pulumi.Output[bool]:
+        """
+        Indicator of whether this module version is the current default version
+        """
         return pulumi.get(self, "is_default_version")
 
     @property
     @pulumi.getter(name="moduleName")
     def module_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulename
+        The name of the module being registered.
+
+        Recommended module naming pattern: company_or_organization::service::type::MODULE.
         """
         return pulumi.get(self, "module_name")
 
@@ -182,27 +202,43 @@ class ModuleVersion(pulumi.CustomResource):
     @pulumi.getter(name="modulePackage")
     def module_package(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduleversion.html#cfn-cloudformation-moduleversion-modulepackage
+        The url to the S3 bucket containing the schema and template fragment for the module you want to register.
         """
         return pulumi.get(self, "module_package")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
+        """
+        The schema defining input parameters to and resources generated by the module.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="timeCreated")
     def time_created(self) -> pulumi.Output[str]:
+        """
+        The time that the specified module version was registered.
+        """
         return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
+        """
+        The version ID of the module represented by this module instance.
+        """
         return pulumi.get(self, "version_id")
 
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
+        """
+        The scope at which the type is visible and usable in CloudFormation operations.
+
+        The only allowed value at present is:
+
+        PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+        """
         return pulumi.get(self, "visibility")
 

@@ -18,9 +18,9 @@ class SchemaVersionMetadataArgs:
                  value: pulumi.Input[str]):
         """
         The set of arguments for constructing a SchemaVersionMetadata resource.
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
-        :param pulumi.Input[str] schema_version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        :param pulumi.Input[str] key: Metadata key
+        :param pulumi.Input[str] schema_version_id: Represents the version ID associated with the schema version.
+        :param pulumi.Input[str] value: Metadata value
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "schema_version_id", schema_version_id)
@@ -30,7 +30,7 @@ class SchemaVersionMetadataArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+        Metadata key
         """
         return pulumi.get(self, "key")
 
@@ -42,7 +42,7 @@ class SchemaVersionMetadataArgs:
     @pulumi.getter(name="schemaVersionId")
     def schema_version_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+        Represents the version ID associated with the schema version.
         """
         return pulumi.get(self, "schema_version_id")
 
@@ -54,7 +54,7 @@ class SchemaVersionMetadataArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        Metadata value
         """
         return pulumi.get(self, "value")
 
@@ -73,13 +73,13 @@ class SchemaVersionMetadata(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+        This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
-        :param pulumi.Input[str] schema_version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        :param pulumi.Input[str] key: Metadata key
+        :param pulumi.Input[str] schema_version_id: Represents the version ID associated with the schema version.
+        :param pulumi.Input[str] value: Metadata value
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
                  args: SchemaVersionMetadataArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+        This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
         :param SchemaVersionMetadataArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +160,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+        Metadata key
         """
         return pulumi.get(self, "key")
 
@@ -168,7 +168,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
     @pulumi.getter(name="schemaVersionId")
     def schema_version_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+        Represents the version ID associated with the schema version.
         """
         return pulumi.get(self, "schema_version_id")
 
@@ -176,7 +176,7 @@ class SchemaVersionMetadata(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        Metadata value
         """
         return pulumi.get(self, "value")
 

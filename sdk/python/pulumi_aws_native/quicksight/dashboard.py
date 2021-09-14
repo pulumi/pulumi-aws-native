@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DashboardArgs', 'Dashboard']
@@ -24,21 +22,24 @@ class DashboardArgs:
                  parameters: Optional[pulumi.Input['DashboardParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['DashboardDashboardSourceEntityArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-        :param pulumi.Input[str] dashboard_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-        :param pulumi.Input['DashboardDashboardPublishOptionsArgs'] dashboard_publish_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
-        :param pulumi.Input['DashboardParametersArgs'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
-        :param pulumi.Input['DashboardDashboardSourceEntityArgs'] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
-        :param pulumi.Input[str] theme_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+        :param pulumi.Input[str] name: <p>The display name of the dashboard.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]] permissions: <p>A structure that contains the permissions of the dashboard. You can use this structure
+                           for granting permissions by providing a list of IAM action information for each
+                           principal ARN. </p>
+               
+                       <p>To specify no permissions, omit the permissions list.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                           dashboard.</p>
+        :param pulumi.Input[str] theme_arn: <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+                           you add a value for this field, it overrides the value that is used in the source
+                           entity. The theme ARN must exist in the same AWS account where you create the
+                           dashboard.</p>
+        :param pulumi.Input[str] version_description: <p>A description for the first version of the dashboard being created.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "dashboard_id", dashboard_id)
@@ -62,9 +63,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -74,9 +72,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="dashboardId")
     def dashboard_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-        """
         return pulumi.get(self, "dashboard_id")
 
     @dashboard_id.setter
@@ -86,9 +81,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> Optional[pulumi.Input['DashboardDashboardPublishOptionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-        """
         return pulumi.get(self, "dashboard_publish_options")
 
     @dashboard_publish_options.setter
@@ -99,7 +91,7 @@ class DashboardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
+        <p>The display name of the dashboard.</p>
         """
         return pulumi.get(self, "name")
 
@@ -110,9 +102,6 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['DashboardParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -123,7 +112,11 @@ class DashboardArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
+        <p>A structure that contains the permissions of the dashboard. You can use this structure
+                    for granting permissions by providing a list of IAM action information for each
+                    principal ARN. </p>
+
+                <p>To specify no permissions, omit the permissions list.</p>
         """
         return pulumi.get(self, "permissions")
 
@@ -134,9 +127,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['DashboardDashboardSourceEntityArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -145,21 +135,25 @@ class DashboardArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                    dashboard.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
+        <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+                    you add a value for this field, it overrides the value that is used in the source
+                    entity. The theme ARN must exist in the same AWS account where you create the
+                    dashboard.</p>
         """
         return pulumi.get(self, "theme_arn")
 
@@ -171,7 +165,7 @@ class DashboardArgs:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+        <p>A description for the first version of the dashboard being created.</p>
         """
         return pulumi.get(self, "version_description")
 
@@ -192,25 +186,28 @@ class Dashboard(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html
+        Definition of the AWS::QuickSight::Dashboard Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-        :param pulumi.Input[str] dashboard_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-        :param pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']] dashboard_publish_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
-        :param pulumi.Input[pulumi.InputType['DashboardParametersArgs']] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
-        :param pulumi.Input[pulumi.InputType['DashboardDashboardSourceEntityArgs']] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
-        :param pulumi.Input[str] theme_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+        :param pulumi.Input[str] name: <p>The display name of the dashboard.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]] permissions: <p>A structure that contains the permissions of the dashboard. You can use this structure
+                           for granting permissions by providing a list of IAM action information for each
+                           principal ARN. </p>
+               
+                       <p>To specify no permissions, omit the permissions list.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                           dashboard.</p>
+        :param pulumi.Input[str] theme_arn: <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+                           you add a value for this field, it overrides the value that is used in the source
+                           entity. The theme ARN must exist in the same AWS account where you create the
+                           dashboard.</p>
+        :param pulumi.Input[str] version_description: <p>A description for the first version of the dashboard being created.</p>
         """
         ...
     @overload
@@ -219,7 +216,7 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html
+        Definition of the AWS::QuickSight::Dashboard Resource Type.
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
@@ -243,7 +240,7 @@ class Dashboard(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -276,6 +273,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_published_time"] = None
             __props__.__dict__["last_updated_time"] = None
+            __props__.__dict__["version"] = None
         super(Dashboard, __self__).__init__(
             'aws-native:quicksight:Dashboard',
             resource_name,
@@ -311,90 +309,93 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["source_entity"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["theme_arn"] = None
+        __props__.__dict__["version"] = None
         __props__.__dict__["version_description"] = None
         return Dashboard(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that this dataset was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dashboardId")
     def dashboard_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-        """
         return pulumi.get(self, "dashboard_id")
 
     @property
     @pulumi.getter(name="dashboardPublishOptions")
     def dashboard_publish_options(self) -> pulumi.Output[Optional['outputs.DashboardDashboardPublishOptions']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-        """
         return pulumi.get(self, "dashboard_publish_options")
 
     @property
     @pulumi.getter(name="lastPublishedTime")
     def last_published_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this dataset was published.</p>
+        """
         return pulumi.get(self, "last_published_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this dataset was updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
+        <p>The display name of the dashboard.</p>
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional['outputs.DashboardParameters']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
+        <p>A structure that contains the permissions of the dashboard. You can use this structure
+                    for granting permissions by providing a list of IAM action information for each
+                    principal ARN. </p>
+
+                <p>To specify no permissions, omit the permissions list.</p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.DashboardDashboardSourceEntity']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                    dashboard.</p>
         """
         return pulumi.get(self, "tags")
 
@@ -402,15 +403,23 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
+        <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+                    you add a value for this field, it overrides the value that is used in the source
+                    entity. The theme ARN must exist in the same AWS account where you create the
+                    dashboard.</p>
         """
         return pulumi.get(self, "theme_arn")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output['outputs.DashboardDashboardVersion']:
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+        <p>A description for the first version of the dashboard being created.</p>
         """
         return pulumi.get(self, "version_description")
 

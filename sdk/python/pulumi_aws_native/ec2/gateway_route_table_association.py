@@ -17,8 +17,8 @@ class GatewayRouteTableAssociationArgs:
                  route_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a GatewayRouteTableAssociation resource.
-        :param pulumi.Input[str] gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
-        :param pulumi.Input[str] route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        :param pulumi.Input[str] gateway_id: The ID of the gateway.
+        :param pulumi.Input[str] route_table_id: The ID of the route table.
         """
         pulumi.set(__self__, "gateway_id", gateway_id)
         pulumi.set(__self__, "route_table_id", route_table_id)
@@ -27,7 +27,7 @@ class GatewayRouteTableAssociationArgs:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+        The ID of the gateway.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -39,7 +39,7 @@ class GatewayRouteTableAssociationArgs:
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        The ID of the route table.
         """
         return pulumi.get(self, "route_table_id")
 
@@ -57,12 +57,12 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
+        Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
-        :param pulumi.Input[str] route_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        :param pulumi.Input[str] gateway_id: The ID of the gateway.
+        :param pulumi.Input[str] route_table_id: The ID of the route table.
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
                  args: GatewayRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
+        Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 
         :param str resource_name: The name of the resource.
         :param GatewayRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -139,13 +139,16 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
+        """
+        The route table association ID.
+        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+        The ID of the gateway.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -153,7 +156,7 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+        The ID of the route table.
         """
         return pulumi.get(self, "route_table_id")
 

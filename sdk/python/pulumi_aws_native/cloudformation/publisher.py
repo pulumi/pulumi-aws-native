@@ -17,8 +17,8 @@ class PublisherArgs:
                  connection_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Publisher resource.
-        :param pulumi.Input[bool] accept_terms_and_conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
-        :param pulumi.Input[str] connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+        :param pulumi.Input[bool] accept_terms_and_conditions: Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
+        :param pulumi.Input[str] connection_arn: If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
         pulumi.set(__self__, "accept_terms_and_conditions", accept_terms_and_conditions)
         if connection_arn is not None:
@@ -28,7 +28,7 @@ class PublisherArgs:
     @pulumi.getter(name="acceptTermsAndConditions")
     def accept_terms_and_conditions(self) -> pulumi.Input[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
+        Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
         """
         return pulumi.get(self, "accept_terms_and_conditions")
 
@@ -40,7 +40,7 @@ class PublisherArgs:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+        If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
         return pulumi.get(self, "connection_arn")
 
@@ -58,12 +58,12 @@ class Publisher(pulumi.CustomResource):
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html
+        Register as a publisher in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] accept_terms_and_conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
-        :param pulumi.Input[str] connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+        :param pulumi.Input[bool] accept_terms_and_conditions: Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
+        :param pulumi.Input[str] connection_arn: If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
         ...
     @overload
@@ -72,7 +72,7 @@ class Publisher(pulumi.CustomResource):
                  args: PublisherArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html
+        Register as a publisher in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param PublisherArgs args: The arguments to use to populate this resource's properties.
@@ -145,7 +145,7 @@ class Publisher(pulumi.CustomResource):
     @pulumi.getter(name="acceptTermsAndConditions")
     def accept_terms_and_conditions(self) -> pulumi.Output[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
+        Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
         """
         return pulumi.get(self, "accept_terms_and_conditions")
 
@@ -153,27 +153,39 @@ class Publisher(pulumi.CustomResource):
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+        If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
         return pulumi.get(self, "connection_arn")
 
     @property
     @pulumi.getter(name="identityProvider")
     def identity_provider(self) -> pulumi.Output[str]:
+        """
+        The type of account used as the identity provider when registering this publisher with CloudFormation.
+        """
         return pulumi.get(self, "identity_provider")
 
     @property
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Output[str]:
+        """
+        The publisher id assigned by CloudFormation for publishing in this region.
+        """
         return pulumi.get(self, "publisher_id")
 
     @property
     @pulumi.getter(name="publisherProfile")
     def publisher_profile(self) -> pulumi.Output[str]:
+        """
+        The URL to the publisher's profile with the identity provider.
+        """
         return pulumi.get(self, "publisher_profile")
 
     @property
     @pulumi.getter(name="publisherStatus")
     def publisher_status(self) -> pulumi.Output[str]:
+        """
+        Whether the publisher is verified.
+        """
         return pulumi.get(self, "publisher_status")
 

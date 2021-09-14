@@ -20,9 +20,9 @@ class AccessPolicyArgs:
                  access_policy_resource: pulumi.Input['AccessPolicyAccessPolicyResourceArgs']):
         """
         The set of arguments for constructing a AccessPolicy resource.
-        :param pulumi.Input['AccessPolicyAccessPolicyIdentityArgs'] access_policy_identity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-        :param pulumi.Input[str] access_policy_permission: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-        :param pulumi.Input['AccessPolicyAccessPolicyResourceArgs'] access_policy_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        :param pulumi.Input['AccessPolicyAccessPolicyIdentityArgs'] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
+        :param pulumi.Input[str] access_policy_permission: The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
+        :param pulumi.Input['AccessPolicyAccessPolicyResourceArgs'] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
         pulumi.set(__self__, "access_policy_identity", access_policy_identity)
         pulumi.set(__self__, "access_policy_permission", access_policy_permission)
@@ -32,7 +32,7 @@ class AccessPolicyArgs:
     @pulumi.getter(name="accessPolicyIdentity")
     def access_policy_identity(self) -> pulumi.Input['AccessPolicyAccessPolicyIdentityArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
+        The identity for this access policy. Choose either a user or a group but not both.
         """
         return pulumi.get(self, "access_policy_identity")
 
@@ -44,7 +44,7 @@ class AccessPolicyArgs:
     @pulumi.getter(name="accessPolicyPermission")
     def access_policy_permission(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
+        The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
         """
         return pulumi.get(self, "access_policy_permission")
 
@@ -56,7 +56,7 @@ class AccessPolicyArgs:
     @pulumi.getter(name="accessPolicyResource")
     def access_policy_resource(self) -> pulumi.Input['AccessPolicyAccessPolicyResourceArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
         return pulumi.get(self, "access_policy_resource")
 
@@ -75,13 +75,13 @@ class AccessPolicy(pulumi.CustomResource):
                  access_policy_resource: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyResourceArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
+        Resource schema for AWS::IoTSiteWise::AccessPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyIdentityArgs']] access_policy_identity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
-        :param pulumi.Input[str] access_policy_permission: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyResourceArgs']] access_policy_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyIdentityArgs']] access_policy_identity: The identity for this access policy. Choose either a user or a group but not both.
+        :param pulumi.Input[str] access_policy_permission: The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
+        :param pulumi.Input[pulumi.InputType['AccessPolicyAccessPolicyResourceArgs']] access_policy_resource: The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
         ...
     @overload
@@ -90,7 +90,7 @@ class AccessPolicy(pulumi.CustomResource):
                  args: AccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
+        Resource schema for AWS::IoTSiteWise::AccessPolicy
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -165,18 +165,24 @@ class AccessPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicyArn")
     def access_policy_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the access policy.
+        """
         return pulumi.get(self, "access_policy_arn")
 
     @property
     @pulumi.getter(name="accessPolicyId")
     def access_policy_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the access policy.
+        """
         return pulumi.get(self, "access_policy_id")
 
     @property
     @pulumi.getter(name="accessPolicyIdentity")
     def access_policy_identity(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyIdentity']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
+        The identity for this access policy. Choose either a user or a group but not both.
         """
         return pulumi.get(self, "access_policy_identity")
 
@@ -184,7 +190,7 @@ class AccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicyPermission")
     def access_policy_permission(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
+        The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
         """
         return pulumi.get(self, "access_policy_permission")
 
@@ -192,7 +198,7 @@ class AccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicyResource")
     def access_policy_resource(self) -> pulumi.Output['outputs.AccessPolicyAccessPolicyResource']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+        The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
         return pulumi.get(self, "access_policy_resource")
 

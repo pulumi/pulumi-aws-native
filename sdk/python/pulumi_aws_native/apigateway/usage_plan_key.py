@@ -18,9 +18,9 @@ class UsagePlanKeyArgs:
                  usage_plan_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UsagePlanKey resource.
-        :param pulumi.Input[str] key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
-        :param pulumi.Input[str] key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
-        :param pulumi.Input[str] usage_plan_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        :param pulumi.Input[str] key_id: The ID of the usage plan key.
+        :param pulumi.Input[str] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
+        :param pulumi.Input[str] usage_plan_id: The ID of the usage plan.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_type", key_type)
@@ -30,7 +30,7 @@ class UsagePlanKeyArgs:
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+        The ID of the usage plan key.
         """
         return pulumi.get(self, "key_id")
 
@@ -42,7 +42,7 @@ class UsagePlanKeyArgs:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+        The type of usage plan key. Currently, the only valid key type is API_KEY.
         """
         return pulumi.get(self, "key_type")
 
@@ -54,7 +54,7 @@ class UsagePlanKeyArgs:
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        The ID of the usage plan.
         """
         return pulumi.get(self, "usage_plan_id")
 
@@ -73,13 +73,13 @@ class UsagePlanKey(pulumi.CustomResource):
                  usage_plan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
+        Resource Type definition for AWS::ApiGateway::UsagePlanKey
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
-        :param pulumi.Input[str] key_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
-        :param pulumi.Input[str] usage_plan_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        :param pulumi.Input[str] key_id: The ID of the usage plan key.
+        :param pulumi.Input[str] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
+        :param pulumi.Input[str] usage_plan_id: The ID of the usage plan.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  args: UsagePlanKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
+        Resource Type definition for AWS::ApiGateway::UsagePlanKey
 
         :param str resource_name: The name of the resource.
         :param UsagePlanKeyArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +129,6 @@ class UsagePlanKey(pulumi.CustomResource):
             if usage_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_plan_id'")
             __props__.__dict__["usage_plan_id"] = usage_plan_id
-            __props__.__dict__["id"] = None
         super(UsagePlanKey, __self__).__init__(
             'aws-native:apigateway:UsagePlanKey',
             resource_name,
@@ -152,22 +151,16 @@ class UsagePlanKey(pulumi.CustomResource):
 
         __props__ = UsagePlanKeyArgs.__new__(UsagePlanKeyArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["key_id"] = None
         __props__.__dict__["key_type"] = None
         __props__.__dict__["usage_plan_id"] = None
         return UsagePlanKey(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+        The ID of the usage plan key.
         """
         return pulumi.get(self, "key_id")
 
@@ -175,7 +168,7 @@ class UsagePlanKey(pulumi.CustomResource):
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+        The type of usage plan key. Currently, the only valid key type is API_KEY.
         """
         return pulumi.get(self, "key_type")
 
@@ -183,7 +176,7 @@ class UsagePlanKey(pulumi.CustomResource):
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        The ID of the usage plan.
         """
         return pulumi.get(self, "usage_plan_id")
 

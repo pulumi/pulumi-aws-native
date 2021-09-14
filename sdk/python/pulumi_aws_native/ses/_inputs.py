@@ -9,8 +9,36 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ContactListTagArgs',
     'ContactListTopicArgs',
 ]
+
+@pulumi.input_type
+class ContactListTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class ContactListTopicArgs:
@@ -20,11 +48,9 @@ class ContactListTopicArgs:
                  topic_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html
-        :param pulumi.Input[str] default_subscription_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-defaultsubscriptionstatus
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-displayname
-        :param pulumi.Input[str] topic_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-topicname
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-description
+        :param pulumi.Input[str] display_name: The display name of the topic.
+        :param pulumi.Input[str] topic_name: The name of the topic.
+        :param pulumi.Input[str] description: The description of the topic.
         """
         pulumi.set(__self__, "default_subscription_status", default_subscription_status)
         pulumi.set(__self__, "display_name", display_name)
@@ -35,9 +61,6 @@ class ContactListTopicArgs:
     @property
     @pulumi.getter(name="defaultSubscriptionStatus")
     def default_subscription_status(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-defaultsubscriptionstatus
-        """
         return pulumi.get(self, "default_subscription_status")
 
     @default_subscription_status.setter
@@ -48,7 +71,7 @@ class ContactListTopicArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-displayname
+        The display name of the topic.
         """
         return pulumi.get(self, "display_name")
 
@@ -60,7 +83,7 @@ class ContactListTopicArgs:
     @pulumi.getter(name="topicName")
     def topic_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-topicname
+        The name of the topic.
         """
         return pulumi.get(self, "topic_name")
 
@@ -72,7 +95,7 @@ class ContactListTopicArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-description
+        The description of the topic.
         """
         return pulumi.get(self, "description")
 

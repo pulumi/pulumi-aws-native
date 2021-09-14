@@ -24,6 +24,7 @@ class FleetArgs:
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]] = None,
+                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
@@ -33,28 +34,36 @@ class FleetArgs:
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
-                 script_id: Optional[pulumi.Input[str]] = None):
+                 script_id: Optional[pulumi.Input[str]] = None,
+                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
+                 server_launch_path: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[str] build_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
-        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
-        :param pulumi.Input[int] desired_ec2_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-        :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] e_c2_inbound_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
-        :param pulumi.Input[str] e_c2_instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-        :param pulumi.Input[str] fleet_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
-        :param pulumi.Input[str] instance_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
-        :param pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]] locations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-        :param pulumi.Input[int] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
-        :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-        :param pulumi.Input[str] new_game_session_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
-        :param pulumi.Input[str] peer_vpc_aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
-        :param pulumi.Input[str] peer_vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
-        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
-        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
-        :param pulumi.Input[str] script_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
+        :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
+        :param pulumi.Input[str] description: A human-readable description of a fleet.
+        :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input[str] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
+        :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
+        :param pulumi.Input[int] min_size: [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+        :param pulumi.Input[str] name: A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+        :param pulumi.Input[str] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+        :param pulumi.Input[str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
+        :param pulumi.Input[str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
+        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+               
+               This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
+        :param pulumi.Input[str] script_id: A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+               
+               Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
+        :param pulumi.Input[str] server_launch_parameters: This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
+        :param pulumi.Input[str] server_launch_path: This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
         """
         if build_id is not None:
             pulumi.set(__self__, "build_id", build_id)
@@ -74,6 +83,8 @@ class FleetArgs:
             pulumi.set(__self__, "instance_role_arn", instance_role_arn)
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
+        if log_paths is not None:
+            pulumi.set(__self__, "log_paths", log_paths)
         if max_size is not None:
             pulumi.set(__self__, "max_size", max_size)
         if metric_groups is not None:
@@ -94,12 +105,16 @@ class FleetArgs:
             pulumi.set(__self__, "runtime_configuration", runtime_configuration)
         if script_id is not None:
             pulumi.set(__self__, "script_id", script_id)
+        if server_launch_parameters is not None:
+            pulumi.set(__self__, "server_launch_parameters", server_launch_parameters)
+        if server_launch_path is not None:
+            pulumi.set(__self__, "server_launch_path", server_launch_path)
 
     @property
     @pulumi.getter(name="buildId")
     def build_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
+        A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         """
         return pulumi.get(self, "build_id")
 
@@ -111,7 +126,7 @@ class FleetArgs:
     @pulumi.getter(name="certificateConfiguration")
     def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
+        Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         """
         return pulumi.get(self, "certificate_configuration")
 
@@ -123,7 +138,7 @@ class FleetArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
+        A human-readable description of a fleet.
         """
         return pulumi.get(self, "description")
 
@@ -135,7 +150,7 @@ class FleetArgs:
     @pulumi.getter(name="desiredEC2Instances")
     def desired_ec2_instances(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
+        [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         """
         return pulumi.get(self, "desired_ec2_instances")
 
@@ -147,7 +162,7 @@ class FleetArgs:
     @pulumi.getter(name="eC2InboundPermissions")
     def e_c2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetIpPermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
+        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
         return pulumi.get(self, "e_c2_inbound_permissions")
 
@@ -159,7 +174,7 @@ class FleetArgs:
     @pulumi.getter(name="eC2InstanceType")
     def e_c2_instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
+        The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
         return pulumi.get(self, "e_c2_instance_type")
 
@@ -171,7 +186,7 @@ class FleetArgs:
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
+        Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         """
         return pulumi.get(self, "fleet_type")
 
@@ -183,7 +198,7 @@ class FleetArgs:
     @pulumi.getter(name="instanceRoleARN")
     def instance_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
+        A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "instance_role_arn")
 
@@ -194,9 +209,6 @@ class FleetArgs:
     @property
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-        """
         return pulumi.get(self, "locations")
 
     @locations.setter
@@ -204,10 +216,22 @@ class FleetArgs:
         pulumi.set(self, "locations", value)
 
     @property
+    @pulumi.getter(name="logPaths")
+    def log_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
+        """
+        return pulumi.get(self, "log_paths")
+
+    @log_paths.setter
+    def log_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "log_paths", value)
+
+    @property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
+        [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         """
         return pulumi.get(self, "max_size")
 
@@ -219,7 +243,7 @@ class FleetArgs:
     @pulumi.getter(name="metricGroups")
     def metric_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
+        The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         """
         return pulumi.get(self, "metric_groups")
 
@@ -231,7 +255,7 @@ class FleetArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
+        [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         return pulumi.get(self, "min_size")
 
@@ -243,7 +267,7 @@ class FleetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
+        A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -255,7 +279,7 @@ class FleetArgs:
     @pulumi.getter(name="newGameSessionProtectionPolicy")
     def new_game_session_protection_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
+        A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         """
         return pulumi.get(self, "new_game_session_protection_policy")
 
@@ -267,7 +291,7 @@ class FleetArgs:
     @pulumi.getter(name="peerVpcAwsAccountId")
     def peer_vpc_aws_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
+        A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         """
         return pulumi.get(self, "peer_vpc_aws_account_id")
 
@@ -279,7 +303,7 @@ class FleetArgs:
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
+        A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "peer_vpc_id")
 
@@ -291,7 +315,7 @@ class FleetArgs:
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
+        A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         """
         return pulumi.get(self, "resource_creation_limit_policy")
 
@@ -303,7 +327,9 @@ class FleetArgs:
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
+        Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+
+        This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
         """
         return pulumi.get(self, "runtime_configuration")
 
@@ -315,13 +341,39 @@ class FleetArgs:
     @pulumi.getter(name="scriptId")
     def script_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
+        A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+
+        Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
         """
         return pulumi.get(self, "script_id")
 
     @script_id.setter
     def script_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_id", value)
+
+    @property
+    @pulumi.getter(name="serverLaunchParameters")
+    def server_launch_parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
+        """
+        return pulumi.get(self, "server_launch_parameters")
+
+    @server_launch_parameters.setter
+    def server_launch_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_launch_parameters", value)
+
+    @property
+    @pulumi.getter(name="serverLaunchPath")
+    def server_launch_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+        """
+        return pulumi.get(self, "server_launch_path")
+
+    @server_launch_path.setter
+    def server_launch_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_launch_path", value)
 
 
 class Fleet(pulumi.CustomResource):
@@ -338,6 +390,7 @@ class Fleet(pulumi.CustomResource):
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
+                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
@@ -348,31 +401,39 @@ class Fleet(pulumi.CustomResource):
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
+                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
+                 server_launch_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
+        The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] build_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
-        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
-        :param pulumi.Input[int] desired_ec2_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] e_c2_inbound_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
-        :param pulumi.Input[str] e_c2_instance_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
-        :param pulumi.Input[str] fleet_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
-        :param pulumi.Input[str] instance_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-        :param pulumi.Input[int] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
-        :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
-        :param pulumi.Input[str] new_game_session_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
-        :param pulumi.Input[str] peer_vpc_aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
-        :param pulumi.Input[str] peer_vpc_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
-        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
-        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
-        :param pulumi.Input[str] script_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
+        :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
+        :param pulumi.Input[str] description: A human-readable description of a fleet.
+        :param pulumi.Input[int] desired_ec2_instances: [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetIpPermissionArgs']]]] e_c2_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[str] e_c2_instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input[str] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
+        :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
+        :param pulumi.Input[int] min_size: [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+        :param pulumi.Input[str] name: A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
+        :param pulumi.Input[str] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+        :param pulumi.Input[str] peer_vpc_aws_account_id: A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
+        :param pulumi.Input[str] peer_vpc_id: A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
+        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+               
+               This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
+        :param pulumi.Input[str] script_id: A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+               
+               Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
+        :param pulumi.Input[str] server_launch_parameters: This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
+        :param pulumi.Input[str] server_launch_path: This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
         """
         ...
     @overload
@@ -381,7 +442,7 @@ class Fleet(pulumi.CustomResource):
                  args: Optional[FleetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
+        The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
@@ -407,6 +468,7 @@ class Fleet(pulumi.CustomResource):
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]]] = None,
+                 log_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
@@ -417,6 +479,8 @@ class Fleet(pulumi.CustomResource):
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
+                 server_launch_parameters: Optional[pulumi.Input[str]] = None,
+                 server_launch_path: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -438,6 +502,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["fleet_type"] = fleet_type
             __props__.__dict__["instance_role_arn"] = instance_role_arn
             __props__.__dict__["locations"] = locations
+            __props__.__dict__["log_paths"] = log_paths
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["metric_groups"] = metric_groups
             __props__.__dict__["min_size"] = min_size
@@ -448,6 +513,8 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
+            __props__.__dict__["server_launch_parameters"] = server_launch_parameters
+            __props__.__dict__["server_launch_path"] = server_launch_path
             __props__.__dict__["fleet_id"] = None
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
@@ -481,6 +548,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["fleet_type"] = None
         __props__.__dict__["instance_role_arn"] = None
         __props__.__dict__["locations"] = None
+        __props__.__dict__["log_paths"] = None
         __props__.__dict__["max_size"] = None
         __props__.__dict__["metric_groups"] = None
         __props__.__dict__["min_size"] = None
@@ -491,13 +559,15 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["resource_creation_limit_policy"] = None
         __props__.__dict__["runtime_configuration"] = None
         __props__.__dict__["script_id"] = None
+        __props__.__dict__["server_launch_parameters"] = None
+        __props__.__dict__["server_launch_path"] = None
         return Fleet(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="buildId")
     def build_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
+        A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         """
         return pulumi.get(self, "build_id")
 
@@ -505,7 +575,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="certificateConfiguration")
     def certificate_configuration(self) -> pulumi.Output[Optional['outputs.FleetCertificateConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-certificateconfiguration
+        Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         """
         return pulumi.get(self, "certificate_configuration")
 
@@ -513,7 +583,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
+        A human-readable description of a fleet.
         """
         return pulumi.get(self, "description")
 
@@ -521,7 +591,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="desiredEC2Instances")
     def desired_ec2_instances(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
+        [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
         """
         return pulumi.get(self, "desired_ec2_instances")
 
@@ -529,7 +599,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="eC2InboundPermissions")
     def e_c2_inbound_permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FleetIpPermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
+        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         """
         return pulumi.get(self, "e_c2_inbound_permissions")
 
@@ -537,20 +607,23 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="eC2InstanceType")
     def e_c2_instance_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
+        The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
         """
         return pulumi.get(self, "e_c2_instance_type")
 
     @property
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> pulumi.Output[str]:
+        """
+        Unique fleet ID
+        """
         return pulumi.get(self, "fleet_id")
 
     @property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-fleettype
+        Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         """
         return pulumi.get(self, "fleet_type")
 
@@ -558,23 +631,28 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="instanceRoleARN")
     def instance_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-instancerolearn
+        A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "instance_role_arn")
 
     @property
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence['outputs.FleetLocationConfiguration']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-locations
-        """
         return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="logPaths")
+    def log_paths(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
+        """
+        return pulumi.get(self, "log_paths")
 
     @property
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
+        [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         """
         return pulumi.get(self, "max_size")
 
@@ -582,7 +660,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="metricGroups")
     def metric_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-metricgroups
+        The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         """
         return pulumi.get(self, "metric_groups")
 
@@ -590,7 +668,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
+        [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         """
         return pulumi.get(self, "min_size")
 
@@ -598,7 +676,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
+        A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -606,7 +684,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="newGameSessionProtectionPolicy")
     def new_game_session_protection_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-newgamesessionprotectionpolicy
+        A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         """
         return pulumi.get(self, "new_game_session_protection_policy")
 
@@ -614,7 +692,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="peerVpcAwsAccountId")
     def peer_vpc_aws_account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcawsaccountid
+        A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
         """
         return pulumi.get(self, "peer_vpc_aws_account_id")
 
@@ -622,7 +700,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="peerVpcId")
     def peer_vpc_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-peervpcid
+        A unique identifier for a VPC with resources to be accessed by your Amazon GameLift fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use the VPC Dashboard in the AWS Management Console.
         """
         return pulumi.get(self, "peer_vpc_id")
 
@@ -630,7 +708,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="resourceCreationLimitPolicy")
     def resource_creation_limit_policy(self) -> pulumi.Output[Optional['outputs.FleetResourceCreationLimitPolicy']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-resourcecreationlimitpolicy
+        A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
         """
         return pulumi.get(self, "resource_creation_limit_policy")
 
@@ -638,7 +716,9 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="runtimeConfiguration")
     def runtime_configuration(self) -> pulumi.Output[Optional['outputs.FleetRuntimeConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-runtimeconfiguration
+        Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
+
+        This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
         """
         return pulumi.get(self, "runtime_configuration")
 
@@ -646,7 +726,25 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="scriptId")
     def script_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-scriptid
+        A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
+
+        Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
         """
         return pulumi.get(self, "script_id")
+
+    @property
+    @pulumi.getter(name="serverLaunchParameters")
+    def server_launch_parameters(self) -> pulumi.Output[Optional[str]]:
+        """
+        This parameter is no longer used but is retained for backward compatibility. Instead, specify server launch parameters in the RuntimeConfiguration parameter. A request must specify either a runtime configuration or values for both ServerLaunchParameters and ServerLaunchPath.
+        """
+        return pulumi.get(self, "server_launch_parameters")
+
+    @property
+    @pulumi.getter(name="serverLaunchPath")
+    def server_launch_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        This parameter is no longer used. Instead, specify a server launch path using the RuntimeConfiguration parameter. Requests that specify a server launch path and launch parameters instead of a runtime configuration will continue to work.
+        """
+        return pulumi.get(self, "server_launch_path")
 

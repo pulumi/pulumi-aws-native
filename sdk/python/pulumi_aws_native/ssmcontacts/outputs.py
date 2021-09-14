@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class ContactChannelTargetInfo(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+    Information about the contact channel that SSM Incident Manager uses to engage the contact.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -44,9 +44,9 @@ class ContactChannelTargetInfo(dict):
                  channel_id: str,
                  retry_interval_in_minutes: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
-        :param str channel_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
-        :param int retry_interval_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+        Information about the contact channel that SSM Incident Manager uses to engage the contact.
+        :param str channel_id: The Amazon Resource Name (ARN) of the contact channel.
+        :param int retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
         pulumi.set(__self__, "channel_id", channel_id)
         pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
@@ -55,7 +55,7 @@ class ContactChannelTargetInfo(dict):
     @pulumi.getter(name="channelId")
     def channel_id(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+        The Amazon Resource Name (ARN) of the contact channel.
         """
         return pulumi.get(self, "channel_id")
 
@@ -63,7 +63,7 @@ class ContactChannelTargetInfo(dict):
     @pulumi.getter(name="retryIntervalInMinutes")
     def retry_interval_in_minutes(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+        The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
         return pulumi.get(self, "retry_interval_in_minutes")
 
@@ -71,7 +71,7 @@ class ContactChannelTargetInfo(dict):
 @pulumi.output_type
 class ContactContactTargetInfo(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
+    The contact that SSM Incident Manager is engaging during an incident.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -96,9 +96,9 @@ class ContactContactTargetInfo(dict):
                  contact_id: str,
                  is_essential: bool):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
-        :param str contact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
-        :param bool is_essential: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+        The contact that SSM Incident Manager is engaging during an incident.
+        :param str contact_id: The Amazon Resource Name (ARN) of the contact.
+        :param bool is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
         pulumi.set(__self__, "contact_id", contact_id)
         pulumi.set(__self__, "is_essential", is_essential)
@@ -107,7 +107,7 @@ class ContactContactTargetInfo(dict):
     @pulumi.getter(name="contactId")
     def contact_id(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+        The Amazon Resource Name (ARN) of the contact.
         """
         return pulumi.get(self, "contact_id")
 
@@ -115,7 +115,7 @@ class ContactContactTargetInfo(dict):
     @pulumi.getter(name="isEssential")
     def is_essential(self) -> bool:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
         return pulumi.get(self, "is_essential")
 
@@ -123,7 +123,7 @@ class ContactContactTargetInfo(dict):
 @pulumi.output_type
 class ContactStage(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+    A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -146,9 +146,9 @@ class ContactStage(dict):
                  duration_in_minutes: int,
                  targets: Optional[Sequence['outputs.ContactTargets']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
-        :param int duration_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
-        :param Sequence['ContactTargets'] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+        A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
+        :param int duration_in_minutes: The time to wait until beginning the next stage.
+        :param Sequence['ContactTargets'] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
         pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if targets is not None:
@@ -158,7 +158,7 @@ class ContactStage(dict):
     @pulumi.getter(name="durationInMinutes")
     def duration_in_minutes(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+        The time to wait until beginning the next stage.
         """
         return pulumi.get(self, "duration_in_minutes")
 
@@ -166,7 +166,7 @@ class ContactStage(dict):
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.ContactTargets']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+        The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
         return pulumi.get(self, "targets")
 
@@ -174,7 +174,7 @@ class ContactStage(dict):
 @pulumi.output_type
 class ContactTargets(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+    The contacts or contact methods that the escalation plan or engagement plan is engaging.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -199,9 +199,7 @@ class ContactTargets(dict):
                  channel_target_info: Optional['outputs.ContactChannelTargetInfo'] = None,
                  contact_target_info: Optional['outputs.ContactContactTargetInfo'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
-        :param 'ContactChannelTargetInfo' channel_target_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-        :param 'ContactContactTargetInfo' contact_target_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
+        The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
@@ -211,17 +209,11 @@ class ContactTargets(dict):
     @property
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional['outputs.ContactChannelTargetInfo']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-        """
         return pulumi.get(self, "channel_target_info")
 
     @property
     @pulumi.getter(name="contactTargetInfo")
     def contact_target_info(self) -> Optional['outputs.ContactContactTargetInfo']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-        """
         return pulumi.get(self, "contact_target_info")
 
 

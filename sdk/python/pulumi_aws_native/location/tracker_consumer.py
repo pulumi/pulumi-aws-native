@@ -17,8 +17,6 @@ class TrackerConsumerArgs:
                  tracker_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a TrackerConsumer resource.
-        :param pulumi.Input[str] consumer_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-        :param pulumi.Input[str] tracker_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
         """
         pulumi.set(__self__, "consumer_arn", consumer_arn)
         pulumi.set(__self__, "tracker_name", tracker_name)
@@ -26,9 +24,6 @@ class TrackerConsumerArgs:
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-        """
         return pulumi.get(self, "consumer_arn")
 
     @consumer_arn.setter
@@ -38,9 +33,6 @@ class TrackerConsumerArgs:
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
-        """
         return pulumi.get(self, "tracker_name")
 
     @tracker_name.setter
@@ -57,12 +49,10 @@ class TrackerConsumer(pulumi.CustomResource):
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+        Definition of AWS::Location::TrackerConsumer Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] consumer_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-        :param pulumi.Input[str] tracker_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
         """
         ...
     @overload
@@ -71,7 +61,7 @@ class TrackerConsumer(pulumi.CustomResource):
                  args: TrackerConsumerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+        Definition of AWS::Location::TrackerConsumer Resource Type
 
         :param str resource_name: The name of the resource.
         :param TrackerConsumerArgs args: The arguments to use to populate this resource's properties.
@@ -137,16 +127,10 @@ class TrackerConsumer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="consumerArn")
     def consumer_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-        """
         return pulumi.get(self, "consumer_arn")
 
     @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
-        """
         return pulumi.get(self, "tracker_name")
 

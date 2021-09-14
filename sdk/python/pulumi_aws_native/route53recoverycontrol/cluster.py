@@ -17,7 +17,7 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -26,7 +26,7 @@ class ClusterArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        Name of a Cluster. You can use any non-white space character in the name
         """
         return pulumi.get(self, "name")
 
@@ -43,11 +43,11 @@ class Cluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+        AWS Route53 Recovery Control Cluster resource schema
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        :param pulumi.Input[str] name: Name of a Cluster. You can use any non-white space character in the name
         """
         ...
     @overload
@@ -56,7 +56,7 @@ class Cluster(pulumi.CustomResource):
                  args: Optional[ClusterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+        AWS Route53 Recovery Control Cluster resource schema
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -121,23 +121,32 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the cluster.
+        """
         return pulumi.get(self, "cluster_arn")
 
     @property
     @pulumi.getter(name="clusterEndpoints")
     def cluster_endpoints(self) -> pulumi.Output[Sequence['outputs.ClusterClusterEndpoint']]:
+        """
+        Endpoints for the cluster.
+        """
         return pulumi.get(self, "cluster_endpoints")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        Name of a Cluster. You can use any non-white space character in the name
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        """
         return pulumi.get(self, "status")
 

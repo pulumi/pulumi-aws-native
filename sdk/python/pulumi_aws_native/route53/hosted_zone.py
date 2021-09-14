@@ -22,11 +22,13 @@ class HostedZoneArgs:
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]] = None):
         """
         The set of arguments for constructing a HostedZone resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        :param pulumi.Input['HostedZoneHostedZoneConfigArgs'] hosted_zone_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]] hosted_zone_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        :param pulumi.Input['HostedZoneQueryLoggingConfigArgs'] query_logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] v_pcs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+               
+               If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+               
+               For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]] v_pcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         pulumi.set(__self__, "name", name)
         if hosted_zone_config is not None:
@@ -42,7 +44,9 @@ class HostedZoneArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+        The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+
+        If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         """
         return pulumi.get(self, "name")
 
@@ -53,9 +57,6 @@ class HostedZoneArgs:
     @property
     @pulumi.getter(name="hostedZoneConfig")
     def hosted_zone_config(self) -> Optional[pulumi.Input['HostedZoneHostedZoneConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        """
         return pulumi.get(self, "hosted_zone_config")
 
     @hosted_zone_config.setter
@@ -66,7 +67,9 @@ class HostedZoneArgs:
     @pulumi.getter(name="hostedZoneTags")
     def hosted_zone_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneHostedZoneTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+        Adds, edits, or deletes tags for a health check or a hosted zone.
+
+        For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         """
         return pulumi.get(self, "hosted_zone_tags")
 
@@ -77,9 +80,6 @@ class HostedZoneArgs:
     @property
     @pulumi.getter(name="queryLoggingConfig")
     def query_logging_config(self) -> Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        """
         return pulumi.get(self, "query_logging_config")
 
     @query_logging_config.setter
@@ -90,7 +90,7 @@ class HostedZoneArgs:
     @pulumi.getter(name="vPCs")
     def v_pcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVPCArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         return pulumi.get(self, "v_pcs")
 
@@ -111,15 +111,17 @@ class HostedZone(pulumi.CustomResource):
                  v_pcs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+        Resource schema for AWS::Route53::HostedZone.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['HostedZoneHostedZoneConfigArgs']] hosted_zone_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneTagArgs']]]] hosted_zone_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-        :param pulumi.Input[pulumi.InputType['HostedZoneQueryLoggingConfigArgs']] query_logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]] v_pcs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneHostedZoneTagArgs']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
+               
+               For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
+        :param pulumi.Input[str] name: The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+               
+               If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HostedZoneVPCArgs']]]] v_pcs: A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         ...
     @overload
@@ -128,7 +130,7 @@ class HostedZone(pulumi.CustomResource):
                  args: HostedZoneArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+        Resource schema for AWS::Route53::HostedZone.
 
         :param str resource_name: The name of the resource.
         :param HostedZoneArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +171,6 @@ class HostedZone(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["query_logging_config"] = query_logging_config
             __props__.__dict__["v_pcs"] = v_pcs
-            __props__.__dict__["id"] = None
             __props__.__dict__["name_servers"] = None
         super(HostedZone, __self__).__init__(
             'aws-native:route53:HostedZone',
@@ -195,7 +196,6 @@ class HostedZone(pulumi.CustomResource):
 
         __props__.__dict__["hosted_zone_config"] = None
         __props__.__dict__["hosted_zone_tags"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["name_servers"] = None
         __props__.__dict__["query_logging_config"] = None
@@ -205,29 +205,25 @@ class HostedZone(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hostedZoneConfig")
     def hosted_zone_config(self) -> pulumi.Output[Optional['outputs.HostedZoneHostedZoneConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        """
         return pulumi.get(self, "hosted_zone_config")
 
     @property
     @pulumi.getter(name="hostedZoneTags")
     def hosted_zone_tags(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneHostedZoneTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+        Adds, edits, or deletes tags for a health check or a hosted zone.
+
+        For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         """
         return pulumi.get(self, "hosted_zone_tags")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+        The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+
+        If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         """
         return pulumi.get(self, "name")
 
@@ -239,16 +235,13 @@ class HostedZone(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queryLoggingConfig")
     def query_logging_config(self) -> pulumi.Output[Optional['outputs.HostedZoneQueryLoggingConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        """
         return pulumi.get(self, "query_logging_config")
 
     @property
     @pulumi.getter(name="vPCs")
     def v_pcs(self) -> pulumi.Output[Optional[Sequence['outputs.HostedZoneVPC']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         """
         return pulumi.get(self, "v_pcs")
 

@@ -9,20 +9,61 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AgentTag',
     'LocationEFSEc2Config',
+    'LocationEFSTag',
+    'LocationFSxWindowsTag',
     'LocationNFSMountOptions',
     'LocationNFSOnPremConfig',
+    'LocationNFSTag',
+    'LocationObjectStorageTag',
     'LocationS3S3Config',
+    'LocationS3Tag',
     'LocationSMBMountOptions',
+    'LocationSMBTag',
     'TaskFilterRule',
     'TaskOptions',
+    'TaskTag',
     'TaskTaskSchedule',
 ]
 
 @pulumi.output_type
+class AgentTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LocationEFSEc2Config(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+    The subnet and security group that DataSync uses to access target EFS file system.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -47,9 +88,9 @@ class LocationEFSEc2Config(dict):
                  security_group_arns: Sequence[str],
                  subnet_arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
-        :param Sequence[str] security_group_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
-        :param str subnet_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+        The subnet and security group that DataSync uses to access target EFS file system.
+        :param Sequence[str] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
+        :param str subnet_arn: The ARN of the subnet that DataSync uses to access the target EFS file system.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "subnet_arn", subnet_arn)
@@ -58,7 +99,7 @@ class LocationEFSEc2Config(dict):
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+        The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -66,21 +107,87 @@ class LocationEFSEc2Config(dict):
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+        The ARN of the subnet that DataSync uses to access the target EFS file system.
         """
         return pulumi.get(self, "subnet_arn")
 
 
 @pulumi.output_type
+class LocationEFSTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LocationFSxWindowsTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LocationNFSMountOptions(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+    The NFS mount options that DataSync can use to mount your NFS share.
     """
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+        The NFS mount options that DataSync can use to mount your NFS share.
+        :param str version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
@@ -89,7 +196,7 @@ class LocationNFSMountOptions(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+        The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         return pulumi.get(self, "version")
 
@@ -97,7 +204,7 @@ class LocationNFSMountOptions(dict):
 @pulumi.output_type
 class LocationNFSOnPremConfig(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+    Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -119,8 +226,8 @@ class LocationNFSOnPremConfig(dict):
     def __init__(__self__, *,
                  agent_arns: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
-        :param Sequence[str] agent_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+        Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
+        :param Sequence[str] agent_arns: ARN(s) of the agent(s) to use for an NFS location.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
 
@@ -128,15 +235,81 @@ class LocationNFSOnPremConfig(dict):
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+        ARN(s) of the agent(s) to use for an NFS location.
         """
         return pulumi.get(self, "agent_arns")
 
 
 @pulumi.output_type
+class LocationNFSTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LocationObjectStorageTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LocationS3S3Config(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+    The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -158,8 +331,8 @@ class LocationS3S3Config(dict):
     def __init__(__self__, *,
                  bucket_access_role_arn: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
-        :param str bucket_access_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+        The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
+        :param str bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
         """
         pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
 
@@ -167,21 +340,54 @@ class LocationS3S3Config(dict):
     @pulumi.getter(name="bucketAccessRoleArn")
     def bucket_access_role_arn(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+        The ARN of the IAM role of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_access_role_arn")
 
 
 @pulumi.output_type
+class LocationS3Tag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class LocationSMBMountOptions(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+    The mount options used by DataSync to access the SMB server.
     """
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
-        :param str version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+        The mount options used by DataSync to access the SMB server.
+        :param str version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
@@ -190,15 +396,48 @@ class LocationSMBMountOptions(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+        The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         return pulumi.get(self, "version")
 
 
 @pulumi.output_type
+class LocationSMBTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TaskFilterRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+    Specifies which files folders and objects to include or exclude when transferring files from source to destination.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -221,9 +460,9 @@ class TaskFilterRule(dict):
                  filter_type: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
-        :param str filter_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+        Specifies which files folders and objects to include or exclude when transferring files from source to destination.
+        :param str filter_type: The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
+        :param str value: A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
         """
         if filter_type is not None:
             pulumi.set(__self__, "filter_type", filter_type)
@@ -234,7 +473,7 @@ class TaskFilterRule(dict):
     @pulumi.getter(name="filterType")
     def filter_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+        The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         """
         return pulumi.get(self, "filter_type")
 
@@ -242,7 +481,7 @@ class TaskFilterRule(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+        A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
         """
         return pulumi.get(self, "value")
 
@@ -250,7 +489,7 @@ class TaskFilterRule(dict):
 @pulumi.output_type
 class TaskOptions(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+    Represents the options that are available to control the behavior of a StartTaskExecution operation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -303,21 +542,21 @@ class TaskOptions(dict):
                  uid: Optional[str] = None,
                  verify_mode: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
-        :param str atime: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
-        :param int bytes_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
-        :param str gid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
-        :param str log_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
-        :param str mtime: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
-        :param str overwrite_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
-        :param str posix_permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
-        :param str preserve_deleted_files: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
-        :param str preserve_devices: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
-        :param str security_descriptor_copy_flags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
-        :param str task_queueing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
-        :param str transfer_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
-        :param str uid: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
-        :param str verify_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+        Represents the options that are available to control the behavior of a StartTaskExecution operation.
+        :param str atime: A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
+        :param int bytes_per_second: A value that limits the bandwidth used by AWS DataSync.
+        :param str gid: The group ID (GID) of the file's owners.
+        :param str log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
+        :param str mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        :param str overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
+        :param str posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
+        :param str preserve_deleted_files: A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
+        :param str preserve_devices: A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
+        :param str security_descriptor_copy_flags: A value that determines which components of the SMB security descriptor are copied during transfer.
+        :param str task_queueing: A value that determines whether tasks should be queued before executing the tasks.
+        :param str transfer_mode: A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
+        :param str uid: The user ID (UID) of the file's owner.
+        :param str verify_mode: A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
         if atime is not None:
             pulumi.set(__self__, "atime", atime)
@@ -352,7 +591,7 @@ class TaskOptions(dict):
     @pulumi.getter
     def atime(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+        A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         """
         return pulumi.get(self, "atime")
 
@@ -360,7 +599,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="bytesPerSecond")
     def bytes_per_second(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+        A value that limits the bandwidth used by AWS DataSync.
         """
         return pulumi.get(self, "bytes_per_second")
 
@@ -368,7 +607,7 @@ class TaskOptions(dict):
     @pulumi.getter
     def gid(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+        The group ID (GID) of the file's owners.
         """
         return pulumi.get(self, "gid")
 
@@ -376,7 +615,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+        A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         """
         return pulumi.get(self, "log_level")
 
@@ -384,7 +623,7 @@ class TaskOptions(dict):
     @pulumi.getter
     def mtime(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+        A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         """
         return pulumi.get(self, "mtime")
 
@@ -392,7 +631,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="overwriteMode")
     def overwrite_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+        A value that determines whether files at the destination should be overwritten or preserved when copying files.
         """
         return pulumi.get(self, "overwrite_mode")
 
@@ -400,7 +639,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="posixPermissions")
     def posix_permissions(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+        A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         """
         return pulumi.get(self, "posix_permissions")
 
@@ -408,7 +647,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="preserveDeletedFiles")
     def preserve_deleted_files(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+        A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
         """
         return pulumi.get(self, "preserve_deleted_files")
 
@@ -416,7 +655,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="preserveDevices")
     def preserve_devices(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+        A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
         """
         return pulumi.get(self, "preserve_devices")
 
@@ -424,7 +663,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="securityDescriptorCopyFlags")
     def security_descriptor_copy_flags(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+        A value that determines which components of the SMB security descriptor are copied during transfer.
         """
         return pulumi.get(self, "security_descriptor_copy_flags")
 
@@ -432,7 +671,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="taskQueueing")
     def task_queueing(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+        A value that determines whether tasks should be queued before executing the tasks.
         """
         return pulumi.get(self, "task_queueing")
 
@@ -440,7 +679,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="transferMode")
     def transfer_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+        A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
         """
         return pulumi.get(self, "transfer_mode")
 
@@ -448,7 +687,7 @@ class TaskOptions(dict):
     @pulumi.getter
     def uid(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+        The user ID (UID) of the file's owner.
         """
         return pulumi.get(self, "uid")
 
@@ -456,15 +695,48 @@ class TaskOptions(dict):
     @pulumi.getter(name="verifyMode")
     def verify_mode(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+        A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
         return pulumi.get(self, "verify_mode")
 
 
 @pulumi.output_type
+class TaskTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key for an AWS resource tag.
+        :param str value: The value for an AWS resource tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for an AWS resource tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for an AWS resource tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TaskTaskSchedule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
+    Specifies the schedule you want your task to use for repeated executions.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -486,8 +758,8 @@ class TaskTaskSchedule(dict):
     def __init__(__self__, *,
                  schedule_expression: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
-        :param str schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+        Specifies the schedule you want your task to use for repeated executions.
+        :param str schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
 
@@ -495,7 +767,7 @@ class TaskTaskSchedule(dict):
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+        A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
         return pulumi.get(self, "schedule_expression")
 

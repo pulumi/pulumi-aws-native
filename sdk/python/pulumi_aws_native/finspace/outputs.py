@@ -15,7 +15,7 @@ __all__ = [
 @pulumi.output_type
 class EnvironmentFederationParameters(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+    Additional parameters to identify Federation mode
     """
     @staticmethod
     def __key_warning(key: str):
@@ -46,19 +46,19 @@ class EnvironmentFederationParameters(dict):
 
     def __init__(__self__, *,
                  application_call_back_url: Optional[str] = None,
-                 attribute_map: Optional[str] = None,
+                 attribute_map: Optional[Any] = None,
                  federation_provider_name: Optional[str] = None,
                  federation_urn: Optional[str] = None,
                  saml_metadata_document: Optional[str] = None,
                  saml_metadata_url: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
-        :param str application_call_back_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
-        :param Union[Any, str] attribute_map: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
-        :param str federation_provider_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
-        :param str federation_urn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
-        :param str saml_metadata_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
-        :param str saml_metadata_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        Additional parameters to identify Federation mode
+        :param str application_call_back_url: SAML metadata URL to link with the Environment
+        :param Any attribute_map: Attribute map for SAML configuration
+        :param str federation_provider_name: Federation provider name to link with the Environment
+        :param str federation_urn: SAML metadata URL to link with the Environment
+        :param str saml_metadata_document: SAML metadata document to link the federation provider to the Environment
+        :param str saml_metadata_url: SAML metadata URL to link with the Environment
         """
         if application_call_back_url is not None:
             pulumi.set(__self__, "application_call_back_url", application_call_back_url)
@@ -77,15 +77,15 @@ class EnvironmentFederationParameters(dict):
     @pulumi.getter(name="applicationCallBackURL")
     def application_call_back_url(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "application_call_back_url")
 
     @property
     @pulumi.getter(name="attributeMap")
-    def attribute_map(self) -> Optional[str]:
+    def attribute_map(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+        Attribute map for SAML configuration
         """
         return pulumi.get(self, "attribute_map")
 
@@ -93,7 +93,7 @@ class EnvironmentFederationParameters(dict):
     @pulumi.getter(name="federationProviderName")
     def federation_provider_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+        Federation provider name to link with the Environment
         """
         return pulumi.get(self, "federation_provider_name")
 
@@ -101,7 +101,7 @@ class EnvironmentFederationParameters(dict):
     @pulumi.getter(name="federationURN")
     def federation_urn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "federation_urn")
 
@@ -109,7 +109,7 @@ class EnvironmentFederationParameters(dict):
     @pulumi.getter(name="samlMetadataDocument")
     def saml_metadata_document(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+        SAML metadata document to link the federation provider to the Environment
         """
         return pulumi.get(self, "saml_metadata_document")
 
@@ -117,7 +117,7 @@ class EnvironmentFederationParameters(dict):
     @pulumi.getter(name="samlMetadataURL")
     def saml_metadata_url(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "saml_metadata_url")
 

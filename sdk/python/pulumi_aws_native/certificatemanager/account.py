@@ -18,16 +18,12 @@ class AccountArgs:
                  expiry_events_configuration: pulumi.Input['AccountExpiryEventsConfigurationArgs']):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input['AccountExpiryEventsConfigurationArgs'] expiry_events_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
         """
         pulumi.set(__self__, "expiry_events_configuration", expiry_events_configuration)
 
     @property
     @pulumi.getter(name="expiryEventsConfiguration")
     def expiry_events_configuration(self) -> pulumi.Input['AccountExpiryEventsConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-        """
         return pulumi.get(self, "expiry_events_configuration")
 
     @expiry_events_configuration.setter
@@ -43,11 +39,10 @@ class Account(pulumi.CustomResource):
                  expiry_events_configuration: Optional[pulumi.Input[pulumi.InputType['AccountExpiryEventsConfigurationArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+        Resource schema for AWS::CertificateManager::Account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountExpiryEventsConfigurationArgs']] expiry_events_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+        Resource schema for AWS::CertificateManager::Account.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -124,8 +119,5 @@ class Account(pulumi.CustomResource):
     @property
     @pulumi.getter(name="expiryEventsConfiguration")
     def expiry_events_configuration(self) -> pulumi.Output['outputs.AccountExpiryEventsConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-        """
         return pulumi.get(self, "expiry_events_configuration")
 

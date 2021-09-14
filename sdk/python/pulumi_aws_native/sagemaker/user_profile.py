@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['UserProfileArgs', 'UserProfile']
@@ -21,16 +19,16 @@ class UserProfileArgs:
                  user_profile_name: pulumi.Input[str],
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]] = None,
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
-        :param pulumi.Input[str] domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
-        :param pulumi.Input[str] user_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
-        :param pulumi.Input[str] single_sign_on_user_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuseridentifier
-        :param pulumi.Input[str] single_sign_on_user_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuservalue
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-tags
-        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] user_profile_name: A name for the UserProfile.
+        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: A collection of settings.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "user_profile_name", user_profile_name)
@@ -47,7 +45,7 @@ class UserProfileArgs:
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
+        The ID of the associated Domain.
         """
         return pulumi.get(self, "domain_id")
 
@@ -59,7 +57,7 @@ class UserProfileArgs:
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
+        A name for the UserProfile.
         """
         return pulumi.get(self, "user_profile_name")
 
@@ -71,7 +69,7 @@ class UserProfileArgs:
     @pulumi.getter(name="singleSignOnUserIdentifier")
     def single_sign_on_user_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuseridentifier
+        A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
@@ -83,7 +81,7 @@ class UserProfileArgs:
     @pulumi.getter(name="singleSignOnUserValue")
     def single_sign_on_user_value(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuservalue
+        The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_value")
 
@@ -93,21 +91,21 @@ class UserProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-tags
+        A list of tags to apply to the user profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
+        A collection of settings.
         """
         return pulumi.get(self, "user_settings")
 
@@ -124,21 +122,21 @@ class UserProfile(pulumi.CustomResource):
                  domain_id: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProfileTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html
+        Resource Type definition for AWS::SageMaker::UserProfile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
-        :param pulumi.Input[str] single_sign_on_user_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuseridentifier
-        :param pulumi.Input[str] single_sign_on_user_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuservalue
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-tags
-        :param pulumi.Input[str] user_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
+        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
+        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProfileTagArgs']]]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input[str] user_profile_name: A name for the UserProfile.
+        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: A collection of settings.
         """
         ...
     @overload
@@ -147,7 +145,7 @@ class UserProfile(pulumi.CustomResource):
                  args: UserProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html
+        Resource Type definition for AWS::SageMaker::UserProfile
 
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +165,7 @@ class UserProfile(pulumi.CustomResource):
                  domain_id: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProfileTagArgs']]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
                  __props__=None):
@@ -228,7 +226,7 @@ class UserProfile(pulumi.CustomResource):
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-domainid
+        The ID of the associated Domain.
         """
         return pulumi.get(self, "domain_id")
 
@@ -236,7 +234,7 @@ class UserProfile(pulumi.CustomResource):
     @pulumi.getter(name="singleSignOnUserIdentifier")
     def single_sign_on_user_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuseridentifier
+        A specifier for the type of value specified in SingleSignOnUserValue. Currently, the only supported value is "UserName". If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
@@ -244,28 +242,31 @@ class UserProfile(pulumi.CustomResource):
     @pulumi.getter(name="singleSignOnUserValue")
     def single_sign_on_user_value(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-singlesignonuservalue
+        The username of the associated AWS Single Sign-On User for this UserProfile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserProfileTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-tags
+        A list of tags to apply to the user profile.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userProfileArn")
     def user_profile_arn(self) -> pulumi.Output[str]:
+        """
+        The user profile Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "user_profile_arn")
 
     @property
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-userprofilename
+        A name for the UserProfile.
         """
         return pulumi.get(self, "user_profile_name")
 
@@ -273,7 +274,7 @@ class UserProfile(pulumi.CustomResource):
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Output[Optional['outputs.UserProfileUserSettings']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html#cfn-sagemaker-userprofile-usersettings
+        A collection of settings.
         """
         return pulumi.get(self, "user_settings")
 

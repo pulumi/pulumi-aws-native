@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AppImageConfigArgs', 'AppImageConfig']
@@ -19,12 +17,12 @@ class AppImageConfigArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
                  kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
-        :param pulumi.Input[str] app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        :param pulumi.Input[str] app_image_config_name: The Name of the AppImageConfig.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The KernelGatewayImageConfig.
+        :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]] tags: A list of tags to apply to the AppImageConfig.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if kernel_gateway_image_config is not None:
@@ -36,7 +34,7 @@ class AppImageConfigArgs:
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+        The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
 
@@ -48,7 +46,7 @@ class AppImageConfigArgs:
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+        The KernelGatewayImageConfig.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
@@ -58,14 +56,14 @@ class AppImageConfigArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        A list of tags to apply to the AppImageConfig.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,16 +74,16 @@ class AppImageConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppImageConfigTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+        Resource Type definition for AWS::SageMaker::AppImageConfig
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_image_config_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
-        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        :param pulumi.Input[str] app_image_config_name: The Name of the AppImageConfig.
+        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The KernelGatewayImageConfig.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppImageConfigTagArgs']]]] tags: A list of tags to apply to the AppImageConfig.
         """
         ...
     @overload
@@ -94,7 +92,7 @@ class AppImageConfig(pulumi.CustomResource):
                  args: AppImageConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+        Resource Type definition for AWS::SageMaker::AppImageConfig
 
         :param str resource_name: The name of the resource.
         :param AppImageConfigArgs args: The arguments to use to populate this resource's properties.
@@ -113,7 +111,7 @@ class AppImageConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
                  kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppImageConfigTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -163,13 +161,16 @@ class AppImageConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appImageConfigArn")
     def app_image_config_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AppImageConfig.
+        """
         return pulumi.get(self, "app_image_config_arn")
 
     @property
     @pulumi.getter(name="appImageConfigName")
     def app_image_config_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+        The Name of the AppImageConfig.
         """
         return pulumi.get(self, "app_image_config_name")
 
@@ -177,15 +178,15 @@ class AppImageConfig(pulumi.CustomResource):
     @pulumi.getter(name="kernelGatewayImageConfig")
     def kernel_gateway_image_config(self) -> pulumi.Output[Optional['outputs.AppImageConfigKernelGatewayImageConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+        The KernelGatewayImageConfig.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AppImageConfigTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        A list of tags to apply to the AppImageConfig.
         """
         return pulumi.get(self, "tags")
 

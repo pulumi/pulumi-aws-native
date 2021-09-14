@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DashboardArgs', 'Dashboard']
 
@@ -19,14 +19,14 @@ class DashboardArgs:
                  dashboard_description: pulumi.Input[str],
                  dashboard_name: pulumi.Input[str],
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] dashboard_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
-        :param pulumi.Input[str] dashboard_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
-        :param pulumi.Input[str] dashboard_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
-        :param pulumi.Input[str] project_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        :param pulumi.Input[str] dashboard_definition: The dashboard definition specified in a JSON literal.
+        :param pulumi.Input[str] dashboard_description: A description for the dashboard.
+        :param pulumi.Input[str] dashboard_name: A friendly name for the dashboard.
+        :param pulumi.Input[str] project_id: The ID of the project in which to create the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         pulumi.set(__self__, "dashboard_definition", dashboard_definition)
         pulumi.set(__self__, "dashboard_description", dashboard_description)
@@ -40,7 +40,7 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardDefinition")
     def dashboard_definition(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+        The dashboard definition specified in a JSON literal.
         """
         return pulumi.get(self, "dashboard_definition")
 
@@ -52,7 +52,7 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardDescription")
     def dashboard_description(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+        A description for the dashboard.
         """
         return pulumi.get(self, "dashboard_description")
 
@@ -64,7 +64,7 @@ class DashboardArgs:
     @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+        A friendly name for the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
 
@@ -76,7 +76,7 @@ class DashboardArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+        The ID of the project in which to create the dashboard.
         """
         return pulumi.get(self, "project_id")
 
@@ -86,14 +86,14 @@ class DashboardArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        A list of key-value pairs that contain metadata for the dashboard.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -106,18 +106,18 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
+        Resource schema for AWS::IoTSiteWise::Dashboard
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dashboard_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
-        :param pulumi.Input[str] dashboard_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
-        :param pulumi.Input[str] dashboard_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
-        :param pulumi.Input[str] project_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        :param pulumi.Input[str] dashboard_definition: The dashboard definition specified in a JSON literal.
+        :param pulumi.Input[str] dashboard_description: A description for the dashboard.
+        :param pulumi.Input[str] dashboard_name: A friendly name for the dashboard.
+        :param pulumi.Input[str] project_id: The ID of the project in which to create the dashboard.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]] tags: A list of key-value pairs that contain metadata for the dashboard.
         """
         ...
     @overload
@@ -126,7 +126,7 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
+        Resource schema for AWS::IoTSiteWise::Dashboard
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
@@ -147,7 +147,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_description: Optional[pulumi.Input[str]] = None,
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -207,13 +207,16 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the dashboard.
+        """
         return pulumi.get(self, "dashboard_arn")
 
     @property
     @pulumi.getter(name="dashboardDefinition")
     def dashboard_definition(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+        The dashboard definition specified in a JSON literal.
         """
         return pulumi.get(self, "dashboard_definition")
 
@@ -221,20 +224,23 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="dashboardDescription")
     def dashboard_description(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+        A description for the dashboard.
         """
         return pulumi.get(self, "dashboard_description")
 
     @property
     @pulumi.getter(name="dashboardId")
     def dashboard_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the dashboard.
+        """
         return pulumi.get(self, "dashboard_id")
 
     @property
     @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+        A friendly name for the dashboard.
         """
         return pulumi.get(self, "dashboard_name")
 
@@ -242,15 +248,15 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+        The ID of the project in which to create the dashboard.
         """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DashboardTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        A list of key-value pairs that contain metadata for the dashboard.
         """
         return pulumi.get(self, "tags")
 

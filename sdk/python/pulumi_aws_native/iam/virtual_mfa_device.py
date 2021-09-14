@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['VirtualMFADeviceArgs', 'VirtualMFADevice']
 
@@ -17,14 +17,10 @@ class VirtualMFADeviceArgs:
     def __init__(__self__, *,
                  users: pulumi.Input[Sequence[pulumi.Input[str]]],
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualMFADevice resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        :param pulumi.Input[str] virtual_mfa_device_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
         """
         pulumi.set(__self__, "users", users)
         if path is not None:
@@ -37,9 +33,6 @@ class VirtualMFADeviceArgs:
     @property
     @pulumi.getter
     def users(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -49,9 +42,6 @@ class VirtualMFADeviceArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -60,22 +50,16 @@ class VirtualMFADeviceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMFADeviceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="virtualMfaDeviceName")
     def virtual_mfa_device_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-        """
         return pulumi.get(self, "virtual_mfa_device_name")
 
     @virtual_mfa_device_name.setter
@@ -89,19 +73,15 @@ class VirtualMFADevice(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMFADeviceTagArgs']]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+        Resource Type definition for AWS::IAM::VirtualMFADevice
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        :param pulumi.Input[str] virtual_mfa_device_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
         """
         ...
     @overload
@@ -110,7 +90,7 @@ class VirtualMFADevice(pulumi.CustomResource):
                  args: VirtualMFADeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+        Resource Type definition for AWS::IAM::VirtualMFADevice
 
         :param str resource_name: The name of the resource.
         :param VirtualMFADeviceArgs args: The arguments to use to populate this resource's properties.
@@ -128,7 +108,7 @@ class VirtualMFADevice(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMFADeviceTagArgs']]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -182,9 +162,6 @@ class VirtualMFADevice(pulumi.CustomResource):
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        """
         return pulumi.get(self, "path")
 
     @property
@@ -194,25 +171,16 @@ class VirtualMFADevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.VirtualMFADeviceTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def users(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        """
         return pulumi.get(self, "users")
 
     @property
     @pulumi.getter(name="virtualMfaDeviceName")
     def virtual_mfa_device_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-        """
         return pulumi.get(self, "virtual_mfa_device_name")
 

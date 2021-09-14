@@ -13,23 +13,23 @@ __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
 @pulumi.input_type
 class RegistryPolicyArgs:
     def __init__(__self__, *,
-                 policy_text: pulumi.Input[Union[Any, str]]):
+                 policy_text: Any):
         """
         The set of arguments for constructing a RegistryPolicy resource.
-        :param pulumi.Input[Union[Any, str]] policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        :param Any policy_text: The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         """
         pulumi.set(__self__, "policy_text", policy_text)
 
     @property
     @pulumi.getter(name="policyText")
-    def policy_text(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_text(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         """
         return pulumi.get(self, "policy_text")
 
     @policy_text.setter
-    def policy_text(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_text(self, value: Any):
         pulumi.set(self, "policy_text", value)
 
 
@@ -38,14 +38,14 @@ class RegistryPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_text: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
+        The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        :param Any policy_text: The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         """
         ...
     @overload
@@ -54,7 +54,7 @@ class RegistryPolicy(pulumi.CustomResource):
                  args: RegistryPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
+        The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -71,7 +71,7 @@ class RegistryPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_text: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_text: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -116,9 +116,9 @@ class RegistryPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="policyText")
-    def policy_text(self) -> pulumi.Output[str]:
+    def policy_text(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         """
         return pulumi.get(self, "policy_text")
 

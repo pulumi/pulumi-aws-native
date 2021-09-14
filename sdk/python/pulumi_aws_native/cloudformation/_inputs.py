@@ -15,6 +15,7 @@ __all__ = [
     'StackSetOperationPreferencesArgs',
     'StackSetParameterArgs',
     'StackSetStackInstancesArgs',
+    'StackSetTagArgs',
     'TypeActivationLoggingConfigArgs',
 ]
 
@@ -24,9 +25,8 @@ class ResourceVersionLoggingConfigArgs:
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  log_role_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
-        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
-        :param pulumi.Input[str] log_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+        :param pulumi.Input[str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        :param pulumi.Input[str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -37,7 +37,7 @@ class ResourceVersionLoggingConfigArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -49,7 +49,7 @@ class ResourceVersionLoggingConfigArgs:
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
 
@@ -64,9 +64,8 @@ class StackSetAutoDeploymentArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  retain_stacks_on_account_removal: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
-        :param pulumi.Input[bool] retain_stacks_on_account_removal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+        :param pulumi.Input[bool] enabled: If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
+        :param pulumi.Input[bool] retain_stacks_on_account_removal: If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -77,7 +76,7 @@ class StackSetAutoDeploymentArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+        If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
         """
         return pulumi.get(self, "enabled")
 
@@ -89,7 +88,7 @@ class StackSetAutoDeploymentArgs:
     @pulumi.getter(name="retainStacksOnAccountRemoval")
     def retain_stacks_on_account_removal(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+        If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
         return pulumi.get(self, "retain_stacks_on_account_removal")
 
@@ -104,9 +103,9 @@ class StackSetDeploymentTargetsArgs:
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+         The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: AWS accounts that you want to create stack instances in the specified Region(s) for.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -117,7 +116,7 @@ class StackSetDeploymentTargetsArgs:
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+        AWS accounts that you want to create stack instances in the specified Region(s) for.
         """
         return pulumi.get(self, "accounts")
 
@@ -129,7 +128,7 @@ class StackSetDeploymentTargetsArgs:
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+        The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
         return pulumi.get(self, "organizational_unit_ids")
 
@@ -148,13 +147,7 @@ class StackSetOperationPreferencesArgs:
                  region_concurrency_type: Optional[pulumi.Input[str]] = None,
                  region_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
-        :param pulumi.Input[int] failure_tolerance_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-        :param pulumi.Input[int] failure_tolerance_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-        :param pulumi.Input[int] max_concurrent_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-        :param pulumi.Input[int] max_concurrent_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-        :param pulumi.Input[str] region_concurrency_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] region_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
+        The user-specified preferences for how AWS CloudFormation performs a stack set operation.
         """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
@@ -172,9 +165,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @failure_tolerance_count.setter
@@ -184,9 +174,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @failure_tolerance_percentage.setter
@@ -196,9 +183,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @max_concurrent_count.setter
@@ -208,9 +192,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @max_concurrent_percentage.setter
@@ -220,9 +201,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @region_concurrency_type.setter
@@ -232,9 +210,6 @@ class StackSetOperationPreferencesArgs:
     @property
     @pulumi.getter(name="regionOrder")
     def region_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
-        """
         return pulumi.get(self, "region_order")
 
     @region_order.setter
@@ -248,9 +223,8 @@ class StackSetParameterArgs:
                  parameter_key: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
-        :param pulumi.Input[str] parameter_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
-        :param pulumi.Input[str] parameter_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+        :param pulumi.Input[str] parameter_key: The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
+        :param pulumi.Input[str] parameter_value: The input value associated with the parameter.
         """
         pulumi.set(__self__, "parameter_key", parameter_key)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -259,7 +233,7 @@ class StackSetParameterArgs:
     @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+        The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
         """
         return pulumi.get(self, "parameter_key")
 
@@ -271,7 +245,7 @@ class StackSetParameterArgs:
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+        The input value associated with the parameter.
         """
         return pulumi.get(self, "parameter_value")
 
@@ -287,10 +261,9 @@ class StackSetStackInstancesArgs:
                  regions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
-        :param pulumi.Input['StackSetDeploymentTargetsArgs'] deployment_targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
-        :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameter_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        Stack instances in some specific accounts and Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         """
         pulumi.set(__self__, "deployment_targets", deployment_targets)
         pulumi.set(__self__, "regions", regions)
@@ -300,9 +273,6 @@ class StackSetStackInstancesArgs:
     @property
     @pulumi.getter(name="deploymentTargets")
     def deployment_targets(self) -> pulumi.Input['StackSetDeploymentTargetsArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
-        """
         return pulumi.get(self, "deployment_targets")
 
     @deployment_targets.setter
@@ -313,7 +283,7 @@ class StackSetStackInstancesArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+        The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         """
         return pulumi.get(self, "regions")
 
@@ -325,7 +295,7 @@ class StackSetStackInstancesArgs:
     @pulumi.getter(name="parameterOverrides")
     def parameter_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        A list of stack set parameters whose values you want to override in the selected stack instances.
         """
         return pulumi.get(self, "parameter_overrides")
 
@@ -335,14 +305,51 @@ class StackSetStackInstancesArgs:
 
 
 @pulumi.input_type
+class StackSetTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
+        :param pulumi.Input[str] key: A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
+        :param pulumi.Input[str] value: A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TypeActivationLoggingConfigArgs:
     def __init__(__self__, *,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  log_role_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
-        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
-        :param pulumi.Input[str] log_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+        :param pulumi.Input[str] log_group_name: The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+        :param pulumi.Input[str] log_role_arn: The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -353,7 +360,7 @@ class TypeActivationLoggingConfigArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+        The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -365,7 +372,7 @@ class TypeActivationLoggingConfigArgs:
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+        The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
 

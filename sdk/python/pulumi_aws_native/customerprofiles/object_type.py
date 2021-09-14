@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ObjectTypeArgs', 'ObjectType']
@@ -25,20 +23,20 @@ class ObjectTypeArgs:
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ObjectType resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
-        :param pulumi.Input[bool] allow_profile_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
-        :param pulumi.Input[str] encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
-        :param pulumi.Input[int] expiration_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]] keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
-        :param pulumi.Input[str] object_type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
-        :param pulumi.Input[str] template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[bool] allow_profile_creation: Indicates whether a profile should be created when data is received.
+        :param pulumi.Input[str] description: Description of the profile object type.
+        :param pulumi.Input[str] encryption_key: The default encryption key
+        :param pulumi.Input[int] expiration_days: The default number of days until the data within the domain expires.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]] fields: A list of the name and ObjectType field.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]] keys: A list of unique keys that can be used to map data to the profile.
+        :param pulumi.Input[str] object_type_name: The name of the profile object type.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]] tags: The tags (keys and values) associated with the integration.
+        :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if allow_profile_creation is not None:
@@ -64,7 +62,7 @@ class ObjectTypeArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -76,7 +74,7 @@ class ObjectTypeArgs:
     @pulumi.getter(name="allowProfileCreation")
     def allow_profile_creation(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+        Indicates whether a profile should be created when data is received.
         """
         return pulumi.get(self, "allow_profile_creation")
 
@@ -88,7 +86,7 @@ class ObjectTypeArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+        Description of the profile object type.
         """
         return pulumi.get(self, "description")
 
@@ -100,7 +98,7 @@ class ObjectTypeArgs:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+        The default encryption key
         """
         return pulumi.get(self, "encryption_key")
 
@@ -112,7 +110,7 @@ class ObjectTypeArgs:
     @pulumi.getter(name="expirationDays")
     def expiration_days(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+        The default number of days until the data within the domain expires.
         """
         return pulumi.get(self, "expiration_days")
 
@@ -124,7 +122,7 @@ class ObjectTypeArgs:
     @pulumi.getter
     def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeFieldMapArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+        A list of the name and ObjectType field.
         """
         return pulumi.get(self, "fields")
 
@@ -136,7 +134,7 @@ class ObjectTypeArgs:
     @pulumi.getter
     def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyMapArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+        A list of unique keys that can be used to map data to the profile.
         """
         return pulumi.get(self, "keys")
 
@@ -148,7 +146,7 @@ class ObjectTypeArgs:
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+        The name of the profile object type.
         """
         return pulumi.get(self, "object_type_name")
 
@@ -158,21 +156,21 @@ class ObjectTypeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
+        The tags (keys and values) associated with the integration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        A unique identifier for the object template.
         """
         return pulumi.get(self, "template_id")
 
@@ -194,24 +192,24 @@ class ObjectType(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+        An ObjectType resource of Amazon Connect Customer Profiles
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_profile_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
-        :param pulumi.Input[str] encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
-        :param pulumi.Input[int] expiration_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]] keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
-        :param pulumi.Input[str] object_type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
-        :param pulumi.Input[str] template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        :param pulumi.Input[bool] allow_profile_creation: Indicates whether a profile should be created when data is received.
+        :param pulumi.Input[str] description: Description of the profile object type.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[str] encryption_key: The default encryption key
+        :param pulumi.Input[int] expiration_days: The default number of days until the data within the domain expires.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]] fields: A list of the name and ObjectType field.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]] keys: A list of unique keys that can be used to map data to the profile.
+        :param pulumi.Input[str] object_type_name: The name of the profile object type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]] tags: The tags (keys and values) associated with the integration.
+        :param pulumi.Input[str] template_id: A unique identifier for the object template.
         """
         ...
     @overload
@@ -220,7 +218,7 @@ class ObjectType(pulumi.CustomResource):
                  args: ObjectTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+        An ObjectType resource of Amazon Connect Customer Profiles
 
         :param str resource_name: The name of the resource.
         :param ObjectTypeArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +243,7 @@ class ObjectType(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeFieldMapArgs']]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeKeyMapArgs']]]]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectTypeTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -313,20 +311,23 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter(name="allowProfileCreation")
     def allow_profile_creation(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+        Indicates whether a profile should be created when data is received.
         """
         return pulumi.get(self, "allow_profile_creation")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+        Description of the profile object type.
         """
         return pulumi.get(self, "description")
 
@@ -334,7 +335,7 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -342,7 +343,7 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+        The default encryption key
         """
         return pulumi.get(self, "encryption_key")
 
@@ -350,7 +351,7 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter(name="expirationDays")
     def expiration_days(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+        The default number of days until the data within the domain expires.
         """
         return pulumi.get(self, "expiration_days")
 
@@ -358,7 +359,7 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter
     def fields(self) -> pulumi.Output[Optional[Sequence['outputs.ObjectTypeFieldMap']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+        A list of the name and ObjectType field.
         """
         return pulumi.get(self, "fields")
 
@@ -366,28 +367,31 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter
     def keys(self) -> pulumi.Output[Optional[Sequence['outputs.ObjectTypeKeyMap']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+        A list of unique keys that can be used to map data to the profile.
         """
         return pulumi.get(self, "keys")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got last updated at.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+        The name of the profile object type.
         """
         return pulumi.get(self, "object_type_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ObjectTypeTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
+        The tags (keys and values) associated with the integration.
         """
         return pulumi.get(self, "tags")
 
@@ -395,7 +399,7 @@ class ObjectType(pulumi.CustomResource):
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        A unique identifier for the object template.
         """
         return pulumi.get(self, "template_id")
 

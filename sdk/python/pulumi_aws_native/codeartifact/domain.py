@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
 
@@ -16,19 +16,15 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
-                 encryption_key: Optional[pulumi.Input[str]] = None,
-                 permissions_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 permissions_policy_document: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
-        :param pulumi.Input[str] encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-        :param pulumi.Input[Union[Any, str]] permissions_policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        :param pulumi.Input[str] domain_name: The name of the domain.
+        :param Any permissions_policy_document: The access control resource policy on the provided domain.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "domain_name", domain_name)
-        if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
         if permissions_policy_document is not None:
             pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
         if tags is not None:
@@ -38,7 +34,7 @@ class DomainArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+        The name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -47,39 +43,27 @@ class DomainArgs:
         pulumi.set(self, "domain_name", value)
 
     @property
-    @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-        """
-        return pulumi.get(self, "encryption_key")
-
-    @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "encryption_key", value)
-
-    @property
     @pulumi.getter(name="permissionsPolicyDocument")
-    def permissions_policy_document(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def permissions_policy_document(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+        The access control resource policy on the provided domain.
         """
         return pulumi.get(self, "permissions_policy_document")
 
     @permissions_policy_document.setter
-    def permissions_policy_document(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def permissions_policy_document(self, value: Optional[Any]):
         pulumi.set(self, "permissions_policy_document", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,19 +73,17 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 encryption_key: Optional[pulumi.Input[str]] = None,
-                 permissions_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions_policy_document: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+        The resource schema to create a CodeArtifact domain.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
-        :param pulumi.Input[str] encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-        :param pulumi.Input[Union[Any, str]] permissions_policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        :param pulumi.Input[str] domain_name: The name of the domain.
+        :param Any permissions_policy_document: The access control resource policy on the provided domain.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -110,7 +92,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+        The resource schema to create a CodeArtifact domain.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -128,9 +110,8 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 encryption_key: Optional[pulumi.Input[str]] = None,
-                 permissions_policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 permissions_policy_document: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -146,10 +127,10 @@ class Domain(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
-            __props__.__dict__["encryption_key"] = encryption_key
             __props__.__dict__["permissions_policy_document"] = permissions_policy_document
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["encryption_key"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["owner"] = None
         super(Domain, __self__).__init__(
@@ -186,44 +167,56 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the domain.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+        The name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[str]:
+        """
+        The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+        """
         return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the domain. This field is used for GetAtt
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
+        """
+        The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
+        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="permissionsPolicyDocument")
-    def permissions_policy_document(self) -> pulumi.Output[Optional[str]]:
+    def permissions_policy_document(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+        The access control resource policy on the provided domain.
         """
         return pulumi.get(self, "permissions_policy_document")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

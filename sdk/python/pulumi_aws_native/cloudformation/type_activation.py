@@ -27,16 +27,18 @@ class TypeActivationArgs:
                  version_bump: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TypeActivation resource.
-        :param pulumi.Input[bool] auto_update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
-        :param pulumi.Input['TypeActivationLoggingConfigArgs'] logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
-        :param pulumi.Input[str] major_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
-        :param pulumi.Input[str] public_type_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
-        :param pulumi.Input[str] publisher_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
-        :param pulumi.Input[str] type_name_alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
-        :param pulumi.Input[str] version_bump: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        :param pulumi.Input[bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+        :param pulumi.Input['TypeActivationLoggingConfigArgs'] logging_config: Specifies logging configuration information for a type.
+        :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
+        :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
+        :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        :param pulumi.Input[str] type_name_alias: An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+        :param pulumi.Input[str] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         if auto_update is not None:
             pulumi.set(__self__, "auto_update", auto_update)
@@ -63,7 +65,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+        Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         """
         return pulumi.get(self, "auto_update")
 
@@ -75,7 +77,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+        The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -87,7 +89,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['TypeActivationLoggingConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+        Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
@@ -99,7 +101,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="majorVersion")
     def major_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
+        The Major Version of the type you want to enable
         """
         return pulumi.get(self, "major_version")
 
@@ -111,7 +113,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="publicTypeArn")
     def public_type_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+        The Amazon Resource Number (ARN) assigned to the public extension upon publication
         """
         return pulumi.get(self, "public_type_arn")
 
@@ -123,7 +125,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+        The publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -135,7 +137,7 @@ class TypeActivationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+        The kind of extension
         """
         return pulumi.get(self, "type")
 
@@ -147,7 +149,9 @@ class TypeActivationArgs:
     @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -159,7 +163,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="typeNameAlias")
     def type_name_alias(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
+        An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         """
         return pulumi.get(self, "type_name_alias")
 
@@ -171,7 +175,7 @@ class TypeActivationArgs:
     @pulumi.getter(name="versionBump")
     def version_bump(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         return pulumi.get(self, "version_bump")
 
@@ -197,20 +201,22 @@ class TypeActivation(pulumi.CustomResource):
                  version_bump: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
+        Enable a resource that has been published in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
-        :param pulumi.Input[pulumi.InputType['TypeActivationLoggingConfigArgs']] logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
-        :param pulumi.Input[str] major_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
-        :param pulumi.Input[str] public_type_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
-        :param pulumi.Input[str] publisher_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
-        :param pulumi.Input[str] type_name_alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
-        :param pulumi.Input[str] version_bump: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        :param pulumi.Input[bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+        :param pulumi.Input[pulumi.InputType['TypeActivationLoggingConfigArgs']] logging_config: Specifies logging configuration information for a type.
+        :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
+        :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
+        :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
+        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        :param pulumi.Input[str] type_name_alias: An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+        :param pulumi.Input[str] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         ...
     @overload
@@ -219,7 +225,7 @@ class TypeActivation(pulumi.CustomResource):
                  args: Optional[TypeActivationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
+        Enable a resource that has been published in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param TypeActivationArgs args: The arguments to use to populate this resource's properties.
@@ -307,13 +313,16 @@ class TypeActivation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the extension.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoUpdate")
     def auto_update(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+        Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         """
         return pulumi.get(self, "auto_update")
 
@@ -321,7 +330,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+        The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -329,7 +338,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.TypeActivationLoggingConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+        Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
@@ -337,7 +346,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="majorVersion")
     def major_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
+        The Major Version of the type you want to enable
         """
         return pulumi.get(self, "major_version")
 
@@ -345,7 +354,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="publicTypeArn")
     def public_type_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+        The Amazon Resource Number (ARN) assigned to the public extension upon publication
         """
         return pulumi.get(self, "public_type_arn")
 
@@ -353,7 +362,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+        The publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -361,7 +370,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+        The kind of extension
         """
         return pulumi.get(self, "type")
 
@@ -369,7 +378,9 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -377,7 +388,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="typeNameAlias")
     def type_name_alias(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
+        An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         """
         return pulumi.get(self, "type_name_alias")
 
@@ -385,7 +396,7 @@ class TypeActivation(pulumi.CustomResource):
     @pulumi.getter(name="versionBump")
     def version_bump(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         return pulumi.get(self, "version_bump")
 

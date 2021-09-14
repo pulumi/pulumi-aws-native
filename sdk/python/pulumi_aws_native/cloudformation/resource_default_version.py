@@ -18,9 +18,11 @@ class ResourceDefaultVersionArgs:
                  version_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceDefaultVersion resource.
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
-        :param pulumi.Input[str] type_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
-        :param pulumi.Input[str] version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        :param pulumi.Input[str] type_version_arn: The Amazon Resource Name (ARN) of the type version.
+        :param pulumi.Input[str] version_id: The ID of an existing version of the resource to set as the default.
         """
         if type_name is not None:
             pulumi.set(__self__, "type_name", type_name)
@@ -33,7 +35,9 @@ class ResourceDefaultVersionArgs:
     @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -45,7 +49,7 @@ class ResourceDefaultVersionArgs:
     @pulumi.getter(name="typeVersionArn")
     def type_version_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+        The Amazon Resource Name (ARN) of the type version.
         """
         return pulumi.get(self, "type_version_arn")
 
@@ -57,7 +61,7 @@ class ResourceDefaultVersionArgs:
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        The ID of an existing version of the resource to set as the default.
         """
         return pulumi.get(self, "version_id")
 
@@ -76,13 +80,15 @@ class ResourceDefaultVersion(pulumi.CustomResource):
                  version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
+        The default version of a resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
-        :param pulumi.Input[str] type_version_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
-        :param pulumi.Input[str] version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        :param pulumi.Input[str] type_version_arn: The Amazon Resource Name (ARN) of the type version.
+        :param pulumi.Input[str] version_id: The ID of an existing version of the resource to set as the default.
         """
         ...
     @overload
@@ -91,7 +97,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
                  args: Optional[ResourceDefaultVersionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
+        The default version of a resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param ResourceDefaultVersionArgs args: The arguments to use to populate this resource's properties.
@@ -158,13 +164,18 @@ class ResourceDefaultVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -172,7 +183,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
     @pulumi.getter(name="typeVersionArn")
     def type_version_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+        The Amazon Resource Name (ARN) of the type version.
         """
         return pulumi.get(self, "type_version_arn")
 
@@ -180,7 +191,7 @@ class ResourceDefaultVersion(pulumi.CustomResource):
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        The ID of an existing version of the resource to set as the default.
         """
         return pulumi.get(self, "version_id")
 

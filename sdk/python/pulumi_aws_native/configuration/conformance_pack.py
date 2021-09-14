@@ -23,12 +23,12 @@ class ConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
-        :param pulumi.Input[str] conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-        :param pulumi.Input[str] delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-        :param pulumi.Input[str] delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-        :param pulumi.Input[str] template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
+        :param pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
+        :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
+        :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
+        :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         pulumi.set(__self__, "conformance_pack_name", conformance_pack_name)
         if conformance_pack_input_parameters is not None:
@@ -46,7 +46,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="conformancePackName")
     def conformance_pack_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
+        Name of the conformance pack which will be assigned as the unique identifier.
         """
         return pulumi.get(self, "conformance_pack_name")
 
@@ -58,7 +58,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackConformancePackInputParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
+        A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
@@ -70,7 +70,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
+        AWS Config stores intermediate files while processing conformance pack template.
         """
         return pulumi.get(self, "delivery_s3_bucket")
 
@@ -82,7 +82,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
+        The prefix for delivery S3 bucket.
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
@@ -94,7 +94,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_body")
 
@@ -106,7 +106,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_s3_uri")
 
@@ -128,16 +128,16 @@ class ConformancePack(pulumi.CustomResource):
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
+        A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
-        :param pulumi.Input[str] conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
-        :param pulumi.Input[str] delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
-        :param pulumi.Input[str] delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
-        :param pulumi.Input[str] template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
+        :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
+        :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
+        :param pulumi.Input[str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
+        :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         ...
     @overload
@@ -146,7 +146,7 @@ class ConformancePack(pulumi.CustomResource):
                  args: ConformancePackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
+        A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
 
         :param str resource_name: The name of the resource.
         :param ConformancePackArgs args: The arguments to use to populate this resource's properties.
@@ -223,7 +223,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ConformancePackConformancePackInputParameter']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
+        A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
@@ -231,7 +231,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="conformancePackName")
     def conformance_pack_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
+        Name of the conformance pack which will be assigned as the unique identifier.
         """
         return pulumi.get(self, "conformance_pack_name")
 
@@ -239,7 +239,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
+        AWS Config stores intermediate files while processing conformance pack template.
         """
         return pulumi.get(self, "delivery_s3_bucket")
 
@@ -247,7 +247,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
+        The prefix for delivery S3 bucket.
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
@@ -255,7 +255,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_body")
 
@@ -263,7 +263,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_s3_uri")
 

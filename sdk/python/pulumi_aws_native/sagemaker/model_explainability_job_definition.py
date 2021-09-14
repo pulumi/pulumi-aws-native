@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ModelExplainabilityJobDefinitionArgs', 'ModelExplainabilityJobDefinition']
@@ -26,19 +24,11 @@ class ModelExplainabilityJobDefinitionArgs:
                  model_explainability_baseline_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] = None,
                  network_config: Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']] = None,
                  stopping_condition: Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
-        :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs'] job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'] model_explainability_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'] model_explainability_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'] model_explainability_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
-        :param pulumi.Input[str] job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs'] model_explainability_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        :param pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs'] network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        :param pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs'] stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "job_resources", job_resources)
         pulumi.set(__self__, "model_explainability_app_specification", model_explainability_app_specification)
@@ -59,9 +49,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        """
         return pulumi.get(self, "job_resources")
 
     @job_resources.setter
@@ -71,9 +58,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        """
         return pulumi.get(self, "model_explainability_app_specification")
 
     @model_explainability_app_specification.setter
@@ -83,9 +67,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityJobInput")
     def model_explainability_job_input(self) -> pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        """
         return pulumi.get(self, "model_explainability_job_input")
 
     @model_explainability_job_input.setter
@@ -95,9 +76,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityJobOutputConfig")
     def model_explainability_job_output_config(self) -> pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        """
         return pulumi.get(self, "model_explainability_job_output_config")
 
     @model_explainability_job_output_config.setter
@@ -108,7 +86,7 @@ class ModelExplainabilityJobDefinitionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -119,9 +97,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
@@ -131,9 +106,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        """
         return pulumi.get(self, "model_explainability_baseline_config")
 
     @model_explainability_baseline_config.setter
@@ -143,9 +115,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
@@ -155,9 +124,6 @@ class ModelExplainabilityJobDefinitionArgs:
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
@@ -166,14 +132,14 @@ class ModelExplainabilityJobDefinitionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelExplainabilityJobDefinitionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -191,23 +157,15 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
                  network_config: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
+        Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']] job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']] model_explainability_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] model_explainability_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs']] model_explainability_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs']] model_explainability_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']] network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']] stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -216,7 +174,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
                  args: ModelExplainabilityJobDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html
+        Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
 
         :param str resource_name: The name of the resource.
         :param ModelExplainabilityJobDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -242,7 +200,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
                  network_config: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -316,90 +274,72 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time at which the job definition was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")
     def job_definition_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of job definition.
+        """
         return pulumi.get(self, "job_definition_arn")
 
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobdefinitionname
-        """
         return pulumi.get(self, "job_definition_name")
 
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionMonitoringResources']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-jobresources
-        """
         return pulumi.get(self, "job_resources")
 
     @property
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification
-        """
         return pulumi.get(self, "model_explainability_app_specification")
 
     @property
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig
-        """
         return pulumi.get(self, "model_explainability_baseline_config")
 
     @property
     @pulumi.getter(name="modelExplainabilityJobInput")
     def model_explainability_job_input(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionModelExplainabilityJobInput']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput
-        """
         return pulumi.get(self, "model_explainability_job_input")
 
     @property
     @pulumi.getter(name="modelExplainabilityJobOutputConfig")
     def model_explainability_job_output_config(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionMonitoringOutputConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjoboutputconfig
-        """
         return pulumi.get(self, "model_explainability_job_output_config")
 
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionNetworkConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig
-        """
         return pulumi.get(self, "network_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-rolearn
+        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionStoppingCondition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition
-        """
         return pulumi.get(self, "stopping_condition")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ModelExplainabilityJobDefinitionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html#cfn-sagemaker-modelexplainabilityjobdefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

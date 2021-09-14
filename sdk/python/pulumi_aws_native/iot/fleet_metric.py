@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FleetMetricArgs', 'FleetMetric']
@@ -25,20 +23,19 @@ class FleetMetricArgs:
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FleetMetric resource.
-        :param pulumi.Input[str] metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
-        :param pulumi.Input[str] aggregation_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
-        :param pulumi.Input['FleetMetricAggregationTypeArgs'] aggregation_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
-        :param pulumi.Input[int] period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
-        :param pulumi.Input[str] query_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
-        :param pulumi.Input[str] unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+        :param pulumi.Input[str] metric_name: The name of the fleet metric
+        :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
+        :param pulumi.Input[str] description: The description of a fleet metric
+        :param pulumi.Input[str] index_name: The index name of a fleet metric
+        :param pulumi.Input[int] period: The period of metric emission in seconds
+        :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
+        :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
+        :param pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
         pulumi.set(__self__, "metric_name", metric_name)
         if aggregation_field is not None:
@@ -64,7 +61,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
+        The name of the fleet metric
         """
         return pulumi.get(self, "metric_name")
 
@@ -76,7 +73,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="aggregationField")
     def aggregation_field(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
+        The aggregation field to perform aggregation and metric emission
         """
         return pulumi.get(self, "aggregation_field")
 
@@ -87,9 +84,6 @@ class FleetMetricArgs:
     @property
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> Optional[pulumi.Input['FleetMetricAggregationTypeArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-        """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
@@ -100,7 +94,7 @@ class FleetMetricArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
+        The description of a fleet metric
         """
         return pulumi.get(self, "description")
 
@@ -112,7 +106,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="indexName")
     def index_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
+        The index name of a fleet metric
         """
         return pulumi.get(self, "index_name")
 
@@ -124,7 +118,7 @@ class FleetMetricArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
+        The period of metric emission in seconds
         """
         return pulumi.get(self, "period")
 
@@ -136,7 +130,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
+        The Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_string")
 
@@ -148,7 +142,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="queryVersion")
     def query_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
+        The version of a Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_version")
 
@@ -158,21 +152,21 @@ class FleetMetricArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
+        An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+        The unit of data points emitted by a fleet metric
         """
         return pulumi.get(self, "unit")
 
@@ -194,24 +188,23 @@ class FleetMetric(pulumi.CustomResource):
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html
+        An aggregated metric of certain devices in your fleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aggregation_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
-        :param pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']] aggregation_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
-        :param pulumi.Input[str] index_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
-        :param pulumi.Input[str] metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
-        :param pulumi.Input[int] period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
-        :param pulumi.Input[str] query_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
-        :param pulumi.Input[str] unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+        :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
+        :param pulumi.Input[str] description: The description of a fleet metric
+        :param pulumi.Input[str] index_name: The index name of a fleet metric
+        :param pulumi.Input[str] metric_name: The name of the fleet metric
+        :param pulumi.Input[int] period: The period of metric emission in seconds
+        :param pulumi.Input[str] query_string: The Fleet Indexing query used by a fleet metric
+        :param pulumi.Input[str] query_version: The version of a Fleet Indexing query used by a fleet metric
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[str] unit: The unit of data points emitted by a fleet metric
         """
         ...
     @overload
@@ -220,7 +213,7 @@ class FleetMetric(pulumi.CustomResource):
                  args: FleetMetricArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html
+        An aggregated metric of certain devices in your fleet
 
         :param str resource_name: The name of the resource.
         :param FleetMetricArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +238,7 @@ class FleetMetric(pulumi.CustomResource):
                  period: Optional[pulumi.Input[int]] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  query_version: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetMetricTagArgs']]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -317,28 +310,28 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter(name="aggregationField")
     def aggregation_field(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
+        The aggregation field to perform aggregation and metric emission
         """
         return pulumi.get(self, "aggregation_field")
 
     @property
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> pulumi.Output[Optional['outputs.FleetMetricAggregationType']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-        """
         return pulumi.get(self, "aggregation_type")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[float]:
+        """
+        The creation date of a fleet metric
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
+        The description of a fleet metric
         """
         return pulumi.get(self, "description")
 
@@ -346,25 +339,31 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter(name="indexName")
     def index_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
+        The index name of a fleet metric
         """
         return pulumi.get(self, "index_name")
 
     @property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> pulumi.Output[float]:
+        """
+        The last modified date of a fleet metric
+        """
         return pulumi.get(self, "last_modified_date")
 
     @property
     @pulumi.getter(name="metricArn")
     def metric_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Number (ARN) of a fleet metric metric
+        """
         return pulumi.get(self, "metric_arn")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
+        The name of the fleet metric
         """
         return pulumi.get(self, "metric_name")
 
@@ -372,7 +371,7 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
+        The period of metric emission in seconds
         """
         return pulumi.get(self, "period")
 
@@ -380,7 +379,7 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
+        The Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_string")
 
@@ -388,15 +387,15 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter(name="queryVersion")
     def query_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
+        The version of a Fleet Indexing query used by a fleet metric
         """
         return pulumi.get(self, "query_version")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FleetMetricTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
+        An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
@@ -404,12 +403,15 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter
     def unit(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+        The unit of data points emitted by a fleet metric
         """
         return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[float]:
+        """
+        The version of a fleet metric
+        """
         return pulumi.get(self, "version")
 

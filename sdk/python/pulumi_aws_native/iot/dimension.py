@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DimensionArgs', 'Dimension']
 
@@ -18,13 +18,13 @@ class DimensionArgs:
                  string_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dimension resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: Specifies the value or list of values for the dimension.
+        :param pulumi.Input[str] type: Specifies the type of the dimension.
+        :param pulumi.Input[str] name: A unique identifier for the dimension.
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]] tags: Metadata that can be used to manage the dimension.
         """
         pulumi.set(__self__, "string_values", string_values)
         pulumi.set(__self__, "type", type)
@@ -37,7 +37,7 @@ class DimensionArgs:
     @pulumi.getter(name="stringValues")
     def string_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+        Specifies the value or list of values for the dimension.
         """
         return pulumi.get(self, "string_values")
 
@@ -49,7 +49,7 @@ class DimensionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+        Specifies the type of the dimension.
         """
         return pulumi.get(self, "type")
 
@@ -61,7 +61,7 @@ class DimensionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+        A unique identifier for the dimension.
         """
         return pulumi.get(self, "name")
 
@@ -71,14 +71,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+        Metadata that can be used to manage the dimension.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,18 +89,18 @@ class Dimension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+        A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+        :param pulumi.Input[str] name: A unique identifier for the dimension.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_values: Specifies the value or list of values for the dimension.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]] tags: Metadata that can be used to manage the dimension.
+        :param pulumi.Input[str] type: Specifies the type of the dimension.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Dimension(pulumi.CustomResource):
                  args: DimensionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+        A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 
         :param str resource_name: The name of the resource.
         :param DimensionArgs args: The arguments to use to populate this resource's properties.
@@ -128,7 +128,7 @@ class Dimension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DimensionTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -183,13 +183,16 @@ class Dimension(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN (Amazon resource name) of the created dimension.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+        A unique identifier for the dimension.
         """
         return pulumi.get(self, "name")
 
@@ -197,15 +200,15 @@ class Dimension(pulumi.CustomResource):
     @pulumi.getter(name="stringValues")
     def string_values(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+        Specifies the value or list of values for the dimension.
         """
         return pulumi.get(self, "string_values")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DimensionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+        Metadata that can be used to manage the dimension.
         """
         return pulumi.get(self, "tags")
 
@@ -213,7 +216,7 @@ class Dimension(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+        Specifies the type of the dimension.
         """
         return pulumi.get(self, "type")
 

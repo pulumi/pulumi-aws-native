@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['WirelessDeviceArgs', 'WirelessDevice']
@@ -23,18 +21,18 @@ class WirelessDeviceArgs:
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WirelessDevice resource.
-        :param pulumi.Input[str] destination_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
-        :param pulumi.Input[str] last_uplink_received_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
-        :param pulumi.Input['WirelessDeviceLoRaWANDeviceArgs'] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
-        :param pulumi.Input[str] thing_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+        :param pulumi.Input[str] destination_name: Wireless device destination name
+        :param pulumi.Input[str] type: Wireless device type, currently only Sidewalk and LoRa
+        :param pulumi.Input[str] description: Wireless device description
+        :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
+        :param pulumi.Input['WirelessDeviceLoRaWANDeviceArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+        :param pulumi.Input[str] name: Wireless device name
+        :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
+        :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
         """
         pulumi.set(__self__, "destination_name", destination_name)
         pulumi.set(__self__, "type", type)
@@ -55,7 +53,7 @@ class WirelessDeviceArgs:
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
+        Wireless device destination name
         """
         return pulumi.get(self, "destination_name")
 
@@ -67,7 +65,7 @@ class WirelessDeviceArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+        Wireless device type, currently only Sidewalk and LoRa
         """
         return pulumi.get(self, "type")
 
@@ -79,7 +77,7 @@ class WirelessDeviceArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
+        Wireless device description
         """
         return pulumi.get(self, "description")
 
@@ -91,7 +89,7 @@ class WirelessDeviceArgs:
     @pulumi.getter(name="lastUplinkReceivedAt")
     def last_uplink_received_at(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+        The date and time when the most recent uplink was received.
         """
         return pulumi.get(self, "last_uplink_received_at")
 
@@ -103,7 +101,7 @@ class WirelessDeviceArgs:
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+        The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -115,7 +113,7 @@ class WirelessDeviceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
+        Wireless device name
         """
         return pulumi.get(self, "name")
 
@@ -125,21 +123,21 @@ class WirelessDeviceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
+        A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="thingArn")
     def thing_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+        Thing arn. Passed into update to associate Thing with Wireless device.
         """
         return pulumi.get(self, "thing_arn")
 
@@ -158,23 +156,23 @@ class WirelessDevice(pulumi.CustomResource):
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
+        Create and manage wireless gateways, including LoRa gateways.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
-        :param pulumi.Input[str] destination_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
-        :param pulumi.Input[str] last_uplink_received_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
-        :param pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
-        :param pulumi.Input[str] thing_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+        :param pulumi.Input[str] description: Wireless device description
+        :param pulumi.Input[str] destination_name: Wireless device destination name
+        :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
+        :param pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+        :param pulumi.Input[str] name: Wireless device name
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
+        :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
+        :param pulumi.Input[str] type: Wireless device type, currently only Sidewalk and LoRa
         """
         ...
     @overload
@@ -183,7 +181,7 @@ class WirelessDevice(pulumi.CustomResource):
                  args: WirelessDeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
+        Create and manage wireless gateways, including LoRa gateways.
 
         :param str resource_name: The name of the resource.
         :param WirelessDeviceArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +203,7 @@ class WirelessDevice(pulumi.CustomResource):
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['WirelessDeviceLoRaWANDeviceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -233,7 +231,6 @@ class WirelessDevice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["thing_name"] = None
         super(WirelessDevice, __self__).__init__(
             'aws-native:iotwireless:WirelessDevice',
@@ -260,7 +257,6 @@ class WirelessDevice(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_name"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["last_uplink_received_at"] = None
         __props__.__dict__["lo_ra_wan"] = None
         __props__.__dict__["name"] = None
@@ -273,13 +269,16 @@ class WirelessDevice(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Wireless device arn. Returned after successful create.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
+        Wireless device description
         """
         return pulumi.get(self, "description")
 
@@ -287,20 +286,15 @@ class WirelessDevice(pulumi.CustomResource):
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
+        Wireless device destination name
         """
         return pulumi.get(self, "destination_name")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUplinkReceivedAt")
     def last_uplink_received_at(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+        The date and time when the most recent uplink was received.
         """
         return pulumi.get(self, "last_uplink_received_at")
 
@@ -308,7 +302,7 @@ class WirelessDevice(pulumi.CustomResource):
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.WirelessDeviceLoRaWANDevice']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+        The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -316,15 +310,15 @@ class WirelessDevice(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
+        Wireless device name
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WirelessDeviceTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
+        A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         """
         return pulumi.get(self, "tags")
 
@@ -332,20 +326,23 @@ class WirelessDevice(pulumi.CustomResource):
     @pulumi.getter(name="thingArn")
     def thing_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+        Thing arn. Passed into update to associate Thing with Wireless device.
         """
         return pulumi.get(self, "thing_arn")
 
     @property
     @pulumi.getter(name="thingName")
     def thing_name(self) -> pulumi.Output[str]:
+        """
+        Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        """
         return pulumi.get(self, "thing_name")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+        Wireless device type, currently only Sidewalk and LoRa
         """
         return pulumi.get(self, "type")
 

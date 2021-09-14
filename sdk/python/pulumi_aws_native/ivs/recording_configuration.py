@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['RecordingConfigurationArgs', 'RecordingConfiguration']
@@ -19,12 +17,11 @@ class RecordingConfigurationArgs:
     def __init__(__self__, *,
                  destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None):
         """
         The set of arguments for constructing a RecordingConfiguration resource.
-        :param pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'] destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        :param pulumi.Input[str] name: Recording Configuration Name.
+        :param pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
@@ -35,9 +32,6 @@ class RecordingConfigurationArgs:
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
@@ -48,7 +42,7 @@ class RecordingConfigurationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+        Recording Configuration Name.
         """
         return pulumi.get(self, "name")
 
@@ -58,14 +52,14 @@ class RecordingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -76,16 +70,15 @@ class RecordingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+        Resource Type definition for AWS::IVS::RecordingConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']] destination_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        :param pulumi.Input[str] name: Recording Configuration Name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
     @overload
@@ -94,7 +87,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  args: RecordingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+        Resource Type definition for AWS::IVS::RecordingConfiguration
 
         :param str resource_name: The name of the resource.
         :param RecordingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -113,7 +106,7 @@ class RecordingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_configuration: Optional[pulumi.Input[pulumi.InputType['RecordingConfigurationDestinationConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordingConfigurationTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -165,34 +158,37 @@ class RecordingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="destinationConfiguration")
     def destination_configuration(self) -> pulumi.Output['outputs.RecordingConfigurationDestinationConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        """
         return pulumi.get(self, "destination_configuration")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+        Recording Configuration Name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        Recording Configuration State.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RecordingConfigurationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 

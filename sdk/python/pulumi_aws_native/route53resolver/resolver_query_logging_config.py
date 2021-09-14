@@ -17,8 +17,8 @@ class ResolverQueryLoggingConfigArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLoggingConfig resource.
-        :param pulumi.Input[str] destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        :param pulumi.Input[str] destination_arn: destination arn
+        :param pulumi.Input[str] name: ResolverQueryLogConfigName
         """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
@@ -29,7 +29,7 @@ class ResolverQueryLoggingConfigArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+        destination arn
         """
         return pulumi.get(self, "destination_arn")
 
@@ -41,7 +41,7 @@ class ResolverQueryLoggingConfigArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        ResolverQueryLogConfigName
         """
         return pulumi.get(self, "name")
 
@@ -59,12 +59,12 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+        Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        :param pulumi.Input[str] destination_arn: destination arn
+        :param pulumi.Input[str] name: ResolverQueryLogConfigName
         """
         ...
     @overload
@@ -73,7 +73,7 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
                  args: Optional[ResolverQueryLoggingConfigArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+        Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLoggingConfigArgs args: The arguments to use to populate this resource's properties.
@@ -110,7 +110,6 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
             __props__.__dict__["association_count"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["status"] = None
@@ -141,7 +140,6 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["creator_request_id"] = None
         __props__.__dict__["destination_arn"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner_id"] = None
         __props__.__dict__["share_status"] = None
@@ -151,56 +149,72 @@ class ResolverQueryLoggingConfig(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Arn
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associationCount")
     def association_count(self) -> pulumi.Output[int]:
+        """
+        Count
+        """
         return pulumi.get(self, "association_count")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> pulumi.Output[str]:
+        """
+        The id of the creator request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+        destination arn
         """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        ResolverQueryLogConfigName
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
+        """
+        AccountId
+        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="shareStatus")
     def share_status(self) -> pulumi.Output[str]:
+        """
+        ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+        """
         return pulumi.get(self, "share_status")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
+        """
         return pulumi.get(self, "status")
 

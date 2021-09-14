@@ -8,30 +8,26 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['AssetArgs', 'Asset']
 
 @pulumi.input_type
 class AssetArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str],
                  packaging_group_id: pulumi.Input[str],
                  source_arn: pulumi.Input[str],
                  source_role_arn: pulumi.Input[str],
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        :param pulumi.Input[str] packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
-        :param pulumi.Input[str] source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
-        :param pulumi.Input[str] source_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
+        :param pulumi.Input[str] source_arn: ARN of the source object in S3.
+        :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
+        :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "packaging_group_id", packaging_group_id)
         pulumi.set(__self__, "source_arn", source_arn)
         pulumi.set(__self__, "source_role_arn", source_role_arn)
@@ -41,22 +37,10 @@ class AssetArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
     @pulumi.getter(name="packagingGroupId")
     def packaging_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+        The ID of the PackagingGroup for the Asset.
         """
         return pulumi.get(self, "packaging_group_id")
 
@@ -68,7 +52,7 @@ class AssetArgs:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+        ARN of the source object in S3.
         """
         return pulumi.get(self, "source_arn")
 
@@ -80,7 +64,7 @@ class AssetArgs:
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+        The IAM role_arn used to access the source S3 bucket.
         """
         return pulumi.get(self, "source_role_arn")
 
@@ -92,7 +76,7 @@ class AssetArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+        The resource ID to include in SPEKE key requests.
         """
         return pulumi.get(self, "resource_id")
 
@@ -102,14 +86,14 @@ class AssetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -118,24 +102,22 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+        Resource schema for AWS::MediaPackage::Asset
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        :param pulumi.Input[str] packaging_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
-        :param pulumi.Input[str] source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
-        :param pulumi.Input[str] source_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        :param pulumi.Input[str] packaging_group_id: The ID of the PackagingGroup for the Asset.
+        :param pulumi.Input[str] resource_id: The resource ID to include in SPEKE key requests.
+        :param pulumi.Input[str] source_arn: ARN of the source object in S3.
+        :param pulumi.Input[str] source_role_arn: The IAM role_arn used to access the source S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -144,7 +126,7 @@ class Asset(pulumi.CustomResource):
                  args: AssetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+        Resource schema for AWS::MediaPackage::Asset
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.
@@ -161,12 +143,11 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  packaging_group_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -179,9 +160,6 @@ class Asset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetArgs.__new__(AssetArgs)
 
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
-            __props__.__dict__["id"] = id
             if packaging_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'packaging_group_id'")
             __props__.__dict__["packaging_group_id"] = packaging_group_id
@@ -221,7 +199,6 @@ class Asset(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["egress_endpoints"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["packaging_group_id"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["source_arn"] = None
@@ -232,31 +209,32 @@ class Asset(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the Asset.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time the Asset was initially submitted for Ingest.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="egressEndpoints")
     def egress_endpoints(self) -> pulumi.Output[Sequence['outputs.AssetEgressEndpoint']]:
+        """
+        The list of egress endpoints available for the Asset.
+        """
         return pulumi.get(self, "egress_endpoints")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="packagingGroupId")
     def packaging_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+        The ID of the PackagingGroup for the Asset.
         """
         return pulumi.get(self, "packaging_group_id")
 
@@ -264,7 +242,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+        The resource ID to include in SPEKE key requests.
         """
         return pulumi.get(self, "resource_id")
 
@@ -272,7 +250,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+        ARN of the source object in S3.
         """
         return pulumi.get(self, "source_arn")
 
@@ -280,15 +258,15 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+        The IAM role_arn used to access the source S3 bucket.
         """
         return pulumi.get(self, "source_role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AssetTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TemplateArgs', 'Template']
@@ -22,17 +20,17 @@ class TemplateArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['TemplateTemplateSourceEntityArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Template resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        :param pulumi.Input[str] template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
-        :param pulumi.Input['TemplateTemplateSourceEntityArgs'] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        :param pulumi.Input[str] name: <p>A display name for the template.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: <p>A list of resource permissions to be set on the template. </p>
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+        :param pulumi.Input[str] version_description: <p>A description of the current template version being created. This API operation creates the
+               			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+               			version is created. Each version of the template maintains a description of the version
+               			in the <code>VersionDescription</code> field.</p>
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         pulumi.set(__self__, "template_id", template_id)
@@ -50,9 +48,6 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -62,9 +57,6 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        """
         return pulumi.get(self, "template_id")
 
     @template_id.setter
@@ -75,7 +67,7 @@ class TemplateArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+        <p>A display name for the template.</p>
         """
         return pulumi.get(self, "name")
 
@@ -87,7 +79,7 @@ class TemplateArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+        <p>A list of resource permissions to be set on the template. </p>
         """
         return pulumi.get(self, "permissions")
 
@@ -98,9 +90,6 @@ class TemplateArgs:
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateTemplateSourceEntityArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -109,21 +98,24 @@ class TemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        <p>A description of the current template version being created. This API operation creates the
+        			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+        			version is created. Each version of the template maintains a description of the version
+        			in the <code>VersionDescription</code> field.</p>
         """
         return pulumi.get(self, "version_description")
 
@@ -141,22 +133,22 @@ class Template(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+        Definition of the AWS::QuickSight::Template Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
-        :param pulumi.Input[pulumi.InputType['TemplateTemplateSourceEntityArgs']] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
-        :param pulumi.Input[str] template_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        :param pulumi.Input[str] version_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        :param pulumi.Input[str] name: <p>A display name for the template.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: <p>A list of resource permissions to be set on the template. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+        :param pulumi.Input[str] version_description: <p>A description of the current template version being created. This API operation creates the
+               			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+               			version is created. Each version of the template maintains a description of the version
+               			in the <code>VersionDescription</code> field.</p>
         """
         ...
     @overload
@@ -165,7 +157,7 @@ class Template(pulumi.CustomResource):
                  args: TemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+        Definition of the AWS::QuickSight::Template Resource Type.
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +178,7 @@ class Template(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateTemplateSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateTagArgs']]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -215,6 +207,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
+            __props__.__dict__["version"] = None
         super(Template, __self__).__init__(
             'aws-native:quicksight:Template',
             resource_name,
@@ -246,37 +239,44 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["source_entity"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_id"] = None
+        __props__.__dict__["version"] = None
         __props__.__dict__["version_description"] = None
         return Template(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the template.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>Time when this was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>Time when this was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+        <p>A display name for the template.</p>
         """
         return pulumi.get(self, "name")
 
@@ -284,39 +284,41 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+        <p>A list of resource permissions to be set on the template. </p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateTemplateSourceEntity']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        """
         return pulumi.get(self, "template_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output['outputs.TemplateTemplateVersion']:
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        <p>A description of the current template version being created. This API operation creates the
+        			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+        			version is created. Each version of the template maintains a description of the version
+        			in the <code>VersionDescription</code> field.</p>
         """
         return pulumi.get(self, "version_description")
 
