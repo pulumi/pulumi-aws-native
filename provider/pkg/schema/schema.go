@@ -1,3 +1,5 @@
+// Copyright 2016-2021, Pulumi Corporation.
+
 package schema
 
 type PropertySpec struct {

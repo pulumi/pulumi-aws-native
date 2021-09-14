@@ -1,6 +1,10 @@
+// Copyright 2016-2021, Pulumi Corporation.
+
 package main
 
 import (
+	"bytes"
+	"compress/gzip"
 	ctx "context"
 	"encoding/json"
 	"flag"
@@ -74,11 +78,14 @@ func main() {
 		case "go":
 			writeGoSDK(ppkg, outdir)
 		case "schema":
+			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
+			writePulumiSchema(pkgSpec, cf2pulumiDir, false)
+
 			err := generateExamples(&pkgSpec, []string{"nodejs","python","dotnet","go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
-			writePulumiSchema(pkgSpec, providerDir)
+			writePulumiSchema(pkgSpec, providerDir, true)
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
 		}
@@ -184,13 +191,32 @@ func writeGoSDK(pkg *pschema.Package, outdir string) {
 	mustWriteFiles(outdir, files)
 }
 
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string) {
-	pkgSpec.Version = ""
-	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) {
+	compressedSchema := bytes.Buffer{}
+	compressedWriter := gzip.NewWriter(&compressedSchema)
+	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
 	if err != nil {
-		panic(errors.Wrap(err, "marshaling Pulumi schema"))
+		panic(errors.Wrap(err, "marshaling schema"))
 	}
-	mustWriteFile(outdir, "schema.json", schemaJSON)
+	if err = compressedWriter.Close(); err != nil {
+		panic(err)
+	}
+
+	mustWriteFile(outdir, "schema.go", []byte(fmt.Sprintf(`package main
+var pulumiSchema = %#v
+`, compressedSchema.Bytes())))
+	if err != nil {
+		panic(errors.Wrap(err, "saving metadata"))
+	}
+
+	if emitJSON {
+		pkgSpec.Version = ""
+		schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
+		if err != nil {
+			panic(errors.Wrap(err, "marshaling Pulumi schema"))
+		}
+		mustWriteFile(outdir, "schema.json", schemaJSON)
+	}
 }
 
 func mustWriteFiles(rootDir string, files map[string][]byte) {
