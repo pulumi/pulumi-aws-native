@@ -20,6 +20,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/pkg/errors"
+	jsschema "github.com/lestrrat-go/jsschema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
@@ -47,7 +48,7 @@ func main() {
 		return
 	}
 
-	languages, inputFile, version := args[0], args[1], args[2]
+	languages, schemaFolder, version := args[0], args[1], args[2]
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 
 	if languages == "discovery" {
@@ -57,14 +58,19 @@ func main() {
 		return
 	}
 
-	pkgSpec := gatherPackage(readCFNSchema(inputFile), readSupportedResourceTypes(genDir))
+	pkgSpec, err := schema.GatherPackage(readSupportedResourceTypes(genDir), readJsonSchemas(schemaFolder))
+	if err != nil {
+		panic(fmt.Sprintf("error generating schema: %v", err))
+	}
 	pkgSpec.Version = version
-	ppkg, err := pschema.ImportSpec(pkgSpec, nil)
+	ppkg, err := pschema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		panic(fmt.Sprintf("error importing schema: %v", err))
 	}
 
 	for _, language := range strings.Split(languages, ",") {
+		fmt.Printf("Generating %s...\n", language)
+
 		outdir := path.Join(".", "sdk", language)
 		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
@@ -79,32 +85,45 @@ func main() {
 			writeGoSDK(ppkg, outdir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
-			writePulumiSchema(pkgSpec, cf2pulumiDir, false)
+			writePulumiSchema(*pkgSpec, cf2pulumiDir, false)
 
-			err := generateExamples(&pkgSpec, []string{"nodejs","python","dotnet","go"})
+			err := generateExamples(pkgSpec, []string{"nodejs","python","dotnet","go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
-			writePulumiSchema(pkgSpec, providerDir, true)
+			writePulumiSchema(*pkgSpec, providerDir, true)
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
 		}
 	}
 }
 
-func readCFNSchema(schemaPath string) schema.CloudFormationSchema {
-	// Read in, decode, and import the schema.
-	schemaBytes, err := ioutil.ReadFile(schemaPath)
+func readJsonSchemas(schemaDir string) (res []jsschema.Schema) {
+	var fileNames []string
+	root := path.Join(".", schemaDir)
+	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+		if !info.IsDir() {
+			fileNames = append(fileNames, path)
+		}
+		return nil
+	})
 	if err != nil {
 		panic(err)
 	}
 
-	var sch schema.CloudFormationSchema
-	if err = json.Unmarshal(schemaBytes, &sch); err != nil {
-		panic(err)
+	for _, fileName := range fileNames {
+		res = append(res, readJsonSchema(fileName))
+	}
+	return
+}
+
+func readJsonSchema(schemaPath string) jsschema.Schema {
+	s, err := jsschema.ReadFile(schemaPath)
+	if err != nil {
+		panic(errors.Wrapf(err, schemaPath))
 	}
 
-	return sch
+	return *s
 }
 
 const supportedResourcesFile = "supported-types.txt"
